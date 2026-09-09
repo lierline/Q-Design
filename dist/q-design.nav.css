@@ -89,7 +89,10 @@ html[data-theme='light'] {
   flex-direction: column;
   flex-shrink: 0;
   width: 240px;
-  height: 100dvh;
+  /* 레일 위에 무언가 놓인 제품이 있습니다(경고 띠 등). 그만큼 빼지 않으면
+     레일 아래 끝이 화면 밖으로 밀려 로그아웃이 잘립니다. 아무것도 없으면 0 입니다.
+     쓰는 쪽이 그 높이를 재어 --qd-rail-offset 으로 알려 줍니다. */
+  height: calc(100dvh - var(--qd-rail-offset, 0px));
   position: sticky;
   top: 0;
   padding: 22px 16px;
@@ -127,12 +130,21 @@ html[data-theme='light'] {
 .qd-rail-brand img,
 .qd-rail-brand svg {
   display: block;
-  width: 108px;
   height: auto;
   max-width: 100%;
   object-fit: contain;
   user-select: none;
 }
+/* Q 표식. 폭은 여기서만 정합니다.
+   표식을 감싸는 부품(테마별로 두 장을 싣는 등)이 있는 제품도 있어, 폭을
+   `.qd-rail-brand img` 로 못 박으면 그 안쪽 규칙과 싸웁니다. 감싸개에 이
+   클래스를 걸면 안쪽 그림은 100% 로 채우면 됩니다. */
+.qd-rail-mark {
+  display: block;
+  width: 108px;
+  flex-shrink: 0;
+}
+.qd-rail-mark img { width: 100%; }
 .qd-rail-org {
   margin-top: 6px;
   font-family: var(--qd-font-mono);
@@ -257,6 +269,17 @@ html[data-theme='light'] {
 }
 .qd-nav-dot + .qd-nav-badge { margin-left: 4px; }
 
+/* 조용한 배지. 「3」 같은 숫자가 아니라 「26일」 처럼 읽는 말이 들어가는 자리입니다.
+   빨간 알약으로 만들면 급하지 않은 것이 급해 보이고, 열 칸에 열 개가 켜집니다. */
+.qd-nav-badge--quiet {
+  background: transparent;
+  border: 1px solid var(--qd-border);
+  border-radius: 0;
+  color: var(--qd-subtle);
+  font-weight: 400;
+  min-width: 0;
+}
+
 /* ── 판 번호 줄 ────────────────────────────────────────────────────────────
    왼쪽에 이름 · 오른쪽에 판. 금은 판 쪽에만 씁니다. */
 .qd-rail-version {
@@ -268,9 +291,12 @@ html[data-theme='light'] {
   font-family: var(--qd-font-mono);
   font-size: 10px;
   letter-spacing: 0.6px;
-  text-transform: uppercase;
   color: var(--qd-muted);
 }
+/* 대문자는 «이름» 에만 겁니다. 줄 전체에 걸면 v1.3.0 이 V1.3.0 이 됩니다 -
+   판 번호는 사람이 적은 그대로 나와야 합니다 (띄워 찍어 보고 잡은 자리). */
+.qd-rail-version > :first-child { text-transform: uppercase; }
+.qd-rail-version > :first-child[data-hangul] { text-transform: none; }
 .qd-rail-version b {
   font-weight: inherit;
   color: var(--qd-accent);
@@ -377,7 +403,8 @@ html[data-theme='light'] {
   text-transform: none;
 }
 
-/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다. */
+/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다.
+   차림표에서 모서리가 굴려진 것은 이것 하나입니다 - 항목과 테마 줄은 각집니다. */
 .qd-rail-logout {
   box-sizing: border-box;
   display: inline-flex;
@@ -388,7 +415,7 @@ html[data-theme='light'] {
   padding: 7px 14px;
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: 10px;
   color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
   font-size: 11px;

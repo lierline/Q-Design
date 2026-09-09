@@ -84,7 +84,8 @@ const PROBES = [
   ['brand.logoSize',        Z.brand,  /<Logo size=\{(\d+)\}/, Number],
   ['brand.markSize',        Z.brand,  /<LogoMark size=\{(\d+)\} \/>/, Number],
   ['brand.orgFontSize',     Z.brand,  /fontSize: FS\[(\d+)\],/, Number],
-  ['brand.orgTracking',     Z.brand,  /letterSpacing: ([\d.]+),/, Number],
+  // 조직명도 labelTracking 을 거칩니다(2026-09-09). 한글 회사 이름이 흔합니다.
+  ['brand.orgTracking',     Z.brand,  /letterSpacing: labelTracking\([^,]+, ([\d.]+)\),/, Number],
 
   // nav 스크롤 구역
   ['nav.gap',               Z.navEl,  /gap: collapsed && !isMobile \? 0 : (\d+),/, Number],
@@ -106,7 +107,9 @@ const PROBES = [
   // 묶음 이름표
   ['group.padding',         Z.group,  /padding: '([^']+)',/, String],
   ['group.fontSize',        Z.group,  /fontSize: FS\[(\d+)\],/, Number],
-  ['group.tracking',        Z.group,  /letterSpacing: ([\d.]+),/, Number],
+  // 2026-09-09 이후 이 자리는 labelTracking 을 거칩니다. 한글 라벨이면 0 이고
+  // 라틴이면 아래 값입니다. 정본 CSS 는 `data-hangul` 로 같은 갈래를 만듭니다.
+  ['group.tracking',        Z.group,  /letterSpacing: labelTracking\(label, ([\d.]+)\),/, Number],
 
   // 판 번호 줄
   ['version.padding',       Z.version, /padding: '([^']+)',/, String],
@@ -123,7 +126,7 @@ const PROBES = [
   ['foot.avatarSize',       Z.foot,   /<Avatar name=\{userName\} email=\{userEmail\} size=\{(\d+)\} \/>\n              <div/, Number],
   ['foot.nameFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.text,/, Number],
   ['foot.metaFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.muted,/, Number],
-  ['foot.metaTracking',     Z.foot,   /letterSpacing: ([\d.]+),/, Number],
+  ['foot.metaTracking',     Z.foot,   /letterSpacing: labelTracking\([^,]+, ([\d.]+)\),/, Number],
 ];
 
 const spec = {};
@@ -178,6 +181,17 @@ for (const [path, zone, re, cast] of PROBES) {
   put('logout.fontSize', Number(fs[1]));
   put('logout.minHeight', Number(mh[1]));
   put('logout.hint', LOGOUT_HINT);
+
+  /*
+   * 모서리. 이 단추만 굴립니다.
+   *
+   * 처음에는 「차림표는 각지게」라 보고 0 을 넣었는데, 띄워 찍어 보니 로그아웃만
+   * 굴려져 있었습니다. 항목과 테마 줄은 각지고 이 단추는 10px 입니다 - 저쪽에서
+   * 이것만 «공용 단추» 를 그대로 쓰기 때문입니다. 눈으로 안 봤으면 못 잡았습니다.
+   */
+  const r = globals.match(/\.qa-btn-secondary \{\n\s*border-radius: (\d+)px;/);
+  if (!r) throw new Error('.qa-btn-secondary 의 모서리를 못 찾았습니다.');
+  put('logout.radius', Number(r[1]));
 }
 
 // 아바타 원판은 globals.css 의 .qa-avatar 입니다.
@@ -300,7 +314,10 @@ ${bindBlock('light')}
   flex-direction: column;
   flex-shrink: 0;
   width: ${px(spec.rail.width)};
-  height: ${spec.rail.height};
+  /* 레일 위에 무언가 놓인 제품이 있습니다(경고 띠 등). 그만큼 빼지 않으면
+     레일 아래 끝이 화면 밖으로 밀려 로그아웃이 잘립니다. 아무것도 없으면 0 입니다.
+     쓰는 쪽이 그 높이를 재어 --qd-rail-offset 으로 알려 줍니다. */
+  height: calc(${spec.rail.height} - var(--qd-rail-offset, 0px));
   position: sticky;
   top: 0;
   padding: ${spec.rail.padding};
@@ -338,12 +355,21 @@ ${bindBlock('light')}
 .qd-rail-brand img,
 .qd-rail-brand svg {
   display: block;
-  width: ${px(spec.brand.logoSize)};
   height: auto;
   max-width: 100%;
   object-fit: contain;
   user-select: none;
 }
+/* Q 표식. 폭은 여기서만 정합니다.
+   표식을 감싸는 부품(테마별로 두 장을 싣는 등)이 있는 제품도 있어, 폭을
+   \`.qd-rail-brand img\` 로 못 박으면 그 안쪽 규칙과 싸웁니다. 감싸개에 이
+   클래스를 걸면 안쪽 그림은 100% 로 채우면 됩니다. */
+.qd-rail-mark {
+  display: block;
+  width: ${px(spec.brand.logoSize)};
+  flex-shrink: 0;
+}
+.qd-rail-mark img { width: 100%; }
 .qd-rail-org {
   margin-top: 6px;
   font-family: var(--qd-font-mono);
@@ -468,6 +494,17 @@ ${bindBlock('light')}
 }
 .qd-nav-dot + .qd-nav-badge { margin-left: 4px; }
 
+/* 조용한 배지. 「3」 같은 숫자가 아니라 「26일」 처럼 읽는 말이 들어가는 자리입니다.
+   빨간 알약으로 만들면 급하지 않은 것이 급해 보이고, 열 칸에 열 개가 켜집니다. */
+.qd-nav-badge--quiet {
+  background: transparent;
+  border: 1px solid var(--qd-border);
+  border-radius: 0;
+  color: var(--qd-subtle);
+  font-weight: 400;
+  min-width: 0;
+}
+
 /* ── 판 번호 줄 ────────────────────────────────────────────────────────────
    왼쪽에 이름 · 오른쪽에 판. 금은 판 쪽에만 씁니다. */
 .qd-rail-version {
@@ -479,9 +516,12 @@ ${bindBlock('light')}
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.version.fontSize)};
   letter-spacing: ${px(spec.version.tracking)};
-  text-transform: uppercase;
   color: var(--qd-muted);
 }
+/* 대문자는 «이름» 에만 겁니다. 줄 전체에 걸면 v1.3.0 이 V1.3.0 이 됩니다 -
+   판 번호는 사람이 적은 그대로 나와야 합니다 (띄워 찍어 보고 잡은 자리). */
+.qd-rail-version > :first-child { text-transform: uppercase; }
+.qd-rail-version > :first-child[data-hangul] { text-transform: none; }
 .qd-rail-version b {
   font-weight: inherit;
   color: var(--qd-accent);
@@ -588,7 +628,8 @@ ${bindBlock('light')}
   text-transform: none;
 }
 
-/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다. */
+/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다.
+   차림표에서 모서리가 굴려진 것은 이것 하나입니다 - 항목과 테마 줄은 각집니다. */
 .qd-rail-logout {
   box-sizing: border-box;
   display: inline-flex;
@@ -599,7 +640,7 @@ ${bindBlock('light')}
   padding: ${spec.logout.padding};
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: ${px(spec.logout.radius)};
   color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.logout.fontSize)};
