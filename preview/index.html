@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Q-Design 견본</title>
 
-<!-- 원본 전역 CSS 를 그대로 씁니다. 견본이 소스와 갈리지 않도록. -->
+<!-- 글꼴을 먼저 겁니다. 이 파일 하나로 세 글꼴이 CDN 없이 붙습니다. -->
+<link rel="stylesheet" href="../dist/q-design.fonts.css">
+
+<!-- 원본 전역 CSS 를 그대로 씁니다. 견본이 소스와 갈리지 않도록.
+     ⚠️ 이 파일 안에 Google Fonts @import 가 남아 있지만, 위에서 같은 이름으로
+        로컬 글꼴을 먼저 등록했으므로 CDN 이 막혀도 라벨 글꼴이 유지됩니다. -->
 <link rel="stylesheet" href="../source/css/globals.css">
 
 <style>
-  /* 폰트만 견본에서 직접 겁니다 (원본은 next/font 가 주입합니다) */
-  @font-face {
-    font-family: 'Pretendard Variable';
-    src: url('../source/fonts/PretendardVariable.woff2') format('woff2-variations');
-    font-weight: 45 920;
-    font-display: swap;
-  }
-  :root { --qa-font-pretendard: 'Pretendard Variable'; }
+  /* 글꼴 세 벌은 ../dist/q-design.fonts.css 에서 옵니다 (위 link).
+     Pretendard 뿐 아니라 JetBrains Mono 와 Cormorant 도 self-host 이므로
+     인터넷이 없어도 라벨 글꼴이 시스템 monospace 로 떨어지지 않습니다. */
 
   body { padding: 40px; max-width: 1140px; margin: 0 auto; }
 

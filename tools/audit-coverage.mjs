@@ -98,9 +98,13 @@ const copyBrand = new Set(readdirSync(join(ROOT, 'source', 'brand')));
 check('브랜드 자산', origBrand, copyBrand, 'public/ 의 png·svg·json');
 
 // ── ⑥ 폰트 ──────────────────────────────────────────────────────────────────
+// 원본은 Pretendard 만 self-host 합니다. 이 저장소는 JetBrains Mono 와 Cormorant 도
+// 파일로 갖고 있으므로(CDN 없이 쓰려고) 복사본이 원본보다 «많은» 것이 정상입니다.
 const origFonts = new Set(readdirSync(join(SRC, 'public', 'fonts')));
-const copyFonts = new Set(readdirSync(join(ROOT, 'source', 'fonts')));
-check('폰트', origFonts, copyFonts);
+const copyFontFiles = readdirSync(join(ROOT, 'source', 'fonts'));
+const copyFonts = new Set(copyFontFiles);
+const extra = copyFontFiles.filter((n) => /\.woff2?$/.test(n) && !origFonts.has(n)).length;
+check('폰트', origFonts, copyFonts, '원본 self-host 분 · 추가 self-host ' + extra + '개는 별도');
 
 // ── 검출력 자체 시험 ────────────────────────────────────────────────────────
 // 「누락 없음」이 «다 있다» 가 아니라 «내 그물이 아무것도 못 봤다» 일 수 있습니다.

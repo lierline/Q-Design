@@ -10,16 +10,27 @@
 
 ## 1. 글꼴 세 벌
 
-| 역할 | 글꼴 | 로딩 |
-|---|---|---|
-| 본문·UI·헤딩 전부 | **Pretendard Variable** | self-host (`next/font/local`, weight 45~920 단일 파일 2MB) |
-| 코드·라벨·배지 | **JetBrains Mono** | Google Fonts (400/500/600/700) |
-| 영문 디스플레이 | **Cormorant Garamond** | Google Fonts, **italic 미로드** |
+| 역할 | 글꼴 | 원본 앱의 로딩 | Q-Design |
+|---|---|---|---|
+| 본문·UI·헤딩 전부 | **Pretendard Variable** | self-host (`next/font/local`, weight 45~920 단일 파일 2MB) | 파일 있음 |
+| 코드·라벨·배지 | **JetBrains Mono** | Google Fonts `@import` | **파일 있음** (400~700 × latin/latin-ext) |
+| 영문 디스플레이 | **Cormorant Garamond** | `next/font/google`, **italic 미로드** | **파일 있음** (italic 제외) |
 
 ```css
 --qa-font-pretendard  /* next/font 가 주입 */
 --qa-font-cormorant
 ```
+
+원본은 Pretendard 만 self-host 하지만, 이 저장소는 **세 벌 모두 파일로 갖고 있습니다.**
+CDN 이 막힌 환경에서 라벨 글꼴이 시스템 monospace 로 떨어지면 라벨 언어가 통째로 무너지기 때문입니다.
+
+```html
+<link rel="stylesheet" href="dist/q-design.fonts.css">   <!-- 이 한 줄로 세 벌 -->
+<link rel="stylesheet" href="dist/q-design.tokens.css">
+```
+
+`tools/verify-fonts.mjs` 가 CDN 을 차단한 채 렌더 폭을 재서 실제로 붙는지 검증합니다.
+자세한 출처와 라이선스는 [`source/fonts/NOTICE.md`](../source/fonts/NOTICE.md) 에 있습니다.
 
 ### 메인 앱은 Pretendard 단일 정책입니다
 
@@ -46,6 +57,13 @@ Cormorant 같은 영문 세리프는 한글 글리프가 없어서, 혼용 헤�
 
 Pretendard 를 체인 **중간**에 둔 것이 요령입니다.
 ASCII 는 JetBrains 로 가고, 한글은 시스템 monospace 로 떨어지지 않고 Pretendard 로 갑니다.
+
+> **⚠️ 공백은 라틴 글꼴이 가져갑니다.**
+> 공백(U+0020)은 latin 서브셋이라, mono 체인에서 **JetBrains Mono 가 공백을 그립니다.**
+> monospace 공백(0.6em)이 Pretendard 공백보다 넓어서, 한글 문장에 공백이 섞이면
+> 폭이 커집니다. 실측: 「품질을빚는아틀리에」 777.8px 인데 어절을 띄우면 897.8px 로 늘어납니다.
+> 글꼴이 제대로 붙었는지 폭으로 판정할 때 **공백 없는 표본**을 쓰십시오.
+> (이 저장소에서 그걸 몰라 「한글이 Pretendard 로 안 간다」고 한 번 오판했습니다.)
 
 > **⚠️ 전문가 포털에서 실제로 일어난 사고**
 > 각 체인 앞쪽 폰트(Cormorant · Noto Sans KR)가 `next/font` 로 로드되면 **자동 생성 대체 폰트**가 함께 붙는데,
