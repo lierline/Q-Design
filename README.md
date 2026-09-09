@@ -40,9 +40,14 @@ Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입
 12. [조합 패턴](docs/12-composition-patterns.md) · 부품이 모여 만드는 덩어리 11가지
 13. [얼굴 화면](docs/13-signature-screens.md) · 로그인 입장 연출 5겹, 환영, 작별
 14. [시각 참고 자료](docs/14-visual-reference.md) · **실제 화면 22장**, 무엇을 볼지 안내
+15. [차림표 정본](docs/15-navigation-canon.md) · 🔴 **설명이 아니라 강제.** 세 제품이 같은 CSS 를 링크합니다
 
 문서 6번이 부품 하나하나의 스펙이라면, 11번과 12번은 **그것들을 어떻게 놓는가**입니다.
 토큰을 다 옮겨도 화면이 다르게 보인다면 거기를 보십시오.
+
+15번만 성격이 다릅니다. 다른 문서는 「이렇게 생겼습니다」를 적지만, 15번은
+`dist/q-design.nav.css` 한 파일로 **차림표를 실제로 묶습니다.** Q-Sonar 와
+Q-Forge 가 그 파일을 그대로 링크합니다.
 
 ## 「다 뽑혔나」
 
@@ -66,10 +71,14 @@ node tools/audit-coverage.mjs
 
 ```html
 <link rel="stylesheet" href="dist/q-design.tokens.css">
+<link rel="stylesheet" href="dist/q-design.nav.css">
 ```
 
 그다음 `var(--qa-bg)` · `var(--qa-text)` · `var(--qa-champagne)` 로 칠하면 됩니다.
 다크가 기본이고, `<html data-theme="light">` 로 라이트가 됩니다.
+
+차림표는 두 번째 파일이 통째로 그립니다. 클래스 이름과 뼈대는
+[차림표 정본](docs/15-navigation-canon.md) 에 있습니다.
 
 폰트는 `source/fonts/PretendardVariable.woff2` 를 함께 실어야 같은 얼굴이 됩니다.
 

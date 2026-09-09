@@ -1,0 +1,72 @@
+{
+  "$meta": {
+    "generatedBy": "tools/extract-nav.mjs",
+    "source": "source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx",
+    "note": "손으로 고치지 마세요. 원본을 고치고 다시 돌리세요."
+  },
+  "rail": {
+    "drawerWidth": 264,
+    "padding": "22px 16px",
+    "paddingCollapsed": "18px 6px",
+    "height": "100dvh",
+    "borderRightWidth": 1,
+    "widthCollapsed": 60,
+    "width": 240
+  },
+  "brand": {
+    "logoSize": 108,
+    "markSize": 36,
+    "orgFontSize": 10,
+    "orgTracking": 1.6
+  },
+  "nav": {
+    "gap": 3
+  },
+  "item": {
+    "padding": "11px 14px",
+    "gap": 3,
+    "fontSize": 14,
+    "tracking": 0.1,
+    "activeWeight": 500,
+    "idleWeight": 400,
+    "railWidth": 3,
+    "iconBox": 18,
+    "iconGlyph": 16,
+    "iconStroke": 1.75,
+    "dotSize": 6,
+    "badgePadding": "2px 8px",
+    "dotPulseMs": 600,
+    "dotPulseEase": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "dotPulseKeyframes": "0% { transform: scale(1); opacity: 0.6; } 35% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1); opacity: 0.6; }"
+  },
+  "group": {
+    "padding": "12px 14px 4px",
+    "fontSize": 10,
+    "tracking": 1.6
+  },
+  "version": {
+    "padding": "4px 4px 8px",
+    "fontSize": 10,
+    "tracking": 0.6
+  },
+  "theme": {
+    "padding": "10px 14px",
+    "fontSize": 10,
+    "tracking": 1.5,
+    "btnSize": 44
+  },
+  "foot": {
+    "avatarSize": 32,
+    "nameFontSize": 13,
+    "metaFontSize": 10,
+    "metaTracking": 1.2,
+    "avatarBackground": "color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-surface2))",
+    "avatarWeight": 600
+  },
+  "logout": {
+    "padding": "7px 14px",
+    "fontSize": 11,
+    "minHeight": 36,
+    "hint": "Btn p={false} sm"
+  }
+}

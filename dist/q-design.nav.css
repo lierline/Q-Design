@@ -1,0 +1,420 @@
+/* =============================================================================
+   q-design.nav.css · 차림표 정본
+   생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
+   원본: Q-Atelier components/Sidebar.tsx (2026-09-09)
+   =============================================================================
+
+   ── 쓰는 법 ────────────────────────────────────────────────────────────────
+   1) 이 파일을 프로젝트에 넣고 전역 CSS 에서 링크하거나 @import 합니다.
+   2) 색 이름이 다르면 «잇는 줄» 아홉 개만 적습니다:
+
+        :root {
+          --qd-surface-src:  var(--color-panel);
+          --qd-surface2-src: var(--color-panel2);
+          --qd-border-src:   var(--color-line);
+          --qd-text-src:     var(--color-ivory);
+          --qd-subtle-src:   var(--color-dim);
+          --qd-muted-src:    var(--color-faint);
+          --qd-accent-src:   var(--color-gold);
+          --qd-on-accent-src:var(--color-onaccent);
+          --qd-danger-src:   #c97a7a;
+        }
+
+   3) 마크업은 아래 뼈대를 그대로 씁니다. 클래스 이름이 곧 계약입니다.
+
+        <aside class="qd-rail">
+          <a class="qd-rail-brand"> …로고… <span class="qd-rail-org">회사</span> </a>
+          <nav class="qd-rail-nav">
+            <div class="qd-nav-group">묶음</div>
+            <a class="qd-nav-item is-active">
+              <span class="qd-nav-icon">svg</span>
+              <span class="qd-nav-label">이름</span>
+              <span class="qd-nav-dot"></span>
+            </a>
+          </nav>
+          <div class="qd-rail-version"><span>Q-SONAR</span><b>v1.0.0</b></div>
+          <button class="qd-rail-theme"><span>Theme</span><b>● Dark</b></button>
+          <div class="qd-rail-foot">
+            <div class="qd-rail-user">
+              <span class="qd-avatar">R</span>
+              <span class="qd-rail-user-text">
+                <span class="qd-rail-user-name">이름</span>
+                <span class="qd-rail-user-meta">역할 · 등급</span>
+              </span>
+            </div>
+            <button class="qd-rail-logout">로그아웃</button>
+          </div>
+        </aside>
+
+   ── 한글 자간 ──────────────────────────────────────────────────────────────
+   `.qd-nav-group` 과 `.qd-rail-user-meta` 는 모노 · 대문자 · 넓은 자간입니다.
+   그 장치는 «라틴 글자 사이» 를 벌리라고 만든 값이라 한글에 걸면 「묶 음」 처럼
+   벌어집니다. 한글이 섞인 글에는 `data-hangul` 을 붙이세요. 자간과 대문자가
+   함께 풀립니다. (Q-Atelier lib/design/tokens.ts 의 labelTracking 과 같은 규칙)
+   ============================================================================= */
+
+:root {
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #141414));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #1b1b1b));
+  --qd-border: var(--qd-border-src, var(--qa-border, #242424));
+  --qd-text: var(--qd-text-src, var(--qa-text, #f0ebe0));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
+  --qd-on-accent: var(--qd-on-accent-src, var(--qa-on-accent, #0a0908));
+  --qd-danger: var(--qd-danger-src, var(--qa-red, #c97a7a));
+  --qd-font-ui: var(--qd-font-ui-src, inherit);
+  --qd-font-mono: var(--qd-font-mono-src, ui-monospace, 'JetBrains Mono', Consolas, monospace);
+}
+
+html[data-theme='light'] {
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #ffffff));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #f3f1ec));
+  --qd-border: var(--qd-border-src, var(--qa-border, #e2dfd8));
+  --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+  --qd-on-accent: var(--qd-on-accent-src, var(--qa-on-accent, #ffffff));
+  --qd-danger: var(--qd-danger-src, var(--qa-red, #a83838));
+}
+
+/* ── 레일 ──────────────────────────────────────────────────────────────────
+   스크롤하는 것은 .qd-rail-nav 이지 레일 전체가 아닙니다. 레일을 통째로
+   스크롤로 두면 화면이 낮을 때 로고와 바닥 계정 블록이 같이 밀려 올라가
+   «푸터가 없는» 것처럼 보입니다 (Q-Atelier 가 M-16 으로 고친 자리입니다). */
+.qd-rail {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 240px;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
+  padding: 22px 16px;
+  background: var(--qd-surface);
+  border-right: 1px solid var(--qd-border);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: var(--qd-font-ui);
+}
+
+/* 좁은 화면의 서랍. 여기서는 레일 자체가 스크롤합니다(안쪽에 또 스크롤을 두면
+   바깥을 만질 때 안쪽이 잡힙니다). */
+.qd-rail--drawer {
+  width: 264px;
+  max-width: 85vw;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.qd-rail--drawer .qd-rail-nav {
+  overflow-y: visible;
+  flex: 1 0 auto;
+}
+
+/* ── 로고 블록 ─────────────────────────────────────────────────────────────── */
+.qd-rail-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-bottom: 22px;
+}
+.qd-rail-brand img,
+.qd-rail-brand svg {
+  display: block;
+  width: 108px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+.qd-rail-org {
+  margin-top: 6px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+  word-break: break-all;
+}
+.qd-rail-org[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+}
+.qd-rail-org--accent { color: var(--qd-accent); }
+
+/* ── 스크롤 구역 ───────────────────────────────────────────────────────────── */
+.qd-rail-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+/* ── 묶음 이름표 ───────────────────────────────────────────────────────────── */
+.qd-nav-group {
+  padding: 12px 14px 4px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+  user-select: none;
+}
+.qd-nav-group[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── 항목 ──────────────────────────────────────────────────────────────────
+   모서리를 굴리지 않습니다. 왼쪽 금막대가 항목 높이를 «꽉» 채워야 눈이 세로로
+   훑을 때 걸립니다. 굴린 알약으로 만들면 막대가 안쪽으로 들어가 흐려집니다. */
+.qd-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-left: 3px solid transparent;
+  font-family: var(--qd-font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  color: var(--qd-subtle);
+  background: transparent;
+  text-decoration: none;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.qd-nav-item:hover:not(.is-active) {
+  background-color: var(--qd-surface2);
+  color: var(--qd-text);
+}
+.qd-nav-item.is-active {
+  color: var(--qd-text);
+  font-weight: 500;
+  background: var(--qd-surface2);
+  border-left-color: var(--qd-accent);
+}
+.qd-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--qd-muted);
+}
+.qd-nav-icon > svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.75;
+}
+.qd-nav-item.is-active .qd-nav-icon { color: var(--qd-accent); }
+.qd-nav-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 활성 점. 들어설 때 한 번만 뛰고 그 뒤로는 가만히 있습니다. */
+.qd-nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--qd-accent);
+  flex-shrink: 0;
+  margin-right: 2px;
+  animation: qd-nav-dot-pulse 600ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+@keyframes qd-nav-dot-pulse { 0% { transform: scale(1); opacity: 0.6; } 35% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1); opacity: 0.6; } }
+@media (prefers-reduced-motion: reduce) {
+  .qd-nav-dot { animation: none; }
+}
+
+.qd-nav-badge {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+  border-radius: 9999px;
+  min-width: 22px;
+  text-align: center;
+  color: var(--qd-on-accent);
+  background: var(--qd-danger);
+}
+.qd-nav-dot + .qd-nav-badge { margin-left: 4px; }
+
+/* ── 판 번호 줄 ────────────────────────────────────────────────────────────
+   왼쪽에 이름 · 오른쪽에 판. 금은 판 쪽에만 씁니다. */
+.qd-rail-version {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 4px 4px 8px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+}
+.qd-rail-version b {
+  font-weight: inherit;
+  color: var(--qd-accent);
+}
+
+/* ── 테마 줄 ──────────────────────────────────────────────────────────────── */
+.qd-rail-row {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+  flex-shrink: 0;
+  margin: 12px 0;
+}
+.qd-rail-theme {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid var(--qd-border);
+  border-radius: 0;
+  color: var(--qd-subtle);
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.qd-rail-theme:hover { border-color: var(--qd-accent); color: var(--qd-text); }
+.qd-rail-theme b { font-weight: 500; color: var(--qd-accent); }
+
+.qd-rail-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid var(--qd-border);
+  color: var(--qd-muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.qd-rail-iconbtn:hover { border-color: var(--qd-accent); color: var(--qd-accent); }
+
+/* ── 바닥 계정 블록 ────────────────────────────────────────────────────────── */
+.qd-rail-foot {
+  flex-shrink: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--qd-border);
+}
+.qd-rail-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+.qd-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--qd-accent) 22%, var(--qd-surface2));
+  color: var(--qd-text);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  user-select: none;
+}
+.qd-rail-user-text { min-width: 0; flex: 1; }
+.qd-rail-user-name {
+  display: block;
+  font-size: 13px;
+  color: var(--qd-text);
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.qd-rail-user-meta {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.qd-rail-user-meta[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다. */
+.qd-rail-logout {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--qd-border);
+  border-radius: 0;
+  color: var(--qd-subtle);
+  font-family: var(--qd-font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.qd-rail-logout:hover { border-color: var(--qd-danger); color: var(--qd-danger); }
+
+/* ── 좁은 화면 ─────────────────────────────────────────────────────────────
+   1024px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지
+   않게 여기서 못 박습니다. 각자 정하면 세 제품의 «접히는 순간» 이 달라집니다. */
+@media (max-width: 1023px) {
+  .qd-rail:not(.qd-rail--drawer) { display: none; }
+}
+
+.qd-rail-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+@media print {
+  .qd-rail, .qd-rail-backdrop { display: none !important; }
+}
