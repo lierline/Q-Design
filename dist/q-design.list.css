@@ -1,0 +1,338 @@
+/* =============================================================================
+   q-design.list.css · 목록 정본
+   생성물입니다. 손대지 마세요.  node tools/extract-list.mjs
+   원본: Q-Atelier lib/design/components.tsx (DataTable · EntityRow · Tag)
+   =============================================================================
+
+   ── 무엇을 언제 쓰나 ───────────────────────────────────────────────────────
+   `.qd-table`  수백~수천 줄을 훑는 자리. 밀도가 값어치입니다
+   `.qd-row`    항목 수가 적고 «하나하나가 사건» 인 목록. 부적합 · 불만 · 변경
+   `.qd-tag`    상태 배지. 두 꼴 모두에서 씁니다
+
+   꼴을 하나로 합치지 않습니다. 4만 개 회사를 카드로 바꾸면 한 화면에 여섯 줄만
+   보입니다. **같은 꼴끼리** 맞추는 것이 통일입니다.
+
+   ── 진짜 <table> 에도 걸립니다 ─────────────────────────────────────────────
+   원본은 grid 로 짠 div 이지만 이 CSS 는 `table/th/td` 에도 같은 값을 겁니다.
+   마크업을 통째로 바꾸면 열 너비 · colspan · 정렬이 다 흔들립니다.
+
+       <table class="qd-table">
+         <thead><tr><th>기업명</th>…</tr></thead>
+         <tbody><tr><td>…</td></tr></tbody>
+       </table>
+
+   ── 색 잇기 ────────────────────────────────────────────────────────────────
+   `q-design.nav.css` 와 같은 `--qd-*` 를 읽습니다. 그쪽에 잇는 줄을 이미
+   두었으면 여기서 더 할 일이 없습니다. 두 개만 더 씁니다: `--qd-bg-src` ·
+   `--qd-borderHi-src`.
+
+   ── 한글 자간 ──────────────────────────────────────────────────────────────
+   표 머리글과 배지는 모노 · 대문자 · 넓은 자간입니다. 한글이 섞이면
+   `data-hangul` 을 붙이세요. 자간과 대문자가 함께 풀립니다.
+   ============================================================================= */
+
+:root {
+  --qd-bg: var(--qd-bg-src, var(--qa-bg, #0c0c0c));
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #141414));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #1b1b1b));
+  --qd-border: var(--qd-border-src, var(--qa-border, #242424));
+  --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #333333));
+  --qd-text: var(--qd-text-src, var(--qa-text, #f0ebe0));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
+}
+
+html[data-theme='light'] {
+  --qd-bg: var(--qd-bg-src, var(--qa-bg, #faf9f6));
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #ffffff));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #f3f1ec));
+  --qd-border: var(--qd-border-src, var(--qa-border, #e2dfd8));
+  --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #c8c4ba));
+  --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+}
+
+/* ── 판 ────────────────────────────────────────────────────────────────────
+   목록은 캔버스 위에 맨몸으로 놓이지 않고 **판 하나 안에** 들어갑니다.
+   판이 없으면 표의 첫 줄과 마지막 줄이 어디서 시작하고 끝나는지 흐려집니다.
+
+   모서리는 «맥락을 읽습니다». 각진 모서리를 브랜드로 쓰는 자매 테마가 있어서,
+   그쪽은 `--qd-radius-card: 0` 한 줄로 자기 언어를 말합니다. 값을 두 벌로 두지
+   않고 폴백으로 처리한 저쪽 설계를 그대로 옮겼습니다. */
+.qd-panel {
+  box-sizing: border-box;
+  background: var(--qd-surface);
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-card, 10px);
+}
+/* 왼쪽 색 띠로 «이 판이 무엇인가» 를 말할 때 */
+.qd-panel--accent { border-left: 3px solid var(--qd-panel-accent, var(--qd-accent)); }
+/* 표가 아니라 글이 들어가는 판 */
+.qd-panel--pad { padding: 24px; }
+/* 판 안에 표가 꽉 차게 들어갈 때, 표의 모서리가 판 밖으로 삐져나오지 않게 */
+.qd-panel > .qd-table-scroll:first-child,
+.qd-panel > .qd-table:first-child { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+.qd-panel > .qd-table-scroll:last-child,
+.qd-panel > .qd-table:last-child { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; overflow: hidden; }
+
+/* ── 표 ────────────────────────────────────────────────────────────────────
+   수백 줄을 세로로 훑는 자리입니다. 행 사이를 벌리지 않고 경계선 하나로 가릅니다.
+   가로 스크롤은 감싸개(.qd-table-scroll)가 맡습니다. */
+.qd-table-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.qd-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  color: var(--qd-text);
+}
+
+.qd-table thead tr,
+.qd-table .qd-thead {
+  border-bottom: 1px solid var(--qd-border);
+}
+.qd-table th,
+.qd-table .qd-th {
+  padding: 12px 12px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--qd-subtle);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.qd-table th[data-hangul],
+.qd-table .qd-th[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+}
+/*
+ * 머리글이 «거의 다» 한글인 제품을 위한 갈래.
+ *
+ * 머리글마다 data-hangul 을 붙이는 것이 원칙이지만, 표를 400곳 넘게 손으로 짠
+ * 저장소에서는 언젠가 한 곳이 빠지고 그 한 곳만 「로 트 번 호」 로 벌어집니다.
+ * 표에 이 클래스를 걸면 기본이 뒤집히고, 섞여 있는 라틴 머리글만 data-latin 을
+ * 답니다. 「많은 쪽을 기본으로」 두면 빠뜨려도 조용히 틀리지 않습니다.
+ */
+.qd-table--hangul th,
+.qd-table--hangul .qd-th {
+  letter-spacing: 0;
+  text-transform: none;
+}
+.qd-table--hangul th[data-latin],
+.qd-table--hangul .qd-th[data-latin] {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.qd-table tbody tr,
+.qd-table .qd-tr {
+  border-bottom: 1px solid var(--qd-border);
+  transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  color: inherit;
+  text-decoration: none;
+}
+.qd-table tbody tr:last-child,
+.qd-table .qd-tr:last-child {
+  border-bottom: none;
+}
+/* 누를 수 있는 행만 반응합니다. 전부 반응하면 어디가 링크인지 알 수 없습니다.
+   «누를 수 있다» 를 알아보는 길이 셋입니다 - 안에 링크·단추가 있거나,
+   행 자체가 role="link" 이거나(tr 은 a 로 감쌀 수 없습니다), 클래스를 붙였거나. */
+.qd-table tbody tr:hover:has(a, button),
+.qd-table tbody tr[role='link']:hover,
+.qd-table a.qd-tr:hover,
+.qd-table .qd-tr--click:hover {
+  background: var(--qd-surface2);
+}
+.qd-table tbody tr[role='link'] { cursor: pointer; }
+
+.qd-table td,
+.qd-table .qd-td {
+  padding: 11px 12px;
+  font-size: 13px;
+  color: var(--qd-text);
+  vertical-align: middle;
+}
+/* 숫자는 자리가 고정입니다. 세로로 훑을 때 자릿수가 흔들리면 못 읽습니다. */
+.qd-table .qd-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.qd-table .qd-quiet { color: var(--qd-subtle); }
+
+.qd-table--dense th,
+.qd-table--dense .qd-th { padding: 9px 12px; }
+.qd-table--dense td,
+.qd-table--dense .qd-td { padding: 8px 12px; }
+
+/* 빈 목록. 「없음」 을 조용히 말합니다 */
+.qd-table-empty {
+  padding: 20px 12px;
+  font-family: var(--qd-font-mono);
+  font-size: 12px;
+  color: var(--qd-muted);
+}
+
+/* ── 항목 카드 ─────────────────────────────────────────────────────────────
+   왼쪽 2px 색 띠가 상태를 말합니다. 배지보다 조용하고 훑기가 빠릅니다. */
+.qd-row {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 72px;
+  padding: 16px 18px;
+  background: var(--qd-surface);
+  border: 1px solid var(--qd-border);
+  border-left: 2px solid var(--qd-row-accent, var(--qd-accent));
+  border-radius: 10px;
+  color: var(--qd-text);
+  text-align: left;
+  text-decoration: none;
+  transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease, border-color 0.18s ease;
+}
+/* 누를 수 있는 카드만 떠오릅니다. 못 누르는 카드가 반응하면 거짓 어포던스입니다. */
+a.qd-row, button.qd-row { cursor: pointer; }
+a.qd-row:hover, button.qd-row:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--qd-accent) 30%, var(--qd-border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), 0 0 0 1px color-mix(in srgb, var(--qd-accent) 18%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  a.qd-row:hover, button.qd-row:hover { transform: none; }
+}
+.qd-row + .qd-row { margin-top: 8px; }
+
+.qd-row-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--qd-row-accent, var(--qd-accent)) 8%, transparent);
+  color: var(--qd-row-accent, var(--qd-accent));
+}
+.qd-row-body { flex: 1; min-width: 0; }
+.qd-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+}
+.qd-row-code {
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--qd-accent);
+}
+.qd-row-code[data-hangul] { letter-spacing: 0; }
+.qd-row-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--qd-text);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.qd-row-meta {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--qd-subtle);
+  line-height: 1.4;
+}
+.qd-row-right { flex-shrink: 0; }
+.qd-row-chevron {
+  flex-shrink: 0;
+  margin-left: 4px;
+  color: var(--qd-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ── 배지 ──────────────────────────────────────────────────────────────────
+   색은 `--qd-tag-color` 로 받습니다. 안 주면 muted 입니다.
+   층은 셋: primary(채움) · secondary(헤어라인, 기본) · tertiary(아주 옅게) */
+.qd-tag {
+  --_c: var(--qd-tag-color, var(--qd-muted));
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: var(--qd-font-mono);
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: var(--_c);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--_c) 33%, transparent);
+  border-radius: 6px;
+}
+.qd-tag[data-hangul] { letter-spacing: 0; }
+
+.qd-tag--xs {
+  min-height: 18px;
+  font-size: 10px;
+  padding: 0px 6px;
+  gap: 4px;
+}
+.qd-tag--xs .qd-tag-dot { width: 5px; height: 5px; }
+
+.qd-tag--sm {
+  min-height: 22px;
+  font-size: 11px;
+  padding: 2px 8px;
+  gap: 4px;
+}
+.qd-tag--sm .qd-tag-dot { width: 6px; height: 6px; }
+
+.qd-tag--md {
+  min-height: 26px;
+  font-size: 11.5px;
+  padding: 4px 10px;
+  gap: 5px;
+}
+.qd-tag--md .qd-tag-dot { width: 7px; height: 7px; }
+.qd-tag--primary {
+  background: color-mix(in srgb, var(--_c) 10%, transparent);
+  border-color: color-mix(in srgb, var(--_c) 55%, transparent);
+}
+.qd-tag--tertiary {
+  border-color: color-mix(in srgb, var(--_c) 18%, transparent);
+  color: var(--qd-muted);
+}
+.qd-tag-dot {
+  border-radius: 50%;
+  background: var(--_c);
+  flex-shrink: 0;
+}
+
+/* 배지에 걸 수 있는 상태색. 이름은 저쪽 상태색과 같습니다.
+   ⚠️ 이 일곱은 대비 계약 밖입니다(Q-Design 02) · 배지 «면» 위 글자로만 쓰세요. */
+.qd-tag--gray { --qd-tag-color: var(--qa-state-gray, #7d7670); }
+.qd-tag--cobalt { --qd-tag-color: var(--qa-state-cobalt, #6b8fc4); }
+.qd-tag--copper { --qd-tag-color: var(--qa-state-copper, #d49850); }
+.qd-tag--gold { --qd-tag-color: var(--qa-state-gold, #c9a878); }
+.qd-tag--violet { --qd-tag-color: var(--qa-state-violet, #a07ac9); }
+.qd-tag--green { --qd-tag-color: var(--qa-state-green, #7ab87a); }
+.qd-tag--red { --qd-tag-color: var(--qa-state-red, #c97a7a); }
+
+@media print {
+  .qd-row { break-inside: avoid; }
+  .qd-table tbody tr { break-inside: avoid; }
+}
