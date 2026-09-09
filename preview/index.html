@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q-Design 견본</title>
+
+<!-- 원본 전역 CSS 를 그대로 씁니다. 견본이 소스와 갈리지 않도록. -->
+<link rel="stylesheet" href="../source/css/globals.css">
+
+<style>
+  /* 폰트만 견본에서 직접 겁니다 (원본은 next/font 가 주입합니다) */
+  @font-face {
+    font-family: 'Pretendard Variable';
+    src: url('../source/fonts/PretendardVariable.woff2') format('woff2-variations');
+    font-weight: 45 920;
+    font-display: swap;
+  }
+  :root { --qa-font-pretendard: 'Pretendard Variable'; }
+
+  body { padding: 40px; max-width: 1140px; margin: 0 auto; }
+
+  .head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 30px;
+  }
+  .head-rule { width: 32px; height: 1.5px; background: var(--qa-champagne); margin-bottom: 14px; }
+  .head-sub {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-subtle);
+    letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 8px;
+  }
+  h1 { font-size: clamp(22px, 5vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .head-line { margin-top: 18px; border-bottom: 1px solid var(--qa-border); }
+
+  section { margin: 0 0 48px; }
+  .card { background: var(--qa-surface); border: 1px solid var(--qa-border); border-radius: 10px; padding: 22px 24px; }
+  .grid { display: grid; gap: 10px; }
+  .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .g4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 767px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+  /* 스와치 */
+  .sw { border: 1px solid var(--qa-border); border-radius: 10px; overflow: hidden; }
+  .sw-chip { height: 56px; }
+  .sw-meta { padding: 8px 10px; background: var(--qa-surface); }
+  .sw-name { font-size: 11px; color: var(--qa-text); }
+  .sw-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-muted); }
+
+  /* 부품 견본 */
+  .btn {
+    box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+    gap: 6px; padding: 11px 22px; min-height: 44px; font-size: 12px; line-height: 1;
+    letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; cursor: pointer;
+    font-weight: 500; border: 1px solid transparent;
+    background: var(--qa-text); color: var(--qa-bg);
+  }
+  .btn.sec { background: transparent; color: var(--qa-subtle); border-color: var(--qa-border); }
+  .btn.gold { background: var(--qa-champagne); color: var(--qa-on-accent); }
+  .btn.danger { background: var(--qa-red); color: var(--qa-bg); border-color: var(--qa-red); }
+  .btn.sm { padding: 7px 14px; min-height: 36px; font-size: 11px; }
+  .btn.ko { letter-spacing: 0; text-transform: none; }
+
+  .tag {
+    box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+    gap: 5px; min-height: 26px; font-size: 11.5px; line-height: 1.4; padding: 4px 10px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; white-space: nowrap;
+    border: 1px solid; vertical-align: middle;
+  }
+  .tag.sm { min-height: 22px; font-size: 11px; padding: 2px 8px; gap: 4px; }
+  .tag.xs { min-height: 18px; font-size: 10px; padding: 0 6px; gap: 4px; }
+  .tag.ko { letter-spacing: 0; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  .in {
+    width: 100%; padding: 10px 14px; background: var(--qa-surface);
+    border: 1px solid var(--qa-border); color: var(--qa-text); font-size: 13px;
+  }
+
+  .lbl {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-subtle);
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; margin-bottom: 10px;
+  }
+  .lbl.ko { letter-spacing: 0; text-transform: none; }
+
+  .kpi-val { font-weight: 700; font-size: 36px; line-height: 1.05; letter-spacing: -0.02em; }
+  .kpi-sub { font-size: 11px; color: var(--qa-muted); margin-top: 10px; }
+
+  .alert { padding: 12px 16px; font-size: 12px; line-height: 1.6; margin-bottom: 16px; }
+  .alert-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; }
+
+  .empty { padding: 96px 24px; text-align: center; position: relative; }
+  .empty::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--qa-champagne) 4%, transparent), transparent 70%);
+  }
+  .empty-glyph { font-size: 56px; font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+                 color: color-mix(in srgb, var(--qa-champagne) 45%, transparent); margin-bottom: 20px; }
+  .empty-title { font-weight: 700; font-size: 22px; color: var(--qa-subtle); letter-spacing: -0.01em; margin-bottom: 10px; }
+  .empty-desc { font-size: 13px; color: var(--qa-muted); line-height: 1.7; max-width: 460px; margin: 0 auto 22px; }
+  .hint { display: inline-block; padding: 6px 12px; font-size: 10px; margin: 0 4px;
+          border: 1px solid color-mix(in srgb, var(--qa-champagne) 40%, transparent); color: var(--qa-champagne); }
+
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--qa-border); }
+  .type-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-muted); flex-shrink: 0; width: 190px; }
+
+  .toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 200;
+    padding: 8px 14px; font-size: 11px; cursor: pointer;
+    background: var(--qa-surface); color: var(--qa-text);
+    border: 1px solid var(--qa-borderHi); border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
+  }
+
+  .note { font-size: 12px; color: var(--qa-muted); line-height: 1.6; margin-top: 10px; }
+  .bad { color: var(--qa-red); }
+</style>
+</head>
+<body>
+
+<button class="toggle" id="themeBtn">DARK</button>
+
+<!-- ── 페이지 머리 ─────────────────────────────────────────── -->
+<div class="head">
+  <div>
+    <div class="head-rule"></div>
+    <div class="head-sub">Design System Reference</div>
+    <h1>Q-Design 견본</h1>
+  </div>
+  <div class="row">
+    <button class="btn sec sm">보조</button>
+    <button class="btn ko">저장하기</button>
+  </div>
+</div>
+<div class="head-line"></div>
+
+<!-- ⚠️ .qa-stagger 는 «한 묶음» 컨테이너에 거는 것입니다 (KPI 행, 카드 목록).
+     페이지 루트에 걸면 항목이 스무 개를 넘어 뒤쪽이 계속 지연 상태로 남고,
+     합성 레이어가 길게 살아 있어 스크롤 캡처가 빈 화면으로 잡히기도 합니다.
+     아래 KPI 행 하나에만 걸어 두었습니다. -->
+<section>
+
+<!-- ── 팔레트 ─────────────────────────────────────────────── -->
+<div class="qa-mag-divider">
+  <div class="qa-mag-divider-num">01</div>
+  <div class="qa-mag-divider-label">Palette</div>
+  <div class="qa-mag-divider-title">색</div>
+  <div class="qa-mag-divider-line"></div>
+</div>
+
+<div class="grid g4" id="swatches"></div>
+
+<div style="height:16px"></div>
+<div class="lbl">상태색 7종</div>
+<div class="grid g4" id="stateSwatches"></div>
+
+<!-- ── 타이포 ─────────────────────────────────────────────── -->
+<div class="qa-mag-divider">
+  <div class="qa-mag-divider-num">02</div>
+  <div class="qa-mag-divider-label">Typography</div>
+  <div class="qa-mag-divider-title">타이포그래피</div>
+  <div class="qa-mag-divider-line"></div>
+</div>
+
+<div class="card">
+  <div class="type-row">
+    <div class="type-meta">h1 · 700 · -0.015em</div>
+    <div style="font-size:clamp(1.75rem,1.25rem + 1.5vw,2.25rem);font-weight:700;letter-spacing:-0.015em;line-height:1.15">품질을 빚는 아틀리에</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">h2 · 600 · -0.01em</div>
+    <div style="font-size:clamp(1.25rem,1rem + 0.8vw,1.5rem);font-weight:600;letter-spacing:-0.01em;line-height:1.25">섹션 타이틀입니다</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">h3 · 14.875px · 600</div>
+    <div style="font-size:1.0625rem;font-weight:600;letter-spacing:-0.005em;line-height:1.35">카드 헤더입니다</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">body · 13.125px · 1.65</div>
+    <div style="font-size:0.9375rem;line-height:1.65">본문입니다. rem 기준이 16px 이 아니라 14px 이라 0.9375rem 은 13.125px 로 렌더됩니다.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">caption · 11.375px</div>
+    <div style="font-size:0.8125rem;line-height:1.55;color:var(--qa-subtle)">보조 정보입니다</div>
+  </div>
+  <div class="type-row" style="border:none">
+    <div class="type-meta">mono · 9.625px · 0.08em</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;line-height:1.4;color:var(--qa-muted)">ISO 13485 · CAPA · RA</div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:10px">
+  <div class="lbl ko">한글 자간 규칙</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.2px;text-transform:uppercase;color:var(--qa-muted)">오늘 처리할 것</div>
+  <div class="note bad">↑ 자간 2.2px 를 한글에 그대로 건 경우. 낱글자로 흩어집니다.</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0;color:var(--qa-champagne);margin-top:14px">오늘 처리할 것</div>
+  <div class="note">↑ labelTracking() 이 한글을 감지해 자간을 0 으로 떨어뜨린 경우.</div>
+</div>
+
+<!-- ── 부품 ───────────────────────────────────────────────── -->
+<div class="qa-mag-divider">
+  <div class="qa-mag-divider-num">03</div>
+  <div class="qa-mag-divider-label">Components</div>
+  <div class="qa-mag-divider-title">부품</div>
+  <div class="qa-mag-divider-line"></div>
+</div>
+
+<div class="grid g2">
+  <div class="card">
+    <div class="lbl ko">버튼</div>
+    <div class="row">
+      <button class="btn qa-btn">PRIMARY</button>
+      <button class="btn sec qa-btn-secondary">SECONDARY</button>
+      <button class="btn gold qa-btn">GOLD</button>
+      <button class="btn danger qa-btn">DANGER</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="btn sm qa-btn">SMALL</button>
+      <button class="btn ko qa-btn">한글 버튼</button>
+      <button class="btn qa-btn" disabled style="opacity:.4;cursor:not-allowed">DISABLED</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="lbl ko">입력</div>
+    <input class="in qa-input" placeholder="포커스하면 테두리가 금색이 되고 배경이 한 겹 들어갑니다">
+    <div style="height:10px"></div>
+    <select class="in qa-input">
+      <option>선택지 하나</option>
+      <option>선택지 둘</option>
+    </select>
+  </div>
+</div>
+
+<div class="card" style="margin-top:10px">
+  <div class="lbl ko">배지 · 세 층위 × 세 크기</div>
+  <div class="row" id="tagTiers"></div>
+  <div class="note">같은 색으로 세 단계의 «소리 크기» 를 만듭니다. 한 행에 배지가 여럿일 때 핵심만 primary 로 둡니다.</div>
+  <div class="row" style="margin-top:14px" id="tagSizes"></div>
+</div>
+
+<!-- ── KPI ────────────────────────────────────────────────── -->
+<div class="qa-mag-divider">
+  <div class="qa-mag-divider-num">04</div>
+  <div class="qa-mag-divider-label">Data Display</div>
+  <div class="qa-mag-divider-title">지표</div>
+  <div class="qa-mag-divider-line"></div>
+</div>
+
+<div class="grid g4 qa-stagger">
+  <div class="card qa-card-lift" style="padding:18px 20px;min-height:124px">
+    <div class="lbl ko">진행 중</div>
+    <div class="kpi-val qa-tabular">14</div>
+    <div class="kpi-sub">지난주 대비 +3</div>
+  </div>
+  <div class="card qa-card-lift" style="padding:18px 20px;min-height:124px">
+    <div class="lbl ko">승인 완료</div>
+    <div class="kpi-val qa-tabular" style="color:var(--qa-green)">128</div>
+    <div class="kpi-sub">누적</div>
+  </div>
+  <div class="card qa-card-lift" style="padding:18px 20px;min-height:124px">
+    <div class="lbl ko">검토 대기</div>
+    <div class="kpi-val qa-tabular" style="color:var(--qa-champagne)">7</div>
+    <div class="kpi-sub">평균 2.4일 소요</div>
+  </div>
+  <div class="card qa-card-lift" style="padding:18px 20px;min-height:124px">
+    <div class="lbl ko">기한 초과</div>
+    <div class="kpi-val qa-tabular" style="color:var(--qa-red)">2</div>
+    <div class="kpi-sub">즉시 확인 필요</div>
+  </div>
+</div>
+<div class="note">카드에 마우스를 올려 보십시오. 2px 떠오르며 테두리에 금이 배어 나옵니다.</div>
+
+<!-- ── 알림 ───────────────────────────────────────────────── -->
+<div class="qa-mag-divider">
+  <div class="qa-mag-divider-num">05</div>
+  <div class="qa-mag-divider-label">Feedback</div>
+  <div class="qa-mag-divider-title">알림과 상태</div>
+  <div class="qa-mag-divider-line"></div>
+</div>
+
+<div class="alert" id="alertOk"></div>
+<div class="alert" id="alertWarn"></div>
+<div class="alert" id="alertErr"></div>
+
+<div class="grid g2">
+  <div class="card">
+    <div class="lbl ko">스켈레톤 · 금빛 시머</div>
+    <div class="qa-skeleton" style="height:14px;border-radius:10px;margin-bottom:8px"></div>
+    <div class="qa-skeleton" style="height:14px;border-radius:10px;width:70%;margin-bottom:8px"></div>
+    <div class="qa-skeleton" style="height:14px;border-radius:10px;width:45%"></div>
+  </div>
+  <div class="card">
+    <div class="lbl ko">진행바</div>
+    <div style="height:6px;border-radius:3px;background:color-mix(in srgb,var(--qa-border) 60%,transparent);overflow:hidden">
+      <div style="height:100%;width:68%;background:var(--qa-champagne)"></div>
+    </div>
+    <div class="note">68% · 100% 가 되면 초록으로 바뀝니다</div>
+    <div style="height:6px;border-radius:3px;background:color-mix(in srgb,var(--qa-border) 60%,transparent);overflow:hidden;margin-top:14px">
+      <div style="height:100%;width:100%;background:var(--qa-green)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 빈 상태 ────────────────────────────────────────────── -->
+<div class="card" style="margin-top:10px;padding:0">
+  <div class="empty">
+    <div style="position:relative">
+      <div class="empty-glyph">◈</div>
+      <div class="empty-title">아직 등록된 항목이 없습니다</div>
+      <div class="empty-desc">첫 항목을 등록하면 여기에서 진행 상황을 한눈에 확인하실 수 있습니다.</div>
+      <button class="btn gold ko qa-btn" style="margin-bottom:18px">새로 만들기</button>
+      <div>
+        <span class="hint">가져오기</span>
+        <span class="hint">양식 보기</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="note">빈 화면에 96px 여백을 줍니다. 초라해 보이지 않고 «의도된 여백» 으로 읽힙니다.</div>
+
+</section>
+
+<script>
+const DARK = {
+  bg:'#0c0c0c', surface:'#141414', surface2:'#1b1b1b', border:'#242424', borderHi:'#333333',
+  text:'#f0ebe0', subtle:'#b7b0a5', muted:'#898271', champagne:'#b8935a',
+  green:'#7ab87a', red:'#c97a7a', warning:'#c9a87a', blue:'#7a9ac9', 'on-accent':'#0a0908',
+};
+const LIGHT = {
+  bg:'#faf9f6', surface:'#ffffff', surface2:'#f3f1ec', border:'#e2dfd8', borderHi:'#c8c4ba',
+  text:'#1c1a16', subtle:'#4a4540', muted:'#726b5e', champagne:'#8a6838',
+  green:'#3d7a3d', red:'#a83838', warning:'#97621f', blue:'#2d5fa8', 'on-accent':'#ffffff',
+};
+const STATE_LABEL = {
+  gray:'초안 · 미시작', cobalt:'사전검토', copper:'검토 중',
+  gold:'최종판단', violet:'실행추적', green:'완료 · 승인', red:'취소',
+};
+
+function paint() {
+  const light = document.documentElement.dataset.theme === 'light';
+  const pal = light ? LIGHT : DARK;
+
+  document.getElementById('swatches').innerHTML = Object.entries(pal).map(([k, v]) => `
+    <div class="sw">
+      <div class="sw-chip" style="background:${v}"></div>
+      <div class="sw-meta"><div class="sw-name">${k}</div><div class="sw-hex">${v}</div></div>
+    </div>`).join('');
+
+  document.getElementById('stateSwatches').innerHTML = Object.keys(STATE_LABEL).map((k) => `
+    <div class="sw">
+      <div class="sw-chip" style="background:var(--qa-state-${k})"></div>
+      <div class="sw-meta"><div class="sw-name">${STATE_LABEL[k]}</div><div class="sw-hex">state-${k}</div></div>
+    </div>`).join('');
+
+  const c = 'var(--qa-champagne)';
+  document.getElementById('tagTiers').innerHTML = `
+    <span class="tag" style="color:${c};border-color:color-mix(in srgb,${c} 55%,transparent);background:color-mix(in srgb,${c} 10%,transparent)"><span class="dot" style="background:${c}"></span>PRIMARY</span>
+    <span class="tag" style="color:${c};border-color:color-mix(in srgb,${c} 33%,transparent)">SECONDARY</span>
+    <span class="tag" style="color:var(--qa-muted);border-color:color-mix(in srgb,${c} 18%,transparent)">TERTIARY</span>
+    <span class="tag ko" style="color:${c};border-color:color-mix(in srgb,${c} 33%,transparent)">한글 배지</span>`;
+
+  document.getElementById('tagSizes').innerHTML = ['xs','sm',''].map((s) => {
+    const label = (s || 'md').toUpperCase();
+    return `<span class="tag ${s}" style="color:var(--qa-state-cobalt);border-color:color-mix(in srgb,var(--qa-state-cobalt) 33%,transparent)">${label}</span>`;
+  }).join('') + `<span class="note" style="margin:0 0 0 8px">18px · 22px · 26.1px</span>`;
+
+  const alerts = [
+    ['alertOk', 'green', '완료', '변경평가가 승인되었습니다.'],
+    ['alertWarn', 'warning', '확인 필요', '첨부 문서 두 건의 유효기간이 30일 이내에 만료됩니다.'],
+    ['alertErr', 'red', '오류', '필수 항목이 비어 있어 제출할 수 없습니다.'],
+  ];
+  for (const [id, tone, title, body] of alerts) {
+    const v = `var(--qa-${tone})`;
+    document.getElementById(id).style.cssText =
+      `padding:12px 16px;font-size:12px;line-height:1.6;margin-bottom:16px;` +
+      `background:color-mix(in srgb,${v} 8%,transparent);border:1px solid color-mix(in srgb,${v} 30%,transparent);color:var(--qa-text)`;
+    document.getElementById(id).innerHTML =
+      `<div class="alert-title" style="color:${v}">${title}</div>${body}`;
+  }
+}
+
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const el = document.documentElement;
+  const light = el.dataset.theme === 'light';
+  el.dataset.theme = light ? 'dark' : 'light';
+  document.getElementById('themeBtn').textContent = light ? 'DARK' : 'LIGHT';
+  paint();
+});
+
+paint();
+</script>
+</body>
+</html>

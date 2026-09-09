@@ -1,0 +1,1044 @@
+/* =============================================================================
+   Q-Atelier Cloud: Global Styles
+   ============================================================================= */
+
+/* Pretendard Variable 은 next/font/local (lib/fonts.ts) 로 self-host 됨.
+   영문/숫자 모노스페이스만 Google Fonts 에서 로드 (한글 글리프는 Pretendard 폴백). */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* ── Dark (default) ─────────────────────────────────────── */
+:root,
+html[data-theme='dark'] {
+  /* native 폼 컨트롤(date picker·select 드롭다운·스크롤바)이 앱 테마를 따르도록.
+     컴포넌트 inline style 의 colorScheme 하드코딩 대신 글로벌 단일 소스. */
+  color-scheme: dark;
+  --qa-bg: #0c0c0c;
+  --qa-surface: #141414;
+  --qa-surface2: #1b1b1b;
+  --qa-border: #242424;
+  --qa-borderHi: #333333;
+  --qa-text: #f0ebe0;
+  --qa-subtle: #b7b0a5;        /* WCAG AA on #0c0c0c */
+  --qa-muted: #898271;          /* AA 4.5:1 on bg·surface·surface2 모두 (5.12/4.82/4.50). 2026-08-20 재보정: 종전 #7e7868 은 bg 기준으로만 맞춰 카드 위에서 3.92 였다 */
+  --qa-champagne: #b8935a;     /* deeper luxury gold (was #c9a878) */
+  --qa-green: #7ab87a;
+  --qa-red: #c97a7a;
+  --qa-warning: #c9a87a;
+  --qa-blue: #7a9ac9;
+  /* 액센트(champagne/green/warning 등 솔리드 면) 위 텍스트: 다크는 액센트가
+     밝아 near-black, 라이트는 액센트가 어두워(AA 보정) white. 하드코딩 #0a0908
+     이 라이트 모드에서 진한 골드 위 검정 = 비가독이던 버그의 SSOT 해법.
+     (BRAND_THEME_METALLIC.md onAccent 개념의 정식 재도입: 팔레트는 불변.) */
+  --qa-on-accent: #0a0908;
+
+  /* ── Atmospheric & elevation tokens (Light Mode Audit) ──
+     모달 backdrop / box-shadow / vignette 를 테마 인지로. */
+  --qa-backdrop: rgba(0, 0, 0, 0.65);
+  --qa-backdrop-strong: rgba(0, 0, 0, 0.75);
+  --qa-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --qa-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --qa-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --qa-shadow-xl: 0 30px 90px rgba(0, 0, 0, 0.6);
+  /* ── Status / Category colors: 7-state workflow palette
+     다크 배경 위 밝은 파스텔 톤. 라이트 모드 override 는 아래 light 블록.
+     workflow-states.ts · doc-status-labels.ts 에서 var(--qa-state-*) 로 참조. */
+  --qa-state-gray:   #7d7670;   /* draft / not_started / NA */
+  --qa-state-cobalt: #6b8fc4;   /* preview_review / reviewed */
+  --qa-state-copper: #d49850;   /* under_review / in_progress */
+  --qa-state-gold:   #c9a878;   /* final_decision / review */
+  --qa-state-violet: #a07ac9;   /* execution_tracking / waived */
+  --qa-state-green:  #7ab87a;   /* completed / approved */
+  --qa-state-red:    #c97a7a;   /* cancelled */
+
+  --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
+}
+
+/* ── Light ──────────────────────────────────────────────── */
+html[data-theme='light'] {
+  color-scheme: light;
+  --qa-bg: #faf9f6;
+  --qa-surface: #ffffff;
+  --qa-surface2: #f3f1ec;
+  --qa-border: #e2dfd8;
+  --qa-borderHi: #c8c4ba;
+  --qa-text: #1c1a16;
+  --qa-subtle: #4a4540;          /* darker for contrast */
+  --qa-muted: #726b5e;            /* 2026-06-30: #7a7468(4.41:1, 작은 텍스트 미달)→5.01:1 보정 */
+  --qa-champagne: #8a6838;       /* WCAG AA 4.5:1↑ on white (~4.80:1, was #9a7842≈3.98:1) */
+  --qa-green: #3d7a3d;
+  --qa-red: #a83838;
+  --qa-warning: #97621f;   /* 2026-08-20: #a16921 은 bg 4.38·surface2 4.08 미달 → 전 표면 4.5+ */
+  --qa-blue: #2d5fa8;
+  --qa-on-accent: #ffffff;       /* 어두운 액센트(AA 보정) 위 텍스트 */
+
+  /* ── Atmospheric & elevation: 따뜻한 sepia 그림자 톤 ──
+     라이트 모드는 흰 배경에 검정 그림자가 너무 거칠어 → 채도 있는
+     sepia/brown 톤으로 부드럽게 처리 (Apple Human Interface 식). */
+  --qa-backdrop: rgba(40, 30, 18, 0.32);
+  --qa-backdrop-strong: rgba(40, 30, 18, 0.45);
+  --qa-shadow-sm: 0 2px 8px rgba(80, 65, 40, 0.10);
+  --qa-shadow-md: 0 6px 18px rgba(80, 65, 40, 0.14);
+  --qa-shadow-lg: 0 20px 50px rgba(80, 65, 40, 0.18);
+  --qa-shadow-xl: 0 30px 70px rgba(80, 65, 40, 0.22);
+  /* 라이트 모드는 vignette 거의 안 보이게: champagne tint 만 살짝 */
+  /* ── Status / Category colors: 라이트 배경 (WCAG AA 4.5:1 이상) ──
+     흰 배경(#fff) 위 대비비 명시. 다크의 밝은 파스텔 대신 더 어두운 채도 버전 사용. */
+  --qa-state-gray:   #72706c;   /* 4.95:1 on white */
+  --qa-state-cobalt: #3864a0;   /* 5.99:1 on white */
+  --qa-state-copper: #8a5820;   /* 6.02:1 on white */
+  --qa-state-gold:   #7a5828;   /* 6.47:1 on white */
+  --qa-state-violet: #8a58c0;   /* 4.97:1 on white */
+  --qa-state-green:  #3d803d;   /* 4.83:1 on white */
+  --qa-state-red:    #c04040;   /* 5.17:1 on white */
+
+  --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
+}
+
+/* ── 테마 독립 토큰: lineHeight 사다리 ────────────────────────────────────
+   색과 달리 줄간격은 라이트/다크에 따라 바뀌지 않는다. 그래서 테마 블록 안이
+   아니라 자기 :root 에 둬서 «테마 축이 아님»을 구조로 드러낸다.
+
+   존재 이유: lib/design/tokens.ts 의 LH 는 TS 상수라 CSS 파일에 닿지 못한다.
+   이 변수들이 그 다리다. 아래 body 의 상속 기준선(--qa-lh-relaxed)이 대표적으로,
+   전에는 사다리 최빈값과 «값만 같고 연결이 없어» LH.relaxed 를 조정하면 인라인
+   232곳만 움직이고 상속 기준선은 1.6 에 남았다.
+
+   ⚠️ LH(tokens.ts)와 값이 반드시 같아야 한다. lib/design/lh-css-sync.test.ts 가
+      두 곳을 대조해 드리프트를 막는다. 한쪽만 고치면 테스트가 실패한다. */
+:root {
+  --qa-lh-none: 1;
+  --qa-lh-tight: 1.2;
+  --qa-lh-heading: 1.3;
+  --qa-lh-snug: 1.4;
+  --qa-lh-normal: 1.5;
+  --qa-lh-notice: 1.55;
+  --qa-lh-relaxed: 1.6;
+  --qa-lh-loose: 1.7;
+}
+
+html {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* 모바일 탭 시 기본 회색 하이라이트 제거: :focus-visible / :active 로 명시 표현. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  background: var(--qa-bg);
+  color: var(--qa-text);
+  /* Pretendard Variable: next/font/local 에서 --qa-font-pretendard 로 주입.
+     선언이 늦더라도 시스템 한글 폰트로 fallback. */
+  font-family:
+    var(--qa-font-pretendard),
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    'Segoe UI',
+    'Noto Sans KR',
+    sans-serif;
+  font-size: 14px;
+  /* 상속 기준선: lineHeight 를 안 적은 «모든» 텍스트가 이 값을 받는다.
+     LH.relaxed(1.6)와 같은 값이며, 이제 변수로 묶여 함께 움직인다. */
+  line-height: var(--qa-lh-relaxed);
+  font-feature-settings: 'ss03', 'tnum'; /* Pretendard 정렬 가독성 + tabular nums */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* iOS Safari 의 pull-to-refresh / bounce 가 앱 내부 스크롤 컨테이너로 전파되어
+     원치 않는 reload/bounce 가 발생. PWA-like 거동을 위해 body 의 vertical
+     overscroll 차단. 내부 스크롤 영역(메시지 thread, table)은 영향 없음. */
+  overscroll-behavior-y: none;
+}
+
+/* ── Smooth scroll (전역) ────────────────────────────────
+   접힘/펼침 / anchor 클릭 / 강제 scrollTo 호출 시 점프 없이 부드럽게 이동.
+   - hash anchor (?doc=xxx#doc-xxx) 자동 스크롤
+   - DocCard 검토 폼 등의 collapsing → smooth transition
+   - scroll-padding-top: sticky 헤더(주로 PageHd) 가 anchor 를 가리지 않도록 여유.
+   - scroll-padding-bottom: 키보드/하단 fab 가 가리지 않도록 여유.
+   prefers-reduced-motion 사용자는 아래 룰에서 auto 로 override 됨 (WCAG 2.3.3). */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+  scroll-padding-bottom: 24px;
+}
+
+/* ── Focus visible (전역 WCAG 2.4.7) ─────────────────────
+   인라인 style 로 outline 을 무력화한 버튼들에 키보드 사용자에게
+   명확한 focus indicator 제공. mouse 클릭 시에는 (focus 아닌
+   :focus-visible) 적용 안 됨. Chrome/Firefox/Safari 모두 지원. */
+:focus-visible {
+  outline: 2px solid var(--qa-champagne, #c9a878);
+  outline-offset: 2px;
+}
+/* :focus 단독은 너무 공격적 (마우스 클릭에도 적용) → 무력화 */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--qa-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-border));
+  border-radius: 0;
+  transition: background 0.18s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--qa-champagne) 55%, var(--qa-borderHi));
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-border)) var(--qa-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::placeholder {
+  color: var(--qa-muted);
+  opacity: 1;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--qa-champagne) 30%, transparent);
+  color: var(--qa-text);
+}
+
+/* Optional underline accent for links inside content */
+.qa-link {
+  color: var(--qa-champagne);
+  border-bottom: 1px solid color-mix(in srgb, var(--qa-champagne) 40%, transparent);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease;
+}
+.qa-link:hover {
+  border-bottom-color: var(--qa-champagne);
+}
+
+/* ── Input ──────────────────────────────────────────────── */
+.qa-input {
+  /* 럭셔리 표준 radius (RADIUS.md=10): tokens.ts 와 동기. */
+  border-radius: 10px;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.qa-input:hover:not(:focus):not(:disabled):not([readonly]) {
+  border-color: var(--qa-borderHi) !important;
+}
+.qa-input:focus,
+.qa-input:focus-visible {
+  border-color: var(--qa-champagne) !important;
+  background-color: var(--qa-surface2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qa-champagne) 18%, transparent);
+}
+
+/* ── Button ─────────────────────────────────────────────── */
+.qa-btn {
+  border-radius: 10px; /* 럭셔리 표준 radius (RADIUS.md) */
+  transition:
+    opacity 0.15s ease,
+    transform 0.05s ease;
+  font-weight: 500;
+}
+.qa-btn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+.qa-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+/* .qa-btn / .qa-btn-secondary focus-visible 룰은 파일 하단의 통합 focus
+   강화 섹션으로 이동 (champagne 배경 가시성 + 보조 box-shadow). */
+
+.qa-btn-secondary {
+  border-radius: 10px; /* 럭셔리 표준 radius (RADIUS.md) */
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+.qa-btn-secondary:hover:not(:disabled) {
+  border-color: var(--qa-borderHi);
+  color: var(--qa-text);
+}
+
+/* ── Nav ────────────────────────────────────────────────── */
+.qa-nav-item {
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.qa-nav-item:hover:not(.active) {
+  background-color: var(--qa-surface2);
+  color: var(--qa-text);
+}
+.qa-nav-item.active {
+  position: relative;
+}
+
+.qa-row-clickable {
+  transition: background-color 0.12s ease;
+  cursor: pointer;
+}
+.qa-row-clickable:hover {
+  background-color: var(--qa-surface2);
+}
+
+/* ── Numbers should always be tabular ─────────────────────── */
+.qa-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Spinner animation ─────────────────────────────────────── */
+@keyframes qa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Apple-ish global easing ───────────────────────────────── */
+.qa-easing {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Backdrop blur for modals ─────────────────────────────── */
+.qa-backdrop {
+  background: color-mix(in srgb, var(--qa-bg) 70%, transparent);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+/* ── Card hover lift ───────────────────────────────────────── */
+.qa-lift {
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+.qa-lift:hover {
+  transform: translateY(-1px);
+  border-color: var(--qa-borderHi);
+}
+
+/* ── Avatar circle ─────────────────────────────────────────── */
+.qa-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-surface2));
+  color: var(--qa-text);
+  /* 사이트 전체 단일 폰트(Pretendard). 디스플레이 톤은 weight 로 표현. */
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: var(--qa-lh-none);
+  letter-spacing: 0;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Focus-visible 강화 ─────────────────────────────────────
+   champagne 배경 위에서도 가시성 확보: outline-offset 4px + 보조 box-shadow.
+   `:focus-visible` 만 사용 (마우스 클릭 시 outline 안 보임). */
+button:focus-visible:not(:disabled),
+a:focus-visible,
+[role='button']:focus-visible,
+[role='link']:focus-visible,
+[role='tab']:focus-visible,
+[role='menuitem']:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--qa-champagne);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--qa-champagne) 22%, transparent);
+  border-radius: 1px;
+}
+/* qa-btn 계열은 별도 룰로 outline-offset 강화 (champagne 배경 위 가시성). */
+.qa-btn:focus-visible:not(:disabled),
+.qa-btn-secondary:focus-visible:not(:disabled) {
+  outline: 2px solid var(--qa-champagne);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--qa-champagne) 22%, transparent);
+}
+
+/* ── prefers-reduced-motion ─────────────────────────────────
+   WCAG 2.3.3 Animation from Interactions: 사용자가 motion 감소를 선호하면
+   모든 애니메이션/트랜지션을 사실상 즉시 종료. inline transition/animation
+   (CSS-in-JS 로 작성된 sidebar width, KPI hover lift 등) 도 `*` selector
+   덕분에 함께 무력화됨. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Highlight (search matches) ────────────────────────────── */
+.qa-mark {
+  background: color-mix(in srgb, var(--qa-champagne) 25%, transparent);
+  color: var(--qa-text);
+  padding: 0 2px;
+  border-radius: 1px;
+}
+
+/* ── Responsive 보강 (tablet/mobile) ─────────────────────────
+   Sidebar 의 모바일 동작(drawer 패턴, hamburger FAB, overlay)은 모두
+   components/Sidebar.tsx 의 JS state(`isMobile`/`drawerOpen`)가 단일 진실.
+
+   Breakpoints:
+     · lg(≥1024px):  데스크탑: 사이드바 고정, padding 32px 40px
+     · md(768–1023): 태블릿: 사이드바 drawer, padding 중간값
+     · sm(<768px):   폰: 사이드바 drawer, MobileBottomNav, 최소 padding
+
+   ─────────────────────────────────────────────────────────────── */
+
+/* ── 태블릿 (768–1023px): 사이드바는 drawer, 패딩은 데스크탑보다 좁게 ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .qa-main-content {
+    padding: 68px 28px calc(100px + env(safe-area-inset-bottom, 0)) 28px !important;
+  }
+  .qa-ai-fab {
+    bottom: calc(80px + env(safe-area-inset-bottom, 0)) !important;
+  }
+}
+
+/* ── 폰 (<768px): 좁은 패딩, bottom-nav 충분히 확보 ── */
+@media (max-width: 767px) {
+  .qa-main-content {
+    padding: 68px 16px calc(128px + env(safe-area-inset-bottom, 0)) 16px !important;
+  }
+  .qa-ai-fab {
+    bottom: calc(80px + env(safe-area-inset-bottom, 0)) !important;
+  }
+}
+
+/* ── 현장 모드 셸 폭 ──────────────────────────────────────────────────────
+   현장 모드의 주 기기는 **패드**다(2026-08-20 오빠 지시). 폰 기준 520px 로 고정해
+   두면 768px 패드에서 화면 절반이 비고, 장갑 낀 손이 누를 타겟이 공연히 작아진다.
+   폰에서는 그대로 520, 패드부터 넓힌다. (인라인 스타일로는 미디어쿼리를 못 써서
+   FieldScreen 이 이 클래스를 쓴다.) */
+.qa-field-screen { max-width: 520px; }
+@media (min-width: 768px) {
+  .qa-field-screen { max-width: 760px; }
+}
+
+/* 모바일 입력칸 폰트: 데스크탑(11~13px)과 통일한 컴팩트 사이즈.
+   ⚠️ iOS Safari 는 input < 16px 포커스 시 자동 줌인이 발생하나,
+   디자인 통일을 우선해 13px 채택 (사용자 결정). 안드로이드·데스크탑 무영향.
+   `.qa-input` 외 raw input/select/textarea 모두 커버. */
+@media (max-width: 1023px) {
+  .qa-input,
+  input,
+  select,
+  textarea {
+    font-size: 14px !important; /* 2026-06-30: 13→14 본문과 통일(모바일 가독성) */
+  }
+}
+
+/* ── Touch device: 최소 터치 타겟 44×44 (WCAG 2.2 / iOS HIG) ────── */
+@media (hover: none) and (pointer: coarse) {
+  .qa-btn,
+  .qa-btn-secondary {
+    min-height: 44px;
+  }
+}
+
+/* ── Skip-link: 키보드/스크린리더 사용자가 sidebar 등 nav 를 건너뛰고
+   본문 (#main) 으로 즉시 이동. 평소엔 화면 밖, 탭으로 focus 받으면 노출.
+   WCAG 2.4.1 Bypass Blocks (Level A) 충족. */
+.qa-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.qa-skip-link:focus {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 10px 18px;
+  background: var(--qa-champagne);
+  color: var(--qa-bg);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  outline: 2px solid var(--qa-text);
+  outline-offset: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* main landmark: tabIndex={-1} 로 받은 focus 가 outline 으로 안 보이도록.
+   skip-link 클릭 후 :target 가능. */
+#main:focus {
+  outline: none;
+}
+
+/* ── ScrollTable: 멀티 컬럼 그리드 테이블 모바일 wrapper ─────────────
+   데스크탑에서는 자식의 grid template columns 가 그대로 1fr 해석되고,
+   모바일에서 폭이 minWidth 보다 작으면 horizontal scroll. iOS momentum.
+
+   sticky 첫 컬럼: <Bx> 또는 surface 위에 놓이므로 surface 배경으로 덮음.
+   첫 컬럼은 row 의 :first-child grid cell. row 자체가 display: grid 인
+   구조에 의존. */
+.qa-scroll-table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.qa-scroll-table-inner {
+  width: 100%;
+}
+/* 가로 스크롤 가능 표시: 모바일에서만 우측 fade 보조 */
+@media (max-width: 1023px) {
+  .qa-scroll-table {
+    background:
+      linear-gradient(to right, var(--qa-surface) 30%, transparent),
+      linear-gradient(to right, transparent, var(--qa-surface) 70%) 100% 0,
+      radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.25), transparent),
+      radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.25), transparent) 100% 0;
+    background-repeat: no-repeat;
+    background-size: 28px 100%, 28px 100%, 12px 100%, 12px 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
+}
+/* sticky 첫 컬럼: 가로 스크롤 시 row 식별 유지 (code 등 primary id).
+   row 가 display: grid 일 때 첫 grid cell 을 position: sticky. */
+.qa-scroll-table.qa-sticky-first .qa-scroll-table-inner > * > *:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  /* surface 색으로 덮어 뒷 컬럼이 비치지 않게. row 자체 background 가
+     있으면 그것이 우선. */
+  background: var(--qa-surface);
+}
+
+/* =============================================================================
+   반응형 유틸리티 클래스: 모바일/태블릿 레이아웃 통일
+   ============================================================================= */
+
+/* 반응형 3컬럼 → 2컬럼 → 1컬럼 자동 축소 그리드 */
+.qa-grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+@media (max-width: 767px) {
+  .qa-grid-responsive {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* 2컬럼 before/after 비교 그리드: 모바일에서 수직 스택 */
+.qa-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .qa-compare-grid {
+    grid-template-columns: 1fr;
+  }
+  .qa-compare-grid .qa-compare-arrow {
+    display: none;
+  }
+}
+
+/* 모바일에서 다컬럼 grid → 1열 collapse (P2 audit 후속) */
+@media (max-width: 767px) {
+  /* 변경평가 첨부 그리드: 파일명 + 크기 + 액션 → 모바일 1열 */
+  .qa-attach-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  /* AssessmentPreviewPanel 핵심 지표 4개 → 모바일 2열 */
+  .qa-kpi-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* RoleReviewPanel RA/QA 2칸 → 모바일 1열 */
+  .qa-rolereview-2 {
+    grid-template-columns: 1fr !important;
+  }
+  /* CR Panel 영향 평가 2x2 그리드 → 모바일 1열 */
+  .qa-impact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* SubmissionTrackingPanel 폼 그리드 (2열·3열 혼재) → 모바일 1열 */
+  .qa-submission-form {
+    grid-template-columns: 1fr !important;
+  }
+  /* 템플릿 매니저 편집/등록 폼 2열 그리드 → 모바일 1열 */
+  .qa-template-edit {
+    grid-template-columns: 1fr !important;
+  }
+  /* settings/members: 모바일에서 데스크탑 컬럼 헤더 숨김 + row 카드화 */
+  .qa-member-header {
+    display: none !important;
+  }
+  .qa-member-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 14px 16px !important;
+  }
+  /* /audit/filter-bar: 모바일에서 각 컨트롤 풀폭 stack (이미 flex-wrap 됨) */
+  .qa-audit-filter > form,
+  .qa-audit-filter > select,
+  .qa-audit-filter > button {
+    width: 100% !important;
+  }
+  .qa-audit-filter input,
+  .qa-audit-filter select {
+    min-width: 0 !important;
+    flex: 1 !important;
+  }
+  /* /admin/* 표 (사용자·활동·멀티뷰): 헤더 숨김 + row 1열 카드화 */
+  .qa-admin-table-header {
+    display: none !important;
+  }
+  .qa-admin-table-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 14px 16px !important;
+  }
+  /* RA 워크스페이스: 시판품/허가준비 카드 4컬럼 → 모바일 1열 */
+  .qa-ra-4col {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  /* Owner 대시보드 R&D 파이프라인 행: 5컬럼 가로 → 모바일 2열 재배치
+     (코드·제목 전체폭 / 등급·단계 나란히 / 진행률 전체폭) */
+  .qa-pipeline-row {
+    display: grid !important; /* 데스크탑 inline flex → 모바일 grid 전환(없으면 grid-template-columns 무효) */
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px 10px !important;
+    align-items: start !important;
+  }
+  .qa-pipeline-row > :nth-child(1),
+  .qa-pipeline-row > :nth-child(2),
+  .qa-pipeline-row > :nth-child(5) {
+    grid-column: 1 / -1 !important;
+  }
+  .qa-pipeline-row > :nth-child(5) {
+    margin-top: 6px !important;
+  }
+  /* 변경평가 상세: 영향영역(2열) + ISO 체크리스트(3열) → 모바일 1열 */
+  .qa-assess-impact,
+  .qa-assess-checklist {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  /* RequirementsDashboard: 인허가 시장 카드 N열 → 모바일 minmax 자동 */
+  .qa-regulatory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+  }
+  /* RdDocumentFlowPanel 카드 헤더 칩(제목·부서·작성·단계·권장·ISO) 6개 → 모바일 gap 축소로 세로 길이 절감 */
+  .qa-rddoc-chips {
+    gap: 5px 8px !important;
+  }
+}
+
+/* 모바일에서 숨김 */
+@media (max-width: 767px) {
+  .qa-hide-mobile { display: none !important; }
+}
+/* 태블릿에서 숨김 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .qa-hide-tablet { display: none !important; }
+}
+/* 데스크탑에서만 보임 */
+@media (max-width: 1023px) {
+  .qa-desktop-only { display: none !important; }
+}
+/* 모바일/태블릿에서만 보임 */
+@media (min-width: 1024px) {
+  .qa-mobile-only { display: none !important; }
+}
+
+/* PWA standalone 모드: 노치/아일랜드 영역 추가 여백 */
+@media (display-mode: standalone) {
+  .qa-main-content {
+    padding-top: max(68px, env(safe-area-inset-top, 0) + 44px) !important;
+  }
+}
+
+/* =============================================================================
+   Premium polish: Design Audit Tier 1+2 (2026-05)
+   ============================================================================= */
+
+/* ── Card hover lift: Bx 컴포넌트 위에 .qa-card-lift 추가 시 발동 ──── */
+.qa-card-lift {
+  transition:
+    transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  will-change: transform;
+}
+.qa-card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    0 0 0 1px color-mix(in srgb, var(--qa-champagne) 18%, transparent);
+  border-color: color-mix(in srgb, var(--qa-champagne) 30%, var(--qa-border));
+}
+
+/* ── Top loading progress bar: 라우트 전환 시 champagne hairline ──── */
+.qa-top-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--qa-champagne) 30%,
+    color-mix(in srgb, var(--qa-champagne) 80%, white) 60%,
+    var(--qa-champagne) 100%
+  );
+  box-shadow: 0 0 12px color-mix(in srgb, var(--qa-champagne) 70%, transparent);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* ── Skeleton shimmer: Loading 텍스트 대체 ──────────────────────── */
+.qa-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--qa-champagne) 4%, var(--qa-surface));
+  border: 1px solid color-mix(in srgb, var(--qa-champagne) 8%, var(--qa-border));
+}
+.qa-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--qa-champagne) 18%, transparent) 50%,
+    transparent 100%
+  );
+  animation: qa-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes qa-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-skeleton::after { animation: none; opacity: 0.4; }
+}
+
+/* ── Magazine section divider: 잡지 표지 톤 ────────────────────── */
+.qa-mag-divider {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 32px 0 18px;
+}
+.qa-mag-divider-num {
+  font-family: var(--qa-font-pretendard), serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--qa-champagne);
+  letter-spacing: -0.02em;
+  line-height: var(--qa-lh-none);
+  font-feature-settings: 'tnum';
+}
+.qa-mag-divider-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; /* 2026-08-21: 9.5px 표류값 정리(FS 사다리에 0.5 없음) */
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--qa-muted);
+}
+.qa-mag-divider-title {
+  font-family: var(--qa-font-pretendard), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--qa-text);
+  letter-spacing: -0.005em;
+}
+.qa-mag-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--qa-champagne) 40%, transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* ── Soft pulse: 알림 새 항목 도착, 라이브 인디케이터 등 ────────── */
+@keyframes qa-soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.08); }
+}
+.qa-pulse {
+  animation: qa-soft-pulse 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-pulse { animation: none; }
+}
+
+/* ── Page transition (PageTransition.tsx): Theatrical (옵션 F++) ───────
+   사용자 피드백: '한 단계만 더 느리게' (F+ → F++).
+   · transform: 1400ms 동안 52px → 0 (Apple expo)
+   · opacity:   transform 시작 260ms 뒤에 1180ms 에 걸쳐 0 → 1
+   · will-change hint 로 GPU 가속 보장 (모바일 약한 hardware 대비) */
+@keyframes qa-page-rise {
+  from { transform: translateY(8px); }
+  to   { transform: translateY(0); }
+}
+@keyframes qa-page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+/* 페이지 전환 등장: 작고 빠르게(8px·~360ms). 이전 52px·1400ms 는 페이지마다
+   콘텐츠가 크게 슬라이드하며 1.4s 출렁여 "떠걱떠걱" 의 원인이었음(2026-06-06 수정). */
+.qa-page-fade {
+  will-change: transform, opacity;
+  animation:
+    qa-page-rise 360ms cubic-bezier(0.16, 1, 0.3, 1) both,
+    qa-page-fade-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-page-fade { animation: none; will-change: auto; }
+}
+
+/* ── Staggered reveal (.qa-stagger): 직계 자식이 위→아래 순차 fade-up ──────
+   "중구난방 로딩" 해소: 페이지 섹션/카드를 한꺼번에가 아니라 ~70ms 간격으로
+   순차적으로 떠오르게 해 럭셔리한 reveal. 컨테이너에 className="qa-stagger".
+   per-item 560ms, nth-child 로 delay. 9번째부터는 delay 고정(과도한 지연 방지). */
+@keyframes qa-stagger-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* 순차 reveal: 작고 빠르게(6px·360ms, 간격 35ms). 이전 10px·560ms·간격 70ms
+   (최대 600ms 딜레이)는 위젯이 차례로 뜨며 "제각각/떠걱" 으로 느껴졌음(2026-06-06). */
+.qa-stagger > * {
+  animation: qa-stagger-rise 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.qa-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.qa-stagger > *:nth-child(2) { animation-delay: 35ms; }
+.qa-stagger > *:nth-child(3) { animation-delay: 70ms; }
+.qa-stagger > *:nth-child(4) { animation-delay: 105ms; }
+.qa-stagger > *:nth-child(5) { animation-delay: 140ms; }
+.qa-stagger > *:nth-child(6) { animation-delay: 175ms; }
+.qa-stagger > *:nth-child(7) { animation-delay: 210ms; }
+.qa-stagger > *:nth-child(8) { animation-delay: 245ms; }
+.qa-stagger > *:nth-child(n + 9) { animation-delay: 280ms; }
+@media (prefers-reduced-motion: reduce) {
+  .qa-stagger > * { animation: none; }
+}
+
+/* ── async fade-in (.qa-fade-in): 데이터 도착 후 마운트되는 위젯/콘텐츠가
+   '팝'하지 않고 부드럽게 떠오르도록. async client 위젯 루트에 적용(롤아웃용). */
+@keyframes qa-fade-in-soft {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.qa-fade-in { animation: qa-fade-in-soft 480ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .qa-fade-in { animation: none; }
+}
+
+/* ── Toast: TTL progress bar 수축 + error shake ───────────────────────
+   bottom 1-2px champagne bar 가 ttlMs 동안 100% → 0% 로 줄어들며 시각적 카운트다운.
+   error 일 때 가벼운 좌우 흔들림 (240ms × 1회): luxury 톤 유지하며 주의 환기. */
+@keyframes qa-toast-progress {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+@keyframes qa-toast-shake {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25%      { transform: translateY(0) translateX(-3px); }
+  75%      { transform: translateY(0) translateX(3px); }
+}
+.qa-toast-shake {
+  animation: qa-toast-shake 240ms cubic-bezier(0.36, 0, 0.7, 1) 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-toast-shake { animation: none; }
+}
+
+/* ── FldError: input 아래 slide-down fade-in ─────────────────────────── */
+@keyframes qa-fld-error-rise {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Sidebar active dot pulse: 진입 시 한 번만 ─────────────────────────
+   사이드바 NavLink active 진입 직후 champagne dot 한 번 pulse → 사용자
+   포커스 안내. 반복 X (지속 깜빡임은 불편). */
+@keyframes qa-nav-active-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  35%  { transform: scale(1.4); opacity: 1;   }
+  100% { transform: scale(1);   opacity: 0.6; }
+}
+.qa-nav-active-dot {
+  animation: qa-nav-active-pulse 600ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-nav-active-dot { animation: none; }
+}
+
+/* ── Tip: tooltip panel fade-in ─────────────────────────────────────── */
+@keyframes qa-tip-rise {
+  from { opacity: 0; transform: translateY(2px) translateX(var(--qa-tip-tx, -50%)); }
+  to   { opacity: 1; transform: translateY(0)   translateX(var(--qa-tip-tx, -50%)); }
+}
+
+/* ── Custom select chevron: 모든 .qa-input 셀렉트에 적용 ────────────── */
+select.qa-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23b8935a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 6px;
+  padding-right: 32px !important;
+  cursor: pointer;
+}
+select.qa-input:hover:not(:disabled) {
+  background-image:
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23d4b078' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+}
+/* 라이트 모드(감사 UI/UX #16): 다크용 골드 #b8935a 는 흰 입력칸 위 ~2.6:1 로 흐릿:
+   라이트 champagne(#8a6838, --qa-champagne 라이트 값)로 교체. data-URI 는 var() 를
+   못 받으므로 테마별 오버라이드로 처리. hover 는 동일 색 + 굵기만 강조. */
+html[data-theme='light'] select.qa-input {
+  background-image:
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%238a6838' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+}
+html[data-theme='light'] select.qa-input:hover:not(:disabled) {
+  background-image:
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%238a6838' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+}
+select.qa-input::-ms-expand {
+  display: none;
+}
+
+/* =============================================================================
+   Print branding: 사용자가 Ctrl+P 로 출력하거나 PDF 저장 시 적용
+   ============================================================================= */
+@media print {
+  /* 다크 모드여도 인쇄용은 흰 배경 + 검정 텍스트 강제 */
+  :root,
+  html,
+  html[data-theme='dark'],
+  html[data-theme='light'] {
+    --qa-bg: #ffffff !important;
+    --qa-surface: #ffffff !important;
+    --qa-surface2: #f5f3ee !important;
+    --qa-border: #d4d0c8 !important;
+    --qa-borderHi: #999488 !important;
+    --qa-text: #1a1814 !important;
+    --qa-subtle: #4a4540 !important;
+    --qa-muted: #746e62 !important; /* 2026-08-20: #7a7468 은 인쇄 surface2 위 4.18 미달 */
+    --qa-champagne: #8a6a3a !important;
+    --qa-on-accent: #ffffff !important; /* 인쇄(흰 배경)도 어두운 골드 위 흰 글자 */
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #1a1814 !important;
+  }
+  /* 사이드바·인터랙티브 chrome 인쇄 시 숨김 */
+  aside.qa-sidebar-aside,
+  .qa-skip-link,
+  .qa-top-progress,
+  [aria-hidden='true']:not(.qa-print-watermark),
+  button {
+    display: none !important;
+  }
+  /* 본문은 전체 폭 */
+  main.qa-main-content {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 24px 32px !important;
+  }
+  /* 카드 그림자 / hover lift 제거 */
+  .qa-card-lift {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  /* 모든 페이지 하단에 brand watermark: @page margin-bottom 영역 사용 */
+  @page {
+    margin: 18mm 16mm 22mm;
+    size: A4;
+  }
+  /* 인쇄용 footer: fixed position 으로 매 페이지 하단 */
+  body::after {
+    content: 'Q-Atelier · Medical Device Regulatory Workspace · Crafted with Q-Atelier';
+    position: fixed;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    text-align: center;
+    font-size: 8pt;
+    color: #8a6a3a;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1.5px;
+    border-top: 0.5pt solid #d4d0c8;
+    padding-top: 4mm;
+  }
+  /* 페이지 깨짐 방지: 카드/패널은 가능하면 같이 인쇄 */
+  .qa-card-lift,
+  table,
+  .qa-mag-divider {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  /* 헤딩 직후 한 줄만 다음 페이지에 가는 widow 방지 */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+  /* 링크는 검정 + URL 자동 표시 안 함 (SR 환경 너무 시끄러움) */
+  a {
+    color: #1a1814 !important;
+    text-decoration: none !important;
+  }
+  /* RibbonBackground 등 atmospheric 요소 인쇄 X */
+  .qa-ribbon-layer-1,
+  .qa-ribbon-layer-2 {
+    display: none !important;
+  }
+}

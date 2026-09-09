@@ -1,0 +1,443 @@
+{
+  "$meta": {
+    "name": "Q-Design",
+    "source": "Q-Atelier · lib/design/tokens.ts + app/globals.css + app/experts/expert-theme.css",
+    "generatedAt": "2026-09-09",
+    "note": "손으로 고치지 마세요. tools/extract-tokens.mjs 를 다시 돌리세요.",
+    "rootFontSizeWarning": "rem 기준은 16px 이 아니라 14px 입니다. TYPE 의 rem 값을 16 으로 환산하면 전부 틀립니다."
+  },
+  "color": {
+    "dark": {
+      "--qa-bg": "#0c0c0c",
+      "--qa-surface": "#141414",
+      "--qa-surface2": "#1b1b1b",
+      "--qa-border": "#242424",
+      "--qa-borderHi": "#333333",
+      "--qa-text": "#f0ebe0",
+      "--qa-subtle": "#b7b0a5",
+      "--qa-muted": "#898271",
+      "--qa-champagne": "#b8935a",
+      "--qa-green": "#7ab87a",
+      "--qa-red": "#c97a7a",
+      "--qa-warning": "#c9a87a",
+      "--qa-blue": "#7a9ac9",
+      "--qa-on-accent": "#0a0908",
+      "--qa-backdrop": "rgba(0, 0, 0, 0.65)",
+      "--qa-backdrop-strong": "rgba(0, 0, 0, 0.75)",
+      "--qa-shadow-sm": "0 2px 8px rgba(0, 0, 0, 0.25)",
+      "--qa-shadow-md": "0 6px 18px rgba(0, 0, 0, 0.35)",
+      "--qa-shadow-lg": "0 20px 60px rgba(0, 0, 0, 0.55)",
+      "--qa-shadow-xl": "0 30px 90px rgba(0, 0, 0, 0.6)",
+      "--qa-state-gray": "#7d7670",
+      "--qa-state-cobalt": "#6b8fc4",
+      "--qa-state-copper": "#d49850",
+      "--qa-state-gold": "#c9a878",
+      "--qa-state-violet": "#a07ac9",
+      "--qa-state-green": "#7ab87a",
+      "--qa-state-red": "#c97a7a",
+      "--qa-vignette": "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)"
+    },
+    "light": {
+      "--qa-bg": "#faf9f6",
+      "--qa-surface": "#ffffff",
+      "--qa-surface2": "#f3f1ec",
+      "--qa-border": "#e2dfd8",
+      "--qa-borderHi": "#c8c4ba",
+      "--qa-text": "#1c1a16",
+      "--qa-subtle": "#4a4540",
+      "--qa-muted": "#726b5e",
+      "--qa-champagne": "#8a6838",
+      "--qa-green": "#3d7a3d",
+      "--qa-red": "#a83838",
+      "--qa-warning": "#97621f",
+      "--qa-blue": "#2d5fa8",
+      "--qa-on-accent": "#ffffff",
+      "--qa-backdrop": "rgba(40, 30, 18, 0.32)",
+      "--qa-backdrop-strong": "rgba(40, 30, 18, 0.45)",
+      "--qa-shadow-sm": "0 2px 8px rgba(80, 65, 40, 0.10)",
+      "--qa-shadow-md": "0 6px 18px rgba(80, 65, 40, 0.14)",
+      "--qa-shadow-lg": "0 20px 50px rgba(80, 65, 40, 0.18)",
+      "--qa-shadow-xl": "0 30px 70px rgba(80, 65, 40, 0.22)",
+      "--qa-state-gray": "#72706c",
+      "--qa-state-cobalt": "#3864a0",
+      "--qa-state-copper": "#8a5820",
+      "--qa-state-gold": "#7a5828",
+      "--qa-state-violet": "#8a58c0",
+      "--qa-state-green": "#3d803d",
+      "--qa-state-red": "#c04040",
+      "--qa-vignette": "radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%)"
+    },
+    "print": {
+      "--qa-bg": "#ffffff !important",
+      "--qa-surface": "#ffffff !important",
+      "--qa-surface2": "#f5f3ee !important",
+      "--qa-border": "#d4d0c8 !important",
+      "--qa-borderHi": "#999488 !important",
+      "--qa-text": "#1a1814 !important",
+      "--qa-subtle": "#4a4540 !important",
+      "--qa-muted": "#746e62 !important",
+      "--qa-champagne": "#8a6a3a !important",
+      "--qa-on-accent": "#ffffff !important"
+    },
+    "semantic": {
+      "bg": "var(--qa-bg)",
+      "surface": "var(--qa-surface)",
+      "surface2": "var(--qa-surface2)",
+      "border": "var(--qa-border)",
+      "borderHi": "var(--qa-borderHi)",
+      "text": "var(--qa-text)",
+      "subtle": "var(--qa-subtle)",
+      "muted": "var(--qa-muted)",
+      "champagne": "var(--qa-champagne)",
+      "green": "var(--qa-green)",
+      "red": "var(--qa-red)",
+      "warning": "var(--qa-warning)",
+      "blue": "var(--qa-blue)",
+      "onAccent": "var(--qa-on-accent)"
+    },
+    "state": {
+      "gray": "var(--qa-state-gray)",
+      "cobalt": "var(--qa-state-cobalt)",
+      "copper": "var(--qa-state-copper)",
+      "gold": "var(--qa-state-gold)",
+      "violet": "var(--qa-state-violet)",
+      "green": "var(--qa-state-green)",
+      "red": "var(--qa-state-red)"
+    },
+    "overlay": {
+      "backdrop": "var(--qa-backdrop)",
+      "backdropStrong": "var(--qa-backdrop-strong)"
+    },
+    "expertDark": {
+      "--ink": "#08070a",
+      "--obsidian": "#100e0c",
+      "--velvet": "#18161a",
+      "--hairline": "rgba(var(--champagne-rgb), 0.12)",
+      "--hairline-strong": "rgba(var(--champagne-rgb), 0.28)",
+      "--champagne": "#c9a86a",
+      "--champagne-soft": "#b8995d",
+      "--champagne-bright": "#e0c084",
+      "--cream": "#f3ede0",
+      "--cream-muted": "#cfc5b3",
+      "--mist": "#aaa395",
+      "--whisper": "#8a8377",
+      "--burgundy": "#b8624c",
+      "--burgundy-bright": "#c87560",
+      "--burgundy-soft": "#d99a85",
+      "--burgundy-deep": "#6e3a2e",
+      "--burgundy-deep-bright": "#823d2e",
+      "--status-verified": "#82c298",
+      "--status-pending": "#d8a85a",
+      "--status-progress": "#7da6d8",
+      "--status-rejected": "#e88a8a",
+      "--champagne-rgb": "201, 168, 106",
+      "--ink-rgb": "8, 7, 10",
+      "--badge-pad": "5px 12px",
+      "--badge-size": "12px",
+      "--badge-tracking": "0.12em",
+      "--risk-critical": "#e88a8a",
+      "--risk-high": "#e8b070",
+      "--risk-medium": "#c9a86a",
+      "--risk-low": "#82c298",
+      "--risk-unknown": "#8a8478",
+      "--velvet-rgb": "24, 22, 26",
+      "--raise-rgb": "34, 30, 36",
+      "--serif": "var(--font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), Georgia, serif",
+      "--sans": "var(--qa-font-pretendard), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      "--mono": "'JetBrains Mono', 'SF Mono', Consolas, var(--qa-font-pretendard), monospace",
+      "--fs-label": "11px",
+      "--fs-ui": "12px",
+      "--fs-body": "14px",
+      "--fs-lead": "16px",
+      "--fs-title": "20px",
+      "--fs-brand": "22px",
+      "--fs-figure": "44px",
+      "--radius": "0",
+      "--qa-radius-card": "0",
+      "--qa-bg": "var(--ink)",
+      "--qa-surface": "var(--velvet)",
+      "--qa-surface2": "var(--obsidian)",
+      "--qa-text": "var(--cream)",
+      "--qa-subtle": "var(--cream-muted)",
+      "--qa-muted": "var(--mist)",
+      "--qa-border": "var(--hairline-strong)",
+      "--qa-borderHi": "var(--champagne-soft)",
+      "--qa-champagne": "var(--champagne)",
+      "--qa-green": "var(--status-verified)",
+      "--qa-red": "var(--status-rejected)",
+      "--qa-warning": "var(--status-pending)",
+      "--qa-blue": "var(--status-progress)",
+      "--ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "expertLight": {
+      "--ink": "#f7f4ee",
+      "--obsidian": "#f0ece3",
+      "--velvet": "#ebe6db",
+      "--hairline": "rgba(var(--champagne-rgb), 0.18)",
+      "--hairline-strong": "rgba(var(--champagne-rgb), 0.36)",
+      "--champagne": "#7d5c2e",
+      "--champagne-soft": "#7a5828",
+      "--champagne-bright": "#a8783a",
+      "--cream": "#1c1a16",
+      "--cream-muted": "#4a4540",
+      "--mist": "#6a6358",
+      "--whisper": "#676157",
+      "--burgundy": "#a8472f",
+      "--burgundy-bright": "#9a3d28",
+      "--burgundy-soft": "#b8624c",
+      "--burgundy-deep": "#7a3020",
+      "--burgundy-deep-bright": "#8a3826",
+      "--status-verified": "#2a7247",
+      "--status-pending": "var(--champagne)",
+      "--status-progress": "#3563a8",
+      "--status-rejected": "#a8472f",
+      "--risk-critical": "var(--status-rejected)",
+      "--risk-high": "#8f5610",
+      "--risk-medium": "var(--champagne)",
+      "--risk-low": "var(--status-verified)",
+      "--risk-unknown": "var(--mist)",
+      "--champagne-rgb": "125, 92, 46",
+      "--ink-rgb": "247, 244, 238",
+      "--velvet-rgb": "235, 230, 219",
+      "--raise-rgb": "224, 218, 205"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "serif": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+      "ui": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+      "mono": "'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace",
+      "display": "var(--qa-font-cormorant), 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif"
+    },
+    "fontSize": {
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "22": 22,
+      "24": 24,
+      "26": 26,
+      "28": 28,
+      "30": 30,
+      "32": 32,
+      "36": 36,
+      "38": 38,
+      "40": 40,
+      "48": 48,
+      "80": 80
+    },
+    "lineHeight": {
+      "none": 1,
+      "tight": 1.2,
+      "snug": 1.4,
+      "normal": 1.5,
+      "relaxed": 1.6,
+      "loose": 1.7,
+      "heading": 1.3,
+      "notice": 1.55
+    },
+    "type": {
+      "display": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)",
+        "fontWeight": 700,
+        "letterSpacing": "-0.02em",
+        "lineHeight": 1.05
+      },
+      "h1": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem)",
+        "fontWeight": 700,
+        "letterSpacing": "-0.015em",
+        "lineHeight": 1.15
+      },
+      "h2": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "clamp(1.25rem, 1rem + 0.8vw, 1.5rem)",
+        "fontWeight": 600,
+        "letterSpacing": "-0.01em",
+        "lineHeight": 1.25
+      },
+      "h3": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "1.0625rem",
+        "fontWeight": 600,
+        "letterSpacing": "-0.005em",
+        "lineHeight": 1.35
+      },
+      "body": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "0.9375rem",
+        "fontWeight": 400,
+        "letterSpacing": 0,
+        "lineHeight": 1.65
+      },
+      "caption": {
+        "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "fontSize": "0.8125rem",
+        "fontWeight": 400,
+        "letterSpacing": 0,
+        "lineHeight": 1.55
+      },
+      "mono": {
+        "fontFamily": "'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace",
+        "fontSize": "0.6875rem",
+        "fontWeight": 500,
+        "letterSpacing": "0.08em",
+        "lineHeight": 1.4,
+        "textTransform": "uppercase"
+      }
+    },
+    "rootFontSize": 14
+  },
+  "space": {
+    "scale": {
+      "0": 0,
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "7": 28,
+      "8": 32,
+      "9": 36,
+      "10": 40,
+      "11": 44,
+      "12": 48,
+      "14": 56,
+      "16": 64,
+      "18": 72,
+      "20": 80,
+      "24": 96,
+      "0.5": 2,
+      "1.5": 6,
+      "2.5": 10,
+      "3.5": 14,
+      "4.5": 18,
+      "5.5": 22,
+      "6.5": 26,
+      "7.5": 30
+    },
+    "touch": {
+      "min": 44,
+      "comfortable": 48
+    },
+    "layout": {
+      "mobile": 520,
+      "form": 720,
+      "detail": 820,
+      "wide": 1140
+    },
+    "mainPadding": {
+      "top": 32,
+      "right": 40,
+      "bottom": 32,
+      "left": 40
+    }
+  },
+  "breakpoint": {
+    "sm": 480,
+    "md": 768,
+    "lg": 1024,
+    "xl": 1280,
+    "2xl": 1536
+  },
+  "radius": {
+    "sm": 6,
+    "md": 10,
+    "lg": 14,
+    "xl": 20,
+    "pill": 9999
+  },
+  "motion": {
+    "instant": "120ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "fast": "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "normal": "320ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "slow": "480ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "easeOutExpo": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "easeInOut": "cubic-bezier(0.65, 0, 0.35, 1)"
+  },
+  "shadow": {
+    "fixedDark": {
+      "hairline": "0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.2)",
+      "surface": "0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px -4px rgba(0, 0, 0, 0.35)",
+      "float": "0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45)",
+      "anchor": "0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.55)"
+    },
+    "themeAware": {
+      "sm": "var(--qa-shadow-sm)",
+      "md": "var(--qa-shadow-md)",
+      "lg": "var(--qa-shadow-lg)",
+      "xl": "var(--qa-shadow-xl)"
+    }
+  },
+  "z": {
+    "base": 1,
+    "dropdown": 50,
+    "sticky": 100,
+    "header": 200,
+    "overlay": 1000,
+    "modal": 1100,
+    "popover": 1200,
+    "toast": 1300,
+    "tooltip": 9999
+  },
+  "icon": {
+    "strokeWidth": 1.5,
+    "strokeWidthThin": 1.25,
+    "sizeXs": 14,
+    "sizeSm": 16,
+    "sizeMd": 20,
+    "sizeLg": 24,
+    "sizeXl": 32,
+    "size2xl": 48
+  },
+  "brand": {
+    "goldGradient": "linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%)",
+    "tagline": "Documents precise. Systems adaptive."
+  },
+  "tag": {
+    "border": 1,
+    "dims": {
+      "xs": {
+        "minH": 18,
+        "fs": 10,
+        "padY": 0,
+        "padX": 6,
+        "dotSize": 5,
+        "gap": 4
+      },
+      "sm": {
+        "minH": 22,
+        "fs": 11,
+        "padY": 2,
+        "padX": 8,
+        "dotSize": 6,
+        "gap": 4
+      },
+      "md": {
+        "minH": 26,
+        "fs": 11.5,
+        "padY": 4,
+        "padX": 10,
+        "dotSize": 7,
+        "gap": 5
+      }
+    },
+    "heightDriver": {
+      "xs": "minHeight",
+      "sm": "minHeight",
+      "md": "lineHeight"
+    }
+  }
+}

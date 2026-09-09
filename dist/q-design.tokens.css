@@ -1,0 +1,196 @@
+/* =============================================================================
+   Q-Design 토큰 · 생성물 (tools/extract-tokens.mjs)
+   출처: Q-Atelier · lib/design/tokens.ts + app/globals.css
+   손으로 고치지 마세요. 원본을 고치고 스크립트를 다시 돌리세요.
+   ============================================================================= */
+
+/* ── 색: 다크(기본) ─────────────────────────────────────────────────────── */
+:root,
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --qa-bg: #0c0c0c;
+  --qa-surface: #141414;
+  --qa-surface2: #1b1b1b;
+  --qa-border: #242424;
+  --qa-borderHi: #333333;
+  --qa-text: #f0ebe0;
+  --qa-subtle: #b7b0a5;
+  --qa-muted: #898271;
+  --qa-champagne: #b8935a;
+  --qa-green: #7ab87a;
+  --qa-red: #c97a7a;
+  --qa-warning: #c9a87a;
+  --qa-blue: #7a9ac9;
+  --qa-on-accent: #0a0908;
+  --qa-backdrop: rgba(0, 0, 0, 0.65);
+  --qa-backdrop-strong: rgba(0, 0, 0, 0.75);
+  --qa-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --qa-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --qa-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --qa-shadow-xl: 0 30px 90px rgba(0, 0, 0, 0.6);
+  --qa-state-gray: #7d7670;
+  --qa-state-cobalt: #6b8fc4;
+  --qa-state-copper: #d49850;
+  --qa-state-gold: #c9a878;
+  --qa-state-violet: #a07ac9;
+  --qa-state-green: #7ab87a;
+  --qa-state-red: #c97a7a;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
+}
+
+/* ── 색: 라이트 ─────────────────────────────────────────────────────────── */
+html[data-theme='light'] {
+  color-scheme: light;
+  --qa-bg: #faf9f6;
+  --qa-surface: #ffffff;
+  --qa-surface2: #f3f1ec;
+  --qa-border: #e2dfd8;
+  --qa-borderHi: #c8c4ba;
+  --qa-text: #1c1a16;
+  --qa-subtle: #4a4540;
+  --qa-muted: #726b5e;
+  --qa-champagne: #8a6838;
+  --qa-green: #3d7a3d;
+  --qa-red: #a83838;
+  --qa-warning: #97621f;
+  --qa-blue: #2d5fa8;
+  --qa-on-accent: #ffffff;
+  --qa-backdrop: rgba(40, 30, 18, 0.32);
+  --qa-backdrop-strong: rgba(40, 30, 18, 0.45);
+  --qa-shadow-sm: 0 2px 8px rgba(80, 65, 40, 0.10);
+  --qa-shadow-md: 0 6px 18px rgba(80, 65, 40, 0.14);
+  --qa-shadow-lg: 0 20px 50px rgba(80, 65, 40, 0.18);
+  --qa-shadow-xl: 0 30px 70px rgba(80, 65, 40, 0.22);
+  --qa-state-gray: #72706c;
+  --qa-state-cobalt: #3864a0;
+  --qa-state-copper: #8a5820;
+  --qa-state-gold: #7a5828;
+  --qa-state-violet: #8a58c0;
+  --qa-state-green: #3d803d;
+  --qa-state-red: #c04040;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
+}
+
+/* ── 줄간격 사다리: 색과 달리 테마 축이 아니라 자기 :root 에 둡니다 ─────── */
+:root {
+  --qa-lh-none: 1;
+  --qa-lh-tight: 1.2;
+  --qa-lh-heading: 1.3;
+  --qa-lh-snug: 1.4;
+  --qa-lh-normal: 1.5;
+  --qa-lh-notice: 1.55;
+  --qa-lh-relaxed: 1.6;
+  --qa-lh-loose: 1.7;
+}
+
+/* ── 스케일: 원본에선 TS 상수. CSS 만 쓰는 곳을 위해 변수로도 냅니다 ────── */
+:root {
+  /* 간격: 4px 기준 + 2px 하프스텝. 키의 점은 밑줄로 (--qa-space-3_5 = 14px) */
+  --qa-space-0: 0px;
+  --qa-space-0_5: 2px;
+  --qa-space-1: 4px;
+  --qa-space-1_5: 6px;
+  --qa-space-2: 8px;
+  --qa-space-2_5: 10px;
+  --qa-space-3: 12px;
+  --qa-space-3_5: 14px;
+  --qa-space-4: 16px;
+  --qa-space-4_5: 18px;
+  --qa-space-5: 20px;
+  --qa-space-5_5: 22px;
+  --qa-space-6: 24px;
+  --qa-space-6_5: 26px;
+  --qa-space-7: 28px;
+  --qa-space-7_5: 30px;
+  --qa-space-8: 32px;
+  --qa-space-9: 36px;
+  --qa-space-10: 40px;
+  --qa-space-11: 44px;
+  --qa-space-12: 48px;
+  --qa-space-14: 56px;
+  --qa-space-16: 64px;
+  --qa-space-18: 72px;
+  --qa-space-20: 80px;
+  --qa-space-24: 96px;
+
+  /* 글자 크기: 값보존 사다리. 의미가 하나로 수렴하면 TYPE 을 쓰세요 */
+  --qa-fs-8: 8px;
+  --qa-fs-9: 9px;
+  --qa-fs-10: 10px;
+  --qa-fs-11: 11px;
+  --qa-fs-12: 12px;
+  --qa-fs-13: 13px;
+  --qa-fs-14: 14px;
+  --qa-fs-15: 15px;
+  --qa-fs-16: 16px;
+  --qa-fs-17: 17px;
+  --qa-fs-18: 18px;
+  --qa-fs-19: 19px;
+  --qa-fs-20: 20px;
+  --qa-fs-22: 22px;
+  --qa-fs-24: 24px;
+  --qa-fs-26: 26px;
+  --qa-fs-28: 28px;
+  --qa-fs-30: 30px;
+  --qa-fs-32: 32px;
+  --qa-fs-36: 36px;
+  --qa-fs-38: 38px;
+  --qa-fs-40: 40px;
+  --qa-fs-48: 48px;
+  --qa-fs-80: 80px;
+
+  /* 모서리: md(10px) 이 카드·버튼·입력의 표준 */
+  --qa-radius-sm: 6px;
+  --qa-radius-md: 10px;
+  --qa-radius-lg: 14px;
+  --qa-radius-xl: 20px;
+  --qa-radius-pill: 9999px;
+
+  /* 모션: 회전 금지 · scale 금지 */
+  --qa-motion-instant: 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-normal: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-slow: 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* 레이어 */
+  --qa-z-base: 1;
+  --qa-z-dropdown: 50;
+  --qa-z-sticky: 100;
+  --qa-z-header: 200;
+  --qa-z-overlay: 1000;
+  --qa-z-modal: 1100;
+  --qa-z-popover: 1200;
+  --qa-z-toast: 1300;
+  --qa-z-tooltip: 9999;
+
+  /* 셸 폭 */
+  --qa-layout-mobile: 520px;
+  --qa-layout-form: 720px;
+  --qa-layout-detail: 820px;
+  --qa-layout-wide: 1140px;
+
+  /* 터치 타겟 */
+  --qa-touch-min: 44px;
+  --qa-touch-comfortable: 48px;
+
+  /* 아이콘 */
+  --qa-icon-strokeWidth: 1.5;
+  --qa-icon-strokeWidthThin: 1.25;
+  --qa-icon-sizeXs: 14px;
+  --qa-icon-sizeSm: 16px;
+  --qa-icon-sizeMd: 20px;
+  --qa-icon-sizeLg: 24px;
+  --qa-icon-sizeXl: 32px;
+  --qa-icon-size2xl: 48px;
+
+  /* 그림자: 다크 고정값. 테마 인지가 필요하면 위의 --qa-shadow-* 를 쓰세요 */
+  --qa-shadow-fixed-hairline: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.2);
+  --qa-shadow-fixed-surface: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px -4px rgba(0, 0, 0, 0.35);
+  --qa-shadow-fixed-float: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+  --qa-shadow-fixed-anchor: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.55);
+
+  /* 브랜드 */
+  --qa-gold-gradient: linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%);
+}

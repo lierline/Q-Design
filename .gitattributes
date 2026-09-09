@@ -1,0 +1,16 @@
+# 기본: 텍스트는 LF 로 저장한다. Windows 에서 작업하지만 저장소 안은 LF 로 통일한다.
+* text=auto eol=lf
+
+# 폰트는 바이너리. EOL 정규화가 닿으면 파일이 망가진다.
+*.woff2 binary
+*.woff  binary
+*.ttf   binary
+*.otf   binary
+
+# dist/ 는 tools/extract-tokens.mjs 가 만든 생성물.
+# 손편집 대상이 아니므로 GitHub 통계·diff 에서 제외한다.
+dist/** linguist-generated=true
+
+# source/ 는 Q-Atelier 원본의 복사본. 이 저장소가 «쓴» 코드가 아니다.
+# 언어 통계에서 빼야 저장소 성격(문서)이 제대로 보인다.
+source/** linguist-vendored=true
