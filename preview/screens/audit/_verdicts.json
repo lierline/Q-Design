@@ -1,0 +1,390 @@
+{
+ "20": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "realCount": 32,
+   "reason": "D:/Claude/DHR 에서 `grep -rn 'type=\"date\"' app --include=*.tsx` 가 정확히 32줄이고 그중 `max=` 를 가진 줄은 0줄임을 직접 셌습니다. app 전체의 `max=` 는 10곳뿐이며 issue-form:156 · batch-forms:474 · brand-forms:153·166 · rule-form:223 · shipping-forms:143·342·520 · work-panel:900·1339 를 모두 열어 보니 전부 수량·일수용 type=number 이거나 수량 위젯 속성이었고, 여러 줄로 쓴 JSX 안에도 날짜 칸에 붙은 max 는 없었습니다. db/migrations/0052_immutable.sql 은 138번째 줄이 `or new.manufactured_on is distinct from old.manufactured_on` 으로 주장한 줄과 정확히 일치했고 같은 트리거가 lot_no 도 함께 잠급니다. 0097_numbering_type_date.sql:246 이 `next_number('PRODUCT_LOT', p_item, v_on)` 으로 제조일에서 제조번호를 뽑으므로 잘못 적은 날짜가 번호에까지 굳는다는 부분도 사실입니다. cut_product_lot · cut_product_lot_field · product_lot 테이블 정의 어디에도 제조일 상한 검사가 없었습니다(같은 파일의 process_record.work_date 에만 미래 날짜 거부가 있습니다). receive-form.tsx:200·204 도 두 줄 모두 type=\"date\" 임을 확인했습니다.",
+   "corrected": "instances 의 `app/(work)/work/[id]/work-panel.tsx:1211` 은 한 줄 어긋났습니다. 1211 줄은 주석을 닫는 `*/}` 이고 제조일 입력 칸은 1212 줄입니다. 나머지 수치와 줄 번호는 그대로 맞습니다."
+  },
+  {
+   "렌즈": "의도",
+   "corrected": "32곳 전부가 아니라 제조일·수령일처럼 지난 날짜만 받아야 하는 21곳에 `max=` 상한이 없는 것이며(나머지 11곳은 effective_from 6·expiry_date 2·valid_until·approved_until·expected_at 이라 미래를 받는 것이 맞습니다), 그중 work-panel.tsx:1212 의 제조일은 응용에도 DB 에도 상한이 없어 잘못 적은 미래 날짜가 db/migrations/0052_immutable.sql:138 때문에 제조번호·유효기한과 함께 굳습니다.",
+   "realCount": 21,
+   "reason": "D:\\Claude\\DHR 에서 직접 셌습니다. `type=\"date\"` 32줄이 맞고, 여러 줄로 흩어진 JSX 블록까지 훑어도 `max=`(그리고 `min=`)가 붙은 date 칸은 0곳이며 `max=` 10곳은 전부 수량·자릿수 같은 숫자 상한이었습니다. 0052_immutable.sql:138 은 인용 그대로이고, cut_product_lot(0097:222~)이 넘겨받은 날짜를 검사 없이 넣으면서 next_number 로 제조번호에까지 박으므로 미래 날짜가 제조번호·유효기한과 함께 굳는 것이 맞습니다. 다만 32곳 중 11곳(시행일·유효기한·승인만료일·입고예정일)은 미래를 받아야 하는 칸이라 상한이 없는 것이 옳고, 21곳만 결함입니다. 또 일탈 3곳(occurred_on·approved_on·closed_on)은 0065_deviation_dates.sql 이 이미 DB 에서 미래를 막고 있어 화면 편의성만 빠진 상태이므로, 상한이 어디에도 없는 칸은 18곳입니다. 인용 줄 번호도 한 줄 어긋납니다 - 제조일 입력은 1211 이 아니라 1212 이고 주석은 1206-1213 이 아니라 1202-1211 입니다. 이 프로젝트 스스로 0052 §5 와 0065 주석에서 「아직 오지 않은 날」을 구조적 불변식으로 못 박고 test/cases/11_deviation.mjs:213 으로 시험까지 하고 있으므로, 제조일에만 그 상한이 빠진 것을 「일부러 그런 것」으로 볼 근거는 찾지 못했습니다.",
+   "refuted": false
+  }
+ ],
+ "27": [
+  {
+   "렌즈": "코드",
+   "reason": "D:\\Claude\\Lead-Radar\\src\\app\\globals.css 를 직접 열어 33번째 줄이 `@theme {` 이고 34~50번째 줄에 색 토큰이 정확히 열넷(bg·raise·panel·panel2·line·line2·ivory·dim·muted·faint·gold·goldhi·golddeep·onaccent) 뿐이며 red·green·warning 계열이 하나도 없음을 확인했습니다. 저장소 전체에 @theme 블록은 이 하나뿐이고 tailwind.config 파일도 없어 상태색을 정의할 다른 자리가 없습니다. grep 실측(.tsx, 출현 횟수)도 text-red-400 57 · border-red-900 16 · bg-red-95* 5 · emerald 4 로 합계 82 가 그대로 나왔고, 인용된 다섯 줄(dashboard/page.tsx:149, diagnostics/client.tsx:10·105, leads/page.tsx:350, data-quality/page.tsx:148)이 모두 실재하며 적힌 클래스를 그 줄에 담고 있었습니다. 대조값도 맞습니다 - node_modules/tailwindcss/theme.css:14·86 이 red-400 oklch(70.4% 0.191 22.216) · emerald-400 oklch(76.5% 0.177 163.223) 이고, 집안 값 #c97a7a 는 globals.css:76 에, #7ab87a 는 src/styles/q-design.list.css:346 에 이미 있습니다. 오히려 범위를 red·green·emerald 전체로 넓히면 text-red-300 3 · border-red-400/40 1 · bg-red-400/5 1 이 더 있어 87곳이므로, 82 는 부풀린 수가 아니라 오히려 적게 센 수입니다.",
+   "refuted": false,
+   "corrected": "",
+   "realCount": 82
+  }
+ ],
+ "9": [
+  {
+   "렌즈": "의도",
+   "refuted": true,
+   "reason": "실측 원본 D:\\Claude\\Q-Design\\preview\\screens\\audit\\_hangul-qatelier.json 을 열어 84곳을 하나씩 셌더니 /dashboard 33 · /ra 14 · /nonconformances 6 · /audit 8 · /qms-documents 5 · /settings 18 이고, 이 중 「표 머리글·필터 라벨」은 /audit 5곳(시간·액션·사용자·요약·필터)과 settings/page.tsx:548 의 2곳(직무 역할·조직 역할)뿐이며 나머지 77곳은 사이드바 플랜 배지·PageGuide 칩·위젯 편집 단추·대시보드 통계 칩·행 동작 단추 등 목록 크롬과 무관한 자리였습니다. 인용된 ListPager.tsx:69,70 은 같은 파일 42행 `const showNav = last > 1` 때문에 측정된 한 페이지짜리 목록에서 렌더 자체가 되지 않아 84곳에 한 번도 나타나지 않습니다.",
+   "corrected": "Q-Atelier 의 손으로 짠 표 머리글·필터 라벨이 tokens.ts:411 의 「한글이면 자간 0」 규칙을 우회해 letterSpacing 1.5 와 uppercase 를 그대로 걸고 있으며, 실측 84곳 중 7곳(audit/page.tsx:300~312 의 4 · audit/filter-bar.tsx:86 의 1 · settings/page.tsx:548 의 2)이 여기에 해당합니다. 나머지 77곳은 사이드바 플랜 배지·PageGuide 칩·위젯 단추 등 다른 출처이고, ListPager 의 「이전·다음」 단추는 showNav 조건 때문에 측정된 화면에서 렌더되지 않아 0곳입니다.",
+   "realCount": 7
+  },
+  {
+   "렌즈": "코드",
+   "refuted": true,
+   "reason": "인용된 여섯 줄은 값까지 정확했습니다(audit/page.tsx:307 letterSpacing 1.5 · :309 uppercase 가 「시간·액션·사용자·요약」에, filter-bar.tsx:86·87 이 「필터」에, ListPager.tsx:69·70 이 103행 「이전」·116행 「다음」에 걸립니다). 기전도 사실입니다. labelTracking 은 lib/design/tokens.ts:429 에 있고 계약 시험 lib/design/label-tracking-contract.test.ts 는 FILE 상수가 'lib/design/components.tsx' 하나뿐이라 app·components 의 손코딩을 못 봅니다. 다만 count 84 가 틀렸습니다. 84 는 제품 전체 화면 실측치(한글 769곳 중 84곳)이고, 같은 84 를 11번 주제 hangul-latin-tracking 이 PageGuide·AuditReadinessWidget·components.tsx:877·global-error·admin 화면 등 목록 크롬이 아닌 209곳의 결과로 이미 세고 있습니다. 계약 시험과 같은 검출기(uppercase 줄 앞뒤 15줄 안의 양수 letterSpacing 리터럴)를 app·components 에 돌리니 524곳·185파일, 그중 같은 창에 한글 문자열이 있는 것이 457곳·168파일이었고, 이 주장이 가리키는 목록 크롬은 그 가운데 선언 4곳뿐이었습니다.",
+   "corrected": "Q-Atelier 의 손으로 짠 목록 크롬에서 한글에 라틴 자간이 걸린 선언은 4곳입니다(app/(app)/audit/page.tsx:307 · app/(app)/audit/filter-bar.tsx:86 · 같은 파일 224 「초기화」 · components/ListPager.tsx:69). 이 넷이 /audit 에서 한글 여덟 자리(시간·액션·사용자·요약·필터·초기화·이전·다음)를 벌립니다. 화면 실측 84곳은 제품 전체 수치이고 hangul-latin-tracking 주제가 같은 84 를 이미 세었으므로 목록 크롬에 84 를 돌릴 수 없습니다. 같은 꼴은 목록 크롬 밖에도 457곳·168파일로 퍼져 있어, 목록 크롬만 떼어낸 이 주제는 hangul-latin-tracking 에 흡수하는 편이 맞습니다.",
+   "realCount": 4
+  }
+ ],
+ "12": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "인용된 줄을 모두 직접 열었습니다. tokens.ts:451 의 MOTION, globals.css 의 .qa-input(249-252)·.qa-btn(267-269), components.tsx:465(타이밍 주석)·500(520/380), Confirm.tsx:177('opacity 0.16s ease') 이 모두 적힌 대로 있었고, app·components·lib 의 transition 선언을 파이썬으로 여러 줄까지 붙여 전수 파싱한 결과 MOTION 경유 66회와 지속시간 29가지가 정확히 재현되었으며 상위 빈도(0.15s 26 · 200ms 26 · 0.12s 22 · 240ms 16 · 160ms 10)까지 일치했습니다. raw 는 148회로 주장보다 오히려 4회 많아 부풀린 쪽이 아닙니다. 다만 tokens.ts:461-462 에 이징 키가 둘이라 「이징 1개」 한 대목만 사실과 다릅니다.",
+   "corrected": "MOTION 을 거치는 transition 은 66회, raw 문자열은 148회이고 그 안의 지속시간이 29가지이며 이징은 ease 가 압도적입니다(cubic-bezier 12 · ease-out 1). MOTION 사다리가 4칸인 것은 맞으나 이징은 1개가 아니라 2개입니다. tokens.ts:461 easeOutExpo cubic-bezier(0.16, 1, 0.3, 1) 와 :462 easeInOut cubic-bezier(0.65, 0, 0.35, 1) 인데 둘 다 app·components·lib 에서 호출부가 0곳이라, 이징은 4칸 사다리에 구워진 한 가지만 실제로 나갑니다. 또한 근거에 적힌 --qa-motion 은 저장소에 0곳이므로 66회는 전부 MOTION 경유이고, 인용 줄 globals.css:266 은 border-radius 줄이며 해당 transition 은 267-269 입니다.",
+   "realCount": 148
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "app·components·lib 의 .tsx/.ts/.css 를 전수로 세어 MOTION 경유 66곳(주장과 일치) · raw 147곳(주장 144) · 지속시간 28가지(주장 29)를 재현했습니다. 다만 tokens.ts:461 에 easeInOut 이 있어 「이징 1개」가 틀렸고, raw 147 중 26곳은 자체 --ease 토큰(expert-theme.css:203)을 쓰는 별도 전문가 포털이며, 인용된 components.tsx:500 은 「사용자 피드백: 조금 더 부드럽고 느리게 320/220 → 520/380」이라는 기록된 의도입니다.",
+   "corrected": "메인 앱의 transition 선언 121곳(.tsx/.ts 110 · .css 11)이 MOTION 을 안 거쳐 지속시간이 23가지로 흩어지고 이징은 브라우저 기본 ease 가 125회이며 CSS 쪽에는 MOTION 으로 가는 다리(--qa-motion)가 아예 없습니다. 다만 MOTION 의 이징 키는 1개가 아니라 2개(easeOutExpo·easeInOut)이고, 나머지 raw 26곳은 자체 --ease 토큰을 쓰는 별도 전문가 포털이라 이 셈에서 빼야 합니다.",
+   "realCount": 121
+  }
+ ],
+ "19": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\DHR 에서 인용된 여섯 줄을 모두 열어 확인했고 전부 주장대로 손으로 짠 `<label className=\"label\" htmlFor=...>` 였습니다. className=\\\"label\\\" 은 app/ 범위에서 정확히 251곳이고, 「(필수)」 10곳·「(선택)」 8곳·힌트 5곳도 일치하며, --tap 2.5rem(40px)에 h-9(36px)·h-8(32px)가 덧붙어 높이가 세 가지로 갈리는 것과 components/ 에 htmlFor 가 0건(ui.tsx:135 Field 는 읽기 전용 표시 부품)이라 폼 부품이 없다는 것도 확인했습니다.",
+   "corrected": "폼 입력을 감싸는 부품이 없어 className=\"label\" 251곳이 손으로 짜여 있고, required 140곳 가운데 「(필수)」 표시는 10곳뿐이며 반대 규약 「(선택)」 이 8곳 섞여 있고, autoComplete 112곳이 전부 off(108) 또는 new-password(4)이며, 입력 높이가 40·36·32px 로 갈립니다.",
+   "realCount": 251
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "D:\\Claude\\DHR 을 직접 세어 className=\"label\" 251곳(app/ 기준) · required 139곳(인쇄 제외) · 「(필수)」 10곳 · 「(선택)」 8곳 · 힌트 5곳 · h-9 41곳 · h-8 6곳으로 주장의 수를 재현했고, receive-form.tsx:147-221(required 여덟에 「(필수)」 둘)과 batch-forms.tsx:472-514(한 폼 안에 표시 없는 필수·(선택)·(필수) 세 상태 공존), dmr-forms.tsx 의 EditTierForm(h-8)과 AddTierForm(h-9)이 같은 구간 세 칸을 다른 높이로 그리는 것까지 확인했으며, components/ui.tsx:135 의 Field 는 htmlFor 도 input 도 없는 읽기 전용 표시 부품이라 「감싸는 부품이 없다」는 전제도 살아 있습니다. 다만 autoComplete 대목은 오탐으로, 로그인이 번호+PIN 키패드라 아이디·비밀번호 칸이 없고 메일·주소·이름은 전부 공급자·업체·다른 계정의 것이라 off/new-password 가 옳은 값이며, 오히려 supplier-forms.tsx:57-69 는 autoComplete 가 아예 없어 자동완성이 켜져 있습니다.",
+   "corrected": "className=\"label\" 251곳이 감싸는 부품 없이 손으로 짜여 required 139곳 중 「(필수)」 표시는 10곳뿐이고 반대 규약 「(선택)」 이 8곳 섞여 있으며 같은 소요량 구간의 편집 폼(h-8·32px)과 추가 폼(h-9·36px)이 높이·너비마저 갈리지만, autoComplete 112곳이 전부 off/new-password 인 것은 결함이 아니라 이 제품에 쓰는 사람 본인의 연락처를 받는 칸이 없어서 나온 옳은 값입니다.",
+   "realCount": 251
+  }
+ ],
+ "22": [
+  {
+   "렌즈": "의도",
+   "corrected": "Q-Sonar 는 aria-live·role=\"status\"·role=\"alert\" 가 소스 전체에 0건이라 어떤 실패도 읽어 주지 않는데(형제 제품은 Q-Atelier 19파일·Q-Forge 8파일이 똑같은 오류 문단에 role=\"alert\" 를 붙여 두었습니다), 액션 오류를 그리는 15곳 중 13곳은 사유를 글로 보여 주고 PipelineButtons:47·TargetExclusionButtons:39 두 곳만 서버가 정성껏 지은 사유를 `title` 에 넣어 10px 「실패」 두 글자로 줄이며, 같은 인증 실패 문구가 「인증 필요」 8곳·「인증이 필요합니다. 다시 로그인하세요.」 9곳·「인증이 필요합니다.」 2곳 세 갈래로 갈리고 목록 여섯 화면이 PostgREST 원문을 그대로 찍습니다.",
+   "reason": "네 갈래를 모두 직접 세어 숫자가 하나도 안 틀렸습니다. Q-Sonar src 전체에 aria-live·role=\"status\"·role=\"alert\" 0건이고 Q-Atelier 19파일·Q-Forge 8파일이 맞으며(Q-Forge 는 8곳 전부 `<p role=\"alert\">{err}</p>` 로 Q-Sonar 와 똑같은 모양의 오류 문단입니다), PipelineButtons.tsx:44·TargetExclusionButtons.tsx:36 의 Err 가 인용된 그대로이고 pipeline.ts:53/98/122·targets.ts:47 의 사유 문구도 줄 번호까지 일치하며, 「인증 필요」 8곳·「인증이 필요합니다. 다시 로그인하세요.」 9곳·「조회 오류: {error.message}」 여섯 화면이 정확합니다(2+8+9+6=25 로 count 도 맞습니다). 「일부러 그런 것」 근거를 찾아봤지만 반대였습니다. PipelineButtons 머리말이 「서버 액션의 «실패»를 화면까지 올리는 게 존재 이유다」 라고 적혀 있고 SESSION_LOG 의 「🔴 내가 만든 접근성 빚」 항목에서 건너뛰기 링크·tabIndex 를 갚고 있어, 사유를 툴팁에 가둔 것을 의도로 볼 문서가 없습니다. 다만 「실패 두 글자로만 남는다」 는 제품 전체가 아니라 15곳 중 2곳이라 그 범위만 좁혔습니다.",
+   "realCount": 25,
+   "refuted": false
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Lead-Radar 소스를 직접 열어 네 갈래를 모두 확인했습니다. src 전체에 aria-live·role=\"status\"·role=\"alert\" 가 0건이고(role 은 presentation·dialog·menu·link 뿐), PipelineButtons.tsx:44-49 와 TargetExclusionButtons.tsx:36-41 의 Err 가 실제로 `<span ... title={state.error}>실패</span>` 로 사유를 툴팁에만 넣으며(state.error 를 글자로 그리는 자리는 두 파일 어디에도 없음), pipeline.ts:53·98·122 와 targets.ts:47 의 정성껏 쓴 문구가 그 title 로만 흘러갑니다. 「인증 필요」 8곳(campaigns/actions.ts:20 등) · 「인증이 필요합니다. 다시 로그인하세요.」 9곳도 정확히 그 수이고, 「조회 오류: {error.message}」 로 PostgREST 원문을 찍는 목록 화면은 companies:201 · leads:281 · factories:141 · products:76 · sent:229 · data-quality:148 로 정확히 여섯입니다. count 25 도 2+8+9+6 으로 맞아떨어집니다.",
+   "corrected": "",
+   "realCount": 25
+  }
+ ],
+ "14": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "instances 여섯 줄을 모두 열어 값을 그대로 확인했습니다 - GlobalSearch.tsx:287 zIndex 100(백드롭) · :303 zIndex 110(패널), Sidebar.tsx:244 zIndex 150(햄버거 FAB) · :273 199 · :284 200, Confirm.tsx:171 10000. Sidebar 는 1024px 미만에서 `{!drawerOpen && <button …zIndex:150>}` 로 FAB 를 그리고, GlobalSearch 는 app/(app)/layout.tsx:442 에서 같은 뿌리 div(position:relative · z-index auto 라 쌓임맥락을 만들지 않음)의 형제로 항상 마운트되므로 150 이 110·100 위에 남습니다. 숫자도 실측했습니다 - app·components·lib 의 .ts/.tsx 에서 `zIndex: 숫자` 가 59줄, Z 토큰 사용은 Z.sticky·Z.header·Z.overlay 3곳뿐입니다(tokens.ts:525 사다리는 sticky 100 · header 200 · overlay 1000 · modal 1100). 다만 검색을 여는 길이 Cmd/Ctrl+K 하나뿐이라(GlobalSearch.tsx:160-168) 화면 단추가 없는 터치 전용 기기에서는 이 상황에 닿지 않고, 1024px 미만으로 좁힌 창처럼 자판이 있는 환경에서 재현됩니다.",
+   "corrected": "",
+   "realCount": 59
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "GlobalSearch.tsx:287·303(zIndex 100·110) 과 Sidebar.tsx:244·273·284(150·199·200) 을 직접 열어 값과 줄번호가 모두 일치함을 확인했고, `zIndex: 숫자` 리터럴 전수 집계가 정확히 59곳, `Z.` 토큰 호출부가 field-ui:247 · TopHeaderBand:39 · components.tsx:3254 로 3곳임을 확인했습니다. 두 요소는 app/(app)/layout.tsx 의 같은 루트 div(position:relative · z-index auto 라 스태킹 맥락을 만들지 않음) 아래 형제 position:fixed 이고, Sidebar 는 DRAWER_BP=1024 미만에서 `!drawerOpen` 이면 FAB 를 그리며 GlobalSearch 는 layout:442 에서 늘 마운트되므로 150 > 110 이 그대로 성립합니다. 의도라는 근거는 없었고 오히려 tokens.ts:522 주석이 「떠있는 UI 는 raw 숫자 대신 Z.* 로: 충돌 방어·일관 순서」라 적었으며 docs/BACKLOG.md:2190 이 「z-index 토큰 부재(1000·9999·50 매직넘버)」를 스스로 미해결로 적어 두었습니다. 실측표는 모달 겹침을 잰 적이 없어 부딪히는 값도 없습니다.",
+   "corrected": "GlobalSearch 는 백드롭 100 · 패널 110 인데 같은 루트의 형제인 모바일 햄버거 FAB 가 150, 드로어가 199·200 이라 1024px 미만에서 검색을 열면 햄버거가 백드롭 위에 밝게 남고 눌리며(누르면 드로어가 검색 패널까지 덮습니다), 다만 검색을 여는 길이 Cmd/Ctrl+K 하나뿐이라 이 상태는 폰 터치만으로는 못 만들고 창을 좁힌 데스크톱이나 키보드를 붙인 태블릿에서 일어납니다. Z 토큰 호출부는 3곳뿐이고 raw zIndex 리터럴은 59곳입니다.",
+   "realCount": 59
+  }
+ ],
+ "21": [
+  {
+   "렌즈": "코드",
+   "corrected": "Q-Sonar 저장소 전체(src)에 htmlFor 0곳 · 입력에 붙은 id 0곳 · 폼 컨트롤에 붙은 aria-label 0곳이라, 숨김(type=\"hidden\")을 뺀 폼 컨트롤 49개 가운데 45개가 접근 가능한 이름이 비어 있다(이름이 붙은 4개는 MyProfileForm 이 label 로 감싼 것뿐). 그중 placeholder 만 가진 것이 26개, placeholder 조차 없는 것이 16개이며, 로그인 이메일(page.tsx:62)·비밀번호(:73) 칸은 61·72행 라벨과 묶여 있지 않아 라벨을 눌러도 초점이 옮겨 가지 않는다.",
+   "realCount": 45,
+   "reason": "D:\\Claude\\Lead-Radar\\src 를 직접 열어 셌습니다. grep 으로 htmlFor 0건 · 입력의 id= 0건 · 폼 컨트롤 aria-label 0건(아리아 라벨 3개는 nav·링크·확인 대화용)을 확인했고, login/page.tsx 61~80행에서 「이메일」·「비밀번호」 라벨이 input 을 감싸지도 htmlFor 로 묶이지도 않은 형제 요소임을 눈으로 확인했습니다. 인용된 여섯 줄(login:61,72 · CreateUserForm:13 · OutreachConsole:170 · SalesPanel:465,513)이 모두 적힌 그 자리에 그대로 있습니다. 파이썬으로 input·select·textarea 79개를 훑어 hidden 29개를 뺀 49개 중 45개가 이름 없음으로 나왔고, 이름이 붙은 넷은 MyProfileForm 뿐이었습니다. 다만 주장이 적은 「placeholder 만 있는 입력 24개」는 실측 26개로, 부풀린 것이 아니라 오히려 덜 센 수였습니다.",
+   "refuted": false
+  }
+ ],
+ "16": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "globals.css:519-523 의 `.qa-scroll-table{overflow-x:auto}` 를 유일한 @media print 블록(962-1044)이 되돌리지 않는 것을 소스에서 확인했고, Playwright/Chromium 으로 같은 CSS 모양을 실제 A4 PDF 로 뽑아 재현했습니다. 현행 규칙에서는 오른쪽 열 글자가 PDF 내용 스트림에서 통째로 사라졌고, overflow 만 풀면 종이 밖으로 잘려 나갔으며, overflow 와 min-width 를 함께 풀어야 온전히 인쇄됐습니다. /audit 의 실제 격자(160/180/220/1fr · gap 14 · padding 18)로 다시 뽑으니 「요약」 열이 인쇄본에서 완전히 빠졌습니다. 다만 사용처 수와 폭 범위는 실제와 다릅니다.",
+   "corrected": ".qa-scroll-table 의 overflow-x:auto 를 인쇄 블록이 되돌리지 않아, A4 인쇄 가용폭 609.6px(794.6 - 좌우 16mm - main padding 64px)을 넘는 minWidth 620~1004px 표 21곳의 오른쪽 열이 잘린 표시 없이 통째로 사라지며, /audit 는 심사원이 읽어야 할 「요약」 열이 인쇄본에서 없어집니다.",
+   "realCount": 21
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "globals.css:519-523 의 `.qa-scroll-table { overflow-x: auto }` 와 components.tsx:2568 의 안쪽 `minWidth` 를 직접 확인했고, 962-1044행 print 블록에 이 클래스를 되돌리는 규칙이 없음을 통독으로 확인했습니다(저장소 전체 @media print 블록은 이 하나뿐). @page 18mm 16mm 22mm + print main padding 32px 로 가용폭 608.75px 산술도 맞아 기전은 살아 있으나, ScrollTable 을 실제로 그리는 자리는 43곳이 아니라 21곳이고 minWidth 최대값도 860 이 아니라 1004 였습니다.",
+   "corrected": ".qa-scroll-table 의 overflow-x: auto 와 안쪽 minWidth 를 print 블록(globals.css:962-1044)이 되돌리지 않아, 가용폭 608.75px 보다 넓은 minWidth 620~1004px 표 21곳(직접 <ScrollTable> 14곳 + minWidth 를 준 <DataTable> 7곳)의 오른쪽 끝이 잘린 표시도 없이 사라집니다.",
+   "realCount": 21
+  }
+ ],
+ "8": [
+  {
+   "렌즈": "코드",
+   "corrected": "ListPager 를 쓰는 목록 21곳 중 19곳이 searchParams 로 page 하나만 받아 검색·필터가 전혀 없고(예외는 필터바를 가진 /audit 과 KPI 시야 필터 view 를 받는 /lots 둘), aria-sort·onSort·sortDir 은 저장소 전체 0건이지만 sortKey 는 lib/reviews/due.ts 의 마감 자동 정렬용으로 7건 있으며 사용자가 누를 정렬 UI 는 0곳이고, 표 머리글에 sticky 를 건 곳은 app/(app)/admin/permissions-matrix/page.tsx:285 한 곳뿐입니다.",
+   "realCount": 21,
+   "reason": "D:\\Claude\\Q-Atelier 에서 ListPager 를 import 하는 목록 page.tsx 를 세니 정확히 21개였고(audit·authorized-reps·capa·cleanroom·clinical-evaluations·complaints·device-licenses·equipment·eu-mdr·fda-510k·letter-to-file·lots·nmpa·nonconformances·pmda·pms·quality-objectives·recalls·sterilization·udi·vigilance), 21개의 searchParams 서명을 모두 열어 보니 page 하나만 받는 것은 20곳이 아니라 19곳이었습니다. /audit(54행)은 product·action 등 필터를 받고 /lots(89행)는 view 를 받아 KPI 다섯 갈래로 목록을 좁히므로(157·202~206·285행) 「검색·필터가 없다」에서 빠집니다. 나머지 19곳은 필터·검색 컴포넌트 import 조차 없음을 확인했습니다. 정렬 쪽은 aria-sort·onSort·sortDir 이 저장소 전체 0건이 맞지만 sortKey 는 lib/reviews/due.ts 와 그 테스트에 7건 있어 「0건」은 문자 그대로는 틀렸고, 다만 그것은 마감일 자동 정렬 헬퍼라 사용자 조작 정렬 UI 는 0곳이라는 취지는 유지됩니다(lib/design/components.tsx:2580 주석도 「정렬·필터는 상위가 소유」라고만 적고 어떤 호출부도 구현하지 않았습니다). sticky 는 grep 한 전 항목을 열어 보니 permissions-matrix:285 만 표 머리글이고, RdDocumentFlowPanel:1441 은 모달 헤더, expert-theme.css:707 은 상단바, globals.css:542 는 머리글이 아니라 첫 열 고정이라 「한 곳뿐」이 맞습니다. lib/api/list-page.ts:21 의 PAGE_SIZE = 100 고정과 components/ListPager.tsx 의 목록 아래 배치도 인용대로였습니다.",
+   "refuted": false
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "ListPager 호출부 21곳을 모두 열어 searchParams 타입을 확인한 결과 19곳이 `{ page?: string }` 하나뿐이었고(/audit 만 product·action·q·dateFrom·dateTo 5종 필터바, /lots 만 KPI 타일이 `?view=` 로 거는 필터), 저장소 전체에서 aria-sort·onSort·sortDir 는 0건이며 표 머리글 sticky 는 app/(app)/admin/permissions-matrix/page.tsx:285 한 곳뿐이었습니다. 저장소 자신의 docs/AUDIT_2026-08-29_FULL.md:136 이 「목록 60여 화면 중 검색·필터가 있는 곳은 /audit 하나다」라고 같은 결론을 적어 두어 의도된 설계가 아니라 미해결 백로그임이 확인되므로 살립니다.",
+   "corrected": "ListPager 를 쓰는 목록 21곳 가운데 20곳이 아니라 19곳이 searchParams 로 page 하나만 받아 검색·필터가 없고(/audit 은 필터바 5종, /lots 는 KPI 타일 view 필터를 갖습니다), 실제 정렬 UI 는 0곳이며(aria-sort·onSort·sortDir 는 저장소 전체 0건이고 sortKey 7건은 lib/reviews/due.ts 의 기한 정렬 키라 UI 가 아닙니다), 표 머리글에 sticky 를 건 곳은 admin/permissions-matrix 한 곳뿐입니다.",
+   "realCount": 19
+  }
+ ],
+ "4": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier 의 여섯 자리를 모두 열어 확인했고, 적힌 줄 번호가 실제 try/finally 블록 범위와 일치합니다(profile 130-142 · RegulatoryRoadmap 54-63 · lot 85-92 · nc 83 · receiving 187). 'use client' 파일 271개를 중괄호 깊이로 훑어 catch 없이 finally 만 붙은 fetch try 블록을 직접 세었더니 정확히 43개였고, 전역 unhandledrejection 처리기는 0건입니다.",
+   "corrected": "",
+   "realCount": 43
+  },
+  {
+   "렌즈": "의도",
+   "corrected": "'use client' 파일에서 fetch 를 catch 없는 try/finally 로 감싼 곳이 43개인 것은 사실이나, 현장 저장 4곳(lot·nc·process·receiving)은 모두 !res.ok 에서 toast.error 로 서버 메시지를 띄우므로 «침묵»은 fetch 자체가 거부될 때(오프라인)에 한하고, 확인된 사용자 피해는 자재 로트 목록이 실패를 빈 배열로 삼켜 「수입검사(1단계)에서 자재를 합격 처리하면 여기에 나타납니다」 라는 틀린 지시를 띄우는 것(세션이 만료돼 /login 307 을 따라가도 같은 화면이 됩니다) 하나로 좁혀야 합니다.",
+   "reason": "D:\\Claude\\Q-Atelier 소스에서 'use client' 파일의 catch 없는 try/finally + fetch 를 브레이스 매칭으로 직접 세어 43개(26파일)를 그대로 재현했고, app/(app)/m/lot/client.tsx:84-92 의 loadMaterials 가 !res.ok 를 무시한 채 materials 를 [] 로 남겨 406-412행의 「수입검사(1단계)에서 자재를 합격 처리하면 여기에 나타납니다」 가 뜨는 것을 확인했습니다(세션 만료 시 미들웨어가 /login 으로 307 하고 fetch 가 그 HTML 을 200 으로 받아 같은 결과가 됩니다). 다만 현장 저장 4곳은 모두 !res.ok 에서 toast.error 를 띄우므로 «침묵»은 과장이고, RegulatoryRoadmap.tsx:94 가 사라져도 같은 페이지의 RequirementsDashboard.tsx:183-216 이 같은 엔드포인트 실패를 catch 로 잡아 오류 상자로 보여 주므로 그 사례는 약합니다.",
+   "realCount": 43,
+   "refuted": false
+  }
+ ],
+ "1": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\components\\Confirm.tsx 를 전문 읽었고, 같은 구조(취소 단추 자동 초점 + window keydown 에서 Enter 를 preventDefault 후 확인 처리)를 그대로 옮긴 최소 재현 페이지를 헤드리스 크롬(playwright)으로 띄워 실제 Enter 키를 눌러 봤습니다. 초점이 「취소」에 있는 상태에서 Enter 는 onAnswer(TRUE) 로 갔고 취소 단추의 click 은 preventDefault 때문에 아예 발생하지 않았으며, 같은 초점에서 스페이스는 onAnswer(false) 로 갈려 한 단추가 두 키에 반대로 반응합니다. 일부러 그런 것인지 확인하려고 docs/BACKLOG.md:2813 과 docs/SESSION_LOG.md:9298 을 열었는데 「Enter 단축키」를 useConfirm 고유 UX 로 적어 두었을 뿐, 초점이 취소에 있을 때도 확인이 실행되는 것을 의도라고 적은 곳은 없고, 오히려 docs/audits/SYSTEM_AUDIT_2026-07-12.md:200 은 Confirm.tsx 71-155 의 초점 트랩·취소 초점을 저장소 표준으로 인용합니다. 즉 의도된 단축키와 의도된 취소 초점이 부딪힌 자리이며, 실측 자료(초점 표시·가로 넘침 등)와 부딪히는 대목도 없습니다. ConfirmProvider 는 app/layout.tsx:59 에서 전역으로 마운트되어 있어 우회 경로도 없습니다.",
+   "corrected": "components/Confirm.tsx 의 window keydown 은 Enter 를 받으면 activeElement 가 TEXTAREA 가 아닌 한 e.preventDefault() 뒤 onAnswer(true) 를 부르므로(실제 줄은 121 이 아니라 122~126행입니다), 103행이 자동으로 초점을 준 「취소」 단추에 초점이 있어도 확인이 실행되고 그 단추 자신의 Enter 활성화는 preventDefault 로 죽으며, 헤드리스 크롬 실측에서 같은 초점의 Enter 는 확인·스페이스는 취소로 갈렸습니다. 영향 범위는 confirm() 호출 56곳이고 그중 destructive: true 가 28곳입니다.",
+   "realCount": 41
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\components\\Confirm.tsx 를 직접 열어 확인했습니다. 103행이 `setTimeout(() => cancelBtnRef.current?.focus(), 50)` 로 「취소」에 초점을 주고, 122~126행의 `if (e.key === 'Enter' && document.activeElement?.tagName !== 'TEXTAREA') { e.preventDefault(); onAnswer(true); return; }` 가 153행 `window.addEventListener('keydown', onKey)` 로 창 전체에 걸려 있어, 초점이 취소 단추(221행 `<button type=\"button\" onClick={() => onAnswer(false)}>`)에 있어도 preventDefault 가 그 단추의 클릭 합성을 막고 확인이 실행됩니다. 91행 confirmBtnRef 는 240행에서 ref 로만 붙고 focus 호출이 없습니다. 다만 사례 수는 41이 아니라 42입니다.",
+   "corrected": "components/Confirm.tsx 의 window keydown(122~126행)이 activeElement 가 TEXTAREA 가 아니면 무조건 onAnswer(true) 를 부르므로, 103행이 자동으로 초점을 준 「취소」 단추에서 Enter 를 눌러도 확인이 실행됩니다. useConfirm() 호출부는 41곳이 아니라 42곳(40파일)이고, confirm({ 호출은 54곳이며 그중 destructive: true 가 28곳입니다.",
+   "realCount": 42
+  }
+ ],
+ "18": [
+  {
+   "렌즈": "코드",
+   "corrected": "`{값 || ''}` 꼴은 소스에 35곳이지만 그중 app/(admin)/material/receive-form.tsx:159 는 select 의 기본값이라 0 을 빈 칸으로 바꾸는 숫자 칸은 34곳(화면 27 · 인쇄 7)이고, 단위를 오른쪽 정렬 tnum 칸 안에 함께 넣은 곳은 3곳이 아니라 6곳(material/stock:94 · material/orders:107 · material/orders:157 · material/movement:110 · settings/dmr/dmr-forms:709 · print/cover:311)입니다.",
+   "realCount": 34,
+   "reason": "D:\\Claude\\DHR 에서 `grep -rn \"|| ''}\" app --include=*.tsx` 가 정확히 35줄(app/print 7줄)이었고, 인용된 여섯 줄(day-record:389·390, cover:272, release-request:183, label-request:151, board:529)을 모두 열어 적힌 줄에 그 코드가 그대로 있음을 확인했으며, material/stock/page.tsx:93-95 의 `{Number(r.on_hand)} {r.usage_uom}` 도 오른쪽 정렬 tnum 칸 안에 단위가 들어간 형태였습니다. 다만 35곳 중 receive-form.tsx:159 는 select 의 value 폴백이라 숫자 칸이 아니어서 실제 「0 → 빈 칸」은 34곳입니다.",
+   "refuted": false
+  },
+  {
+   "렌즈": "의도",
+   "refuted": true,
+   "reason": "grep 로 센 35줄(인쇄 7줄)은 맞지만, 「0 인지 기록 없음인지 구별되지 않는다」는 전제가 소스에서 무너집니다. 빈 칸이 되는 값은 전부 널이 될 수 없습니다 - db/migrations/0012_m2_product_lot.sql:29 가 `qty_sample int not null default 0` 이고, board/nonconformity 뷰는 0044_board.sql:73-76 · 0045_nonconformity.sql:127-129 에서 `coalesce(...,0)` 로 감싸며, day-record 의 steril 은 page.tsx:246 에서 `steril: 0` 으로 시작하고, used_in·printed·issues 는 `count(...)::int` 입니다. 즉 「기록 없음」이라는 상태 자체가 없어 빈 칸은 언제나 0 을 뜻합니다. 게다가 0 을 눌러 두는 것은 이 저장소가 문서로 못 박은 의도입니다 - app/q-design.screen.css:122 「0 은 눌러 둡니다. 0 을 강조하면 아무 일도 없는 것이 일처럼 보입니다」, components/shell.tsx:132 도 같은 말입니다. 주장이 걱정하는 바로 그 함정은 이미 따로 처리되어 있습니다 - app/print/work-order/[id]/page.tsx:132-137 「모르는 것과 0 은 다르므로 모를 때는 모른다고 적는다」 주석과 함께 값이 미확정이면 빈 칸이나 0 대신 「나중에 확정」·「구간 없음」을 찍습니다. 적용도 무차별이 아니라 골라서 합니다 - 제조기록서에서 주 수량인 `l.produced`(day-record:388)와 그 합계(396)는 0 이어도 그대로 찍고, 샘플·멸균 발송 같은 부차 칸만 비웁니다. board/page.tsx:545-546 의 합계 생산·출고도 안 비웁니다. 수도 조금 부풀었습니다 - 35줄 중 app/(admin)/material/receive-form.tsx:159 `value={supplierId || suppliers[0]?.id || ''}` 는 숫자 칸이 아니라 선택상자 기본값이라 숫자 칸은 34곳입니다. 뒷부분인 「단위를 숫자 칸에 넣어 일의 자리가 어긋난다」는 남을 여지가 있으나 규모가 다릅니다 - `usage_uom}` 34곳 중 오른쪽 정렬 tnum 표 칸은 material/stock/page.tsx:94 · material/orders/page.tsx:107 · :157 셋뿐이고 인쇄물에는 하나도 없습니다. evidence 가 인용한 `<td className=\"td tnum text-right\">{Number(r.on_hand)} {r.usage_uom}</td>` 도 원문과 다릅니다(실제 93행은 `low ? 'text-warn' : ''` 를 낀 템플릿 리터럴이며 94행으로 줄이 나뉩니다).",
+   "corrected": "인쇄물의 0 빈칸 처리는 널이 없는 열(qty_sample not null default 0, 뷰의 coalesce 0)에만 걸리고 주 수량은 비우지 않는 의도된 규칙이라 결함이 아니며, 남는 것은 화면 표 3칸(material/stock/page.tsx:94 · material/orders/page.tsx:107,157)이 길이가 제각각인 단위를 오른쪽 정렬 tnum 칸 안에 넣어 숫자의 일의 자리가 행마다 어긋날 수 있다는 점뿐입니다.",
+   "realCount": 3
+  }
+ ],
+ "11": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "인용된 여섯 줄을 모두 열어 값과 자식 문구를 확인했습니다. PageGuide.tsx:82 `letterSpacing: 1` + uppercase 에 자식이 「이 페이지 사용법」(89행), AuditReadinessWidget.tsx:128 `letterSpacing: '0.1em'` + uppercase 에 「오늘 먼저 할 일」(129행), lib/design/components.tsx:877 `letterSpacing: 0.8` 에 「선택」, app/global-error.tsx:115 `letterSpacing: '0.18em'` + uppercase 에 「다시 시도」, admin/default-templates/page.tsx:335 `letterSpacing: 1` + uppercase 에 「비어있는 양식 채우기」, admin/expert-invites/invite-manager.tsx:243 `letterSpacing: 1` + uppercase 에 「복사됨 ✓ / URL 복사」 로 여섯 줄 전부 그대로 있습니다. tokens.ts:429-434 의 labelTracking 은 `hasHangul(node) ? 0 : value` 가 맞고, app·components·lib 의 .tsx 전수 스캔에서 labelTracking 을 거치는 letterSpacing 은 38곳뿐인 반면 양수 리터럴을 직접 적은 곳이 1,059곳이며 그중 해당 요소의 직계 텍스트에 한글이 들어 있는 것이 571곳(182파일, 값 1 이상만 세면 290곳)입니다. 따라서 「209곳 이상」은 부풀림이 아니라 오히려 넉넉히 잡은 하한이고, 화면 실측 84곳도 2026-09-09 대조값(한글 769곳 중 84곳, 10.9%)과 일치합니다.",
+   "corrected": "",
+   "realCount": 571
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "인용된 6곳을 모두 열어 양수 letterSpacing 이 한글 자식에 걸린 것을 확인했고, lib/design/tokens.ts:402-412 의 주석이 「한글은 벌리면 낱글자로 흩어진다 · 규칙: 라벨 문구에 한글이 있으면 자간 0」이라고 스스로 결함으로 규정해 두어 «일부러 그런 것» 이 아닙니다. 직접 세어 보니 letterSpacing 선언 1,145곳 중 labelTracking 경유는 38곳뿐이고 양수 리터럴이 한글 텍스트에 직접 걸린 자리가 549곳(1px 상당 이상만 312곳 · 178개 파일)이라 주장의 209는 하한이며, 실측 84곳(769곳 중 10.9%)과도 어긋나지 않습니다.",
+   "corrected": "labelTracking() 을 거치지 않은 양수 letterSpacing 이 한글 텍스트에 직접 걸린 자리가 소스에 549곳(178개 파일)이고 그중 자간 1px 상당 이상이 312곳이며, 2026-09-09 화면 실측에서는 촬영한 화면의 한글 요소 769곳 중 84곳(10.9%)이 벌어져 있습니다. 다만 이 84곳은 목록 크롬 항목(hangul-latin-tracking-in-list-chrome)이 인용한 84곳과 같은 수치이므로 두 항목을 나란히 실으면 중복 계수로 읽힙니다.",
+   "realCount": 312
+  }
+ ],
+ "15": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "app/globals.css 962~1044 을 통째로 읽어 968행 `--qa-bg: #ffffff !important` 와 977행 `--qa-on-accent: #ffffff !important`(주석 「인쇄(흰 배경)도 어두운 골드 위 흰 글자」)를 확인했고, app·lib·components 전체에 print-color-adjust 선언이 0곳인 반면 같은 저장소의 손으로 만든 docs/marketing/brochure-a4.html:21 에는 `-webkit-print-color-adjust:exact`가 있어 팀이 이 속성을 알면서 앱 인쇄 블록에만 빠뜨린 것이 확인되므로 기제 자체는 살아 있고, lib/design/contrast.test.ts:107~121 의 인쇄 팔레트 검사도 text·subtle·muted·champagne 만 보고 onAccent 는 대상에서 빼 두어 이 자리를 지키는 것이 아무것도 없습니다. 다만 개수는 틀렸습니다. `color: T.bg` 52곳 · `color: T.onAccent` 35곳(합 87)은 grep 실측과 정확히 맞지만, 각 자리의 바깥 JSX 태그를 스캔해 보니 56곳이 `<button>`(raw 39 · Btn 17, lib/design/components.tsx:269 에서 Btn 은 `<button>` 을 냅니다) 안이라 같은 인쇄 블록 986~990행의 `button { display: none !important }` 가 이미 지우고, 5곳은 단추 안에 겹쳐 있으며 Sidebar.tsx:1183·1257 두 곳은 숨겨지는 `aside.qa-sidebar-aside`(482행) 안이라, 실제로 종이에 닿는 자리는 24곳(배지 span·Link·아이콘)입니다.",
+   "corrected": "인쇄 블록이 --qa-bg 와 --qa-on-accent 를 #ffffff 로 못박아 두고(app/globals.css:968·977) 앱 어디에도 print-color-adjust 를 선언하지 않아, 배경 그래픽이 꺼진 종이에서 채운 면 위 흰 글자가 사라지는데, 그 자리는 87곳이 아니라 24곳입니다. 나머지 63곳은 같은 인쇄 블록이 이미 지우는 `<button>` 56곳과 그 안에 겹친 5곳, 숨겨지는 사이드바 안 2곳이기 때문입니다.",
+   "realCount": 24
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\app\\globals.css 962~1044 인쇄 블록을 통째로 읽어 968행 `--qa-bg: #ffffff !important`, 977행 `--qa-on-accent: #ffffff !important`, 979행 `html, body { background: #ffffff !important }` 를 모두 확인했고, print-color-adjust 는 저장소 CSS 에 0곳(docs/marketing/brochure-a4.html:21-22 와 docs/grant 의 단독 html 에만 있음)이었습니다. lib/design/tokens.ts:56,71 이 T.bg·T.onAccent 를 `var(--qa-bg)`·`var(--qa-on-accent)` 로 내보내므로 인쇄에서 둘 다 #ffffff 가 되는 기전도 실재하고, `color: T.bg` 52곳 · `color: T.onAccent` 35곳(합 87)도 그대로 셌습니다. 다만 파이썬으로 87곳의 JSX 조상을 하나씩 되짚어 보니 61곳이 `<button>`/`<Btn>`(Btn 은 components.tsx:247 에서 `<button>` 을 냄) 안에 있고, 같은 인쇄 블록 983~990행의 `button { display: none !important }` 가 그것들을 종이에서 통째로 지웁니다. 실제로 종이에 남아 흰 글자만 보이는 자리는 26곳이며, 그중 Sidebar.tsx:1183·1257 은 `aside.qa-sidebar-aside` 로 또 숨겨지고 AssessmentDocApprovalPanel.tsx:237 은 한 줄짜리 `<Btn>` 이라 실효 자리는 23곳 안팎입니다. 남은 자리들은 audit-readiness/page.tsx:238 의 `color: T.bg, background: sev.color` 배지처럼 전부 채운 면 위 글자가 맞아 결함 자체는 성립합니다.",
+   "corrected": "인쇄 블록이 --qa-bg 와 --qa-on-accent 를 #ffffff 로 못박고 print-color-adjust 를 한 번도 선언하지 않는 것은 사실이나, 같은 블록 983~990행의 `button { display: none !important }` 가 `color: T.bg` 52곳 + `color: T.onAccent` 35곳 = 87곳 가운데 61곳을 종이에서 통째로 지웁니다. 배경 그래픽이 빠진 종이에서 실제로 흰 글자만 남는 자리는 배지·칩·Link 등 26곳이고, Sidebar 2곳(aside 로 또 숨김)과 한 줄짜리 Btn 1곳을 빼면 실효 23곳입니다.",
+   "realCount": 26
+  }
+ ],
+ "2": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\app\\globals.css 176-186 을 열어 `:focus-visible { outline: 2px solid var(--qa-champagne); outline-offset: 2px }` 에 !important 가 없음을 확인했고, grep 으로 인라인 outline:'none' 26곳을 모두 세어 한 곳씩 감싸는 요소를 확인했습니다. 23곳은 대체 초점 표시가 전혀 없는 맨 input·textarea 라 주장이 살아남지만, 3곳은 결함이 아닙니다 - lib/design/components.tsx:3073·3279 는 `role=\"dialog\" aria-modal tabIndex={-1}` 인 Modal·Drawer 패널 통이라 초점 테두리를 끄는 것이 표준 관행이고, 인용된 여섯 자리 중 하나인 components/ChangeRequestInbox.tsx:193 은 `className=\"qa-input\"` 이 붙어 globals.css:257-262 의 `.qa-input:focus { border-color: ... !important; box-shadow: 0 0 0 3px ... }` 가 인라인 outline 과 무관하게 초점을 그립니다. 또한 근거가 든 화면 연결(「/nonconformances 29칸 중 1칸」)은 misattribution 입니다 - app/(app)/nonconformances 세 파일에 인라인 outline:'none' 이 0곳이고 26곳을 품은 파일을 하나도 import 하지 않습니다. 실측으로 이 원인이 확인된 자리는 Q-Atelier 전체에서 app/(app)/audit/filter-bar.tsx:128 검색칸 한 곳뿐이며, 나머지 22곳은 촬영하지 않은 admin·settings·research·문서 패널 경로에 있어 실측이 부정한 것이 아니라 재지 못한 것입니다.",
+   "corrected": "app/globals.css:180 의 `:focus-visible { outline: 2px solid var(--qa-champagne) }` 에 !important 가 없어 인라인 style 로 outline:'none' 을 준 26곳 가운데 23곳(대체 표시가 없는 맨 input·textarea)에서 초점 테두리가 그려지지 않으며, 나머지 3곳은 결함이 아닙니다 - lib/design/components.tsx:3073·3279 는 프로그램으로 초점을 받는 `role=\"dialog\" tabIndex={-1}` 패널이라 일부러 끈 것이고, components/ChangeRequestInbox.tsx:193 은 `.qa-input` 이라 globals.css:257-262 의 `border-color !important` 와 3px box-shadow 로 초점이 또렷하게 표시됩니다. 실측으로 확인된 자리는 app/(app)/audit/filter-bar.tsx:128 한 곳이고 나머지는 촬영 범위 밖입니다.",
+   "realCount": 23
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\app\\globals.css 176~183행을 직접 열어 `:focus-visible { outline: 2px solid var(--qa-champagne, #c9a878); outline-offset: 2px; }` 에 !important 가 없음을, 그리고 176~179행 주석이 「인라인 style 로 outline 을 무력화한 버튼들에 명확한 focus indicator 제공」이라고 적어 둔 것을 확인했습니다. grep 으로 app·components·lib 의 인라인 `outline: 'none'` 을 세니 정확히 26곳이고(따옴표·백틱 변형과 `outline: 0` 을 함께 훑어도 26곳), 예시로 든 filter-bar.tsx:128 · users-table-client.tsx:171 · reviews/page.tsx:460 · ChangeRequestInbox.tsx:193 · AiHelperButton.tsx:590 이 모두 그 값 그대로 있습니다. 26곳 중 24곳이 input·select·textarea 에 걸려 있어 globals.css:369~383 의 보조 box-shadow 규칙(button·a·[role]·[tabindex] 한정)에도 걸리지 않으므로 초점 표시가 실제로 남지 않습니다.",
+   "corrected": "app/globals.css 의 전역 `:focus-visible` 규칙(선언은 180~183행, 주석 포함 176~183행)에 !important 가 없어, 인라인 style 로 outline:'none' 을 준 26곳 가운데 form 요소에 걸린 24곳에서 초점 테두리가 그려지지 않습니다(나머지 2곳은 lib/design/components.tsx:3073·3279 의 tabIndex={-1} 모달 판이라 의도된 것입니다). 게다가 그 26곳 중 8곳은 파일 하나에서 공유되는 inputStyle·textareaStyle 상수라 실제 렌더되는 칸 수는 26보다 많습니다.",
+   "realCount": 26
+  }
+ ],
+ "5": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "세 자리를 모두 열어 확인했습니다. middleware.ts 의 matcher(24행)는 _next/static·_next/image·favicon.ico·manifest.json·sw.js·정적 확장자만 제외하고 /api 를 제외하지 않으며, lib/supabase/middleware.ts:91-97 이 isPublicPath(/api/public·/api/cron·두 웹훅·expert-invites/validate 만 허용) 밖의 경로에 NextResponse.redirect(기본 307)로 /login 을 돌려주므로 /api/capa 같은 요청은 리다이렉트를 따라가 HTML 을 받습니다. app/(app)/capa/new/client.tsx 는 110행 `const json = await res.json();` 다음 111행에서야 `if (!res.ok)` 를 보고, 118-120행 catch 가 `e.message` 를 그대로 토스트에 띄우므로 브라우저의 영문 파서 오류가 화면에 닿습니다. 137 은 부풀림이 아니라 정확했습니다 - .tsx 에서 `= await res.json()` 이면서 같은 줄 .catch 도 없고 앞 12줄 안에 res.ok 검사도 없는 자리를 파이썬으로 세니 101개 파일에 정확히 137곳이었습니다. 앱 전체에 401 을 재로그인으로 안내하는 공용 처리기는 없고 lib/api/client-error.ts 의 httpStatusMessage 를 부르는 파일도 11개뿐이며, 그마저 응답이 200 HTML 이라 이 경로에서는 아예 닿지 않습니다.",
+   "corrected": "",
+   "realCount": 137
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "라이브 www.qatelier.co.kr 에 비인증 요청을 넣어 재현했습니다. GET /api/* 는 307 → /login → 200 text/html(<!DOCTYPE html>)이고 POST /api/* 는 307 이 메서드를 보존해 POST /login 이 되며 본문 0바이트 405 가 돌아왔습니다. 소스 스캔으로 res.ok 보다 먼저 res.json() 을 부르고 .catch 방어가 없는 클라이언트 호출 150곳(POST 78 · PATCH 29 · DELETE 9 · GET 34)과 그 예외 메시지를 그대로 토스트·오류칸에 내보내는 곳 174곳을 셌고, 클라이언트 401 처리기와 onAuthStateChange 는 0곳입니다. 다만 제목이 든 «저장» 경로의 실제 문구는 「Unexpected token '<'」 이 아니라 「Unexpected end of JSON input」 이고, 화면을 새로 고치면 미들웨어가 /login 으로 보내므로 «길이 없다» 가 아니라 «안내가 없다» 가 맞습니다.",
+   "corrected": "미들웨어 matcher 가 /api 를 제외하지 않아 세션이 끊긴 API 요청이 /login 으로 307 리다이렉트되고, res.ok 보다 먼저 res.json() 을 부르는 클라이언트 150곳에서 영문 파서 오류가 그대로 화면에 뜨는데, 저장(POST·PATCH·DELETE 116곳)은 POST /login 이 본문 0바이트 405 라 「Unexpected end of JSON input」 이고 조회(GET 34곳)만 로그인 HTML 을 받아 「Unexpected token '<'」 이며, 401 을 재로그인 안내로 바꾸는 공용 처리기가 앱 전체에 없습니다.",
+   "realCount": 150
+  }
+ ],
+ "23": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Lead-Radar 의 인용 파일 여섯 개를 모두 열어 줄 단위로 확인했습니다. pipeline/page.tsx:24 `const { data } = await supabase.from('pipeline_records')` 뒤 83행이 「아직 담긴 기업이 없습니다」를 그리고, targets/page.tsx 는 파일 전체에 error 문자열이 0건이며 458행이 `{recommended.length > 0 && (`, data-quality/page.tsx 는 47행 Promise.all 결과를 .count 로만 읽고 23~25행 pct 가 분모 0에 '0%' 를 내며, companies/[id]/page.tsx:64 가 error 를 버리고 :72 가 `if (!company) notFound()` 로 404 를 냅니다. 쓰기 쪽도 companies/[id]/actions.ts:538 이 `if (!logged) await supabase.from('outreach_logs').insert(logRow)` 로 결과를 안 보고 546~552행이 「발송 완료」를 돌려주며, SalesPanel.tsx:151 onStageChange 가 152행에서 setStage(v) 로 셀렉트를 먼저 바꾼 뒤 154행 `void setPipelineStage(companyId, v)` 로 결과를 버립니다. setPipelineStage 는 actions.ts:53·58·68·74 에서 `{ error }` 를 제대로 돌려주는데 호출부가 그것을 읽지 않습니다. CSV 도 api/v1/exports/leads/route.ts:80 `const { data } = await query` 라 조회 실패가 머리글만 있는 정상 다운로드로 나갑니다.",
+   "corrected": "",
+   "realCount": 28
+  }
+ ],
+ "10": [
+  {
+   "렌즈": "코드",
+   "refuted": true,
+   "reason": "지목된 네 줄은 모두 실재합니다(components.tsx:2630 `const padY = dense ? 8 : 11`, audit/page.tsx:297 '12px 18px'·325 '14px 18px', users-table-client.tsx:258 '14px 18px'). 그러나 gridTemplateColumns 블록을 전수로 분류해 보니 표 행·머리글로 볼 수 있는 것(borderBottom 또는 role=\"row\"를 낀 것)은 55곳이고 여백은 9가지, 세로 값은 8·10·12·14px 뿐이었습니다. 98곳·25가지에 든 나머지 43곳은 세그먼트 단추 격자(complaints/new:126, nonconformances/new:122 등)와 두 칸 폼 격자(eu-mdr/[id]:186, equipment/new:87)처럼 표가 아닌 블록이었고, 3px·4px·18px 같은 극단값은 그 안에서만 나왔습니다. 세로 여백이 8~14px 이므로 행 높이 차이는 여백만 따져도 1.75배가 상한이라 「2배 넘게」는 성립하지 않습니다. 다만 정본 값 11x12px 는 저장소 전체 리터럴 검색에서 0건으로, 그 부분은 사실입니다.",
+   "corrected": "손으로 짠 표 행·머리글 격자 55곳이 셀 여백을 9가지(세로 8·10·12·14px · 가로 12~20px)로 각자 다시 적어 두었고, 공용 DataTable 의 정본 값 11x12px 를 쓰는 블록은 0곳입니다. 다만 행 높이 차이는 여백 기준 최대 1.75배이며, 「98곳·25가지·2배」는 세그먼트 단추 격자와 폼 격자까지 함께 센 수치입니다.",
+   "realCount": 55
+  },
+  {
+   "렌즈": "의도",
+   "refuted": true,
+   "reason": "Q-Atelier 소스를 다시 세어 보니 padding 이 gridTemplateColumns 와 같은 style 객체 안에 있는 블록은 71곳·18가지이고 표꼴로 좁히면 65곳·15가지라, 주장의 98곳·25가지는 ±8줄 창으로 훑어야만 나오는 수였습니다. 증거에 적힌 12x8(5)·10x8(5) 열 곳은 표 칸이 아니라 폼 그리드 안 세그먼트 단추의 여백이었고(minHeight 60·64, app/(app)/audits/new/client.tsx:99 주석이 「세그먼트 버튼 그리드 (단일선택, 의도적 UI)」), MedqraftTemplateListClient.tsx:126 은 아예 DataTable 로 옮긴 뒤 남은 주석 줄인데 손으로 짠 표로 잡혔습니다. 게다가 docs/SESSION_LOG.md:6805 가 2026-07-01 에 같은 실측을 「gridTemplateColumns 57곳 중 진짜 테이블형은 10곳(나머지는 폼 레이아웃·KPI 카드·캘린더: DataTable 부적합) … 인벤토리 과분류」로 남기고 7곳을 옮겨 지금 DataTable 호출부가 10곳입니다.",
+   "corrected": "손으로 짠 표 블록은 98곳이 아니라 65곳이고 셀 여백은 25가지가 아니라 15가지이며, 그중 10x18·12x16·12x18·14x18 네 값이 46곳을 덮고 5px 한 곳을 빼면 전부 S 간격 사다리 위에 있어, 「행 높이가 2배 넘게 갈린다」는 재지 않은 말입니다(실측에서 Q-Atelier 는 표 칸을 못 쟀고, 2배를 만드는 4px·5px 은 개발 전용 DevResetButton 과 KV 라벨/값 줄이라 표가 아닙니다).",
+   "realCount": 65
+  }
+ ],
+ "17": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "2026-09-09 실측 화면 q-forge--material-stock.png(주장이 든 instance app/(admin)/material/stock/page.tsx:74)을 띄워 보니 「품목」·「가장 이른 유효기한」 머리글이 왼쪽 정렬된 데이터 위에 가운데로 떠 있고, 같은 날 정본 Table 을 쓰는 /material 화면에서는 머리글이 데이터와 왼쪽으로 맞아 있어 앞머리 주장은 화면에서 확인됩니다(원인도 확정 - app/*.css 다섯 벌 전체에서 text-align 선언은 8줄뿐이고 .th 나 그 조상에 걸리는 것이 없으며, 46곳은 전부 className=\"w-full\" 이라 .qd-table 의 text-align:left 를 못 받습니다). 다만 뒤쪽 「sticky 가 한 번도 안 붙는다」 는 반증됩니다 - settings/items/item-forms.tsx:377(max-h-72)·422(max-h-64), settings/backup/restore-panel.tsx:205(max-h-80) 세 곳은 세로 한계가 있어 실제로 붙고, restore-panel 은 thead 에 sticky top-0 bg-surface 를 손수 붙여 둔 «일부러» 입니다. 원인 지목도 어긋납니다 - .qd-table-scroll 은 정본 Table 을 쓰는 4파일의 감싸개이고 46곳의 감싸개는 .overflow-x-auto 입니다.",
+   "corrected": "Q-Forge 의 app/(admin) 아래 raw <table> 46곳이 정본 .qd-table 을 안 써서 text-align:left 를 못 받고 정렬 클래스가 없는 머리글 181곳이 브라우저 기본값 center 로 뜨는 것은 맞으나, globals.css:832 의 `thead .th { position: sticky }` 는 「한 번도 안 붙는다」가 아니라 세로 한계를 준 세 곳(settings/items/item-forms.tsx:377 max-h-72 · 422 max-h-64, settings/backup/restore-panel.tsx:205 max-h-80)에서는 제대로 붙으며, 나머지에서 안 붙는 원인도 .qd-table-scroll 이 아니라 높이 제한이 없는 .overflow-x-auto 감싸개입니다.",
+   "realCount": 46
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\DHR 에서 직접 세었습니다. /print/ 를 뺀 raw <table> 은 46곳이고 전부 app/(admin) 아래이며 적힌 6줄이 모두 일치했고, components/table 을 import 하는 파일은 정확히 4개(material/page.tsx · (admin)/page.tsx · production/page.tsx · settings/users/labour-rate.tsx), `className=\"th\"` 정확 일치는 app 에서 176곳이었습니다. globals.css 와 정본 세 벌 어디에도 .th 의 text-align 이 없고(정본의 text-align: left 는 .qd-table 에만 걸리는데 이 표들은 className=\"w-full\" 뿐입니다), 같은 조건을 브라우저로 재현해 재니 맨 .th 는 center 로 계산되었고, globals.css:832 의 `thead .th { position: sticky; top: 0 }` 는 감싸개의 scrollHeight 와 clientHeight 가 같아(세로 한계 없음) 실제로 붙지 않았습니다.",
+   "corrected": "",
+   "realCount": 46
+  }
+ ],
+ "7": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "TopProgressBar.tsx:23-51 이 usePathname 에만 반응하고 53행이 visible 전까지 null 을 돌려주는 것, layout.tsx:330·418 의 마운트 위치, Next 15.5.22 의 layout-router.js:331(loading 없으면 Suspense 경계 없음)과 app-router-instance.js:109·app-router.js:176-186(startTransition 커밋 뒤 canonicalUrl 로 pathname 산출)을 직접 열어 기전을 확인했습니다. 다만 loading.tsx 는 하위 세그먼트에 상속되므로, 덮이는 화면이 5개가 아니라 19개여서 경계 없는 화면은 153개가 아니라 139개입니다.",
+   "corrected": "TopProgressBar 가 usePathname 변화에만 반응하는데 App Router 에서 pathname 은 새 트리가 커밋된 뒤에 바뀌므로, 위쪽에 loading.tsx 경계가 하나도 없는 139개 화면에서는 막대가 도착한 다음에 처음 실행됩니다(app/(app) 의 page.tsx 158개 중 loading.tsx 다섯 벌이 상속으로 덮는 19개를 뺀 수입니다).",
+   "realCount": 139
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "TopProgressBar.tsx:23-51 은 usePathname 변화 하나에만 반응하고 다른 방아쇠가 없는데, 설치된 next 15.5.22 의 app-router.js:176-186 은 pathname 을 state.canonicalUrl 에서만 뽑고 use-action-queue.js 는 `isThenable(state) ? use(state) : state` 로 전환 중 서스펜드하며 navigate-reducer.js:139·192 는 canonicalUrl 을 응답 resolve 콜백 안에서만 세우므로, 낙관적 경로가 없어 막대는 새 트리가 커밋된 뒤에야 실행됩니다. 다만 loading.tsx 는 하위 트리를 통째로 덮으므로(research 12 · assessments 3 · inbox 2 · dashboard 1 · notifications 1 = 19장) 덮이지 않은 화면은 153장이 아니라 139장입니다.",
+   "corrected": "TopProgressBar 가 usePathname 변화에만 반응하는데 Next 15.5 라우터는 목적지 응답이 도착해 커밋된 뒤에야 canonicalUrl 을 바꾸므로, loading.tsx 경계가 덮지 않는 139개 화면(app/(app) 아래 158개 중 19개만 덮임)에서는 막대가 기다리는 동안이 아니라 도착한 뒤에 처음 실행됩니다.",
+   "realCount": 139
+  }
+ ],
+ "0": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "지목된 6줄(q-design.nav.css:160·188·302·340-341·418, q-design.list.css:111-112)을 직접 열어 보니 전부 letter-spacing/text-transform 만 선언하고 font-family 가 없으며, 부모 규칙(nav:153·181·294·327·409 · list:102·235·278 · screen:73·120·138)은 예외 없이 font-family: var(--qd-font-mono) 를 겁니다. nav.css:70 에서 --qd-font-mono 가 'JetBrains Mono' 를 첫째로 잡고 q-design.fonts.css:93 부터 그 글꼴을 self-host 로 실제 싣고 있어, 한글 라벨의 어절 공백을 모노가 그린다는 기제가 성립합니다. 세 벌의 font-family 선언 16개 중 한글 갈래 안에 든 것은 0개입니다.",
+   "corrected": "정본 세 벌의 한글 갈래 규칙 12개(=[data-hangul] 블록 11개 + list.css:124 의 .qd-table--hangul 1개, 선택자로는 14개)가 letter-spacing 또는 text-transform 만 되돌리고 font-family 는 한 곳도 되돌리지 않아, 부모가 건 font-family: var(--qd-font-mono)(JetBrains Mono, fonts.css 에 self-host)가 그대로 남고 어절 사이 공백을 모노가 그립니다. 다만 세 곳(nav:302 는 text-transform 만, list:241·286 은 letter-spacing 만)은 두 선언 중 하나만 갖고 있어 「예외 없이 둘 다」는 아닙니다.",
+   "realCount": 12
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "dist 세 벌을 파서로 훑어 한글 예외 규칙 12개(nav 5 · list 4 · screen 3)를 세었고 12개 모두 font-family 선언이 없으며, 부모 11개 규칙이 전부 font-family: var(--qd-font-mono) 를 겁니다. nav.css:70 사슬이 'JetBrains Mono' 를 맨 앞에 두어 U+0020 을 모노가 그리고, _hangul.json 의 q-forge /board 표본에서 qd-rail-org · qd-rail-user-meta · qd-kpi-label 이 「글꼴 JetBrains Mono · 공백 6 · 본문공백 2.44~2.51」 로 실측되어 기제가 그대로 확인됩니다.",
+   "corrected": "정본 세 벌의 한글 예외 규칙 12개(nav 5 · list 4 · screen 3)가 자간·대문자만 되돌리고 font-family 를 되돌리지 않아, 부모가 건 var(--qd-font-mono) 가 남고 어절 공백을 JetBrains Mono 가 10px 기준 6px(본문 2.44~2.51px)로 그립니다. 다만 12개 중 3개는 letter-spacing 이나 text-transform 한쪽만 선언하고, 이 규칙이 실제로 걸리는 것은 .qd-* 를 쓰는 Q-Forge·Q-Sonar 뿐이며 Q-Atelier 의 143곳은 정본이 아니라 자기 인라인 스타일에서 나온 별개 경로입니다.",
+   "realCount": 12
+  }
+ ],
+ "13": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier 의 lib/design/tokens.ts:504(OVERLAY 선언) · 514-519(ELEVATION 선언) · 469-482(SHADOW 정의)를 직접 열어 SHADOW.* 네 값이 전부 다크 고정 rgba 임을 확인했고, grep 으로 ELEVATION. 은 저장소 전체 0곳, OVERLAY. 는 앱 코드 0곳(테스트 파일 lib/design/tokens-promoted.test.ts:27-28 에만 2곳), SHADOW. 는 78회(77줄)를 셌습니다. 적시된 네 백드롭 줄(GlobalSearch.tsx:286 alpha('#000',0.5) · QmsLinkedProcedureModal.tsx:106 · StageProgressionAction.tsx:749 rgba(0,0,0,0.5) · BarcodeScanButton.tsx:136 rgba(0,0,0,0.85))이 모두 position:fixed; inset:0 백드롭으로 실재했고, app/globals.css:36-41 과 77-82 가 --qa-backdrop 및 --qa-shadow-* 를 라이트에서 따뜻한 값으로 다시 정의하므로 테마 인지 대안이 실제로 존재합니다.",
+   "corrected": "ELEVATION.* 은 저장소 전체에서 호출부가 0곳이고 OVERLAY.* 도 앱 코드 호출부가 0곳(참조는 tokens-promoted.test.ts 2곳뿐)인데 다크 고정 rgba 인 SHADOW.* 는 78회 쓰이고, 순수 검정 백드롭은 4곳이 아니라 8곳입니다(위 넷에 더해 AiHelperButton.tsx:209 · ChangeImpactDecisionTree.tsx:75 · DevResetButton.tsx:300 · DocumentArtifactPanel.tsx:815).",
+   "realCount": 86
+  },
+  {
+   "렌즈": "의도",
+   "refuted": true,
+   "reason": "lib/design/tokens.ts 와 전체 grep 을 열어 보니 ELEVATION.·OVERLAY. 호출부 0곳은 맞으나 SHADOW.* 는 78회가 아니라 77회이고 그중 73회가 1px 2px rgba(0,0,0,0.2) 짜리 SHADOW.hairline 이며, 정작 모달·드로어·드롭다운·토스트·사이드바 같이 떠 있는 면은 이미 테마 인지 var(--qa-shadow-*) 를 15곳에서 쓰고 있어 tokens.ts:511-512 주석이 요구한 바가 이름만 다를 뿐 이미 지켜지고 있습니다. 또 docs/BACKLOG.md:2198 이 「globals.css 그대로 두고 매핑만 추가(무파괴) · 호출부 교체는 2~5단계 점진」이라고 승격의 성격을 적어 두었고, 반대로 백드롭은 4곳이 아니라 6곳(개발 전용 DevResetButton 과 카메라 뷰파인더 BarcodeScanButton 을 빼고)이라 숫자가 양쪽으로 어긋납니다.",
+   "corrected": "실제로 남는 것은 모달 백드롭 6곳(GlobalSearch:286 · QmsLinkedProcedureModal:106 · StageProgressionAction:749 · AiHelperButton:209 · ChangeImpactDecisionTree:75 · DocumentArtifactPanel:815)이 var(--qa-backdrop) 대신 순수 검정을 박아 둔 것이며, SHADOW.* 77회 중 73회는 1px 짜리 hairline 이고 떠 있는 면은 이미 테마 인지 var(--qa-shadow-*) 를 15곳에서 쓰고 있어 「그림자 78개가 다크 고정」이라는 부분은 성립하지 않습니다.",
+   "realCount": 6
+  }
+ ],
+ "26": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "globals.css 192~198줄에 .lr-label 이 letter-spacing 0.5px · text-transform uppercase 로 실재하고 파일 전체에 [data-hangul] 갈래가 없음을 확인했습니다. tsx 에서 lr-label 은 정확히 60곳 18파일이며 문자 스캔 결과 60곳 전부 한글 이름표였고, 인용된 5개 줄과 정본 q-design.screen.css:151-158 · PageHeader.tsx:64 도 적힌 그대로였습니다.",
+   "corrected": "",
+   "realCount": 60
+  }
+ ],
+ "3": [
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "lib/design/components.tsx:1357-1428 을 직접 열어 확인했습니다. Alert 은 role·aria-live·아이콘이 하나도 없는 순수 div 이고, kind 는 colorMap 하나만 거쳐 background: alpha(c,0.08) · border: 1px solid alpha(c,0.3) · borderLeft: 3px solid c 로만 나타납니다. 같은 저장소가 Toast.tsx:100-140 에는 aria-live/role 을 WCAG 4.1.3 근거로 «일부러» 넣었고 FldError(components.tsx:1150)에는 role=\\\"alert\\\" 와 ⚠ 아이콘을 넣었으므로, Alert 만 비어 있는 것은 의도라는 근거가 어디에도 없고 오히려 같은 결함을 형제 부품에서는 고쳤다는 기록(BACKLOG.md:3334)이 남아 있습니다. 다만 호출 수 128 은 lucide 아이콘 AlertTriangle 15 · AlertCircle 5 를 함께 센 값이라 틀렸습니다.",
+   "corrected": "lib/design/components.tsx:1357 의 Alert 은 role·aria-live·아이콘이 없는 순수 div 라 kind 가 배경 8%·테두리 30%·왼쪽 3px 막대의 색으로만 구분되고, 호출은 128곳이 아니라 110곳(63파일)이며 그중 title 로 글자 단서를 주는 42곳을 뺀 68곳은 색 말고 종류 단서가 없고, 상태변수로 조건부 렌더되는 41곳은 화면에 떠도 보조기기에 알려지지 않습니다.",
+   "realCount": 110
+  },
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier\\lib\\design\\components.tsx 1357~1431 행을 직접 열어 확인했습니다. Alert 은 role·aria-live·아이콘이 하나도 없는 div 이고 kind 구분이 background alpha(c,0.08) · border alpha(c,0.3) · borderLeft 3px solid c 라는 색뿐인 것이 맞습니다(같은 파일 1150 행 FldError 만 role=\"alert\" 와 ⚠ 를 갖고 있으며 이는 별개 부품입니다). 다만 호출 수는 부풀려져 있습니다. node_modules 를 뺀 저장소 전체를 &lt;Alert(?![A-Za-z0-9_]) 로 스캔하니 128 이 아니라 110 곳(63 파일)이고, kind=\"error\" 는 45 가 아니라 47 곳, title= 을 함께 주는 곳은 41 이 아니라 42 곳이라 색 말고 단서가 없는 곳은 87 이 아니라 68 곳입니다.",
+   "corrected": "lib/design/components.tsx:1357 의 Alert 은 role 도 aria-live 도 아이콘도 없는 순수 div 이고 종류 구분이 배경 8% · 테두리 30% · 왼쪽 3px 막대의 색뿐이며, 호출은 110곳(63파일)이고 그중 kind=\"error\" 47곳 · title 을 함께 주는 곳 42곳이라 68곳은 색 말고 종류 단서가 없습니다.",
+   "realCount": 110
+  }
+ ],
+ "6": [
+  {
+   "렌즈": "코드",
+   "refuted": false,
+   "reason": "D:\\Claude\\Q-Atelier 에서 적힌 줄을 모두 열어 값이 그대로 있는 것을 확인했습니다. app/api/equipment/route.ts:83 이 `{ error: 'invalid_input', issues: parsed.error.flatten() }` 로 400 을 내고 app/(app)/equipment/new/client.tsx:53 이 `toast.error(json.message ?? json.error ?? '생성 실패')` 라 message 가 없으면 「invalid_input」 이 그대로 뜹니다. capa 쌍(route.ts:112-116 · client.tsx:112)도 같은 모양이며 client.tsx:112 는 message 폴백조차 없이 `json.error ?? 'CAPA 발행 실패'` 입니다. lib/api/client-error.ts:10 의 주석이 원시 상태코드 노출 금지를 못박아 두었으나 httpStatusMessage 를 부르는 파일은 정의 파일을 뺀 10개뿐이고, `HTTP ${...}`(63곳)와 `(${res.status})`(29곳)를 합친 92곳은 count 와 정확히 일치했습니다. app/api/udi/route.ts:83 의 주석이 「화면은 json.message ?? json.error 를 토스트로 띄운다」라고 스스로 적어 두어 경로까지 확인됩니다. 다만 「라우트 88개」는 실측과 어긋납니다. messageless invalid_input 을 가진 route.ts 파일은 84개, `{ error: 'invalid_input', issues: ... }` 정확한 꼴은 86곳, message 를 함께 주는 10곳을 뺀 messageless 발생은 89곳입니다.",
+   "corrected": "API 라우트 84개 파일(정확한 `{ error: 'invalid_input', issues: ... }` 꼴 86곳 · message 를 함께 주는 10곳을 뺀 messageless 발생 89곳)이 message 키 없이 400 을 내고, 화면은 `json.message ?? json.error` 를 읽으므로 영문 기계 문자열이 그대로 사용자에게 뜹니다. 여기에 더해 .tsx 안에서 사용자에게 보이는 문자열에 `HTTP ${...}`(63곳)나 `(${res.status})`(29곳)를 직접 넣은 자리가 92곳이고, 이를 막으라고 만든 httpStatusMessage 를 실제로 부르는 파일은 정의 파일을 뺀 10개뿐입니다.",
+   "realCount": 92
+  },
+  {
+   "렌즈": "의도",
+   "refuted": false,
+   "reason": "app/api 를 직접 세어 message 없는 `{ error: 'invalid_input' }` 400 응답 86건(83개 route 파일)을 확인했고, 화면 쪽은 `X.message ?? X.error` 가 136곳이며 components/Toast.tsx 에 코드→한국어 변환 층이 없어 문자열이 그대로 뜹니다. 인용된 두 자리(app/(app)/equipment/new/client.tsx:53, app/(app)/capa/new/client.tsx:112)를 열어 재현 경로를 확인했습니다. 일부러 그런 것이라는 근거는 없고 오히려 반대입니다. lib/api/client-error.ts:11 과 lib/api/error-response.ts:21-24 가 스스로 「원시 상태코드·기계 문자열을 노출하지 않는다 · 응답은 error+message 쌍」이라고 규칙을 적어 두었는데 badRequest·unauthorized·notFound 헬퍼 사용은 22·6·7회뿐이고, app/api/capa/route.ts:27-31 주석은 이 400 경로가 실제 사용자에게 터진 사건을 기록해 두었습니다. 다만 dbError(437회)·internalError(97회)는 한국어 message 를 실어 500 경로는 대체로 막혀 있고, 공용 직무게이트도 403 에 한국어를 붙이므로 제목의 「HTTP 500」 부분은 과장입니다.",
+   "corrected": "app/api 의 route 파일 83개가 message 없이 `{ error: 'invalid_input', issues: ... }` 로 400 을 내고(응답 86건) 화면 136곳이 `json.message ?? json.error` 를 그대로 그리므로 사용자에게 「invalid_input」·「Unauthorized」·「NotFound」·「no_active_org」 같은 영문 기계 문자열이 뜨며, 별개로 `HTTP ${res.status}` 를 사용자에게 보이는 문자열에 넣는 자리가 97곳(그중 81곳이 setError·toast.error 직행)입니다. 다만 500 경로는 dbError·internalError 가 한국어 message 를 실어 대체로 막혀 있습니다.",
+   "realCount": 86
+  }
+ ]
+}
