@@ -52,6 +52,43 @@ const PROBES = [
   ['로그아웃',    '.qd-rail-logout', ['minHeight', 'padding', 'fontSize', 'fontWeight', 'borderRadius', 'borderWidth', 'borderColor', 'color', 'backgroundColor']],
 ];
 
+/*
+ * 🔴 Q-Atelier 는 정본 클래스를 안 씁니다.
+ *
+ * 정본은 Q-Atelier 에서 «뽑아낸» 것입니다. 그러니 원본에는 .qd-* 가 없고 같은
+ * 값을 인라인 스타일로 들고 있습니다. 위 선택자만 쓰면 Q-Atelier 는 16개 부품이
+ * 전부 «없음» 으로 나오고, 남은 두 제품끼리만 견주게 됩니다.
+ *
+ * 실제로 그렇게 돌고 있었습니다. 「같음 77 · 어긋남 0」 이라고 찍히는 동안
+ * Q-Atelier 는 한 자리도 재고 있지 않았습니다. 기준이 되는 제품을 빼놓고
+ * 「셋이 같다」 고 말한 셈입니다.
+ *
+ * 그래서 제품별 선택자 사전을 둡니다. 자리 이름은 같고 «어디서 찾는가» 만
+ * 다릅니다.
+ */
+const 제품별선택자 = {
+  'Q-Atelier': {
+    '레일':          'aside.qa-sidebar-aside',
+    '로고 자리':     'aside.qa-sidebar-aside > a img',
+    '조직명':        'aside.qa-sidebar-aside > a > div',
+    '묶음 이름표':   'aside.qa-sidebar-aside nav > div > button',
+    '항목(쉼)':      'aside.qa-sidebar-aside nav a.qa-nav-item:not(.active)',
+    '항목(활성)':    'aside.qa-sidebar-aside nav a.qa-nav-item.active',
+    '아이콘 자리':   'aside.qa-sidebar-aside nav a.qa-nav-item.active > span:first-child',
+    '아이콘 글리프': 'aside.qa-sidebar-aside nav a.qa-nav-item.active > span:first-child > svg',
+    '활성 점':       'aside.qa-sidebar-aside .qa-nav-active-dot',
+    /* 판 번호가 두 줄입니다(엔진 · 제품). 정본이 뽑아 간 것은 아래 줄입니다 -
+       padding 4px 4px 8px 이 그 줄의 값입니다. */
+    '판 번호 줄':    'aside.qa-sidebar-aside > div:nth-of-type(1) > div:last-child',
+    '판 번호 값':    'aside.qa-sidebar-aside > div:nth-of-type(1) > div:last-child > span:last-child',
+    '바닥 경계':     'aside.qa-sidebar-aside > div:nth-of-type(3)',
+    '아바타':        'aside.qa-sidebar-aside .qa-avatar',
+    '이름':          'aside.qa-sidebar-aside > div:nth-of-type(3) p:nth-of-type(1)',
+    '역할 줄':       'aside.qa-sidebar-aside > div:nth-of-type(3) p:nth-of-type(2)',
+    '로그아웃':      'aside.qa-sidebar-aside .qa-btn-secondary',
+  },
+};
+
 const env = Object.fromEntries(
   readFileSync('D:/Claude/Q-Atelier/.env.local', 'utf8').split(/\r?\n/)
     .filter((l) => l && !l.startsWith('#') && l.includes('='))
@@ -61,6 +98,9 @@ const env = Object.fromEntries(
 const browser = await chromium.launch();
 
 async function measure(name, url, prepare) {
+  /* 이 제품에서 이 부품을 어디서 찾는지. 사전에 없으면 정본 선택자를 씁니다 */
+  const 사전 = 제품별선택자[name] || {};
+  const probes = PROBES.map(([label, sel, props]) => [label, 사전[label] || sel, props]);
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     locale: 'ko-KR', timezoneId: 'Asia/Seoul',
@@ -97,7 +137,7 @@ async function measure(name, url, prepare) {
       r[label] = v;
     }
     return r;
-  }, PROBES);
+  }, probes);
   await ctx.close();
   return out;
 }
@@ -177,9 +217,19 @@ console.log(`  같음        ${same.length}개`);
 console.log(`  규칙대로 다름 ${byRule.length}개   (한글이라 자간·대문자를 푼 자리)`);
 console.log(`  어긋남      ${diff.length}개`);
 if (missing.length) {
+  /*
+   * 🔴 «못 쟀다» 는 «같다» 가 아닙니다.
+   *
+   * 예전에는 이것을 「없는 부품」 이라고 조용히 적어 두고 어긋남 0 을 초록으로
+   * 찍었습니다. 그동안 Q-Atelier 는 16개 부품이 전부 안 잡히고 있었는데도
+   * 「셋이 같다」 로 읽혔습니다. 못 잰 자리는 실패로 셉니다.
+   */
+  console.log(`  못 잼       ${missing.length}개   🔴 이 자리는 «같다» 고 말할 수 없습니다`);
+}
+if (missing.length) {
   console.log('');
-  console.log('  없는 부품');
-  for (const [label, who] of missing) console.log(`    ${label.padEnd(14)} ${who.join(' · ')} 에 없음`);
+  console.log('  못 잰 부품 (선택자가 안 맞거나 그 제품에 그 부품이 없습니다)');
+  for (const [label, who] of missing) console.log(`    ${label.padEnd(14)} ${who.join(' · ')} 에서 못 찾음`);
 }
 if (byRule.length) {
   console.log('');
@@ -197,4 +247,8 @@ if (diff.length) {
     for (const [n, v] of d.vals) console.log(`      ${n.padEnd(11)} ${v}`);
   }
 }
-process.exit(diff.length ? 1 : 0);
+if (!diff.length && !missing.length) {
+  console.log('');
+  console.log('  세 제품의 차림표가 잰 자리에서 모두 같습니다.');
+}
+process.exit(diff.length || missing.length ? 1 : 0);

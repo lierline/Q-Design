@@ -603,7 +603,16 @@ ${bindBlock('light')}
   background: ${spec.foot.avatarBackground.replace(/--qa-champagne/g, '--qd-accent').replace(/--qa-surface2/g, '--qd-surface2')};
   color: var(--qd-text);
   font-weight: ${spec.foot.avatarWeight};
-  font-size: ${px(Math.max(11, Math.round(spec.foot.avatarSize * 0.45)))};
+  /* 🔴 반올림하지 않습니다. 원본(components/Avatar.tsx)이 이렇게 씁니다.
+
+       fontSize: Math.max(11, size * 0.45)
+
+     여기에 Math.round 를 넣었더니 32 x 0.45 = 14.4 가 14 로 깎여서, 원본은
+     14.4px 로 그리는데 사본 두 벌만 14px 로 그리고 있었습니다. 0.4px 이라
+     눈에는 안 보이지만 «사본이 원본과 다르다» 는 것 자체가 이 정본이 막으려는
+     것입니다. tools/diff-rails.mjs 가 세 제품을 다 재게 고치고 나서야
+     드러났습니다. */
+  font-size: ${px(Math.max(11, spec.foot.avatarSize * 0.45))};
   line-height: 1;
   letter-spacing: 0;
   user-select: none;
