@@ -172,6 +172,12 @@ html[data-theme='light'] {
   font-variant-numeric: tabular-nums;
 }
 .qd-table .qd-quiet { color: var(--qd-subtle); }
+/* 강조 칸. 코드·식별자처럼 «이 칸이 이 줄의 열쇠» 인 자리에 씁니다.
+   🔴 이 장치가 없으면 제품이 칸에 유틸리티(text-gold 같은)를 적는데, 정본은
+   레이어 밖이라 그것이 안 먹습니다. «적혀 있는데 화면은 그대로» 가 됩니다.
+   실제로 Q-Sonar 에서 그런 자리가 78개 있었습니다. 정본이 잡는 속성은
+   정본이 장치를 함께 줘야 합니다. */
+.qd-table .qd-accent { color: var(--qd-accent); }
 
 .qd-table--dense th,
 .qd-table--dense .qd-th { padding: 9px 12px; }

@@ -1283,7 +1283,7 @@
   "q-sonar": {
     "/dashboard": {
       "koreanNodes": 65,
-      "count": 9,
+      "count": 1,
       "sample": [
         {
           "text": "오늘 할 일",
@@ -1292,73 +1292,9 @@
           "size": "10px",
           "tag": "span",
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
-        },
-        {
-          "text": "오늘 보낸 메일",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "누적 클릭",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label text-faint"
-        },
-        {
-          "text": "마지막 발송",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label text-faint"
-        },
-        {
-          "text": "보낼 수 있는 곳 140 → 시작하기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "담아 둔 곳 중 아직 말 안 건 곳",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label"
-        },
-        {
-          "text": "오늘 할 일 열기 →",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary shrink-0"
-        },
-        {
-          "text": "서비스 라인",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "최근 보낸 메일",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
         }
       ],
-      "모노공백수": 22,
+      "모노공백수": 14,
       "모노공백": [
         {
           "text": "오늘 할 일",
@@ -1371,16 +1307,6 @@
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
         },
         {
-          "text": "오늘 보낸 메일",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
           "text": "7일 0",
           "size": "11px",
           "공백": 6.6,
@@ -1391,16 +1317,6 @@
           "cls": "ml-2 font-mono text-[11px] text-faint"
         },
         {
-          "text": "누적 클릭",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label text-faint"
-        },
-        {
           "text": "0 · 링크 2",
           "size": "11px",
           "공백": 6.6,
@@ -1409,16 +1325,6 @@
           "글꼴": "JetBrains Mono",
           "tag": "span",
           "cls": "ml-2 font-mono text-[11px] text-dim"
-        },
-        {
-          "text": "마지막 발송",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label text-faint"
         },
         {
           "text": "2026-08-14 · 27일 전",
@@ -1451,40 +1357,70 @@
           "cls": "border border-red-900/60 px-2.5 py-1 font-mono tex"
         },
         {
-          "text": "보낼 수 있는 곳 140 → 시작하기",
+          "text": "타깃 정의 →",
           "size": "11px",
           "공백": 6.6,
-          "본문공백": 2.54,
+          "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "a",
-          "cls": "lr-btn lr-btn-primary"
+          "cls": "font-mono text-[11px] text-dim hover:text-gold"
         },
         {
-          "text": "담아 둔 곳 중 아직 말 안 건 곳",
+          "text": "등록공장 216,797 · 최우선 1,839",
           "size": "11px",
           "공백": 6.6,
           "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "div",
-          "cls": "lr-label"
+          "cls": "mt-0.5 font-mono text-[11px] text-faint"
         },
         {
-          "text": "오늘 할 일 열기 →",
+          "text": "🌿 14001 유망",
           "size": "11px",
           "공백": 6.6,
-          "본문공백": 2.54,
+          "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary shrink-0"
+          "tag": "span",
+          "cls": "font-mono text-[11px] text-goldhi"
+        },
+        {
+          "text": "A·B·C 482곳",
+          "size": "11px",
+          "공백": 6.6,
+          "본문공백": 2.76,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "div",
+          "cls": "mt-0.5 font-mono text-[11px] text-faint"
+        },
+        {
+          "text": "점수 기반",
+          "size": "11px",
+          "공백": 6.6,
+          "본문공백": 2.76,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "span",
+          "cls": "font-mono text-[11px] text-dim"
+        },
+        {
+          "text": "제조시설 보유 8,370곳 중 30~99명",
+          "size": "11px",
+          "공백": 6.6,
+          "본문공백": 2.76,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "div",
+          "cls": "mt-0.5 font-mono text-[11px] text-faint"
         }
       ]
     },
     "/leads": {
-      "koreanNodes": 610,
-      "count": 2,
+      "koreanNodes": 611,
+      "count": 1,
       "sample": [
         {
           "text": "리드",
@@ -1493,17 +1429,9 @@
           "size": "10px",
           "tag": "span",
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
-        },
-        {
-          "text": "CSV 내보내기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn shrink-0"
         }
       ],
-      "모노공백수": 109,
+      "모노공백수": 108,
       "모노공백": [
         {
           "text": "점수 계산 2026-08-13· 26일 전 · 그 뒤 ",
@@ -1526,16 +1454,6 @@
           "cls": "ml-2 text-red-400"
         },
         {
-          "text": "CSV 내보내기",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "a",
-          "cls": "lr-btn shrink-0"
-        },
-        {
           "text": "제외 · 8331",
           "size": "12px",
           "공백": 7.2,
@@ -1546,7 +1464,7 @@
           "cls": "border px-3 py-1.5 font-mono text-xs tracking-wide"
         },
         {
-          "text": "제안 대상 전체 · 5,087",
+          "text": "제안 대상 전체 · 5,080",
           "size": "12px",
           "공백": 7.2,
           "본문공백": 3.01,
@@ -1624,12 +1542,22 @@
           "글꼴": "JetBrains Mono",
           "tag": "span",
           "cls": "ml-1.5 font-mono text-[10px] text-faint"
+        },
+        {
+          "text": "초소형 1~5",
+          "size": "10px",
+          "공백": 6,
+          "본문공백": 2.51,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "span",
+          "cls": "ml-1.5 font-mono text-[10px] text-faint"
         }
       ]
     },
     "/companies": {
       "koreanNodes": 368,
-      "count": 2,
+      "count": 1,
       "sample": [
         {
           "text": "기업",
@@ -1638,14 +1566,6 @@
           "size": "10px",
           "tag": "span",
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
-        },
-        {
-          "text": "검색",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn lr-btn-primary"
         }
       ],
       "모노공백수": 4,
@@ -1693,8 +1613,8 @@
       ]
     },
     "/targets": {
-      "koreanNodes": 165,
-      "count": 11,
+      "koreanNodes": 187,
+      "count": 1,
       "sample": [
         {
           "text": "타깃 정의",
@@ -1703,86 +1623,6 @@
           "size": "10px",
           "tag": "span",
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
-        },
-        {
-          "text": "메일 주소가 있는 곳",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "전화만",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label text-faint"
-        },
-        {
-          "text": "오늘 연락할 곳",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "제외한 곳",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "리스트 보기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "연락 가능한 곳만(30명 미만)366",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn"
-        },
-        {
-          "text": "리스트 보기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "제조·3년미만·30명미만106",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn"
-        },
-        {
-          "text": "리스트 보기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "a",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "왜 라인마다 화면이 다른가",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
         }
       ],
       "모노공백수": 41,
@@ -1798,27 +1638,7 @@
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
         },
         {
-          "text": "메일 주소가 있는 곳",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "오늘 연락할 곳",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "메일 가능 144곳 중",
+          "text": "메일 가능 137곳 중",
           "size": "11px",
           "공백": 6.6,
           "본문공백": 2.76,
@@ -1875,7 +1695,7 @@
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "span",
-          "cls": "ml-1.5 text-red-400/80"
+          "cls": "ml-1.5 text-red-400"
         },
         {
           "text": "점수 없음 · 인접업종",
@@ -1905,13 +1725,33 @@
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "span",
-          "cls": "ml-1.5 text-red-400/80"
+          "cls": "ml-1.5 text-red-400"
+        },
+        {
+          "text": "점수 없음 · 인접업종",
+          "size": "10px",
+          "공백": 6,
+          "본문공백": 2.51,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "span",
+          "cls": "lr-badge border border-line2 px-1.5 py-0.5 font-mo"
+        },
+        {
+          "text": "☎ 070-4282-9626· 메일 없음",
+          "size": "11px",
+          "공백": 6.6,
+          "본문공백": 2.76,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "span",
+          "cls": "font-mono text-[11px] text-faint"
         }
       ]
     },
     "/outreach": {
       "koreanNodes": 63,
-      "count": 19,
+      "count": 2,
       "sample": [
         {
           "text": "아웃리치",
@@ -1922,222 +1762,16 @@
           "cls": "truncate font-mono text-[10px] uppercase tracking-"
         },
         {
-          "text": "수신자명 · to",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "회사명 · company",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "회사 슬러그 · utm_content",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "캠페인 · utm_campaign",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "단계 · stage",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "링크 문구 · anchor",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "대상 URL · base",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "발신자 정보 · 이 브라우저에 저장",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label mb-2"
-        },
-        {
-          "text": "· 이 브라우저에 저장",
-          "ls": "0.5px",
-          "upper": false,
-          "size": "11px",
-          "tag": "span",
-          "cls": "text-faint normal-case"
-        },
-        {
-          "text": "단축 링크 · 클릭·발송 기록됨",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label mb-2"
-        },
-        {
-          "text": "· 클릭·발송 기록됨",
-          "ls": "0.5px",
-          "upper": false,
-          "size": "11px",
-          "tag": "span",
-          "cls": "text-faint normal-case"
-        },
-        {
-          "text": "단축링크 생성 & 기록",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "URL 복사",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn disabled:opacity-40"
-        },
-        {
-          "text": "텍스트 링크",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn disabled:opacity-40"
-        },
-        {
-          "text": "골드 버튼 복사",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn disabled:opacity-40"
-        },
-        {
           "text": "● 실시간 미리보기 · 수신자 화면",
           "ls": "0.275px",
           "upper": true,
           "size": "11px",
           "tag": "span",
           "cls": "font-mono text-[11px] uppercase tracking-wide text"
-        },
-        {
-          "text": "새 탭 열기",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "10px",
-          "tag": "a",
-          "cls": "lr-btn px-2 py-1 text-[10px]"
-        },
-        {
-          "text": "최근 링크",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label"
         }
       ],
-      "모노공백수": 24,
+      "모노공백수": 7,
       "모노공백": [
-        {
-          "text": "수신자명 · to",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "회사명 · company",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "회사 슬러그 · utm_content",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "캠페인 · utm_campaign",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "단계 · stage",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "링크 문구 · anchor",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
-        {
-          "text": "대상 URL · base",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "label",
-          "cls": "lr-label"
-        },
         {
           "text": "의료기기 인허가·규제",
           "size": "10px",
@@ -2159,150 +1793,63 @@
           "cls": "border px-1.5 py-0.5 font-mono text-[10px] border-"
         },
         {
-          "text": "발신자 정보 · 이 브라우저에 저장",
+          "text": "「단축링크 생성」을 누르면 만들어집니다",
+          "size": "14px",
+          "공백": 8.4,
+          "본문공백": 3.51,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "div",
+          "cls": "mb-3 break-all font-mono text-sm text-goldhi"
+        },
+        {
+          "text": "회신 참조번호 → MQ-2026Q3-COLD-S?",
           "size": "11px",
           "공백": 6.6,
           "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "div",
-          "cls": "lr-label mb-2"
+          "cls": "mt-3 font-mono text-[11px] text-muted"
         },
         {
-          "text": "· 이 브라우저에 저장",
+          "text": "● 실시간 미리보기 · 수신자 화면",
           "size": "11px",
           "공백": 6.6,
           "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
           "tag": "span",
-          "cls": "text-faint normal-case"
+          "cls": "font-mono text-[11px] uppercase tracking-wide text"
         },
         {
-          "text": "단축 링크 · 클릭·발송 기록됨",
+          "text": "https://www.medqraft.co.kr/int",
+          "size": "10px",
+          "공백": 6,
+          "본문공백": 2.51,
+          "wordSpacing": "0px",
+          "글꼴": "JetBrains Mono",
+          "tag": "div",
+          "cls": "border-t border-line px-4 py-2 font-mono text-[10p"
+        },
+        {
+          "text": "전체 캠페인 →",
           "size": "11px",
           "공백": 6.6,
           "본문공백": 2.76,
           "wordSpacing": "0px",
           "글꼴": "JetBrains Mono",
-          "tag": "div",
-          "cls": "lr-label mb-2"
+          "tag": "a",
+          "cls": "font-mono text-[11px] text-gold hover:text-goldhi"
         }
       ]
     },
     "/me": {
       "koreanNodes": 42,
-      "count": 7,
-      "sample": [
-        {
-          "text": "이름 *",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "직함 *",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "답장받을 이메일 *",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "전화 (선택)",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "메일에 이렇게 나갑니다",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label mb-2"
-        },
-        {
-          "text": "저장",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "button",
-          "cls": "lr-btn lr-btn-primary"
-        },
-        {
-          "text": "계정",
-          "ls": "0.5px",
-          "upper": true,
-          "size": "11px",
-          "tag": "div",
-          "cls": "lr-label mb-3"
-        }
-      ],
-      "모노공백수": 6,
+      "count": 0,
+      "sample": [],
+      "모노공백수": 1,
       "모노공백": [
-        {
-          "text": "이름 *",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "직함 *",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "답장받을 이메일 *",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "전화 (선택)",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "span",
-          "cls": "lr-label"
-        },
-        {
-          "text": "메일에 이렇게 나갑니다",
-          "size": "11px",
-          "공백": 6.6,
-          "본문공백": 2.76,
-          "wordSpacing": "0px",
-          "글꼴": "JetBrains Mono",
-          "tag": "div",
-          "cls": "lr-label mb-2"
-        },
         {
           "text": "저장 후 새로 만든 초안부터 반영됩니다. 이미 만들어 ",
           "size": "10px",
@@ -2316,11 +1863,11 @@
       ]
     },
     "_합계": {
-      "한글요소": 1313,
-      "벌어진곳": 50,
-      "비율": 3.8,
-      "모노어절공백": 206,
-      "공백비율": 15.7
+      "한글요소": 1336,
+      "벌어진곳": 6,
+      "비율": 0.4,
+      "모노어절공백": 175,
+      "공백비율": 13.1
     }
   },
   "q-forge": {
@@ -2331,7 +1878,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:10",
+          "text": "9월 10일 (목)08:29:23",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
@@ -2349,7 +1896,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:12",
+          "text": "9월 10일 (목)08:29:25",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
@@ -2367,7 +1914,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:15",
+          "text": "9월 10일 (목)08:29:28",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
@@ -2385,7 +1932,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:17",
+          "text": "9월 10일 (목)08:29:30",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
@@ -2403,7 +1950,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:19",
+          "text": "9월 10일 (목)08:29:32",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
@@ -2421,7 +1968,7 @@
       "모노공백수": 1,
       "모노공백": [
         {
-          "text": "9월 10일 (목)08:09:21",
+          "text": "9월 10일 (목)08:29:34",
           "size": "10px",
           "공백": 6,
           "본문공백": 2.51,
