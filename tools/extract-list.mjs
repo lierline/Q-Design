@@ -301,6 +301,7 @@ ${bind('light')}
 .qd-table .qd-th[data-hangul] {
   letter-spacing: 0;
   text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
 }
 /*
  * 머리글이 «거의 다» 한글인 제품을 위한 갈래.
@@ -314,11 +315,15 @@ ${bind('light')}
 .qd-table--hangul .qd-th {
   letter-spacing: 0;
   text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
 }
+/* 🔴 되돌리는 갈래도 공백을 함께 되돌립니다. 안 그러면 통째로 뒤집은 표에서
+   라틴 머리글만 조여집니다. 특정도가 같고(0,2,1) 뒤에 오므로 이깁니다. */
 .qd-table--hangul th[data-latin],
 .qd-table--hangul .qd-th[data-latin] {
   letter-spacing: ${spec.table.headTracking};
   text-transform: uppercase;
+  word-spacing: normal;
 }
 
 .qd-table tbody tr,
@@ -427,7 +432,10 @@ a.qd-row:hover, button.qd-row:hover {
   letter-spacing: ${spec.row.codeTracking};
   color: var(--qd-accent);
 }
-.qd-row-code[data-hangul] { letter-spacing: 0; }
+.qd-row-code[data-hangul] {
+  letter-spacing: 0;
+  word-spacing: var(--qd-hangul-word-space);
+}
 .qd-row-title {
   font-size: ${px(spec.row.titleFontSize)};
   font-weight: ${spec.row.titleWeight};
@@ -472,7 +480,10 @@ a.qd-row:hover, button.qd-row:hover {
   border: 1px solid ${mix(spec.tag.secondaryBorder)};
   border-radius: ${px(spec.tag.radius)};
 }
-.qd-tag[data-hangul] { letter-spacing: 0; }
+.qd-tag[data-hangul] {
+  letter-spacing: 0;
+  word-spacing: var(--qd-hangul-word-space);
+}
 ${tagSize('xs', spec.tag.xs)}
 ${tagSize('sm', spec.tag.sm)}
 ${tagSize('md', spec.tag.md)}

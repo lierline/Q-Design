@@ -68,6 +68,13 @@
      세 제품이 «같은 얼굴» 을 쓰는 것이 이 파일의 목적 중 하나이고, 그 얼굴
      이름을 여기 따로 적으면 그것부터 갈립니다. */
   --qd-font-mono: var(--qd-font-mono-src, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace);
+  /* 한글 이름표의 어절 공백을 본문 폭으로 되돌리는 값입니다.
+     JetBrains Mono 의 공백은 0.6em, Pretendard 는 0.251em 입니다(실측 · 10px 에서
+     6px 대 2.51px). 0.6 - 0.35 = 0.25em 이라 본문과 맞습니다.
+     🔴 글꼴을 바꾸지 않고 공백만 되돌립니다. 글꼴을 바꾸면 「생산 로트
+     LOT-2026-004」 처럼 한글과 코드가 섞인 이름표에서 코드가 모노를 잃습니다.
+     제품이 모노를 바꾸면 그 제품에서 --qd-hangul-word-space-src 로 다시 잽니다. */
+  --qd-hangul-word-space: var(--qd-hangul-word-space-src, -0.35em);
 }
 
 html[data-theme='light'] {
@@ -160,6 +167,7 @@ html[data-theme='light'] {
 .qd-rail-org[data-hangul] {
   letter-spacing: 0;
   text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
 }
 .qd-rail-org--accent { color: var(--qd-accent); }
 
@@ -188,6 +196,7 @@ html[data-theme='light'] {
 .qd-nav-group[data-hangul] {
   letter-spacing: 0;
   text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
 }
 
 /* ── 항목 ──────────────────────────────────────────────────────────────────
@@ -299,7 +308,10 @@ html[data-theme='light'] {
 /* 대문자는 «이름» 에만 겁니다. 줄 전체에 걸면 v1.3.0 이 V1.3.0 이 됩니다 -
    판 번호는 사람이 적은 그대로 나와야 합니다 (띄워 찍어 보고 잡은 자리). */
 .qd-rail-version > :first-child { text-transform: uppercase; }
-.qd-rail-version > :first-child[data-hangul] { text-transform: none; }
+.qd-rail-version > :first-child[data-hangul] {
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
 .qd-rail-version b {
   font-weight: inherit;
   color: var(--qd-accent);
@@ -338,7 +350,11 @@ html[data-theme='light'] {
    (「어둡게」·「밝게」·「기기따름」). 값 쪽만 자간을 풀 수 있게 열어 둡니다 -
    실측에서 Q-Forge 의 그 한 줄이 「어 둡 게」로 벌어져 있었습니다. */
 .qd-rail-theme [data-hangul],
-.qd-rail-theme b[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-rail-theme b[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
 
 .qd-rail-iconbtn {
   display: inline-flex;
@@ -418,6 +434,7 @@ html[data-theme='light'] {
 .qd-rail-user-meta[data-hangul] {
   letter-spacing: 0;
   text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
 }
 
 /* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다.

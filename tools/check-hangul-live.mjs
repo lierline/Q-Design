@@ -84,10 +84,21 @@ const PROBE = (threshold) => `() => {
     if (t.includes(' ')) {
       const 이글꼴 = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
       const 본문 = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + 본문글꼴;
-      const a = 재기(' ', 이글꼴), b = 재기(' ', 본문);
+      /*
+       * 🔴 canvas 의 measureText 는 word-spacing 을 안 봅니다.
+       *
+       * 정본이 한글 갈래에 word-spacing: -0.35em 을 걸어 공백을 되돌려도, 글꼴만
+       * 재면 여전히 「모노 공백」 으로 나옵니다. 고쳐 놓고도 검사가 못 보는
+       * 형태입니다 - 실제로 이 검사가 그렇게 거짓 빨간불을 냈습니다.
+       *
+       * 사람이 보는 것은 «글꼴 공백 + word-spacing» 입니다. 그것을 잽니다.
+       */
+      const ws = cs.wordSpacing === 'normal' ? 0 : (parseFloat(cs.wordSpacing) || 0);
+      const a = 재기(' ', 이글꼴) + ws, b = 재기(' ', 본문);
       if (b > 0 && a / b > 1.5) {
         모노공백.push({ text: t.slice(0, 30), size: cs.fontSize,
           공백: Math.round(a * 100) / 100, 본문공백: Math.round(b * 100) / 100,
+          wordSpacing: cs.wordSpacing,
           글꼴: cs.fontFamily.split(',')[0].replace(/["']/g, '').trim(),
           tag: el.tagName.toLowerCase(), cls: (el.className || '').toString().slice(0, 50) });
       }

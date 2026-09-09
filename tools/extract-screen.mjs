@@ -197,7 +197,11 @@ ${bind('light')}
   text-transform: uppercase;
   color: var(--qd-subtle);
 }
-.qd-kpi-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-kpi-label[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
 .qd-kpi-value {
   flex: 1;
   display: flex;
@@ -243,7 +247,11 @@ ${bind('light')}
   text-transform: uppercase;
   color: var(--qd-muted);
 }
-.qd-stat-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-stat-label[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
 .qd-stat-value {
   font-size: ${px(spec.stat.valueSize)};
   font-weight: ${spec.stat.valueWeight};
@@ -261,7 +269,11 @@ ${bind('light')}
   text-transform: uppercase;
   color: var(--qd-muted);
 }
-.qd-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-label[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────
    🔑 **읽는 화면은 좁힙니다.** 전체폭으로 펼치면 글줄이 길어져 눈이 줄을 잃습니다.
