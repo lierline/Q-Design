@@ -380,6 +380,32 @@ ${bind('light')}
   font-size: 12px;
   color: var(--qd-muted);
 }
+/*
+ * 못 읽은 자리. 「없음」(.qd-table-empty)과 **반드시 달라 보여야** 합니다.
+ *
+ * 비었다는 말은 사실이고, 못 읽었다는 말은 «모른다» 입니다. 정본에 이 자리가
+ * 없으면 제품이 실패를 없음으로 그릴 수밖에 없고, 사람은 「아직 담긴 기업이
+ * 없습니다」 를 보고 정말 없다고 믿습니다. 실제로 그렇게 그려지는 자리가
+ * Q-Sonar 에 43곳 있었습니다 (2026-09-09 감사).
+ *
+ * 원인 문자열은 code 로 함께 답니다. 원인을 버리면 고칠 수가 없습니다.
+ */
+.qd-state-error {
+  padding: 14px ${px(spec.table.padX)};
+  border-left: ${px(spec.row.accentWidth)} solid var(--qd-danger);
+  background: var(--qd-surface);
+  font-family: var(--qd-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--qd-danger);
+}
+.qd-state-error code {
+  display: block;
+  margin-top: 4px;
+  color: var(--qd-subtle);
+  font-size: 11px;
+  word-break: break-all;
+}
 
 /* ── 항목 카드 ─────────────────────────────────────────────────────────────
    왼쪽 ${spec.row.accentWidth}px 색 띠가 상태를 말합니다. 배지보다 조용하고 훑기가 빠릅니다. */
