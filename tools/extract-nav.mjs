@@ -559,6 +559,11 @@ ${bindBlock('light')}
 }
 .qd-rail-theme:hover { border-color: var(--qd-accent); color: var(--qd-text); }
 .qd-rail-theme b { font-weight: 500; color: var(--qd-accent); }
+/* 왼쪽 이름표는 라틴(Theme)이라 자간이 살지만, 오른쪽 값은 한글일 수 있습니다
+   (「어둡게」·「밝게」·「기기따름」). 값 쪽만 자간을 풀 수 있게 열어 둡니다 -
+   실측에서 Q-Forge 의 그 한 줄이 「어 둡 게」로 벌어져 있었습니다. */
+.qd-rail-theme [data-hangul],
+.qd-rail-theme b[data-hangul] { letter-spacing: 0; text-transform: none; }
 
 .qd-rail-iconbtn {
   display: inline-flex;
