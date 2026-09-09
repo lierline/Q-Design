@@ -1,0 +1,169 @@
+/* =============================================================================
+   q-design.screen.css · 화면 뼈대 정본
+   생성물입니다. 손대지 마세요.  node tools/extract-screen.mjs
+   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid) + tokens.ts (LAYOUT)
+   =============================================================================
+
+   목록 «위와 아래» 를 맡습니다.
+
+     .qd-kpi        요약 지표 카드. 목록 위에서 「지금 상태」를 숫자로 말합니다
+     .qd-grid-kpi   그 카드를 담는 반응형 격자
+     .qd-stat       조밀한 짝. 카드 안에 여럿 늘어놓을 때
+     .qd-label      구역 이름표. 모노 · 작게 · muted
+     .qd-shell-*    폭을 좁히고 가운데 두는 규칙
+
+   색은 `q-design.nav.css` 와 같은 `--qd-*` 를 읽습니다.
+   ============================================================================= */
+
+:root {
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #141414));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #1b1b1b));
+  --qd-border: var(--qd-border-src, var(--qa-border, #242424));
+  --qd-text: var(--qd-text-src, var(--qa-text, #f0ebe0));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
+}
+
+html[data-theme='light'] {
+  --qd-surface: var(--qd-surface-src, var(--qa-surface, #ffffff));
+  --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #f3f1ec));
+  --qd-border: var(--qd-border-src, var(--qa-border, #e2dfd8));
+  --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
+  --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
+  --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+}
+
+/* ── 요약 지표 ─────────────────────────────────────────────────────────────
+   목록 위에서 「지금 상태」를 숫자로 말합니다. 라벨은 작고 조용하며 숫자가
+   크게 섭니다 - 훑는 사람이 찾는 것은 라벨이 아니라 숫자입니다.
+
+   🔑 부제 자리는 값이 없어도 **높이를 잡아 둡니다**. 안 그러면 부제가 있는
+   카드와 없는 카드의 높이가 달라 격자의 아랫줄이 들쭉날쭉해집니다. */
+.qd-grid-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.qd-kpi {
+  box-sizing: border-box;
+  /* 가리키면 뜨는 내역이 카드 전체를 덮을 수 있게. 안 주면 겹칠 자리가 화면 전체가 됩니다 */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 124px;
+  padding: 18px 20px;
+  background: var(--qd-surface);
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-card, 10px);
+  color: inherit;
+  text-decoration: none;
+}
+/* 눌러서 갈 곳이 있는 카드만 반응합니다 */
+.qd-kpi--link { transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+.qd-kpi--link:hover { background: var(--qd-surface2); }
+.qd-kpi-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--qd-subtle);
+}
+.qd-kpi-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-kpi-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--qd-kpi-color, var(--qd-text));
+}
+/* 값 뒤의 단위. 숫자보다 작고 조용하게, 밑줄을 맞춘다 */
+.qd-kpi-unit {
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--qd-muted);
+}
+.qd-kpi-sub {
+  margin-top: 10px;
+  min-height: 16px;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+  color: var(--qd-muted);
+}
+/* 0 은 눌러 둡니다. 0 을 강조하면 아무 일도 없는 것이 일처럼 보입니다. */
+.qd-kpi--zero .qd-kpi-value { color: var(--qd-muted); }
+
+/* ── 조밀한 지표 ───────────────────────────────────────────────────────────
+   카드 «안» 에 여럿 늘어놓을 때. 위와 같은 문법이고 크기만 작습니다. */
+.qd-grid-stat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+.qd-stat-label {
+  margin-bottom: 4px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+}
+.qd-stat-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+.qd-stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--qd-stat-color, var(--qd-text));
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 구역 이름표 ───────────────────────────────────────────────────────────
+   「인허가 모듈」 · 「활동 로그」 처럼 덩어리 위에 붙는 한 줄.
+   누를 수 없는 글이므로 아주 조용하게 둡니다. */
+.qd-label {
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--qd-muted);
+}
+.qd-label[data-hangul] { letter-spacing: 0; text-transform: none; }
+
+/* ── 셸 폭 ─────────────────────────────────────────────────────────────────
+   🔑 **읽는 화면은 좁힙니다.** 전체폭으로 펼치면 글줄이 길어져 눈이 줄을 잃습니다.
+   목록만 폭 제한이 없습니다 - 표와 행은 넓을수록 좋기 때문입니다.
+
+     현장  520   장갑 낀 손으로 한 번에 한 가지
+     폼    720   쓰는 화면
+     상세  820   읽는 화면
+     2단   1140  본문 + 옆단
+     목록  제한 없음 */
+.qd-shell-field  { max-width: 520px; margin-left: auto; margin-right: auto; }
+.qd-shell-form   { max-width: 720px; margin-left: auto; margin-right: auto; }
+.qd-shell-detail { max-width: 820px; margin-left: auto; margin-right: auto; }
+.qd-shell-wide   { max-width: 1140px; margin-left: auto; margin-right: auto; }
+
+/* 본문 여백. sticky 밴드가 이 값을 실측해 inset 을 잡는 제품이 있어 변수로도 냅니다. */
+:root {
+  --qd-main-pad-y: 32px;
+  --qd-main-pad-x: 40px;
+}
+.qd-main { padding: var(--qd-main-pad-y) var(--qd-main-pad-x); }
+
+@media print {
+  .qd-kpi { break-inside: avoid; }
+}

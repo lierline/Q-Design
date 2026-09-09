@@ -49,6 +49,14 @@ const PARTS = [
       'Q-Forge': 'D:/Claude/DHR/app/q-design.list.css',
     },
   },
+  {
+    name: '뼈대',
+    src: 'dist/q-design.screen.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.screen.css',
+      'Q-Forge': 'D:/Claude/DHR/app/q-design.screen.css',
+    },
+  },
 ];
 
 const MARK = 'q-design-nav-sha256:';

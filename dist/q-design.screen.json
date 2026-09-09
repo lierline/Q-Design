@@ -1,0 +1,48 @@
+{
+  "$meta": {
+    "generatedBy": "tools/extract-screen.mjs",
+    "source": "source/components/components.tsx + source/tokens/tokens.ts + source/tokens/main-padding.ts",
+    "note": "손으로 고치지 마세요. 원본을 고치고 다시 돌리세요."
+  },
+  "kpi": {
+    "padding": "18px 20px",
+    "minHeight": 124,
+    "labelSize": 10,
+    "labelWeight": 500,
+    "labelTracking": 1.5,
+    "labelGapBelow": 2.5,
+    "valueSize": 36,
+    "valueWeight": 700,
+    "valueLine": 1.05,
+    "valueTracking": "-0.02em",
+    "subSize": 11,
+    "subGapAbove": 2.5,
+    "subMinHeight": 16,
+    "gridMinCol": 180,
+    "gridGap": 14
+  },
+  "stat": {
+    "labelSize": 10,
+    "labelTracking": "0.12em",
+    "labelGapBelow": 1,
+    "valueSize": 14,
+    "valueWeight": 600,
+    "gridMinCol": 120,
+    "gridGap": 3
+  },
+  "shell": {
+    "mobile": 520,
+    "form": 720,
+    "detail": 820,
+    "wide": 1140
+  },
+  "main": {
+    "top": 32,
+    "right": 40,
+    "bottom": 32,
+    "left": 40
+  },
+  "panel": {
+    "radius": 10
+  }
+}

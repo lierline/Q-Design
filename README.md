@@ -42,17 +42,18 @@ Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입
 14. [시각 참고 자료](docs/14-visual-reference.md) · **실제 화면 22장**, 무엇을 볼지 안내
 15. [차림표 정본](docs/15-navigation-canon.md) · 🔴 **설명이 아니라 강제.** 세 제품이 같은 CSS 를 링크합니다
 16. [목록 정본](docs/16-list-canon.md) · 🔴 같은 성격. 표 · 항목 카드 · 배지 · 판
+17. [화면 뼈대 정본](docs/17-screen-canon.md) · 🔴 같은 성격. 요약 지표 · 구역 이름표 · **폭**
 
 문서 6번이 부품 하나하나의 스펙이라면, 11번과 12번은 **그것들을 어떻게 놓는가**입니다.
 토큰을 다 옮겨도 화면이 다르게 보인다면 거기를 보십시오.
 
-15~16번만 성격이 다릅니다. 다른 문서는 「이렇게 생겼습니다」를 적지만, 이 둘은
-`dist/q-design.nav.css` · `dist/q-design.list.css` 두 파일로 **화면을 실제로
-묶습니다.** Q-Sonar 와 Q-Forge 가 그 파일을 그대로 링크하고, 각 저장소의 검사가
-사본의 지문을 대조합니다.
+15~17번만 성격이 다릅니다. 다른 문서는 「이렇게 생겼습니다」를 적지만, 이 셋은
+`dist/q-design.{nav,list,screen}.css` 세 파일로 **화면을 실제로 묶습니다.**
+Q-Sonar 와 Q-Forge 가 그 파일을 그대로 링크하고, 각 저장소의 검사가 사본의
+지문을 대조합니다.
 
 ```bash
-node tools/extract-nav.mjs && node tools/extract-list.mjs
+node tools/extract-nav.mjs && node tools/extract-list.mjs && node tools/extract-screen.mjs
 node tools/sync.mjs --write     # 두 제품으로 내보냅니다
 node tools/shoot-rails.mjs      # 세 제품을 띄워 나란히 찍습니다
 ```
@@ -81,13 +82,15 @@ node tools/audit-coverage.mjs
 <link rel="stylesheet" href="dist/q-design.tokens.css">
 <link rel="stylesheet" href="dist/q-design.nav.css">
 <link rel="stylesheet" href="dist/q-design.list.css">
+<link rel="stylesheet" href="dist/q-design.screen.css">
 ```
 
 그다음 `var(--qa-bg)` · `var(--qa-text)` · `var(--qa-champagne)` 로 칠하면 됩니다.
 다크가 기본이고, `<html data-theme="light">` 로 라이트가 됩니다.
 
-차림표와 목록은 뒤의 두 파일이 통째로 그립니다. 클래스 이름과 뼈대는
-[차림표 정본](docs/15-navigation-canon.md) · [목록 정본](docs/16-list-canon.md) 에 있습니다.
+차림표 · 목록 · 요약 지표는 뒤의 세 파일이 통째로 그립니다. 클래스 이름과 뼈대는
+[15](docs/15-navigation-canon.md) · [16](docs/16-list-canon.md) ·
+[17](docs/17-screen-canon.md) 에 있습니다.
 
 폰트는 `source/fonts/PretendardVariable.woff2` 를 함께 실어야 같은 얼굴이 됩니다.
 
