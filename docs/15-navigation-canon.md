@@ -168,6 +168,34 @@ Q-Atelier `lib/design/tokens.ts` 의 `labelTracking()` 과 같은 규칙입니�
 
 ---
 
+## 글꼴
+
+차림표의 모노 글자(조직명 · 묶음 이름표 · 판 번호 줄 · 역할 줄)는 **세 제품이
+같은 얼굴**을 씁니다. 사슬은 `dist/q-design.tokens.json` 에서 오고, 정본이
+`--qd-font-mono` 의 바닥값으로 냅니다.
+
+```
+'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, Pretendard, monospace
+```
+
+🔴 **2026-09-09 에 셋이 전부 달랐습니다.** Q-Atelier 는 JetBrains Mono,
+Q-Sonar 는 IBM Plex Mono, Q-Forge 는 Cascadia Mono 였습니다. 치수를 다 맞춰 놓고도
+글자의 생김새만 갈려 있었는데, 사진으로는 잘 안 보이고 **계산된 값을 재서**
+찾았습니다 (`tools/diff-rails.mjs`).
+
+받는 법은 제품마다 다릅니다. 둘 다 사용자 브라우저가 바깥으로 나가지 않습니다.
+
+```
+Q-Sonar   next/font/google · 빌드할 때 받아 우리 서버에서 내보낸다
+Q-Forge   woff2 를 실어 둔다 (public/fonts · Cinzel · Pretendard 와 같은 방식)
+```
+
+⚠️ **사슬의 «라틴 바로 뒤» 에 한글 글꼴을 둡니다.** 없으면 모노 칸에 한글이 한
+조각 섞였을 때 브라우저가 아무 데나 떨어뜨려, 같은 글자가 자리마다 다른 얼굴로
+나옵니다 (Q-Forge 가 실제로 겪었고 렌더 폭이 916 / 884 / 1020 / 828px 이었습니다).
+
+---
+
 ## 색 잇기
 
 색 **이름** 은 제품마다 다릅니다. Q-Atelier 는 `--qa-champagne`, Q-Sonar 는
@@ -204,6 +232,9 @@ Q-Atelier 값을 씁니다. 그 바닥값도 `dist/q-design.tokens.json` 에서 
    「비슷한데 뭔가 다른」 인상이 됩니다.
 4. **화면 높이를 800px 로 줄여 보세요.** 바닥 계정 블록이 붙어 있어야 합니다.
    밀려 올라가면 레일 전체를 스크롤로 둔 것입니다.
+5. **모노 글자의 생김새.** 눈으로는 잘 안 갈리므로 `node tools/diff-rails.mjs`
+   를 돌리십시오. 세 제품을 띄워 계산된 값 81개를 견주고 어긋난 자리만 짚습니다.
+   한글이라 자간을 푼 자리는 「규칙대로 다름」 으로 따로 셉니다.
 
 관련: [[11-screen-architecture]] 셸의 자리 · [[03-typography]] 한글 자간 규칙 ·
 [[09-rules-and-contracts]] 테스트가 강제하는 것들

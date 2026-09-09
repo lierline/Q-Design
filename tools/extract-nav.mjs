@@ -297,7 +297,10 @@ const css = `/* ================================================================
 :root {
 ${bindBlock('dark')}
   --qd-font-ui: var(--qd-font-ui-src, inherit);
-  --qd-font-mono: var(--qd-font-mono-src, ui-monospace, 'JetBrains Mono', Consolas, monospace);
+  /* 모노 사슬도 손으로 안 적습니다. tokens.json 의 값을 그대로 씁니다 ·
+     세 제품이 «같은 얼굴» 을 쓰는 것이 이 파일의 목적 중 하나이고, 그 얼굴
+     이름을 여기 따로 적으면 그것부터 갈립니다. */
+  --qd-font-mono: var(--qd-font-mono-src, ${tokens.typography.fontFamily.mono});
 }
 
 html[data-theme='light'] {

@@ -1,0 +1,200 @@
+// =============================================================================
+// 세 제품의 차림표가 «정말» 같은가
+// =============================================================================
+//   node tools/diff-rails.mjs
+//
+// shoot-rails.mjs 가 사진을 찍는다면 이쪽은 **자를 댑니다.** 세 제품을 띄워
+// 차림표의 계산된 값을 뽑아 나란히 놓고, 다른 자리만 짚어 냅니다.
+//
+// ── 왜 사진만으로는 부족한가 ─────────────────────────────────────────────────
+// 사진은 «비슷해 보인다» 까지만 말합니다. 1px 차이나 자간 0.1px 는 나란히 놓아도
+// 눈에 안 들어오는데, 그런 것이 쌓이면 「뭔가 다르다」가 됩니다. 반대로 사진이
+// 필요 없는 것도 아닙니다 - 값은 같은데 그림이 다른 것을 이미 세 번 잡았습니다
+// (로그아웃 모서리 · 판 번호 대문자 · 잘린 로그아웃). 둘 다 봐야 합니다.
+//
+// ── 미리 띄워 둘 것 ─────────────────────────────────────────────────────────
+//   Q-Atelier  3400 (dev)
+//   Q-Sonar    3405 (Lead-Radar/scripts/preview-as.mjs)
+//   Q-Forge    3408 (DHR/scripts/preview-as.mjs 000000 3404 3408)
+// =============================================================================
+
+import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const { chromium } = require('D:/Claude/Q-Atelier/node_modules/playwright');
+const { createClient } = require('D:/Claude/Q-Atelier/node_modules/@supabase/supabase-js');
+
+const THEME = process.env.THEME === 'light' ? 'light' : 'dark';
+
+/*
+ * 무엇을 잴 것인가.
+ *
+ * 「차림표가 같다」는 이 값들이 같다는 뜻입니다. 하나라도 다르면 나란히 놓았을
+ * 때 다른 부품으로 읽힙니다.
+ */
+const PROBES = [
+  ['레일',        '.qd-rail', ['width', 'padding', 'backgroundColor', 'borderRightWidth', 'borderRightColor', 'position']],
+  ['로고 자리',   '.qd-rail-mark', ['width']],
+  ['조직명',      '.qd-rail-org', ['fontSize', 'fontFamily', 'letterSpacing', 'textTransform', 'color']],
+  ['묶음 이름표', '.qd-nav-group', ['padding', 'fontSize', 'fontFamily', 'letterSpacing', 'textTransform', 'color']],
+  ['항목(쉼)',    '.qd-nav-item:not(.is-active)', ['padding', 'fontSize', 'fontWeight', 'letterSpacing', 'color', 'borderLeftWidth', 'borderRadius', 'columnGap']],
+  ['항목(활성)',  '.qd-nav-item.is-active', ['padding', 'fontSize', 'fontWeight', 'color', 'backgroundColor', 'borderLeftWidth', 'borderLeftColor', 'borderRadius']],
+  ['아이콘 자리', '.qd-nav-item.is-active .qd-nav-icon', ['width', 'height', 'color']],
+  ['아이콘 글리프', '.qd-nav-item.is-active .qd-nav-icon > svg', ['width', 'height', 'strokeWidth']],
+  ['활성 점',     '.qd-nav-dot', ['width', 'height', 'backgroundColor', 'borderRadius']],
+  ['판 번호 줄',  '.qd-rail-version', ['padding', 'fontSize', 'fontFamily', 'letterSpacing', 'color']],
+  ['판 번호 값',  '.qd-rail-version b', ['color', 'textTransform']],
+  ['바닥 경계',   '.qd-rail-foot', ['paddingTop', 'borderTopWidth', 'borderTopColor']],
+  ['아바타',      '.qd-avatar', ['width', 'height', 'borderRadius', 'fontSize', 'fontWeight', 'color']],
+  ['이름',        '.qd-rail-user-name', ['fontSize', 'fontWeight', 'color']],
+  ['역할 줄',     '.qd-rail-user-meta', ['fontSize', 'fontFamily', 'letterSpacing', 'textTransform', 'color']],
+  ['로그아웃',    '.qd-rail-logout', ['minHeight', 'padding', 'fontSize', 'fontWeight', 'borderRadius', 'borderWidth', 'borderColor', 'color', 'backgroundColor']],
+];
+
+const env = Object.fromEntries(
+  readFileSync('D:/Claude/Q-Atelier/.env.local', 'utf8').split(/\r?\n/)
+    .filter((l) => l && !l.startsWith('#') && l.includes('='))
+    .map((l) => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim().replace(/^"|"$/g, '')]; }),
+);
+
+const browser = await chromium.launch();
+
+async function measure(name, url, prepare) {
+  const ctx = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    locale: 'ko-KR', timezoneId: 'Asia/Seoul',
+    reducedMotion: 'reduce', colorScheme: THEME,
+  });
+  if (prepare) await prepare(ctx);
+  const page = await ctx.newPage();
+  await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
+  await page.waitForTimeout(1200);
+  const out = await page.evaluate((probes) => {
+    const canvas = document.createElement('canvas').getContext('2d');
+    const r = {};
+    for (const [label, sel, props] of probes) {
+      const el = document.querySelector(sel);
+      if (!el) { r[label] = null; continue; }
+      const cs = getComputedStyle(el);
+      const v = Object.fromEntries(props.map((p) => [p, cs[p]]));
+      /*
+       * 🔑 글꼴은 «사슬» 이 아니라 «실제로 그려지는 얼굴» 을 견줍니다.
+       *
+       * 사슬 뒤쪽은 앞의 것이 있으면 쓰이지도 않습니다. 그걸 견주면 «같은
+       * 글꼴로 그려지는데 다르다» 고 말하게 됩니다. 첫 이름과, 같은 글자를
+       * 같은 크기로 그렸을 때의 폭을 봅니다 - 폭이 같고 첫 이름이 같으면
+       * 같은 얼굴입니다.
+       */
+      if (props.includes('fontFamily')) {
+        canvas.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        v.fontFamily = cs.fontFamily.split(',')[0].trim().replace(/^["']|["']$/g, '');
+        v['글꼴 폭'] = `${Math.round(canvas.measureText('MEDQRAFT v1.0.0 0123').width * 100) / 100}px`;
+      }
+      /* 이 글이 한글인가. 자간·대문자는 «내용을 보고» 정해지므로 판단에 필요합니다 */
+      v._한글 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(el.textContent || '');
+      v._글 = (el.textContent || '').trim().slice(0, 18);
+      r[label] = v;
+    }
+    return r;
+  }, PROBES);
+  await ctx.close();
+  return out;
+}
+
+/* Q-Atelier 는 매직링크 콜백으로 들어갑니다 */
+const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+const { data: link, error } = await sb.auth.admin.generateLink({ type: 'magiclink', email: 'ra@demo.com' });
+if (error) throw error;
+
+const got = {};
+got['Q-Atelier'] = await measure(
+  'Q-Atelier',
+  `http://localhost:3400/auth/callback?token_hash=${link.properties.hashed_token}&type=magiclink&next=/ra`,
+  async (ctx) => {
+    await ctx.addInitScript((theme) => {
+      const orig = Storage.prototype.getItem;
+      Storage.prototype.getItem = function (k) {
+        if (typeof k === 'string' && k.startsWith('qa-coachmark-')) return 'done';
+        if (k === 'qa-theme') return theme;
+        if (k === 'qa-novice-mode') return 'off';
+        return orig.call(this, k);
+      };
+    }, THEME);
+  },
+);
+got['Q-Sonar'] = await measure('Q-Sonar', 'http://localhost:3405/leads');
+got['Q-Forge'] = await measure('Q-Forge', 'http://localhost:3408/production', async (ctx) => {
+  await ctx.addInitScript((theme) => {
+    const orig = Storage.prototype.getItem;
+    Storage.prototype.getItem = function (k) { return k === 'dhr-theme' ? theme : orig.call(this, k); };
+    document.documentElement.dataset.theme = theme;
+  }, THEME);
+});
+
+await browser.close();
+
+// ── 견주기 ───────────────────────────────────────────────────────────────────
+const names = Object.keys(got);
+const same = [];
+const diff = [];
+const byRule = [];   // 규칙대로 다른 것 (한글이라 자간을 푼 자리)
+const missing = [];
+
+/*
+ * 자간과 대문자는 «내용을 보고» 정해집니다 (labelTracking · data-hangul).
+ * 한쪽이 한글이고 다른 쪽이 라틴이면 값이 다른 것이 **맞습니다** ·
+ * 그걸 「다르다」고 세면 고칠 것이 없는데 빨간 줄이 남습니다.
+ */
+const CONTENT_DRIVEN = new Set(['letterSpacing', 'textTransform']);
+
+for (const [label, sel, props] of PROBES) {
+  const present = names.filter((n) => got[n][label]);
+  if (present.length < names.length) {
+    missing.push([label, names.filter((n) => !got[n][label])]);
+  }
+  if (present.length < 2) continue;
+
+  const allProps = props.includes('fontFamily') ? [...props, '글꼴 폭'] : props;
+  for (const prop of allProps) {
+    const vals = present.map((n) => [n, got[n][label][prop]]);
+    const uniq = [...new Set(vals.map(([, v]) => v))];
+    if (uniq.length === 1) { same.push(`${label}.${prop}`); continue; }
+
+    const scripts = new Set(present.map((n) => got[n][label]._한글));
+    if (CONTENT_DRIVEN.has(prop) && scripts.size > 1) {
+      byRule.push({ label, prop, vals: present.map((n) => [n, `${got[n][label][prop]}   (${got[n][label]._한글 ? '한글' : '라틴'} · ${got[n][label]._글})`]) });
+      continue;
+    }
+    diff.push({ label, prop, vals });
+  }
+}
+
+console.log(`차림표 대조 · ${THEME} · 1440x900`);
+console.log(`  ${names.join(' · ')}`);
+console.log('');
+console.log(`  같음        ${same.length}개`);
+console.log(`  규칙대로 다름 ${byRule.length}개   (한글이라 자간·대문자를 푼 자리)`);
+console.log(`  어긋남      ${diff.length}개`);
+if (missing.length) {
+  console.log('');
+  console.log('  없는 부품');
+  for (const [label, who] of missing) console.log(`    ${label.padEnd(14)} ${who.join(' · ')} 에 없음`);
+}
+if (byRule.length) {
+  console.log('');
+  console.log('  규칙대로 다른 자리 (고칠 것 없음)');
+  for (const d of byRule) {
+    console.log(`    ${(d.label + '.' + d.prop).padEnd(34)}`);
+    for (const [n, v] of d.vals) console.log(`      ${n.padEnd(11)} ${v}`);
+  }
+}
+if (diff.length) {
+  console.log('');
+  console.log('  어긋난 자리');
+  for (const d of diff) {
+    console.log(`    ${(d.label + '.' + d.prop).padEnd(34)}`);
+    for (const [n, v] of d.vals) console.log(`      ${n.padEnd(11)} ${v}`);
+  }
+}
+process.exit(diff.length ? 1 : 0);
