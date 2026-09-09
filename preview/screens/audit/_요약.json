@@ -1,0 +1,325 @@
+{
+ "q-atelier": {
+  "글자수": 997,
+  "11px미만%": 38.0,
+  "13px미만%": 87.5,
+  "흔한크기": [
+   [
+    10.0,
+    359
+   ],
+   [
+    11.0,
+    352
+   ],
+   [
+    12.0,
+    141
+   ],
+   [
+    14.0,
+    71
+   ]
+  ],
+  "대비검사": 983,
+  "대비실패": 2,
+  "대비측정불가": 14,
+  "작은터치": 2,
+  "이름없는단추": 0,
+  "가로넘침": [],
+  "대비실패목록": [
+   {
+    "route": "/dashboard",
+    "px": 10,
+    "bold": false,
+    "tag": "span",
+    "cls": "",
+    "text": "아이디어",
+    "ratio": 4.03,
+    "need": 4.5,
+    "color": "rgb(137, 130, 113)",
+    "on": "rgb(33,37,42)"
+   },
+   {
+    "route": "/dashboard",
+    "px": 10,
+    "bold": false,
+    "tag": "span",
+    "cls": "",
+    "text": "검증·유효성",
+    "ratio": 3.93,
+    "need": 4.5,
+    "color": "rgb(137, 130, 113)",
+    "on": "rgb(42,38,33)"
+   }
+  ],
+  "작은터치목록": [
+   {
+    "route": "/dashboard",
+    "w": 89,
+    "h": 16,
+    "tag": "div",
+    "display": "inline-flex",
+    "cls": "",
+    "label": "제품별 변경 흐름: 설명 보기"
+   },
+   {
+    "route": "/dashboard",
+    "w": 83,
+    "h": 16,
+    "tag": "div",
+    "display": "inline-flex",
+    "cls": "",
+    "label": "R&D 파이프라인: 설명 보기"
+   }
+  ],
+  "이름없는단추목록": [],
+  "한글": {
+   "한글요소": 769,
+   "벌어진곳": 84,
+   "비율": 10.9
+  }
+ },
+ "q-sonar": {
+  "글자수": 1858,
+  "11px미만%": 16.4,
+  "13px미만%": 41.9,
+  "흔한크기": [
+   [
+    13.0,
+    937
+   ],
+   [
+    11.0,
+    416
+   ],
+   [
+    10.0,
+    304
+   ],
+   [
+    14.0,
+    111
+   ]
+  ],
+  "대비검사": 1850,
+  "대비실패": 4,
+  "대비측정불가": 8,
+  "작은터치": 5,
+  "이름없는단추": 0,
+  "가로넘침": [],
+  "대비실패목록": [
+   {
+    "route": "/targets",
+    "px": 11,
+    "bold": false,
+    "tag": "span",
+    "cls": "ml-1.5 text-red-400/80",
+    "text": "· 메일 없음",
+    "ratio": 4.22,
+    "need": 4.5,
+    "color": "oklab(0.704006 0.176798 0.072232 / 0.8)",
+    "on": "rgb(27,27,27)"
+   },
+   {
+    "route": "/targets",
+    "px": 11,
+    "bold": false,
+    "tag": "span",
+    "cls": "ml-1.5 text-red-400/80",
+    "text": "· 메일 없음",
+    "ratio": 4.22,
+    "need": 4.5,
+    "color": "oklab(0.704006 0.176798 0.072232 / 0.8)",
+    "on": "rgb(27,27,27)"
+   },
+   {
+    "route": "/targets",
+    "px": 11,
+    "bold": false,
+    "tag": "span",
+    "cls": "ml-1.5 text-red-400/80",
+    "text": "· 메일 없음",
+    "ratio": 4.22,
+    "need": 4.5,
+    "color": "oklab(0.704006 0.176798 0.072232 / 0.8)",
+    "on": "rgb(27,27,27)"
+   },
+   {
+    "route": "/targets",
+    "px": 11,
+    "bold": false,
+    "tag": "span",
+    "cls": "ml-1.5 text-red-400/80",
+    "text": "· 메일 없음",
+    "ratio": 4.22,
+    "need": 4.5,
+    "color": "oklab(0.704006 0.176798 0.072232 / 0.8)",
+    "on": "rgb(27,27,27)"
+   }
+  ],
+  "작은터치목록": [
+   {
+    "route": "/dashboard",
+    "w": 66,
+    "h": 19,
+    "tag": "a",
+    "display": "block",
+    "cls": "font-mono text-[11px] text-dim hover:text-gold",
+    "label": "타깃 정의 →"
+   },
+   {
+    "route": "/dashboard",
+    "w": 69,
+    "h": 19,
+    "tag": "a",
+    "display": "block",
+    "cls": "font-mono text-[11px] text-dim hover:text-gold",
+    "label": "보낸메일함 →"
+   },
+   {
+    "route": "/outreach",
+    "w": 104,
+    "h": 23,
+    "tag": "button",
+    "display": "block",
+    "cls": "border px-1.5 py-0.5 font-mono text-[10px] border-",
+    "label": "의료기기 인허가·규제"
+   },
+   {
+    "route": "/outreach",
+    "w": 133,
+    "h": 23,
+    "tag": "button",
+    "display": "block",
+    "cls": "border px-1.5 py-0.5 font-mono text-[10px] border-",
+    "label": "ISO 9001·14001 · 일반"
+   },
+   {
+    "route": "/outreach",
+    "w": 76,
+    "h": 19,
+    "tag": "a",
+    "display": "block",
+    "cls": "font-mono text-[11px] text-gold hover:text-goldhi",
+    "label": "전체 캠페인 →"
+   }
+  ],
+  "이름없는단추목록": [],
+  "한글": {
+   "한글요소": 1313,
+   "벌어진곳": 50,
+   "비율": 3.8
+  }
+ },
+ "q-forge": {
+  "글자수": 1258,
+  "11px미만%": 8.8,
+  "13px미만%": 47.1,
+  "흔한크기": [
+   [
+    12.0,
+    428
+   ],
+   [
+    13.0,
+    390
+   ],
+   [
+    14.0,
+    143
+   ],
+   [
+    10.0,
+    111
+   ]
+  ],
+  "대비검사": 1258,
+  "대비실패": 0,
+  "대비측정불가": 0,
+  "작은터치": 8,
+  "이름없는단추": 0,
+  "가로넘침": [],
+  "대비실패목록": [],
+  "작은터치목록": [
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "회사 표시"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "채번 규칙"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "형명 체계"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "품목"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "공급자"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "설비"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "제품표준서"
+   },
+   {
+    "route": "/settings",
+    "w": 128,
+    "h": 20,
+    "tag": "a",
+    "display": "block",
+    "cls": "w-32 shrink-0 text-sm font-semibold text-ink hover",
+    "label": "사용자"
+   }
+  ],
+  "이름없는단추목록": [],
+  "한글": {
+   "한글요소": 734,
+   "벌어진곳": 6,
+   "비율": 0.8
+  }
+ }
+}
