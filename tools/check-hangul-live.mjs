@@ -49,7 +49,11 @@ const env = Object.fromEntries(
 const PROBE = (threshold) => `() => {
   const hangul = /[가-힣]/;
   const bad = [];
+  const 모노공백 = [];
   let korean = 0;
+  /* 같은 글자를 두 글꼴로 그려 폭을 잽니다. 이름으로 판단하면 폴백을 못 봅니다 */
+  const 재기 = (글, font) => { const c = document.createElement('canvas').getContext('2d'); c.font = font; return c.measureText(글).width; };
+  const 본문글꼴 = getComputedStyle(document.body).fontFamily;
   for (const el of document.querySelectorAll('body *')) {
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden') continue;
@@ -66,8 +70,31 @@ const PROBE = (threshold) => `() => {
       bad.push({ text: t.slice(0, 30), ls, upper: up, size: cs.fontSize,
                  tag: el.tagName.toLowerCase(), cls: (el.className || '').toString().slice(0, 50) });
     }
+
+    /*
+     * 🔴 자간을 풀었다고 끝이 아닙니다.
+     *
+     * 한글 이름표에 모노 글꼴이 걸려 있으면, 한글 글자 자체는 폴백(Pretendard)이
+     * 그려서 폭이 같습니다. 그런데 **어절 사이 공백**은 모노가 그립니다. 10px
+     * 에서 모노 공백은 6px, 본문 글꼴 공백은 2.5px 입니다. 두 배 넘게 벌어집니다.
+     *
+     * 그래서 「자간 0 · 대문자 없음」 인데도 「오늘  먼저  할  일」 처럼 보입니다.
+     * 자간만 세는 검사는 이것을 0곳으로 보고합니다.
+     */
+    if (t.includes(' ')) {
+      const 이글꼴 = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      const 본문 = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + 본문글꼴;
+      const a = 재기(' ', 이글꼴), b = 재기(' ', 본문);
+      if (b > 0 && a / b > 1.5) {
+        모노공백.push({ text: t.slice(0, 30), size: cs.fontSize,
+          공백: Math.round(a * 100) / 100, 본문공백: Math.round(b * 100) / 100,
+          글꼴: cs.fontFamily.split(',')[0].replace(/["']/g, '').trim(),
+          tag: el.tagName.toLowerCase(), cls: (el.className || '').toString().slice(0, 50) });
+      }
+    }
   }
-  return { koreanNodes: korean, count: bad.length, sample: bad.slice(0, 20) };
+  return { koreanNodes: korean, count: bad.length, sample: bad.slice(0, 20),
+           모노공백수: 모노공백.length, 모노공백: 모노공백.slice(0, 12) };
 }`;
 
 const browser = await chromium.launch();
@@ -106,22 +133,24 @@ for (const [product, cfg] of Object.entries(PLAN)) {
   }
 
   report[product] = {};
-  let sum = 0, nodes = 0;
+  let sum = 0, nodes = 0, 공백 = 0;
   for (const route of cfg.routes) {
     try {
       const r = await page.goto(cfg.base + route, { waitUntil: 'networkidle', timeout: 60000 })
         .then(() => page.waitForTimeout(1200))
         .then(() => page.evaluate(`(${PROBE(THRESHOLD)})()`));
       report[product][route] = r;
-      sum += r.count; nodes += r.koreanNodes;
-      console.log(`  ${product.padEnd(11)} ${route.padEnd(18)} 한글 ${String(r.koreanNodes).padStart(4)}곳 중 ${String(r.count).padStart(3)}곳이 벌어짐`);
+      sum += r.count; nodes += r.koreanNodes; 공백 += r.모노공백수;
+      console.log(`  ${product.padEnd(11)} ${route.padEnd(18)} 한글 ${String(r.koreanNodes).padStart(4)}곳 중 자간 ${String(r.count).padStart(3)}곳 · 모노 어절공백 ${String(r.모노공백수).padStart(3)}곳`);
     } catch (e) {
       report[product][route] = { error: e.message.split('\n')[0].slice(0, 80) };
       console.log(`  ${product.padEnd(11)} ${route.padEnd(18)} 실패`);
     }
   }
-  report[product]._합계 = { 한글요소: nodes, 벌어진곳: sum, 비율: nodes ? Math.round(sum / nodes * 1000) / 10 : 0 };
-  console.log(`  ${product.padEnd(11)} ${'합계'.padEnd(18)} 한글 ${String(nodes).padStart(4)}곳 중 ${String(sum).padStart(3)}곳 (${report[product]._합계.비율}%)`);
+  report[product]._합계 = { 한글요소: nodes, 벌어진곳: sum, 비율: nodes ? Math.round(sum / nodes * 1000) / 10 : 0,
+                           모노어절공백: 공백, 공백비율: nodes ? Math.round(공백 / nodes * 1000) / 10 : 0 };
+  const h = report[product]._합계;
+  console.log(`  ${product.padEnd(11)} ${'합계'.padEnd(18)} 한글 ${String(nodes).padStart(4)}곳 · 자간 ${String(sum).padStart(3)}곳 (${h.비율}%) · 모노 어절공백 ${String(공백).padStart(3)}곳 (${h.공백비율}%)`);
   await ctx.close();
 }
 
