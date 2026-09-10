@@ -35,6 +35,7 @@ import { allowedMarketsFor } from '@/lib/subscription/plan-policy';
 const MARKET_FOR_JUR: Record<string, string> = { KR: 'mfds', US: 'fda', EU: 'eu_mdr', JP: 'pmda' };
 import type { ChangeTarget } from '@/lib/engine/types';
 import { AssessmentPreviewPanel } from '@/components/AssessmentPreviewPanel';
+import { startRouteProgress } from '@/components/TopProgressBar';
 
 interface ProductRow {
   id: string;
@@ -235,8 +236,10 @@ export default function NewAssessmentPage() {
       }
       const code = data.assessment?.code ?? data.assessment?.assessment_code;
       if (code) {
+        startRouteProgress();
         router.push(`/assessments/${code}`);
       } else {
+        startRouteProgress();
         router.push('/assessments');
       }
     } catch (e) {
@@ -266,7 +269,7 @@ export default function NewAssessmentPage() {
         title="새 변경평가"
         sub="New change assessment"
         actions={
-          <Btn p={false} onClick={() => router.push('/assessments')}>
+          <Btn p={false} onClick={() => { startRouteProgress(); router.push('/assessments'); }}>
             ← 취소
           </Btn>
         }
@@ -782,7 +785,7 @@ export default function NewAssessmentPage() {
             borderTop: `1px solid ${T.border}`,
           }}
         >
-          <Btn p={false} onClick={() => router.push('/assessments')}>
+          <Btn p={false} onClick={() => { startRouteProgress(); router.push('/assessments'); }}>
             취소
           </Btn>
           <Btn onClick={handleEvaluate} disabled={!readyToEval || submitting}>

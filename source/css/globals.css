@@ -851,12 +851,16 @@ select:focus-visible,
   to   { opacity: 1; }
 }
 /* 페이지 전환 등장: 작고 빠르게(8px·~360ms). 이전 52px·1400ms 는 페이지마다
-   콘텐츠가 크게 슬라이드하며 1.4s 출렁여 "떠걱떠걱" 의 원인이었음(2026-06-06 수정). */
+   콘텐츠가 크게 슬라이드하며 1.4s 출렁여 "떠걱떠걱" 의 원인이었음(2026-06-06 수정).
+
+   🔴 2026-09-10 다시 줄임(감사 주제 #8). 진행선을 «누르는 순간» 으로 앞당겼는데
+      도착한 내용이 여기서 300ms 동안 opacity 0 이면 남는 것이 없다. fill-mode 가
+      both 라 애니메이션이 시작되기 전에도 첫 프레임(투명)이 걸린다.
+      막대를 앞으로 당기고 내용을 뒤로 미루면 «빨라졌다» 가 성립하지 않는다.
+      qa-page-rise 는 뺀다. 8px 이 올라오는 동안 글이 한 번 더 흔들린다. */
 .qa-page-fade {
-  will-change: transform, opacity;
-  animation:
-    qa-page-rise 360ms cubic-bezier(0.16, 1, 0.3, 1) both,
-    qa-page-fade-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity;
+  animation: qa-page-fade-in 160ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .qa-page-fade { animation: none; will-change: auto; }

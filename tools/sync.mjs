@@ -77,6 +77,29 @@ const PARTS = [
       'Q-Atelier': 'D:/Claude/Q-Atelier/lib/design/q-design.doc.ts',
     },
   },
+  /*
+   * ── 2026-09-10 확장: 움직임 ───────────────────────────────────────────────
+   * 겉모습이 아니라 «언제 무엇이 움직이는가» 도 정본이 정합니다.
+   *
+   * 🔴 이 조각이 생긴 이유(감사 주제 #8): 같은 부품이 세 벌 있었고, 그중 Q-Forge
+   *    사본만 「누른 순간 시작해 90% 에서 멈추는」 형태로 고쳐져 있었습니다.
+   *    정본과 Q-Atelier 는 옛 형태 그대로 바이트가 같았습니다. 고친 것이
+   *    한 저장소에만 남는 것이 바로 사본이 갈리는 모습입니다.
+   *
+   * ⚠️ 앞의 조각들과 달리 src 가 dist 가 아니라 source 입니다. 움직임에는
+   *    추출기가 없습니다. 이 파일 자체가 원본입니다.
+   * ⚠️ TS 머리표는 줄 주석이라 'use client' «위» 에 놓입니다. 두 저장소에 같은
+   *    모양(주석이 지시어보다 위인 client 컴포넌트)이 이미 스무 개 넘게 빌드됩니다.
+   */
+  {
+    name: '진행선',
+    src: 'source/components/TopProgressBar.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/components/TopProgressBar.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/top-progress.tsx',
+    },
+  },
   {
     name: '인쇄',
     src: 'dist/q-design.print.css',

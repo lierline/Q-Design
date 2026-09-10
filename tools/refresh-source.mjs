@@ -73,7 +73,18 @@ const MAP = [
       'components/RibbonBackground.tsx',
       'components/Sidebar.tsx',
       'components/Skeleton.tsx',
-      'components/TopProgressBar.tsx',
+      /*
+       * 🔴 `components/TopProgressBar.tsx` 는 여기 «없습니다». 이 파일만 방향이
+       *    반대입니다. 다른 것들은 Q-Atelier 가 원본이고 여기가 거울이지만,
+       *    진행선은 **여기가 원본**이고 두 제품이 sync 로 받습니다(2026-09-10).
+       *
+       *    한 번 넣었다가 실제로 사고가 났습니다: 정본을 고쳐 sync 로 내보낸 직후
+       *    이 도구가 «머리표까지 찍힌 사본» 을 정본 자리에 도로 덮었습니다.
+       *    그러면 다음 sync 가 머리표 위에 머리표를 찍습니다.
+       *
+       * 🔑 판별법: sync.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
+       *    그 파일은 여기가 원본이므로 이 지도에 넣지 않습니다.
+       */
       /* 앱 셸. 원본에서는 그냥 layout.tsx 라 이름만으로는 무엇인지 알 수 없습니다. */
       { from: 'app/(app)/layout.tsx', as: 'app-shell-layout.tsx' },
     ],
@@ -199,12 +210,26 @@ for (const item of plan) {
 /* 지도가 설명하지 못하는 사본을 찾습니다. */
 const key = (p) => p.split('\\').join('/');
 const claimed = new Set(plan.map((i) => key(i.dest)));
+/*
+ * 여기가 «원본» 인 파일들. 지도에 없다고 고아가 아닙니다.
+ *
+ * 🔴 이 목록이 생긴 경위(2026-09-10): 진행선 부품을 정본으로 삼아 고치고 sync 로
+ *    내보낸 직후 이 도구가 «머리표까지 찍힌 사본» 을 정본 자리에 도로 덮었습니다.
+ *    지도에서 빼니 이번에는 고아로 잡혀 --write 가 **지울 참**이었습니다.
+ *    방향이 반대인 파일은 두 가지를 다 피해야 합니다.
+ *
+ * 🔑 판별법: sync.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
+ *    그 파일은 여기가 원본입니다.
+ */
+const 여기가원본 = new Set(['components/TopProgressBar.tsx']);
+
 for (const entry of MAP) {
   const dir = join(SRC, entry.dest);
   if (!existsSync(dir)) continue;
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) continue;
+    if (여기가원본.has(`${entry.dest}/${name}`)) continue;
     if (!claimed.has(key(p))) orphan.push(p);
   }
 }
