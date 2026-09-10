@@ -4,6 +4,52 @@
 
 ---
 
+## 따라오는 머리글 · 붙을 자리를 함께 냅니다 (Q-Atelier 감사 #11 첫 덩이) · 2026-09-10
+
+백 줄을 세로로 훑으면 머리글이 화면 밖으로 나가고, 그때부터 셋째 칸이 무엇인지
+모르고 읽습니다. 세 제품이 같은 구멍을 갖고 있었습니다 · 정본 목록 CSS 에 이 장치가
+하나도 없었습니다.
+
+```css
+.qd-table-scroll--tall { max-height: 70vh; overflow-y: auto; }
+.qd-table--sticky thead th,
+.qd-table--sticky .qd-thead .qd-th { position: sticky; top: 0; … }
+```
+
+### 🔴 «붙을 자리» 를 함께 내는 것이 이 항목의 핵심입니다
+
+`position: sticky` 는 세로 한계가 있는 조상이 있어야 붙습니다. 감싸개에
+`overflow-x: auto` 만 주면 `overflow-y` 가 auto 로 «계산»되어 그 상자가 sticky 의
+기준이 되는데, 한계가 없으면 `scrollHeight == clientHeight` 라 붙을 자리가 없습니다.
+
+Q-Forge 가 정확히 그 상태였습니다(실측 감싸개 294/294 · 그쪽 감사 #8). 그래서
+정본이 `--sticky` 와 함께 `--tall` 을 냅니다. 제품이 자기 한계(`max-h-*`)를 이미
+갖고 있으면 `--sticky` 만 걸면 됩니다.
+
+⚠️ 스크롤 host 가 감싸개가 아니라 화면 전체인 제품도 있습니다(Q-Atelier 는
+   `<main>` 이 host · 실측 1927/900). 그쪽은 `--tall` 없이도 붙습니다.
+
+Q-Forge 는 오늘 오전에 제가 만든 옵트인 `.table-stick` 을 지우고 정본으로 갈음했습니다
+(세 자리). 같은 말을 두 곳에서 하지 않습니다.
+
+실측(Q-Forge `/settings/items` · 가짜 표로):
+
+```
+--sticky 걸은 표   th sticky · top 0 · 배경 rgb(20,20,20)
+안 걸은 표         th static
+```
+
+### 🔴 템플릿 안의 백틱 · 오늘 세 번째
+
+주석에 `` `position: sticky` `` 라고 적었더니 그 백틱이 `extract-list.mjs` 의 CSS
+템플릿을 끊어 `SyntaxError` 가 났습니다. 아침에 같은 파일에서, 낮에
+`check-hangul-live.mjs` 에서 같은 사고를 냈습니다. **생성기의 CSS·JS 본문은 통째로
+템플릿 문자열입니다.**
+
+정렬 표시(`.qd-th--sort` · `aria-sort`)는 **아직 안 넣었습니다.** 쓰는 곳이 없으면
+「선언만 되고 아무도 안 읽는」 것이 됩니다 · 그 소비자는 다음 덩이에서 옵니다.
+
+---
 ## 한글 어절 공백 · 훑개가 «자식의 한글» 을 제 것으로 셌습니다 (감사 #1) · 2026-09-10
 
 정본 쪽(변수 `--qd-hangul-word-space` + 갈래 13개)은 이미 되어 있었습니다.

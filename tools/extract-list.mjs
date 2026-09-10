@@ -297,6 +297,32 @@ ${bind('light')}
   overflow-x: auto;
   overscroll-behavior-x: contain;
 }
+
+/* ── 따라오는 머리글 ──────────────────────────────────────────────────────
+   백 줄을 세로로 훑으면 머리글이 화면 밖으로 나가고, 그때부터 셋째 칸이 무엇인지
+   모르고 읽습니다.
+
+   🔴 position: sticky 는 «세로 한계가 있는 조상» 이 있어야 붙습니다.
+      Q-Forge 는 이 한계 없이 thead .th { position: sticky } 를 걸어 두어
+      **한 번도 안 붙었습니다**(실측 감싸개 294/294 · 그쪽 감사 #8).
+      그래서 한계를 주는 --tall 을 함께 냅니다. 제품이 자기 한계(max-h-*)를
+      이미 갖고 있으면 --sticky 만 걸면 됩니다.
+
+   ⚠️ 스크롤 host 가 감싸개가 아니라 화면 전체인 제품도 있습니다
+      (Q-Atelier 는 <main> 이 host · 실측 1927/900). 그쪽은 감싸개 없이도
+      붙으므로 --tall 을 걸지 않습니다.
+--------------------------------------------------------------------------- */
+.qd-table-scroll--tall {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.qd-table--sticky thead th,
+.qd-table--sticky .qd-thead .qd-th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--qd-surface);
+}
 .qd-table {
   width: 100%;
   border-collapse: collapse;
