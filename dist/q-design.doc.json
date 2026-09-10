@@ -1,0 +1,118 @@
+{
+  "$meta": {
+    "name": "Q-Design 문서 토큰",
+    "note": "생성물입니다. 손으로 고치지 마세요. tools/extract-doc.mjs 를 다시 돌리세요.",
+    "derivedFrom": "웹 라이트 팔레트 (q-design.tokens.json · color.light)",
+    "generatedAt": "2026-09-10",
+    "paperSurfaces": [
+      "#ffffff",
+      "#f3f1ec"
+    ],
+    "warning": "흰 종이만 보고 색을 고르지 마세요. 음영 표(#f3f1ec) 위가 더 어렵습니다."
+  },
+  "color": {
+    "champagne": "8A6838",
+    "champagneSoft": "B8935A",
+    "ink": "1C1A16",
+    "inkSubtle": "4A4540",
+    "inkMuted": "726B5E",
+    "border": "C8C4BA",
+    "borderSoft": "E2DFD8",
+    "frame": "726B5E",
+    "paper": "FAF9F6",
+    "surface": "FFFFFF",
+    "surfaceAlt": "F3F1EC",
+    "red": "A83838",
+    "green": "3D7A3D",
+    "warning": "97621F",
+    "blue": "2D5FA8"
+  },
+  "colorHex": {
+    "champagne": "#8a6838",
+    "champagneSoft": "#b8935a",
+    "ink": "#1c1a16",
+    "inkSubtle": "#4a4540",
+    "inkMuted": "#726b5e",
+    "border": "#c8c4ba",
+    "borderSoft": "#e2dfd8",
+    "frame": "#726b5e",
+    "paper": "#faf9f6",
+    "surface": "#ffffff",
+    "surfaceAlt": "#f3f1ec",
+    "red": "#a83838",
+    "green": "#3d7a3d",
+    "warning": "#97621f",
+    "blue": "#2d5fa8"
+  },
+  "contrastOnPaper": {
+    "champagne": {
+      "white": 5.1,
+      "shaded": 4.52
+    },
+    "ink": {
+      "white": 17.37,
+      "shaded": 15.39
+    },
+    "inkSubtle": {
+      "white": 9.47,
+      "shaded": 8.39
+    },
+    "inkMuted": {
+      "white": 5.28,
+      "shaded": 4.67
+    },
+    "frame": {
+      "white": 5.28,
+      "shaded": 4.67
+    },
+    "red": {
+      "white": 6.39,
+      "shaded": 5.66
+    },
+    "green": {
+      "white": 5.19,
+      "shaded": 4.59
+    },
+    "warning": {
+      "white": 5.14,
+      "shaded": 4.56
+    },
+    "blue": {
+      "white": 6.34,
+      "shaded": 5.61
+    }
+  },
+  "font": {
+    "sans": {
+      "ascii": "Pretendard",
+      "hAnsi": "Pretendard",
+      "eastAsia": "Malgun Gothic"
+    },
+    "mono": "Consolas",
+    "note": "한글까지 Pretendard 로 통일하려면 폰트 임베드가 필요합니다(별도 작업)."
+  },
+  "sizeHalfPt": {
+    "coverTitle": 56,
+    "h1": 32,
+    "h2": 26,
+    "h3": 22,
+    "body": 20,
+    "caption": 18,
+    "label": 16,
+    "footer": 14
+  },
+  "spacingTwip": {
+    "pageMarginTop": 1020,
+    "pageMarginSide": 907,
+    "pageMarginBottom": 1247,
+    "paraAfter": 120,
+    "paraAfterHeading": 200,
+    "lineBody": 276,
+    "lineNotice": 312
+  },
+  "rule": {
+    "accentBarWidthTwip": 640,
+    "hairlineSize": 4,
+    "frameSize": 8
+  }
+}

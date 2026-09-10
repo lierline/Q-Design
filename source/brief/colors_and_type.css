@@ -1,0 +1,197 @@
+/* =========================================================================
+   Q-Atelier / MedQraft : Design Foundations
+   Regulatory Intelligence & QMS SaaS · IR / product visual system
+   Source of truth: Q-Atelier MedQraft IR Pitch Deck v0.1
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  /* --- Surfaces (dark-first) ----------------------------------------- */
+  --mq-bg:        #0E1116;   /* deepest page background */
+  --mq-bg-2:      #111722;   /* alt section background */
+  --mq-panel:     #121824;   /* default card / panel */
+  --mq-panel-2:   #1A2230;   /* raised panel, inner cards */
+  --mq-panel-3:   #202B3B;   /* highest surface, table header row */
+  --mq-line:      #273140;   /* hairline border on dark */
+  --mq-line-2:    #354154;   /* stronger divider */
+
+  /* --- Brand accents -------------------------------------------------- */
+  --mq-gold:      #D6B56D;   /* primary brand accent : the Q, eyebrows, key figures */
+  --mq-gold-2:    #C39E4F;   /* gold hover / pressed */
+  --mq-gold-soft: #F2D58A;   /* light gold highlight */
+  --mq-gold-deep: #D8A019;   /* amber-gold, data emphasis */
+  --mq-indigo:    #5B6CFF;   /* secondary accent : flows, links, active */
+  --mq-indigo-2:  #4658E6;   /* indigo hover */
+
+  /* --- Text on dark --------------------------------------------------- */
+  --mq-text-1:    #F3F6FA;   /* primary */
+  --mq-text-2:    #C2CAD6;   /* secondary / body */
+  --mq-text-3:    #8A97A8;   /* muted / meta / captions */
+  --mq-text-4:    #5C6677;   /* faint, disabled */
+
+  /* --- Semantic (deck-accurate) -------------------------------------- */
+  --mq-success:   #2EA36B;
+  --mq-success-bg:#13241C;
+  --mq-info:      #60D9F7;   /* cyan : data / process highlight */
+  --mq-info-bg:   #0E2630;
+  --mq-warn:      #D8A019;
+  --mq-warn-bg:   #2A2310;
+  --mq-danger:    #E5544B;
+  --mq-danger-bg: #2A1719;
+
+  /* --- Light-surface mirror (for docs/app on white) ------------------ */
+  --mq-paper:     #FFFFFF;
+  --mq-ivory:     #F3F6FA;
+  --mq-ink-1:     #0E1116;
+  --mq-ink-2:     #354154;
+  --mq-ink-3:     #8A97A8;
+  --mq-rule:      #E2E6EC;
+  --mq-rule-strong:#C2CAD6;
+
+  /* legacy token aliases (kept so older cards/kits still resolve) */
+  --mq-navy:      #0E1116;
+  --mq-navy-2:    #1A2230;
+  --mq-gold-3:    #F2D58A;
+  --mq-gold-tint: #2A2310;
+  --mq-ivory-2:   #1A2230;
+  --mq-ink-4:     #5C6677;
+  --mq-rule-ink:  #273140;
+
+  /* --- Typography ---------------------------------------------------- */
+  --mq-font-sans: "Noto Sans KR", ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mq-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --mq-size-display: 64px;
+  --mq-size-h1:     40px;
+  --mq-size-h2:     28px;
+  --mq-size-h3:     20px;
+  --mq-size-h4:     16px;
+  --mq-size-lead:   18px;
+  --mq-size-body:   15px;
+  --mq-size-ui:     14px;
+  --mq-size-caption:13px;
+  --mq-size-micro:  11px;
+
+  --mq-lh-display:  1.12;  /* @kind other */
+  --mq-lh-h:        1.28;  /* @kind other */
+  --mq-lh-body:     1.62;  /* @kind other */
+  --mq-lh-ui:       1.45;  /* @kind other */
+
+  --mq-track-display: -0.01em;
+  --mq-track-h:       -0.005em;
+  --mq-track-eyebrow: 0.18em;
+
+  /* --- Spacing (8pt grid) ------------------------------------------- */
+  --mq-s-1: 4px;  --mq-s-2: 8px;  --mq-s-3: 12px; --mq-s-4: 16px;
+  --mq-s-5: 24px; --mq-s-6: 32px; --mq-s-7: 48px; --mq-s-8: 64px;
+  --mq-s-9: 96px; --mq-s-10: 128px;
+
+  /* --- Radii (sharp, regulatory) ------------------------------------ */
+  --mq-radius-0: 0px; --mq-radius-sm: 4px; --mq-radius-md: 8px;
+  --mq-radius-lg: 12px; --mq-radius-pill: 999px;
+
+  /* --- Elevation (on dark, shadows are subtle; rely on surface step) - */
+  --mq-shadow-1: 0 1px 2px rgba(0,0,0,0.30);
+  --mq-shadow-2: 0 18px 48px -18px rgba(0,0,0,0.65), 0 6px 14px -8px rgba(0,0,0,0.5);
+
+  /* --- Motion -------------------------------------------------------- */
+  --mq-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);  /* @kind other */
+  --mq-ease-in:  cubic-bezier(0.4, 0, 1, 1);  /* @kind other */
+  --mq-dur-fast: 160ms; /* @kind other */
+  --mq-dur-base: 240ms; /* @kind other */
+  --mq-dur-slow: 360ms; /* @kind other */
+}
+
+/* ===========================================================
+   Typography utilities
+   =========================================================== */
+.mq-display, .mq-h1, .mq-h2, .mq-h3, .mq-h4,
+.mq-body, .mq-lead, .mq-ui, .mq-caption, .mq-eyebrow, .mq-mono {
+  font-family: var(--mq-font-sans);
+  color: var(--mq-text-1);
+}
+.mq-display { font-size: var(--mq-size-display); font-weight: 700; line-height: var(--mq-lh-display); letter-spacing: var(--mq-track-display); }
+.mq-h1 { font-size: var(--mq-size-h1); font-weight: 700; line-height: var(--mq-lh-h); letter-spacing: -0.01em; }
+.mq-h2 { font-size: var(--mq-size-h2); font-weight: 600; line-height: var(--mq-lh-h); letter-spacing: var(--mq-track-h); }
+.mq-h3 { font-size: var(--mq-size-h3); font-weight: 600; line-height: var(--mq-lh-h); }
+.mq-h4 { font-size: var(--mq-size-h4); font-weight: 600; line-height: var(--mq-lh-h); }
+.mq-lead { font-size: var(--mq-size-lead); font-weight: 400; line-height: 1.55; color: var(--mq-text-2); }
+.mq-body { font-size: var(--mq-size-body); font-weight: 400; line-height: var(--mq-lh-body); color: var(--mq-text-2); }
+.mq-ui   { font-size: var(--mq-size-ui); font-weight: 500; line-height: var(--mq-lh-ui); }
+.mq-caption { font-size: var(--mq-size-caption); font-weight: 400; color: var(--mq-text-3); line-height: 1.45; }
+.mq-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: var(--mq-track-eyebrow); text-transform: uppercase; color: var(--mq-gold); }
+.mq-mono { font-family: var(--mq-font-mono); font-size: 14px; font-weight: 500; color: var(--mq-text-1); }
+
+/* ===========================================================
+   Buttons
+   =========================================================== */
+.mq-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--mq-s-2);
+  height: 40px; padding: 0 var(--mq-s-5);
+  font-family: var(--mq-font-sans); font-size: 14px; font-weight: 600;
+  border: 1px solid transparent; border-radius: var(--mq-radius-sm);
+  background: transparent; color: var(--mq-text-1); cursor: pointer;
+  transition: background var(--mq-dur-fast) var(--mq-ease-out),
+              border-color var(--mq-dur-fast) var(--mq-ease-out),
+              color var(--mq-dur-fast) var(--mq-ease-out),
+              transform 80ms var(--mq-ease-in);
+}
+.mq-btn:active { transform: scale(0.98); }
+.mq-btn:focus-visible { outline: 2px solid var(--mq-gold); outline-offset: 2px; }
+.mq-btn--primary { background: var(--mq-gold); color: #1A1206; }
+.mq-btn--primary:hover { background: var(--mq-gold-2); }
+.mq-btn--indigo { background: var(--mq-indigo); color: #fff; }
+.mq-btn--indigo:hover { background: var(--mq-indigo-2); }
+.mq-btn--ghost { background: transparent; border-color: var(--mq-line-2); color: var(--mq-text-1); }
+.mq-btn--ghost:hover { border-color: var(--mq-gold); color: var(--mq-gold); }
+.mq-btn--text { height: auto; padding: 0; color: var(--mq-gold); position: relative; }
+.mq-btn--text::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--mq-gold); transform: scaleX(0); transform-origin: left; transition: transform var(--mq-dur-fast) var(--mq-ease-out); }
+.mq-btn--text:hover::after { transform: scaleX(1); }
+.mq-btn--sm { height: 32px; padding: 0 var(--mq-s-3); font-size: 13px; }
+.mq-btn--lg { height: 48px; padding: 0 var(--mq-s-6); font-size: 15px; }
+
+/* ===========================================================
+   Inputs
+   =========================================================== */
+.mq-input, .mq-textarea, .mq-select {
+  width: 100%; height: 40px; padding: 0 var(--mq-s-3);
+  background: var(--mq-panel-2); border: 1px solid var(--mq-line-2);
+  border-radius: var(--mq-radius-sm); font-family: var(--mq-font-sans);
+  font-size: 14px; color: var(--mq-text-1);
+  transition: border-color var(--mq-dur-fast) var(--mq-ease-out);
+}
+.mq-textarea { height: auto; padding: var(--mq-s-3); min-height: 96px; resize: vertical; }
+.mq-input:focus, .mq-textarea:focus, .mq-select:focus {
+  outline: 0; border-color: var(--mq-gold);
+  box-shadow: 0 0 0 3px rgba(214,181,109,0.18);
+}
+.mq-input::placeholder { color: var(--mq-text-4); }
+.mq-label { display: block; font-size: 13px; font-weight: 500; color: var(--mq-text-2); margin-bottom: var(--mq-s-2); }
+
+/* ===========================================================
+   Cards / panels
+   =========================================================== */
+.mq-card { background: var(--mq-panel); border: 1px solid var(--mq-line); border-radius: var(--mq-radius-0); padding: var(--mq-s-6); transition: border-color var(--mq-dur-fast) var(--mq-ease-out); }
+.mq-card--lift:hover { border-color: var(--mq-line-2); }
+.mq-card--accent { border-left: 2px solid var(--mq-gold); }
+
+/* ===========================================================
+   Badges & pills
+   =========================================================== */
+.mq-badge { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 10px; font-size: 12px; font-weight: 600; border-radius: var(--mq-radius-pill); background: var(--mq-panel-2); color: var(--mq-text-2); border: 1px solid var(--mq-line); }
+.mq-badge--gold    { background: rgba(214,181,109,0.12); color: var(--mq-gold); border-color: rgba(214,181,109,0.3); }
+.mq-badge--indigo  { background: rgba(91,108,255,0.14); color: #9AA6FF; border-color: rgba(91,108,255,0.35); }
+.mq-badge--success { background: var(--mq-success-bg); color: #5FD39B; border-color: transparent; }
+.mq-badge--warn    { background: var(--mq-warn-bg);    color: var(--mq-warn); border-color: transparent; }
+.mq-badge--danger  { background: var(--mq-danger-bg);  color: #F08079; border-color: transparent; }
+.mq-badge--info    { background: var(--mq-info-bg);    color: var(--mq-info); border-color: transparent; }
+
+/* ===========================================================
+   Page surfaces
+   =========================================================== */
+body.mq-page { background: var(--mq-bg); color: var(--mq-text-1); margin: 0; font-family: var(--mq-font-sans); }
+.mq-surface-bg    { background: var(--mq-bg); color: var(--mq-text-1); }
+.mq-surface-panel { background: var(--mq-panel); color: var(--mq-text-1); }
+.mq-eyebrow-rule { display: inline-flex; align-items: center; gap: 12px; }
+.mq-eyebrow-rule::before { content: ""; width: 28px; height: 2px; background: var(--mq-gold); }

@@ -1,0 +1,68 @@
+/* =============================================================================
+   Q-Design 인쇄 · 생성물 (tools/extract-doc.mjs)
+   =============================================================================
+   HTML 을 종이나 PDF 로 내보낼 때 씁니다. 화면 팔레트를 종이 팔레트로 덮습니다.
+
+   🔑 스크롤 컨테이너를 «푸는» 것이 핵심입니다. 앱 셸이 100dvh + overflow hidden 이면
+      첫 화면 한 장만 인쇄됩니다. 이 파일이 그것을 풉니다.
+   ============================================================================= */
+
+@media print {
+  :root,
+  html,
+  html[data-theme='dark'],
+  html[data-theme='light'] {
+    --qa-bg: #ffffff !important;
+    --qa-surface: #ffffff !important;
+    --qa-surface2: #f5f3ee !important;
+    --qa-border: #d4d0c8 !important;
+    --qa-borderHi: #999488 !important;
+    --qa-text: #1a1814 !important;
+    --qa-subtle: #4a4540 !important;
+    --qa-muted: #746e62 !important;
+    --qa-champagne: #8a6a3a !important;
+    --qa-on-accent: #ffffff !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #1a1814 !important;
+  }
+
+  /* 스크롤 컨테이너 풀기: 이게 없으면 한 장만 인쇄됩니다 */
+  main, .qa-main-content, [data-print-scroll] {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 화면 전용 요소 숨김 */
+  aside, nav, button, .qa-skip-link, .qa-top-progress,
+  .qa-ribbon-layer-1, .qa-ribbon-layer-2, [data-print-hide] {
+    display: none !important;
+  }
+
+  /* 떠 있는 효과 제거: 종이에는 그림자가 없습니다 */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  .qa-card-lift { transform: none !important; }
+
+  /* 잘리면 안 되는 것 */
+  table, figure, .qa-card-lift, [data-print-keep] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  a { color: inherit !important; text-decoration: none !important; }
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm;
+  }
+}

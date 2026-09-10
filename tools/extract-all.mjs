@@ -1,0 +1,111 @@
+// =============================================================================
+// 전체 다시 만들기
+// =============================================================================
+//   node tools/extract-all.mjs            산출물을 전부 다시 만듭니다
+//   node tools/extract-all.mjs --sync     만든 뒤 세 제품으로 내보냅니다
+//   node tools/extract-all.mjs --check    만들지 않고 «어긋난 곳» 만 봅니다
+//
+// 「한 번에 패밀리에 적용」의 입구입니다. 추출기를 하나씩 기억해 돌리다 보면
+// 하나를 빠뜨리고, 그러면 **일부만 갱신된 채** 내보내집니다.
+//
+// 순서가 중요합니다:
+//   tokens  → 다른 모든 것이 이 JSON 을 읽습니다 (색·크기의 뿌리)
+//   fonts   → tokens 와 독립이지만 dist 에 함께 있어야 합니다
+//   doc     → tokens 의 «라이트» 팔레트에서 파생합니다
+//   nav/list/screen → 화면 정본
+//   inline  → 색인(원본을 안 바꿈)
+
+import { spawnSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(HERE, '..');
+
+const args = process.argv.slice(2);
+const doSync = args.includes('--sync');
+const checkOnly = args.includes('--check');
+
+/** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
+const STEPS = [
+  { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
+  { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
+  { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
+  { name: '차림표', file: 'extract-nav.mjs' },
+  { name: '목록', file: 'extract-list.mjs' },
+  { name: '뼈대', file: 'extract-screen.mjs' },
+  { name: '인라인 색인', file: 'extract-inline-styles.mjs', why: '원본을 바꾸지 않는 색인' },
+];
+
+function run(file, extra = []) {
+  const p = join(HERE, file);
+  if (!existsSync(p)) return { skipped: true };
+  const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8' });
+  return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
+}
+
+if (checkOnly) {
+  console.log('검사만 합니다 (아무것도 안 씁니다)');
+  console.log('');
+  const r = run('sync.mjs');
+  console.log(r.out.trim());
+  process.exit(r.code ?? 0);
+}
+
+console.log('산출물 다시 만들기');
+console.log('');
+let failed = 0;
+for (const step of STEPS) {
+  const r = run(step.file);
+  if (r.skipped) {
+    console.log('  건너뜀  ' + step.name + '  (' + step.file + ' 가 없습니다)');
+    continue;
+  }
+  const ok = r.code === 0;
+  if (!ok && !step.optional) failed++;
+  const first = (r.out.trim().split('\n')[0] || '').slice(0, 70);
+  console.log('  ' + (ok ? 'OK    ' : '실패  ') + step.name.padEnd(12) + first);
+  if (!ok) {
+    console.log(r.out.trim().split('\n').slice(0, 8).map((l) => '        ' + l).join('\n'));
+    if (!step.optional) break;
+  }
+}
+
+if (failed) {
+  console.log('');
+  console.log('  실패한 단계가 있습니다. 내보내지 않습니다.');
+  process.exit(1);
+}
+
+// 금지 문자 검사: 산출물에도 적용합니다.
+const chars = run('check-chars.mjs');
+console.log('  ' + (chars.code === 0 ? 'OK    ' : '실패  ') + '문자 검사'.padEnd(12) + (chars.out.trim().split('\n')[0] || '').slice(0, 70));
+if (chars.code !== 0) {
+  console.log(chars.out.trim().split('\n').slice(0, 6).map((l) => '        ' + l).join('\n'));
+  process.exit(1);
+}
+
+if (!doSync) {
+  console.log('');
+  console.log('  만들었습니다. 제품으로 내보내려면 --sync 를 붙이거나 `node tools/sync.mjs --write` 를 돌리세요.');
+  process.exit(0);
+}
+
+console.log('');
+console.log('제품으로 내보내기');
+console.log('');
+const s = run('sync.mjs', ['--write']);
+console.log(s.out.trim().split('\n').map((l) => '  ' + l).join('\n'));
+if (s.code !== 0) process.exit(1);
+
+// 내보낸 뒤 «정말 같아졌는지» 다시 봅니다. 쓰기가 성공했다는 것과 같아졌다는 것은 다릅니다.
+const v = run('sync.mjs');
+console.log('');
+if (v.code === 0) {
+  console.log('  확인: 모든 사본이 원본과 같습니다.');
+} else {
+  console.log('  ⚠️ 내보낸 뒤에도 어긋난 곳이 있습니다:');
+  console.log(v.out.trim().split('\n').filter((l) => l.includes('어긋남') || l.includes('없음')).map((l) => '  ' + l).join('\n'));
+  process.exit(1);
+}

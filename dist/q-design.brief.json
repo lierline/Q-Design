@@ -1,0 +1,122 @@
+{
+  "$meta": {
+    "name": "Q-Design 대외 문서 토큰 (MedQraft)",
+    "note": "생성물입니다. 원본은 MedQraft/templates/assets/colors_and_type.css 입니다.",
+    "generatedAt": "2026-09-10",
+    "scope": "제안서 · 견적서 · 계약서 · 요건서 · RFI · IR 덱",
+    "notThis": "앱이 만들어 내는 DOCX 는 이것이 아니라 q-design.doc.json 을 씁니다(제품 문서 브랜드)."
+  },
+  "surface": {
+    "bg": "#0E1116",
+    "bg2": "#111722",
+    "panel": "#121824",
+    "panel2": "#1A2230",
+    "panel3": "#202B3B",
+    "line": "#273140",
+    "line2": "#354154"
+  },
+  "accent": {
+    "gold": "#D6B56D",
+    "gold2": "#C39E4F",
+    "goldSoft": "#F2D58A",
+    "goldDeep": "#D8A019",
+    "indigo": "#5B6CFF",
+    "indigo2": "#4658E6"
+  },
+  "textOnDark": {
+    "t1": "#F3F6FA",
+    "t2": "#C2CAD6",
+    "t3": "#8A97A8",
+    "t4": "#5C6677"
+  },
+  "paper": {
+    "paper": "#FFFFFF",
+    "ivory": "#F3F6FA",
+    "ink1": "#0E1116",
+    "ink2": "#354154",
+    "ink3": "#8A97A8",
+    "rule": "#E2E6EC",
+    "ruleStrong": "#C2CAD6"
+  },
+  "semantic": {
+    "success": "#2EA36B",
+    "info": "#60D9F7",
+    "warn": "#D8A019",
+    "danger": "#E5544B"
+  },
+  "font": {
+    "sans": "\"Noto Sans KR\", ui-sans-serif, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "mono": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Menlo, Consolas, monospace"
+  },
+  "size": {
+    "display": "64px",
+    "h1": "40px",
+    "h2": "28px",
+    "h3": "20px",
+    "h4": "16px",
+    "lead": "18px",
+    "body": "15px",
+    "ui": "14px",
+    "caption": "13px",
+    "micro": "11px"
+  },
+  "lineHeight": {
+    "display": "1.12",
+    "h": "1.28",
+    "body": "1.62",
+    "ui": "1.45"
+  },
+  "tracking": {
+    "display": "-0.01em",
+    "h": "-0.005em",
+    "eyebrow": "0.18em"
+  },
+  "space": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "24px",
+    "6": "32px",
+    "7": "48px",
+    "8": "64px",
+    "9": "96px",
+    "10": "128px"
+  },
+  "radius": {
+    "0": "0px",
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "pill": "999px"
+  },
+  "motion": {
+    "easeOut": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+    "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+    "fast": "160ms",
+    "base": "240ms",
+    "slow": "360ms"
+  },
+  "contrastOnPaper": {
+    "ink1": {
+      "hex": "#0E1116",
+      "onPaper": 18.91,
+      "onIvory": 17.45
+    },
+    "ink2": {
+      "hex": "#354154",
+      "onPaper": 10.32,
+      "onIvory": 9.52
+    },
+    "ink3": {
+      "hex": "#8A97A8",
+      "onPaper": 2.97,
+      "onIvory": 2.74
+    },
+    "gold": {
+      "hex": "#D6B56D",
+      "onPaper": 1.96,
+      "onIvory": 1.81
+    }
+  }
+}

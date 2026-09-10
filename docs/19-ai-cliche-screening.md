@@ -88,7 +88,7 @@ Q-Atelier 화면에서 「AI가 만든 티」로 읽히는 요소를 찾아 정�
 `dash-narrative-headline.png` 아래쪽
 
 ```
-Planning — Development — Verification — Validation — Submission — Approval
+Planning · Development · Verification · Validation · Submission · Approval
 ```
 
 프로젝트 진행 표시가 영문입니다. 다른 화면은 전부 한글인데 여기만 라틴입니다.
