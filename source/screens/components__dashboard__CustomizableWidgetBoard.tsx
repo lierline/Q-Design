@@ -191,8 +191,6 @@ export function CustomizableWidgetBoard({
           borderRadius: RADIUS.sm,
           fontFamily: F.mono,
           fontSize: FS[10],
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
           cursor: 'pointer',
           transition: `background ${MOTION.fast}, color ${MOTION.fast}, border-color ${MOTION.fast}`,
         }}

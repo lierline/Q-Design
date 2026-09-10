@@ -448,8 +448,6 @@ function ResultBody({
               fontSize: FS[10],
               color: T.champagne,
               fontFamily: F.mono,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
               marginBottom: S[2],
             }}
           >
@@ -465,8 +463,6 @@ function ResultBody({
                   fontSize: FS[10],
                   color: T.muted,
                   fontFamily: F.mono,
-                  letterSpacing: 1,
-                  textTransform: 'uppercase',
                   marginBottom: S[1.5],
                 }}
               >
@@ -543,8 +539,6 @@ function ResultBody({
                   fontSize: FS[10],
                   color: T.champagne,
                   fontFamily: F.mono,
-                  letterSpacing: 1,
-                  textTransform: 'uppercase',
                   marginRight: S[1.5],
                 }}
               >
@@ -644,8 +638,6 @@ function ResultBody({
                 fontSize: FS[10],
                 color: T.muted,
                 fontFamily: F.mono,
-                letterSpacing: 1.5,
-                textTransform: 'uppercase',
                 marginBottom: S[1.5],
               }}
             >
@@ -747,8 +739,6 @@ function ResultBody({
                   color: T.green,
                   fontSize: FS[10],
                   fontFamily: F.mono,
-                  letterSpacing: 0.5,
-                  textTransform: 'uppercase',
                 }}
               >
                 ✓ 이 품목으로 확정됨
@@ -854,7 +844,6 @@ function ResultBody({
           fontSize: FS[10],
           color: T.muted,
           fontFamily: F.mono,
-          letterSpacing: 0.3,
           lineHeight: LH.relaxed,
         }}
       >
@@ -1577,7 +1566,6 @@ function AlternativeRow({
               color: T.muted,
               fontSize: FS[10],
               fontFamily: F.mono,
-              letterSpacing: 0.3,
               whiteSpace: 'nowrap',
             }}
           >
@@ -1608,8 +1596,6 @@ function AlternativeRow({
                 color: T.green,
                 fontSize: FS[10],
                 fontFamily: F.mono,
-                letterSpacing: 0.5,
-                textTransform: 'uppercase',
               }}
             >
               ✓ 확정됨

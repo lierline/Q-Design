@@ -709,8 +709,6 @@ function LoginForm() {
                         fontSize: FS[10],
                         color: T.muted,
                         fontFamily: F.mono,
-                        letterSpacing: 2,
-                        textTransform: 'uppercase',
                       }}
                     >
                       또는
@@ -766,7 +764,6 @@ function LoginForm() {
                     color: T.muted,
                     fontSize: FS[11],
                     fontFamily: F.mono,
-                    letterSpacing: 0.5,
                     textDecoration: 'none',
                     borderBottom: `1px dashed ${T.border}`,
                     paddingBottom: 1,

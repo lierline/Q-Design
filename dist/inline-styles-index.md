@@ -26,7 +26,7 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | `app/(auth)/login/page.tsx` | `qa-auth-rise` `qa-entrance-ember` `qa-entrance-mark` `qa-entrance-sweep` `qa-entrance-veil` `qa-glow-pulse` | `.qa-auth-brand` `.qa-auth-card` `.qa-auth-desktop-brand` `.qa-auth-desktop-brand-sub` `.qa-auth-desktop-brand-title` `.qa-auth-eyebrow` 외 17 | 2 |
 | `components/RibbonBackground.tsx` | `qa-ribbon-drift-1` `qa-ribbon-drift-2` | `.qa-ribbon-layer-1` `.qa-ribbon-layer-2` | 1 |
 | `components/WelcomeFlow.tsx` | `qa-welcome-backdrop` `qa-welcome-in` | `.qa-welcome-backdrop` `.qa-welcome-card` | 1 |
-| `lib/design/components.tsx` | `qa-drawer-slide-l` `qa-drawer-slide-r` | 없음 | 10 |
+| `lib/design/components.tsx` | `qa-drawer-slide-l` `qa-drawer-slide-r` | 없음 | 11 |
 | `app/(app)/ai/draft/cr/client.tsx` | `qa-cursor-blink` | `.qa-product-card` `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 1 |
 | `app/(app)/ai/draft/ifu/client.tsx` | `qa-cursor-blink` | `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 1 |
 | `app/(app)/ai/draft/risk/client.tsx` | `qa-cursor-blink` | `.qa-risk-grid` `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 2 |

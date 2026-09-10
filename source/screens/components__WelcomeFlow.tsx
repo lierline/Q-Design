@@ -231,7 +231,6 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 fontSize: FS[10],
                 color: T.muted,
                 fontFamily: F.mono,
-                letterSpacing: 1,
               }}
             >
               언제든 좌측 사이드바 ‘설정 · 사용법’ 에서 다시 확인할 수 있습니다.

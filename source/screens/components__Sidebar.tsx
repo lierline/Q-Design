@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
-import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, hasHangul, labelTracking } from '@/lib/design/tokens';
+import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, hasHangul, labelCase, labelTracking } from '@/lib/design/tokens';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
 import { NAV_ITEMS, FLOW_DOCUMENT_MENUS, NAV_SUBGROUP_LABEL, NAV_SUBGROUP_ORDER, type NavGroup, type NavSubGroup } from '@/lib/nav/nav-items';
@@ -546,7 +546,7 @@ function SidebarBody({
               fontFamily: F.mono,
               // 2026-09-09: 한글 조직명이 «메 드 크 래 프 트» 로 벌어지던 자리
               letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 1.6),
-              textTransform: hasHangul(isExpert ? '외부 자문 전문가' : orgName) ? undefined : 'uppercase',
+              textTransform: labelCase(isExpert ? '외부 자문 전문가' : orgName),
               marginTop: S[1.5],
               wordBreak: 'break-all',
               textAlign: 'center',
@@ -1053,7 +1053,7 @@ function SidebarBody({
                     color: T.muted,
                     fontFamily: F.mono,
                     letterSpacing: labelTracking(isExpert ? 'Expert · External' : `${role} · ${plan}`, 1.2),
-                    textTransform: hasHangul(isExpert ? 'Expert · External' : `${role} · ${plan}`) ? undefined : 'uppercase',
+                    textTransform: labelCase(isExpert ? 'Expert · External' : `${role} · ${plan}`),
                   }}
                 >
                   {isExpert ? 'Expert · External' : `${role} · ${plan}`}
@@ -1379,7 +1379,7 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
         // 이 자간은 라틴 글자 사이를 벌리라고 만든 값입니다 (M-02/M-03 과 같은 건).
         // Q-Design 차림표 정본(docs/15)도 이 규칙을 따르므로 세 제품이 같아집니다.
         letterSpacing: labelTracking(label, 1.6),
-        textTransform: hasHangul(label) ? undefined : 'uppercase',
+        textTransform: labelCase(label),
         color: T.muted,
         userSelect: 'none',
       }}
@@ -1456,7 +1456,7 @@ function CollapsibleNavGroup({
           // 2026-09-09: SectionHeader 만 고치고 여기를 놓쳤다. 화면에 실제로 보이는
           // 묶음 이름표는 접이식인 이쪽이고, 「워 크 스 페 이 스」가 여기서 나왔다.
           letterSpacing: labelTracking(label, 1.6),
-          textTransform: hasHangul(label) ? undefined : 'uppercase',
+          textTransform: labelCase(label),
           color: T.muted,
           background: 'transparent',
           border: 'none',
@@ -1622,7 +1622,7 @@ function WorkspaceNavGroup({
                 {ungrouped.map((m) => renderModule(m))}
                 {NAV_SUBGROUP_ORDER.filter((sg) => bySub.has(sg)).map((sg) => (
                   <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), textTransform: hasHangul(NAV_SUBGROUP_LABEL[sg]) ? undefined : 'uppercase', padding: '9px 0 3px 4px' }}>
+                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
                       {NAV_SUBGROUP_LABEL[sg]}
                     </div>
                     {bySub.get(sg)!.map((m) => renderModule(m))}

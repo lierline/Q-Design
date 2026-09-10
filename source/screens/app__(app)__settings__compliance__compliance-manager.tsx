@@ -490,9 +490,7 @@ function ScoreOverview({
             style={{
               fontSize: FS[10],
               color: T.muted,
-              letterSpacing: 1.5,
               fontFamily: F.mono,
-              textTransform: 'uppercase',
               marginBottom: S[1],
             }}
           >
@@ -553,9 +551,7 @@ function ScoreOverview({
           style={{
             fontSize: FS[10],
             color: T.muted,
-            letterSpacing: 1.5,
             fontFamily: F.mono,
-            textTransform: 'uppercase',
             marginBottom: S[2],
           }}
         >

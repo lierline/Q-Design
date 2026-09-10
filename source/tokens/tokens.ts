@@ -433,6 +433,25 @@ export function labelTracking(
   return hasHangul(node) ? 0 : value;
 }
 
+/**
+ * 라벨 대소문자 결정: 한글이 섞이면 'none', 아니면 'uppercase'.
+ *
+ * 🔴 **`undefined` 를 돌려주면 안 된다** (2026-09-09 감사 · 주제 #7).
+ *    `textTransform` 은 **상속 속성**이다. `hasHangul(x) ? undefined : 'uppercase'` 는
+ *    자기 값을 «안 적을» 뿐이라 부모의 uppercase 가 그대로 내려온다.
+ *    실측: 자기 style 에 textTransform 이 없는 한글 span(「미시작」)이 화면에서
+ *    uppercase 로 잡혔다. 끊으려면 'none' 을 «적어야» 한다.
+ *
+ * ⚠️ 이 함수는 **그 요소 자신만** 푼다. 부모에 uppercase 를 걸고 자식 라틴이
+ *    그것을 받아 쓰는 자리는 부모를 건드리지 말 것. 부모를 풀면 형제 라틴이
+ *    함께 소문자가 된다.
+ *
+ * @example textTransform: labelCase(children)
+ */
+export function labelCase(node: unknown): 'uppercase' | 'none' {
+  return hasHangul(node) ? 'none' : 'uppercase';
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // RADIUS: rounded-[10px] 단일 통일 (럭셔리 비례: 8과 12 사이)
 // 기존 rounded-lg(8) / rounded-xl(12) 혼재 정리.

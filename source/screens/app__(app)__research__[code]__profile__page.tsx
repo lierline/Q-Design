@@ -398,8 +398,6 @@ export default function ProfilePage() {
                 fontSize: FS[10],
                 color: T.green,
                 fontFamily: F.mono,
-                letterSpacing: 1.5,
-                textTransform: 'uppercase',
                 fontWeight: 600,
               }}
             >
@@ -467,8 +465,6 @@ export default function ProfilePage() {
                 fontSize: FS[10],
                 color: T.muted,
                 fontFamily: F.mono,
-                letterSpacing: 1.5,
-                textTransform: 'uppercase',
                 fontWeight: 600,
               }}
             >
@@ -488,8 +484,6 @@ export default function ProfilePage() {
                 padding: '4px 10px',
                 fontSize: FS[10],
                 fontFamily: F.mono,
-                letterSpacing: 0.6,
-                textTransform: 'uppercase',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
               }}
@@ -532,8 +526,6 @@ export default function ProfilePage() {
                 padding: '4px 10px',
                 fontSize: FS[10],
                 fontFamily: F.mono,
-                letterSpacing: 0.6,
-                textTransform: 'uppercase',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
               }}
@@ -573,8 +565,6 @@ export default function ProfilePage() {
                 padding: '4px 10px',
                 fontSize: FS[10],
                 fontFamily: F.mono,
-                letterSpacing: 0.6,
-                textTransform: 'uppercase',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
               }}

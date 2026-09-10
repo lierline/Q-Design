@@ -719,8 +719,6 @@ export function IFUWizardClient() {
                 style={{
                   fontSize: FS[10],
                   fontFamily: F.mono,
-                  letterSpacing: 1.4,
-                  textTransform: 'uppercase',
                   color: T.muted,
                   marginBottom: classifyLoading ? 0 : 10,
                 }}
@@ -930,7 +928,6 @@ export function IFUWizardClient() {
                   color: promoteMode === 'new' ? T.champagne : T.subtle,
                   fontSize: FS[11],
                   fontFamily: F.mono,
-                  letterSpacing: 0.8,
                   cursor: 'pointer',
                   textAlign: 'center',
                 }}
@@ -1025,9 +1022,7 @@ export function IFUWizardClient() {
                       fontSize: FS[11],
                       fontFamily: F.mono,
                       color: T.subtle,
-                      letterSpacing: 1,
                       marginBottom: S[1.5],
-                      textTransform: 'uppercase',
                     }}
                   >
                     연결할 R&D 프로젝트

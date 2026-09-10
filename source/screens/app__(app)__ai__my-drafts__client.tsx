@@ -380,9 +380,7 @@ export function MyDraftsClient() {
                 fontSize: FS[11],
                 fontFamily: F.mono,
                 color: T.subtle,
-                letterSpacing: 1,
                 marginBottom: S[1.5],
-                textTransform: 'uppercase',
               }}
             >
               연결할 프로젝트

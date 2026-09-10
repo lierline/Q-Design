@@ -583,7 +583,6 @@ export function CRWizardClient() {
                                 style={{
                                   fontSize: FS[9],
                                   fontFamily: F.mono,
-                                  letterSpacing: 1,
                                   padding: '2px 6px',
                                   background: alpha(T.green, 0.1),
                                   color: T.green,
@@ -639,7 +638,6 @@ export function CRWizardClient() {
                                 style={{
                                   fontSize: FS[9],
                                   fontFamily: F.mono,
-                                  letterSpacing: 1,
                                   padding: '2px 6px',
                                   background: alpha(T.champagne, 0.1),
                                   color: T.champagne,

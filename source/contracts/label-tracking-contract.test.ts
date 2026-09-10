@@ -13,7 +13,14 @@ import { readFileSync } from 'node:fs';
 // (음수 자간은 제목 조이기라 대상이 아닙니다. 앞뒤 모두 보는 이유는 두 속성의 순서가 자리마다
 // 다르기 때문입니다.)
 //
-// 고치는 법: letterSpacing: labelTracking(문구, 값) · textTransform: hasHangul(문구) ? undefined : 'uppercase'.
+// 고치는 법: letterSpacing: labelTracking(문구, 값) · textTransform: labelCase(문구).
+//
+// 🔴 2026-09-09 감사(주제 #7)에서 정정: 종전에 여기 적어 두었던
+//    `hasHangul(문구) ? undefined : 'uppercase'` 는 **틀렸습니다.** textTransform 은
+//    상속 속성이라 undefined 는 자기 값을 «안 적을» 뿐이고 부모의 uppercase 가
+//    그대로 내려옵니다. 실측에서 자기 style 에 textTransform 이 없는 한글 span 이
+//    화면에서 uppercase 로 잡혔습니다. 끊으려면 'none' 을 «적어야» 하고,
+//    그것이 labelCase() 입니다.
 
 const FILE = 'lib/design/components.tsx';
 const WINDOW = 15;
@@ -44,8 +51,16 @@ export function rawTrackingNearUppercase(src: string): string[] {
 describe('라벨 자간: uppercase 라벨은 labelTracking 을 거칩니다', () => {
   const src = readFileSync(FILE, 'utf8');
 
-  it('uppercase 가 있는 컴포넌트가 여전히 있습니다(계약이 헛돌지 않습니다)', () => {
-    expect(src.match(/'uppercase'/g)?.length ?? 0).toBeGreaterThan(10);
+  it('uppercase 를 다루는 자리가 여전히 있습니다(계약이 헛돌지 않습니다)', () => {
+    /*
+     * 🔴 리터럴 'uppercase' 만 세면 안 됩니다. 2026-09-10 에 22곳이 labelCase() 로
+     *    바뀌면서 리터럴이 0 이 되었고, **고친 것 때문에 이 검사가 실패했습니다.**
+     *    이 검사가 확인하려는 것은 「대상 파일에 대문자 라벨이 아직 있는가」이지
+     *    「그 글자가 그대로 적혀 있는가」가 아닙니다. 두 꼴을 함께 셉니다.
+     */
+    const 리터럴 = src.match(/'uppercase'/g)?.length ?? 0;
+    const 함수 = src.match(/labelCase\(/g)?.length ?? 0;
+    expect(리터럴 + 함수, `리터럴 ${리터럴} + labelCase ${함수}`).toBeGreaterThan(10);
   });
 
   it('uppercase 근처의 raw letterSpacing 리터럴이 0 입니다', () => {
@@ -63,7 +78,7 @@ describe('라벨 자간: uppercase 라벨은 labelTracking 을 거칩니다', ()
     expect(rawTrackingNearUppercase(sample)).toHaveLength(1);
     const fixed = [
       "        letterSpacing: labelTracking(children, 1.5),",
-      "        textTransform: hasHangul(children) ? undefined : 'uppercase',",
+      "        textTransform: labelCase(children),",
     ].join('\n');
     expect(rawTrackingNearUppercase(fixed)).toHaveLength(0);
     // 음수 자간(제목 조이기)은 대상이 아닙니다.

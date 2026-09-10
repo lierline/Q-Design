@@ -1030,7 +1030,35 @@ select.qa-input::-ms-expand {
   main.qa-main-content {
     height: auto !important;
     overflow: visible !important;
-    padding: 24px 32px !important;
+    /* 🔴 2026-09-09 감사(주제 #10). 좌우 32px 를 0 으로 내린다.
+       @page 여백 16mm 가 이미 있으므로 이것은 «두 번째» 여백이었다.
+       가용폭 608.76 → 672.76px 가 되고, 꼬리글(body::after 의 left/right: 16mm)과
+       본문의 좌우 선이 같아진다. 값은 lib/design/print.ts 가 갖고 있다. */
+    padding: 24px 0 !important;
+  }
+
+  /* ── 종이에는 가로 스크롤이 없다 (감사 주제 #10) ──────────────────────────
+     화면의 스크롤 감싸개가 종이에서는 «스크롤할 수 없는 상자» 가 되어, 담긴 것이
+     넓으면 오른쪽 끝이 **잘렸다는 표시도 없이** 사라진다. 실측(A4 794px):
+     /assessments 448px · /audit 32px · /settings 32px 가 없어졌다.
+
+     minWidth 를 0 으로 풀지 않는 이유: `160px 180px 220px 1fr` 같은 고정 트랙은
+     감싸개를 풀어도 안 줄어든다. 여전히 넘치고 열 비율만 무너진다.
+     배율로 통째로 줄여야 데스크톱 열 비율이 종이에서도 보존된다.
+     배율은 ScrollTable 이 --qa-print-zoom 으로 실어 보낸다(lib/design/print.ts).
+
+     ⚠️ zoom 은 Firefox 126 미만에서 무시된다. 그 환경은 오늘과 같고 나빠지지 않는다.
+     ⚠️ background: none 이 필요한 이유 - 모바일 fade 그라데이션 규칙이
+        `@media (max-width: 1023px)` 뿐이고 media type 이 없다. A4 인쇄 상자가
+        794px 이라 종이에서도 그 규칙이 걸려 표 좌우에 회색 띠가 찍힌다. */
+  .qa-scroll-table {
+    overflow: visible !important;
+    background: none !important;
+    zoom: var(--qa-print-zoom, 1);
+  }
+  .qa-scroll-table.qa-sticky-first .qa-scroll-table-inner > * > *:first-child {
+    position: static !important;
+    background: transparent !important;
   }
   /* 아래 탭줄은 링크라 위의 `button { display: none }` 에 안 걸린다.
      종이에 「홈 제품 회의 현장 더보기」 가 남는다. */

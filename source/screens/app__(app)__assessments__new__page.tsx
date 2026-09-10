@@ -329,8 +329,6 @@ export default function NewAssessmentPage() {
               fontSize: FS[10],
               color: T.muted,
               fontFamily: F.mono,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
             }}
           >
             입력 진행도

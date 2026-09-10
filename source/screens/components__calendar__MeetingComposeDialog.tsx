@@ -249,8 +249,6 @@ export function MeetingComposeDialog({
               border: `1px solid ${T.border}`,
               fontFamily: F.mono,
               fontSize: FS[10],
-              letterSpacing: 1.2,
-              textTransform: 'uppercase',
               cursor: busy ? 'not-allowed' : 'pointer',
             }}
           >

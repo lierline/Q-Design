@@ -5,8 +5,9 @@ import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent,
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
-import { alpha, BP, F, FS, T, S, TOUCH, RADIUS, SHADOW, MOTION, TYPE, Z, LH, labelTracking, hasHangul } from './tokens';
+import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, hasHangul, labelCase, labelTracking } from './tokens';
 import { TAG_DIMS } from './tag-metrics';
+import { printZoom } from './print';
 
 // prefers-reduced-motion 감지 (SSR-safe). JS 기반 애니메이션 (count-up 등) 에서 사용.
 // CSS 트랜지션은 globals.css 의 전역 `@media (prefers-reduced-motion: reduce)` 룰로 무력화.
@@ -76,7 +77,7 @@ export function Lbl({ children, htmlFor }: { children: ReactNode; htmlFor?: stri
         color: T.subtle,
         // 2026-09-03 M-02: 한글 라벨이면 자간 0 · uppercase 해제(tokens 의 labelTracking 규칙).
         letterSpacing: labelTracking(children, 1.5),
-        textTransform: hasHangul(children) ? undefined : 'uppercase',
+        textTransform: labelCase(children),
         fontFamily: F.mono,
         display: 'block',
         marginBottom: 7,
@@ -288,7 +289,7 @@ export function Btn({
         lineHeight: LH.none,
         // 2026-09-03 M-02: 한글 버튼 문구는 자간 0 · uppercase 해제. minWidth 는 호출부 불변.
         letterSpacing: labelTracking(children, 1.2),
-        textTransform: hasHangul(children) ? undefined : 'uppercase',
+        textTransform: labelCase(children),
         whiteSpace: 'nowrap',
         cursor: disabled ? 'not-allowed' : 'pointer',
         // border 는 항상 1px: primary 는 transparent (시각 효과 없음, 사이즈만 통일)
@@ -660,7 +661,7 @@ export function SectionProgressCard({
   return (
     <div style={{ marginBottom: S[6], padding: S[4.5], borderRadius: RADIUS.md, border: `1px solid ${T.border}`, background: alpha(T.champagne, 0.02) }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: S[2] }}>
-        <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.12em'), color: T.subtle, textTransform: hasHangul(label) ? undefined : 'uppercase' }}>{label}</span>
+        <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.12em'), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
         <span style={{ fontFamily: F.serif, fontSize: FS[20], fontWeight: 700, color: fill }}>{value}%</span>
       </div>
       <ProgressBar value={value} height={6} />
@@ -797,7 +798,7 @@ export function FilterChip({
         fontFamily: F.mono,
         letterSpacing: labelTracking(label, 0.5),
         cursor: 'pointer',
-        textTransform: hasHangul(label) ? undefined : 'uppercase',
+        textTransform: labelCase(label),
         lineHeight: LH.none,
         whiteSpace: 'nowrap',
         transition: 'background 0.12s ease, border-color 0.12s ease',
@@ -959,7 +960,7 @@ export function FormSection({
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.8),
-          textTransform: hasHangul(title) ? undefined : 'uppercase',
+          textTransform: labelCase(title),
           fontWeight: 600,
           marginBottom: S[2],
           paddingBottom: S[1],
@@ -1134,7 +1135,7 @@ function lblStyleFor(label: ReactNode): CSSProperties {
     color: T.muted,
     fontFamily: F.mono,
     letterSpacing: labelTracking(label, 1.2),
-    textTransform: hasHangul(label) ? undefined : 'uppercase',
+    textTransform: labelCase(label),
     fontWeight: 500,
     display: 'inline-block',
   };
@@ -1222,7 +1223,7 @@ export function PageHd({ title, sub, actions, accent = true }: PageHdProps) {
                 color: T.subtle,
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(sub, 2.2),
-                textTransform: hasHangul(sub) ? undefined : 'uppercase',
+                textTransform: labelCase(sub),
                 marginBottom: S[2],
               }}
             >
@@ -1285,7 +1286,7 @@ export function Card({ label, value, color, sub, children, style, minHeight = 12
             color: T.subtle,
             letterSpacing: labelTracking(label, 1.5),
             fontFamily: F.mono,
-            textTransform: hasHangul(label) ? undefined : 'uppercase',
+            textTransform: labelCase(label),
             marginBottom: S[3],
             fontWeight: 500,
           }}
@@ -1436,7 +1437,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
               color: c,
               fontFamily: F.mono,
               letterSpacing: labelTracking(title, 1.5),
-              textTransform: hasHangul(title) ? undefined : 'uppercase',
+              textTransform: labelCase(title),
               marginBottom: S[1],
             }}
           >
@@ -1483,7 +1484,7 @@ export function LoadingState({
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: labelTracking(label, 1.5),
-          textTransform: hasHangul(label) ? undefined : 'uppercase',
+          textTransform: labelCase(label),
         }}
       >
         {label}…
@@ -1515,7 +1516,7 @@ export function LoadingState({
           fontFamily: F.mono,
           fontSize: FS[10],
           letterSpacing: labelTracking(label, 2.2),
-          textTransform: hasHangul(label) ? undefined : 'uppercase',
+          textTransform: labelCase(label),
           color: T.subtle,
         }}
       >
@@ -1789,7 +1790,7 @@ export function EmptyState({
                 fontSize: FS[10],
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(h.label, 0.5),
-                textTransform: hasHangul(h.label) ? undefined : 'uppercase',
+                textTransform: labelCase(h.label),
                 textDecoration: 'none',
                 cursor: 'pointer',
                 transition: 'background 160ms ease, border-color 160ms ease',
@@ -2072,7 +2073,7 @@ export function KPI({
             color: T.subtle,
             fontFamily: F.mono,
             letterSpacing: labelTracking(label, 1.5),
-            textTransform: hasHangul(label) ? undefined : 'uppercase',
+            textTransform: labelCase(label),
             marginBottom: S[2.5],
             fontWeight: 500,
             display: 'flex',
@@ -2208,7 +2209,7 @@ export function TooltipBody({
           color: T.champagne,
           letterSpacing: labelTracking(title, 1.5),
           fontFamily: F.mono,
-          textTransform: hasHangul(title) ? undefined : 'uppercase',
+          textTransform: labelCase(title),
           marginBottom: S[2],
           fontWeight: 600,
         }}
@@ -2337,7 +2338,7 @@ export function SectionTitle({
         //    라틴 대문자는 벌려야 읽히지만 한글은 반대다. 규칙은 tokens 의 labelTracking.
         letterSpacing: labelTracking(children, 2.2),
         fontFamily: F.mono,
-        textTransform: hasHangul(children) ? undefined : 'uppercase',
+        textTransform: labelCase(children),
         marginBottom: noMargin ? 0 : 14,
         fontWeight: 500,
       }}
@@ -2362,7 +2363,7 @@ export function Section({ title, children }: { title: ReactNode; children: React
           fontWeight: 500,
           letterSpacing: labelTracking(title, '0.14em'),
           color: T.champagne,
-          textTransform: hasHangul(title) ? undefined : 'uppercase',
+          textTransform: labelCase(title),
           marginBottom: S[3],
         }}
       >
@@ -2446,7 +2447,7 @@ export function SectionTitleInfo({
           color: T.champagne,
           letterSpacing: labelTracking(children, 2.2),
           fontFamily: F.mono,
-          textTransform: hasHangul(children) ? undefined : 'uppercase',
+          textTransform: labelCase(children),
           fontWeight: 500,
         }}
       >
@@ -2489,7 +2490,7 @@ export function CardTitle({ children }: { children: ReactNode }) {
         color: T.muted,
         fontFamily: F.mono,
         letterSpacing: labelTracking(children, 1),
-        textTransform: hasHangul(children) ? undefined : 'uppercase',
+        textTransform: labelCase(children),
         marginBottom: S[3.5],
       }}
     >
@@ -2600,8 +2601,20 @@ export function ScrollTable({
 }) {
   const id = useId().replace(/:/g, '');
   const wrapperCls = `qa-scroll-table qa-st-${id}${stickyFirstCol ? ' qa-sticky-first' : ''}${className ? ` ${className}` : ''}`;
+  /*
+   * 🔴 2026-09-09 감사(주제 #10). 종이에는 가로 스크롤이 없다. minWidth 가 종이
+   *    가용폭보다 넓으면 오른쪽 끝이 **잘렸다는 표시도 없이** 사라진다.
+   *    실측(A4 794px): /assessments 가 448px, /audit·/settings 가 32px 씩 잃었다.
+   *
+   *    화면에는 아무 영향이 없다. `--qa-print-zoom` 은 globals.css 의 @media print
+   *    안에서만 읽힌다. 여기서는 값만 실어 보낸다.
+   */
+  const z = printZoom(minWidth);
   return (
-    <div className={wrapperCls}>
+    <div
+      className={wrapperCls}
+      style={z < 1 ? ({ '--qa-print-zoom': String(z) } as CSSProperties) : undefined}
+    >
       <div className="qa-scroll-table-inner" style={{ minWidth }}>
         {children}
       </div>
@@ -2685,7 +2698,7 @@ export function DataTable<T>({
             fontWeight: 500,
             letterSpacing: labelTracking(c.header, '0.12em'),
             color: T.subtle,
-            textTransform: hasHangul(c.header) ? undefined : 'uppercase',
+            textTransform: labelCase(c.header),
           }}
         >
           {c.header ?? ''}
@@ -3681,7 +3694,7 @@ export function Stat({
           fontSize: FS[10],
           color: T.muted,
           letterSpacing: labelTracking(label, '0.12em'),
-          textTransform: hasHangul(label) ? undefined : 'uppercase',
+          textTransform: labelCase(label),
           marginBottom: S[1],
         }}
       >
@@ -3718,7 +3731,7 @@ export function StatGrid({ children, minCol = 120 }: { children: ReactNode; minC
 export function DetailRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
-      <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.1em'), color: T.subtle, textTransform: hasHangul(label) ? undefined : 'uppercase' }}>{label}</span>
+      <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.1em'), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
       <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{value}</span>
     </div>
   );
@@ -3772,7 +3785,7 @@ export function WorkspaceTab({
           fontFamily: F.mono,
           letterSpacing: labelTracking(sub, 0.5),
           marginTop: 3,
-          textTransform: hasHangul(sub) ? undefined : 'uppercase',
+          textTransform: labelCase(sub),
         }}
       >
         {sub}

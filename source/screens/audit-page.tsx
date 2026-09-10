@@ -17,7 +17,7 @@ import {
   SectionTitle,
 } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
-import { S, FS, F, T, LH } from '@/lib/design/tokens';
+import { F, FS, LH, S, T, labelTracking } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
 import { ListPager } from '@/components/ListPager';
 import { parsePage, pageRange, clampPage } from '@/lib/api/list-page';
@@ -252,7 +252,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                         fontSize: FS[11],
                         color: T.text,
                         fontFamily: F.ui,
-                        letterSpacing: 0.3,
+                        letterSpacing: labelTracking(actionLabel(action), 0.3),
                         fontWeight: 500,
                       }}
                     >
@@ -343,7 +343,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                     color: T.text,
                     fontSize: FS[11],
                     fontFamily: F.ui,
-                    letterSpacing: 0.3,
+                    letterSpacing: labelTracking(actionLabel(l.action), 0.3),
                     fontWeight: 500,
                     width: 'fit-content',
                   }}
