@@ -75,6 +75,19 @@ html[data-theme='light'] {
 }
 /* 왼쪽 색 띠로 «이 판이 무엇인가» 를 말할 때 */
 .qd-panel--accent { border-left: 3px solid var(--qd-panel-accent, var(--qd-accent)); }
+
+/* 상태 판. 색«만»으로 가르지 않고 왼쪽 3px 세로줄을 함께 줍니다.
+   다크 판 위에서 주의색과 액센트(금)의 색차 ΔE76 이 10.37 밖에 안 됩니다 ·
+   성공(40.94)·막힘(32.84)은 색만으로 갈리지만 주의는 안 갈립니다.
+   그 간격을 «형태» 로 메웁니다. 액센트 판에는 이 세로줄을 주지 않습니다.
+
+   🔑 ok·warn 은 q-design.state.css 가 내는데 그 파일을 «모든» 제품이 받지는
+      않습니다(Q-Forge 는 자기 이름을 이미 갖고 있어 안 받습니다). 값을 못 찾으면
+      border-left 가 통째로 무효가 되어 «조용히 세로줄만 사라집니다» · 그래서
+      이 파일이 스스로 값을 들고 있습니다(extract-nav 의 Z 사다리와 같은 이유). */
+.qd-panel--ok { border-left: 3px solid var(--qd-ok, var(--qa-green, #7ab87a)); }
+.qd-panel--warn { border-left: 3px solid var(--qd-warn, var(--qa-warning, #c9a87a)); }
+.qd-panel--danger { border-left: 3px solid var(--qd-danger); }
 /* 표가 아니라 글이 들어가는 판 */
 .qd-panel--pad { padding: 24px; }
 /* 판 안에 표가 꽉 차게 들어갈 때, 표의 모서리가 판 밖으로 삐져나오지 않게 */

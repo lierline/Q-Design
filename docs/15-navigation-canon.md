@@ -146,6 +146,7 @@ Q-Atelier `lib/design/tokens.ts` 의 `labelTracking()` 과 같은 규칙입니�
 
   <div class="qd-rail-row">
     <button class="qd-rail-theme"><span>Theme</span><b>● Dark</b></button>
+    <a class="qd-rail-theme" data-tone="danger"><span>Sender</span><b>미설정</b></a>
     <button class="qd-rail-iconbtn">‹</button>
   </div>
 
@@ -161,6 +162,22 @@ Q-Atelier `lib/design/tokens.ts` 의 `labelTracking()` 과 같은 규칙입니�
   </div>
 </aside>
 ```
+
+### `data-tone` · 이 칸이 늘 「테마 토글」인 것은 아닙니다
+
+`.qd-rail-theme` 자리는 기준 제품에서 테마 토글이지만, 제품에 따라 «막힘» 같은
+상태가 들어가기도 합니다(Q-Sonar 는 발신 정보가 비어 메일 발송이 막힌 것을 여기
+띄웁니다). 그래서 정본이 톤 둘을 엽니다.
+
+| 값 | 테두리 | `<b>` 글자 |
+|---|---|---|
+| (없음) | `--qd-border` | `--qd-accent` |
+| `data-tone='warning'` | `--qd-warn` 45% | `--qd-warn` |
+| `data-tone='danger'` | `--qd-danger` 45% | `--qd-danger` |
+
+> 🔑 정본이 톤을 안 열어 주면 제품이 인라인으로 덮게 되고, 그러면 «정본을 쓰지
+> 않는 것»과 같습니다. 금색은 브랜드 · 주동작 «면» · 활성 차림표 셋만 맡습니다
+> ([색 계약](02-color.md)).
 
 좁은 화면의 서랍은 같은 `<aside>` 에 `qd-rail--drawer` 를 더합니다.
 그 안에서는 레일 자체가 스크롤합니다 (안쪽에 또 스크롤을 두면 바깥을 만질 때

@@ -369,6 +369,17 @@ html[data-theme='light'] {
 }
 .qd-rail-theme:hover { border-color: var(--qd-accent); color: var(--qd-text); }
 .qd-rail-theme b { font-weight: 500; color: var(--qd-accent); }
+
+/* 이 자리는 기준 제품에서 테마 토글이지만, 제품에 따라 «막힘» 같은 상태를
+   넣기도 합니다(Q-Sonar 는 발송 막힘). 정본이 톤을 안 열어 주면 제품이
+   인라인으로 덮게 되고, 그러면 정본을 안 쓰는 것과 같습니다. */
+/* 🔑 --qd-warn 은 q-design.state.css 가 내는데 그 파일을 «모든» 제품이 받지는
+      않습니다. 값을 못 찾으면 이 두 줄이 통째로 무효가 되어 톤이 조용히 사라집니다.
+      그래서 여기서도 값을 들고 있습니다(Z 사다리와 같은 이유). */
+.qd-rail-theme[data-tone='warning'] { border-color: color-mix(in srgb, var(--qd-warn, var(--qa-warning, #c9a87a)) 45%, transparent); }
+.qd-rail-theme[data-tone='warning'] b { color: var(--qd-warn, var(--qa-warning, #c9a87a)); }
+.qd-rail-theme[data-tone='danger'] { border-color: color-mix(in srgb, var(--qd-danger) 45%, transparent); }
+.qd-rail-theme[data-tone='danger'] b { color: var(--qd-danger); }
 /* 왼쪽 이름표는 라틴(Theme)이라 자간이 살지만, 오른쪽 값은 한글일 수 있습니다
    (「어둡게」·「밝게」·「기기따름」). 값 쪽만 자간을 풀 수 있게 열어 둡니다 -
    실측에서 Q-Forge 의 그 한 줄이 「어 둡 게」로 벌어져 있었습니다. */
