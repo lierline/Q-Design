@@ -31,6 +31,29 @@ mkdirSync(OUT, { recursive: true });
 /** 이만큼 넘으면 눈에 벌어져 보입니다. 0.3px 아래는 렌더 반올림입니다. */
 const THRESHOLD = 0.3;
 
+/*
+ * 제품별 상한. **넘으면 exit 1 입니다.**
+ *
+ * 🔴 2026-09-10 까지 이 검사는 «세기만» 했습니다. 보고서만 내는 검사는 수가 늘어도
+ *    초록이라, 되돌아오는 것을 못 막습니다. 상한을 두고 종료코드를 세웁니다.
+ *
+ * 값은 실측입니다(2026-09-10 · 1440x1000 · 다크 · 제품마다 6화면).
+ *
+ *   제품        한글 요소   자간   모노 어절공백
+ *   Q-Atelier      778      53         88
+ *   Q-Sonar      1,369       6        172
+ *   Q-Forge        732       0          0
+ *
+ * 🔑 0 이 아닌 상한은 «봐준 것» 이 아니라 «아직 안 한 일» 입니다. 남은 것이
+ *    무엇인지는 각 저장소 백로그에 적혀 있습니다. 줄이면 여기 값도 함께 내리세요 ·
+ *    내리지 않으면 다시 늘어도 안 걸립니다.
+ */
+const 상한 = {
+  'q-atelier': { 자간: 53, 공백: 88 },
+  'q-sonar': { 자간: 6, 공백: 172 },
+  'q-forge': { 자간: 0, 공백: 0 },
+};
+
 const PLAN = {
   'q-atelier': { base: 'http://localhost:3400', auth: 'magiclink',
     routes: ['/dashboard', '/ra', '/nonconformances', '/audit', '/qms-documents', '/settings'] },
@@ -57,11 +80,19 @@ const PROBE = (threshold) => `() => {
   for (const el of document.querySelectorAll('body *')) {
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden') continue;
-    /* 글자를 «직접» 가진 요소만. 부모가 자식 글자를 자기 것으로 세면 두 번 셉니다 */
-    const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim().length > 1);
-    if (!own) continue;
-    const t = el.textContent.trim();
-    if (!hangul.test(t)) continue;
+    /*
+     * 글자를 «직접» 가진 요소만. 부모가 자식 글자를 자기 것으로 세면 두 번 셉니다.
+     *
+     * 🔴 2026-09-10. 판정을 el.textContent 로 하고 있었습니다. 그러면 «자식의»
+     *    한글을 제 것으로 셉니다. Q-Forge 시계에서 드러났습니다: 바깥 span 은
+     *    모노로 시각(17:39:32)을 그리고 날짜(9월 10일)는 .han 자식이 본문
+     *    글꼴로 그리는데, 훑개가 «모노에 한글이 걸렸다» 고 여섯 화면에서
+     *    거짓 빨간불을 냈습니다. 자기 텍스트 노드만 이어 붙여 봅니다.
+     */
+    const 제글 = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
+    if (제글.length <= 1) continue;
+    if (!hangul.test(제글)) continue;
+    const t = 제글;
     korean++;
     const ls = cs.letterSpacing;
     const px = ls.endsWith('px') ? parseFloat(ls) : 0;
@@ -169,3 +200,27 @@ await browser.close();
 writeFileSync(join(OUT, '_hangul.json'), JSON.stringify(report, null, 2), 'utf8');
 console.log('');
 console.log(`  ${join(OUT, '_hangul.json')}`);
+
+/* ── 상한 판정 ─────────────────────────────────────────────────────────────
+   🔑 «못 읽은 화면» 을 통과로 세지 않습니다. 로그인 화면에 떨어지면 한글 요소가
+      몇 개뿐이라 자간·공백이 0 으로 나옵니다 - 실제로 그렇게 거짓 초록을 낸 적이
+      있습니다(q-sonar 프록시 세션 만료). 그래서 «잰 요소 수» 도 함께 봅니다.
+--------------------------------------------------------------------------- */
+let 나쁨 = false;
+console.log('');
+for (const [product, cfg] of Object.entries(상한)) {
+  const h = report[product]?._합계;
+  if (!h) { console.log(`  🔴 ${product} 결과가 없습니다`); 나쁨 = true; continue; }
+  const 못읽음 = h.한글요소 < 100;
+  const 넘음 = h.벌어진곳 > cfg.자간 || h.모노어절공백 > cfg.공백;
+  if (못읽음) console.log(`  🔴 ${product.padEnd(11)} 한글 요소가 ${h.한글요소}곳뿐입니다 · 로그인 화면에 떨어진 것으로 봅니다`);
+  else if (넘음) console.log(`  🔴 ${product.padEnd(11)} 자간 ${h.벌어진곳}/${cfg.자간} · 공백 ${h.모노어절공백}/${cfg.공백}`);
+  else console.log(`     ${product.padEnd(11)} 자간 ${h.벌어진곳}/${cfg.자간} · 공백 ${h.모노어절공백}/${cfg.공백}`);
+  if (못읽음 || 넘음) 나쁨 = true;
+}
+if (나쁨) {
+  console.log('');
+  console.log('  한글에는 라틴 자간·대문자를 걸지 않습니다. 모노가 걸린 자리는 어절 공백도 되돌립니다.');
+  console.log('  줄인 뒤에는 이 파일의 상한도 함께 내리십시오.');
+  process.exitCode = 1;
+}
