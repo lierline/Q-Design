@@ -10,6 +10,7 @@
 // 하나라도 누락이면 종료 코드 1 로 실패합니다.
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join, resolve, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -128,6 +129,84 @@ check('폰트', origFonts, copyFonts, '원본 self-host 분 · 추가 self-host 
   }
 }
 
+// ── ⑦ 제품별 색 커버리지 (2026-09-10 신설) ──────────────────────────────────
+// 「디자인 다 뽑았나」에 주장이 아니라 숫자로 답하는 자리입니다.
+//
+// 🔑 **이름이 아니라 «값» 으로 셉니다.** 산출물이 이름을 바꿔 담기 때문입니다.
+//    `q-design.brief.json` 은 `--mq-bg` 를 `surface.bg` 로 담습니다. 이름으로 세면
+//    86개가 「빠졌다」고 나오는데 전부 들어 있습니다. 실제로 그렇게 한 번 오판했습니다.
+//
+// 🔑 **기준은 `dist/` 뿐입니다.** `source/` 는 원본의 사본이라 기준에 넣으면
+//    원본 파일이 자기 자신을 증명하고 언제나 100% 가 나옵니다.
+//
+// 🔑 제품마다 «약속한 범위» 가 다릅니다. Q-Forge 는 Q-Design 을 «골라» 들이기로 한
+//    제품이라 고유 팔레트를 갖는 것이 정상입니다. 그런 곳까지 실패로 만들면
+//    빨간불이 상수가 되고, 상수가 된 빨간불 뒤에 진짜 누락이 숨습니다.
+const PRODUCTS = [
+  { name: 'Q-Atelier', repo: SRC, files: ['app/globals.css', 'app/experts/expert-theme.css'], must: true,
+    why: 'Q-Design 의 정본. 여기 색이 dist 에 없으면 추출이 덜 된 것입니다' },
+  { name: 'MedQraft 문서', repo: 'D:/Claude/MedQraft', files: ['templates/assets/colors_and_type.css'], must: true,
+    why: '대외 문서 브랜드. 2026-09-10 부터 정본 범위 안입니다' },
+  { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'], must: false,
+    why: '정본 CSS 3벌을 링크해 쓰고, 자체 팔레트는 아직 정본 밖입니다' },
+  { name: 'Q-Forge', repo: 'D:/Claude/DHR', files: ['app/globals.css'], must: false,
+    why: 'Q-Design 을 «골라» 들이기로 한 제품(rem 16 유지). 고유 팔레트가 정상입니다' },
+  { name: 'MedQraft 홈', repo: 'D:/Claude/MedQraft-Site', files: ['public/styles.css', 'public/assets/insights.css'], must: false,
+    why: '라이브 홈페이지. 추출 범위에 들어온 적이 없습니다' },
+];
+
+const HEXRE = /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/g;
+const normHex = (h) => {
+  let x = h.slice(1).toLowerCase();
+  if (x.length === 3) x = x.split('').map((c) => c + c).join('');
+  return '#' + x.slice(0, 6);
+};
+
+function headText(repo, path) {
+  const r = spawnSync('git', ['-C', repo, 'show', 'HEAD:' + path], { maxBuffer: 32 * 1024 * 1024 });
+  return r.status === 0 ? r.stdout.toString('utf8') : null;
+}
+
+const distDir = join(ROOT, 'dist');
+const distColors = new Set();
+for (const f of readdirSync(distDir)) {
+  if (!/\.(css|json|ts)$/.test(f)) continue;
+  for (const h of read(join(distDir, f)).match(HEXRE) ?? []) distColors.add(normHex(h));
+}
+if (distColors.size < 50) {
+  console.error('dist 에서 색을 ' + distColors.size + '개밖에 못 찾았습니다. 검사가 헛돕니다.');
+  process.exit(2);
+}
+
+const productRows = [];
+for (const p of PRODUCTS) {
+  if (!existsSync(join(p.repo, '.git'))) {
+    productRows.push({ ...p, skipped: '저장소를 못 찾았습니다: ' + p.repo });
+    continue;
+  }
+  const mine = new Set();
+  const unreadable = [];
+  for (const f of p.files) {
+    const t = headText(p.repo, f);
+    if (t === null) { unreadable.push(f); continue; }
+    /* «정의» 만 봅니다. var(--x) 로 쓰기만 한 것은 그 제품의 색이 아닙니다. */
+    for (const m of t.matchAll(/--[a-zA-Z0-9_-]+\s*:([^;{}]*)[;}]/g)) {
+      for (const h of m[1].match(HEXRE) ?? []) mine.add(normHex(h));
+    }
+  }
+  const gap = [...mine].filter((c) => !distColors.has(c)).sort();
+  productRows.push({ ...p, total: mine.size, gap, unreadable });
+}
+
+/* 검출력 자체 시험: 있을 리 없는 색을 넣어 빠짐으로 잡히는지 봅니다. */
+{
+  const probe = ['#010203'].filter((c) => !distColors.has(c));
+  if (probe.length !== 1) {
+    console.error('색 감사 자체 시험 실패: 없는 색을 빠짐으로 못 잡습니다.');
+    process.exit(2);
+  }
+}
+
 // ── 보고 ────────────────────────────────────────────────────────────────────
 let failed = 0;
 console.log('추출 완전성 감사 · 원본 ' + SRC);
@@ -144,9 +223,40 @@ for (const r of results) {
       (r.note && ok ? '  (' + r.note + ')' : ''),
   );
 }
+// ── 제품별 색 커버리지 보고 ────────────────────────────────────────────────
+console.log('');
+console.log('제품별 색 커버리지 · 기준은 dist/ 의 ' + distColors.size + '색 (이름 아니라 값)');
+console.log('');
+console.log('  ' + '제품'.padEnd(16) + '정의   담김   빠짐   범위');
+let mustFail = 0;
+for (const r of productRows) {
+  if (r.skipped) { console.log('  ' + r.name.padEnd(16) + r.skipped); continue; }
+  const held = r.total - r.gap.length;
+  const scope = r.must ? '정본' : '정본 밖';
+  if (r.must && r.gap.length) mustFail++;
+  console.log(
+    '  ' + r.name.padEnd(16) +
+    String(r.total).padStart(3) + '  ' + String(held).padStart(5) + '  ' +
+    String(r.gap.length).padStart(5) + '   ' + scope,
+  );
+  if (r.unreadable.length) console.log('      ⚠️ 읽지 못한 파일: ' + r.unreadable.join(', '));
+}
+console.log('');
+for (const r of productRows) {
+  if (r.skipped || !r.gap.length) continue;
+  console.log('  ' + r.name + ' 에만 있는 색 ' + r.gap.length + '개 · ' + r.why);
+  console.log('    ' + r.gap.slice(0, 12).join('  ') + (r.gap.length > 12 ? '  외 ' + (r.gap.length - 12) + '개' : ''));
+}
+if (mustFail) {
+  console.log('');
+  console.log('🔴 «정본» 범위인 제품에 빠진 색이 있습니다. 추출이 덜 됐습니다.');
+  failed += mustFail;
+}
+
 console.log('');
 if (failed) {
   console.log('축 ' + failed + '개에 누락이 있습니다.');
   process.exit(1);
 }
-console.log('누락 없음 · 축 ' + results.length + '개 전부 통과');
+console.log('누락 없음 · 파일 축 ' + results.length + '개 + 제품 색 축 ' + productRows.length + '개 전부 통과');
+console.log('  (「정본 밖」 제품의 고유 색은 빠짐으로 세지 않습니다. 범위는 PRODUCTS 에 이유와 함께 적혀 있습니다)');

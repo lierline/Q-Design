@@ -125,6 +125,9 @@ const out = {
   textOnDark: { t1: vars['--mq-text-1'], t2: vars['--mq-text-2'], t3: vars['--mq-text-3'], t4: vars['--mq-text-4'] },
   paper: { paper: PAPER, ivory: IVORY, ink1: vars['--mq-ink-1'], ink2: vars['--mq-ink-2'], ink3: vars['--mq-ink-3'], rule: vars['--mq-rule'], ruleStrong: vars['--mq-rule-strong'] },
   semantic: { success: vars['--mq-success'], info: vars['--mq-info'], warn: vars['--mq-warn'], danger: vars['--mq-danger'] },
+  /* 의미색은 «글자» 와 «그 뒤에 까는 면» 이 짝입니다. 글자만 내보내면 받는 쪽이
+     배경을 스스로 지어내고, 그러면 네 제품의 알림 상자가 서로 달라집니다. */
+  semanticBg: { success: vars['--mq-success-bg'], info: vars['--mq-info-bg'], warn: vars['--mq-warn-bg'], danger: vars['--mq-danger-bg'] },
   font: { sans: vars['--mq-font-sans'], mono: vars['--mq-font-mono'] },
   size: pick('--mq-size-'),
   lineHeight: pick('--mq-lh-'),
@@ -132,9 +135,52 @@ const out = {
   space: pick('--mq-s-'),
   radius: pick('--mq-radius-'),
   motion: { easeOut: vars['--mq-ease-out'], easeIn: vars['--mq-ease-in'], fast: vars['--mq-dur-fast'], base: vars['--mq-dur-base'], slow: vars['--mq-dur-slow'] },
+  shadow: { s1: vars['--mq-shadow-1'], s2: vars['--mq-shadow-2'] },
   contrastOnPaper: contrast,
   decorativeOnly: decorative, // 대비 규칙 밖: 선·면·워터마크
 };
+
+/*
+ * ── 빠짐 없음 검사 ─────────────────────────────────────────────────────────
+ * 🔴 2026-09-10 실측: 원본 82개 중 7개가 조용히 빠져 있었습니다.
+ *    의미색 배경 넷 · 그림자 둘 · 별칭 하나. 아무도 몰랐던 이유는 이 스크립트가
+ *    «내가 아는 것» 만 집어 갔고, 모르는 것이 생겨도 말이 없었기 때문입니다.
+ *    이제 원본의 이름을 전수로 훑고, 값이 산출물 어디에도 없으면 실패합니다.
+ *
+ * 🔑 값으로 대조합니다. `pick()` 으로 통째로 들어간 것과 이름을 대고 넣은 것을
+ *    한 방식으로 볼 수 있고, 그룹 이름을 바꿔도 검사가 안 깨집니다.
+ */
+const EXPORT_EXEMPT = {
+  '--mq-gold-tint': '옛 별칭. --mq-warn-bg 와 같은 값이라 따로 내보내지 않습니다',
+  '--mq-navy': '옛 별칭 = --mq-bg',
+  '--mq-navy-2': '옛 별칭 = --mq-panel-2',
+  '--mq-gold-3': '옛 별칭 = --mq-gold-soft',
+  '--mq-ivory-2': '옛 별칭 = --mq-panel-2',
+  '--mq-ink-4': '옛 별칭 = --mq-text-4',
+  '--mq-rule-ink': '옛 별칭 = --mq-line',
+};
+
+const shipped = new Set();
+(function walk(o) {
+  if (typeof o === 'string') shipped.add(o.trim());
+  else if (o && typeof o === 'object') Object.values(o).forEach(walk);
+})(out);
+
+const dropped = Object.keys(vars).filter((k) => !shipped.has(vars[k]) && !(k in EXPORT_EXEMPT));
+if (dropped.length) {
+  console.error('원본에 있는데 산출물에 없는 토큰 ' + dropped.length + '개:');
+  for (const k of dropped) console.error('  ' + k.padEnd(22) + vars[k]);
+  console.error('');
+  console.error('내보낼 자리를 만들거나, 안 내보낼 이유를 EXPORT_EXEMPT 에 적으십시오.');
+  process.exit(1);
+}
+/* 면제가 «낡지» 않았는지도 봅니다. 원본에서 사라진 이름이 면제 목록에 남아 있으면
+   그 목록이 무엇을 면제하는지 아무도 모르게 됩니다. */
+const staleExempt = Object.keys(EXPORT_EXEMPT).filter((k) => !(k in vars));
+if (staleExempt.length) {
+  console.error('면제 목록이 낡았습니다(원본에 없는 이름): ' + staleExempt.join(', '));
+  process.exit(1);
+}
 
 mkdirSync(DIST, { recursive: true });
 writeFileSync(join(DIST, 'q-design.brief.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');

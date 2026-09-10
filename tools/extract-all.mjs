@@ -60,9 +60,13 @@ if (checkOnly) {
   const tbl = run('contrast-table.mjs', ['--check']);
   console.log(tbl.out.trim() || tbl.err || '');
   console.log('');
+  // 「디자인 다 뽑았나」에 숫자로 답하는 자리입니다.
+  const cov = run('audit-coverage.mjs');
+  console.log(cov.out.trim());
+  console.log('');
   const r = run('sync.mjs');
   console.log(r.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (r.code ?? 0));
+  process.exit((src.code || 0) || (tbl.code || 0) || (cov.code || 0) || (r.code ?? 0));
 }
 
 console.log('산출물 다시 만들기');
