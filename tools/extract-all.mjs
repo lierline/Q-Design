@@ -9,7 +9,11 @@
 // 하나를 빠뜨리고, 그러면 **일부만 갱신된 채** 내보내집니다.
 //
 // 순서가 중요합니다:
+//   source  → 🔑 **맨 앞입니다.** 아래 모든 추출기가 source/ 를 읽습니다.
+//             사본이 낡았으면 그 뒤 전부가 «낡은 것에서 정확히 파생된» 값이 됩니다.
+//             실패가 아니라 초록불로 나오기 때문에 가장 위험합니다.
 //   tokens  → 다른 모든 것이 이 JSON 을 읽습니다 (색·크기의 뿌리)
+//   대비표  → tokens JSON 에서 계산해 docs/02 에 «직접 씁니다»
 //   fonts   → tokens 와 독립이지만 dist 에 함께 있어야 합니다
 //   doc     → tokens 의 «라이트» 팔레트에서 파생합니다
 //   nav/list/screen → 화면 정본
@@ -29,8 +33,10 @@ const checkOnly = args.includes('--check');
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
+  { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
+  { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
   { name: '차림표', file: 'extract-nav.mjs' },
   { name: '목록', file: 'extract-list.mjs' },
@@ -48,16 +54,22 @@ function run(file, extra = []) {
 if (checkOnly) {
   console.log('검사만 합니다 (아무것도 안 씁니다)');
   console.log('');
+  // 사본이 낡았는지 먼저 봅니다. 낡은 source/ 에서 파생된 산출물은 «맞게 틀립니다».
+  const src = run('refresh-source.mjs', ['--check']);
+  console.log(src.out.trim());
+  const tbl = run('contrast-table.mjs', ['--check']);
+  console.log(tbl.out.trim() || tbl.err || '');
+  console.log('');
   const r = run('sync.mjs');
   console.log(r.out.trim());
-  process.exit(r.code ?? 0);
+  process.exit((src.code || 0) || (tbl.code || 0) || (r.code ?? 0));
 }
 
 console.log('산출물 다시 만들기');
 console.log('');
 let failed = 0;
 for (const step of STEPS) {
-  const r = run(step.file);
+  const r = run(step.file, step.extra ?? []);
   if (r.skipped) {
     console.log('  건너뜀  ' + step.name + '  (' + step.file + ' 가 없습니다)');
     continue;

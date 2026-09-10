@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
-import { S, FS, BP, F, RADIUS, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, BP, F, RADIUS, T, alpha, LH, labelTracking, hasHangul } from '@/lib/design/tokens';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
 import { NAV_ITEMS, FLOW_DOCUMENT_MENUS, NAV_SUBGROUP_LABEL, NAV_SUBGROUP_ORDER, type NavGroup, type NavSubGroup } from '@/lib/nav/nav-items';
@@ -544,8 +544,9 @@ function SidebarBody({
               fontSize: FS[10],
               color: isExpert ? T.champagne : T.muted,
               fontFamily: F.mono,
-              letterSpacing: 1.6,
-              textTransform: 'uppercase',
+              // 2026-09-09: 한글 조직명이 «메 드 크 래 프 트» 로 벌어지던 자리
+              letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 1.6),
+              textTransform: hasHangul(isExpert ? '외부 자문 전문가' : orgName) ? undefined : 'uppercase',
               marginTop: S[1.5],
               wordBreak: 'break-all',
               textAlign: 'center',
@@ -560,6 +561,10 @@ function SidebarBody({
             nav 는 자체 overflow 를 두지 않습니다(중첩 scroll container 는 바깥을 만질 때 안쪽이 잡힘). */}
       <nav
         ref={navRef}
+        // 이름표가 없으면 낭독기가 「탐색」 이라고만 읽는다. 이 화면에는 nav 가
+        // 둘 이상인 곳이 있어 어느 것인지 못 고른다 (2026-09-09 감사 · 세 제품에서
+        // 잰 28개가 전부 이름이 없었다).
+        aria-label="주 차림표"
         style={{
           flex: isMobile ? '1 0 auto' : '1 1 auto',
           minHeight: 0,
@@ -1047,8 +1052,8 @@ function SidebarBody({
                     fontSize: FS[10],
                     color: T.muted,
                     fontFamily: F.mono,
-                    letterSpacing: 1.2,
-                    textTransform: 'uppercase',
+                    letterSpacing: labelTracking(isExpert ? 'Expert · External' : `${role} · ${plan}`, 1.2),
+                    textTransform: hasHangul(isExpert ? 'Expert · External' : `${role} · ${plan}`) ? undefined : 'uppercase',
                   }}
                 >
                   {isExpert ? 'Expert · External' : `${role} · ${plan}`}
@@ -1368,8 +1373,13 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
         padding: '12px 14px 4px',
         fontSize: FS[10],
         fontFamily: F.mono,
-        letterSpacing: 1.6,
-        textTransform: 'uppercase',
+        // 2026-09-09: 여기만 labelTracking 을 안 거치고 있었습니다. 그룹 라벨은
+        // 한글(「워크스페이스」·「연계 부서」)인데 1.6px 이 그대로 걸려 «워 크 스
+        // 페 이 스» 로 벌어져 있었습니다. 대문자는 한글에 아무 일도 하지 않고,
+        // 이 자간은 라틴 글자 사이를 벌리라고 만든 값입니다 (M-02/M-03 과 같은 건).
+        // Q-Design 차림표 정본(docs/15)도 이 규칙을 따르므로 세 제품이 같아집니다.
+        letterSpacing: labelTracking(label, 1.6),
+        textTransform: hasHangul(label) ? undefined : 'uppercase',
         color: T.muted,
         userSelect: 'none',
       }}
@@ -1443,8 +1453,10 @@ function CollapsibleNavGroup({
           padding: '12px 14px 4px',
           fontSize: FS[10],
           fontFamily: F.mono,
-          letterSpacing: 1.6,
-          textTransform: 'uppercase',
+          // 2026-09-09: SectionHeader 만 고치고 여기를 놓쳤다. 화면에 실제로 보이는
+          // 묶음 이름표는 접이식인 이쪽이고, 「워 크 스 페 이 스」가 여기서 나왔다.
+          letterSpacing: labelTracking(label, 1.6),
+          textTransform: hasHangul(label) ? undefined : 'uppercase',
           color: T.muted,
           background: 'transparent',
           border: 'none',
@@ -1610,7 +1622,7 @@ function WorkspaceNavGroup({
                 {ungrouped.map((m) => renderModule(m))}
                 {NAV_SUBGROUP_ORDER.filter((sg) => bySub.has(sg)).map((sg) => (
                   <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1.2, textTransform: 'uppercase', padding: '9px 0 3px 4px' }}>
+                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), textTransform: hasHangul(NAV_SUBGROUP_LABEL[sg]) ? undefined : 'uppercase', padding: '9px 0 3px 4px' }}>
                       {NAV_SUBGROUP_LABEL[sg]}
                     </div>
                     {bySub.get(sg)!.map((m) => renderModule(m))}

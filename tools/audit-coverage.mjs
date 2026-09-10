@@ -40,6 +40,14 @@ function walk(dir, test, out = []) {
 }
 
 const read = (p) => readFileSync(p, 'utf8');
+
+/*
+ * 🔴 Q-Design 이 «내보낸» 파일은 원본이 아닙니다.
+ *    `q-design.doc.ts` · `q-design.print.css` 는 이 저장소에서 나가 원본 안에 앉아 있는
+ *    사본입니다. 그것을 「아직 안 뽑았다」로 세면 감사가 언제나 빨간불이 되고,
+ *    빨간불이 상수가 되면 «진짜 누락» 이 그 뒤에 숨습니다.
+ */
+const 내보낸것 = (name) => /^q-design\./.test(name);
 const kfIn = (text) => [...text.matchAll(/@keyframes\s+([a-zA-Z0-9_-]+)/g)].map((m) => m[1]);
 
 const results = [];
@@ -64,7 +72,9 @@ check('키프레임', origKf, copyKf);
 
 // ── ② CSS 파일 ──────────────────────────────────────────────────────────────
 const origCss = new Set(
-  [...walk(join(SRC, 'app'), (n) => /\.css$/.test(n)), ...walk(join(SRC, 'components'), (n) => /\.css$/.test(n))].map((p) => basename(p)),
+  [...walk(join(SRC, 'app'), (n) => /\.css$/.test(n)), ...walk(join(SRC, 'components'), (n) => /\.css$/.test(n))]
+    .map((p) => basename(p))
+    .filter((n) => !내보낸것(n)),
 );
 const copyCss = new Set(readdirSync(join(ROOT, 'source', 'css')));
 check('CSS 파일', origCss, copyCss);
@@ -81,7 +91,7 @@ const copyStyled = new Set(readdirSync(join(ROOT, 'source', 'screens')).map((n) 
 check('style 블록 파일', origStyled, copyStyled);
 
 // ── ④ lib/design 전체 ───────────────────────────────────────────────────────
-const origDesign = new Set(readdirSync(join(SRC, 'lib', 'design')));
+const origDesign = new Set(readdirSync(join(SRC, 'lib', 'design')).filter((n) => !내보낸것(n)));
 const copyDesign = new Set([
   ...readdirSync(join(ROOT, 'source', 'tokens')),
   ...readdirSync(join(ROOT, 'source', 'components')),

@@ -72,7 +72,43 @@ export function contrast(a: string, b: string): number {
 const SURFACES = ['bg', 'surface', 'surface2'] as const;
 /** 본문·보조 텍스트로 쓰이는 토큰. 큰 제목 전용이 아니므로 전부 4.5:1 기준. */
 const TEXT_TOKENS = ['text', 'subtle', 'muted', 'champagne', 'green', 'red', 'warning', 'blue'] as const;
+
+/**
+ * 워크플로 상태색 7종. **2026-09-10 에 추가했다.**
+ *
+ * 그전까지 이 색들은 위 목록에 없어서 «검사를 한 번도 안 받았다». 실측하니
+ * 다크 gray 3.46 · violet 4.40 · 라이트 gray 3.89 · violet 3.90 · green 3.80 · red 4.00
+ * 으로 **일곱 중 여섯이 미달**이었다. 가장 흔한 상태인 gray(draft·미시작)가 가장 나빴다.
+ *
+ * 🔑 이 저장소는 같은 실수를 세 번 했다(--qa-muted 2026-08-20 · 전문가 --whisper
+ *    2026-08-26 · 상태색 2026-09-10). 매번 「가드가 있는데」 통과했다.
+ *    **가드가 있다는 것과 전수를 본다는 것은 다른 이야기다.**
+ *    새 색 토큰을 만들면 이 목록에 넣을 것.
+ */
+const STATE_TOKENS = [
+  'state-gray', 'state-cobalt', 'state-copper', 'state-gold',
+  'state-violet', 'state-green', 'state-red',
+] as const;
+
 const AA_NORMAL = 4.5;
+
+/**
+ * 반투명 면을 표면 위에 올렸을 때 **눈에 보이는** 색.
+ *
+ * 상태색은 대개 배지(`Tag`)로 나타나는데, primary tier 는 배경을 `alpha(색, 0.1)` 로
+ * 깐다. 즉 글자가 놓이는 바닥은 순수 표면이 아니라 «표면에 그 색을 10% 섞은 면» 이고,
+ * 그만큼 대비가 **더 낮다**. 표면만 재면 배지에서 조용히 미달한다.
+ */
+function over(fg: string, bg: string, a: number): string {
+  const f = rgb(fg);
+  const b = rgb(bg);
+  return (
+    '#' +
+    f
+      .map((c, i) => Math.round(c * a + b[i] * (1 - a)).toString(16).padStart(2, '0'))
+      .join('')
+  );
+}
 
 // 선택자는 `:root,\n html[data-theme='dark'] {` 처럼 묶여 있다. 콤마까지 감안한다.
 const DARK_RE = /html\[data-theme='dark'\][^{]*\{/;
@@ -100,6 +136,35 @@ describe('디자인 가드: 색 대비 (WCAG AA 4.5:1)', () => {
         }
       }
       expect(fails, `\n${fails.join('\n')}\n\n색을 고칠 때는 **가장 어려운 표면**(대개 surface2)을 기준으로 잡을 것.\nbg 하나만 보고 맞추면 카드 위에서 조용히 미달한다.`).toEqual([]);
+    });
+  }
+
+  for (const theme of THEMES) {
+    it(`${theme.name}: 상태색 7종이 «배지 실조건까지» AA 를 통과한다`, () => {
+      const v = vars(theme.re);
+      assertFound(v, [...SURFACES, ...STATE_TOKENS], `${theme.name} 상태색`);
+      const fails: string[] = [];
+      for (const t of STATE_TOKENS) {
+        for (const s of SURFACES) {
+          // ① 표면 위 직접 (라벨·아이콘·텍스트로 쓰일 때)
+          const plain = contrast(v[t], v[s]);
+          if (plain < AA_NORMAL) {
+            fails.push(`--qa-${t}(${v[t]}) on --qa-${s} = ${plain.toFixed(2)}`);
+          }
+          // ② 배지 실조건: 그 색을 10% 섞은 면 위 (Tag primary)
+          const badge = contrast(v[t], over(v[t], v[s], 0.1));
+          if (badge < AA_NORMAL) {
+            fails.push(`--qa-${t}(${v[t]}) on 배지면(${s}+10%) = ${badge.toFixed(2)}`);
+          }
+        }
+      }
+      expect(
+        fails,
+        `\n${fails.join('\n')}\n\n` +
+          '상태색은 대개 배지로 나타난다. 배지는 배경을 alpha(색,0.1) 로 깔기 때문에\n' +
+          '표면만 보고 맞추면 실제 화면에서 미달한다. **색상·채도는 두고 명도만** 옮길 것:\n' +
+          '그래야 단계 순서(회색→코발트→구리→금→보라→초록)가 흔들리지 않는다.',
+      ).toEqual([]);
     });
   }
 

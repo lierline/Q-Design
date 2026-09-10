@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { CheckCircle2, Circle } from 'lucide-react';
+import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
 import { alpha, BP, F, FS, T, S, TOUCH, RADIUS, SHADOW, MOTION, TYPE, Z, LH, labelTracking, hasHangul } from './tokens';
 import { TAG_DIMS } from './tag-metrics';
 
@@ -1354,16 +1354,43 @@ interface AlertProps {
   onClose?: () => void;
   style?: CSSProperties;
 }
+
+/*
+ * 🔴 2026-09-09 감사(주제 #3)에서 실측으로 찾은 것.
+ *    Alert 은 `role` 도 `aria-live` 도 아이콘도 없는 **순수 div** 였고, 종류를
+ *    알려 주는 단서가 «배경 8% · 테두리 30% · 왼쪽 3px 막대의 색» 뿐이었다.
+ *
+ *    호출 107곳 중 `title` 을 함께 주는 곳은 41곳뿐이다. 나머지 66곳은
+ *    **색 말고 종류 단서가 하나도 없다.** 색약인 사람에게 「저장했습니다」와
+ *    「저장하지 못했습니다」가 같은 상자로 보인다(WCAG 1.4.1 색 사용).
+ *    낭독기에게는 넷 다 그냥 문단이라 «지금 뜬 것이 오류» 라는 사실 자체가 없다.
+ *
+ *    이 저장소는 같은 문제를 이미 두 곳에서 옳게 풀어 두었다. 새 방식을 짓지 않고
+ *    그것을 따른다:
+ *      · components/Toast.tsx  아이콘 + error/warning=alert · info/success=status
+ *      · FldError (위)          role="alert" + ⚠ 글자
+ *
+ *    아이콘에 `aria-label` 을 준다(`aria-hidden` 이 아니다). Toast 는 제목이 항상
+ *    있어 숨겨도 됐지만 Alert 은 66곳이 제목 없이 쓰이므로, 아이콘이 «색이 아닌
+ *    유일한 종류 단서» 다. 눈에는 모양으로, 낭독기에는 말로 같은 것이 전해진다.
+ */
+const ALERT_KIND = {
+  error: { color: T.red, Icon: AlertCircle, 말: '오류' },
+  warning: { color: T.warning, Icon: AlertTriangle, 말: '주의' },
+  success: { color: T.green, Icon: CheckCircle2, 말: '완료' },
+  info: { color: T.blue, Icon: Info, 말: '안내' },
+} as const;
+
 export function Alert({ kind, children, title, onClose, style }: AlertProps) {
-  const colorMap = {
-    error: T.red,
-    success: T.green,
-    warning: T.warning,
-    info: T.blue,
-  };
-  const c = colorMap[kind];
+  const { color: c, Icon, 말 } = ALERT_KIND[kind];
   return (
     <div
+      /*
+       * error·warning 은 assertive(role="alert"), info·success 는 polite(role="status").
+       * Toast 와 같은 판단이다. 화면에 처음부터 있던 Alert 은 낭독기가 읽지 않고,
+       * **행동에 대한 답으로 나타난 Alert** 만 읽는다 - 그것이 우리가 원하는 것이다.
+       */
+      role={kind === 'error' || kind === 'warning' ? 'alert' : 'status'}
       style={{
         padding: '12px 16px',
         background: alpha(c, 0.08),
@@ -1391,7 +1418,17 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
         ...style,
       }}
     >
-      <div style={{ flex: 1 }}>
+      {/* 색이 아닌 종류 단서. 눈에는 모양으로, 낭독기에는 말로 */}
+      <Icon
+        size={16}
+        strokeWidth={1.8}
+        color={c}
+        role="img"
+        aria-label={말}
+        style={{ flexShrink: 0, marginTop: S[0.5] }}
+      />
+
+      <div style={{ flex: 1, minWidth: 0 }}>
         {title && (
           <div
             style={{
@@ -3070,6 +3107,12 @@ export function Modal({
           maxHeight: 'calc(100vh - 40px)',
           display: 'flex',
           flexDirection: 'column',
+          /*
+           * 🔑 남겨 두는 outline:none 이다(2026-09-09 감사 · 주제 #2에서 24곳을 걷어냈다).
+           * 이 상자는 `tabIndex={-1}` 이라 Tab 순서에 들어오지 않는다. 열릴 때 프로그램이
+           * 초점을 주는 자리라, 대화상자 «전체» 에 고리가 그려지면 안쪽 버튼의 고리와
+           * 겹쳐 오히려 어디에 있는지 흐려진다. 안쪽 요소들은 전역 :focus-visible 을 받는다.
+           */
           outline: 'none',
         }}
       >
@@ -3276,6 +3319,12 @@ export function Drawer({
           boxShadow: SHADOW.anchor,
           display: 'flex',
           flexDirection: 'column',
+          /*
+           * 🔑 남겨 두는 outline:none 이다(2026-09-09 감사 · 주제 #2에서 24곳을 걷어냈다).
+           * 이 상자는 `tabIndex={-1}` 이라 Tab 순서에 들어오지 않는다. 열릴 때 프로그램이
+           * 초점을 주는 자리라, 대화상자 «전체» 에 고리가 그려지면 안쪽 버튼의 고리와
+           * 겹쳐 오히려 어디에 있는지 흐려진다. 안쪽 요소들은 전역 :focus-visible 을 받는다.
+           */
           outline: 'none',
           animation: `${anim} ${MOTION.normal}`,
         }}

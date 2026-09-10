@@ -309,6 +309,10 @@ export default async function AppLayout({
       initialKeyVersion={vaultKeyVersion}
     >
     <div
+      // 인쇄에서 이 상자를 되돌려야 한다. 아래 인라인 height/overflow 는
+      // @media print 규칙으로 못 덮으므로 globals.css 의 인쇄 블록이
+      // .qa-app-root 로 !important 를 건다. 이름이 없으면 걸 자리가 없다.
+      className="qa-app-root"
       style={{
         display: 'flex',
         // iOS Safari URL bar 변화 대응: 100dvh 로 통일 (100vh fallback maxHeight).

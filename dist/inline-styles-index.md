@@ -10,7 +10,7 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | 키프레임 전체 | **46종** |
 | CSS 파일에 있는 것 | 19종 |
 | 인라인에만 있는 것 | **27종** |
-| `<style>` 을 가진 파일 | 28개 |
+| `<style>` 을 가진 파일 | 29개 |
 
 원본은 `source/screens/` 에 있습니다 (경로의 `/` 를 `__` 로 바꾼 이름).
 
@@ -46,6 +46,7 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | `app/(app)/udi/[id]/client.tsx` | 없음 | `.qa-udi-detail` | 1 |
 | `app/(app)/udi/new/client.tsx` | 없음 | `.qa-udi-layout` | 1 |
 | `app/(public)/layout.tsx` | 없음 | `.qa-legal-brand` `.qa-legal-draft` `.qa-legal-footer` `.qa-legal-footer-note` `.qa-legal-header` `.qa-legal-main` 외 3 | 1 |
+| `app/(public)/open-source/page.tsx` | 없음 | 없음 | 1 |
 | `app/experts/settings/danger-zone.tsx` | 없음 | `.expert-danger-actions` `.expert-danger-btn` `.expert-danger-card` `.expert-danger-desc` `.expert-danger-error` `.expert-danger-eyebrow` 외 3 | 0 |
 | `audit-page.tsx` | 없음 | 없음 | 0 |
 | `components/calendar/CalendarClient.tsx` | 없음 | `.qa-cal-body` | 0 |

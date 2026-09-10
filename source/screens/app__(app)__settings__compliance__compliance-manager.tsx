@@ -929,7 +929,6 @@ const textareaStyle: React.CSSProperties = {
   fontSize: FS[11],
   fontFamily: F.serif,
   resize: 'vertical',
-  outline: 'none',
   lineHeight: LH.normal,
 };
 

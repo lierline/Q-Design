@@ -832,6 +832,14 @@ function LoginForm() {
                 <a href="/business-info" style={legalLinkStyle}>
                   사업자정보
                 </a>
+                {' · '}
+                {/* 오픈소스 고지도 같은 이유로 여기 있어야 한다. MIT·Apache-2.0 이
+                    요구하는 저작권 고지는 «누구나 도달할 수 있는 상태» 여야 하고,
+                    Play 스토어 심사원과 고객 실사 담당자에게는 로그인 계정이 없다.
+                    앱이 원격 웹뷰라 이 링크가 앱 안의 「오픈소스 라이선스」 화면을 겸한다. */}
+                <a href="/open-source" style={legalLinkStyle}>
+                  오픈소스 라이선스
+                </a>
               </div>
               <div
                 style={{

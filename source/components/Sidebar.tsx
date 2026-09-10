@@ -561,6 +561,10 @@ function SidebarBody({
             nav 는 자체 overflow 를 두지 않습니다(중첩 scroll container 는 바깥을 만질 때 안쪽이 잡힘). */}
       <nav
         ref={navRef}
+        // 이름표가 없으면 낭독기가 「탐색」 이라고만 읽는다. 이 화면에는 nav 가
+        // 둘 이상인 곳이 있어 어느 것인지 못 고른다 (2026-09-09 감사 · 세 제품에서
+        // 잰 28개가 전부 이름이 없었다).
+        aria-label="주 차림표"
         style={{
           flex: isMobile ? '1 0 auto' : '1 1 auto',
           minHeight: 0,

@@ -30,6 +30,11 @@ const NAV = [
   { href: '/terms', label: '이용약관' },
   { href: '/privacy', label: '개인정보처리방침' },
   { href: '/business-info', label: '사업자정보' },
+  // ★ /open-source 는 앞의 셋과 성격이 다르다. 앞은 «회사가 쓰는» 문서이고 이것은
+  //   «다른 사람의 저작권 고지를 우리가 전달하는» 문서다. 그래도 같은 자리에 둔다:
+  //   안드로이드 앱이 원격 웹뷰라 이 웹 화면이 곧 앱 안의 「오픈소스 라이선스」 화면이고,
+  //   스토어 심사·고객 실사 모두 「법적 고지가 모인 곳」에서 이것을 찾기 때문이다.
+  { href: '/open-source', label: '오픈소스 라이선스' },
 ] as const;
 
 export default function PublicLegalLayout({
@@ -57,18 +62,12 @@ export default function PublicLegalLayout({
 
       <main className="qa-legal-main">
         {/*
-          초안 배너는 세 문서가 «전부» 필요로 한다. 페이지마다 복사하면 한 곳만 고쳐지고
-          나머지가 뒤처지는, 이 저장소가 반복해서 겪은 형태가 된다. 그래서 레이아웃이
-          한 번만 그린다. 법률 검토가 끝나면 지우는 자리도 여기 한 곳이다.
+          초안 배너는 종전에 여기서 «모든» 자식에게 무조건 그려졌다. 이 그룹에 법률 초안
+          셋뿐일 때는 맞았지만, /open-source 가 들어오면서 전제가 깨졌다. 오픈소스 고지는
+          초안이 아니라 실제 트리에서 뽑은 사실이라 「최종 입장이 아니다」를 붙이면 안 된다.
+          → `_components/legal-draft-banner.tsx` 한 곳에 정의하고 «초안인 문서만» 부른다.
+             문구의 사본은 여전히 없다(정의 1 · 호출 3).
         */}
-        <div className="qa-legal-draft" role="note">
-          <strong>법률 검토 전 초안입니다</strong>
-          <span>
-            이 문서는 외부 법률 자문을 받기 전의 초안이며,{' '}
-            <mark className="qa-tbd">{'{{확인 필요}}'}</mark> 로 표시된 항목은 아직
-            확정되지 않았습니다. 확정 전까지 이 문서는 회사의 최종 입장이 아닙니다.
-          </span>
-        </div>
         {children}
       </main>
 

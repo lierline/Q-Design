@@ -42,13 +42,20 @@ html[data-theme='dark'] {
   /* ── Status / Category colors: 7-state workflow palette
      다크 배경 위 밝은 파스텔 톤. 라이트 모드 override 는 아래 light 블록.
      workflow-states.ts · doc-status-labels.ts 에서 var(--qa-state-*) 로 참조. */
-  --qa-state-gray:   #7d7670;   /* draft / not_started / NA */
-  --qa-state-cobalt: #6b8fc4;   /* preview_review / reviewed */
-  --qa-state-copper: #d49850;   /* under_review / in_progress */
-  --qa-state-gold:   #c9a878;   /* final_decision / review */
-  --qa-state-violet: #a07ac9;   /* execution_tracking / waived */
-  --qa-state-green:  #7ab87a;   /* completed / approved */
-  --qa-state-red:    #c97a7a;   /* cancelled */
+  /* 🔴 2026-09-10 대비 보정. 이 색들은 그동안 대비 계약의 검사 목록 밖이었고,
+     실측하니 다크 gray 3.46 · violet 4.40 으로 AA 미달이었다.
+     ⚠️ 판정 기준은 «가장 어려운 자리» 다: 표면 3종 위 직접 대비뿐 아니라
+        **배지 실조건**(Tag primary 가 배경을 alpha(색,0.1) 로 깔아 만든 면) 까지 본다.
+        표면 하나만 보고 맞추면 배지에서 조용히 미달한다.
+     색상·채도는 그대로 두고 명도만 옮겼다: 단계 순서(회색→코발트→구리→금→보라→초록)를
+     흔들지 않으면서 AA 를 통과하는 가장 작은 변경. 아래 괄호는 그 «최저» 값이다. */
+  --qa-state-gray:   #928c86;   /* draft / not_started / NA · 4.54 (was #7d7670 · 3.46) */
+  --qa-state-cobalt: #6b8fc4;   /* preview_review / reviewed · 4.54 */
+  --qa-state-copper: #d49850;   /* under_review / in_progress · 5.84 */
+  --qa-state-gold:   #c9a878;   /* final_decision / review · 6.45 */
+  --qa-state-violet: #a27dca;   /* execution_tracking / waived · 4.53 (was #a07ac9 · 4.40) */
+  --qa-state-green:  #7ab87a;   /* completed / approved · 6.18 */
+  --qa-state-red:    #c97a7a;   /* cancelled · 4.68 */
 
   --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
 }
@@ -83,13 +90,18 @@ html[data-theme='light'] {
   /* 라이트 모드는 vignette 거의 안 보이게: champagne tint 만 살짝 */
   /* ── Status / Category colors: 라이트 배경 (WCAG AA 4.5:1 이상) ──
      흰 배경(#fff) 위 대비비 명시. 다크의 밝은 파스텔 대신 더 어두운 채도 버전 사용. */
-  --qa-state-gray:   #72706c;   /* 4.95:1 on white */
-  --qa-state-cobalt: #3864a0;   /* 5.99:1 on white */
-  --qa-state-copper: #8a5820;   /* 6.02:1 on white */
-  --qa-state-gold:   #7a5828;   /* 6.47:1 on white */
-  --qa-state-violet: #8a58c0;   /* 4.97:1 on white */
-  --qa-state-green:  #3d803d;   /* 4.83:1 on white */
-  --qa-state-red:    #c04040;   /* 5.17:1 on white */
+  /* 🔴 2026-09-10 대비 보정. 종전 주석의 「on white」 숫자는 **맞았지만 표면 하나만** 봤다.
+     흰 카드(surface) 위만 재면 통과처럼 보이는데, 실제로 배지가 놓이는 자리는
+     그 색을 10% 섞은 면이고 페이지 배경(#faf9f6)·강조면(#f3f1ec)도 있다.
+     그 전부를 재니 넷이 미달이었다(gray 3.89 · violet 3.90 · green 3.80 · red 4.00).
+     아래 괄호는 «가장 어려운 자리» 기준 최저값이다. */
+  --qa-state-gray:   #676562;   /* 4.53 (was #72706c · 3.89) */
+  --qa-state-cobalt: #3864a0;   /* 4.65 */
+  --qa-state-copper: #8a5820;   /* 4.67 */
+  --qa-state-gold:   #7a5828;   /* 5.00 */
+  --qa-state-violet: #8049ba;   /* 4.54 (was #8a58c0 · 3.90) */
+  --qa-state-green:  #367236;   /* 4.50 (was #3d803d · 3.80) */
+  --qa-state-red:    #b23b3b;   /* 4.51 (was #c04040 · 4.00) */
 
   --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
 }
@@ -368,6 +380,15 @@ a {
    `:focus-visible` 만 사용 (마우스 클릭 시 outline 안 보임). */
 button:focus-visible:not(:disabled),
 a:focus-visible,
+/* 🔴 2026-09-09 감사(주제 #2). 여기에 입력칸 세 종류가 «빠져 있었다».
+   위쪽의 `:focus-visible` outline 규칙은 인라인 style 이 이기므로,
+   `style={{ outline: 'none' }}` 을 쓴 입력칸은 초점 표시가 **하나도** 없었다.
+   /audit 의 검색칸이 실제로 그랬다(Tab 29칸 중 1칸, 실측).
+   box-shadow 는 그 인라인들이 건드리지 않는 속성이라 같은 방식으로 지워지지 않는다.
+   인라인 24곳은 걷어냈지만, 27번째가 생겨도 표시가 남도록 여기도 넓힌다. */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
 [role='button']:focus-visible,
 [role='link']:focus-visible,
 [role='tab']:focus-visible,
@@ -416,12 +437,12 @@ a:focus-visible,
 
    Breakpoints:
      · lg(≥1024px):  데스크탑: 사이드바 고정, padding 32px 40px
-     · md(768–1023): 태블릿: 사이드바 drawer, padding 중간값
+     · md(768~1023): 태블릿: 사이드바 drawer, padding 중간값
      · sm(<768px):   폰: 사이드바 drawer, MobileBottomNav, 최소 padding
 
    ─────────────────────────────────────────────────────────────── */
 
-/* ── 태블릿 (768–1023px): 사이드바는 drawer, 패딩은 데스크탑보다 좁게 ── */
+/* ── 태블릿 (768~1023px): 사이드바는 drawer, 패딩은 데스크탑보다 좁게 ── */
 @media (min-width: 768px) and (max-width: 1023px) {
   .qa-main-content {
     padding: 68px 28px calc(100px + env(safe-area-inset-bottom, 0)) 28px !important;
@@ -988,11 +1009,30 @@ select.qa-input::-ms-expand {
   button {
     display: none !important;
   }
+  /* 🔴 셸 뿌리를 먼저 푼다. main 만 풀면 아무 소용이 없다.
+     뿌리는 height:100dvh · max-height:100vh · overflow:hidden 을 «인라인» 으로
+     들고 있어서 이 블록의 보통 규칙으로는 못 덮는다. 자식을 풀어도 부모가
+     1000px 에서 자른다.
+     이것이 없어서 /audit 가 9장 대신 1장만 나오고 있었다 - 8장이 조용히
+     사라졌다. 규제 기록을 종이로 내는 제품에서 가장 큰 결함이었다
+     (2026-09-09 감사 · docs/audits/DESIGN_UX_AUDIT_2026-09-09.md §2.1). */
+  .qa-app-root {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
   /* 본문은 전체 폭 */
   main.qa-main-content {
     height: auto !important;
     overflow: visible !important;
     padding: 24px 32px !important;
+  }
+  /* 아래 탭줄은 링크라 위의 `button { display: none }` 에 안 걸린다.
+     종이에 「홈 제품 회의 현장 더보기」 가 남는다. */
+  nav[data-mobile-tabbar],
+  .qa-mobile-tabbar {
+    display: none !important;
   }
   /* 카드 그림자 / hover lift 제거 */
   .qa-card-lift {

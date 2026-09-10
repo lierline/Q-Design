@@ -23,8 +23,16 @@ const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'worktrees']);
 // 색만: 8자리(alpha) > 6자리 > 3자리 순(긴 것 우선 매칭).
 const HEX = /#[0-9a-fA-F]{8}\b|#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b/g;
 
-// hex 정의가 허용되는 유일한 파일 = 토큰 SSOT.
-const ALLOWED_FILES = new Set(['lib/design/tokens.ts']);
+// hex 정의가 허용되는 파일 = 토큰 SSOT 와 «Q-Design 에서 온 생성물».
+//
+// 🔑 생성물을 여기 넣는 이유: 그 파일의 색은 이 저장소가 «고른» 것이 아니라
+//    Q-Design 이 웹 라이트 팔레트에서 파생하고 종이 위 AA 까지 검증해 내보낸 것입니다.
+//    손으로 고치면 `q-design-copy.test.ts` 의 지문 대조가 웁니다. 문지기가 다릅니다.
+//    ⚠️ 생성물이 아닌 파일을 여기 넣지 마십시오. 그 순간 이 가드가 그 파일을 놓칩니다.
+const ALLOWED_FILES = new Set([
+  'lib/design/tokens.ts',
+  'lib/design/q-design.doc.ts', // Q-Design 생성물 · 지문 계약이 따로 지킵니다
+]);
 
 function walk(dir: string): string[] {
   const out: string[] = [];

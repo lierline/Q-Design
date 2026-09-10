@@ -34,7 +34,7 @@ Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입
 6. [컴포넌트](docs/06-components.md) · 부품 60여 종의 실측 스펙
 7. [전역 CSS](docs/07-global-css.md) · 유틸리티 클래스 55종, 키프레임, 인쇄
 8. [전문가 포털 테마](docs/08-expert-portal.md) · 각진 모서리를 쓰는 자매 테마
-9. [규칙과 계약](docs/09-rules-and-contracts.md) · **테스트가 강제하는 18가지**
+9. [규칙과 계약](docs/09-rules-and-contracts.md) · **테스트가 강제하는 26가지**
 10. [옮겨 쓰기](docs/10-porting-guide.md) · 최소 도입부터 전면 이식까지
 11. [화면 구조](docs/11-screen-architecture.md) · **아키타입 5종**, 셸, 사이드바, 위젯 보드, 폭 고르기
 12. [조합 패턴](docs/12-composition-patterns.md) · 부품이 모여 만드는 덩어리 11가지
@@ -129,22 +129,42 @@ python -m http.server 4800 --directory D:/Claude/Q-Design
 
 ## 산출물 다시 만들기
 
-원본이 바뀌면 `source/` 를 갱신하고 아래를 돌립니다. 손으로 베끼지 마세요.
+명령은 **하나**입니다. 손으로 베끼지 마세요.
 
 ```bash
-node tools/extract-tokens.mjs
+node tools/extract-all.mjs --sync
+```
+
+순서가 중요합니다. 맨 앞이 `source/` 를 원본 저장소의 **커밋된** 내용으로 맞추는 단계입니다.
+사본이 낡으면 그 뒤가 전부 «낡은 것에서 정확히 파생된» 값이 되고, 그것은 실패가 아니라
+**초록불**로 나옵니다. 가장 위험한 실패 형태라 맨 앞에 두었습니다.
+
+```
+원본 사본 → 토큰 → 글꼴 → 대비 문서 → 문서 토큰 → 차림표·목록·뼈대 → 인라인 색인
+→ 금지 문자 → 세 제품으로 내보내기 → «정말 같아졌는지» 재확인
 ```
 
 스크립트는 뽑기만 하지 않고 검증도 합니다. 다크와 라이트의 변수 집합이 어긋나거나,
 줄간격 사다리가 TS 와 CSS 사이에서 갈리거나, 팔레트 사본이 원본과 달라지거나,
 배지 높이의 지배 요인이 알려진 값과 달라지면 산출물을 쓰지 않고 실패합니다.
 
-함께 있는 도구 둘.
+아무것도 쓰지 않고 «어긋난 곳» 만 보려면 이렇게 합니다.
 
 ```bash
-node tools/contrast-table.mjs   # 대비 실측표를 계산해서 냅니다 (문서의 숫자 출처)
-node tools/check-chars.mjs      # 긴 대시 등 금지 문자 검사 (자체 검출력 시험 포함)
+node tools/extract-all.mjs --check
 ```
+
+낱개로 부를 수 있는 것들.
+
+```bash
+node tools/refresh-source.mjs      # source/ 가 원본과 같은가 (--write 로 맞춤)
+node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02 에 직접 씀)
+node tools/check-chars.mjs         # 긴 대시 등 금지 문자 검사 (자체 검출력 시험 포함)
+node tools/verify-fonts.mjs        # 글꼴이 «이름만» 이 아니라 실제로 그려지는가
+```
+
+> 🔴 **문서의 숫자를 손으로 고치지 마십시오.** `docs/02-color.md` 의 표 세 벌은
+> `<!-- 생성:이름 -->` 표시 사이에 도구가 씁니다. 손으로 고치면 다음 실행에 덮어씁니다.
 
 ## 이 시스템을 다룰 때 먼저 알아야 할 세 가지
 
