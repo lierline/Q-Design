@@ -34,7 +34,7 @@
     "ivory": "#F3F6FA",
     "ink1": "#0E1116",
     "ink2": "#354154",
-    "ink3": "#8A97A8",
+    "ink3": "#647286",
     "rule": "#E2E6EC",
     "ruleStrong": "#C2CAD6"
   },
@@ -109,14 +109,22 @@
       "onIvory": 9.52
     },
     "ink3": {
-      "hex": "#8A97A8",
-      "onPaper": 2.97,
-      "onIvory": 2.74
+      "hex": "#647286",
+      "onPaper": 4.89,
+      "onIvory": 4.51
     },
-    "gold": {
-      "hex": "#D6B56D",
-      "onPaper": 1.96,
-      "onIvory": 1.81
+    "goldInk": {
+      "hex": "#8C6C27",
+      "onPaper": 4.9,
+      "onIvory": 4.52
+    },
+    "indigoInk": {
+      "hex": "#4A5DFF",
+      "onPaper": 4.88,
+      "onIvory": 4.5
     }
+  },
+  "decorativeOnly": {
+    "gold": "#D6B56D"
   }
 }

@@ -77,14 +77,39 @@ const ratio = (a, b) => {
 
 const PAPER = vars['--mq-paper'];
 const IVORY = vars['--mq-ivory'];
-const paperText = { ink1: vars['--mq-ink-1'], ink2: vars['--mq-ink-2'], ink3: vars['--mq-ink-3'], gold: vars['--mq-gold'] };
+
+/*
+ * ⚠️ 대비를 재는 것은 «글자로 쓰이는 색» 뿐입니다.
+ *    `--mq-gold` 는 2026-09-10 부터 **장식 전용**(선·면·표지 워터마크)이고,
+ *    종이 위 글자에는 `--mq-gold-ink` 를 씁니다. 장식에 4.5 를 요구하면
+ *    브랜드 금색을 잃게 되고, 반대로 글자를 안 재면 안 읽히는 라벨이 남습니다.
+ */
+const paperText = {
+  ink1: vars['--mq-ink-1'],
+  ink2: vars['--mq-ink-2'],
+  ink3: vars['--mq-ink-3'],
+  goldInk: vars['--mq-gold-ink'],
+  indigoInk: vars['--mq-indigo-ink'],
+};
+const decorative = { gold: vars['--mq-gold'] };
+
 const contrast = {};
 for (const [k, v] of Object.entries(paperText)) {
+  if (!v) continue;
   contrast[k] = {
     hex: v,
     onPaper: Number(ratio(v, PAPER).toFixed(2)),
     onIvory: Number(ratio(v, IVORY).toFixed(2)),
   };
+}
+
+// 글자 색이 하나라도 미달이면 산출물을 쓰지 않습니다.
+const under = Object.entries(contrast).filter(([, v]) => Math.min(v.onPaper, v.onIvory) < 4.5);
+if (under.length) {
+  console.error('종이 위 AA 미달:');
+  for (const [k, v] of under) console.error('  ' + k + ' ' + v.hex + '  ' + v.onPaper + ' / ' + v.onIvory);
+  console.error('\n원본(MedQraft/templates/assets/colors_and_type.css)의 종이용 토큰을 고치십시오.');
+  process.exit(1);
 }
 
 const out = {
@@ -108,6 +133,7 @@ const out = {
   radius: pick('--mq-radius-'),
   motion: { easeOut: vars['--mq-ease-out'], easeIn: vars['--mq-ease-in'], fast: vars['--mq-dur-fast'], base: vars['--mq-dur-base'], slow: vars['--mq-dur-slow'] },
   contrastOnPaper: contrast,
+  decorativeOnly: decorative, // 대비 규칙 밖: 선·면·워터마크
 };
 
 mkdirSync(DIST, { recursive: true });

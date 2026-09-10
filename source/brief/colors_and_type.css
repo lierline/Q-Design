@@ -40,12 +40,20 @@
   --mq-danger:    #E5544B;
   --mq-danger-bg: #2A1719;
 
-  /* --- Light-surface mirror (for docs/app on white) ------------------ */
+  /* --- Light-surface mirror (for docs/app on white) ------------------
+     🔴 2026-09-10 종이 대비 보정. 위 팔레트는 dark-first 라, 다크용으로 고른 색을
+        종이에 그대로 쓰면 미달합니다. 실측(흰 종이 / 아이보리):
+          ink-3 #8A97A8  2.97 / 2.74      gold #D6B56D  1.96 / 1.81
+        나간 PDF 5종에서 각각 문서당 56~118회·36~80회 쓰이고 있었습니다.
+     🔑 금색은 «장식» 과 «글자» 를 나눕니다. 선·면·워터마크는 브랜드 금색 그대로,
+        종이 위 글자에는 --mq-gold-ink 를 씁니다. (mqhtml.py 의 GOLD / GOLD_INK 와 짝) */
   --mq-paper:     #FFFFFF;
   --mq-ivory:     #F3F6FA;
-  --mq-ink-1:     #0E1116;
-  --mq-ink-2:     #354154;
-  --mq-ink-3:     #8A97A8;
+  --mq-ink-1:     #0E1116;   /* 18.91 / 17.45 */
+  --mq-ink-2:     #354154;   /* 10.32 /  9.52 */
+  --mq-ink-3:     #647286;   /*  4.51 (was #8A97A8 · 2.97) */
+  --mq-gold-ink:  #8C6C27;   /*  4.52 · 종이 위 «글자» 용 금색 */
+  --mq-indigo-ink:#4A5DFF;   /*  4.50 (was #5B6CFF · 4.17) */
   --mq-rule:      #E2E6EC;
   --mq-rule-strong:#C2CAD6;
 
