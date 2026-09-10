@@ -103,6 +103,9 @@ const PARTS = [
   {
     name: '인쇄',
     src: 'dist/q-design.print.css',
+    /* 층으로 감싸지 않습니다. !important 는 층 순서가 뒤집혀서, 감싸면
+       종이에서 반드시 지워야 할 것이 제품의 층 밖 규칙에 집니다 */
+    layer: false,
     to: {
       'Q-Atelier': 'D:/Claude/Q-Atelier/app/q-design.print.css',
       'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.print.css',
@@ -179,7 +182,33 @@ for (const part of PARTS) {
     console.error(`원본이 없습니다: ${part.src}. 추출기를 먼저 돌리세요.`);
     process.exit(1);
   }
-  const body = readFileSync(srcPath, 'utf8');
+  /*
+   * ── 🔴 정본 CSS 는 `@layer components` 안으로 내보냅니다 (2026-09-09 감사 · Q-Sonar #2)
+   *
+   * 종전에는 층 없이 내보냈습니다. Tailwind v4 에서 **층 밖 규칙은 어떤 유틸리티보다도
+   * 앞섭니다.** 그래서 화면이 표 칸에 적어 둔 유틸리티 97개(색 61 · 여백 23 · 크기 13)가
+   * 통째로 죽어 있었습니다. 「경고 판의 붉은 테두리」가 회색으로 나오고, 판정칸이
+   * 색으로 말하려던 것이 전부 한 색이 되었습니다.
+   *
+   * 받는 두 제품의 첫 줄 `@layer theme, base, components, utilities;` 가 이미 순서를
+   * 정해 두었고 components 가 utilities 보다 앞이므로, 감싸는 순간
+   * **「정본이 기본, 화면이 예외」** 가 됩니다. 그것이 원래 뜻입니다.
+   *
+   * 🔑 아래 sha 는 «감싼 본문» 을 해싱하므로 받는 쪽 지문 검사는 손댈 것이 없습니다.
+   * 🔑 TS 조각(진행선)은 감싸지 않습니다. CSS 가 아닙니다.
+   *
+   * 🔴 **인쇄 조각도 감싸지 않습니다.** `!important` 는 층 순서가 «뒤집힙니다» -
+   *    층 밖 `!important` 가 층 안 `!important` 를 이깁니다. 인쇄 CSS 의 힘은
+   *    `display: none !important` 같은 «반드시 이겨야 하는» 규칙에 있고, 감싸면
+   *    제품의 층 밖 `!important` 에 집니다. 종이에서 지워야 할 것이 안 지워지는
+   *    쪽이, 유틸리티가 죽는 쪽보다 나쁩니다.
+   *
+   * ⚠️ 본문 들여쓰기는 건드리지 않습니다. 받는 쪽 검사가 'padding: 11px 12px' 같은
+   *    글자를 그대로 찾습니다.
+   */
+  const 원본 = readFileSync(srcPath, 'utf8');
+  const 감쌀까 = part.lang !== 'ts' && part.layer !== false;
+  const body = 감쌀까 ? `@layer components {\n${원본}}\n` : 원본;
   const digest = sha(body);
   console.log(`${part.name}  ${digest.slice(0, 12)}…`);
   for (const [who, path] of Object.entries(part.to)) {
