@@ -158,6 +158,9 @@ node tools/extract-all.mjs --check
 
 ```bash
 node tools/refresh-source.mjs      # source/ 가 원본과 같은가 (--write 로 맞춤)
+node tools/audit-coverage.mjs      # 「다 뽑았나」에 숫자로 답합니다 (제품별 색 커버리지 포함)
+node tools/extract-ramp.mjs        # Q 계열이 쓰는 샴페인 계단 (--write)
+node tools/converge.mjs Q-Forge    # 그 제품의 정본 밖 색을 모읍니다 (--write / --adopt)
 node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02 에 직접 씀)
 node tools/check-chars.mjs         # 긴 대시 등 금지 문자 검사 (자체 검출력 시험 포함)
 node tools/verify-fonts.mjs        # 글꼴이 «이름만» 이 아니라 실제로 그려지는가

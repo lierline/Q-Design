@@ -1,0 +1,29 @@
+/* Q-Design · 가족 계층 (정본이 «배운» 역할)
+ * 생성물입니다. tools/converge.mjs --adopt 가 만듭니다. 손대지 마십시오.
+ *
+ * 정본에는 의미색 «글자» 만 있고 그 뒤에 까는 «면» 이 없었습니다. 그래서 제품이
+ * 혼자 만들어 썼습니다. 여기 값은 발명한 것이 아니라 제품이 이미 쓰던 값입니다.
+ */
+:root {
+  --qa-body: #33302a;    /* Q-Forge --dhr-body */
+  --qa-body: #ded8cc;    /* Q-Forge --dhr-body */
+  --qa-brand-line: #d9d1c5;    /* Q-Forge --dhr-brand-line */
+  --qa-brand-pale: #7a633f;    /* Q-Forge --dhr-brand-pale */
+  --qa-brand-soft: #f7f6f3;    /* Q-Forge --dhr-brand-soft */
+  --qa-brand-tint: #28231c;    /* Q-Forge --dhr-brand-tint */
+  --qa-brand-tint: #f4f1ee;    /* Q-Forge --dhr-brand-tint */
+  --qa-danger-bg: #251818;    /* Q-Forge --dhr-danger-bg */
+  --qa-danger-bg: #fbeeee;    /* Q-Forge --dhr-danger-bg */
+  --qa-danger-line: #3d2626;    /* Q-Forge --dhr-danger-line */
+  --qa-danger-line: #e8d3d3;    /* Q-Forge --dhr-danger-line */
+  --qa-goldhi: #d9ad6a;    /* Q-Sonar --color-goldhi */
+  --qa-info-bg: #161d27;    /* Q-Forge --dhr-info-bg */
+  --qa-info-bg: #e8eff8;    /* Q-Forge --dhr-info-bg */
+  --qa-ok-bg: #17231a;    /* Q-Forge --dhr-ok-bg */
+  --qa-ok-bg: #eef5ee;    /* Q-Forge --dhr-ok-bg */
+  --qa-warn-bg: #251f16;    /* Q-Forge --dhr-warn-bg */
+  --qa-warn-bg: #fbf4e6;    /* Q-Forge --dhr-warn-bg */
+}
+
+:root[data-theme="light"] {
+}

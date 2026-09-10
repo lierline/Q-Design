@@ -13,6 +13,7 @@
 //             사본이 낡았으면 그 뒤 전부가 «낡은 것에서 정확히 파생된» 값이 됩니다.
 //             실패가 아니라 초록불로 나오기 때문에 가장 위험합니다.
 //   tokens  → 다른 모든 것이 이 JSON 을 읽습니다 (색·크기의 뿌리)
+//   계단    → tokens 를 읽고, Q 계열 세 제품의 «실제 쓰임» 에서 샴페인 칸을 뽑습니다
 //   대비표  → tokens JSON 에서 계산해 docs/02 에 «직접 씁니다»
 //   fonts   → tokens 와 독립이지만 dist 에 함께 있어야 합니다
 //   doc     → tokens 의 «라이트» 팔레트에서 파생합니다
@@ -35,6 +36,7 @@ const checkOnly = args.includes('--check');
 const STEPS = [
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
+  { name: '계단', file: 'extract-ramp.mjs', extra: ['--write'], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },

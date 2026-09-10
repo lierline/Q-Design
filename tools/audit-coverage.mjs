@@ -147,12 +147,13 @@ const PRODUCTS = [
     why: 'Q-Design 의 정본. 여기 색이 dist 에 없으면 추출이 덜 된 것입니다' },
   { name: 'MedQraft 문서', repo: 'D:/Claude/MedQraft', files: ['templates/assets/colors_and_type.css'], must: true,
     why: '대외 문서 브랜드. 2026-09-10 부터 정본 범위 안입니다' },
-  { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'], must: false,
-    why: '정본 CSS 3벌을 링크해 쓰고, 자체 팔레트는 아직 정본 밖입니다' },
-  { name: 'Q-Forge', repo: 'D:/Claude/DHR', files: ['app/globals.css'], must: false,
-    why: 'Q-Design 을 «골라» 들이기로 한 제품(rem 16 유지). 고유 팔레트가 정상입니다' },
+  { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'], must: true,
+    why: '2026-09-10 수렴 완료. Q 계열은 색이 한 벌이어야 합니다' },
+  { name: 'Q-Forge', repo: 'D:/Claude/DHR', files: ['app/globals.css'], must: true,
+    why: '2026-09-10 수렴 완료. rem 16 · 각진 모서리는 그대로 두되 색은 한 벌입니다' },
   { name: 'MedQraft 홈', repo: 'D:/Claude/MedQraft-Site', files: ['public/styles.css', 'public/assets/insights.css'], must: false,
-    why: '라이브 홈페이지. 추출 범위에 들어온 적이 없습니다' },
+    why: 'Q 계열이 아닙니다(2026-09-10 결정). 통일 대상은 Q-Atelier·Q-Sonar·Q-Forge 셋뿐입니다. '
+       + '다만 실측하면 이 19색은 MedQraft 문서 브랜드보다 Q-Atelier 쪽에 더 가깝습니다(문서 0 : Q 19)' },
 ];
 
 const HEXRE = /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/g;
