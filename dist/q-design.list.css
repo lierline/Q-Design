@@ -41,6 +41,11 @@
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
   --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
+
+  /* 모서리는 테마 축이 «아니라» 사다리입니다. 그래서 light 블록에는 안 넣습니다.
+     값은 Q-Atelier lib/design/tokens.ts 의 RADIUS 에서 옵니다.
+     각진 모서리를 브랜드로 쓰는 쪽은 `--qd-radius-control-src: 0` 한 줄이면 됩니다. */
+  --qd-radius-control: var(--qd-radius-control-src, 10px);
 }
 
 html[data-theme='light'] {

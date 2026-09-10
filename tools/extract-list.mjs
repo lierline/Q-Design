@@ -107,6 +107,11 @@ const spec = probeAll([
 /* 모서리·전환·그림자는 토큰에서 옵니다. 여기서 다시 재지 않습니다. */
 put(spec, 'row.radius', tokens.radius.md);
 put(spec, 'tag.radius', tokens.radius.sm);
+/* 단추·입력의 모서리도 같은 사다리에서 옵니다(2026-09-09 감사 · 주제 #13).
+   Q-Sonar 는 판이 10px 인데 그 안의 단추 191개·입력 12개가 전부 0px 이었습니다.
+   10 이라는 숫자가 이미 세 벌(Q-Atelier tokens.ts · dist/q-design.tokens.json ·
+   Q-Forge globals.css)이라 제품이 네 번째를 적지 않게 여기서 내보냅니다. */
+put(spec, 'control.radius', tokens.radius.md);
 put(spec, 'row.transition', tokens.motion.fast);
 put(spec, 'table.transition', tokens.motion.fast);
 
@@ -238,6 +243,11 @@ const css = `/* ================================================================
 
 :root {
 ${bind('dark')}
+
+  /* 모서리는 테마 축이 «아니라» 사다리입니다. 그래서 light 블록에는 안 넣습니다.
+     값은 Q-Atelier lib/design/tokens.ts 의 RADIUS 에서 옵니다.
+     각진 모서리를 브랜드로 쓰는 쪽은 \`--qd-radius-control-src: 0\` 한 줄이면 됩니다. */
+  --qd-radius-control: var(--qd-radius-control-src, ${px(spec.control.radius)});
 }
 
 html[data-theme='light'] {

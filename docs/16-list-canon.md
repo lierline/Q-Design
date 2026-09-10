@@ -81,6 +81,27 @@ background surface · border 1px · radius 10
 브랜드로 쓰는 자매 테마가 자기 언어를 말합니다. 값을 두 벌로 두지 않고 폴백으로
 처리한 원본의 설계를 그대로 옮겼습니다.
 
+### 판 «안»의 컨트롤도 같은 사다리에서 옵니다
+
+```css
+:root {
+  --qd-radius-control: var(--qd-radius-control-src, 10px);
+}
+```
+
+`--qd-radius-card` 와 달리 이쪽은 `:root` 에 **선언합니다.** 카드 쪽은 «선언 안 된
+변수 + 폴백» 자체가 자매 테마의 스위치라 선언하는 순간 계약이 바뀌지만, 컨트롤은
+그런 계약이 없습니다. 각진 컨트롤을 브랜드로 쓰는 쪽은 `--qd-radius-control-src: 0`
+한 줄이면 됩니다.
+
+`html[data-theme='light']` 블록에는 넣지 않습니다. **모서리는 테마 축이 아니라
+사다리입니다.**
+
+> 🔴 2026-09-09 감사에서 Q-Sonar 는 판이 10px 인데 그 «안»의 단추 191개 · 입력
+> 12개가 전부 0px 이었습니다. 10 이라는 숫자가 이미 세 벌이라(Q-Atelier
+> `tokens.ts` · `dist/q-design.tokens.json` · Q-Forge `globals.css`) 제품이
+> 네 번째를 적지 않도록 정본이 내보냅니다.
+
 ### 표 (`.qd-table`)
 
 ```
