@@ -1,0 +1,23 @@
+/* =============================================================================
+   q-design.state.css · 상태색 정본
+   생성물입니다. 손대지 마세요.  node tools/extract-tokens.mjs
+
+   위험(danger) · 정상(ok) · 주의(warn) · 안내(info) 네 가지입니다.
+   --qd-danger 는 q-design.nav.css 가 냅니다. 여기서 다시 내지 않습니다.
+
+   제품이 제 이름을 갖고 있으면 --qd-<이름>-src 로 이어 쓰세요.
+   ============================================================================= */
+
+:root {
+  --qd-ok:        var(--qd-ok-src,        var(--qa-green,   #7ab87a));
+  --qd-warn:      var(--qd-warn-src,      var(--qa-warning, #c9a87a));
+  --qd-info:      var(--qd-info-src,      var(--qa-blue,    #7a9ac9));
+  /* 위험색을 글자로 쓸 때. 면 위에서 읽히도록 본문색을 섞어 올린다 */
+  --qd-danger-hi: var(--qd-danger-hi-src, color-mix(in oklab, var(--qd-text) 55%, var(--qd-danger)));
+}
+
+html[data-theme='light'] {
+  --qd-ok:   var(--qd-ok-src,   var(--qa-green,   #3d7a3d));
+  --qd-warn: var(--qd-warn-src, var(--qa-warning, #97621f));
+  --qd-info: var(--qd-info-src, var(--qa-blue,    #2d5fa8));
+}

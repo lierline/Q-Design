@@ -307,6 +307,48 @@ const css = [
 
 writeFileSync(join(OUT, 'q-design.tokens.css'), css, 'utf8');
 
+/* ---------------------------------------------------------------------------
+   상태색 · 위험 · 정상 · 주의 · 안내 (2026-09-09 감사 · Q-Sonar #11)
+
+   Q-Sonar 의 `@theme` 이 색 열넷을 정의하면서 red·green·warning 을 하나도 두지
+   않아, 화면 24파일이 **Tailwind 기본 팔레트를 직접 불렀습니다.** 위험·정상
+   표현이 소스 87곳에 흩어졌고, 그중 넷은 AA 미달이었습니다(실측 4.22).
+
+   🔑 hex 를 여기서 손으로 적지 않습니다. 이미 파싱해 둔 팔레트를 보간합니다.
+   🔑 `--qd-danger` 는 q-design.nav.css 가 이미 냅니다. 여기서 다시 내지 않습니다.
+      같은 이름을 두 곳에서 선언하면 그것부터 갈립니다.
+   🔑 `--qd-danger-hi` 는 테마별 값이 필요 없습니다. 계산이 `--qd-text` 를 보므로
+      다크와 라이트가 저절로 갈립니다(다크 #e1b8b1 대비 10.89 · 라이트 11.25).
+--------------------------------------------------------------------------- */
+const stateCss = [
+  '/* =============================================================================',
+  '   q-design.state.css · 상태색 정본',
+  '   생성물입니다. 손대지 마세요.  node tools/extract-tokens.mjs',
+  '',
+  '   위험(danger) · 정상(ok) · 주의(warn) · 안내(info) 네 가지입니다.',
+  '   --qd-danger 는 q-design.nav.css 가 냅니다. 여기서 다시 내지 않습니다.',
+  '',
+  '   제품이 제 이름을 갖고 있으면 --qd-<이름>-src 로 이어 쓰세요.',
+  '   ============================================================================= */',
+  '',
+  ':root {',
+  `  --qd-ok:        var(--qd-ok-src,        var(--qa-green,   ${darkVars['--qa-green']}));`,
+  `  --qd-warn:      var(--qd-warn-src,      var(--qa-warning, ${darkVars['--qa-warning']}));`,
+  `  --qd-info:      var(--qd-info-src,      var(--qa-blue,    ${darkVars['--qa-blue']}));`,
+  '  /* 위험색을 글자로 쓸 때. 면 위에서 읽히도록 본문색을 섞어 올린다 */',
+  '  --qd-danger-hi: var(--qd-danger-hi-src, color-mix(in oklab, var(--qd-text) 55%, var(--qd-danger)));',
+  '}',
+  '',
+  "html[data-theme='light'] {",
+  `  --qd-ok:   var(--qd-ok-src,   var(--qa-green,   ${lightVars['--qa-green']}));`,
+  `  --qd-warn: var(--qd-warn-src, var(--qa-warning, ${lightVars['--qa-warning']}));`,
+  `  --qd-info: var(--qd-info-src, var(--qa-blue,    ${lightVars['--qa-blue']}));`,
+  '}',
+  '',
+].join('\n');
+
+writeFileSync(join(OUT, 'q-design.state.css'), stateCss, 'utf8');
+
 console.log('생성 완료');
 console.log(
   '  dist/q-design.tokens.json  · 색 다크 ' +

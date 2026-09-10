@@ -69,6 +69,22 @@ const PARTS = [
    * ⚠️ Q-Atelier 도 받는 쪽입니다. 화면 토큰의 원본은 Q-Atelier 지만,
    *    «문서 토큰» 의 원본은 Q-Design 입니다(라이트 팔레트에서 파생하고 검증합니다).
    */
+  /*
+   * ── 2026-09-10 확장: 상태색 ───────────────────────────────────────────────
+   * 위험 · 정상 · 주의 · 안내. Q-Sonar 가 이 이름을 안 갖고 있어 화면 87곳이
+   * Tailwind 기본 팔레트를 직접 부르고 있었습니다(감사 Q-Sonar #11).
+   *
+   * ⚠️ 지금은 Q-Sonar 만 받습니다. Q-Forge 는 --dhr-danger/-ok/-warn 을 이미
+   *    갖고 있어, 보내면 «있는데 아무도 안 읽는» 파일이 하나 늘 뿐입니다.
+   *    그쪽 이름을 정본으로 옮길 때 함께 붙입니다.
+   */
+  {
+    name: '상태색',
+    src: 'dist/q-design.state.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.state.css',
+    },
+  },
   {
     name: '문서 토큰',
     src: 'dist/q-design.doc.ts',
