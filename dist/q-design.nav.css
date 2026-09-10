@@ -75,6 +75,26 @@
      LOT-2026-004」 처럼 한글과 코드가 섞인 이름표에서 코드가 모노를 잃습니다.
      제품이 모노를 바꾸면 그 제품에서 --qd-hangul-word-space-src 로 다시 잽니다. */
   --qd-hangul-word-space: var(--qd-hangul-word-space-src, -0.35em);
+
+  /* 겹침 사다리. 위로 갈수록 «가려지면 안 되는 정도» 입니다.
+     제품이 자기 층을 이 칸으로 부르면 세 제품의 겹침 순서가 같아집니다.
+     한 칸만 다르게 쓰고 싶으면 --qd-z-<칸>-src 로 덮으세요. */
+  --qd-z-base: var(--qd-z-base-src, var(--qa-z-base, 1));
+  --qd-z-dropdown: var(--qd-z-dropdown-src, var(--qa-z-dropdown, 50));
+  --qd-z-sticky: var(--qd-z-sticky-src, var(--qa-z-sticky, 100));
+  --qd-z-header: var(--qd-z-header-src, var(--qa-z-header, 200));
+  --qd-z-fab: var(--qd-z-fab-src, var(--qa-z-fab, 300));
+  --qd-z-bottom-nav: var(--qd-z-bottom-nav-src, var(--qa-z-bottom-nav, 400));
+  --qd-z-drawer-fab: var(--qd-z-drawer-fab-src, var(--qa-z-drawer-fab, 500));
+  --qd-z-drawer-backdrop: var(--qd-z-drawer-backdrop-src, var(--qa-z-drawer-backdrop, 600));
+  --qd-z-drawer: var(--qd-z-drawer-src, var(--qa-z-drawer, 700));
+  --qd-z-overlay: var(--qd-z-overlay-src, var(--qa-z-overlay, 1000));
+  --qd-z-modal: var(--qd-z-modal-src, var(--qa-z-modal, 1100));
+  --qd-z-popover: var(--qd-z-popover-src, var(--qa-z-popover, 1200));
+  --qd-z-tooltip: var(--qd-z-tooltip-src, var(--qa-z-tooltip, 9999));
+  --qd-z-toast: var(--qd-z-toast-src, var(--qa-z-toast, 10000));
+  --qd-z-blocking: var(--qd-z-blocking-src, var(--qa-z-blocking, 10001));
+  --qd-z-session-gate: var(--qd-z-session-gate-src, var(--qa-z-session-gate, 10002));
 }
 
 html[data-theme='light'] {
@@ -119,6 +139,9 @@ html[data-theme='light'] {
   width: 264px;
   max-width: 85vw;
   position: relative;
+  /* 칸을 명시합니다. Q-Sonar·Q-Forge 는 서랍을 백드롭의 «자식» 으로 두지만
+     Q-Atelier 는 형제라, 적지 않으면 세 제품의 뜻이 달라집니다. */
+  z-index: var(--qd-z-drawer);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -472,7 +495,9 @@ html[data-theme='light'] {
 .qd-rail-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  /* 사다리 칸을 부릅니다. 50 은 이 파일이 지어낸 숫자였고, 받는 제품의
+     대화상자(60·70·80)보다 아래라 서랍이 열려도 그것들이 위에 남았습니다. */
+  z-index: var(--qd-z-drawer-backdrop);
   background: rgba(0, 0, 0, 0.65);
 }
 

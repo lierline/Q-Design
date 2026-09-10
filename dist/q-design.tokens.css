@@ -159,12 +159,18 @@ html[data-theme='light'] {
   --qa-z-dropdown: 50;
   --qa-z-sticky: 100;
   --qa-z-header: 200;
+  --qa-z-fab: 300;
+  --qa-z-bottom-nav: 400;
+  --qa-z-drawer-fab: 500;
+  --qa-z-drawer-backdrop: 600;
+  --qa-z-drawer: 700;
   --qa-z-overlay: 1000;
   --qa-z-modal: 1100;
   --qa-z-popover: 1200;
-  --qa-z-toast: 1300;
-  --qa-z-sessionGate: 1400;
   --qa-z-tooltip: 9999;
+  --qa-z-toast: 10000;
+  --qa-z-blocking: 10001;
+  --qa-z-session-gate: 10002;
 
   /* 셸 폭 */
   --qa-layout-mobile: 520px;

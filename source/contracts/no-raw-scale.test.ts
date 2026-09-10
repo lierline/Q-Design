@@ -84,6 +84,13 @@ const SPACING_RE =
 
 // raw 상태색: 인라인 var(--qa-state-*). STATE.* 토큰으로 대체 대상.
 const STATE_RE = /var\(--qa-state-/g;
+/*
+ * 🔴 2026-09-09 감사(주제 #9). 떠 있는 층이 사다리에 «칸이 없어서» 각자 숫자를
+ *    지어냈다. Z 토큰 호출부는 3곳이었고 raw zIndex 는 58곳이었다. 그 결과
+ *    390px 화면에서 전역 검색 백드롭(100) 위에 햄버거(150)가 남아, 어두워진
+ *    화면에 단추 하나만 밝게 떠 있었다(elementFromPoint 로 실측).
+ */
+const ZINDEX_RE = /zIndex:\s*['"]?[0-9]/g;
 
 function countMatches(re: RegExp, allow: (rel: string) => boolean) {
   const byFile: Record<string, number> = {};
@@ -159,6 +166,18 @@ const BASELINE_FONT = 66;
 //    앱 화면(ExportPanel.tsx)에서 늘어난 것은 0개다: S[*] 스케일을 그대로 썼다.
 const BASELINE_SPACING = 1448;
 const BASELINE_STATE = 0;
+/*
+ * zIndex 47: 2026-09-10 실측 동결. 58 에서 겹치던 열 곳(전역 검색 2 · 서랍 3 ·
+ * 아래 탭줄 · FAB · 환영 · 산출물 패널 · 바코드 · 확인 대화상자 2)을 Z 사다리로
+ * 접은 뒤 남은 수다. 남은 47곳은 값이 실제로 움직여 육안 확인이 필요해
+ * 이번 라운드에 건드리지 않았다.
+ *
+ * 🔑 총량만 보는 이 검사는 «정작 충돌하는 자리» 에서 새 숫자가 생겨도 못 잡는다.
+ *    그래서 lib/design/z-ladder-contract.test.ts 가 떠 있는 층 파일들을 따로 0 으로 본다.
+ *
+ * ⬜ BACKLOG: 47→축소.
+ */
+const BASELINE_ZINDEX = 47;
 // lineHeight 52: ★2026-08-06 codemod 직후 실측 동결. 사다리 값 585곳(1·1.2·1.3·1.4·1.5·
 //   1.55·1.6·1.7)을 LH.* 로 값보존 치환(시각 0). 잔여 52 의 내역:
 //     · app/experts/* 9: Cormorant 독립 브랜딩(FONT_RE 와 같은 이유로 의도적 제외)
@@ -193,6 +212,14 @@ describe('디자인 가드: 스케일 토큰 baseline 동결', () => {
       throw new Error(report('spacing', total, BASELINE_SPACING, byFile, 'lib/design/tokens.ts 의 S[*] 스케일을 쓰세요.'));
     }
     expect(total).toBeLessThanOrEqual(BASELINE_SPACING);
+  });
+
+  it(`raw zIndex 가 baseline(${BASELINE_ZINDEX}) 이하`, () => {
+    const { total, byFile } = countMatches(ZINDEX_RE, (rel) => rel === TOKENS_SSOT);
+    if (total > BASELINE_ZINDEX) {
+      throw new Error(report('zIndex', total, BASELINE_ZINDEX, byFile, 'lib/design/tokens.ts 의 Z.* 사다리를 쓰세요. 칸이 없으면 «만들어» 주세요.'));
+    }
+    expect(total).toBeLessThanOrEqual(BASELINE_ZINDEX);
   });
 
   it(`raw var(--qa-state-*) 가 baseline(${BASELINE_STATE}) 이하`, () => {

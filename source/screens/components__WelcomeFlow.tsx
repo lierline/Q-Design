@@ -15,7 +15,7 @@
 //   · prefers-reduced-motion 자동 무효
 
 import { useEffect, useState } from 'react';
-import { S, FS, F, T, alpha, goldTextStyle, LH } from '@/lib/design/tokens';
+import { F, FS, LH, S, T, Z, alpha, goldTextStyle } from '@/lib/design/tokens';
 import { useFocusTrap } from '@/lib/hooks/useFocusTrap';
 import { useRef } from 'react';
 import { Lightbulb, ShieldCheck, Sparkles } from 'lucide-react';
@@ -102,7 +102,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
           background: 'var(--qa-backdrop-strong)',
           backdropFilter: 'blur(6px)',
           WebkitBackdropFilter: 'blur(6px)',
-          zIndex: 300,
+          zIndex: Z.overlay,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

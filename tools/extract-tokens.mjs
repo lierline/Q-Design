@@ -222,8 +222,15 @@ const radiusBlock = Object.entries(tokens.RADIUS)
 const motionBlock = Object.entries(tokens.MOTION)
   .map(([k, v]) => '  --qa-motion-' + k + ': ' + v + ';')
   .join('\n');
+/*
+ * 🔑 카멜을 케밥으로 바꿉니다(drawerBackdrop → drawer-backdrop).
+ *    CSS 사용자 정의 속성은 대소문자를 구분하므로 `--qa-z-drawerBackdrop` 도
+ *    «동작은» 합니다. 그러나 이 파일의 다른 블록이 전부 케밥이라, 하나만 카멜이면
+ *    쓰는 쪽이 어느 쪽인지 매번 확인해야 합니다. 기존 아홉 키는 소문자 한 낱말이라
+ *    이름이 바뀌지 않습니다(2026-09-10 확인).
+ */
 const zBlock = Object.entries(tokens.Z)
-  .map(([k, v]) => '  --qa-z-' + k + ': ' + v + ';')
+  .map(([k, v]) => '  --qa-z-' + k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase()) + ': ' + v + ';')
   .join('\n');
 const layoutBlock = Object.entries(tokens.LAYOUT)
   .map(([k, v]) => '  --qa-layout-' + k + ': ' + v + 'px;')

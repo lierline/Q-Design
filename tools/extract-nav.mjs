@@ -239,6 +239,25 @@ const BINDINGS = [
 ];
 const bindBlock = (mode) => BINDINGS.map(([n, qa]) => bind(n, qa, mode)).join('\n');
 
+/*
+ * ── 겹침 사다리 ─────────────────────────────────────────────────────────────
+ * 2026-09-09 감사(주제 #9). 사다리에 «칸이 없으면» 층은 숫자를 지어냅니다.
+ * Q-Atelier 에서 실측한 결과 Z 를 부르는 곳이 3곳이고 raw zIndex 가 58곳이었고,
+ * 390px 화면에서 전역 검색 백드롭(100) 위에 햄버거(150)가 남아 있었습니다.
+ *
+ * 세 제품이 같은 칸을 부르게 하려면 정본이 그 칸들을 «내보내야» 합니다.
+ * 값은 tokens.json 에서 옵니다. 여기서 숫자를 적지 않습니다.
+ *
+ * 🔴 세 번째 인자(고정값)를 반드시 둡니다. `var(--qd-z-drawer-backdrop)` 만 쓰고
+ *    값을 못 찾으면 z-index 가 **auto 로 떨어져 층이 통째로 사라집니다.**
+ *    두 제품에는 q-design.tokens.css 가 배달되지 않습니다(sync.mjs 의 PARTS 는
+ *    nav·list·screen 세 줄뿐입니다). 그래서 이 파일이 스스로 값을 들고 있어야 합니다.
+ */
+const 케밥 = (k) => k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase());
+const zBlock = Object.entries(tokens.z)
+  .map(([k, v]) => `  --qd-z-${케밥(k)}: var(--qd-z-${케밥(k)}-src, var(--qa-z-${케밥(k)}, ${v}));`)
+  .join('\n');
+
 const css = `/* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
@@ -308,6 +327,11 @@ ${bindBlock('dark')}
      LOT-2026-004」 처럼 한글과 코드가 섞인 이름표에서 코드가 모노를 잃습니다.
      제품이 모노를 바꾸면 그 제품에서 --qd-hangul-word-space-src 로 다시 잽니다. */
   --qd-hangul-word-space: var(--qd-hangul-word-space-src, -0.35em);
+
+  /* 겹침 사다리. 위로 갈수록 «가려지면 안 되는 정도» 입니다.
+     제품이 자기 층을 이 칸으로 부르면 세 제품의 겹침 순서가 같아집니다.
+     한 칸만 다르게 쓰고 싶으면 --qd-z-<칸>-src 로 덮으세요. */
+${zBlock}
 }
 
 html[data-theme='light'] {
@@ -344,6 +368,9 @@ ${bindBlock('light')}
   width: ${px(spec.rail.drawerWidth)};
   max-width: 85vw;
   position: relative;
+  /* 칸을 명시합니다. Q-Sonar·Q-Forge 는 서랍을 백드롭의 «자식» 으로 두지만
+     Q-Atelier 는 형제라, 적지 않으면 세 제품의 뜻이 달라집니다. */
+  z-index: var(--qd-z-drawer);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -697,7 +724,9 @@ ${bindBlock('light')}
 .qd-rail-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  /* 사다리 칸을 부릅니다. 50 은 이 파일이 지어낸 숫자였고, 받는 제품의
+     대화상자(60·70·80)보다 아래라 서랍이 열려도 그것들이 위에 남았습니다. */
+  z-index: var(--qd-z-drawer-backdrop);
   background: rgba(0, 0, 0, 0.65);
 }
 
@@ -705,6 +734,26 @@ ${bindBlock('light')}
   .qd-rail, .qd-rail-backdrop { display: none !important; }
 }
 `;
+
+/*
+ * 🔑 만든 것을 «스스로 검사» 합니다.
+ *
+ * 이 파일이 겹침 순서의 정본이 되려면, 정작 자기 안에 숫자가 남아 있으면 안 됩니다.
+ * `:root` 블록 안의 사다리 선언만 숫자를 갖고, 규칙 본문은 var() 로만 부릅니다.
+ * 예전에 `.qd-rail-backdrop` 이 50 을 지어내 두었고, 받는 제품의 대화상자(60·70·80)가
+ * 서랍 위에 남는 원인이었습니다. 같은 일이 다시 생기면 여기서 멈춥니다.
+ */
+{
+  const 루트끝 = css.indexOf('}', css.indexOf(':root {'));
+  const 본문 = css.slice(루트끝);
+  const 지어낸것 = [...본문.matchAll(/z-index:\s*\d/g)];
+  if (지어낸것.length) {
+    throw new Error(
+      `정본 CSS 규칙 안에 숫자로 적은 z-index 가 ${지어낸것.length}곳 있습니다.\n` +
+        '사다리 칸(var(--qd-z-*))을 부르세요. 맞는 칸이 없으면 tokens.ts 의 Z 에 «만들어» 주세요.',
+    );
+  }
+}
 
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'q-design.nav.css'), css, 'utf8');

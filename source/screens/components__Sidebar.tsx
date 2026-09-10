@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
-import { S, FS, BP, F, RADIUS, T, alpha, LH, labelTracking, hasHangul } from '@/lib/design/tokens';
+import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, hasHangul, labelTracking } from '@/lib/design/tokens';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
 import { NAV_ITEMS, FLOW_DOCUMENT_MENUS, NAV_SUBGROUP_LABEL, NAV_SUBGROUP_ORDER, type NavGroup, type NavSubGroup } from '@/lib/nav/nav-items';
@@ -241,7 +241,7 @@ export function Sidebar(props: SidebarProps) {
             // L1: notch / dynamic island 회피: safe-area-inset-top 만큼 내려서 배치
             top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
             left: 'calc(env(safe-area-inset-left, 0px) + 12px)',
-            zIndex: 150,
+            zIndex: Z.drawerFab,
             width: 44,
             height: 44,
             background: T.surface,
@@ -270,7 +270,7 @@ export function Sidebar(props: SidebarProps) {
               background: 'var(--qa-backdrop)',
               backdropFilter: 'blur(4px)',
               WebkitBackdropFilter: 'blur(4px)',
-              zIndex: 199,
+              zIndex: Z.drawerBackdrop,
             }}
           />
           <div
@@ -281,7 +281,7 @@ export function Sidebar(props: SidebarProps) {
               // 모바일 drawer wrapper: 100dvh 로 동적 viewport (iOS URL bar 변화 대응).
               // L2: maxHeight: 100vh 제거: dvh 가 vh 보다 클 때 효과 무력화 방지.
               height: '100dvh',
-              zIndex: 200,
+              zIndex: Z.drawer,
               boxShadow: 'var(--qa-shadow-xl)',
               animation: 'qa-drawer-slide-in 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
             }}

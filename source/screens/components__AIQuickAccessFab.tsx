@@ -35,7 +35,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { S, FS, T, F, alpha, RADIUS, SHADOW, MOTION, ICON } from '@/lib/design/tokens';
+import { F, FS, ICON, MOTION, RADIUS, S, SHADOW, T, Z, alpha } from '@/lib/design/tokens';
 
 // AI 도구 드로어는 "열 때만" 로드(lazy): 모든 화면에 상시 얹히지 않도록.
 // 닫혀 있을 땐 아래에서 조건부 렌더(미마운트)라 초기 번들/런타임 비용 0.
@@ -148,7 +148,7 @@ export function AIQuickAccessFab() {
         // 1024px 이상 desktop 에서는 bottom-nav 숨김 → 16px.
         // 모바일 (≤1023px) 에서는 bottom-nav 가 보임 → 80px + safe-area.
         bottom: 'calc(env(safe-area-inset-bottom, 0) + var(--qa-fab-bottom, 80px))',
-        zIndex: 50,
+        zIndex: Z.fab,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
