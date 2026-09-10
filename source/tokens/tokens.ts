@@ -531,6 +531,12 @@ export const Z = {
   modal: 1100,     // 모달 본체
   popover: 1200,   // 팝오버
   toast: 1300,     // 토스트
+  /*
+   * 세션 만료 판. 토스트(1300) 위에 서야 «다시 로그인» 단추가 가려지지 않고,
+   * 사이드바 드로어(200) · Confirm(171) · GlobalSearch(110) 도 함께 덮는다.
+   * 툴팁(9999)보다는 아래다. 이 판이 떠 있어도 힌트는 읽을 수 있어야 한다.
+   */
+  sessionGate: 1400,
   tooltip: 9999,   // 최상위 힌트 (기존 KPI 툴팁 관행 보존)
 } as const;
 export type ZKey = keyof typeof Z;
