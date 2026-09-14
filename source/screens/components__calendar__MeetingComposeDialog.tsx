@@ -21,7 +21,7 @@
 // API: POST /api/meetings
 
 import { useEffect, useId, useMemo, useState } from 'react';
-import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { Field, Modal } from '@/lib/design/components';
 import { useTheme } from '@/lib/design/theme-provider';
 import { MemberPicker } from '@/components/MemberPicker';
@@ -202,6 +202,7 @@ export function MeetingComposeDialog({
   `;
 
   const inputBase: React.CSSProperties = {
+    borderRadius: RADIUS.md,
     width: '100%',
     padding: '10px 12px',
     background: T.surface,
@@ -243,6 +244,7 @@ export function MeetingComposeDialog({
             onClick={onClose}
             disabled={busy}
             style={{
+              borderRadius: RADIUS.sm,
               padding: '10px 18px',
               background: 'transparent',
               color: T.muted,

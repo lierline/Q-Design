@@ -5,7 +5,7 @@ import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent,
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
-import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, hasHangul, labelCase, labelTracking } from './tokens';
+import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
 import { TAG_DIMS } from './tag-metrics';
 import { printZoom } from './print';
 
@@ -77,6 +77,7 @@ export function Lbl({ children, htmlFor }: { children: ReactNode; htmlFor?: stri
         color: T.subtle,
         // 2026-09-03 M-02: 한글 라벨이면 자간 0 · uppercase 해제(tokens 의 labelTracking 규칙).
         letterSpacing: labelTracking(children, 1.5),
+        wordSpacing: labelWordSpacing(children),
         textTransform: labelCase(children),
         fontFamily: F.mono,
         display: 'block',
@@ -91,6 +92,7 @@ export function Lbl({ children, htmlFor }: { children: ReactNode; htmlFor?: stri
 
 // ─── INPUT ───────────────────────────────────────────────────────────────────
 const inputStyle: CSSProperties = {
+  borderRadius: RADIUS.md,
   width: '100%',
   padding: '10px 14px',
   background: T.surface,
@@ -596,11 +598,14 @@ export function Tag({
         lineHeight: LH.snug,
         color: tagColor,
         border,
+        // 2026-09-14 모서리 전수 감사: 배지가 각져 있었다(정본 .qd-tag 는 6px · Q-Sonar·Q-Forge 는 이미 6px).
+        borderRadius: RADIUS.sm,
         background: bg,
         padding: `${dims.padY}px ${dims.padX}px`,
         fontFamily: F.mono,
         // 2026-09-03 M-02: 한글 배지는 자간 0. 높이 사슬(tag-metrics.test.ts)은 자간과 무관.
         letterSpacing: labelTracking(children, 1.0),
+        wordSpacing: labelWordSpacing(children),
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
       }}
@@ -661,7 +666,7 @@ export function SectionProgressCard({
   return (
     <div style={{ marginBottom: S[6], padding: S[4.5], borderRadius: RADIUS.md, border: `1px solid ${T.border}`, background: alpha(T.champagne, 0.02) }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: S[2] }}>
-        <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.12em'), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
+        <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.12em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
         <span style={{ fontFamily: F.serif, fontSize: FS[20], fontWeight: 700, color: fill }}>{value}%</span>
       </div>
       <ProgressBar value={value} height={6} />
@@ -790,6 +795,7 @@ export function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       style={{
+        borderRadius: RADIUS.sm,
         padding: '5px 12px',
         background: active ? color : 'transparent',
         color: active ? T.bg : color,
@@ -797,6 +803,7 @@ export function FilterChip({
         fontSize: FS[10],
         fontFamily: F.mono,
         letterSpacing: labelTracking(label, 0.5),
+        wordSpacing: labelWordSpacing(label),
         cursor: 'pointer',
         textTransform: labelCase(label),
         lineHeight: LH.none,
@@ -960,6 +967,7 @@ export function FormSection({
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.8),
+          wordSpacing: labelWordSpacing(title),
           textTransform: labelCase(title),
           fontWeight: 600,
           marginBottom: S[2],
@@ -1135,6 +1143,7 @@ function lblStyleFor(label: ReactNode): CSSProperties {
     color: T.muted,
     fontFamily: F.mono,
     letterSpacing: labelTracking(label, 1.2),
+    wordSpacing: labelWordSpacing(label),
     textTransform: labelCase(label),
     fontWeight: 500,
     display: 'inline-block',
@@ -1223,6 +1232,7 @@ export function PageHd({ title, sub, actions, accent = true }: PageHdProps) {
                 color: T.subtle,
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(sub, 2.2),
+                wordSpacing: labelWordSpacing(sub),
                 textTransform: labelCase(sub),
                 marginBottom: S[2],
               }}
@@ -1285,6 +1295,7 @@ export function Card({ label, value, color, sub, children, style, minHeight = 12
             fontSize: FS[10],
             color: T.subtle,
             letterSpacing: labelTracking(label, 1.5),
+            wordSpacing: labelWordSpacing(label),
             fontFamily: F.mono,
             textTransform: labelCase(label),
             marginBottom: S[3],
@@ -1393,6 +1404,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
        */
       role={kind === 'error' || kind === 'warning' ? 'alert' : 'status'}
       style={{
+        borderRadius: RADIUS.md,
         padding: '12px 16px',
         background: alpha(c, 0.08),
         border: `1px solid ${alpha(c, 0.3)}`,
@@ -1437,6 +1449,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
               color: c,
               fontFamily: F.mono,
               letterSpacing: labelTracking(title, 1.5),
+              wordSpacing: labelWordSpacing(title),
               textTransform: labelCase(title),
               marginBottom: S[1],
             }}
@@ -1484,6 +1497,7 @@ export function LoadingState({
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: labelTracking(label, 1.5),
+          wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
         }}
       >
@@ -1516,6 +1530,7 @@ export function LoadingState({
           fontFamily: F.mono,
           fontSize: FS[10],
           letterSpacing: labelTracking(label, 2.2),
+          wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
           color: T.subtle,
         }}
@@ -1783,6 +1798,7 @@ export function EmptyState({
           >
             {hints.map((h, i) => {
               const styles: React.CSSProperties = {
+                borderRadius: RADIUS.sm,
                 padding: '6px 12px',
                 background: 'transparent',
                 border: `1px solid ${alpha(T.champagne, 0.4)}`,
@@ -1790,6 +1806,7 @@ export function EmptyState({
                 fontSize: FS[10],
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(h.label, 0.5),
+                wordSpacing: labelWordSpacing(h.label),
                 textTransform: labelCase(h.label),
                 textDecoration: 'none',
                 cursor: 'pointer',
@@ -2073,6 +2090,7 @@ export function KPI({
             color: T.subtle,
             fontFamily: F.mono,
             letterSpacing: labelTracking(label, 1.5),
+            wordSpacing: labelWordSpacing(label),
             textTransform: labelCase(label),
             marginBottom: S[2.5],
             fontWeight: 500,
@@ -2132,6 +2150,7 @@ export function KPI({
           role="tooltip"
           onClick={(e) => e.stopPropagation()}
           style={{
+            borderRadius: RADIUS.md,
             position: 'fixed',
             top: tooltipRect.bottom + 6,
             left: tooltipRect.left,
@@ -2155,6 +2174,7 @@ export function KPI({
                 setTapOpen(false);
               }}
               style={{
+                borderRadius: RADIUS.sm,
                 position: 'absolute',
                 top: 6,
                 right: 6,
@@ -2208,6 +2228,7 @@ export function TooltipBody({
           fontSize: FS[10],
           color: T.champagne,
           letterSpacing: labelTracking(title, 1.5),
+          wordSpacing: labelWordSpacing(title),
           fontFamily: F.mono,
           textTransform: labelCase(title),
           marginBottom: S[2],
@@ -2309,6 +2330,7 @@ export function infoPopoverStyle(opts?: {
   maxWidth?: number | string;
 }): CSSProperties {
   return {
+    borderRadius: RADIUS.md,
     width: opts?.width ?? 340,
     maxWidth: opts?.maxWidth ?? '90vw',
     background: T.surface,
@@ -2323,20 +2345,28 @@ export function infoPopoverStyle(opts?: {
 export function SectionTitle({
   children,
   noMargin,
+  as: Comp = 'div',
 }: {
   children: ReactNode;
   /** flex 헤더 행(제목+배지)에서 세로 중앙정렬이 깨지지 않도록 하단 마진 제거용. */
   noMargin?: boolean;
+  /**
+   * 문서 구조상 제목이면 h2 · h3 로. 기본은 div(기존 178곳 호환). UX-08 (Codex 2026-09-13): 긴 설정 화면이
+   * 제목 탐색으로 구역을 못 찾았다. 화면의 «큰 구역» 제목에만 쓸 것(중첩은 h3).
+   */
+  as?: 'div' | 'h2' | 'h3';
 }) {
   return (
-    <div
+    <Comp
       style={{
+        margin: 0,
         fontSize: FS[10],
         color: T.champagne,
         // 🔴 2026-08-21: 한글이면 자간 0. 이 컴포넌트는 **전 페이지 섹션 헤더**라,
         //    2.2px 트래킹이 「오늘  처리할  것」처럼 낱글자로 흩어져 보였다(오빠 지적).
         //    라틴 대문자는 벌려야 읽히지만 한글은 반대다. 규칙은 tokens 의 labelTracking.
         letterSpacing: labelTracking(children, 2.2),
+        wordSpacing: labelWordSpacing(children),
         fontFamily: F.mono,
         textTransform: labelCase(children),
         marginBottom: noMargin ? 0 : 14,
@@ -2344,7 +2374,7 @@ export function SectionTitle({
       }}
     >
       {children}
-    </div>
+    </Comp>
   );
 }
 
@@ -2362,6 +2392,7 @@ export function Section({ title, children }: { title: ReactNode; children: React
           fontSize: FS[10],
           fontWeight: 500,
           letterSpacing: labelTracking(title, '0.14em'),
+          wordSpacing: labelWordSpacing(title),
           color: T.champagne,
           textTransform: labelCase(title),
           marginBottom: S[3],
@@ -2446,6 +2477,7 @@ export function SectionTitleInfo({
           fontSize: FS[10],
           color: T.champagne,
           letterSpacing: labelTracking(children, 2.2),
+          wordSpacing: labelWordSpacing(children),
           fontFamily: F.mono,
           textTransform: labelCase(children),
           fontWeight: 500,
@@ -2490,6 +2522,7 @@ export function CardTitle({ children }: { children: ReactNode }) {
         color: T.muted,
         fontFamily: F.mono,
         letterSpacing: labelTracking(children, 1),
+        wordSpacing: labelWordSpacing(children),
         textTransform: labelCase(children),
         marginBottom: S[3.5],
       }}
@@ -2590,6 +2623,7 @@ export function ScrollTable({
   children,
   minWidth = 760,
   stickyFirstCol = false,
+  tall = false,
   className,
 }: {
   children: ReactNode;
@@ -2597,10 +2631,19 @@ export function ScrollTable({
   minWidth?: number;
   /** 첫 컬럼 sticky 고정 (가로 스크롤 시 식별용). */
   stickyFirstCol?: boolean;
+  /**
+   * 세로 한계를 준다(70vh). 머리글을 붙이려면 «붙을 자리»가 있어야 한다.
+   *
+   * 🔴 이 감싸개는 overflow-x: auto 라 overflow-y 가 auto 로 «계산»된다.
+   *    그러면 이 상자가 sticky 의 기준이 되는데, 세로 한계가 없으면
+   *    scrollHeight == clientHeight 라 붙을 자리가 없다. Q-Forge 가 이 한계
+   *    없이 sticky 를 걸어 두어 한 번도 안 붙었다(그쪽 감사 #8 · 실측 294/294).
+   */
+  tall?: boolean;
   className?: string;
 }) {
   const id = useId().replace(/:/g, '');
-  const wrapperCls = `qa-scroll-table qa-st-${id}${stickyFirstCol ? ' qa-sticky-first' : ''}${className ? ` ${className}` : ''}`;
+  const wrapperCls = `qa-scroll-table qa-st-${id}${stickyFirstCol ? ' qa-sticky-first' : ''}${tall ? ' qa-scroll-table--tall' : ''}${className ? ` ${className}` : ''}`;
   /*
    * 🔴 2026-09-09 감사(주제 #10). 종이에는 가로 스크롤이 없다. minWidth 가 종이
    *    가용폭보다 넓으면 오른쪽 끝이 **잘렸다는 표시도 없이** 사라진다.
@@ -2650,6 +2693,7 @@ export function DataTable<T>({
   minWidth,
   dense = false,
   stickyFirstCol = false,
+  stickyHeader = false,
   empty,
   getRowStyle,
   ariaLabel,
@@ -2670,6 +2714,19 @@ export function DataTable<T>({
   dense?: boolean;
   /** 가로 스크롤 시 첫 컬럼 고정(ScrollTable). */
   stickyFirstCol?: boolean;
+  /**
+   * 세로로 훑을 때 머리글을 따라오게 한다.
+   *
+   * 🔴 2026-09-09 감사(주제 #11). 100건짜리 목록을 훑으면 머리글이 화면 밖으로
+   *    나가고, 그때부터 셋째 칸이 무엇인지 모르고 읽는다. 저장소 전체에서 이것을
+   *    한 곳(admin/permissions-matrix)이 손으로 적고 있었다 · 부품이 없어서다.
+   *
+   * ⚠️ `position: sticky` 는 «세로 한계가 있는 조상» 이 있어야 붙는다.
+   *    이 제품은 `<main>` 이 스크롤 host 라(실측 1927/900) 그대로 붙는다.
+   *    Q-Forge 는 감싸개가 `overflow-x` 뿐이라 같은 선언이 한 번도 안 붙었다
+   *    (그쪽 감사 #8). 새 자리에 걸 때는 조상을 먼저 볼 것.
+   */
+  stickyHeader?: boolean;
   /** rows 가 비었을 때 표시할 내용. */
   empty?: ReactNode;
   /** 행 단위 스타일(배경 tint·opacity 등): per-row 상태/강조 표현. */
@@ -2684,7 +2741,14 @@ export function DataTable<T>({
   const headerRow = showHeader ? (
     <div
       role="row"
-      style={{ display: 'grid', gridTemplateColumns: template, borderBottom: `1px solid ${T.border}` }}
+      style={{
+        display: 'grid',
+        gridTemplateColumns: template,
+        borderBottom: `1px solid ${T.border}`,
+        ...(stickyHeader
+          ? { position: 'sticky' as const, top: 0, zIndex: Z.sticky, background: T.surface }
+          : null),
+      }}
     >
       {columns.map((c) => (
         <div
@@ -2697,6 +2761,7 @@ export function DataTable<T>({
             fontSize: FS[10],
             fontWeight: 500,
             letterSpacing: labelTracking(c.header, '0.12em'),
+            wordSpacing: labelWordSpacing(c.header),
             color: T.subtle,
             textTransform: labelCase(c.header),
           }}
@@ -2778,7 +2843,7 @@ export function DataTable<T>({
 
   if (minWidth || stickyFirstCol) {
     return (
-      <ScrollTable minWidth={minWidth} stickyFirstCol={stickyFirstCol}>
+      <ScrollTable minWidth={minWidth} stickyFirstCol={stickyFirstCol} tall={stickyHeader}>
         {content}
       </ScrollTable>
     );
@@ -2894,6 +2959,7 @@ export function EntityRow({
                   fontSize: FS[10],
                   fontWeight: 500,
                   letterSpacing: labelTracking(code, '0.1em'),
+                  wordSpacing: labelWordSpacing(code),
                   color: T.champagne,
                 }}
               >
@@ -3694,6 +3760,7 @@ export function Stat({
           fontSize: FS[10],
           color: T.muted,
           letterSpacing: labelTracking(label, '0.12em'),
+          wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
           marginBottom: S[1],
         }}
@@ -3731,7 +3798,7 @@ export function StatGrid({ children, minCol = 120 }: { children: ReactNode; minC
 export function DetailRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
-      <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.1em'), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
+      <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.1em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
       <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{value}</span>
     </div>
   );
@@ -3784,6 +3851,7 @@ export function WorkspaceTab({
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: labelTracking(sub, 0.5),
+          wordSpacing: labelWordSpacing(sub),
           marginTop: 3,
           textTransform: labelCase(sub),
         }}

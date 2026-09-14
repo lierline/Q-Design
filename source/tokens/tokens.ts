@@ -8,7 +8,8 @@
 //     (subtle #b7b0a5 ~7.5:1, muted #7e7868 ~4.53:1 on #0c0c0c)
 //     ※ 이전 muted #6e685f 는 ~3.54:1 으로 AA 미달: 2026-06-01 보정.
 //   ▶ champagne: 럭셔리 톤을 위해 더 깊은 골드 #b8935a 사용.
-const DARK_PALETTE = {
+// 🔑 두 팔레트는 globals.css 의 «사본» 이고 lib/design/contrast.test 가 동기화를 잰다. 화면은 T 를 쓸 것.
+export const DARK_PALETTE = {
   bg:        '#0c0c0c',
   surface:   '#141414',
   surface2:  '#1b1b1b',
@@ -29,7 +30,7 @@ const DARK_PALETTE = {
 // 라이트 팔레트: globals.css 의 html[data-theme='light'] 변수와 동기화.
 //   ▶ subtle/muted: 라이트 배경 위 WCAG AA (4.5:1) 통과 보정값 (Batch A).
 //   ▶ 옛 값 (#5a5550 / #8a8478) 은 globals.css 에서 더 진한 톤으로 통일됨.
-const LIGHT_PALETTE = {
+export const LIGHT_PALETTE = {
   bg:        '#faf9f6',
   surface:   '#ffffff',
   surface2:  '#f3f1ec',
@@ -121,23 +122,6 @@ export const BP = {
 } as const;
 
 export type BpKey = keyof typeof BP;
-
-const media = {
-  sm: `@media (min-width: ${BP.sm}px)`,
-  md: `@media (min-width: ${BP.md}px)`,
-  lg: `@media (min-width: ${BP.lg}px)`,
-  xl: `@media (min-width: ${BP.xl}px)`,
-  '2xl': `@media (min-width: ${BP['2xl']}px)`,
-  // mobile-first 대비: max-width (특정 breakpoint **미만** 에서만 적용).
-  maxSm: `@media (max-width: ${BP.sm - 1}px)`,
-  maxMd: `@media (max-width: ${BP.md - 1}px)`,
-  maxLg: `@media (max-width: ${BP.lg - 1}px)`,
-  maxXl: `@media (max-width: ${BP.xl - 1}px)`,
-  // 터치/호버/모션: 디바이스 차원.
-  touch: '@media (hover: none) and (pointer: coarse)',
-  hover: '@media (hover: hover) and (pointer: fine)',
-  reduceMotion: '@media (prefers-reduced-motion: reduce)',
-} as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SPACING RHYTHM: 4px base + 2px 하프스텝(.5 키).
@@ -431,6 +415,36 @@ export function labelTracking(
   value: number | string = '0.08em',
 ): number | string {
   return hasHangul(node) ? 0 : value;
+}
+
+/**
+ * 한글 이름표의 «어절 공백». 모노 글꼴이 걸린 자리에서만 쓴다.
+ *
+ * 🔴 2026-09-09 감사(주제 #1). 자간과 대문자를 풀어도 «공백»이 남는다.
+ *    한글 «글자» 자체는 폴백(Pretendard)이 그려서 폭이 같은데, 어절 사이 공백은
+ *    모노가 그린다. 실측: 10px 에서 JetBrains Mono 6px · Pretendard 2.51px 로
+ *    두 배 넘게 벌어진다. 그래서 「자간 0 · 대문자 없음」인데도
+ *    「오늘  먼저  할  일」처럼 보인다. 자간만 세는 검사는 이것을 0곳으로 본다.
+ *
+ *    글꼴을 바꾸지 않고 «공백 폭만» 되돌린다. 그래야 「생산 로트 LOT-2026-004」
+ *    같은 섞인 이름표에서 코드가 모노로 남는다.
+ *    0.6em - 0.35em = 0.25em 이라 본문 글꼴 공백과 맞는다.
+ *
+ * ⚠️ **모노가 아닌 요소에 걸면 안 된다.** word-spacing 은 상속 속성이라
+ *    본문 글꼴 자리에 -0.35em 을 걸면 어절이 겹친다. 실제로 이 저장소에서
+ *    labelTracking 을 쓰는 38자리 중 셋(Button · /audit 두 곳)은 `F.ui` 라
+ *    일부러 빼 두었다. 붙일 때는 같은 style 에 `fontFamily: F.mono` 가
+ *    있는지 먼저 볼 것.
+ *
+ * 🔑 정본(Q-Design)은 같은 값을 CSS 변수 `--qd-hangul-word-space` 로 낸다.
+ *    이 저장소는 정본 CSS 를 안 쓰므로 여기서 같은 폭을 든다.
+ *
+ * @example wordSpacing: labelWordSpacing(children)
+ */
+export const HANGUL_WORD_SPACE = '-0.35em';
+
+export function labelWordSpacing(node: unknown): string | undefined {
+  return hasHangul(node) ? HANGUL_WORD_SPACE : undefined;
 }
 
 /**

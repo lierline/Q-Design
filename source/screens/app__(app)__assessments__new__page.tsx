@@ -18,7 +18,7 @@ import {
   Sel,
   Txt,
 } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH, LAYOUT } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, LAYOUT, RADIUS } from '@/lib/design/tokens';
 import {
   CHANGE_REASONS,
   CHANGE_STAGES_UI,
@@ -310,6 +310,7 @@ export default function NewAssessmentPage() {
       {/* Progress bar */}
       <div
         style={{
+          borderRadius: RADIUS.md,
           marginBottom: S[7],
           padding: '14px 18px',
           background: T.surface,
@@ -390,6 +391,7 @@ export default function NewAssessmentPage() {
           {selectedProduct && (
             <div
               style={{
+                borderRadius: RADIUS.md,
                 marginTop: S[3],
                 padding: '10px 14px',
                 background: T.surface2,
@@ -460,6 +462,7 @@ export default function NewAssessmentPage() {
                     type="button"
                     onClick={() => toggleArr(setSubTypes, subTypes, st.id)}
                     style={{
+                      borderRadius: RADIUS.md,
                       padding: '7px 14px',
                       fontSize: FS[11],
                       cursor: 'pointer',
@@ -570,6 +573,7 @@ export default function NewAssessmentPage() {
                   type="button"
                   onClick={() => toggleArr(setReasons, reasons, r.id)}
                   style={{
+                    borderRadius: RADIUS.md,
                     padding: '7px 16px',
                     fontSize: FS[11],
                     cursor: 'pointer',
@@ -608,6 +612,7 @@ export default function NewAssessmentPage() {
                 setImpactChecks(all);
               }}
               style={{
+                borderRadius: RADIUS.md,
                 padding: '7px 16px',
                 fontSize: FS[11],
                 cursor: 'pointer',
@@ -623,6 +628,7 @@ export default function NewAssessmentPage() {
               type="button"
               onClick={() => setImpactChecks({})}
               style={{
+                borderRadius: RADIUS.md,
                 padding: '7px 16px',
                 fontSize: FS[11],
                 cursor: 'pointer',
@@ -679,6 +685,7 @@ export default function NewAssessmentPage() {
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'none' }))
                       }
                       style={{
+                        borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
                         fontSize: FS[11],
@@ -698,6 +705,7 @@ export default function NewAssessmentPage() {
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'has' }))
                       }
                       style={{
+                        borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
                         fontSize: FS[11],

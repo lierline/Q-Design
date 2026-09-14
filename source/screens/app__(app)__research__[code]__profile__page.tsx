@@ -10,7 +10,7 @@ import type { AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { Alert, Bx, Btn, LoadingState, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { longDateTime } from '@/lib/date';
 import { Download, Loader2, RefreshCw, Sparkles } from 'lucide-react';
 import { PageGuide } from '@/components/PageGuide';
@@ -382,6 +382,7 @@ export default function ProfilePage() {
         {project.confirmed_item_code && project.predicted_item_name ? (
           <div
             style={{
+              borderRadius: RADIUS.md,
               padding: '14px 16px',
               background: `${alpha(T.green, 0.05)}`,
               border: `1px solid ${T.green}`,
@@ -425,6 +426,7 @@ export default function ProfilePage() {
               type="button"
               onClick={() => setQMatchOpen((v) => !v)}
               style={{
+                borderRadius: RADIUS.sm,
                 marginLeft: 'auto',
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
@@ -445,6 +447,7 @@ export default function ProfilePage() {
           // 보류됨. 사용자가 후보 중 적절한 게 없어 일단 넘어간 상태
           <div
             style={{
+              borderRadius: RADIUS.md,
               padding: '12px 14px',
               background: `${alpha(T.muted, 0.06)}`,
               border: `1px dashed ${T.muted}`,
@@ -478,6 +481,7 @@ export default function ProfilePage() {
               type="button"
               onClick={() => void deferItem(true)}
               style={{
+                borderRadius: RADIUS.sm,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.text,
@@ -494,6 +498,7 @@ export default function ProfilePage() {
         ) : project.predicted_item_code ? (
           <div
             style={{
+              borderRadius: RADIUS.md,
               padding: '12px 14px',
               background: `${alpha(T.warning, 0.05)}`,
               border: `1px dashed ${T.warning}`,
@@ -520,6 +525,7 @@ export default function ProfilePage() {
               onClick={() => void deferItem(false)}
               title="후보 중 맞는 게 없으면 일단 보류하고 나중에 확정할 수 있습니다."
               style={{
+                borderRadius: RADIUS.sm,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.muted,
@@ -536,6 +542,7 @@ export default function ProfilePage() {
         ) : (
           <div
             style={{
+              borderRadius: RADIUS.md,
               padding: '12px 14px',
               background: T.surface,
               border: `1px dashed ${T.border}`,
@@ -559,6 +566,7 @@ export default function ProfilePage() {
               onClick={() => void deferItem(false)}
               title="지금 결정하지 않고 나중에 입력하시려면 보류해 두실 수 있습니다."
               style={{
+                borderRadius: RADIUS.sm,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.muted,
@@ -658,7 +666,7 @@ export default function ProfilePage() {
         <Bx style={{ padding: S[4.5], marginBottom: S[7], textAlign: 'center' }}>
           <Loader2 size={16} className="animate-spin" style={{ color: T.muted, marginBottom: S[2] }} />
           <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
-            Q-Atelier 분석이 아직 완료되지 않았습니다. 위 'Q-Atelier 분석 다시 실행' 을 눌러주세요.
+            Q-Atelier 분석이 아직 완료되지 않았습니다. 위 「Q-Atelier 분석 다시 실행」 을 눌러주세요.
           </div>
         </Bx>
       ) : (

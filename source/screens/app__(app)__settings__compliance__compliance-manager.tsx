@@ -9,7 +9,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Alert, Bx, Btn, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
 import { useConfirm } from '@/components/Confirm';
-import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -33,7 +33,8 @@ import {
   type Severity,
 } from '@/lib/compliance/checklist';
 import { getTemplateInfo } from '@/lib/template-catalog';
-import type { ScoreResult } from '@/lib/compliance/scoring';
+import { REACHABLE_FINDING_GRADES } from '@/lib/compliance/scoring';
+import type { ScoreResult, AuditOutlook } from '@/lib/compliance/scoring';
 import { dateOnly } from '@/lib/date';
 
 interface AssessmentRow {
@@ -275,6 +276,7 @@ export function ComplianceManager({
               type="button"
               onClick={() => setActiveId(a.id)}
               style={{
+                borderRadius: RADIUS.sm,
                 // Btn sm 과 정확히 동일한 box: 36px 높이, 7×14 padding,
                 // boxSizing:border-box, lineHeight:1.
                 boxSizing: 'border-box',
@@ -402,6 +404,7 @@ function ComplianceDetail({
       {/* ─── 액션 ────────────────────────────────────────────────── */}
       <div
         style={{
+          borderRadius: RADIUS.md,
           marginTop: S[6],
           padding: S[3.5],
           background: T.surface,
@@ -430,6 +433,7 @@ function ComplianceDetail({
           onClick={onDelete}
           disabled={busy}
           style={{
+            borderRadius: RADIUS.sm,
             padding: '7px 14px',
             background: 'transparent',
             color: T.red,
@@ -464,14 +468,16 @@ function ScoreOverview({
   const pct = score.overall.score_pct;
   const _ = assessment; // suppress unused warning
   void _;
-  const outlookColor =
-    outlook.outcome === 'likely_pass'
-      ? T.green
-      : outlook.outcome === 'pass_with_findings'
-        ? T.subtle
-        : outlook.outcome === 'likely_findings'
-          ? T.warning
-          : T.red;
+  // 🔑 «모른다» 는 빨강이 아니다. 위험 신호로 칠하면 사용자가 나쁜 소식으로 읽는다.
+  //    마지막 else 에 흘려 두면 새 값이 조용히 빨강이 된다.
+  const OUTLOOK_COLOR: Record<AuditOutlook, string> = {
+    likely_pass: T.green,
+    pass_with_findings: T.subtle,
+    likely_findings: T.warning,
+    high_risk: T.red,
+    not_enough_data: T.muted,
+  };
+  const outlookColor = OUTLOOK_COLOR[outlook.outcome as AuditOutlook] ?? T.muted;
 
   return (
     <div>
@@ -483,7 +489,11 @@ function ScoreOverview({
         }
       `}</style>
       <SectionTitle>점수 개요</SectionTitle>
-      <div className="qa-compliance-score-strip" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: S[2.5] }}>
+      {/* 🔑 열 수를 손으로 적지 않는다. 카드 수가 바뀌면 즉시 어긋난다. */}
+      <div
+        className="qa-compliance-score-strip"
+        style={{ display: 'grid', gridTemplateColumns: `2fr ${REACHABLE_FINDING_GRADES.map(() => '1fr').join(' ')}`, gap: S[2.5] }}
+      >
         {/* ─── 전체 점수 큰 카드 ─── */}
         <Bx style={{ padding: S[4.5], borderLeft: `3px solid ${outlookColor}`, background: alpha(outlookColor, 0.04) }}>
           <div
@@ -500,8 +510,12 @@ function ScoreOverview({
             <span style={{ fontSize: FS[40], color: T.text, fontFamily: F.serif, fontWeight: 500, lineHeight: LH.none }}>
               {pct}%
             </span>
+            {/* 🔴 종전: `compliant + partial*0.5` 를 분자로 썼다. 그것은 «개수» 이고
+                분모는 «가중 합» 이라, 「3점 / 6점: 가중」 옆에 머리 숫자가 100% 로 떴다.
+                올바른 값(`weighted_score`)이 이미 있는데 화면이 따로 계산한 탓이다
+                ([[duplicated-fact-drift]]). 이제 그 값을 그대로 읽는다. */}
             <span style={{ fontSize: FS[11], color: T.muted, fontFamily: F.mono }}>
-              ({score.overall.compliant + score.overall.partial * 0.5 || 0}점 / {score.overall.weighted_total}점: 가중)
+              ({round1(score.overall.weighted_score)}점 / {round1(score.overall.weighted_total)}점: 가중)
             </span>
           </div>
           {/* progress bar */}
@@ -513,14 +527,26 @@ function ScoreOverview({
           </div>
         </Bx>
 
-        <MetricCard label="치명적 부적합" value={score.overall.critical_gaps} accent={T.red} sub="Critical" />
-        <MetricCard label="중대 부적합" value={score.overall.major_gaps} accent={T.warning} sub="Major" />
-        <MetricCard label="경미 부적합" value={score.overall.minor_gaps} accent={T.subtle} sub="Minor" />
+        {/* 🔴 종전에는 「경미 부적합 0」 카드가 «영원히» 0 으로 떠 있었다. 체크리스트
+            49항목 중 minor 가 한 개도 없기 때문이다(첫 판부터). 0 은 「좋다」로 읽히지
+            「우리가 아예 안 재는 축이다」로는 읽히지 않는다([[declared-but-unread]]).
+            이제 체크리스트가 «쓰는» 심각도만 낸다. 경미 항목이 생기면 카드가 저절로
+            돌아온다. 계약(`checklist.test.ts`)이 안 쓰이는 심각도에 이유를 요구한다. */}
+        {REACHABLE_FINDING_GRADES.map((sv) => (
+          <MetricCard
+            key={sv}
+            label={`${SEVERITY_LABEL[sv]} 부적합`}
+            value={score.overall[`${sv}_gaps`]}
+            accent={SEV_ACCENT[sv]}
+            sub={SEV_SUB[sv]}
+          />
+        ))}
       </div>
 
       {/* ─── 응답 진행도 ─── */}
       <div
         style={{
+          borderRadius: RADIUS.md,
           marginTop: S[2.5],
           padding: S[3],
           background: T.surface,
@@ -567,6 +593,23 @@ function ScoreOverview({
       </div>
     </div>
   );
+}
+
+/** 심각도별 강조색·영문 꼬리표. 🔑 전수 표라 새 심각도가 생기면 타입이 막는다. */
+const SEV_ACCENT: Record<Severity, string> = {
+  critical: T.red,
+  major: T.warning,
+  minor: T.subtle,
+};
+const SEV_SUB: Record<Severity, string> = {
+  critical: 'Critical',
+  major: 'Major',
+  minor: 'Minor',
+};
+
+/** 부분 적합이 가중치의 절반을 주므로 가중 점수는 .5 가 나온다. 소수 한 자리까지만 낸다. */
+function round1(n: number): string {
+  return String(Math.round(n * 10) / 10);
 }
 
 function MetricCard({
@@ -710,6 +753,7 @@ function ClauseItems({
         <div
           role="status"
           style={{
+            borderRadius: RADIUS.md,
             padding: '10px 14px',
             background: alpha(T.warning, 0.08),
             border: `1px solid ${alpha(T.warning, 0.35)}`,
@@ -828,6 +872,7 @@ function ItemBlock({
                     key={c}
                     href="/settings/templates"
                     style={{
+                      borderRadius: RADIUS.sm,
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: S[1],
@@ -855,6 +900,7 @@ function ItemBlock({
           title={editable ? undefined : '본인 직무로는 답변 권한이 없습니다.'}
           onChange={(e) => onUpdate({ status: e.target.value as ItemRow['status'] })}
           style={{
+            borderRadius: RADIUS.md,
             padding: '5px 8px',
             background: T.surface,
             border: `1px solid ${T.border}`,
@@ -917,6 +963,7 @@ function ItemBlock({
 }
 
 const textareaStyle: React.CSSProperties = {
+  borderRadius: RADIUS.md,
   width: '100%',
   padding: '6px 8px',
   background: T.surface,
@@ -964,7 +1011,9 @@ function GapReport({
           lineHeight: LH.relaxed,
         }}
       >
-        ▸ 심각도 순으로 정렬되었습니다. 치명적 부적합은 외부 감사 시 Major NCR 발급 가능성이 높습니다.
+        ▸ 지적 등급 순으로 정렬되었습니다. 치명적 부적합은 외부 감사 시 Major NCR 발급 가능성이 높습니다.
+        등급은 «조항의 중요도» 와 «이행 정도» 를 함께 봅니다. 절차가 아예 없으면 조항 등급 그대로,
+        있는데 이행이 덜 됐으면 한 단계 낮게 잡습니다.
       </div>
 
       {gaps.map((g) => (
@@ -972,7 +1021,7 @@ function GapReport({
           key={g.item.code}
           style={{
             padding: S[3.5],
-            borderLeft: `2px solid ${SEVERITY_COLOR[g.item.severity]}`,
+            borderLeft: `2px solid ${SEVERITY_COLOR[g.grade]}`,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'baseline', gap: S[2], flexWrap: 'wrap', marginBottom: S[1.5] }}>
@@ -981,7 +1030,15 @@ function GapReport({
             ) : (
               <AlertTriangle size={14} style={{ color: T.warning, flexShrink: 0 }} />
             )}
-            <Tag color={SEVERITY_COLOR[g.item.severity]}>{SEVERITY_LABEL[g.item.severity]}</Tag>
+            {/* 🔑 «지적» 등급이다. 조항의 중요도(g.item.severity)와 다를 수 있다.
+                다를 때는 원래 조항 등급도 함께 낸다. 안 그러면 사용자가 「치명 조항인데
+                왜 중대로 나오지」에서 멈춘다. */}
+            <Tag color={SEVERITY_COLOR[g.grade]}>{SEVERITY_LABEL[g.grade]}</Tag>
+            {g.grade !== g.item.severity && (
+              <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.serif }}>
+                ({SEVERITY_LABEL[g.item.severity]} 조항 · 부분 이행이라 한 단계 낮춤)
+              </span>
+            )}
             <Tag color={STATUS_COLOR[g.answer.status]}>{STATUS_LABEL[g.answer.status]}</Tag>
             <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>{g.item.iso_reference}</span>
           </div>
@@ -1017,6 +1074,7 @@ function GapReport({
                     key={c}
                     href="/settings/templates"
                     style={{
+                      borderRadius: RADIUS.sm,
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: S[1],
@@ -1061,6 +1119,7 @@ function GapReport({
 
 function smallBtn(color: string): React.CSSProperties {
   return {
+    borderRadius: RADIUS.sm,
     display: 'inline-flex',
     alignItems: 'center',
     gap: S[1],

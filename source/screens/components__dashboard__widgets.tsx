@@ -13,7 +13,7 @@
 
 import Link from 'next/link';
 import { Bx, Btn, Card, CardTitle, DataTable, Tag, type DataTableColumn } from '@/lib/design/components';
-import { S, F, FS, T, alpha, riskColor, LH, labelTracking } from '@/lib/design/tokens';
+import { F, FS, LH, S, T, alpha, labelTracking, labelWordSpacing, riskColor } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
 import { computeResearchProgress } from '@/lib/research/progress';
 import { latestResult } from './utils';
@@ -46,6 +46,7 @@ export function OrgBreakdownList({
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.2),
+          wordSpacing: labelWordSpacing(title),
           textTransform: 'uppercase',
           fontWeight: 600,
           marginBottom: S[2],
@@ -128,6 +129,7 @@ export function KpiItemList({
             color: T.champagne,
             fontFamily: F.mono,
             letterSpacing: labelTracking(title, 1.2),
+            wordSpacing: labelWordSpacing(title),
             textTransform: 'uppercase',
             fontWeight: 600,
             marginBottom: S[2],
@@ -164,6 +166,7 @@ export function KpiItemList({
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.2),
+          wordSpacing: labelWordSpacing(title),
           textTransform: 'uppercase',
           fontWeight: 600,
           marginBottom: S[2],

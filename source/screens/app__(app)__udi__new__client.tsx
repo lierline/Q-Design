@@ -53,6 +53,8 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
   const [submitting, setSubmitting] = useState(false);
   const [looking, setLooking] = useState(false);
   const [lookupInfo, setLookupInfo] = useState<MfdsProduct | null>(null);
+  // 2026-09-13: 표준코드별 통합정보(라텍스 · 프탈레이트 · MRI 안전 · SW 버전 · 급여코드). 실패해도 위 조회는 그대로.
+  const [unityInfo, setUnityInfo] = useState<{ contains_latex: boolean | null; contains_phthalate: boolean | null; mri_safety: string | null; software_version: string | null; edi_codes: string | null } | null>(null);
   const [lookupMsg, setLookupMsg] = useState<string | null>(null);
   const [suggestion, setSuggestion] = useState<PiSuggestion | null>(null);
 
@@ -78,6 +80,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
     setLooking(true);
     setLookupMsg(null);
     setLookupInfo(null);
+    setUnityInfo(null);
     try {
       const res = await fetch(`/api/mfds/products?udi=${encodeURIComponent(di)}&rows=1`);
       const json = await res.json();
@@ -104,6 +107,16 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
         }),
       );
       toast.success('MFDS 조회 완료: 빈 항목을 자동으로 채웠어요.');
+      // 통합정보는 식약처 쪽이 5~9초 걸린다. 뒤에서 받아 붙인다.
+      void (async () => {
+        try {
+          const ur = await fetch(`/api/mfds/unity?udidi=${encodeURIComponent(di)}`);
+          const uj = ur.ok ? await ur.json() : null;
+          if (uj?.item) setUnityInfo(uj.item);
+        } catch {
+          /* 보강일 뿐 */
+        }
+      })();
     } catch (e) {
       setLookupMsg(e instanceof Error ? e.message : 'MFDS 조회 실패');
     } finally {
@@ -267,6 +280,11 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
                     ['허가번호', lookupInfo.prmsn_no],
                     ['모델명', lookupInfo.model_name],
                     ['업체', lookupInfo.company_name],
+                    ['라텍스', unityInfo ? (unityInfo.contains_latex == null ? null : unityInfo.contains_latex ? '포함' : '미포함') : null],
+                    ['프탈레이트', unityInfo ? (unityInfo.contains_phthalate == null ? null : unityInfo.contains_phthalate ? '포함' : '미포함') : null],
+                    ['MRI 안전', unityInfo?.mri_safety ?? null],
+                    ['SW 버전', unityInfo?.software_version ?? null],
+                    ['급여코드', unityInfo?.edi_codes ?? null],
                   ] as const).filter(([, v]) => v).map(([k, v]) => (
                     <div key={k} style={{ display: 'flex', gap: S[2], fontFamily: F.serif, fontSize: FS[12] }}>
                       <span style={{ color: T.muted, minWidth: 52, flexShrink: 0 }}>{k}</span>
@@ -324,7 +342,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
                     <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text, fontWeight: 600 }}>
                       {m.label}
                       {isRec && (
-                        <span style={{ marginLeft: S[1.5], fontFamily: F.mono, fontSize: FS[9], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: 3, padding: '1px 5px', letterSpacing: 0.5, verticalAlign: 'middle' }}>권장</span>
+                        <span style={{ marginLeft: S[1.5], fontFamily: F.mono, fontSize: FS[9], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: RADIUS.sm, padding: '1px 5px', letterSpacing: 0.5, verticalAlign: 'middle' }}>권장</span>
                       )}
                     </span>
                     <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[11], color: T.subtle, marginTop: S[0.5], lineHeight: LH.normal }}>{m.help}</span>
@@ -413,7 +431,7 @@ function CarrierLine({ ai, value, dim, example }: { ai?: string; value: string; 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: S[2], padding: '7px 10px', background: alpha(T.champagne, 0.04), border: `1px solid ${T.border}`, borderRadius: RADIUS.sm }}>
       {ai && (
-        <span style={{ fontFamily: F.mono, fontSize: FS[10], color: T.champagne, background: alpha(T.champagne, 0.1), border: `1px solid ${alpha(T.champagne, 0.35)}`, borderRadius: 3, padding: '1px 5px', flexShrink: 0 }}>
+        <span style={{ fontFamily: F.mono, fontSize: FS[10], color: T.champagne, background: alpha(T.champagne, 0.1), border: `1px solid ${alpha(T.champagne, 0.35)}`, borderRadius: RADIUS.sm, padding: '1px 5px', flexShrink: 0 }}>
           ({ai})
         </span>
       )}

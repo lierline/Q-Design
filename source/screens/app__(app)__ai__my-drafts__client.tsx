@@ -7,7 +7,7 @@ import { useToast } from '@/components/Toast';
 import { useConfirm } from '@/components/Confirm';
 import { useCopyToClipboard } from '@/lib/hooks/useCopyToClipboard';
 import { Bx, PageHd, Tag, Btn, Modal } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH, LAYOUT } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, LAYOUT, RADIUS } from '@/lib/design/tokens';
 
 interface ProjectOption {
   code: string;
@@ -101,6 +101,8 @@ export function MyDraftsClient() {
 
   useEffect(() => {
     void load();
+    // 마운트 때 한 번만. load 는 삭제 뒤에도 따로 부른다.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function deleteOne(id: string) {
@@ -291,6 +293,7 @@ export function MyDraftsClient() {
                 <>
                   <pre
                     style={{
+                      borderRadius: RADIUS.md,
                       padding: S[3.5],
                       background: alpha(T.text, 0.03),
                       border: `1px solid ${T.border}`,
@@ -395,6 +398,7 @@ export function MyDraftsClient() {
                 onChange={(e) => setSelectedProject(e.target.value)}
                 aria-label="연결할 프로젝트 선택"
                 style={{
+                  borderRadius: RADIUS.md,
                   width: '100%',
                   padding: '12px 14px',
                   // iOS auto-zoom 방지 (≥16px)

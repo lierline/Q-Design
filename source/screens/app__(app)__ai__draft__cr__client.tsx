@@ -586,7 +586,7 @@ export function CRWizardClient() {
                                   padding: '2px 6px',
                                   background: alpha(T.green, 0.1),
                                   color: T.green,
-                                  borderRadius: 2,
+                                  borderRadius: RADIUS.sm,
                                   flexShrink: 0,
                                 }}
                               >
@@ -641,7 +641,7 @@ export function CRWizardClient() {
                                   padding: '2px 6px',
                                   background: alpha(T.champagne, 0.1),
                                   color: T.champagne,
-                                  borderRadius: 2,
+                                  borderRadius: RADIUS.sm,
                                   flexShrink: 0,
                                 }}
                               >
@@ -957,7 +957,7 @@ export function CRWizardClient() {
                 style={{
                   marginBottom: 12,
                   padding: '10px 12px',
-                  borderRadius: 10,
+                  borderRadius: RADIUS.md,
                   border: `1px solid ${T.warning}`,
                   background: T.surface,
                   color: T.text,
@@ -1049,6 +1049,7 @@ export function CRWizardClient() {
           <div
             ref={promoteDialogRef}
             style={{
+              borderRadius: RADIUS.md,
               background: T.surface,
               border: `1px solid ${T.border}`,
               maxWidth: 480,
@@ -1109,7 +1110,7 @@ export function CRWizardClient() {
                   value={promoteProject}
                   onChange={(e) => setPromoteProject(e.target.value)}
                   aria-label="연결할 R&D 프로젝트 선택"
-                  style={{ width: '100%', padding: '12px 14px', fontSize: FS[16], fontFamily: F.ui, background: T.bg, border: `1px solid ${T.border}`, color: T.text, minHeight: 44 }}
+                  style={{ borderRadius: RADIUS.md, width: '100%', padding: '12px 14px', fontSize: FS[16], fontFamily: F.ui, background: T.bg, border: `1px solid ${T.border}`, color: T.text, minHeight: 44 }}
                 >
                   {promoteProjects.map((p) => (
                     <option key={p.code} value={p.code}>[{p.code}] {p.title}</option>

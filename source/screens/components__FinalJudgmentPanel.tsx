@@ -9,7 +9,7 @@
 
 import { useEffect, useState } from 'react';
 import { Bx, Collapse } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import {
   Sparkles,
   TriangleAlert,
@@ -133,7 +133,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
             textTransform: 'uppercase',
             padding: '2px 8px',
             border: `1px solid ${CONF_COLOR[judgment.confidence]}`,
-            borderRadius: 2,
+            borderRadius: RADIUS.sm,
           }}
         >
           신뢰도 {CONF_LABEL[judgment.confidence]}
@@ -291,6 +291,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
                   onClick={() => load(true)}
                   disabled={loading}
                   style={{
+                    borderRadius: RADIUS.sm,
                     background: 'transparent',
                     border: `1px solid ${T.border}`,
                     color: T.muted,
@@ -373,6 +374,7 @@ function WeightsBar({
       </div>
       <div
         style={{
+          borderRadius: RADIUS.md,
           display: 'flex',
           height: 6,
           overflow: 'hidden',

@@ -19,7 +19,7 @@ import Link from 'next/link';
 import { Alert, Bx, En, LoadingState, PageHd, SectionTitle, SectionTitleInfo, SkeletonPanel, Tag } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
 import { HelpNote } from '@/components/HelpNote';
-import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { shortDate } from '@/lib/date';
 import {
   AlertTriangle,
@@ -33,7 +33,7 @@ import {
 } from 'lucide-react';
 import { computeResearchProgress } from '@/lib/research/progress';
 import { buildDocClassMap, type DocClass } from '@/lib/research/stage-doc-set';
-import { latestDecisionByStage } from '@/lib/research/stage-config';
+import { latestDecisionByStage, STAGE_IDS } from '@/lib/research/stage-config';
 import { getRegistryDoc } from '@/lib/research/document-registry';
 import { STAGE_LABEL, STAGE_COLOR } from '@/lib/research/stage-labels';
 import { type StageFilter } from '@/components/RegulatoryRoadmap';
@@ -62,6 +62,10 @@ const RegulatoryRoadmap = dynamic(
 const StageProgressionAction = dynamic(
   () => import('@/components/StageProgressionAction').then((m) => ({ default: m.StageProgressionAction })),
   { ssr: false, loading: () => <SkeletonPanel height={150} lines={2} /> },
+);
+const StageRevertAction = dynamic(
+  () => import('@/components/StageRevertAction').then((m) => ({ default: m.StageRevertAction })),
+  { ssr: false, loading: () => null },
 );
 const GraduateProjectAction = dynamic(
   () => import('@/components/GraduateProjectAction').then((m) => ({ default: m.GraduateProjectAction })),
@@ -152,6 +156,7 @@ export default function ResearchHomePage() {
   const [project, setProject] = useState<ProjectLite | null>(null);
   const [briefing, setBriefing] = useState<Briefing | null>(null);
   const [rdPct, setRdPct] = useState<number>(0);
+  const [rdMissing, setRdMissing] = useState<string[]>([]);
   // 분모(필수 문서 수)를 함께 보여준다. % 만 보이면 「0%」 가 «내가 한 게 반영 안 됐다»
   // 로 읽힌다. 실제로는 «development 필수문서 N개 중 완료 0개» 라는 뜻이다.
   const [rdDone, setRdDone] = useState<number>(0);
@@ -188,14 +193,23 @@ export default function ResearchHomePage() {
   // 착지한다. registry.stage 가 null(QMS 등 stage 무관)이면 stage 는 건드리지 않는다.
   // mount 후 1회만(그 뒤엔 사용자의 로드맵 클릭이 마스터).
   const searchParams = useSearchParams();
-  const focusDoc = searchParams?.get('doc') ?? null;
-  const didInitFocusStage = useRef(false);
+  // C-07: ?doc= 는 문서 코드나 문서 id, #doc-<id> 는 결재 알림(F-20)의 해시. 셋 다 같은 카드에 내린다.
+  const [hashDoc, setHashDoc] = useState<string | null>(null);
   useEffect(() => {
-    if (didInitFocusStage.current || !focusDoc) return;
-    const stage = getRegistryDoc(focusDoc)?.stage;
+    const m = /^#doc-([0-9a-f-]{36})$/i.exec(window.location.hash);
+    if (m) setHashDoc(m[1]);
+  }, []);
+  const focusDoc = searchParams?.get('doc') ?? hashDoc;
+  // UUID 로 왔으면 패널이 문서 목록으로 코드로 풀어 알려 준다. 그때 단계를 맞춘다.
+  const [focusResolved, setFocusResolved] = useState<string | null>(null);
+  const stageSyncedFor = useRef<string | null>(null);
+  useEffect(() => {
+    const target = focusResolved ?? focusDoc;
+    if (!target || stageSyncedFor.current === target) return;
+    const stage = getRegistryDoc(target)?.stage;
     if (stage) setSelectedStage(stage);
-    didInitFocusStage.current = true;
-  }, [focusDoc]);
+    if (stage || !/^[0-9a-f-]{36}$/i.test(target)) stageSyncedFor.current = target;
+  }, [focusDoc, focusResolved]);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -237,6 +251,7 @@ export default function ResearchHomePage() {
         const statuses = (r.statuses ?? []) as Array<{ doc_code: string; status: string }>;
         const progress = computeResearchProgress(projData.project, statuses);
         setRdPct(progress.rdPct);
+        setRdMissing(progress.rdMissing);
         setRdDone(progress.rdCompleted);
         setRdTotal(progress.rdRequired);
         setDocStatusByCode(new Map(statuses.map((s) => [s.doc_code, s.status])));
@@ -386,6 +401,7 @@ export default function ResearchHomePage() {
       {!project.ai_analyzed_at && (
         <div
           style={{
+            borderRadius: RADIUS.md,
             padding: '10px 14px',
             marginBottom: S[4],
             border: `1px solid ${alpha(T.champagne, 0.33)}`,
@@ -467,7 +483,8 @@ export default function ResearchHomePage() {
       </Bx>
 
       {/* [D] 결재 데드락 경고: 최종 승인자 부재(본인 외 0명·solo OFF·reviewed 문서 존재) */}
-      {!orgHasOtherApprover && !orgIsSoloMode && Array.from(docStatusByCode.values()).includes('reviewed') && (
+      {/* 검토 «중» 인 문서가 생긴 순간부터 알린다. 종전엔 reviewed 가 생긴 뒤에야 떠서 이미 막힌 뒤에 알았다(R&D 흐름 감사 C-11). */}
+      {!orgHasOtherApprover && !orgIsSoloMode && Array.from(docStatusByCode.values()).some((s) => s === 'review' || s === 'reviewed') && (
         <div style={{ marginBottom: S[5] }}>
           <Bx style={{ padding: S[4], borderLeft: `4px solid ${T.warning}`, background: alpha(T.warning, 0.06) }}>
             <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, lineHeight: LH.relaxed }}>
@@ -586,6 +603,7 @@ export default function ResearchHomePage() {
               selectedStage={selectedStage}
               profileCompletedAt={project.profile_completed_at}
               rdPct={rdPct}
+              rdMissing={rdMissing}
               docStatusByCode={docStatusByCode}
               docClassByCode={docClassByCode}
               drDecisionByStage={drDecisionByStage}
@@ -594,6 +612,26 @@ export default function ResearchHomePage() {
                 void load();
               }}
             />
+            {/* 🔑 되돌리기는 진행 버튼 «바로 아래» 에 둔다. 잘못 올린 것을 알아채는
+                자리가 곧 여기이고, 다른 화면으로 보내면 사람은 DB 를 고치러 간다.
+                한 칸 이전 단계는 STAGE_IDS(SSOT)에서 파생한다. */}
+            <div style={{ marginTop: S[3] }}>
+              <StageRevertAction
+                projectCode={code}
+                stage={project.stage}
+                previousStage={
+                  STAGE_IDS.indexOf(project.stage as (typeof STAGE_IDS)[number]) > 0
+                    ? STAGE_IDS[STAGE_IDS.indexOf(project.stage as (typeof STAGE_IDS)[number]) - 1]
+                    : null
+                }
+                orgRole={myOrgRole}
+                jobRoles={myJobRoles}
+                onReverted={() => {
+                  bump();
+                  void load();
+                }}
+              />
+            </div>
           </div>
           {/* GraduateProjectAction 은 submission 일 때만 자체 노출. */}
           {project.stage === 'submission' && (
@@ -647,6 +685,7 @@ export default function ResearchHomePage() {
           projectStage={project.stage}
           selectedStage={selectedStage}
           focusDocCode={focusDoc ?? undefined}
+          onFocusResolved={(docType) => setFocusResolved(docType)}
           orgIsSoloMode={orgIsSoloMode}
           onChanged={() => {
             setRefreshKey((k) => k + 1);
@@ -687,7 +726,10 @@ export default function ResearchHomePage() {
       </div>
 
       {/* RA 인허가·UDI 진척 (읽기전용): 허가 단계는 RA 담당, R&D 는 모니터링만 */}
-      <RaProgressPanel code={code} />
+      {/* 큐의 서류 요청 항목(#ra-progress)이 여기로 내린다. 패널은 조회 뒤에 그려지므로 id 는 바깥 상자에. */}
+      <div id="ra-progress">
+        <RaProgressPanel code={code} />
+      </div>
 
       {/* 최근 활동은 '검토·회의'(/reviews) 탭으로: 홈은 흐름에 집중 (2026-06-03 컴팩트화) */}
 
@@ -800,48 +842,4 @@ function computeNextAction(
     color: T.green,
     Icon: CheckCircle2,
   };
-}
-
-// ── KPI 카드(KpiCard·KpiPopupList) 제거: 상태 배너 + 'Next Action' 과 중복이라
-//    삭제(정보 절제, 2026-06-03). 필요 시 git 이력에서 복구.
-
-// ─── Suggestion Row (clickable → route) ──────────────────────────────────────
-function SuggestionRow({ suggestion, code }: { suggestion: Suggestion; code: string }) {
-  // suggestion id → 적절한 sub-page 매핑
-  let href = `/research/${encodeURIComponent(code)}`;
-  if (suggestion.id.includes('rmf') || suggestion.id.includes('blocking')) href += '#flow';
-  else if (suggestion.id.includes('stage') || suggestion.id.includes('target')) href += '#flow';
-  else if (suggestion.id.includes('design_review') || suggestion.id.includes('waiting')) href += '/reviews';
-  else if (suggestion.id.includes('profile')) href += '/profile';
-  else if (suggestion.id.includes('item_code')) href += '/profile';
-
-  const color =
-    suggestion.severity === 'warning' ? T.warning : suggestion.severity === 'recommend' ? T.champagne : T.subtle;
-  const Icon = suggestion.severity === 'warning' ? AlertTriangle : Lightbulb;
-
-  return (
-    <Link href={href} style={{ textDecoration: 'none' }}>
-      <Bx
-        style={{
-          padding: S[3],
-          display: 'flex',
-          gap: S[2.5],
-          alignItems: 'center',
-          cursor: 'pointer',
-          borderLeft: `2px solid ${color}`,
-        }}
-      >
-        <Icon size={14} style={{ color, flexShrink: 0 }} />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: FS[12], color: T.text, fontFamily: F.serif, fontWeight: 500 }}>
-            {suggestion.title}
-          </div>
-          <div style={{ fontSize: FS[11], color: T.subtle, fontFamily: F.serif, marginTop: S[0.5], lineHeight: LH.snug }}>
-            {suggestion.detail}
-          </div>
-        </div>
-        <ArrowRight size={14} style={{ color: T.muted, flexShrink: 0 }} />
-      </Bx>
-    </Link>
-  );
 }

@@ -537,7 +537,7 @@ export function RiskWizardClient() {
                 style={{
                   marginBottom: 12,
                   padding: '10px 12px',
-                  borderRadius: 10,
+                  borderRadius: RADIUS.md,
                   border: `1px solid ${T.warning}`,
                   background: T.surface,
                   color: T.text,

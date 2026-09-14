@@ -1,5 +1,4 @@
 import { redirect } from 'next/navigation';
-import { headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
@@ -45,10 +44,6 @@ export default async function AppLayout({
   } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  // 현재 path 추출
-  const hdrs = await headers();
-  const currentPath =
-    hdrs.get('x-invoke-path') ?? hdrs.get('next-url') ?? '';
 
   // Profile + membership 병렬: 둘 다 user.id 만 의존하므로 직렬 대기 제거(로그인~홈 지연 단축).
   // Multi-role Phase 3: job_roles 배열 사용. job_role 은 Phase 1 트리거로 sync 된 fallback.

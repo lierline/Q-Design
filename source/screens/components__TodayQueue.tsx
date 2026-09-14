@@ -33,7 +33,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { Bx, SectionTitle, Tag, infoPopoverStyle } from '@/lib/design/components';
-import { S, FS, F, T, alpha, ICON, RADIUS, MOTION, SHADOW, TYPE, STATE, LH, labelTracking } from '@/lib/design/tokens';
+import { F, FS, ICON, LH, MOTION, RADIUS, S, SHADOW, STATE, T, TYPE, alpha, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
 import { httpStatusMessage } from '@/lib/api/client-error';
 import { captureBestEffort } from '@/lib/observability';
 import type { TodayQueueItem, TodayQueueKind } from '@/lib/today-queue/score';
@@ -65,6 +65,16 @@ const KIND_ICON: Record<TodayQueueKind, LucideIcon> = {
   // 배정된 조치(2026-09-03 P-01·P-10): 경영검토 조치항목 · 품질목표 실행계획
   mr_action_due: FileText,
   qo_action_due: CheckCircle,
+  // 네 관점(오너 결정 2026-09-13): 이 큐(내가 할 일)에는 안 나오지만 종류 표는 전수여야 한다.
+  waiting_review: Eye,
+  waiting_approval: CheckCircle,
+  waiting_reply: MessageSquare,
+  waiting_supplement: FileText,
+  waiting_cr: GitPullRequest,
+  drafting_doc: PenLine,
+  team_stale_request: MessageSquareWarning,
+  team_stale_supplement: FileText,
+  team_stale_review: Eye,
   notification: Bell,
 };
 
@@ -72,6 +82,8 @@ interface TodayQueueResponse {
   items: TodayQueueItem[];
   count: number;
   totalScanned: number;
+  /** C-04: 조회에 실패한 업무 원본 이름. 비어 있지 않으면 «깨끗함» 을 말하지 않는다. */
+  failedSources?: string[];
 }
 
 // 권한별 오늘 처리할 것 설명 데이터
@@ -149,10 +161,13 @@ const ROLE_INFO = [
 export function TodayQueue({
   roles = [],
   initial = null,
+  all = false,
 }: {
   roles?: string[];
   /** 서버 렌더에서 미리 받아 온 값. 있으면 첫 왕복을 건너뛴다(2026-08-30). */
   initial?: TodayQueueResponse | null;
+  /** C-05: /my-actions 에서는 상위 5건이 아니라 전체 목록을 같은 조회로 받는다. */
+  all?: boolean;
 }) {
   const router = useRouter();
   const [data, setData] = useState<TodayQueueResponse | null>(initial);
@@ -173,7 +188,7 @@ export function TodayQueue({
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/today-queue', { cache: 'no-store' });
+      const res = await fetch(all ? '/api/today-queue?all=1' : '/api/today-queue', { cache: 'no-store' });
       if (!res.ok) {
         const e = await res.json().catch(() => ({}));
         console.error('[TodayQueue] load failed:', res.status, e);
@@ -184,6 +199,7 @@ export function TodayQueue({
       const json = (await res.json()) as TodayQueueResponse;
       setData(json);
       setLoading(false);
+      lastLoadedAt.current = Date.now();
     } catch (e) {
       console.error('[TodayQueue] load exception:', e);
       setError('일시적 오류예요. 잠시 후 다시 시도해 주세요.');
@@ -191,12 +207,40 @@ export function TodayQueue({
     }
   }
 
+  // C-09 (Codex 협업 감사): 새 알림으로 서버가 다시 그려 새 initial 을 주면 큐도 따라간다(종전엔 최초 값만 썼다).
+  useEffect(() => {
+    if (initial !== null) setData(initial);
+  }, [initial]);
+
   useEffect(() => {
     // 서버가 이미 채워 줬으면 첫 왕복을 하지 않는다. 새로고침 버튼·읽음 처리는 그대로.
     if (initial !== null) return;
     void load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // C-09 나머지 (Codex 협업 감사 2026-09-13): 다른 탭에 갔다 오거나(visibilitychange · focus) 연결이 끊겼다 붙으면(online)
+  //   큐가 스스로 다시 조회한다. 결재 · 요청은 다른 사람이 만드는 일이라 «내가 아무것도 안 해도» 목록이 바뀐다.
+  //   30초 안에 조회한 적이 있으면 건너뛴다(탭을 빠르게 오갈 때 왕복 폭주 방지).
+  const lastLoadedAt = useRef<number>(Date.now());
+  useEffect(() => {
+    const REFETCH_MIN_MS = 30_000;
+    const refetchIfStale = () => {
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - lastLoadedAt.current < REFETCH_MIN_MS) return;
+      lastLoadedAt.current = Date.now();
+      void load();
+    };
+    document.addEventListener('visibilitychange', refetchIfStale);
+    window.addEventListener('online', refetchIfStale);
+    window.addEventListener('focus', refetchIfStale);
+    return () => {
+      document.removeEventListener('visibilitychange', refetchIfStale);
+      window.removeEventListener('online', refetchIfStale);
+      window.removeEventListener('focus', refetchIfStale);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [all]);
 
   // 알림 기반 항목 클릭: 종 알림과 동일하게 is_read 처리 + 목록에서 즉시 제거(optimistic).
   //   "확인"이 공갈 버튼이던 문제 해소: 클릭하면 실제로 읽음 처리되어 다시 안 뜬다.
@@ -242,6 +286,7 @@ export function TodayQueue({
 
   // 비어있을 때: 평온한 메시지 (다 처리됨)
   const items = data?.items ?? [];
+  const failed = data?.failedSources ?? [];
 
   return (
     // marginBottom 제거: 대시보드 보드(CustomizableWidgetBoard)의 gap 이 섹션 간
@@ -310,6 +355,7 @@ export function TodayQueue({
                         fontSize: FS[10],
                         fontFamily: F.mono,
                         letterSpacing: labelTracking(group.role, 1.4),
+                        wordSpacing: labelWordSpacing(group.role),
                         textTransform: 'uppercase',
                         color: group.color,
                         marginBottom: S[1],
@@ -417,14 +463,21 @@ export function TodayQueue({
               marginBottom: S[1.5],
             }}
           >
-            오늘은 깨끗합니다.
+            {failed.length > 0 ? '일부 업무를 불러오지 못했습니다.' : '오늘은 깨끗합니다.'}
           </div>
-          <div style={{ ...TYPE.caption, color: T.subtle }}>
-            다음 작업을 기다리는 중입니다.
+          <div style={{ ...TYPE.caption, color: failed.length > 0 ? T.warning : T.subtle }}>
+            {failed.length > 0
+              ? `${failed.join(' · ')} 조회가 실패해 그쪽 할 일은 보이지 않습니다. 잠시 뒤 새로고침하십시오.`
+              : '다음 작업을 기다리는 중입니다.'}
           </div>
         </Bx>
       )}
 
+      {items.length > 0 && failed.length > 0 && (
+        <div role="status" style={{ ...TYPE.caption, color: T.warning, marginBottom: S[2] }}>
+          {failed.join(' · ')} 조회가 실패해 그쪽 할 일은 이 목록에 없습니다.
+        </div>
+      )}
       {items.length > 0 && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[2.5] }}>
           {items.map((item) => {
@@ -509,6 +562,7 @@ export function TodayQueue({
                     fontSize: FS[10],
                     fontWeight: 500,
                     letterSpacing: labelTracking(item.cta, '0.12em'),
+                    wordSpacing: labelWordSpacing(item.cta),
                     color: T.champagne,
                     padding: '6px 12px',
                     border: `1px solid ${alpha(T.champagne, 0.35)}`,

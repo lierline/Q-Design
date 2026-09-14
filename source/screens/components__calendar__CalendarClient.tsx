@@ -18,7 +18,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Bx, Btn, SectionTitle, SkeletonPanel } from '@/lib/design/components';
-import { S, FS, F, T, alpha } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, RADIUS } from '@/lib/design/tokens';
 import { MeetingComposeDialog } from './MeetingComposeDialog';
 import { MeetingDetailPanel } from './MeetingDetailPanel';
 
@@ -153,6 +153,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
       {error && (
         <div
           style={{
+            borderRadius: RADIUS.md,
             padding: S[3],
             background: alpha(T.red, 0.08),
             border: `1px solid ${alpha(T.red, 0.25)}`,
@@ -524,6 +525,7 @@ function MonthNavBtn({
       onClick={onClick}
       title={title}
       style={{
+        borderRadius: RADIUS.md,
         padding: '6px 14px',
         background: 'transparent',
         border: `1px solid ${T.border}`,

@@ -6,7 +6,7 @@
 
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { S, FS, F, T, alpha, STATE, RADIUS, LH } from '@/lib/design/tokens';
 import { Btn, Field, infoPopoverStyle } from '@/lib/design/components';
 import {
@@ -17,7 +17,15 @@ import {
 import { MfdsRegisteredProducts } from './item-classification/MfdsRegisteredProducts';
 import { sanitizeKeywords, countKeywords, type AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import { shouldAutoFill } from '@/lib/medical-items/auto-fill';
-import { describeConfidence, MEASURED_TOP1, CONFIDENCE_META, type MatchConfidence } from '@/lib/medical-items/match-confidence';
+import {
+  describeConfidence,
+  describeVerdictAxis,
+  MEASURED_TOP1,
+  CONFIDENCE_META,
+  type MatchConfidence,
+  type MatchVerdict,
+  type VerdictAxis,
+} from '@/lib/medical-items/match-confidence';
 
 /** 추정(카탈로그)↔실측(식약처) 등급 교차표시: route 의 GradeSources 와 동형(클라/서버 분리). */
 interface GradeSources {
@@ -39,6 +47,20 @@ export interface ClassifyResponse {
   //    읽는다(성공 응답에는 서버가 항상 채운다). IfuClassifyDrawer 는 오류 응답도
   //    같은 타입으로 받아 optional 이다. 둘의 차이는 실수가 아니라 사용 방식의 차이다.
   confidence: MatchConfidence;
+  /**
+   * 질문마다 따로 낸 확신 (2026-09-11). 대분류·등급·품목코드가 따로다.
+   *
+   * `null` 이면 판정서를 낼 수 없는 경우다: 임베딩이 없어 키워드로 폴백했거나,
+   * 정밀 분석이 1위를 다른 코드로 바꿔서 합의 개수의 기준점이 사라진 경우다.
+   * 그때는 종전 `confidence` 배지만 낸다.
+   */
+  verdict?: MatchVerdict | null;
+  /**
+   * 「무엇을 더 적으면 좁혀지는가」. 후보들이 따지는데 입력에 없는 축만 옵니다.
+   * 🔑 실측이 뒷받침하는 것은 «등급» 에 대한 소재·원리 둘뿐입니다. 품목코드를
+   *    약속하지 않습니다(런타임 신호가 그것을 뒷받침하지 않습니다).
+   */
+  input_hints?: Array<{ axis: string; label: string; message: string; examples: string }>;
   matched_keywords?: string[];
   message?: string;
   top: {
@@ -199,6 +221,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
   // 페이지 navigation 후 돌아와도 결과 유지: localStorage 로부터 hydrate.
   // payload 가 바뀌면 cacheKey 가 바뀌어 자동으로 빈 결과(다시 분석 가능 상태) 노출.
   // payload 의 실제 입력값이 바뀔 때만 해시 재계산 (loading/error state 리렌더 시 불필요한 djb2 순회 방지).
+  /* eslint-disable react-hooks/exhaustive-deps -- payload 객체가 아니라 «실제 입력값» 이 바뀔 때만 다시 계산한다(위 주석). */
   const cacheKey = useMemo(
     () => cacheKeyFor(payload),
     [
@@ -209,6 +232,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       canonicalKeywords(payload.ideaKeywords),
     ],
   );
+  /* eslint-enable react-hooks/exhaustive-deps */
   // hydrate 우선순위: ①DB 박제(key 일치) → ②localStorage. DB 는 org·기기 공유.
   const [result, setResult] = useState<ClassifyResponse | null>(() =>
     dbCached && dbCached.key === cacheKey ? dbCached.result : loadCachedResult(cacheKey),
@@ -555,6 +579,7 @@ function ResultBody({
       {/* Top 1 카드 */}
       <div
         style={{
+          borderRadius: RADIUS.md,
           padding: '16px 18px',
           background: T.surface,
           border: `1px solid ${T.border}`,
@@ -595,6 +620,10 @@ function ResultBody({
             {top.grade_label}
           </span>
         </div>
+
+        {result.verdict && <VerdictPanel verdict={result.verdict} />}
+
+        {(result.input_hints?.length ?? 0) > 0 && <InputHintPanel hints={result.input_hints!} />}
 
         <GradeMetaRow
           gradeSources={top.grade_sources ?? null}
@@ -696,6 +725,7 @@ function ResultBody({
               <span
                 key={i}
                 style={{
+                  borderRadius: RADIUS.sm,
                   padding: '3px 8px',
                   border: `1px solid ${T.border}`,
                   letterSpacing: 0.3,
@@ -730,6 +760,7 @@ function ResultBody({
             {isConfirmedHere ? (
               <span
                 style={{
+                  borderRadius: RADIUS.sm,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: S[1.5],
@@ -763,6 +794,7 @@ function ResultBody({
                   }
                 }}
                 style={{
+                  borderRadius: RADIUS.sm,
                   padding: '8px 16px',
                   background: T.champagne,
                   color: T.bg,
@@ -857,6 +889,108 @@ function ResultBody({
 // 클릭 가능 영역: 배지 자체. 호버 시 아래로 absolute 팝업.
 // 컨텐츠는 result 의 score gap / refined / alternative_note / fallback 으로
 // '왜 이 신뢰도가 나왔는가' 를 사용자 시점으로 한 단락 안내.
+// ─── 판정서: 확신을 질문마다 따로 낸다 (2026-09-11) ─────────────────────────
+// 🔴 왜 세 줄인가. 종전에는 배지 하나가 「신뢰도 높음」이라고만 말했고, 사용자는 그것을
+//    «품목코드가 맞다» 로 읽었다. 그런데 실측에서 세 질문의 신호가 서로 다르고 때로
+//    반대였다. 후보가 전부 같은 대분류에 몰리면 대분류는 확실해지고 품목코드는
+//    **더 어려워진다**(붐비는 도메인이라는 뜻). 하나의 숫자로 답할 수 없다.
+//
+// 🔑 품목코드에는 「높음」이 없다. 받는 비율을 1% 까지 줄여도 90% 에 못 닿았다.
+//    맞히지 못하는 것을 맞힌다고 말하지 않기로 했고, 타입이 그 결정을 지킨다.
+//
+// 라벨·뜻풀이·실측치는 match-confidence 가 SSOT. 여기엔 색과 배치만 둔다.
+const AXIS_ORDER: VerdictAxis[] = ['major', 'grade', 'item'];
+
+function VerdictPanel({ verdict }: { verdict: MatchVerdict }) {
+  const levelOf = (a: VerdictAxis) => verdict[a];
+  const colorOf = (a: VerdictAxis) =>
+    a === 'item'
+      ? verdict.item === 'medium'
+        ? STATE.copper
+        : T.muted
+      : CONFIDENCE_COLOR[levelOf(a) as MatchConfidence];
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'auto auto minmax(0, 1fr)',
+        gap: `${S[1.5]}px ${S[3]}px`,
+        alignItems: 'baseline',
+        padding: `${S[2.5]}px 0 ${S[3]}px`,
+        borderTop: `1px solid ${T.border}`,
+        marginBottom: S[2.5],
+      }}
+    >
+      {AXIS_ORDER.map((axis) => {
+        const d = describeVerdictAxis(axis, verdict);
+        return (
+          <Fragment key={axis}>
+            <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+              {d.question}
+            </span>
+            <span
+              style={{
+                fontSize: FS[10],
+                fontFamily: F.mono,
+                fontWeight: 600,
+                color: colorOf(axis),
+                letterSpacing: 0.4,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {d.label}
+              {/* 숫자를 숨기면 사용자는 표기를 «확정» 으로 읽는다. 실측치를 붙인다. */}
+              {d.measured && (
+                <span style={{ color: T.muted, fontWeight: 400 }}> · 실측 {d.measured}</span>
+              )}
+            </span>
+            <span style={{ fontSize: FS[10], color: T.subtle, lineHeight: 1.55 }}>{d.meaning}</span>
+          </Fragment>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── 입력 안내: 무엇을 더 적으면 좁혀지는가 (2026-09-11) ────────────────────
+// 🔑 **필수 칸으로 만들지 않았다.** 실측 이득이 등급 기준 +5~8pp 라, 모든 사용자에게
+//    칸 두 개를 물리기에는 작다. 대신 «후보들이 그 축을 따지는데 입력에 없을 때만»
+//    그 자리에서 말한다. 필요한 사람에게만 보이고 근거가 실측이다.
+//
+// 🔴 「품목코드가 좁혀집니다」라고 말하지 않는다. 런타임 신호가 그것을 뒷받침하지
+//    않는다(소재는 두 정답셋에서 부호까지 갈렸다). 문구 SSOT 는 input-hints.ts 이고
+//    계약이 그 약속을 지킨다.
+function InputHintPanel({
+  hints,
+}: {
+  hints: NonNullable<ClassifyResponse['input_hints']>;
+}) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: S[2],
+        padding: `${S[2.5]}px ${S[3]}px`,
+        borderLeft: `2px solid ${STATE.copper}`,
+        background: alpha(STATE.copper, 0.05),
+        marginBottom: S[2.5],
+      }}
+    >
+      <div style={{ fontSize: FS[10], fontFamily: F.mono, color: STATE.copper, letterSpacing: 0.4 }}>
+        더 적으시면 좁혀집니다
+      </div>
+      {hints.map((h) => (
+        <div key={h.axis} style={{ display: 'flex', flexDirection: 'column', gap: S[0.5] }}>
+          <div style={{ fontSize: FS[11], color: T.text, lineHeight: LH.notice }}>{h.message}</div>
+          <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>예: {h.examples}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
   const [hover, setHover] = useState(false);
   const cfg = confidenceCfg(result.confidence, !!result.refined);
@@ -925,6 +1059,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
     >
       <span
         style={{
+          borderRadius: RADIUS.sm,
           fontSize: FS[10],
           color: cfg.color,
           fontFamily: F.mono,
@@ -1069,6 +1204,7 @@ function GradeMetaRow({
   if (!hasCross && drivers.length === 0) return null;
 
   const badgeStyle = (color: string): React.CSSProperties => ({
+    borderRadius: RADIUS.sm,
     fontSize: FS[9],
     color,
     fontFamily: F.mono,
@@ -1106,6 +1242,7 @@ function GradeMetaRow({
           <span
             key={d}
             style={{
+              borderRadius: RADIUS.sm,
               fontSize: FS[9],
               color: c,
               fontFamily: F.mono,
@@ -1261,6 +1398,7 @@ function ManualEntryForm({
   return (
     <div
       style={{
+        borderRadius: RADIUS.md,
         marginTop: S[3.5],
         padding: '12px 14px',
         border: `1px dashed ${T.border}`,
@@ -1356,6 +1494,7 @@ function ManualEntryForm({
           {(lookingUp || suggestions.length > 0) && (
             <div
               style={{
+                borderRadius: RADIUS.md,
                 marginTop: S[2.5],
                 padding: '8px 10px',
                 background: alpha(T.blue, 0.04),
@@ -1393,6 +1532,7 @@ function ManualEntryForm({
                         type="button"
                         onClick={() => pickSuggestion(s)}
                         style={{
+                          borderRadius: RADIUS.md,
                           display: 'grid',
                           gridTemplateColumns: '90px 1fr 60px',
                           gap: S[2.5],
@@ -1457,6 +1597,7 @@ function ManualEntryForm({
               disabled={!canSubmit || submitting}
               onClick={() => void submit()}
               style={{
+                borderRadius: RADIUS.sm,
                 padding: '8px 16px',
                 background: canSubmit ? T.champagne : 'transparent',
                 color: canSubmit ? T.bg : T.muted,
@@ -1502,6 +1643,7 @@ function ManualEntryForm({
 
 // 직접 입력 폼 내부 inline 유틸: 다른 곳에서 안 쓰니 같은 파일에 두자.
 const inputStyle: React.CSSProperties = {
+  borderRadius: RADIUS.md,
   width: '100%',
   padding: '6px 10px',
   background: T.bg,
@@ -1530,6 +1672,7 @@ function AlternativeRow({
   return (
     <div
       style={{
+        borderRadius: RADIUS.md,
         border: `1px solid ${isConfirmedHere ? T.green : excluded ? alpha(T.red, 0.35) : T.border}`,
         background: isConfirmedHere
           ? alpha(T.green, 0.05)
@@ -1560,6 +1703,7 @@ function AlternativeRow({
           <span
             title="정밀 분석은 상위 후보만 검토합니다. 이 후보는 키워드 점수로 올라왔을 뿐 검토를 거치지 않았습니다."
             style={{
+              borderRadius: RADIUS.sm,
               marginLeft: S[2],
               padding: '1px 6px',
               border: `1px solid ${T.border}`,
@@ -1589,6 +1733,7 @@ function AlternativeRow({
           {isConfirmedHere ? (
             <span
               style={{
+                borderRadius: RADIUS.sm,
                 display: 'inline-block',
                 padding: '4px 8px',
                 border: `1px solid ${T.green}`,
@@ -1616,6 +1761,7 @@ function AlternativeRow({
                 }
               }}
               style={{
+                borderRadius: RADIUS.sm,
                 padding: '4px 10px',
                 background: 'transparent',
                 border: `1px solid ${T.champagne}`,
@@ -1681,6 +1827,7 @@ function ExtendedCandidates({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         style={{
+          borderRadius: RADIUS.sm,
           background: 'none',
           border: `1px dashed ${T.border}`,
           color: T.subtle,

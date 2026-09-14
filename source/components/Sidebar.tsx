@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
-import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, hasHangul, labelCase, labelTracking } from '@/lib/design/tokens';
+import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, labelCase, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
 import { NAV_ITEMS, FLOW_DOCUMENT_MENUS, NAV_SUBGROUP_LABEL, NAV_SUBGROUP_ORDER, type NavGroup, type NavSubGroup } from '@/lib/nav/nav-items';
@@ -326,10 +326,6 @@ function SidebarBody({
   role,
   plan,
   canSeeAudit,
-  canSeeResearch,
-  canSeeRAWorkspace,
-  canSeeQAWorkspace,
-  canSeeProduction,
   canSeeCompliance,
   canSeeAssessments,
   isMedqraftAdmin,
@@ -386,10 +382,12 @@ function SidebarBody({
       menuId === 'admin-ai'
         ? activeAdminHub === 'ai'
         : menuId === 'admin-identity'
-          ? activeAdminHub === 'identity'
-          : menuId === 'admin-ops'
-            ? activeAdminHub === 'ops'
-            : undefined;
+          ? activeAdminHub === 'customers'
+          : menuId === 'admin-templates'
+            ? activeAdminHub === 'system'
+            : menuId === 'admin-ops'
+              ? pathname === '/admin'
+              : undefined;
     return (
       <NavLink
         key={menuId}
@@ -546,6 +544,7 @@ function SidebarBody({
               fontFamily: F.mono,
               // 2026-09-09: 한글 조직명이 «메 드 크 래 프 트» 로 벌어지던 자리
               letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 1.6),
+              wordSpacing: labelWordSpacing(isExpert ? '외부 자문 전문가' : orgName),
               textTransform: labelCase(isExpert ? '외부 자문 전문가' : orgName),
               marginTop: S[1.5],
               wordBreak: 'break-all',
@@ -853,15 +852,35 @@ function SidebarBody({
               4개의 의미적 허브로 통합. 각 허브는 첫 sub-tab 으로 진입하고,
               페이지 상단의 AdminHubTabs 로 형제 페이지를 이동.
 
-                AI 시스템        : Q-Match 학습 / 지식 베이스 / AI 보정
+                판단 엔진 교육   : 가르치기(Q-Match 학습·라벨 퀴즈·지식 베이스) → 보정하기 → 확인하기
                 사용자·전문가   : 계정 관리 / 전문가 인증 / 전문가 초대
                 운영             : 고객사 현황 / 구독 관리 / 활동 통계 / 멀티 계정 뷰
                 기본 양식함      : 단독
             ──────────────────────────────────────────────────────────── */}
+            {/* 2026-09-13: 운영자가 일하는 순서. 운영 홈(대기열) → 고객사 · 계정 → 판단 엔진 교육 → 시스템 · 도구.
+                라벨 · 경로는 lib/nav/nav-items.ts 의 admin-* 와 같아야 한다(시뮬레이터 계약이 그쪽을 본다). */}
+            {isMedqraftAdmin && (
+              <NavLink
+                href="/admin"
+                label="운영 홈"
+                icon={Building2}
+                collapsed={collapsedNav}
+                forceActive={pathname === '/admin'}
+              />
+            )}
+            {isMedqraftAdmin && (
+              <NavLink
+                href="/admin/screening"
+                label="고객사 · 계정"
+                icon={UserCheck}
+                collapsed={collapsedNav}
+                forceActive={activeAdminHub === 'customers'}
+              />
+            )}
             {isMedqraftAdmin && (
               <NavLink
                 href="/admin/q-match-training"
-                label="Q-Atelier 시스템"
+                label="판단 엔진 교육"
                 icon={Sparkles}
                 collapsed={collapsedNav}
                 forceActive={activeAdminHub === 'ai'}
@@ -869,28 +888,11 @@ function SidebarBody({
             )}
             {isMedqraftAdmin && (
               <NavLink
-                href="/admin/users"
-                label="사용자 · 전문가"
-                icon={UserCheck}
-                collapsed={collapsedNav}
-                forceActive={activeAdminHub === 'identity'}
-              />
-            )}
-            {isMedqraftAdmin && (
-              <NavLink
-                href="/admin/screening"
-                label="운영"
-                icon={Building2}
-                collapsed={collapsedNav}
-                forceActive={activeAdminHub === 'ops'}
-              />
-            )}
-            {isMedqraftAdmin && (
-              <NavLink
                 href="/admin/default-templates"
-                label="기본 양식함"
+                label="시스템 · 도구"
                 icon={ClipboardCheck}
                 collapsed={collapsedNav}
+                forceActive={activeAdminHub === 'system'}
               />
             )}
 
@@ -1053,6 +1055,7 @@ function SidebarBody({
                     color: T.muted,
                     fontFamily: F.mono,
                     letterSpacing: labelTracking(isExpert ? 'Expert · External' : `${role} · ${plan}`, 1.2),
+                    wordSpacing: labelWordSpacing(isExpert ? 'Expert · External' : `${role} · ${plan}`),
                     textTransform: labelCase(isExpert ? 'Expert · External' : `${role} · ${plan}`),
                   }}
                 >
@@ -1379,6 +1382,7 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
         // 이 자간은 라틴 글자 사이를 벌리라고 만든 값입니다 (M-02/M-03 과 같은 건).
         // Q-Design 차림표 정본(docs/15)도 이 규칙을 따르므로 세 제품이 같아집니다.
         letterSpacing: labelTracking(label, 1.6),
+        wordSpacing: labelWordSpacing(label),
         textTransform: labelCase(label),
         color: T.muted,
         userSelect: 'none',
@@ -1456,6 +1460,7 @@ function CollapsibleNavGroup({
           // 2026-09-09: SectionHeader 만 고치고 여기를 놓쳤다. 화면에 실제로 보이는
           // 묶음 이름표는 접이식인 이쪽이고, 「워 크 스 페 이 스」가 여기서 나왔다.
           letterSpacing: labelTracking(label, 1.6),
+          wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
           color: T.muted,
           background: 'transparent',
@@ -1622,7 +1627,7 @@ function WorkspaceNavGroup({
                 {ungrouped.map((m) => renderModule(m))}
                 {NAV_SUBGROUP_ORDER.filter((sg) => bySub.has(sg)).map((sg) => (
                   <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
+                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), wordSpacing: labelWordSpacing(NAV_SUBGROUP_LABEL[sg]), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
                       {NAV_SUBGROUP_LABEL[sg]}
                     </div>
                     {bySub.get(sg)!.map((m) => renderModule(m))}

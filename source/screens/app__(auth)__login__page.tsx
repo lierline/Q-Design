@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Alert, Btn, In, Lbl, Sel } from '@/lib/design/components';
 import { AuthThemeToggle } from '@/components/AuthThemeToggle';
 import { Logo } from '@/components/Logo';
-import { S, FS, BRAND, F, T, alpha, LH } from '@/lib/design/tokens';
+import { S, FS, BRAND, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { translateAuthError } from '@/lib/auth/translate-error';
 import { validatePassword, PASSWORD_POLICY_HINT } from '@/lib/auth/password-policy';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
@@ -579,6 +579,7 @@ function LoginForm() {
                         보유기간은 아직 확정되지 않아 처리방침으로 넘긴다(임의로 적지 않는다). */}
                     <div
                       style={{
+                        borderRadius: RADIUS.md,
                         marginTop: S[5],
                         padding: S[4],
                         border: `1px solid ${T.border}`,
@@ -765,8 +766,12 @@ function LoginForm() {
                     fontSize: FS[11],
                     fontFamily: F.mono,
                     textDecoration: 'none',
+                    // Codex R-05 (오너 결정 2026-09-13): 높이 16px 링크는 터치에서 오조작이 잦다. 클릭 영역만 키우고 문구 · 밑줄은 그대로.
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    minHeight: 32,
+                    padding: `0 ${S[2]}px`,
                     borderBottom: `1px dashed ${T.border}`,
-                    paddingBottom: 1,
                   }}
                 >
                   비밀번호를 잊으셨나요?
@@ -1310,6 +1315,7 @@ function SocialLinks() {
           title={c.label}
           className="qa-social-link"
           style={{
+            borderRadius: RADIUS.sm,
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -1448,6 +1454,7 @@ function OrgPreviewBanner({
               type="button"
               onClick={() => onUseName(m.org_name)}
               style={{
+                borderRadius: RADIUS.md,
                 background: 'transparent',
                 border: `1px solid ${alpha(T.champagne, 0.4)}`,
                 color: T.text,
@@ -1493,6 +1500,7 @@ function OrgPreviewBanner({
               type="button"
               onClick={() => onUseName(m.org_name)}
               style={{
+                borderRadius: RADIUS.md,
                 background: 'transparent',
                 border: `1px dashed ${alpha(T.warning, 0.4)}`,
                 color: T.subtle,
@@ -1528,6 +1536,7 @@ function BannerBox({ color, children }: { color: string; children: React.ReactNo
   return (
     <div
       style={{
+        borderRadius: RADIUS.md,
         marginTop: S[2],
         padding: '10px 12px',
         background: alpha(color, 0.07),

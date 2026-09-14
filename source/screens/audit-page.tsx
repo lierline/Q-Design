@@ -17,7 +17,7 @@ import {
   SectionTitle,
 } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
-import { F, FS, LH, S, T, labelTracking } from '@/lib/design/tokens';
+import { F, FS, LH, S, T, labelTracking, RADIUS } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
 import { ListPager } from '@/components/ListPager';
 import { parsePage, pageRange, clampPage } from '@/lib/api/list-page';
@@ -238,6 +238,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   <div
                     key={action}
                     style={{
+                      borderRadius: RADIUS.md,
                       display: 'flex',
                       alignItems: 'center',
                       gap: S[2],
@@ -335,6 +336,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 <span
                   title={l.action}
                   style={{
+                    borderRadius: RADIUS.sm,
                     display: 'inline-flex',
                     alignItems: 'center',
                     padding: '4px 10px',
@@ -388,6 +390,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                         <span
                           title="1인 조직 Solo Mode: SOD(직무분리) 완화 워크플로. ISO 13485 §5.5.1(소규모 조직 책임·권한)·§5.5.2(경영대리인 겸직) 근거 · audit_logs 에 기록되어 추적성 보증 · §8.2.4 내부심사는 외부 위탁 필수."
                           style={{
+                            borderRadius: RADIUS.sm,
                             fontSize: FS[9],
                             padding: '2px 6px',
                             border: `1px solid ${T.champagne}`,

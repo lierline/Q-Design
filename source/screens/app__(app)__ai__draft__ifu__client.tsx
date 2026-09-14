@@ -663,7 +663,7 @@ export function IFUWizardClient() {
                 style={{
                   marginBottom: 12,
                   padding: '10px 12px',
-                  borderRadius: 10,
+                  borderRadius: RADIUS.md,
                   border: `1px solid ${T.warning}`,
                   background: T.surface,
                   color: T.text,
@@ -755,7 +755,7 @@ export function IFUWizardClient() {
                         padding: '2px 8px',
                         background: alpha(T.champagne, 0.1),
                         color: T.champagne,
-                        borderRadius: 3,
+                        borderRadius: RADIUS.sm,
                       }}
                     >
                       {classifyResult.code}
@@ -768,7 +768,7 @@ export function IFUWizardClient() {
                         padding: '2px 8px',
                         background: alpha(T.text, 0.05),
                         color: T.text,
-                        borderRadius: 3,
+                        borderRadius: RADIUS.sm,
                       }}
                     >
                       {classifyResult.grade}등급{classifyResult.grade_label ? ` (${classifyResult.grade_label})` : ''}
@@ -857,6 +857,7 @@ export function IFUWizardClient() {
           <div
             ref={promoteDialogRef}
             style={{
+              borderRadius: RADIUS.md,
               background: T.surface,
               border: `1px solid ${T.border}`,
               maxWidth: 480,
@@ -921,6 +922,7 @@ export function IFUWizardClient() {
                 type="button"
                 onClick={() => setPromoteMode('new')}
                 style={{
+                  borderRadius: RADIUS.md,
                   flex: 1,
                   padding: '10px 12px',
                   background: promoteMode === 'new' ? alpha(T.champagne, 0.12) : 'transparent',
@@ -957,6 +959,7 @@ export function IFUWizardClient() {
                   }
                 }}
                 style={{
+                  borderRadius: RADIUS.md,
                   flex: 1,
                   padding: '10px 12px',
                   background: promoteMode === 'existing' ? alpha(T.subtle, 0.08) : 'transparent',
@@ -978,6 +981,7 @@ export function IFUWizardClient() {
               <div>
                 <div
                   style={{
+                    borderRadius: RADIUS.md,
                     padding: S[3.5],
                     background: alpha(T.champagne, 0.05),
                     border: `1px solid ${alpha(T.champagne, 0.2)}`,
@@ -1037,6 +1041,7 @@ export function IFUWizardClient() {
                       onChange={(e) => setPromoteProject(e.target.value)}
                       aria-label="연결할 R&D 프로젝트 선택"
                       style={{
+                        borderRadius: RADIUS.md,
                         width: '100%',
                         padding: '12px 14px',
                         fontSize: FS[16],

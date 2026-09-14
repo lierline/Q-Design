@@ -545,6 +545,13 @@ select:focus-visible,
 .qa-scroll-table-inner {
   width: 100%;
 }
+/* 머리글을 붙이려면 «붙을 자리» 가 있어야 한다. 이 감싸개는 overflow-x 뿐이라
+   overflow-y 가 auto 로 계산되고, 세로 한계가 없으면 sticky 가 안 붙는다.
+   DataTable 의 stickyHeader 가 이 클래스를 함께 건다. */
+.qa-scroll-table--tall {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 /* 가로 스크롤 가능 표시: 모바일에서만 우측 fade 보조 */
 @media (max-width: 1023px) {
   .qa-scroll-table {
@@ -985,6 +992,12 @@ select.qa-input::-ms-expand {
    Print branding: 사용자가 Ctrl+P 로 출력하거나 PDF 저장 시 적용
    ============================================================================= */
 @media print {
+  /* 종이에는 스크롤이 없다. sticky 를 그대로 두면 도구줄이 첫 장에만 남고
+     나머지 장에서는 자리만 차지한다. 검색칸·찾기 단추는 종이에서 쓸 수 없으므로
+     아예 걷는다 · 지금 무엇으로 좁혀 놓았는지는 주소가 말한다. */
+  .qa-list-toolbar { position: static; }
+  .qa-list-toolbar form { display: none; }
+
   /* 다크 모드여도 인쇄용은 흰 배경 + 검정 텍스트 강제 */
   :root,
   html,
