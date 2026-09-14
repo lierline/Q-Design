@@ -2121,9 +2121,11 @@ export function KPI({
             fontWeight: 700,
             // 🔴 2026-09-15 오빠 지적(Q-Forge 「이번 달 자재 지출 4,370,000원」 이 칸 밖으로 넘침).
             //    36px 고정이면 좁은 칸에서 긴 금액이 넘친다. 카드를 크기 컨테이너로 두고(아래 kpiBox 의
-            //    containerType) 칸 폭의 12% 로 줄어들되 36px 를 넘지 않고 20px 아래로는 안 내려간다.
+            //    containerType) 칸 폭의 16% 로 줄어들되 36px 를 넘지 않고 20px 아래로는 안 내려간다.
+            //    16%: 안쪽 폭 225px 이상이면 36px 그대로(큐아뜰리에 지표 카드), 173px(Q-Forge 8칸 띠)면 28px 로
+            //    「4,370,000원」 이 들어간다. 12% 로 했더니 넓은 카드에서도 20px 로 줄어 인상이 죽었다(실측).
             //    정본(Q-Design extract-screen)이 이 세 값을 그대로 읽어 세 제품에 내보낸다.
-            fontSize: `clamp(20px, 12cqw, ${FS[36]}px)`,
+            fontSize: `clamp(20px, 16cqw, ${FS[36]}px)`,
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             color: color ?? T.text,

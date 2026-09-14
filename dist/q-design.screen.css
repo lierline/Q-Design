@@ -89,7 +89,7 @@ html[data-theme='light'] {
   display: flex;
   align-items: center;
   /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 36px 그대로 */
-  font-size: clamp(20px, 12cqw, 36px);
+  font-size: clamp(20px, 16cqw, 36px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
