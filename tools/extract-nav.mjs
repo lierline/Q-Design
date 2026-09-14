@@ -121,6 +121,9 @@ const PROBES = [
   ['theme.fontSize',        Z.theme,  /fontSize: FS\[(\d+)\],/, Number],
   ['theme.tracking',        Z.theme,  /letterSpacing: ([\d.]+),/, Number],
   ['theme.btnSize',         Z.iconBtn, /width: (\d+),\n        height: \d+,/, Number],
+  // 2026-09-14 오빠 결정 「전체를 다 굴린다」: 발치 상자·아이콘 단추의 모서리를 원본에서 읽는다 (RADIUS.<키> → px).
+  ['theme.radius',          Z.theme,  /borderRadius: RADIUS\.(\w+),/, (k) => tokens.radius[k]],
+  ['iconBtn.radius',        Z.iconBtn, /borderRadius: RADIUS\.(\w+),/, (k) => tokens.radius[k]],
 
   // 바닥 계정 블록
   ['foot.avatarSize',       Z.foot,   /<Avatar name=\{userName\} email=\{userEmail\} size=\{(\d+)\} \/>\n              <div/, Number],
@@ -538,7 +541,7 @@ ${bindBlock('light')}
 .qd-nav-badge--quiet {
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: ${px(tokens.radius.sm)}; /* 배지 = 6 (2026-09-14, 각진 것은 포털뿐) */
   color: var(--qd-subtle);
   font-weight: 400;
   min-width: 0;
@@ -586,7 +589,7 @@ ${bindBlock('light')}
   padding: ${spec.theme.padding};
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: ${px(spec.theme.radius)};
   color: var(--qd-subtle);
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.theme.fontSize)};
@@ -627,6 +630,7 @@ ${bindBlock('light')}
   height: ${px(spec.theme.btnSize)};
   background: transparent;
   border: 1px solid var(--qd-border);
+  border-radius: ${px(spec.iconBtn.radius)};
   color: var(--qd-muted);
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease;

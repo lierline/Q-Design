@@ -246,6 +246,7 @@ export function Sidebar(props: SidebarProps) {
             height: 44,
             background: T.surface,
             border: `1px solid ${T.border}`,
+            borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 차림표 발치도 전부 굴린다(통일)
             color: T.text,
             cursor: 'pointer',
             display: 'flex',
@@ -997,6 +998,7 @@ function SidebarBody({
               flex: 1,
               background: 'transparent',
               border: `1px solid ${T.border}`,
+              borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 발치 상자도 굴린다. 정본(extract-nav)이 이 값을 읽는다
               color: T.subtle,
               fontSize: FS[10],
               fontFamily: F.mono,
@@ -1303,6 +1305,7 @@ function IconBtn({
         flexShrink: 0,
         background: 'transparent',
         border: `1px solid ${T.border}`,
+        borderRadius: RADIUS.md, // 옆의 THEME 상자와 같은 줄 · 같은 높이라 같은 값
         color: T.muted,
         cursor: 'pointer',
         padding: 0,

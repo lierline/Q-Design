@@ -923,6 +923,7 @@ const layoutCss = `
   padding: 28px 30px;
   background: var(--qa-surface);
   border: 1px solid var(--qa-border);
+  border-radius: ${RADIUS.md}px; /* 2026-09-14 오빠 결정: 액자 모티프보다 통일. 브래킷도 같은 곡률 */
 }
 
 @keyframes qa-auth-rise {
@@ -1049,8 +1050,8 @@ const layoutCss = `
   pointer-events: none;
   border: 0 solid color-mix(in oklab, var(--qa-champagne) 60%, transparent);
 }
-.qa-auth-card::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
-.qa-auth-card::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
+.qa-auth-card::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; border-top-left-radius: ${RADIUS.md}px; }
+.qa-auth-card::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; border-bottom-right-radius: ${RADIUS.md}px; }
 
 /* 패밀리 모티프(A안): 브랜드 태그라인(랜딩 로고 서브 동일 문구). */
 .qa-auth-tagline {

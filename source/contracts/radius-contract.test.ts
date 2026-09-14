@@ -35,7 +35,9 @@ function stripCommentsKeepLines(src: string): string {
 const ROOT = process.cwd();
 const SCAN_DIRS = ['app', 'components', 'lib'];
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'worktrees']);
-const SKIP_FILES = [/^app\/experts\//, /^components\/Sidebar\.tsx$/];
+// 2026-09-14 오빠 결정 「전체를 다 굴린다. 통일성이 더 중요」 → 차림표 발치 상자·로그인 카드도 굴렸다.
+// 이제 제외는 전문가 포털(각진 모서리가 브랜드) 하나뿐이다.
+const SKIP_FILES = [/^app\/experts\//];
 
 function walk(dir: string): string[] {
   const out: string[] = [];

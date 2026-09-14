@@ -1,7 +1,7 @@
 /* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
-   원본: Q-Atelier components/Sidebar.tsx (2026-09-10)
+   원본: Q-Atelier components/Sidebar.tsx (2026-09-14)
    =============================================================================
 
    ── 쓰는 법 ────────────────────────────────────────────────────────────────
@@ -309,7 +309,7 @@ html[data-theme='light'] {
 .qd-nav-badge--quiet {
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: 6px; /* 배지 = 6 (2026-09-14, 각진 것은 포털뿐) */
   color: var(--qd-subtle);
   font-weight: 400;
   min-width: 0;
@@ -357,7 +357,7 @@ html[data-theme='light'] {
   padding: 10px 14px;
   background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: 0;
+  border-radius: 10px;
   color: var(--qd-subtle);
   font-family: var(--qd-font-mono);
   font-size: 10px;
@@ -398,6 +398,7 @@ html[data-theme='light'] {
   height: 44px;
   background: transparent;
   border: 1px solid var(--qd-border);
+  border-radius: 10px;
   color: var(--qd-muted);
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease;
