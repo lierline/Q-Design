@@ -2057,6 +2057,14 @@ html[data-theme='light'] .expert-portal-root {
   transition: color 200ms var(--ease);
 }
 .expert-portal-root .back-link:hover { color: var(--champagne); }
+/* 껍데기 공통 «뒤로» 글귀(components/BackButton variant=expert): 링크가 아니라 단추라 기본 상자를 벗긴다. */
+.expert-portal-root button.luxe-back {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 .expert-portal-root .back-link:focus-visible {
   outline: 2px solid var(--champagne);
   outline-offset: 4px;

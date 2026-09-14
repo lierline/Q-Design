@@ -956,6 +956,10 @@ const layoutCss = `
   }
 
   .qa-auth-form-wrap {
+    /* 2026-09-14: 잠시 «위에서 89px 고정» 으로 바꿨다가 되돌렸다. 세 제품의 시작점을 같게 하려던
+       것인데, 900px 보다 큰 화면에서 판이 위로 떠 버린다(오빠 지적). 오른쪽 판은 위아래 가운데다.
+       세 제품 사이의 차이는 로그인 고유 내용(탭 · 번호판)의 높이만큼이고 그것은 둔다. */
+    align-items: center;
     padding: 56px 56px;
     /* 폼 가독성 보호: 살짝 진한 surface 톤 */
     background: linear-gradient(

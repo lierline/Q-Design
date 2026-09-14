@@ -56,6 +56,8 @@ html[data-theme='light'] {
   height: 100%;
   min-height: 124px;
   padding: 18px 20px;
+  /* 값 글자가 칸 폭(cqw)을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 clamp 와 한 벌) */
+  container-type: inline-size;
   background: var(--qd-surface);
   border: 1px solid var(--qd-border);
   border-radius: var(--qd-radius-card, 10px);
@@ -86,7 +88,8 @@ html[data-theme='light'] {
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 36px;
+  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 36px 그대로 */
+  font-size: clamp(20px, 12cqw, 36px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;

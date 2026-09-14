@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import { useNoviceMode } from '@/lib/novice-mode';
 import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
@@ -1977,13 +1978,14 @@ export function KPI({
   tooltip?: ReactNode;
 }) {
   const [hover, setHover] = useState(false);
+  const { novice } = useNoviceMode(); // 초보자 모드 OFF 면 지표 옆 ⓘ 와 설명 팝업을 숨긴다
   const [tapOpen, setTapOpen] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
   const [tooltipRect, setTooltipRect] = useState<DOMRect | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const tooltipId = useId();
   const accent = color ?? T.subtle;
-  const interactive = Boolean(tooltip);
+  const interactive = Boolean(tooltip) && novice;
   const isOpen = interactive && (hover || tapOpen);
 
   // 팝업 열릴 때 카드 위치 계산: portal 렌더 좌표 기준
@@ -2074,6 +2076,8 @@ export function KPI({
       <Bx
         style={{
           padding: '18px 20px',
+          // 값 글자가 칸 폭(cqw)을 재도록 카드를 크기 컨테이너로 (위 fontSize clamp 와 한 벌)
+          containerType: 'inline-size',
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
@@ -2100,7 +2104,7 @@ export function KPI({
           }}
         >
           {label}
-          {tooltip && (
+          {tooltip && novice && (
             <span
               aria-hidden="true"
               style={{ fontSize: FS[10], color: T.muted, opacity: 0.6 }}
@@ -2115,7 +2119,11 @@ export function KPI({
             // 럭셔리 톤은 weight 700 + tabular-nums + tight letter-spacing 으로.
             fontFamily: F.serif,
             fontWeight: 700,
-            fontSize: FS[36],
+            // 🔴 2026-09-15 오빠 지적(Q-Forge 「이번 달 자재 지출 4,370,000원」 이 칸 밖으로 넘침).
+            //    36px 고정이면 좁은 칸에서 긴 금액이 넘친다. 카드를 크기 컨테이너로 두고(아래 kpiBox 의
+            //    containerType) 칸 폭의 12% 로 줄어들되 36px 를 넘지 않고 20px 아래로는 안 내려간다.
+            //    정본(Q-Design extract-screen)이 이 세 값을 그대로 읽어 세 제품에 내보낸다.
+            fontSize: `clamp(20px, 12cqw, ${FS[36]}px)`,
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             color: color ?? T.text,
@@ -2144,7 +2152,7 @@ export function KPI({
         </div>
       </Bx>
       {/* 팝업: portal로 body에 직접 렌더해 위젯 stacking context 겹침 방지 */}
-      {tooltip && isOpen && tooltipRect && typeof document !== 'undefined' && createPortal(
+      {tooltip && novice && isOpen && tooltipRect && typeof document !== 'undefined' && createPortal(
         <div
           id={tooltipId}
           role="tooltip"
@@ -2451,7 +2459,9 @@ export function SectionTitleInfo({
   info?: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  if (!info) return <SectionTitle>{children}</SectionTitle>;
+  // 초보자 모드 OFF 면 ⓘ 와 팝업 없이 제목만 (설정의 약속 「각 화면·항목 옆에 설명(ⓘ)」 · 2026-09-14 전수 검수)
+  const { novice } = useNoviceMode();
+  if (!info || !novice) return <SectionTitle>{children}</SectionTitle>;
   return (
     <div
       style={{

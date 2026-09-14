@@ -1726,7 +1726,8 @@ function AlternativeRow({
         {a.grade}등급
       </span>
       <span style={{ color: T.muted, fontFamily: F.mono, fontSize: FS[10], textAlign: 'right' }}>
-        {a.score}점
+        {/* 원값(1.1587980380015848)이 그대로 찍히던 것 · 2026-09-14 오빠 지적. 둘째 자리까지만 */}
+        {a.score.toFixed(2)}점
       </span>
       {onConfirm && (
         <span style={{ textAlign: 'right' }}>

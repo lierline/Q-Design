@@ -192,12 +192,12 @@ fontFamily: mono  ·  lineHeight: 1.4  ·  letterSpacing: labelTracking(children
 ```
 KPI    padding 18px 20px · minHeight 124
        라벨  mono 10px · subtle · 자간 1.5
-       값    weight 700 · 36px · lineHeight 1.05 · 자간 -0.02em
+       값    weight 700 · clamp(20px, 칸 폭 12%, 36px) · lineHeight 1.05 · 자간 -0.02em
        보조  11px · muted · marginTop 10
 Stat   라벨 10 · 값 14 weight 600
 ```
 
-**숫자가 36px 에 자간 -0.02em 인 것**이 대시보드 인상을 만듭니다.
+**숫자가 36px 에 자간 -0.02em 인 것**이 대시보드 인상을 만듭니다. 다만 칸이 좁으면 칸 폭의 12% 까지 줄어들고 20px 아래로는 안 내려갑니다(2026-09-15 · 긴 금액이 칸을 넘치던 것). 카드가 `container-type: inline-size` 라 그 폭을 잽니다.
 크게 쓰고 조입니다.
 
 ### `Alert` · `InfoBox`

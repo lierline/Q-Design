@@ -60,7 +60,10 @@ const spec = probeAll([
   ['kpi.labelWeight', Z.kpiLabel, /fontWeight: (\d+),/, Number],
   ['kpi.labelTracking', Z.kpiLabel, /letterSpacing: labelTracking\(label, ([\d.]+)\),/, Number],
   ['kpi.labelGapBelow', Z.kpiLabel, /marginBottom: S\[([\d.]+)\],/, Number],
-  ['kpi.valueSize',   Z.kpiValue, /fontSize: FS\[(\d+)\],/, Number],
+  // 값 크기: 2026-09-15 부터 clamp(최소px, 칸폭 % cqw, 최대 FS). 최대가 종전의 36 이다
+  ['kpi.valueMin',    Z.kpiValue, /fontSize: `clamp\((\d+)px, /, Number],
+  ['kpi.valueFluid',  Z.kpiValue, /px, ([\d.]+)cqw, /, Number],
+  ['kpi.valueSize',   Z.kpiValue, /cqw, \$\{FS\[(\d+)\]\}px\)`,/, Number],
   ['kpi.valueWeight', Z.kpiValue, /fontWeight: (\d+),/, Number],
   ['kpi.valueLine',   Z.kpiValue, /lineHeight: ([\d.]+),/, Number],
   ['kpi.valueTracking', Z.kpiValue, /letterSpacing: '(-?[\d.]+em)',/, String],
@@ -176,6 +179,8 @@ ${bind('light')}
   height: 100%;
   min-height: ${px(spec.kpi.minHeight)};
   padding: ${spec.kpi.padding};
+  /* 값 글자가 칸 폭(cqw)을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 clamp 와 한 벌) */
+  container-type: inline-size;
   background: var(--qd-surface);
   border: 1px solid var(--qd-border);
   border-radius: var(--qd-radius-card, ${px(spec.panel.radius)});
@@ -206,7 +211,8 @@ ${bind('light')}
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: ${px(spec.kpi.valueSize)};
+  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 ${px(spec.kpi.valueSize)} 그대로 */
+  font-size: clamp(${px(spec.kpi.valueMin)}, ${spec.kpi.valueFluid}cqw, ${px(spec.kpi.valueSize)});
   font-weight: ${spec.kpi.valueWeight};
   line-height: ${spec.kpi.valueLine};
   letter-spacing: ${spec.kpi.valueTracking};
@@ -327,7 +333,7 @@ writeFileSync(
 console.log(`dist/q-design.screen.css   ${css.split('\n').length} 줄`);
 console.log(`dist/q-design.screen.json  치수 ${flat(spec).length} 개`);
 console.log('');
-console.log(`  KPI    ${spec.kpi.padding} · 최소높이 ${spec.kpi.minHeight} · 숫자 ${spec.kpi.valueSize}/${spec.kpi.valueWeight}`);
+console.log(`  KPI    ${spec.kpi.padding} · 최소높이 ${spec.kpi.minHeight} · 숫자 ${spec.kpi.valueMin}~${spec.kpi.valueSize}(${spec.kpi.valueFluid}cqw)/${spec.kpi.valueWeight}`);
 console.log(`  격자   minmax(${spec.kpi.gridMinCol}) · gap ${spec.kpi.gridGap}`);
 console.log(`  폭     현장 ${spec.shell.mobile} · 폼 ${spec.shell.form} · 상세 ${spec.shell.detail} · 2단 ${spec.shell.wide}`);
 console.log(`  본문   ${spec.main.top}px ${spec.main.right}px`);

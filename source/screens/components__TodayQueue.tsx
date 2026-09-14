@@ -7,6 +7,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useNoviceMode } from '@/lib/novice-mode';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -170,6 +171,7 @@ export function TodayQueue({
   all?: boolean;
 }) {
   const router = useRouter();
+  const { novice } = useNoviceMode();
   const [data, setData] = useState<TodayQueueResponse | null>(initial);
   const [loading, setLoading] = useState(initial === null);
   const [error, setError] = useState<string | null>(null);
@@ -298,6 +300,8 @@ export function TodayQueue({
         {/* 당신 차례 총 건수: 상위 5건만 리스트되지만 헤더엔 전체(totalScanned) 노출(첫눈에 "내 차례 N건") */}
         <Tag size="sm">{data?.totalScanned ?? items.length}건</Tag>
         {/* ⓘ info 버튼 + 팝업 */}
+        {/* 초보자 모드 OFF 면 기준 설명(ⓘ)도 숨긴다 (설정의 약속 · 2026-09-14 전수 검수) */}
+        {novice && (
         <div style={{ position: 'relative' }} ref={infoRef}>
           <button
             ref={infoBtnRef}
@@ -379,6 +383,7 @@ export function TodayQueue({
             document.body
           )}
         </div>
+        )}
         <button
           type="button"
           onClick={() => void load()}

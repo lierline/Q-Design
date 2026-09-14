@@ -11,6 +11,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { SubscriptionIndicator, type SubscriptionSummaryData } from '@/components/SubscriptionIndicator';
 import { NotificationBell } from '@/components/NotificationBell';
 import { TopHeaderBand } from '@/components/TopHeaderBand';
+import { BackButton } from '@/components/BackButton';
 import { MAIN_PADDING } from '@/lib/design/main-padding';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 import { Coachmark } from '@/components/Coachmark';
@@ -382,6 +383,8 @@ export default async function AppLayout({
             종전 viewport fixed 는 스크롤 시 제목·KPI 를 덮고 인쇄에도 찍혔습니다. 모바일은 종전대로
             fixed 로 동작합니다(TopHeaderBand 가 모바일에서는 상자를 만들지 않습니다). */}
         <TopHeaderBand>
+          {/* 모든 화면의 «뒤로» 단추(오빠 지시 2026-09-14). 띠의 왼쪽 끝, 홈에서는 안 그린다. */}
+          <BackButton />
           {subscriptionData && membership && (
             <SubscriptionIndicator
               placement="static"
