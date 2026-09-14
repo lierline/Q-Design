@@ -35,9 +35,9 @@ function stripCommentsKeepLines(src: string): string {
 const ROOT = process.cwd();
 const SCAN_DIRS = ['app', 'components', 'lib'];
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'worktrees']);
-// 2026-09-14 오빠 결정 「전체를 다 굴린다. 통일성이 더 중요」 → 차림표 발치 상자·로그인 카드도 굴렸다.
-// 이제 제외는 전문가 포털(각진 모서리가 브랜드) 하나뿐이다.
-const SKIP_FILES = [/^app\/experts\//];
+// 2026-09-14 오빠 결정 「전체를 다 굴린다. 통일성이 더 중요」 → 차림표 발치 상자·로그인 카드에 이어
+// 「전문가 포털도 굴려줘」 로 포털까지. 제외 목록은 비어 있다. 각진 것이 의도면 borderRadius: 0 을 적어 드러낼 것.
+const SKIP_FILES: RegExp[] = [];
 
 function walk(dir: string): string[] {
   const out: string[] = [];

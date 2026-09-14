@@ -97,6 +97,7 @@ export function ExpertDangerZone() {
           background: rgba(24, 22, 26, 0.55);
           border: 1px solid var(--hairline);
           border-left: 2px solid var(--burgundy);
+          border-radius: var(--radius);
           padding: 28px 32px;
           transition: border-color 280ms var(--ease);
         }
@@ -178,7 +179,7 @@ export function ExpertDangerZone() {
           color: var(--cream-muted);
           cursor: pointer;
           transition: border-color 200ms var(--ease), color 200ms var(--ease);
-          border-radius: 0;
+          border-radius: var(--radius);
         }
         .expert-danger-btn:hover {
           border-color: var(--hairline-strong);
