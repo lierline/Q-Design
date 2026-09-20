@@ -30,6 +30,9 @@ const ROOT = resolve(HERE, '..');
 
 /*
  * 내보낼 조각과 받는 곳. 새 조각이나 새 제품이 늘면 여기에 한 줄 더합니다.
+ *
+ * 2026-09-20: Q-Works(ISO 9001 판)가 넷째 제품으로 늘었습니다. Login 에서
+ * 복제해 온 터라 원본의 짜임을 아직 들고 있고, 이 세 벌로 얼굴을 맞춥니다.
  * 받는 쪽 경로가 저장소마다 다른 것은 폴더 구조가 달라서입니다(Next 의 app 위치).
  */
 const PARTS = [
@@ -39,6 +42,7 @@ const PARTS = [
     to: {
       'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.nav.css',
       'Q-Forge': 'D:/Claude/DHR/app/q-design.nav.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.nav.css',
     },
   },
   {
@@ -47,6 +51,7 @@ const PARTS = [
     to: {
       'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.list.css',
       'Q-Forge': 'D:/Claude/DHR/app/q-design.list.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.list.css',
     },
   },
   {
@@ -55,6 +60,7 @@ const PARTS = [
     to: {
       'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.screen.css',
       'Q-Forge': 'D:/Claude/DHR/app/q-design.screen.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.screen.css',
     },
   },
   /*
@@ -126,6 +132,7 @@ const PARTS = [
       'Q-Atelier': 'D:/Claude/Q-Atelier/app/q-design.print.css',
       'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.print.css',
       'Q-Forge': 'D:/Claude/DHR/app/q-design.print.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.print.css',
     },
   },
 ];
