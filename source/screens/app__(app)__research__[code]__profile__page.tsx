@@ -426,7 +426,7 @@ export default function ProfilePage() {
               type="button"
               onClick={() => setQMatchOpen((v) => !v)}
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 marginLeft: 'auto',
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
@@ -481,7 +481,7 @@ export default function ProfilePage() {
               type="button"
               onClick={() => void deferItem(true)}
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.text,
@@ -525,7 +525,7 @@ export default function ProfilePage() {
               onClick={() => void deferItem(false)}
               title="후보 중 맞는 게 없으면 일단 보류하고 나중에 확정할 수 있습니다."
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.muted,
@@ -566,7 +566,7 @@ export default function ProfilePage() {
               onClick={() => void deferItem(false)}
               title="지금 결정하지 않고 나중에 입력하시려면 보류해 두실 수 있습니다."
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 background: 'transparent',
                 border: `1px solid ${T.border}`,
                 color: T.muted,

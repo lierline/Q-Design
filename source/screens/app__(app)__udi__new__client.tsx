@@ -306,7 +306,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
                   <button
                     type="button"
                     onClick={() => setPi((p) => ({ ...p, ...suggestion.recommended }))}
-                    style={{ marginLeft: 'auto', padding: '3px 10px', fontFamily: F.mono, fontSize: FS[10], fontWeight: 600, background: T.champagne, color: T.bg, border: 'none', borderRadius: RADIUS.sm, cursor: 'pointer' }}
+                    style={{ marginLeft: 'auto', padding: '3px 10px', fontFamily: F.mono, fontSize: FS[10], fontWeight: 600, background: T.champagne, color: T.bg, border: 'none', borderRadius: RADIUS.md, cursor: 'pointer' }}
                   >
                     권장값 적용
                   </button>
@@ -332,7 +332,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
                     display: 'flex', alignItems: 'flex-start', gap: S[2.5], padding: '10px 12px', textAlign: 'left',
                     background: pi[m.key] ? alpha(T.green, 0.08) : 'transparent',
                     border: `1px solid ${pi[m.key] ? alpha(T.green, 0.5) : T.border}`,
-                    borderRadius: RADIUS.sm, cursor: 'pointer',
+                    borderRadius: RADIUS.md, cursor: 'pointer',
                   }}
                 >
                   <span style={{ fontFamily: F.mono, fontSize: FS[11], color: pi[m.key] ? T.green : T.subtle, flexShrink: 0, marginTop: 1 }}>

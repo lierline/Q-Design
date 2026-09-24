@@ -115,7 +115,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
   function removePkg(i: number) {
     setPkgs((p) => p.filter((_, idx) => idx !== i));
   }
-  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: alpha(T.champagne, 0.02), border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, color: T.text, minHeight: 40 };
+  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: alpha(T.champagne, 0.02), border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 40 };
 
   return (
     <div style={{ maxWidth: LAYOUT.wide, margin: '0 auto' }}>
@@ -200,7 +200,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
             ))}
           </div>
         )}
-        <button type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.sm, color: T.champagne, cursor: 'pointer' }}>
+        <button type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
           <Plus size={13} aria-hidden="true" /> 포장 단계 추가
         </button>
       </Section>
@@ -232,7 +232,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
                       background: on ? alpha(T.green, 0.12) : 'transparent',
                       color: on ? T.green : T.text,
                       border: `1px solid ${on ? alpha(T.green, 0.5) : T.border}`,
-                      borderRadius: RADIUS.sm, cursor: 'pointer',
+                      borderRadius: RADIUS.md, cursor: 'pointer',
                     }}
                   >
                     {on ? '✓ ' : ''}{t.label}
@@ -295,7 +295,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
                 background: status === s ? T.champagne : 'transparent',
                 color: status === s ? T.bg : T.text,
                 border: `1px solid ${status === s ? T.champagne : T.border}`,
-                borderRadius: RADIUS.sm, cursor: 'pointer',
+                borderRadius: RADIUS.md, cursor: 'pointer',
               }}
             >
               {UDI_STATUS_LABEL[s]}

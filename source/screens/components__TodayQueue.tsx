@@ -571,7 +571,7 @@ export function TodayQueue({
                     color: T.champagne,
                     padding: '6px 12px',
                     border: `1px solid ${alpha(T.champagne, 0.35)}`,
-                    borderRadius: RADIUS.sm,
+                    borderRadius: RADIUS.md,
                     flexShrink: 0,
                     textTransform: 'uppercase',
                     whiteSpace: 'nowrap',
@@ -632,7 +632,7 @@ export function TodayQueue({
                 color: T.subtle,
                 textDecoration: 'none',
                 letterSpacing: '-0.005em',
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 transition: `color ${MOTION.fast}`,
               }}
               onMouseEnter={(e) => {

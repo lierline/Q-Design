@@ -244,7 +244,7 @@ export function MeetingComposeDialog({
             onClick={onClose}
             disabled={busy}
             style={{
-              borderRadius: RADIUS.sm,
+              borderRadius: RADIUS.md,
               padding: '10px 18px',
               background: 'transparent',
               color: T.muted,

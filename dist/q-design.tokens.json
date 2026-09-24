@@ -207,7 +207,7 @@
       "serif": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
       "ui": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
       "mono": "'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace",
-      "display": "var(--qa-font-cormorant), 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif"
+      "display": "var(--qa-font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, Georgia, serif"
     },
     "fontSize": {
       "8": 8,
@@ -449,7 +449,7 @@
   },
   "champagneRamp": {
     "champagne-1": "#5d4a2d",
-    "champagne-2": "#8a6a3a",
+    "champagne-2": "#8a6838",
     "champagne-3": "#937648",
     "champagne-4": "#b8935a",
     "champagne-5": "#c9a87a",

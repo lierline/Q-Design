@@ -104,8 +104,11 @@ export const F = {
    *    정책(F.serif). 한글이 섞이면 Cormorant 가 한글을 지원 못 해 폴백이 튄다.
    *    이 토큰은 영문 히어로 한 줄 같은 의도적 디스플레이 지점에만.
    */
+  // 🔴 2026-09-24 오너 규칙: 한글 명조 금지. 한글 폴백은 'Noto Serif KR' 이 아니라 Pretendard
+  //    (expert-theme.css 의 --serif 와 같은 순서: 라틴 얼굴 바로 뒤에 Pretendard).
+  //    이 파일은 요구사항 엔진의 검증 의존 파일이라 매니페스트를 함께 다시 만들었다(오너 결정).
   display:
-    "var(--qa-font-cormorant), 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif",
+    "var(--qa-font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, Georgia, serif",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────

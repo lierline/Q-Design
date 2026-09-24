@@ -794,7 +794,7 @@ function ResultBody({
                   }
                 }}
                 style={{
-                  borderRadius: RADIUS.sm,
+                  borderRadius: RADIUS.md,
                   padding: '8px 16px',
                   background: T.champagne,
                   color: T.bg,
@@ -1597,7 +1597,7 @@ function ManualEntryForm({
               disabled={!canSubmit || submitting}
               onClick={() => void submit()}
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 padding: '8px 16px',
                 background: canSubmit ? T.champagne : 'transparent',
                 color: canSubmit ? T.bg : T.muted,
@@ -1762,7 +1762,7 @@ function AlternativeRow({
                 }
               }}
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 padding: '4px 10px',
                 background: 'transparent',
                 border: `1px solid ${T.champagne}`,
@@ -1828,7 +1828,7 @@ function ExtendedCandidates({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         style={{
-          borderRadius: RADIUS.sm,
+          borderRadius: RADIUS.md,
           background: 'none',
           border: `1px dashed ${T.border}`,
           color: T.subtle,

@@ -796,7 +796,7 @@ export function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       style={{
-        borderRadius: RADIUS.sm,
+        borderRadius: RADIUS.md,
         padding: '5px 12px',
         background: active ? color : 'transparent',
         color: active ? T.bg : color,
@@ -1799,7 +1799,7 @@ export function EmptyState({
           >
             {hints.map((h, i) => {
               const styles: React.CSSProperties = {
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 padding: '6px 12px',
                 background: 'transparent',
                 border: `1px solid ${alpha(T.champagne, 0.4)}`,

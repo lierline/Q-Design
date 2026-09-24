@@ -291,7 +291,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
                   onClick={() => load(true)}
                   disabled={loading}
                   style={{
-                    borderRadius: RADIUS.sm,
+                    borderRadius: RADIUS.md,
                     background: 'transparent',
                     border: `1px solid ${T.border}`,
                     color: T.muted,

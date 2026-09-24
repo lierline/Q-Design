@@ -276,7 +276,7 @@ export function ComplianceManager({
               type="button"
               onClick={() => setActiveId(a.id)}
               style={{
-                borderRadius: RADIUS.sm,
+                borderRadius: RADIUS.md,
                 // Btn sm 과 정확히 동일한 box: 36px 높이, 7×14 padding,
                 // boxSizing:border-box, lineHeight:1.
                 boxSizing: 'border-box',
@@ -433,7 +433,7 @@ function ComplianceDetail({
           onClick={onDelete}
           disabled={busy}
           style={{
-            borderRadius: RADIUS.sm,
+            borderRadius: RADIUS.md,
             padding: '7px 14px',
             background: 'transparent',
             color: T.red,
@@ -872,7 +872,7 @@ function ItemBlock({
                     key={c}
                     href="/settings/templates"
                     style={{
-                      borderRadius: RADIUS.sm,
+                      borderRadius: RADIUS.md,
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: S[1],
@@ -1074,7 +1074,7 @@ function GapReport({
                     key={c}
                     href="/settings/templates"
                     style={{
-                      borderRadius: RADIUS.sm,
+                      borderRadius: RADIUS.md,
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: S[1],
@@ -1119,7 +1119,7 @@ function GapReport({
 
 function smallBtn(color: string): React.CSSProperties {
   return {
-    borderRadius: RADIUS.sm,
+    borderRadius: RADIUS.md,
     display: 'inline-flex',
     alignItems: 'center',
     gap: S[1],
