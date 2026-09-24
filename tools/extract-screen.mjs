@@ -15,6 +15,9 @@
 //   .qd-page-head 화면 머리. 금색 막대 · 부제 · 제목 · 하단선 (2026-09-24)
 //   .qd-btn       단추. 주는 글자색 면(다크 상아 · 라이트 먹) · 보조는 테두리 (2026-09-24)
 //   .qd-input     입력칸. 글 · 고르개 · 여러 줄 한 상자 · 모서리 10 (2026-09-24)
+//   .qd-section-title 판 밖의 구역 이름. 금색 · 모노 (2026-09-24 · docs/22 10절)
+//   .qd-field-label   입력칸 위 이름표. 모노 · subtle (같은 날)
+//   .qd-tabs          화면 안을 가르는 탭 줄. 금색 밑줄 (같은 날)
 //   .qd-shell-*   읽는 화면 820 · 쓰는 화면 720 으로 좁히고 가운데
 //
 // ── 폭이 왜 규격인가 ─────────────────────────────────────────────────────────
@@ -230,6 +233,53 @@ for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radi
 
 put(spec, 'panel.radius', tokens.radius.md);
 
+/*
+ * ── 2차 탭 · 구역 이름 · 칸 이름표 (2026-09-24 · docs/22 10절) ────────────────
+ * 네 제품을 원본과 나란히 찍었을 때 «정본에 자리가 없어» 제품마다 달랐던 곳입니다
+ * (탭: 알약 · 폴더 · 밑줄 / 구역 이름: 판 안 제목 · 14px 굵게 · 금색 모노 / 칸 이름표:
+ * 산세리프 12 · 14 굵게 · 모노 10). 오너 결정 「정본을 늘려 모두 맞추기」 로 원본
+ * PageTabs · SectionTitle · Lbl 에서 읽습니다.
+ */
+{
+  const tabsSrc = read(join(SRC, 'components', 'PageTabs.tsx'));
+  const Q = {
+    tabsRow: slice(tabsSrc, '<div role="tablist"', '>', 'PageTabs.row'),
+    tab: slice(tabsSrc, 'role="tab" aria-selected={on}', '}}>', 'PageTabs.tab'),
+    section: slice(comp, 'export function SectionTitle({', '// ─── SECTION (', 'SectionTitle'),
+    field: slice(comp, 'export function Lbl({', '// ─── INPUT', 'Lbl'),
+  };
+  const got = probeAll([
+    ['tabs.gapBelow',   Q.tabsRow, /marginBottom: S\[([\d.]+)\]/, Number],
+    ['tabs.padding',    Q.tab,     /padding: '([^']+)',/, String],
+    ['tabs.barWidth',   Q.tab,     /borderBottom: on \? `(\d+)px solid \$\{T\.champagne\}`/, Number],
+    ['tabs.fontSize',   Q.tab,     /fontSize: FS\[(\d+)\],/, Number],
+    ['tabs.weightOn',   Q.tab,     /fontWeight: on \? (\d+) : \d+,/, Number],
+    ['tabs.weightOff',  Q.tab,     /fontWeight: on \? \d+ : (\d+),/, Number],
+    ['section.fontSize', Q.section, /fontSize: FS\[(\d+)\],/, Number],
+    ['section.tracking', Q.section, /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
+    ['section.gapBelow', Q.section, /marginBottom: noMargin \? 0 : (\d+),/, Number],
+    ['section.weight',   Q.section, /fontWeight: (\d+),/, Number],
+    ['field.fontSize',  Q.field,   /fontSize: FS\[(\d+)\],/, Number],
+    ['field.tracking',  Q.field,   /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
+    ['field.gapBelow',  Q.field,   /marginBottom: (\d+),/, Number],
+    ['field.weight',    Q.field,   /fontWeight: (\d+),/, Number],
+  ]);
+  Object.assign(spec, got);
+  /* 원본이 말하는 색 · 글꼴이 정본 변수와 같은 뜻인지 봅니다. 다르면 이름을 잘못 잇게 됩니다 */
+  for (const [what, zone, re] of [
+    ['탭 줄 밑선 = border', Q.tabsRow, /borderBottom: `1px solid \$\{T\.border\}`/],
+    ['탭 글자 = 고르면 text · 아니면 muted', Q.tab, /color: on \? T\.text : T\.muted,/],
+    ['탭 글꼴 = serif(= Pretendard, ui 와 같음)', Q.tab, /fontFamily: F\.serif,/],
+    ['구역 이름 = champagne · 모노', Q.section, /color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
+    ['칸 이름표 = subtle · 모노', Q.field, /color: T\.subtle,[\s\S]*fontFamily: F\.mono,/],
+  ]) {
+    if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
+  }
+  if (!/serif: PRETENDARD,/.test(tokensTs) || !/ui: PRETENDARD,/.test(tokensTs)) {
+    throw new Error('F.serif 가 더는 F.ui 와 같은 글꼴이 아닙니다. 탭 글꼴을 다시 보세요.');
+  }
+}
+
 assertFilled(spec);
 if (spec.kpi.valueSize !== 36) throw new Error(`KPI 숫자 크기가 바뀌었습니다: ${spec.kpi.valueSize}`);
 if (spec.shell.detail !== 820) throw new Error(`상세 폭이 바뀌었습니다: ${spec.shell.detail}`);
@@ -253,7 +303,8 @@ const bind = (mode) => bindingsBlock(tokens.color, mode, BINDINGS);
 const css = `/* =============================================================================
    q-design.screen.css · 화면 뼈대 정본
    생성물입니다. 손대지 마세요.  node tools/extract-screen.mjs
-   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid · PageHd · Btn · In)
+   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid · PageHd · Btn · In · SectionTitle · Lbl)
+         + components/PageTabs.tsx
          + tokens.ts (LAYOUT · TOUCH · BP) + app/globals.css (.qa-btn · .qa-input)
    =============================================================================
 
@@ -266,6 +317,9 @@ const css = `/* ================================================================
      .qd-page-head  화면 머리. 막대 · 부제 · 제목 · 하단선
      .qd-btn        단추. 주(글자색 면) · 보조(테두리) · 위험 · 작은 것
      .qd-input      입력칸. 글 · 고르개 · 여러 줄
+     .qd-section-title  판 밖의 구역 이름(금색 · 모노)
+     .qd-field-label    입력칸 위 이름표(모노 · subtle)
+     .qd-tabs · .qd-tab 화면 안을 가르는 탭 줄(금색 밑줄)
      .qd-shell-*    폭을 좁히고 가운데 두는 규칙
 
    색은 \`q-design.nav.css\` 와 같은 \`--qd-*\` 를 읽습니다.
@@ -404,6 +458,93 @@ ${bind('light')}
   letter-spacing: 0;
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 구역 이름 ─────────────────────────────────────────────────────────────
+   판 «밖» 에서 덩어리의 이름을 말하는 한 줄입니다(원본 SectionTitle). 금색 · 모노 · 작게.
+   .qd-label 과 다릅니다. 그쪽은 카드 «안» 의 조용한 이름표(muted)이고, 이쪽은 화면을
+   구역으로 나누는 표지(강조색)입니다.
+   🔴 네 제품 대조에서 판 안 제목 + 구분선 · 14px 굵은 제목 · 금색 모노(원본)로 갈렸습니다.
+
+     <h2 class="qd-section-title" data-hangul>오늘 처리할 것</h2>
+     <div class="qd-panel">…</div>
+
+   제목 옆에 배지 · 단추가 함께 서는 머리 줄에서는 --flush 로 아래 여백을 뺍니다. */
+.qd-section-title {
+  margin: 0 0 ${px(spec.section.gapBelow)};
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.section.fontSize)};
+  font-weight: ${spec.section.weight};
+  letter-spacing: ${px(spec.section.tracking)};
+  text-transform: uppercase;
+  color: var(--qd-accent);
+}
+.qd-section-title[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
+.qd-section-title--flush { margin-bottom: 0; }
+
+/* ── 칸 이름표 ─────────────────────────────────────────────────────────────
+   입력칸 바로 위의 이름입니다(원본 Lbl). 모노 · 작게 · subtle, 칸과 ${px(spec.field.gapBelow)} 띄웁니다.
+   🔴 대조에서 산세리프 12 굵게 · 14 굵게 · 모노 10(원본)으로 갈렸습니다.
+
+     <label class="qd-field-label" for="due" data-hangul>기한</label>
+     <input class="qd-input" id="due"> */
+.qd-field-label {
+  display: block;
+  margin-bottom: ${px(spec.field.gapBelow)};
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.field.fontSize)};
+  font-weight: ${spec.field.weight};
+  letter-spacing: ${px(spec.field.tracking)};
+  text-transform: uppercase;
+  color: var(--qd-subtle);
+}
+.qd-field-label[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 2차 탭 ────────────────────────────────────────────────────────────────
+   화면 «안» 을 가르는 탭 줄입니다(원본 PageTabs). 밑선 하나 위에 글자만 놓고, 고른 탭은
+   금색 밑줄 ${px(spec.tabs.barWidth)} 와 굵기로 말합니다. 상자 · 알약 · 폴더 모양을 쓰지 않습니다.
+   🔴 대조에서 알약 묶음 · 폴더 탭 · 밑줄(원본)로 갈렸고, 한 제품 안에서 두 모양이 섞인
+      곳도 있었습니다(오너 결정 2026-09-24 「금색 밑줄 탭으로 통일」).
+
+     <div class="qd-tabs" role="tablist" aria-label="기록 관리">
+       <a class="qd-tab" role="tab" aria-selected="true" href="?tab=a">개요</a>
+       <a class="qd-tab" role="tab" aria-selected="false" href="?tab=b">기록</a>
+     </div>
+
+   고른 탭은 aria-selected="true" 로 말합니다(클래스 .qd-tab--active 도 받습니다).
+   탭 글자에는 자간을 두지 않습니다(원본도 두지 않습니다). 좁은 화면에서는 줄을 바꿉니다. */
+.qd-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: ${px(spec.tabs.gapBelow * 4)};
+  border-bottom: 1px solid var(--qd-border);
+}
+.qd-tab {
+  padding: ${spec.tabs.padding};
+  border: 0;
+  border-bottom: ${px(spec.tabs.barWidth)} solid transparent;
+  background: none;
+  color: var(--qd-muted);
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.tabs.fontSize)};
+  font-weight: ${spec.tabs.weightOff};
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.qd-tab[aria-selected='true'],
+.qd-tab--active {
+  border-bottom-color: var(--qd-accent);
+  color: var(--qd-text);
+  font-weight: ${spec.tabs.weightOn};
 }
 
 /* ── 화면 머리 ─────────────────────────────────────────────────────────────

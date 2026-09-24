@@ -162,6 +162,75 @@ md  26px · 11.5px    강조
 
 ---
 
+## 목록 둘레 셋 (2026-09-24 · 감사 22 10절)
+
+네 제품을 원본과 나란히 찍었을 때 «정본에 자리가 없어» 제품마다 달랐던 곳입니다. 오너 결정
+「정본을 늘려 모두 맞추기」 로 원본 부품에서 값을 읽어 올렸습니다. 한 장에서 보려면
+`preview/parts.html`(라이트는 `?theme=light`).
+
+### 빈 목록 (`.qd-empty`) · 원본 EmptyState
+
+목록이 «통째로» 비었을 때 목록 자리를 대신합니다. 판 하나 · 여백 96 · 가운데 · 조용한 제목(22 · subtle).
+다음에 할 일은 단추(`.qd-btn`)나 금색 테두리 표지(`.qd-empty-hint`)로 둡니다. 좁은 자리는 `--compact`.
+
+```html
+<div class="qd-empty">
+  <div class="qd-empty-icon" aria-hidden="true">◇</div>
+  <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
+  <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다.</p>
+  <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="…">부적합 등록</a></div>
+  <div class="qd-empty-hints"><a class="qd-empty-hint" data-hangul href="…">검사 기록 보기</a></div>
+</div>
+```
+
+표 «안» 의 한 줄(찾은 것 없음)은 여전히 `.qd-table-empty` 입니다. 둘을 섞지 않습니다.
+
+### 쪽 이동 줄 (`.qd-pager`) · 원본 ListPager
+
+목록 «아래» 를 닫는 줄: 윗선 · 왼쪽 건수 「1-20 / 총 57건」 · 오른쪽 이전 · 쪽 번호 · 다음.
+한 쪽에 다 들어오면 이동은 그리지 않고 **건수만** 둡니다. 목록 «위» 에 둘 때는 `--top`.
+
+```html
+<nav class="qd-pager" aria-label="목록 페이지 이동">
+  <span class="qd-pager-count" data-hangul>1-20 / 총 57건</span>
+  <span class="qd-pager-nav">
+    <a class="qd-pager-btn" href="?page=1" aria-disabled="true">이전</a>
+    <span class="qd-pager-page">1 / 3</span>
+    <a class="qd-pager-btn" href="?page=2">다음</a>
+  </span>
+</nav>
+```
+
+### 거르개 띠 (`.qd-filter-bar`) · 원본 ListToolbar
+
+목록 «위» 에서 좁히는 줄: 찾기 칸(36 · 돋보기 자리 32) · 정렬 · 찾기 단추 · 검색 지우기 · 오른쪽 끝 건수.
+GET 폼으로 두면 JS 없이 돌고 지금 좁힌 것이 주소창에 남습니다. 따라오게 하려면 `--sticky` 와
+`--qd-sticky-top`(제품의 머리띠 높이).
+
+```html
+<div class="qd-filter-bar">
+  <form class="qd-filter-row" method="get" action="/nc">
+    <span class="qd-filter-search">
+      <svg class="qd-filter-search-icon" aria-hidden="true">…</svg>
+      <input class="qd-filter-input" type="search" name="q" placeholder="코드·제목 검색" aria-label="코드·제목 검색">
+    </span>
+    <select class="qd-filter-select" name="sort" aria-label="정렬">…</select>
+    <button class="qd-filter-submit" type="submit">찾기</button>
+    <span class="qd-filter-count" data-hangul>1-20 / 총 57건</span>
+  </form>
+</div>
+```
+
+### 한글 규칙
+
+- 건수 글 · 검색 지우기 · 다음 할 일 표지에 한글이 있으면 `data-hangul` 을 붙입니다(자간이 풀립니다).
+- 단추(이전 · 다음 · 찾기)는 기본이 한글이라 자간이 없습니다. 라틴(PREV · NEXT)만 `data-latin` 으로
+  대문자 · 1.2px 를 받습니다(`.qd-btn` 과 같은 규칙).
+- 🔴 원본 ListPager · ListToolbar 는 한글 단추에도 1.2px 를 둡니다. 정본은 오너 지적(2026-08-21
+  「한글이면 자간 0」)을 따릅니다. 원본을 고칠 때 이 자리도 함께 봅니다.
+
+---
+
 ## 옮긴 뒤에 확인할 것
 
 1. **셀 높이를 재 보세요.** 11 + 13 + 11. `py-3` 이 남아 있으면 여기서 드러납니다.

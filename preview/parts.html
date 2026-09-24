@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정본 부품 · 목록 둘레</title>
+<!--
+  2026-09-24 정본에 올린 여섯 자리를 한 장에서 봅니다(감사 22 10절 · 오너 결정 「정본을 늘려 모두 맞추기」).
+  원본 Q-Atelier 의 PageTabs · SectionTitle · Lbl · EmptyState · ListPager · ListToolbar 와 나란히 찍어 대조합니다.
+  ?theme=light 로 라이트를 봅니다.
+-->
+<link rel="stylesheet" href="../dist/q-design.fonts.css">
+<link rel="stylesheet" href="../dist/q-design.nav.css">
+<link rel="stylesheet" href="../dist/q-design.list.css">
+<link rel="stylesheet" href="../dist/q-design.screen.css">
+<style>
+  :root { --qd-font-ui-src: 'Pretendard Variable', Pretendard, sans-serif; }
+  body { margin: 0; background: var(--qd-bg); color: var(--qd-text); font-family: var(--qd-font-ui); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 40px 64px; }
+  .demo { margin-bottom: 40px; }
+  .note { font-size: 12px; color: var(--qd-muted); margin: 0 0 12px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 16px; }
+  .qd-input { width: 100%; box-sizing: border-box; }
+</style>
+<script>
+  if (new URLSearchParams(location.search).get('theme') === 'light') document.documentElement.dataset.theme = 'light';
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="demo">
+    <p class="note">2차 탭 (.qd-tabs)</p>
+    <div class="qd-tabs" role="tablist" aria-label="기록 관리">
+      <a class="qd-tab" role="tab" aria-selected="true" href="#">기록 관리</a>
+      <a class="qd-tab" role="tab" aria-selected="false" href="#">전산시스템</a>
+      <a class="qd-tab" role="tab" aria-selected="false" href="#">설치 · 서비스</a>
+    </div>
+  </section>
+
+  <section class="demo">
+    <p class="note">구역 이름 (.qd-section-title) · 판</p>
+    <h2 class="qd-section-title" data-hangul>오늘 처리할 것</h2>
+    <div class="qd-panel qd-panel--pad">판 안의 본문입니다.</div>
+    <div style="height:16px"></div>
+    <h2 class="qd-section-title">Recent activity</h2>
+    <div class="qd-panel qd-panel--pad">라틴 구역 이름은 대문자 · 2.2px 자간입니다.</div>
+  </section>
+
+  <section class="demo">
+    <p class="note">칸 이름표 (.qd-field-label) · 입력칸</p>
+    <div class="grid2">
+      <div class="field">
+        <label class="qd-field-label" for="f1" data-hangul>기한</label>
+        <input class="qd-input" id="f1" value="2026-10-01">
+      </div>
+      <div class="field">
+        <label class="qd-field-label" for="f2">Lot No.</label>
+        <input class="qd-input" id="f2" value="L260830-01">
+      </div>
+    </div>
+  </section>
+
+  <section class="demo">
+    <p class="note">거르개 띠 (.qd-filter-bar) · 쪽 이동 줄 위 (.qd-pager--top)</p>
+    <div class="qd-filter-bar">
+      <form class="qd-filter-row" method="get" onsubmit="return false">
+        <span class="qd-filter-search">
+          <svg class="qd-filter-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input class="qd-filter-input" type="search" name="q" placeholder="코드·제목 검색" aria-label="코드·제목 검색">
+        </span>
+        <select class="qd-filter-select" name="sort" aria-label="정렬"><option>최신순</option><option>오래된순</option></select>
+        <button class="qd-filter-submit" type="submit">찾기</button>
+        <a class="qd-filter-clear" href="#" data-hangul>검색 지우기</a>
+        <span class="qd-filter-count" data-hangul>1-20 / 총 57건</span>
+      </form>
+      <nav class="qd-pager qd-pager--top" aria-label="목록 페이지 이동">
+        <span class="qd-pager-nav">
+          <a class="qd-pager-btn" href="#" aria-disabled="true">이전</a>
+          <span class="qd-pager-page">1 / 3</span>
+          <a class="qd-pager-btn" href="#">다음</a>
+        </span>
+      </nav>
+    </div>
+    <div class="qd-panel"><div class="qd-table-empty">표가 여기에 섭니다.</div></div>
+    <nav class="qd-pager" aria-label="목록 페이지 이동">
+      <span class="qd-pager-count" data-hangul>1-20 / 총 57건</span>
+      <span class="qd-pager-nav">
+        <a class="qd-pager-btn" href="#" aria-disabled="true">이전</a>
+        <span class="qd-pager-page">1 / 3</span>
+        <a class="qd-pager-btn" href="#">다음</a>
+      </span>
+    </nav>
+  </section>
+
+  <section class="demo">
+    <p class="note">빈 목록 (.qd-empty) · 좁은 자리 (.qd-empty--compact)</p>
+    <div class="qd-empty">
+      <div class="qd-empty-icon" aria-hidden="true">◇</div>
+      <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
+      <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다. 먼저 수입검사 기록을 확인해 보십시오.</p>
+      <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="#">부적합 등록</a></div>
+      <div class="qd-empty-hints">
+        <a class="qd-empty-hint" href="#" data-hangul>수입검사 보기</a>
+        <a class="qd-empty-hint" href="#" data-hangul>교육 기록 보기</a>
+      </div>
+    </div>
+    <div style="height:16px"></div>
+    <div class="grid2">
+      <div class="qd-empty qd-empty--compact">
+        <div class="qd-empty-title">첨부가 없습니다</div>
+        <p class="qd-empty-desc">파일을 끌어다 놓으면 여기에 붙습니다.</p>
+      </div>
+      <div class="qd-empty qd-empty--compact">
+        <div class="qd-empty-icon" aria-hidden="true">○</div>
+        <div class="qd-empty-title">알림이 없습니다</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

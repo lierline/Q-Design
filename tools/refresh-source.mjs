@@ -74,6 +74,13 @@ const MAP = [
       'components/Sidebar.tsx',
       'components/Skeleton.tsx',
       /*
+       * 목록 둘레 부품 셋 (2026-09-24 · 감사 22 10절 · 오너 결정 「정본을 늘려 모두 맞추기」).
+       * 탭 줄 · 쪽 이동 줄 · 거르개 띠를 정본 CSS 로 올릴 때 값을 여기서 읽습니다.
+       */
+      'components/PageTabs.tsx',
+      'components/ListPager.tsx',
+      'components/ListToolbar.tsx',
+      /*
        * 🔴 `components/TopProgressBar.tsx` 는 여기 «없습니다». 이 파일만 방향이
        *    반대입니다. 다른 것들은 Q-Atelier 가 원본이고 여기가 거울이지만,
        *    진행선은 **여기가 원본**이고 두 제품이 sync 로 받습니다(2026-09-10).

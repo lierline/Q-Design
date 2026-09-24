@@ -92,6 +92,34 @@ sticky 밴드가 이 값을 실측해 inset 을 잡는 제품이 있습니다.
 
 ---
 
+## 4. 구역 이름 · 칸 이름표 · 2차 탭 (2026-09-24 · 감사 22 10절)
+
+네 제품을 원본과 나란히 찍었을 때 «정본에 자리가 없어» 제품마다 달랐던 곳입니다. 오너 결정
+「정본을 늘려 모두 맞추기」 로 원본 SectionTitle · Lbl · PageTabs 에서 값을 읽어 올렸습니다.
+한 장에서 보려면 `preview/parts.html`.
+
+| 클래스 | 원본 | 모양 | 쓰는 자리 |
+|---|---|---|---|
+| `.qd-section-title` | SectionTitle | 금색 · 모노 10 · 굵기 500 · 라틴 2.2px · 아래 14 | 판 «밖» 에서 덩어리의 이름 |
+| `.qd-field-label` | Lbl | subtle · 모노 10 · 굵기 500 · 라틴 1.5px · 아래 7 | 입력칸 바로 위 |
+| `.qd-tabs` · `.qd-tab` | PageTabs | 밑선 위 글자 13 · 고른 탭 금색 밑줄 2 · 굵기 600 | 화면 «안» 을 가르는 탭 |
+
+- `.qd-label`(2절)과 `.qd-section-title` 은 다릅니다. 앞은 카드 «안» 의 조용한 이름표(muted),
+  뒤는 화면을 구역으로 나누는 표지(강조색)입니다.
+- 한글이면 `data-hangul`(자간 · 대문자가 풀립니다). 탭 글자에는 처음부터 자간이 없습니다.
+- 고른 탭은 `aria-selected="true"` 로 말합니다(`.qd-tab--active` 도 받습니다). 상자 · 알약 · 폴더
+  모양 탭은 쓰지 않습니다(오너 결정 2026-09-24 「금색 밑줄 탭으로 통일」).
+
+```html
+<div class="qd-tabs" role="tablist" aria-label="기록 관리">
+  <a class="qd-tab" role="tab" aria-selected="true" href="?tab=a">개요</a>
+  <a class="qd-tab" role="tab" aria-selected="false" href="?tab=b">기록</a>
+</div>
+<h2 class="qd-section-title" data-hangul>오늘 처리할 것</h2>
+<label class="qd-field-label" for="due" data-hangul>기한</label>
+<input class="qd-input" id="due">
+```
+
 ## 옮긴 뒤에 확인할 것
 
 1. **KPI 카드 높이가 고르게 맞는지.** 부제 자리를 안 잡으면 아랫줄이 들쭉날쭉합니다.

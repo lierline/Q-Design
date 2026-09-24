@@ -180,6 +180,138 @@ put(spec, 'table.transition', tokens.motion.fast);
   put(spec, 'row.hoverLift', (lift2?.[1] ?? 'none').trim());
 }
 
+/*
+ * ── 빈 목록 · 쪽 이동 줄 · 거르개 띠 (2026-09-24 · docs/22 10절) ─────────────────
+ * 네 제품을 원본과 나란히 찍었을 때 «정본에 자리가 없어» 제품마다 달랐던 곳입니다
+ * (빈 목록: 점선 반투명 · 다음 할 일 줄 · 실선 판 / 쪽 이동: 테두리 판 · 선 아래 모노 글 /
+ * 거르개: 제품마다 제각각). 오너 결정 「정본을 늘려 모두 맞추기」 로 원본
+ * EmptyState · ListPager · ListToolbar 에서 읽습니다.
+ */
+{
+  const pagerSrc = read(join(SRC, 'components', 'ListPager.tsx'));
+  const barSrc = read(join(SRC, 'components', 'ListToolbar.tsx'));
+  const empty = slice(comp, 'export function EmptyState({', '// ─── GRID', 'EmptyState');
+  const Q = {
+    pagerLabel: slice(pagerSrc, 'const label: React.CSSProperties = {', '};', 'ListPager.label'),
+    pagerBtn: slice(pagerSrc, 'const btn = (enabled: boolean): React.CSSProperties => ({', '});', 'ListPager.btn'),
+    pagerNav: slice(pagerSrc, 'aria-label="목록 페이지 이동"', 'flexWrap', 'ListPager.nav'),
+    pagerPages: slice(pagerSrc, '{showNav && (', '<Link', 'ListPager.pages'),
+    pagerPageNo: slice(pagerSrc, '<span style={{ ...label, minWidth', '}}>', 'ListPager.pageNo'),
+    barOuter: slice(barSrc, 'className="qa-list-toolbar"', '<form', 'ListToolbar.outer'),
+    barForm: slice(barSrc, 'method="get"', '{함께보낼것.map', 'ListToolbar.form'),
+    barField: slice(barSrc, 'const 칸: React.CSSProperties = {', '};', 'ListToolbar.field'),
+    barLabel: slice(barSrc, 'const 라벨: React.CSSProperties = {', '};', 'ListToolbar.label'),
+    barSearch: slice(barSrc, "<span style={{ position: 'relative'", '<input', 'ListToolbar.search'),
+    barSelect: slice(barSrc, 'aria-label="정렬"', '>', 'ListToolbar.select'),
+    barSubmit: slice(barSrc, 'type="submit"', '찾기', 'ListToolbar.submit'),
+    emptyBox: slice(empty, 'padding: compact ?', 'textAlign', 'EmptyState.box'),
+    emptyGlow: slice(empty, 'backgroundImage:', ',\n', 'EmptyState.glow'),
+    emptyIcon: slice(empty, '{icon && (', '{icon}', 'EmptyState.icon'),
+    emptyTitle: slice(empty, 'fontFamily: F.serif, fontWeight: 700,', '{title}', 'EmptyState.title'),
+    emptyDesc: slice(empty, '{description && (', '{description}', 'EmptyState.desc'),
+    emptyAction: slice(empty, '{action && <div', '{action}', 'EmptyState.action'),
+    emptyHintRow: slice(empty, '{hints && hints.length > 0 && (', '{hints.map', 'EmptyState.hintRow'),
+    emptyHint: slice(empty, 'const styles: React.CSSProperties = {', '};', 'EmptyState.hint'),
+    emptyArrow: slice(empty, 'const content = (', '</span>\n              );', 'EmptyState.arrow'),
+  };
+  const S4 = (n) => Number(n) * 4; /* S[n] 는 4의 배수입니다 */
+  const got = probeAll([
+    // ── 쪽 이동 줄 (ListPager) ─────────────────────────────────────────────
+    ['pager.gap',         Q.pagerNav,   /gap: S\[([\d.]+)\],/, S4],
+    ['pager.gapAbove',    Q.pagerNav,   /marginTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
+    ['pager.padAbove',    Q.pagerNav,   /paddingTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
+    ['pager.labelSize',   Q.pagerLabel, /fontSize: FS\[(\d+)\],/, Number],
+    ['pager.labelTracking', Q.pagerLabel, /letterSpacing: ([\d.]+),/, Number],
+    ['pager.navGap',      Q.pagerPages, /gap: S\[([\d.]+)\] \}\}>/, S4],
+    ['pager.pageMinWidth', Q.pagerPageNo, /minWidth: (\d+),/, Number],
+    ['pager.btnGap',      Q.pagerBtn,   /gap: S\[([\d.]+)\],/, S4],
+    ['pager.btnPadding',  Q.pagerBtn,   /padding: '([^']+)',/, String],
+    ['pager.btnMinHeight', Q.pagerBtn,  /minHeight: (\d+),/, Number],
+    ['pager.btnSize',     Q.pagerBtn,   /fontSize: FS\[(\d+)\],/, Number],
+    ['pager.btnTracking', Q.pagerBtn,   /letterSpacing: ([\d.]+),/, Number],
+    ['pager.disabledOpacity', Q.pagerBtn, /opacity: enabled \? 1 : ([\d.]+),/, Number],
+    // ── 거르개 띠 (ListToolbar) ─────────────────────────────────────────────
+    ['bar.padTop',        Q.barOuter,   /paddingTop: S\[([\d.]+)\],/, S4],
+    ['bar.padBottom',     Q.barOuter,   /paddingBottom: S\[([\d.]+)\],/, S4],
+    ['bar.gapBelow',      Q.barOuter,   /marginBottom: S\[([\d.]+)\],/, S4],
+    ['bar.gap',           Q.barForm,    /gap: S\[([\d.]+)\],/, S4],
+    ['bar.fieldHeight',   Q.barField,   /height: (\d+),/, Number],
+    ['bar.fieldPadX',     Q.barField,   /padding: `0 \$\{S\[([\d.]+)\]\}px 0 \d+px`,/, S4],
+    ['bar.fieldPadIcon',  Q.barField,   /padding: `0 \$\{S\[[\d.]+\]\}px 0 (\d+)px`,/, Number],
+    ['bar.fieldSize',     Q.barField,   /fontSize: FS\[(\d+)\],/, Number],
+    ['bar.searchBasis',   Q.barSearch,  /flex: '1 1 (\d+)px'/, Number],
+    ['bar.iconSize',      Q.barSearch,  /size=\{(\d+)\}/, Number],
+    ['bar.iconLeft',      Q.barSearch,  /left: (\d+),/, Number],
+    ['bar.selectPadX',    Q.barSelect,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, S4],
+    ['bar.submitHeight',  Q.barSubmit,  /height: (\d+),/, Number],
+    ['bar.submitPadX',    Q.barSubmit,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, S4],
+    ['bar.submitSize',    Q.barSubmit,  /fontSize: FS\[(\d+)\],/, Number],
+    ['bar.submitTracking', Q.barSubmit, /letterSpacing: ([\d.]+),/, Number],
+    ['bar.labelSize',     Q.barLabel,   /fontSize: FS\[(\d+)\],/, Number],
+    ['bar.labelTracking', Q.barLabel,   /letterSpacing: ([\d.]+),/, Number],
+    // ── 빈 목록 (EmptyState) ───────────────────────────────────────────────
+    ['empty.paddingCompact', Q.emptyBox, /padding: compact \? '([^']+)' :/, String],
+    ['empty.padding',     Q.emptyBox,   /padding: compact \? '[^']+' : '([^']+)',/, String],
+    ['empty.glowShape',   Q.emptyGlow,  /radial-gradient\(ellipse ([^$]+?), \$\{/, String],
+    ['empty.glowAlpha',   Q.emptyGlow,  /alpha\(T\.champagne, ([\d.]+)\)/, Number],
+    ['empty.glowStop',    Q.emptyGlow,  /transparent (\d+)%\)/, Number],
+    ['empty.iconSizeCompact', Q.emptyIcon, /fontSize: compact \? (\d+) :/, Number],
+    ['empty.iconSize',    Q.emptyIcon,  /fontSize: compact \? \d+ : (\d+),/, Number],
+    ['empty.iconAlpha',   Q.emptyIcon,  /color: alpha\(T\.champagne, ([\d.]+)\),/, Number],
+    ['empty.iconGapCompact', Q.emptyIcon, /marginBottom: compact \? (\d+) :/, Number],
+    ['empty.iconGap',     Q.emptyIcon,  /marginBottom: compact \? \d+ : (\d+),/, Number],
+    ['empty.iconWeight',  Q.emptyIcon,  /fontWeight: (\d+),/, Number],
+    ['empty.iconTracking', Q.emptyIcon, /letterSpacing: '(-?[\d.]+em)',/, String],
+    ['empty.titleSizeCompact', Q.emptyTitle, /fontSize: compact \? (\d+) :/, Number],
+    ['empty.titleSize',   Q.emptyTitle, /fontSize: compact \? \d+ : (\d+),/, Number],
+    ['empty.titleTracking', Q.emptyTitle, /letterSpacing: '(-?[\d.]+em)',/, String],
+    ['empty.titleGapDesc', Q.emptyTitle, /marginBottom: description \? (\d+) :/, Number],
+    ['empty.titleGapNext', Q.emptyTitle, /marginBottom: description \? \d+ : action \|\| hints \? (\d+) : 0,/, Number],
+    ['empty.descSize',    Q.emptyDesc,  /fontSize: FS\[(\d+)\],/, Number],
+    ['empty.descMax',     Q.emptyDesc,  /maxWidth: (\d+),/, Number],
+    ['empty.descGapNext', Q.emptyDesc,  /margin: action \|\| hints \? '0 auto (\d+)px' : '0 auto',/, Number],
+    ['empty.actionGapHints', Q.emptyAction, /marginBottom: hints \? (\d+) : 0/, Number],
+    ['empty.hintsGap',    Q.emptyHintRow, /gap: S\[([\d.]+)\],/, S4],
+    ['empty.hintsGapNoAction', Q.emptyHintRow, /marginTop: action \? 0 : (\d+),/, Number],
+    ['empty.hintPadding', Q.emptyHint,  /padding: '([^']+)',/, String],
+    ['empty.hintBorderAlpha', Q.emptyHint, /border: `1px solid \$\{alpha\(T\.champagne, ([\d.]+)\)\}`,/, Number],
+    ['empty.hintSize',    Q.emptyHint,  /fontSize: FS\[(\d+)\],/, Number],
+    ['empty.hintTracking', Q.emptyHint, /letterSpacing: labelTracking\(h\.label, ([\d.]+)\),/, Number],
+    ['empty.hintArrowGap', Q.emptyArrow, /marginRight: S\[([\d.]+)\]/, S4],
+  ]);
+  Object.assign(spec, got);
+  /* 원본이 말하는 색 · 글꼴이 정본 변수와 같은 뜻인지 봅니다. 다르면 이름을 잘못 잇게 됩니다 */
+  for (const [what, zone, re] of [
+    ['쪽 이동 줄 윗선 = border', Q.pagerNav, /borderTop: 위 \? undefined : `1px solid \$\{T\.border\}`,/],
+    ['건수 글 = 모노 · muted', Q.pagerLabel, /fontFamily: F\.mono,[\s\S]*color: T\.muted,/],
+    ['이동 단추 = border 테두리 · 투명 · text', Q.pagerBtn, /border: `1px solid \$\{T\.border\}`,\s*background: 'transparent',\s*color: enabled \? T\.text : T\.muted,/],
+    ['이동 단추 모서리 = RADIUS.md', Q.pagerBtn, /borderRadius: RADIUS\.md,/],
+    ['거르개 띠 바탕 = bg', Q.barOuter, /background: T\.bg,/],
+    ['거르개 칸 = surface 바탕 · border 테두리 · RADIUS.md', Q.barField, /borderRadius: RADIUS\.md,\s*border: `1px solid \$\{T\.border\}`,\s*background: T\.surface,/],
+    ['거르개 단추 = 투명 · border · text', Q.barSubmit, /border: `1px solid \$\{T\.border\}`,\s*background: 'transparent',\s*color: T\.text,/],
+    ['건수 글(도구줄) = 모노 · muted', Q.barLabel, /fontFamily: F\.mono,[\s\S]*color: T\.muted,/],
+    ['빈 목록 제목 = subtle', Q.emptyTitle, /color: T\.subtle,/],
+    ['빈 목록 설명 = muted · LH.loose', Q.emptyDesc, /color: T\.muted,\s*lineHeight: LH\.loose,/],
+    ['다음 할 일 표지 = champagne · 모노 · RADIUS.md', Q.emptyHint, /borderRadius: RADIUS\.md,[\s\S]*color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
+  ]) {
+    if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
+  }
+  /* 빈 목록은 Bx(판) 위에 섭니다: surface · border · 카드 모서리 */
+  if (!/<Bx\s*\n\s*style=\{\{\s*\n\s*padding: compact \?/.test(empty)) {
+    throw new Error('빈 목록이 더는 Bx 판 위에 서지 않습니다. 판 규칙을 다시 보세요.');
+  }
+  /* 두 건수 글(목록 아래 · 도구줄)은 한 모양이어야 합니다. 갈리면 사람이 두 셈을 못 믿습니다 */
+  if (spec.pager.labelSize !== spec.bar.labelSize || spec.pager.labelTracking !== spec.bar.labelTracking) {
+    throw new Error('쪽 이동 줄과 거르개 띠의 건수 글이 서로 다릅니다.');
+  }
+  /* 설명 줄간격(LH.loose)과 붙어 따라오는 층(Z.sticky)은 토큰에서 옵니다. 없으면 멈춥니다 */
+  const loose = tokens.typography.lineHeight.loose;
+  if (typeof loose !== 'number') throw new Error('LH.loose 를 토큰에서 못 읽었습니다.');
+  put(spec, 'empty.lineHeight', loose);
+  if (typeof tokens.z.sticky !== 'number') throw new Error('Z.sticky 를 토큰에서 못 읽었습니다.');
+  put(spec, 'bar.z', tokens.z.sticky);
+}
+
 assertFilled(spec);
 if (spec.row.padding !== '16px 18px') throw new Error(`항목 카드 여백이 바뀌었습니다: ${spec.row.padding}`);
 if (spec.table.padX !== 12) throw new Error(`셀 좌우 여백이 바뀌었습니다: ${spec.table.padX}`);
@@ -459,6 +591,292 @@ ${bind('light')}
   color: var(--qd-subtle);
   font-size: 11px;
   word-break: break-all;
+}
+
+/* ── 빈 목록 ───────────────────────────────────────────────────────────────
+   목록이 «통째로» 비었을 때 목록 자리를 대신합니다(원본 EmptyState). 판 하나 · 넉넉한
+   여백 · 가운데 · 조용한 제목. 다음에 할 일이 있으면 단추(.qd-btn)나 금색 테두리 표지로 둡니다.
+   .qd-table-empty 와 다릅니다. 그쪽은 표 «안» 의 한 줄(찾은 것 없음)입니다.
+   🔴 대조에서 점선 반투명 · 다음 할 일 줄 · 실선 판(원본)으로 갈렸습니다.
+
+     <div class="qd-empty">
+       <div class="qd-empty-icon" aria-hidden="true">◇</div>
+       <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
+       <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다.</p>
+       <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="…">부적합 등록</a></div>
+       <div class="qd-empty-hints"><a class="qd-empty-hint" data-hangul href="…">검사 기록 보기</a></div>
+     </div>
+
+   옆 판 · 대화상자처럼 좁은 자리는 .qd-empty--compact 입니다(여백 · 글자만 작아집니다).
+   제목 아래 간격은 뒤따르는 것이 정합니다(원본과 같은 계산: 설명 ${px(spec.empty.titleGapDesc)} ·
+   단추나 표지 ${px(spec.empty.titleGapNext)}). */
+.qd-empty {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: ${spec.empty.padding};
+  text-align: center;
+  background-color: var(--qd-surface);
+  background-image: radial-gradient(ellipse ${spec.empty.glowShape}, color-mix(in srgb, var(--qd-accent) ${Math.round(spec.empty.glowAlpha * 100)}%, transparent) 0%, transparent ${spec.empty.glowStop}%);
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-card, ${px(tokens.radius.md)});
+}
+.qd-empty--compact {
+  padding: ${spec.empty.paddingCompact};
+  background-image: none;
+}
+.qd-empty-icon {
+  margin-bottom: ${px(spec.empty.iconGap)};
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.empty.iconSize)};
+  font-weight: ${spec.empty.iconWeight};
+  line-height: 1;
+  letter-spacing: ${spec.empty.iconTracking};
+  color: color-mix(in srgb, var(--qd-accent) ${Math.round(spec.empty.iconAlpha * 100)}%, transparent);
+}
+.qd-empty--compact .qd-empty-icon {
+  margin-bottom: ${px(spec.empty.iconGapCompact)};
+  font-size: ${px(spec.empty.iconSizeCompact)};
+}
+.qd-empty-title {
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.empty.titleSize)};
+  font-weight: 700;
+  letter-spacing: ${spec.empty.titleTracking};
+  color: var(--qd-subtle);
+}
+.qd-empty--compact .qd-empty-title { font-size: ${px(spec.empty.titleSizeCompact)}; }
+.qd-empty-desc {
+  max-width: ${px(spec.empty.descMax)};
+  margin: 0 auto;
+  font-size: ${px(spec.empty.descSize)};
+  line-height: ${spec.empty.lineHeight};
+  color: var(--qd-muted);
+}
+.qd-empty-title + .qd-empty-desc { margin-top: ${px(spec.empty.titleGapDesc)}; }
+.qd-empty-title + .qd-empty-actions { margin-top: ${px(spec.empty.titleGapNext)}; }
+.qd-empty-title + .qd-empty-hints { margin-top: ${px(spec.empty.titleGapNext + spec.empty.hintsGapNoAction)}; }
+.qd-empty-desc + .qd-empty-actions { margin-top: ${px(spec.empty.descGapNext)}; }
+.qd-empty-desc + .qd-empty-hints { margin-top: ${px(spec.empty.descGapNext + spec.empty.hintsGapNoAction)}; }
+.qd-empty-actions + .qd-empty-hints { margin-top: ${px(spec.empty.actionGapHints)}; }
+.qd-empty-hints {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: ${px(spec.empty.hintsGap)};
+}
+.qd-empty-hint {
+  padding: ${spec.empty.hintPadding};
+  border: 1px solid color-mix(in srgb, var(--qd-accent) ${Math.round(spec.empty.hintBorderAlpha * 100)}%, transparent);
+  border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
+  background: transparent;
+  color: var(--qd-accent);
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.empty.hintSize)};
+  letter-spacing: ${px(spec.empty.hintTracking)};
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background ${tokens.motion.fast}, border-color ${tokens.motion.fast};
+}
+.qd-empty-hint[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
+.qd-empty-hint::before { content: '→'; margin-right: ${px(spec.empty.hintArrowGap)}; }
+
+/* ── 쪽 이동 줄 ────────────────────────────────────────────────────────────
+   목록 «아래» 를 닫는 줄입니다(원본 ListPager). 윗선 하나 · 왼쪽에 「1-20 / 총 57건」 ·
+   오른쪽에 이전 · 쪽 번호 · 다음. 한 쪽에 다 들어오면 이동은 그리지 않고 건수만 둡니다.
+   「내가 보는 것이 전부인가」 에 답이 없으면 목록을 믿을 수 없습니다.
+   목록 «위» (거르개 띠 안)에 둘 때는 --top: 선과 건수를 빼고 오른쪽에 붙습니다.
+   🔴 대조에서 테두리 판 · 선 아래 모노 글(원본)로 갈렸습니다.
+
+     <nav class="qd-pager" aria-label="목록 페이지 이동">
+       <span class="qd-pager-count">1-20 / 총 57건</span>
+       <span class="qd-pager-nav">
+         <a class="qd-pager-btn" href="?page=1" aria-disabled="true">이전</a>
+         <span class="qd-pager-page">1 / 3</span>
+         <a class="qd-pager-btn" href="?page=2">다음</a>
+       </span>
+     </nav>
+
+   🔑 한글 단추(이전 · 다음)는 자간을 두지 않습니다. 라틴(PREV · NEXT)만 data-latin 을 붙여
+      대문자 · ${px(spec.pager.btnTracking)} 를 받습니다(.qd-btn 과 같은 한글 규칙). 원본은 한글에도
+      ${px(spec.pager.btnTracking)} 를 두는데, 오너 지적(2026-08-21 「한글이면 자간 0」)을 정본이 따릅니다. */
+.qd-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${px(spec.pager.gap)};
+  margin-top: ${px(spec.pager.gapAbove)};
+  padding-top: ${px(spec.pager.padAbove)};
+  border-top: 1px solid var(--qd-border);
+}
+.qd-pager--top {
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.qd-pager-count,
+.qd-pager-page {
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.pager.labelSize)};
+  line-height: 1;
+  letter-spacing: ${px(spec.pager.labelTracking)};
+  font-variant-numeric: tabular-nums;
+  color: var(--qd-muted);
+}
+.qd-pager-page {
+  min-width: ${px(spec.pager.pageMinWidth)};
+  text-align: center;
+}
+/* 건수 글에 한글(총 · 건)이 들어가면 data-hangul 을 붙입니다. 숫자만이면 그대로 둡니다 */
+.qd-pager-count[data-hangul],
+.qd-pager-page[data-hangul] {
+  letter-spacing: 0;
+  word-spacing: var(--qd-hangul-word-space);
+}
+.qd-pager-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: ${px(spec.pager.navGap)};
+}
+.qd-pager-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: ${px(spec.pager.btnGap)};
+  box-sizing: border-box;
+  min-height: ${px(spec.pager.btnMinHeight)};
+  padding: ${spec.pager.btnPadding};
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
+  background: transparent;
+  color: var(--qd-text);
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.pager.btnSize)};
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+.qd-pager-btn[data-latin] {
+  letter-spacing: ${px(spec.pager.btnTracking)};
+  text-transform: uppercase;
+}
+.qd-pager-btn[aria-disabled='true'],
+.qd-pager-btn:disabled {
+  color: var(--qd-muted);
+  opacity: ${spec.pager.disabledOpacity};
+  pointer-events: none;
+}
+
+/* ── 거르개 띠 ─────────────────────────────────────────────────────────────
+   목록 «위» 에서 좁히는 줄입니다(원본 ListToolbar): 찾기 칸 · 정렬 · 찾기 단추 · 오른쪽
+   끝에 건수. GET 폼으로 두면 JS 없이 돌고, 지금 좁혀 놓은 것이 주소창에 남습니다.
+   좁혀 놓았으면 푸는 길(검색 지우기)이 화면에 있어야 합니다.
+   🔴 대조에서 제품마다 모양이 달랐습니다(알약 고르개 · 제각각의 거르개).
+
+     <div class="qd-filter-bar">
+       <form class="qd-filter-row" method="get" action="/nc">
+         <span class="qd-filter-search">
+           <svg class="qd-filter-search-icon" aria-hidden="true">…</svg>
+           <input class="qd-filter-input" type="search" name="q" placeholder="코드·제목 검색" aria-label="코드·제목 검색">
+         </span>
+         <select class="qd-filter-select" name="sort" aria-label="정렬">…</select>
+         <button class="qd-filter-submit" type="submit">찾기</button>
+         <a class="qd-filter-clear" href="/nc">검색 지우기</a>
+         <span class="qd-filter-count">1-20 / 총 57건</span>
+       </form>
+       <nav class="qd-pager qd-pager--top">…</nav>
+     </div>
+
+   굴려도 따라오게 하려면 --sticky 와 --qd-sticky-top 을 줍니다. 원본은 머리띠 아래에 붙는데
+   머리띠 높이가 제품마다 달라 그 값은 제품이 줍니다(없으면 0). 단추의 한글 규칙은 쪽 이동 줄과 같습니다. */
+.qd-filter-bar {
+  padding: ${px(spec.bar.padTop)} 0 ${px(spec.bar.padBottom)};
+  margin-bottom: ${px(spec.bar.gapBelow)};
+  background: var(--qd-bg);
+}
+.qd-filter-bar--sticky {
+  position: sticky;
+  top: var(--qd-sticky-top, 0px);
+  z-index: var(--qd-z-sticky, ${spec.bar.z});
+}
+.qd-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${px(spec.bar.gap)};
+}
+.qd-filter-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 1 1 ${px(spec.bar.searchBasis)};
+}
+.qd-filter-search-icon {
+  position: absolute;
+  left: ${px(spec.bar.iconLeft)};
+  width: ${px(spec.bar.iconSize)};
+  height: ${px(spec.bar.iconSize)};
+  color: var(--qd-muted);
+  pointer-events: none;
+}
+.qd-filter-input,
+.qd-filter-select {
+  box-sizing: border-box;
+  height: ${px(spec.bar.fieldHeight)};
+  min-width: 0;
+  padding: 0 ${px(spec.bar.selectPadX)};
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
+  background: var(--qd-surface);
+  color: var(--qd-text);
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.bar.fieldSize)};
+}
+.qd-filter-input {
+  flex: 1;
+  padding: 0 ${px(spec.bar.fieldPadX)} 0 ${px(spec.bar.fieldPadIcon)};
+}
+.qd-filter-select { flex: 0 0 auto; }
+.qd-filter-submit {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: ${px(spec.bar.submitHeight)};
+  padding: 0 ${px(spec.bar.submitPadX)};
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
+  background: transparent;
+  color: var(--qd-text);
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.bar.submitSize)};
+  line-height: 1;
+  cursor: pointer;
+}
+.qd-filter-submit[data-latin] {
+  letter-spacing: ${px(spec.bar.submitTracking)};
+  text-transform: uppercase;
+}
+.qd-filter-count,
+.qd-filter-clear {
+  flex: 0 0 auto;
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.bar.labelSize)};
+  line-height: 1;
+  letter-spacing: ${px(spec.bar.labelTracking)};
+  font-variant-numeric: tabular-nums;
+  color: var(--qd-muted);
+}
+.qd-filter-count { margin-left: auto; }
+.qd-filter-clear { text-decoration: underline; }
+.qd-filter-count[data-hangul],
+.qd-filter-clear[data-hangul] {
+  letter-spacing: 0;
+  word-spacing: var(--qd-hangul-word-space);
 }
 
 /* ── 항목 카드 ─────────────────────────────────────────────────────────────
