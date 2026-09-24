@@ -818,10 +818,15 @@ class Doc:
         h = self.html()
         # 긴 줄표 예외(오너 결정 2026-09-24)는 «장 번호 칸» 한 글자뿐입니다. 그 칸만 지우고 전부 봅니다.
         slot_re = re.compile(r'<span ' + re.escape(SLOT) + r'[^>]*>' + CHAPTER_DASH + '</span>')
-        scan = slot_re.sub('', h)
-        text = re.sub(r'<[^>]*>', ' ', scan)
+        # 칸은 «장 제목 앞» 이나 «목차 번호 칸» 에만 선다. 다른 자리에 표시를 옮겨 붙이면 예외가 아니다(Codex 13차 중간)
+        placed = re.compile(r'<span ' + re.escape(SLOT) + r'[^>]*>' + CHAPTER_DASH + r'</span>(?=<h2 |</td>)')
+        scan = placed.sub('', h)
+        # 엔티티는 어떤 꼴(이름 · 10진 · 16진 · 대소문자)이든 풀어서 본다. 16진(&#x2014;)이 빠져 있었다(Codex 13차 중간)
+        text = _html.unescape(re.sub(r'<[^>]*>', ' ', scan))
         fails = []
-        if '&' + 'mdash;' in h or '&' + 'ndash;' in h or '&#' + '8212;' in h or '&#' + '8211;' in h:
+        low = h.lower()
+        if any(e in low for e in ('&' + 'mdash;', '&' + 'ndash;', '&' + 'horbar;')) or \
+                re.search(r'&#(0*821[12]|x0*201[345]);', low):
             fails.append('HTML 대시 엔티티')
         for i, ch in enumerate(text):
             if ord(ch) in _DASHES:
