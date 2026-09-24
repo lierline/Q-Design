@@ -60,7 +60,11 @@ const text = (h) =>
     .replace(/&quot;/g, '"')
     .replace(/\s+/g, ' ')
     .trim();
-const clean = (s) => (s.replace(/\s/g, '') === '\u2014' ? '없음' : s.replace(/\s*[\u2014\u2013]\s*/g, ' · ').trim());
+// 🔴 2026-09-24 오너 결정 「v8 대로 긴 줄표 사용」: 부록 · 면책의 장 번호 칸은 긴 줄표다. 그 규칙을 적은 문장
+//    (「번호 대신 + 긴 줄표」 · 「자리에는 + 긴 줄표 + 를」)의 줄표는 가운뎃점으로 바꾸면 규칙이 뒤집힌다. 글로 풀어 적는다.
+const SLOT_RULE = /(번호 대신|자리에는)\s*\u2014(\s*를)?/g;
+const clean = (s) => (s.replace(/\s/g, '') === '\u2014' ? '없음'
+  : s.replace(SLOT_RULE, (m, a, b) => `${a} 긴 줄표(U+2014)${b ? '를' : ''}`).replace(/\s*[\u2014\u2013]\s*/g, ' · ').trim());
 
 // ── 2. 문서 정보 ────────────────────────────────────────────────────────────
 const plain = text(body);
@@ -188,10 +192,8 @@ for (const k of ['먹', '본문', '소절', '뮤트', '금_글자']) {
 
 // ── 5. 회사 Word 변환기(mqhtml.py)와 대조 ─────────────────────────────────────────
 // 알려진 차이: 규격서와 변환기가 다른 것을 «알고» 있는 자리. 사유 없이 늘어나면 실패, 사라지면 낡은 예외로 실패.
-const KNOWN_DRIFT = {
-  본문색: '변환기 BODY 가 v8 이전 값(#354154). v8 은 본문 #1B2230 · 소절 제목 #354154 로 나눴다. 변환기를 v8 에 맞출지 오너 결정 대기(2026-09-24)',
-  본문폭: '변환기 BODY_PX 는 좌우 여백 18 mm(본문 174 mm) 기준. v8 은 22 mm(본문 166 mm). 오너 결정 대기(2026-09-24)',
-};
+// 2026-09-24 오너 결정 「전체를 v8 이랑 맞춰줘」로 변환기를 v8 에 맞췄다. 본문색 · 본문폭 차이는 사라졌다(예외 없음).
+const KNOWN_DRIFT = {};
 const drift = [];
 if (existsSync(CONVERTER)) {
   const py = readFileSync(CONVERTER, 'utf8');
@@ -199,6 +201,7 @@ if (existsSync(CONVERTER)) {
   const pairs = [
     ['먹색', cst('INK'), color.먹],
     ['본문색', cst('BODY'), color.본문],
+    ['소절 제목색', cst('SUB'), color.소절],
     ['뮤트', cst('MUTED'), color.뮤트],
     ['선', cst('RULE'), color.선],
     ['금 글자', cst('GOLD_INK'), color.금_글자],
