@@ -96,7 +96,7 @@ red       B54040  ← 웹 라이트 red 는 A83838
 제안서 · 견적서 · 계약서 · 요건서 · RFI. 밖으로 나가는 문서입니다.
 
 원본은 `MedQraft/templates/assets/colors_and_type.css` 이고 IR 덱에서 왔습니다.
-생성 경로는 `templates/make.js` → HTML → DOCX/PDF 입니다.
+생성 경로는 `templates/make.py`(양식 5종의 글은 `forms5.py`) · `mqhtml.py` → HTML → DOCX/PDF 입니다. 2026-09-24 부터 회사 문서 양식 v8([docs/23](23-medqraft-paper-document-v8.md))을 따릅니다.
 
 ### 팔레트
 

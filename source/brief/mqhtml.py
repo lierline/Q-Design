@@ -199,7 +199,7 @@ class Doc:
                  eyebrow, title, subtitle, client, footer_label, footer_note,
                  date=None, to_line='', project_name='', title_size=None,
                  meta_extra=None, product='Q-Atelier', disclaimer=None,
-                 form_ref='', parent='', chapter_page=True, toc=None):
+                 form_ref='', parent='', chapter_page=True, toc=None, to_text=None):
         # 머리말에 찍히는 «제품 이름». 기본은 Q-Atelier (2026-09-22 부터 건별로 바꿀 수 있음).
         self.product = product
         # 면책 장 본문. 인허가가 걸리지 않는 건(9001 전산화 등)은 건별로 갈아 끼웁니다.
@@ -226,6 +226,7 @@ class Doc:
         self.parent = parent                              # 문서정보 「상위 문서」
         self.chapter_page = chapter_page                  # v8 표 4: 장은 새 쪽에서
         self.toc = toc                                    # None 이면 장 TOC_MIN 개 이상일 때 목차
+        self.to_text = to_text                            # 주면 표지 「〇〇 귀하」 줄 대신 이 글(HTML)을 쓴다
         self._meta = meta_extra or []
         self._body = []
         self._chapters = []
@@ -459,6 +460,79 @@ class Doc:
         keep = 'break-inside:avoid;' if _fits(''.join(out), len(rows), 2) else ''
         self._body.append(f'<div style="{keep}margin:{_mm(5)} 0 {_mm(3)}">' + ''.join(out) + '</div>')
 
+    def info(self, rows, caption=True):
+        """라벨-값 두 쌍을 한 줄에 두는 정보 표(4열). rows 의 한 줄은 ((라벨, 값), (라벨, 값)) 또는 ((라벨, 값),)
+        (값이 오른쪽 끝까지). 값은 HTML 그대로(빈 칸 blank() 를 넣을 수 있게), 라벨은 글자로 다룹니다."""
+        lw = _mm(24)
+        vw = f'{(BODY_PX - 2 * 91) // 2}px'
+        n = len(rows) - 1
+        out = [f'<table style="width:100%;border-collapse:collapse;table-layout:fixed;'
+               f'font-size:{_pt(8.5)};line-height:1.45;color:{BODY}">']
+        if caption:
+            out.append(self._caption())
+        out.append('<tbody>')
+        for i, row in enumerate(rows):
+            top = f'border-top:{_pt(1.2)} solid {INK};' if i == 0 else ''
+            bd = f'border-bottom:{"1px solid " + INK if i == n else _pt(0.4) + " solid " + RULE};'
+            cells = []
+            for j, (label, value) in enumerate(row):
+                ci = j * 2
+                last = j == len(row) - 1
+                span = ' colspan="3"' if (len(row) == 1) else ''
+                w = f'width:{lw};' if i == 0 else ''
+                cells.append(f'<td style="{top}{bd}{w}{_pad(ci, 4)};color:{INK};font-weight:500;'
+                             f'vertical-align:top;overflow-wrap:anywhere;box-sizing:border-box">{esc(label)}</td>')
+                vwid = f'width:{vw};' if (i == 0 and not span) else ''
+                cells.append(f'<td{span} style="{top}{bd}{vwid}{_pad(ci + 1, ci + 2 if last else 4)};'
+                             f'vertical-align:top;overflow-wrap:anywhere;box-sizing:border-box">{value}</td>')
+            out.append('<tr style="break-inside:avoid">' + ''.join(cells) + '</tr>')
+        out.append('</tbody></table>')
+        keep = 'break-inside:avoid;' if len(rows) <= 20 else ''
+        self._body.append(f'<div style="{keep}margin:{_mm(5)} 0 {_mm(3)}">' + ''.join(out) + '</div>')
+
+    def ol(self, items):
+        """번호 목록. 항목은 HTML 그대로(빈 칸을 넣을 수 있게)."""
+        lis = ''.join(f'<li style="margin:0 0 {_mm(1.5)}">{x}</li>' for x in items)
+        self._body.append(f'<ol style="margin:{_mm(2)} 0 {_mm(3)};padding-left:{_mm(6)};font-size:{_pt(10)};'
+                          f'line-height:1.62;color:{BODY}">{lis}</ol>')
+
+    def checklist(self, items):
+        """□ 로 고르는 목록. 한 항목이 한 줄."""
+        for x in items:
+            self._body.append(f'<p style="font-size:{_pt(10)};line-height:1.62;color:{BODY};margin:0 0 {_mm(1)}">'
+                              f'□ {x}</p>')
+
+    def sign(self, left, right):
+        """두 쪽 서명 블록. left · right 는 (제목, [(라벨, 값 HTML), ...], 서명 줄 HTML).
+        상자 없이 v8 표 선으로만 가릅니다. 표 번호는 붙이지 않습니다(표지 문서정보처럼 양식 부품)."""
+        lw = _mm(22)
+        vw = f'{(BODY_PX - 2 * 83) // 2}px'
+        th = (f'text-align:left;font-size:{_pt(8)};font-weight:700;color:{INK};'
+              f'border-top:{_pt(1.2)} solid {INK};border-bottom:1px solid {INK};box-sizing:border-box')
+        out = [f'<div style="break-inside:avoid;margin:{_mm(6)} 0 {_mm(3)}">'
+               f'<table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:{_pt(8.5)};'
+               f'line-height:1.45;color:{BODY}"><thead><tr>'
+               f'<th colspan="2" style="{th};{_pad(0, 4)}">{esc(left[0])}</th>'
+               f'<th colspan="2" style="{th};{_pad(2, 4)}">{esc(right[0])}</th></tr></thead><tbody>']
+        n = max(len(left[1]), len(right[1]))
+        for i in range(n):
+            cells = []
+            for side, base in ((left, 0), (right, 2)):
+                lab, val = side[1][i] if i < len(side[1]) else ('', '')
+                w1 = f'width:{lw};' if i == 0 else ''
+                w2 = f'width:{vw};' if i == 0 else ''
+                bd = f'border-bottom:{_pt(0.4)} solid {RULE}'
+                cells.append(f'<td style="{w1}{_pad(base, 4)};{bd};color:{MUTED};vertical-align:top;'
+                             f'box-sizing:border-box">{esc(lab)}</td>')
+                cells.append(f'<td style="{w2}{_pad(base + 1, 4)};{bd};color:{INK};vertical-align:top;'
+                             f'overflow-wrap:anywhere;box-sizing:border-box">{val}</td>')
+            out.append('<tr style="break-inside:avoid">' + ''.join(cells) + '</tr>')
+        sl = f'padding:{_mm(8)} {_PH} {_mm(2)} 0;text-align:right;border-bottom:1px solid {INK};color:{INK}'
+        sr = f'padding:{_mm(8)} 0 {_mm(2)} {_PH};text-align:right;border-bottom:1px solid {INK};color:{INK}'
+        out.append(f'<tr><td colspan="2" style="{sl}">{left[2]}</td><td colspan="2" style="{sr}">{right[2]}</td></tr>')
+        out.append('</tbody></table></div>')
+        self._body.append(''.join(out))
+
     def cards(self, items, cols=3, accent=None):
         """나란히 놓는 짧은 묶음. v8 에는 상자가 없어 위 먹선 + 여백으로만 가릅니다(accent 는 옛 호환)."""
         cells = []
@@ -667,6 +741,7 @@ class Doc:
         # v8 6.1: 위 26 mm 공백 → 아이브로우 · 제목 · 부제 → 1.2 pt 먹선 → TO 블록과 문서정보 표(2단)
         #         → 아래 여백에 발신 블록. 표지에는 머리말 · 꼬리말 · 쪽번호를 넣지 않습니다.
         to_line = esc(self.to_line) if self.to_line else blank('부서 · 담당자 성명')
+        to_row = self.to_text if self.to_text is not None else f'{to_line} 귀하'
         proj = esc(self.project_name) if self.project_name else blank('프로젝트명')
         h = height or _mm(236)
         return (
@@ -685,7 +760,7 @@ class Doc:
             f'<div style="font-size:{_pt(7)};font-weight:700;letter-spacing:0.22em;color:{MUTED}">TO</div>'
             f'<div style="margin-top:{_mm(3.5)};font-size:{_pt(17)};font-weight:700;'
             f'letter-spacing:-0.01em;color:{INK}">{esc(self.client)}</div>'
-            f'<div style="margin-top:{_mm(2.5)};font-size:{_pt(9.5)};color:{SUB}">{to_line} 귀하</div>'
+            f'<div style="margin-top:{_mm(2.5)};font-size:{_pt(9.5)};color:{SUB}">{to_row}</div>'
             f'<div style="margin-top:{_mm(6)};padding-top:{_mm(3.5)};border-top:{_pt(0.5)} solid {RULE};'
             f'font-size:{_pt(8.5)};line-height:1.6;color:{MUTED}">{proj}</div></div>'
             f'<div><div style="font-size:{_pt(7)};font-weight:700;letter-spacing:0.22em;'
