@@ -280,7 +280,8 @@ const blocks = {
     ? ['| 항목 | 규격서 v8 | 변환기 mqhtml.py | 사유 |', '|---|---|---|---|', ...drift.map((d) => `| ${d.항목} | ${d.규격서} | ${d.변환기} | ${d.사유 || '(목록에 없음)'} |`)].join('\n')
     : '규격서와 변환기의 값이 모두 같습니다.',
 };
-let doc = existsSync(DOC) ? readFileSync(DOC, 'utf8') : null;
+// 줄바꿈을 LF 로 맞춰 읽는다. 사람이 CRLF 로 저장하면 LF 생성 구간과 섞여 --check 가 늘 「낡음」 이었다(2026-09-24)
+let doc = existsSync(DOC) ? readFileSync(DOC, 'utf8').split('\r\n').join('\n') : null;
 if (doc === null) fail.push(`문서가 없습니다: ${DOC}`);
 else {
   for (const [k, v] of Object.entries(blocks)) {
