@@ -145,7 +145,7 @@ check('폰트', origFonts, copyFonts, '원본 self-host 분 · 추가 self-host 
 const PRODUCTS = [
   { name: 'Q-Atelier', repo: SRC, files: ['app/globals.css', 'app/experts/expert-theme.css'], must: true,
     why: 'Q-Design 의 정본. 여기 색이 dist 에 없으면 추출이 덜 된 것입니다' },
-  { name: 'MedQraft 문서', repo: 'D:/Claude/MedQraft', files: ['templates/assets/colors_and_type.css'], must: true,
+  { name: 'MedQraft 문서', repo: 'D:/Claude/MedQraft Docs', files: ['templates/assets/colors_and_type.css'], must: true,
     why: '대외 문서 브랜드. 2026-09-10 부터 정본 범위 안입니다' },
   { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'], must: true,
     why: '2026-09-10 수렴 완료. Q 계열은 색이 한 벌이어야 합니다' },

@@ -29,6 +29,7 @@ const DIST = 'D:/Claude/Q-Design/dist';
 const 저장소 = {
   'Q-Sonar': { root: 'D:/Claude/Lead-Radar', src: 'src' },
   'Q-Forge': { root: 'D:/Claude/DHR', src: '.' },
+  'Q-Maison': { root: 'D:/Claude/Q-Works', src: '.' },
 };
 
 /* ── 1. 정본에서 «라틴 자간을 거는 클래스» 를 뽑는다 ──────────────────────────── */

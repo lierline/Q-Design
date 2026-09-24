@@ -32,6 +32,7 @@ const TARGET = process.argv[2];
 const PRODUCTS = {
   'Q-Sonar': { repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'] },
   'Q-Forge': { repo: 'D:/Claude/DHR', files: ['app/globals.css'] },
+  'Q-Maison': { repo: 'D:/Claude/Q-Works', files: ['app/globals.css'] },
 };
 
 /*

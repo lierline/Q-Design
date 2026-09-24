@@ -35,7 +35,7 @@ const CHECK = process.argv.includes('--check');
  */
 const REPOS = {
   qa: 'D:/Claude/Q-Atelier',
-  mq: 'D:/Claude/MedQraft',
+  mq: 'D:/Claude/MedQraft Docs', // 2026-09-20 폴더 이름이 바뀌었다 (옛 D:/Claude/MedQraft)
 };
 
 /*

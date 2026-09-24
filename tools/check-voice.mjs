@@ -36,6 +36,7 @@ const 저장소 = {
   'Q-Atelier': { root: 'D:/Claude/Q-Atelier', dirs: ['app', 'components'] },
   'Q-Sonar': { root: 'D:/Claude/Lead-Radar', dirs: ['src'] },
   'Q-Forge': { root: 'D:/Claude/DHR', dirs: ['app', 'components', 'lib'] },
+  'Q-Maison': { root: 'D:/Claude/Q-Works', dirs: ['app', 'components', 'lib'] },
 };
 
 const 건너뛸폴더 = new Set(['node_modules', '.next', '.git', 'dist', 'build', 'coverage', 'public']);
