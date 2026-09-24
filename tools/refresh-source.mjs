@@ -115,11 +115,27 @@ const MAP = [
     shallow: true,
     also: ['components/Logo.tsx'],
   },
-  { dest: 'brief', repo: 'mq', files: ['templates/assets/colors_and_type.css'] },
+  /*
+   * 대외 문서(MedQraft). colors_and_type.css 는 브리핑(DARK) 토큰의 원본이고,
+   * mqhtml.py 는 회사 Word 변환기입니다. extract-mqdoc 가 변환기 상수를 종이 문서 규격서 v8 과 대조합니다.
+   */
+  { dest: 'brief', repo: 'mq', files: ['templates/assets/colors_and_type.css', 'templates/mqhtml.py'] },
+  /*
+   * 종이 문서 양식 v8 (2026-09-24 오너가 준 「MedQraft 문서 양식_rev.8.zip」). 원본은 손대지 않은 채
+   * MedQraft Docs `templates/spec-v8/` 에 커밋되어 있습니다. 규격서 · 예시는 글꼴과 그림을 품은 묶음 HTML 이라
+   * 브라우저로 그대로 열립니다. extract-mqdoc 가 규격서의 표를 읽습니다.
+   */
+  { dest: 'brief/v8', repo: 'mq', dir: 'templates/spec-v8', match: /\.(html|md)$/, shallow: true },
+  { dest: 'brief/v8/logo', repo: 'mq', dir: 'templates/spec-v8/logo', match: /\.png$/, shallow: true },
 ];
 
+/*
+ * 🔴 core.quotepath=false: 끄지 않으면 git 이 한글 경로를 `"\354\230..."` 처럼 따옴표 · 8진수로 내보내고,
+ *    그 이름으로는 파일을 못 읽어 한글 이름 파일이 «조용히» 빠졌습니다(2026-09-24 회사 문서 양식 v8 의
+ *    규격서 · 예시 · 한글 로고가 지도에서 사라짐).
+ */
 const git = (repo, args, opts = {}) =>
-  execFileSync('git', ['-C', REPOS[repo], ...args], { maxBuffer: 64 * 1024 * 1024, ...opts });
+  execFileSync('git', ['-c', 'core.quotepath=false', '-C', REPOS[repo], ...args], { maxBuffer: 64 * 1024 * 1024, ...opts });
 
 /* 원본에서 커밋된 내용을 읽습니다. 없으면 null. */
 function readFromHead(repo, path) {

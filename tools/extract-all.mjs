@@ -40,6 +40,7 @@ const STEPS = [
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
+  { name: '종이 문서 v8', file: 'extract-mqdoc.mjs', why: 'MedQraft 종이 문서 규격서 v8 에서 뽑고 회사 Word 변환기와 대조' },
   { name: '차림표', file: 'extract-nav.mjs' },
   { name: '목록', file: 'extract-list.mjs' },
   { name: '뼈대', file: 'extract-screen.mjs' },
@@ -61,6 +62,9 @@ if (checkOnly) {
   console.log(src.out.trim());
   const tbl = run('contrast-table.mjs', ['--check']);
   console.log(tbl.out.trim() || tbl.err || '');
+  // 종이 문서 v8: 산출물이 규격서와 맞는가 · 변환기와의 차이가 알려진 것뿐인가
+  const mqd = run('extract-mqdoc.mjs', ['--check']);
+  console.log(mqd.out.trim());
   console.log('');
   // 「디자인 다 뽑았나」에 숫자로 답하는 자리입니다.
   const cov = run('audit-coverage.mjs');
@@ -68,7 +72,7 @@ if (checkOnly) {
   console.log('');
   const r = run('sync.mjs');
   console.log(r.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (cov.code || 0) || (r.code ?? 0));
+  process.exit((src.code || 0) || (tbl.code || 0) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0));
 }
 
 console.log('산출물 다시 만들기');

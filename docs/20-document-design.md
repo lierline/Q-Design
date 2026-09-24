@@ -18,6 +18,10 @@
 | 산출물 | `dist/q-design.doc.*` | `dist/q-design.brief.json` |
 | 원본 | 웹 라이트 팔레트에서 파생 | `MedQraft/templates/assets/colors_and_type.css` |
 
+> 대외 문서(MedQraft)는 다시 **두 판** 입니다. 위 표는 IR 덱에서 온 어두운 **브리핑** 판입니다.
+> 흰 종이로 나가는 제안서 · 계약서 · 보고서는 회사 문서 양식 규격서 v8 을 따르고, 종이 위 금색 «글자» 는
+> `#8C6C27` 입니다. [23 MedQraft 종이 문서 양식 v8](23-medqraft-paper-document-v8.md) 을 보십시오.
+
 **장치는 같고 값이 다릅니다.** 금색 짧은 선 + 대문자 라벨, 카드 왼쪽 액센트 띠,
 조용한 표면 계단은 양쪽 다 씁니다. 그래서 «패밀리» 로 보입니다.
 
