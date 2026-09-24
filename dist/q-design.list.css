@@ -94,7 +94,12 @@ html[data-theme='light'] {
 .qd-panel > .qd-table-scroll:first-child,
 .qd-panel > .qd-table:first-child { border-top-left-radius: inherit; border-top-right-radius: inherit; }
 .qd-panel > .qd-table-scroll:last-child,
-.qd-panel > .qd-table:last-child { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; overflow: hidden; }
+.qd-panel > .qd-table:last-child { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; }
+/* 모서리를 자르는 것은 맨 표뿐입니다. 감싸개는 제 overflow-x: auto 로 이미 자기 모서리에서
+   잘립니다. 🔴 감싸개까지 hidden 으로 덮었더니(선택자 무게가 .qd-table-scroll 보다 셉니다)
+   판의 마지막 표가 가로로 안 밀렸습니다. 넓은 표의 오른쪽 칸이 보이지도 닿지도 않았습니다
+   (2026-09-24 Q-Carnet 육안 대조 · /settings/users 실측 auto → hidden). */
+.qd-panel > .qd-table:last-child { overflow: hidden; }
 
 /* ── 표 ────────────────────────────────────────────────────────────────────
    수백 줄을 세로로 훑는 자리입니다. 행 사이를 벌리지 않고 경계선 하나로 가릅니다.
