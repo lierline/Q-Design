@@ -540,6 +540,9 @@ ${bind('light')}
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.input.fontSize)};
+  /* 원본 입력칸은 줄간격을 적지 않아 브라우저 기본값(normal)으로 그려집니다(높이 36~37).
+     Tailwind preflight 를 쓰는 제품은 본문 줄간격(1.5~1.7)을 물려받아 42 · 44 로 커졌습니다 (2026-09-24) */
+  line-height: normal;
   transition: border-color ${tokens.motion.fast}, background-color ${tokens.motion.fast}, box-shadow ${tokens.motion.fast};
 }
 .qd-input:hover:not(:focus):not(:disabled):not([readonly]) { border-color: var(--qd-borderHi); }

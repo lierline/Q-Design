@@ -360,6 +360,9 @@ a.qd-row:hover, button.qd-row:hover {
   vertical-align: middle;
   white-space: nowrap;
   font-family: var(--qd-font-mono);
+  /* 원본 Tag 는 굵기를 적지 않고 둘레의 400 을 물려받아 그렇게 보입니다. 제목(700) 안에 놓이면
+     배지까지 굵어져서(Q-Forge 배치 상세 · Q-Sonar 600) 물려받지 않게 원본이 «그려지는» 값을 적습니다 (2026-09-24) */
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: 1px;
   color: var(--_c);
