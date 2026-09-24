@@ -11,15 +11,10 @@
 // Apache-2.0 §4(d)는 「NOTICE 의 귀속 고지를 배포물에 포함할 것」을 요구한다.
 // 둘 다 요구하는 것은 **원문**이지 「MIT 를 씁니다」라는 한 줄이 아니다.
 //
-// 🔴 종전 판단(2026-09-09)에는 「우리는 SaaS 라 오픈소스를 배포하지 않는다」고 적혀
-//    있었다. 그것은 npm/웹 트리에만 맞는 말이었다. **안드로이드 APK 는 Play 스토어로
-//    실제 배포되고 그 안에 Capacitor(MIT)와 AndroidX(Apache-2.0)가 컴파일되어 들어간다.**
-//    배포가 있으면 고지 의무가 있다. 그래서 이 화면이 생겼다.
-//
-// ── 앱 안의 「오픈소스 라이선스」 화면이 곧 이 페이지다 ─────────────────────
-// `capacitor.config.ts` 의 server.url 이 원격(www.qatelier.co.kr)이라 앱은 웹뷰다.
-// 즉 이 웹 페이지 하나가 웹과 앱 양쪽의 고지 화면을 겸한다. 앱에 따로 만들지 않는다.
-// allowNavigation 에 이미 자기 도메인이 있으므로 앱 안에서 그대로 열린다.
+// 2026-09-10 에는 안드로이드 APK(Capacitor · AndroidX)가 배포되는 트리라서 이 화면이 생겼다.
+// 2026-09-18 안드로이드 껍데기를 저장소에서 지웠다(출시된 적 없음 · CTO 감사 3번). 지금 배포되는
+// 트리는 웹뿐이지만, 넉넉히 고지하는 편이 안전하므로 화면은 그대로 둔다. 옛 안드로이드 절은
+// git 이력에 있다.
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -100,15 +95,6 @@ export default function OpenSourcePage() {
               </td>
             </tr>
             <tr>
-              <td>모바일 앱 (Android)</td>
-              <td>{s.androidComponents}</td>
-              <td>포함</td>
-              <td>
-                앱 설치 파일에 <strong>실제로 담겨 이용자 기기로 전달되는</strong> 유일한
-                구성요소들입니다.
-              </td>
-            </tr>
-            <tr>
               <td>개발 도구</td>
               <td>{s.npmDevelopmentExcluded}</td>
               <td>제외</td>
@@ -124,36 +110,6 @@ export default function OpenSourcePage() {
         <strong>{s.licenseTextGroups}종</strong> (같은 원문을 쓰는 구성요소는 하나로 묶어
         실었습니다) · 원문 파일을 확인하지 못한 항목 <strong>{s.withoutLicenseText}개</strong>
       </p>
-
-      {/* ── 앱 트리를 먼저 세운다. 「배포」가 실제로 일어나는 쪽이다. ─────────── */}
-      <h2>모바일 앱에 포함되는 구성요소</h2>
-      <p>
-        Q-Atelier 안드로이드 앱은 서비스 화면을 불러오는 얇은 껍데기이며, 설치 파일에 담기는
-        오픈소스는 아래가 전부입니다. 화면을 구성하는 코드는 앱에 담기지 않고 접속할 때마다
-        서버에서 내려받습니다.
-      </p>
-      <div className="qa-legal-table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>구성요소</th>
-              <th>버전</th>
-              <th>라이선스</th>
-            </tr>
-          </thead>
-          <tbody>
-            {notice.android.map((c) => (
-              <tr key={c.name}>
-                <td>
-                  <code>{c.name}</code>
-                </td>
-                <td>{c.version}</td>
-                <td>{c.license}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
 
       {/* ── 색인 ─────────────────────────────────────────────────────────────── */}
       <h2 id="index">구성요소 목록</h2>

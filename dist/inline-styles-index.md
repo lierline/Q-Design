@@ -7,16 +7,16 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 
 | | 개수 |
 |---|---:|
-| 키프레임 전체 | **46종** |
+| 키프레임 전체 | **45종** |
 | CSS 파일에 있는 것 | 19종 |
-| 인라인에만 있는 것 | **27종** |
-| `<style>` 을 가진 파일 | 29개 |
+| 인라인에만 있는 것 | **26종** |
+| `<style>` 을 가진 파일 | 25개 |
 
 원본은 `source/screens/` 에 있습니다 (경로의 `/` 를 `__` 로 바꾼 이름).
 
 ## 인라인에만 있는 키프레임
 
-`qa-assist-rise` · `qa-auth-rise` · `qa-cursor-blink` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-ember` · `qa-entrance-mark` · `qa-entrance-sweep` · `qa-entrance-veil` · `qa-fab-rise` · `qa-glow-pulse` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-spin-fj` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
+`qa-assist-rise` · `qa-auth-rise` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-ember` · `qa-entrance-mark` · `qa-entrance-sweep` · `qa-entrance-veil` · `qa-fab-rise` · `qa-glow-pulse` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-spin-fj` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
 
 ## 파일별
 
@@ -27,10 +27,6 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | `components/RibbonBackground.tsx` | `qa-ribbon-drift-1` `qa-ribbon-drift-2` | `.qa-ribbon-layer-1` `.qa-ribbon-layer-2` | 1 |
 | `components/WelcomeFlow.tsx` | `qa-welcome-backdrop` `qa-welcome-in` | `.qa-welcome-backdrop` `.qa-welcome-card` | 1 |
 | `lib/design/components.tsx` | `qa-drawer-slide-l` `qa-drawer-slide-r` | 없음 | 11 |
-| `app/(app)/ai/draft/cr/client.tsx` | `qa-cursor-blink` | `.qa-product-card` `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 1 |
-| `app/(app)/ai/draft/ifu/client.tsx` | `qa-cursor-blink` | `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 1 |
-| `app/(app)/ai/draft/risk/client.tsx` | `qa-cursor-blink` | `.qa-risk-grid` `.qa-wizard-card` `.qa-wizard-kbd-hint` `.qa-wizard-q-title` | 2 |
-| `app/(app)/ai/my-drafts/client.tsx` | `qa-spin` | `.qa-spin` | 0 |
 | `app/(app)/research/[code]/page.tsx` | `qa-pulse` | 없음 | 0 |
 | `app/(app)/research/[code]/profile/page.tsx` | `qa-spin` | 없음 | 0 |
 | `components/AiDraftAssist.tsx` | `qa-assist-rise` | 없음 | 0 |

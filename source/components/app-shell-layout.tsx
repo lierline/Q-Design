@@ -1,10 +1,14 @@
 import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
 import type { JobRole } from '@/lib/permissions';
-import { gateMenusByModules, moduleAllowsMenu } from '@/lib/permissions/module-menus';
+import { gateMenusByModules, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/lib/permissions/module-menus';
 import { loadEnabledModules } from '@/lib/subscription/module-gate';
+import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } from '@/lib/subscription/plan-policy';
+import { menuForPath } from '@/lib/nav/menu-for-path';
+import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
 import { RibbonBackground } from '@/components/RibbonBackground';
 import { Sidebar } from '@/components/Sidebar';
@@ -133,13 +137,27 @@ export default async function AppLayout({
   // 모듈식 게이팅(QMS-First 줄기+가지, 3차 전환 2026-07-26): 비활성 가지 모듈의 전속
   // 메뉴를 사이드바에서 게이팅. QMS 코어(문서·부적합·CAPA·불만)는 매핑에 없어 항상 노출.
   // medqraft admin 은 운영 계정이라 게이팅 제외(전체 노출).
+  // 운영 계정도 PILOT_MODULES 밖의 가지는 못 본다(allowedModulesFor 가 교집합을 낸다).
   const enabledModules =
     membership && !isMedqraftAdmin
       ? await loadEnabledModules(supabase, membership.org_id as string)
-      : (['rd', 'ra', 'qa', 'production'] as const);
+      : allowedModulesFor(ALL_MODULES);
   // gatedMenus = caps 메뉴에서 비활성 모듈 전속 메뉴를 제거한 단일 진실.
   // 사이드바 가시성(menus prop)·canSee* 플래그·멀티롤 그룹이 모두 이걸 사용(누수 0).
   const gatedMenus = gateMenusByModules(caps.sidebarMenus, enabledModules);
+
+  // 🔴 2026-09-18 (CTO 감사 3번): 꺼진 가지의 화면은 «주소를 쳐도» 열리지 않는다.
+  //    화면 파일마다 assertMenuAccess 를 적는 방식은 50/164 에서 멈춰 있었고, /new · /m ·
+  //    /sterilization 은 로그인만 보고 열렸다. 미들웨어가 실어 준 x-pathname 으로 메뉴를
+  //    찾아(menuForPath, href 정본은 NAV_ITEMS) 사이드바와 같은 판정(moduleAllowsMenu)을 한다.
+  //    운영 계정(isMedqraftAdmin)은 enabledModules 자체가 파일럿 전체라 자연히 통과한다.
+  const pathname = (await headers()).get('x-pathname');
+  const pathMenu = menuForPath(pathname);
+  const lockedModule: (typeof ALL_MODULES)[number] | null =
+    pathMenu && !moduleAllowsMenu(pathMenu, enabledModules)
+      ? (MENU_REQUIRED_MODULES[pathMenu] ?? [])[0] ?? null
+      : null;
+  const lockedIsOffered = lockedModule != null && (SELF_SERVE_MODULES as string[]).includes(lockedModule);
 
   // 감사 추적: owner(L110) 외에 bundle sidebarMenus 에 'audit' 가진 직무
   // (RA/QA·Lead·R&D 팀장)도 메뉴 노출. page 가드(audit/page.tsx)와 동기.
@@ -417,7 +435,28 @@ export default async function AppLayout({
           )}
           <NotificationBell placement="static" userId={user.id} isRdLead={caps.sidebarMenus.has('rd-review')} />
         </TopHeaderBand>
-        <PageTransition>{children}</PageTransition>
+        <PageTransition>
+          {lockedModule ? (
+            <ModuleLockedNotice
+              title={MODULE_LABEL_KR[lockedModule]}
+              moduleId={lockedModule}
+              offered={lockedIsOffered}
+              canActivate={lockedIsOffered && (role === 'owner' || hasRole(profile, 'exec'))}
+              headline={
+                lockedIsOffered
+                  ? `${MODULE_LABEL_KR[lockedModule]} 업무를 시작할 준비가 되면 켜세요`
+                  : `${MODULE_LABEL_KR[lockedModule]} 가지는 지금 제품에서 제공하지 않습니다`
+              }
+              description={
+                lockedIsOffered
+                  ? '이 화면은 아직 켜지 않은 업무 가지에 속합니다. 켜면 차림표와 화면이 함께 열립니다.'
+                  : '첫 판매는 제품 개발 · 품질 · 인허가 관리 세 기둥입니다. 이 가지가 필요하면 MedQraft 에 알려 주십시오.'
+              }
+            />
+          ) : (
+            children
+          )}
+        </PageTransition>
       </main>
       <RealtimeNotifications userId={user.id} />
       {/* ⏸ AI Assistant FAB: 2026-06-04 오빠 지시로 일시 비활성화. 기능/컴포넌트는

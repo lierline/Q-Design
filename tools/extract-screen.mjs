@@ -12,6 +12,9 @@
 //   .qd-kpi       요약 지표 카드. 목록 위에서 「지금 상태」를 숫자로 말합니다
 //   .qd-grid-kpi  그 카드를 담는 반응형 격자
 //   .qd-label     구역 이름표. 모노 · 작게 · muted
+//   .qd-page-head 화면 머리. 금색 막대 · 부제 · 제목 · 하단선 (2026-09-24)
+//   .qd-btn       단추. 주는 글자색 면(다크 상아 · 라이트 먹) · 보조는 테두리 (2026-09-24)
+//   .qd-input     입력칸. 글 · 고르개 · 여러 줄 한 상자 · 모서리 10 (2026-09-24)
 //   .qd-shell-*   읽는 화면 820 · 쓰는 화면 720 으로 좁히고 가운데
 //
 // ── 폭이 왜 규격인가 ─────────────────────────────────────────────────────────
@@ -81,6 +84,116 @@ const spec = probeAll([
   ['stat.gridGap',    Z.statGrid, /gap: S\[([\d.]+)\],/, Number],
 ]);
 
+/*
+ * ── 화면 머리 · 단추 · 입력칸 (2026-09-24 · docs/22) ───────────────────────
+ * 정본이 CSS 로 안 쥐던 세 자리입니다. 제품마다 손으로 만들어서 네 제품 감사에서
+ * 제목 32 · 26 · 26 · 22.5px, 주 단추 상아색 · 금색, 입력칸 모서리 6 · 10 · 7.375 로
+ * 갈렸습니다. 원본 부품(PageHd · Btn · In)과 원본 globals.css 의 클래스 규칙에서
+ * 읽습니다. 값을 여기 적지 않습니다.
+ */
+const gcss = read(join(SRC, 'css', 'globals.css'));
+const H = {
+  pageHd: slice(comp, 'export function PageHd({', '// ─── CARD', 'PageHd'),
+  btn: slice(comp, 'export function Btn({', '// ─── ICON BUTTON', 'Btn'),
+  input: slice(comp, 'const inputStyle: CSSProperties = {', '};', 'inputStyle'),
+  qaBtn: slice(gcss, '.qa-btn {', '}', 'qa-btn'),
+  qaBtnHover: slice(gcss, '.qa-btn:hover:not(:disabled) {', '}', 'qa-btn:hover'),
+  qaBtnFocus: slice(gcss, '.qa-btn:focus-visible:not(:disabled),', '}', 'qa-btn:focus'),
+  qaInput: slice(gcss, '.qa-input {', '}', 'qa-input'),
+  qaInputFocus: slice(gcss, '.qa-input:focus-visible {', '}', 'qa-input:focus'),
+};
+Object.assign(H, {
+  hdOuter: slice(H.pageHd, 'return (', '<style', 'PageHd.outer'),
+  hdCss: slice(H.pageHd, 'const responsiveCss = `', '`;', 'PageHd.css'),
+  hdRow: slice(H.pageHd, 'className={`${headerClass}-row`}', '<div style={{ minWidth', 'PageHd.row'),
+  hdBar: slice(H.pageHd, '{accent && (', '{sub && (', 'PageHd.bar'),
+  hdSub: slice(H.pageHd, '{sub && (', '<h1', 'PageHd.sub'),
+  hdTitle: slice(H.pageHd, '<h1', '</h1>', 'PageHd.title'),
+  hdActions: slice(H.pageHd, 'className={`${headerClass}-actions`}', '{actions}', 'PageHd.actions'),
+  hdRule: slice(H.pageHd, '<div style={{ marginTop:', '/>', 'PageHd.rule'),
+});
+
+Object.assign(spec, probeAll([
+  // ── 화면 머리 (PageHd) · 막대 → 부제 → 제목 → 하단선 ───────────────────
+  ['head.gapBelow',     H.hdOuter,   /marginBottom: S\[([\d.]+)\]/, Number],
+  ['head.rowGap',       H.hdRow,     /gap: S\[([\d.]+)\],/, Number],
+  ['head.actionsGap',   H.hdActions, /gap: S\[([\d.]+)\]/, Number],
+  ['head.barWidth',     H.hdBar,     /width: (\d+),/, Number],
+  ['head.barHeight',    H.hdBar,     /height: ([\d.]+),/, Number],
+  ['head.barGapBelow',  H.hdBar,     /marginBottom: S\[([\d.]+)\],/, Number],
+  ['head.subSize',      H.hdSub,     /fontSize: FS\[(\d+)\],/, Number],
+  ['head.subTracking',  H.hdSub,     /letterSpacing: labelTracking\(sub, ([\d.]+)\),/, Number],
+  ['head.subGapBelow',  H.hdSub,     /marginBottom: S\[([\d.]+)\],/, Number],
+  ['head.titleMin',     H.hdCss,     /font-size:clamp\((\d+)px, /, Number],
+  ['head.titleFluid',   H.hdCss,     /px, ([\d.]+)vw, /, Number],
+  ['head.titleMax',     H.hdCss,     /vw, (\d+)px\)/, Number],
+  ['head.stackBp',      H.hdCss,     /max-width:\$\{BP\.(\w+) - 1\}px/, String],
+  ['head.titleWeight',  H.hdTitle,   /fontWeight: (\d+),/, Number],
+  ['head.titleLine',    H.hdTitle,   /lineHeight: ([\d.]+),/, Number],
+  ['head.titleTracking', H.hdTitle,  /letterSpacing: '(-?[\d.]+em)',/, String],
+  ['head.ruleGapAbove', H.hdRule,    /marginTop: S\[([\d.]+)\],/, Number],
+
+  // ── 단추 (Btn · .qa-btn) · 주(면) 와 보조(테두리) 가 같은 상자 ────────────
+  ['btn.padding',       H.btn,       /padding: sm \? '[^']+' : '([^']+)',/, String],
+  ['btn.paddingSm',     H.btn,       /padding: sm \? '([^']+)' :/, String],
+  ['btn.minHeightSm',   H.btn,       /const minHeight = sm \? (\d+) : TOUCH\.min;/, Number],
+  ['btn.fontSize',      H.btn,       /fontSize: sm \? FS\[\d+\] : FS\[(\d+)\],/, Number],
+  ['btn.fontSizeSm',    H.btn,       /fontSize: sm \? FS\[(\d+)\] :/, Number],
+  ['btn.tracking',      H.btn,       /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
+  ['btn.gap',           H.btn,       /gap: S\[([\d.]+)\],/, Number],
+  ['btn.weight',        H.btn,       /fontWeight: (\d+),/, Number],
+  ['btn.disabledOpacity', H.btn,     /opacity: disabled \? ([\d.]+) : 1,/, Number],
+  ['btn.radius',        H.qaBtn,     /border-radius: (\d+)px;/, Number],
+  ['btn.hoverOpacity',  H.qaBtnHover, /opacity: ([\d.]+);/, Number],
+  ['btn.focusOutline',  H.qaBtnFocus, /outline: (\d+)px solid var\(--qa-champagne\);/, Number],
+  ['btn.focusOffset',   H.qaBtnFocus, /outline-offset: (\d+)px;/, Number],
+  ['btn.focusRing',     H.qaBtnFocus, /box-shadow: 0 0 0 (\d+)px color-mix/, Number],
+  ['btn.focusRingMix',  H.qaBtnFocus, /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
+
+  // ── 입력칸 (In · Sel · .qa-input) ─────────────────────────────────────────
+  ['input.padding',     H.input,     /padding: '([^']+)',/, String],
+  ['input.fontSize',    H.input,     /fontSize: FS\[(\d+)\],/, Number],
+  ['input.radius',      H.qaInput,   /border-radius: (\d+)px;/, Number],
+  ['input.focusRing',   H.qaInputFocus, /box-shadow: 0 0 0 (\d+)px color-mix/, Number],
+  ['input.focusRingMix', H.qaInputFocus, /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
+]));
+{
+  const m = tokensTs.match(/export const TOUCH = \{\s*min: (\d+),/);
+  if (!m) throw new Error('TOUCH.min 을 못 찾았습니다.');
+  put(spec, 'btn.minHeight', Number(m[1]));
+  const bp = tokensTs.match(new RegExp(`export const BP = \\{[\\s\\S]*?\\b${spec.head.stackBp}: (\\d+),`));
+  if (!bp) throw new Error(`BP.${spec.head.stackBp} 를 못 찾았습니다.`);
+  put(spec, 'head.stackBelow', Number(bp[1]) - 1);
+}
+/* 원본이 말하는 색이 정본 변수와 같은 뜻인지 확인합니다. 다르면 이름을 잘못 잇게 됩니다 */
+for (const [what, zone, re] of [
+  ['주 단추 면 = 글자색', H.btn, /: p \? T\.text : 'transparent',/],
+  ['주 단추 글자 = 바탕색', H.btn, /: p \? T\.bg : T\.subtle,/],
+  ['보조 단추 테두리 = border', H.btn, /: `1px solid \$\{T\.border\}`,/],
+  ['입력칸 바탕 = surface', H.input, /background: T\.surface,/],
+  ['입력칸 테두리 = border', H.input, /border: `1px solid \$\{T\.border\}`,/],
+  ['입력칸 초점 = champagne 테두리 · surface2 바탕', H.qaInputFocus, /border-color: var\(--qa-champagne\)[^;]*;\s*background-color: var\(--qa-surface2\);/],
+  ['보조 단추 올림 = borderHi', gcss, /\.qa-btn-secondary:hover:not\(:disabled\) \{\s*border-color: var\(--qa-borderHi\);/],
+]) {
+  if (!re.test(zone)) throw new Error(`원본의 색 뜻이 바뀌었습니다: ${what}`);
+}
+/* 좁은 화면의 입력칸 글자 · 손가락 기기의 단추 높이 (원본 globals.css) */
+{
+  const narrow = slice(gcss, '@media (max-width: 1023px) {\n  .qa-input,', '}\n}', 'qa-input narrow');
+  const m1 = narrow.match(/font-size: (\d+)px !important;/);
+  if (!m1) throw new Error('좁은 화면 입력칸 글자 크기를 못 찾았습니다.');
+  put(spec, 'input.fontSizeNarrow', Number(m1[1]));
+  put(spec, 'input.narrowBelow', 1023);
+  const touch = slice(gcss, '@media (hover: none) and (pointer: coarse) {\n  .qa-btn,', '}\n}', 'qa-btn touch');
+  const m2 = touch.match(/min-height: (\d+)px;/);
+  if (!m2 || Number(m2[1]) !== spec.btn.minHeight) throw new Error('손가락 기기 단추 높이가 TOUCH.min 과 다릅니다.');
+}
+
+/* 모서리는 RADIUS.md(10) 하나입니다 (docs/05 · 오너 결정 2026-09-24 「작은 조작부도 전부 10」) */
+for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radius]]) {
+  if (v !== tokens.radius.md) throw new Error(`${k} 모서리 ${v} 가 RADIUS.md(${tokens.radius.md}) 와 다릅니다.`);
+}
+
 /* 셸 폭. tokens.ts 의 LAYOUT 이 SSOT 입니다. */
 {
   const block = slice(tokensTs, 'export const LAYOUT = {', '} as const;', 'LAYOUT');
@@ -122,21 +235,26 @@ if (spec.kpi.valueSize !== 36) throw new Error(`KPI 숫자 크기가 바뀌었�
 if (spec.shell.detail !== 820) throw new Error(`상세 폭이 바뀌었습니다: ${spec.shell.detail}`);
 
 // ── CSS ──────────────────────────────────────────────────────────────────────
+/* 이름은 차림표 · 목록 정본과 같게 둡니다(borderHi · danger). 한 변수를 두 이름으로 부르면 제품이 둘 다 이어야 합니다 */
 const BINDINGS = [
+  ['bg', 'bg'],
   ['surface', 'surface'],
   ['surface2', 'surface2'],
   ['border', 'border'],
+  ['borderHi', 'borderHi'],
   ['text', 'text'],
   ['subtle', 'subtle'],
   ['muted', 'muted'],
   ['accent', 'champagne'],
+  ['danger', 'red'],
 ];
 const bind = (mode) => bindingsBlock(tokens.color, mode, BINDINGS);
 
 const css = `/* =============================================================================
    q-design.screen.css · 화면 뼈대 정본
    생성물입니다. 손대지 마세요.  node tools/extract-screen.mjs
-   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid) + tokens.ts (LAYOUT)
+   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid · PageHd · Btn · In)
+         + tokens.ts (LAYOUT · TOUCH · BP) + app/globals.css (.qa-btn · .qa-input)
    =============================================================================
 
    목록 «위와 아래» 를 맡습니다.
@@ -145,6 +263,9 @@ const css = `/* ================================================================
      .qd-grid-kpi   그 카드를 담는 반응형 격자
      .qd-stat       조밀한 짝. 카드 안에 여럿 늘어놓을 때
      .qd-label      구역 이름표. 모노 · 작게 · muted
+     .qd-page-head  화면 머리. 막대 · 부제 · 제목 · 하단선
+     .qd-btn        단추. 주(글자색 면) · 보조(테두리) · 위험 · 작은 것
+     .qd-input      입력칸. 글 · 고르개 · 여러 줄
      .qd-shell-*    폭을 좁히고 가운데 두는 규칙
 
    색은 \`q-design.nav.css\` 와 같은 \`--qd-*\` 를 읽습니다.
@@ -283,6 +404,159 @@ ${bind('light')}
   letter-spacing: 0;
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 화면 머리 ─────────────────────────────────────────────────────────────
+   모든 화면 맨 위에 같은 모양으로 섭니다: 금색 막대 · 부제 · 제목 · 하단선.
+   나란히 놓았을 때 「같은 집안」 을 가장 먼저 말하는 자리입니다 (docs/11 · docs/22).
+
+     <header class="qd-page-head">
+       <div class="qd-page-head-row">
+         <div class="qd-page-head-text">
+           <p class="qd-page-head-sub">NON-CONFORMANCE</p>     한글이면 data-hangul
+           <h1 class="qd-page-head-title">부적합</h1>
+         </div>
+         <div class="qd-page-head-actions">…</div>
+       </div>
+     </header>
+
+   막대와 하단선은 가상 요소라 따로 적지 않습니다. 막대를 빼려면 --plain.
+   🔴 제목 크기를 제품에서 다시 적지 마십시오. 26 · 22.5 로 갈렸던 자리입니다. */
+.qd-page-head { margin-bottom: ${px(spec.head.gapBelow * 4)}; }
+.qd-page-head::after {
+  content: '';
+  display: block;
+  margin-top: ${px(spec.head.ruleGapAbove * 4)};
+  border-bottom: 1px solid var(--qd-border);
+}
+.qd-page-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: ${px(spec.head.rowGap * 4)};
+  flex-wrap: wrap;
+}
+.qd-page-head-text { min-width: 0; flex: 1 1 auto; }
+.qd-page-head-text::before {
+  content: '';
+  display: block;
+  width: ${px(spec.head.barWidth)};
+  height: ${px(spec.head.barHeight)};
+  margin-bottom: ${px(spec.head.barGapBelow * 4)};
+  background: var(--qd-accent);
+}
+.qd-page-head--plain .qd-page-head-text::before { display: none; }
+.qd-page-head-sub {
+  margin: 0 0 ${px(spec.head.subGapBelow * 4)};
+  font-family: var(--qd-font-mono);
+  font-size: ${px(spec.head.subSize)};
+  font-weight: 400;
+  letter-spacing: ${px(spec.head.subTracking)};
+  text-transform: uppercase;
+  color: var(--qd-subtle);
+}
+.qd-page-head-sub[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
+.qd-page-head-title {
+  margin: 0;
+  font-family: var(--qd-font-ui);
+  font-size: clamp(${px(spec.head.titleMin)}, ${spec.head.titleFluid}vw, ${px(spec.head.titleMax)});
+  font-weight: ${spec.head.titleWeight};
+  line-height: ${spec.head.titleLine};
+  letter-spacing: ${spec.head.titleTracking};
+  color: var(--qd-text);
+}
+.qd-page-head-actions { display: flex; gap: ${px(spec.head.actionsGap * 4)}; align-items: center; }
+@media (max-width: ${px(spec.head.stackBelow)}) {
+  .qd-page-head-row { align-items: flex-start; }
+  .qd-page-head-actions { width: 100%; flex-wrap: wrap; }
+}
+
+/* ── 단추 ──────────────────────────────────────────────────────────────────
+   주 단추는 «글자색 면» 입니다. 다크에서는 상아색, 라이트에서는 먹색이 됩니다
+   (오너 결정 2026-09-24 「주 단추는 상아색 면」). 금색 면이 아닙니다 - 금색은
+   강조 막대 · 초점 · 활성 표시의 몫이고, 면으로 깔면 화면에서 가장 큰 금덩이가 됩니다.
+
+     <button class="qd-btn qd-btn--primary">등록</button>
+     <a class="qd-btn qd-btn--secondary qd-btn--sm">취소</a>
+     <button class="qd-btn qd-btn--primary" data-latin>STEP INSIDE</button>
+
+   🔑 기본은 한글입니다(자간 0). 단추 글은 거의 다 한글이라 많은 쪽을 기본으로
+      두어야 빠뜨려도 조용히 틀리지 않습니다. 영문 단추에만 data-latin. */
+.qd-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${px(spec.btn.gap * 4)};
+  min-height: ${px(spec.btn.minHeight)};
+  padding: ${spec.btn.padding};
+  border: 1px solid transparent;
+  border-radius: var(--qd-radius-control, ${px(spec.btn.radius)});
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.btn.fontSize)};
+  font-weight: ${spec.btn.weight};
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity ${tokens.motion.fast}, border-color ${tokens.motion.fast}, color ${tokens.motion.fast}, transform 0.05s ease;
+}
+.qd-btn[data-latin] { letter-spacing: ${px(spec.btn.tracking)}; text-transform: uppercase; }
+.qd-btn--sm { min-height: ${px(spec.btn.minHeightSm)}; padding: ${spec.btn.paddingSm}; font-size: ${px(spec.btn.fontSizeSm)}; }
+.qd-btn--primary { background: var(--qd-text); color: var(--qd-bg); }
+.qd-btn--primary:hover:not(:disabled) { opacity: ${spec.btn.hoverOpacity}; }
+.qd-btn--primary:active:not(:disabled) { transform: translateY(1px); }
+.qd-btn--secondary { background: transparent; border-color: var(--qd-border); color: var(--qd-subtle); }
+.qd-btn--secondary:hover:not(:disabled) { border-color: var(--qd-borderHi); color: var(--qd-text); }
+.qd-btn--danger { background: var(--qd-danger); border-color: var(--qd-danger); color: var(--qd-bg); }
+.qd-btn--secondary.qd-btn--danger { background: transparent; color: var(--qd-danger); }
+.qd-btn:disabled,
+.qd-btn[aria-disabled='true'] { opacity: ${spec.btn.disabledOpacity}; cursor: not-allowed; }
+.qd-btn:focus-visible:not(:disabled) {
+  outline: ${px(spec.btn.focusOutline)} solid var(--qd-accent);
+  outline-offset: ${px(spec.btn.focusOffset)};
+  box-shadow: 0 0 0 ${px(spec.btn.focusRing)} color-mix(in srgb, var(--qd-accent) ${spec.btn.focusRingMix}%, transparent);
+}
+/* 손가락 기기에서는 작은 단추도 ${spec.btn.minHeight}px (WCAG 2.2) */
+@media (hover: none) and (pointer: coarse) {
+  .qd-btn--sm { min-height: ${px(spec.btn.minHeight)}; }
+}
+
+/* ── 입력칸 ────────────────────────────────────────────────────────────────
+   글 · 고르개 · 여러 줄 모두 같은 상자입니다. 검색칸 · 정렬 고르개처럼 «작은»
+   자리도 모서리는 ${px(spec.input.radius)} 입니다 (오너 결정 2026-09-24 「전부 10」). */
+.qd-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: ${spec.input.padding};
+  background: var(--qd-surface);
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-control, ${px(spec.input.radius)});
+  color: var(--qd-text);
+  font-family: var(--qd-font-ui);
+  font-size: ${px(spec.input.fontSize)};
+  transition: border-color ${tokens.motion.fast}, background-color ${tokens.motion.fast}, box-shadow ${tokens.motion.fast};
+}
+.qd-input:hover:not(:focus):not(:disabled):not([readonly]) { border-color: var(--qd-borderHi); }
+.qd-input:focus {
+  border-color: var(--qd-accent);
+  background-color: var(--qd-surface2);
+  box-shadow: 0 0 0 ${px(spec.input.focusRing)} color-mix(in srgb, var(--qd-accent) ${spec.input.focusRingMix}%, transparent);
+}
+/* 원본은 전역 :focus-visible 규칙이 입력칸에도 외곽선을 겁니다. 제품마다 그 규칙이 있다고 믿지 않고 여기 둡니다 */
+.qd-input:focus-visible {
+  outline: ${px(spec.btn.focusOutline)} solid var(--qd-accent);
+  outline-offset: ${px(spec.btn.focusOffset)};
+}
+.qd-input[readonly] { color: var(--qd-muted); cursor: default; }
+.qd-input[aria-invalid='true'] { border-color: var(--qd-danger); }
+@media (max-width: ${px(spec.input.narrowBelow)}) {
+  .qd-input { font-size: ${px(spec.input.fontSizeNarrow)}; }
 }
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────

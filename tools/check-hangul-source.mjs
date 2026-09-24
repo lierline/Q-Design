@@ -108,7 +108,13 @@ function 훑기(src, 클래스들) {
   /* className 한 자리를 한 번만 봅니다. 클래스별로 돌면 같은 요소가 여러 번 잡힙니다 */
   for (const m of src.matchAll(/className=(?:"([^"]*)"|\{([^}]*)\})/g)) {
     const 클래스글 = m[1] ?? m[2] ?? '';
-    const 걸린클래스 = 클래스들.filter((c) => new RegExp(`\\b${c}\\b`).test(클래스글));
+    /*
+     * 🔴 경계를 `\b` 로 잡으면 안 됩니다. 하이픈이 낱말 경계라 `qd-table` 이
+     *    `qd-table-scroll`(표를 감싼 스크롤 상자)에도 맞고, 그 상자 400자 창 안의
+     *    머리글을 전부 잡습니다. Q-Forge 에서 178곳이 그렇게 거짓으로 잡혔습니다
+     *    (2026-09-24 · 표에는 --hangul 이 붙어 있었고 화면 실측 자간도 0).
+     */
+    const 걸린클래스 = 클래스들.filter((c) => new RegExp(`(?<![\\w-])${c}(?![\\w-])`).test(클래스글));
     if (!걸린클래스.length) continue;
     /* 같은 자리에 «한글 변종» 이 함께 붙어 있으면 그 자리는 이미 풀려 있습니다 */
     if (걸린클래스.some((c) => 클래스글.includes(`${c}--hangul`))) continue;

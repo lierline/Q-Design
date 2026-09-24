@@ -1,7 +1,8 @@
 /* =============================================================================
    q-design.screen.css · 화면 뼈대 정본
    생성물입니다. 손대지 마세요.  node tools/extract-screen.mjs
-   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid) + tokens.ts (LAYOUT)
+   원본: Q-Atelier lib/design/components.tsx (KPI · Stat · Grid · PageHd · Btn · In)
+         + tokens.ts (LAYOUT · TOUCH · BP) + app/globals.css (.qa-btn · .qa-input)
    =============================================================================
 
    목록 «위와 아래» 를 맡습니다.
@@ -10,29 +11,38 @@
      .qd-grid-kpi   그 카드를 담는 반응형 격자
      .qd-stat       조밀한 짝. 카드 안에 여럿 늘어놓을 때
      .qd-label      구역 이름표. 모노 · 작게 · muted
+     .qd-page-head  화면 머리. 막대 · 부제 · 제목 · 하단선
+     .qd-btn        단추. 주(글자색 면) · 보조(테두리) · 위험 · 작은 것
+     .qd-input      입력칸. 글 · 고르개 · 여러 줄
      .qd-shell-*    폭을 좁히고 가운데 두는 규칙
 
    색은 `q-design.nav.css` 와 같은 `--qd-*` 를 읽습니다.
    ============================================================================= */
 
 :root {
+  --qd-bg: var(--qd-bg-src, var(--qa-bg, #0c0c0c));
   --qd-surface: var(--qd-surface-src, var(--qa-surface, #141414));
   --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #1b1b1b));
   --qd-border: var(--qd-border-src, var(--qa-border, #242424));
+  --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #333333));
   --qd-text: var(--qd-text-src, var(--qa-text, #f0ebe0));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
   --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
+  --qd-danger: var(--qd-danger-src, var(--qa-red, #c97a7a));
 }
 
 html[data-theme='light'] {
+  --qd-bg: var(--qd-bg-src, var(--qa-bg, #faf9f6));
   --qd-surface: var(--qd-surface-src, var(--qa-surface, #ffffff));
   --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #f3f1ec));
   --qd-border: var(--qd-border-src, var(--qa-border, #e2dfd8));
+  --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #c8c4ba));
   --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
   --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+  --qd-danger: var(--qd-danger-src, var(--qa-red, #a83838));
 }
 
 /* ── 요약 지표 ─────────────────────────────────────────────────────────────
@@ -160,6 +170,159 @@ html[data-theme='light'] {
   letter-spacing: 0;
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 화면 머리 ─────────────────────────────────────────────────────────────
+   모든 화면 맨 위에 같은 모양으로 섭니다: 금색 막대 · 부제 · 제목 · 하단선.
+   나란히 놓았을 때 「같은 집안」 을 가장 먼저 말하는 자리입니다 (docs/11 · docs/22).
+
+     <header class="qd-page-head">
+       <div class="qd-page-head-row">
+         <div class="qd-page-head-text">
+           <p class="qd-page-head-sub">NON-CONFORMANCE</p>     한글이면 data-hangul
+           <h1 class="qd-page-head-title">부적합</h1>
+         </div>
+         <div class="qd-page-head-actions">…</div>
+       </div>
+     </header>
+
+   막대와 하단선은 가상 요소라 따로 적지 않습니다. 막대를 빼려면 --plain.
+   🔴 제목 크기를 제품에서 다시 적지 마십시오. 26 · 22.5 로 갈렸던 자리입니다. */
+.qd-page-head { margin-bottom: 30px; }
+.qd-page-head::after {
+  content: '';
+  display: block;
+  margin-top: 18px;
+  border-bottom: 1px solid var(--qd-border);
+}
+.qd-page-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.qd-page-head-text { min-width: 0; flex: 1 1 auto; }
+.qd-page-head-text::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  margin-bottom: 14px;
+  background: var(--qd-accent);
+}
+.qd-page-head--plain .qd-page-head-text::before { display: none; }
+.qd-page-head-sub {
+  margin: 0 0 8px;
+  font-family: var(--qd-font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--qd-subtle);
+}
+.qd-page-head-sub[data-hangul] {
+  letter-spacing: 0;
+  text-transform: none;
+  word-spacing: var(--qd-hangul-word-space);
+}
+.qd-page-head-title {
+  margin: 0;
+  font-family: var(--qd-font-ui);
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--qd-text);
+}
+.qd-page-head-actions { display: flex; gap: 8px; align-items: center; }
+@media (max-width: 767px) {
+  .qd-page-head-row { align-items: flex-start; }
+  .qd-page-head-actions { width: 100%; flex-wrap: wrap; }
+}
+
+/* ── 단추 ──────────────────────────────────────────────────────────────────
+   주 단추는 «글자색 면» 입니다. 다크에서는 상아색, 라이트에서는 먹색이 됩니다
+   (오너 결정 2026-09-24 「주 단추는 상아색 면」). 금색 면이 아닙니다 - 금색은
+   강조 막대 · 초점 · 활성 표시의 몫이고, 면으로 깔면 화면에서 가장 큰 금덩이가 됩니다.
+
+     <button class="qd-btn qd-btn--primary">등록</button>
+     <a class="qd-btn qd-btn--secondary qd-btn--sm">취소</a>
+     <button class="qd-btn qd-btn--primary" data-latin>STEP INSIDE</button>
+
+   🔑 기본은 한글입니다(자간 0). 단추 글은 거의 다 한글이라 많은 쪽을 기본으로
+      두어야 빠뜨려도 조용히 틀리지 않습니다. 영문 단추에만 data-latin. */
+.qd-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--qd-radius-control, 10px);
+  font-family: var(--qd-font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 0.05s ease;
+}
+.qd-btn[data-latin] { letter-spacing: 1.2px; text-transform: uppercase; }
+.qd-btn--sm { min-height: 36px; padding: 7px 14px; font-size: 11px; }
+.qd-btn--primary { background: var(--qd-text); color: var(--qd-bg); }
+.qd-btn--primary:hover:not(:disabled) { opacity: 0.88; }
+.qd-btn--primary:active:not(:disabled) { transform: translateY(1px); }
+.qd-btn--secondary { background: transparent; border-color: var(--qd-border); color: var(--qd-subtle); }
+.qd-btn--secondary:hover:not(:disabled) { border-color: var(--qd-borderHi); color: var(--qd-text); }
+.qd-btn--danger { background: var(--qd-danger); border-color: var(--qd-danger); color: var(--qd-bg); }
+.qd-btn--secondary.qd-btn--danger { background: transparent; color: var(--qd-danger); }
+.qd-btn:disabled,
+.qd-btn[aria-disabled='true'] { opacity: 0.4; cursor: not-allowed; }
+.qd-btn:focus-visible:not(:disabled) {
+  outline: 2px solid var(--qd-accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--qd-accent) 22%, transparent);
+}
+/* 손가락 기기에서는 작은 단추도 44px (WCAG 2.2) */
+@media (hover: none) and (pointer: coarse) {
+  .qd-btn--sm { min-height: 44px; }
+}
+
+/* ── 입력칸 ────────────────────────────────────────────────────────────────
+   글 · 고르개 · 여러 줄 모두 같은 상자입니다. 검색칸 · 정렬 고르개처럼 «작은»
+   자리도 모서리는 10px 입니다 (오너 결정 2026-09-24 「전부 10」). */
+.qd-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--qd-surface);
+  border: 1px solid var(--qd-border);
+  border-radius: var(--qd-radius-control, 10px);
+  color: var(--qd-text);
+  font-family: var(--qd-font-ui);
+  font-size: 13px;
+  transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.qd-input:hover:not(:focus):not(:disabled):not([readonly]) { border-color: var(--qd-borderHi); }
+.qd-input:focus {
+  border-color: var(--qd-accent);
+  background-color: var(--qd-surface2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qd-accent) 18%, transparent);
+}
+/* 원본은 전역 :focus-visible 규칙이 입력칸에도 외곽선을 겁니다. 제품마다 그 규칙이 있다고 믿지 않고 여기 둡니다 */
+.qd-input:focus-visible {
+  outline: 2px solid var(--qd-accent);
+  outline-offset: 4px;
+}
+.qd-input[readonly] { color: var(--qd-muted); cursor: default; }
+.qd-input[aria-invalid='true'] { border-color: var(--qd-danger); }
+@media (max-width: 1023px) {
+  .qd-input { font-size: 14px; }
 }
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────
