@@ -152,6 +152,23 @@ export const PARTS = [
       'Q-Works': 'D:/Claude/Q-Works/app/q-design.print.css',
     },
   },
+  /*
+   * ── 2026-09-25 확장: 자료 교환 ───────────────────────────────────────────
+   * 화면이 아니라 «자료» 의 정본입니다. 세 제품(Q-Atelier · Q-Maison · Q-Carnet)이 공급자 · 품목 ·
+   * 장비 · 로트 · 생산 부적합을 주고받는 파일 형식과 받을 계획(누가 원본인가 · 무엇을 덮어쓰지 않는가).
+   * 여기가 원본이고, 시험은 tools/family-exchange.test.mjs 입니다(node --test).
+   * 🔑 세 제품이 같은 파일을 써야 한 제품이 만든 파일을 다른 제품이 같은 뜻으로 읽습니다.
+   */
+  {
+    name: '자료 교환',
+    src: 'source/exchange/family-exchange.ts',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/lib/exchange/family-exchange.ts',
+      'Q-Works': 'D:/Claude/Q-Works/lib/exchange/family-exchange.ts',
+      'Q-Forge': 'D:/Claude/DHR/lib/exchange/family-exchange.ts',
+    },
+  },
 ];
 
 /** 여기(Q-Design)가 원본인 파일들. `source/` 아래 상대 경로로 돌려줍니다. */
