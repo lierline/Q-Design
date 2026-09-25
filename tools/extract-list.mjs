@@ -599,6 +599,8 @@ ${bind('light')}
   font-size: 12px;
   color: var(--qd-muted);
 }
+/* 한글 글이면 모노 글꼴의 넓은 빈칸을 한글 낱말 간격으로 되돌립니다(이름표와 같은 한글 규칙) */
+.qd-table-empty[data-hangul] { word-spacing: var(--qd-hangul-word-space); }
 /*
  * 못 읽은 자리. 「없음」(.qd-table-empty)과 **반드시 달라 보여야** 합니다.
  *
@@ -922,6 +924,7 @@ ${bind('light')}
 .qd-filter-submit:focus-visible,
 .qd-filter-input:focus-visible,
 .qd-filter-select:focus-visible,
+.qd-filter-clear:focus-visible,
 .qd-empty-hint:focus-visible {
   outline: ${px(spec.focus.outline)} solid var(--qd-accent);
   outline-offset: ${px(spec.focus.offset)};

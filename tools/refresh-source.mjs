@@ -244,7 +244,7 @@ const claimed = new Set(plan.map((i) => key(i.dest)));
  * 🔑 판별법: sync.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
  *    그 파일은 여기가 원본입니다.
  */
-const 여기가원본 = new Set(['components/TopProgressBar.tsx']);
+const 여기가원본 = new Set(['components/TopProgressBar.tsx', 'components/sticky-focus-guard.tsx']);
 
 for (const entry of MAP) {
   const dir = join(SRC, entry.dest);

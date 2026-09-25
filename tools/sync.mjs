@@ -122,6 +122,23 @@ const PARTS = [
       'Q-Forge': 'D:/Claude/DHR/components/top-progress.tsx',
     },
   },
+  /*
+   * ── 2026-09-25 확장: 초점 여백 ─────────────────────────────────────────────
+   * 따라오는 거르개 띠가 키보드 초점을 가리지 않게 스크롤 틀에 띠 높이만큼 여백을 둡니다
+   * (오너 결정 「초점 가림 고침」). 진행선처럼 여기가 원본이고 네 제품이 받습니다.
+   * 받는 쪽은 앱 셸에 <StickyFocusGuard /> 를 한 번 둡니다.
+   */
+  {
+    name: '초점 여백',
+    src: 'source/components/sticky-focus-guard.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/components/StickyFocusGuard.tsx',
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/components/StickyFocusGuard.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/sticky-focus-guard.tsx',
+      'Q-Works': 'D:/Claude/Q-Works/components/shared/sticky-focus-guard.tsx',
+    },
+  },
   {
     name: '인쇄',
     src: 'dist/q-design.print.css',

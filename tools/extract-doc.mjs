@@ -239,6 +239,12 @@ const printCss = [
   '    display: none !important;',
   '  }',
   '',
+  '  /* 따라오는 거르개 띠: 종이에는 스크롤이 없어 sticky 가 첫 장에만 남고 나머지 장에서 자리만',
+  '     차지합니다. 제자리로 돌리고, 찾기 폼(칸 · 단추 · 건수)은 종이에서 쓸 수 없으니 걷습니다.',
+  '     지금 무엇으로 좁혀 놓았는지는 주소가 말합니다(원본 globals.css 의 .qa-list-toolbar 인쇄 규칙과 같음) */',
+  '  .qd-filter-bar { position: static !important; }',
+  '  .qd-filter-row { display: none !important; }',
+  '',
   '  /* 떠 있는 효과 제거: 종이에는 그림자가 없습니다 */',
   '  * {',
   '    box-shadow: none !important;',
@@ -265,6 +271,14 @@ const printCss = [
   '}',
   '',
 ].join('\n');
+
+/* 거르개 띠 인쇄 규칙은 원본이 그렇게 하기 때문에 둡니다. 원본이 바뀌면 여기서 멈춥니다 */
+{
+  const g = readFileSync(join(dirname(DIST), 'source', 'css', 'globals.css'), 'utf8').replace(/\r\n/g, '\n');
+  if (!/\.qa-list-toolbar \{ position: static; \}/.test(g) || !/\.qa-list-toolbar form \{ display: none; \}/.test(g)) {
+    throw new Error('원본의 도구줄 인쇄 규칙(.qa-list-toolbar)이 바뀌었습니다. 정본 인쇄의 거르개 띠 규칙을 다시 보세요.');
+  }
+}
 
 writeFileSync(join(DIST, 'q-design.print.css'), printCss, 'utf8');
 
