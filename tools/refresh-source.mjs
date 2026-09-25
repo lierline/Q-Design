@@ -21,6 +21,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, mkdirSync, unlinkSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { 여기가원본 } from './sync-parts.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'source');
@@ -89,8 +90,8 @@ const MAP = [
        *    이 도구가 «머리표까지 찍힌 사본» 을 정본 자리에 도로 덮었습니다.
        *    그러면 다음 sync 가 머리표 위에 머리표를 찍습니다.
        *
-       * 🔑 판별법: sync.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
-       *    그 파일은 여기가 원본이므로 이 지도에 넣지 않습니다.
+       * 🔑 판별법: sync-parts.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
+       *    그 파일은 여기가 원본이므로 이 지도에 넣지 않습니다(넣으면 이 도구가 멈춥니다).
        */
       /* 앱 셸. 원본에서는 그냥 layout.tsx 라 이름만으로는 무엇인지 알 수 없습니다. */
       { from: 'app/(app)/layout.tsx', as: 'app-shell-layout.tsx' },
@@ -241,10 +242,19 @@ const claimed = new Set(plan.map((i) => key(i.dest)));
  *    지도에서 빼니 이번에는 고아로 잡혀 --write 가 **지울 참**이었습니다.
  *    방향이 반대인 파일은 두 가지를 다 피해야 합니다.
  *
- * 🔑 판별법: sync.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
- *    그 파일은 여기가 원본입니다.
+ * 🔑 판별법: sync-parts.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
+ *    그 파일은 여기가 원본입니다. 목록은 그 파일이 만들어 준다(여기가원본).
  */
-const 여기가원본 = new Set(['components/TopProgressBar.tsx', 'components/sticky-focus-guard.tsx']);
+/* 목록은 sync-parts.mjs 가 쥔다(src 가 source/ 인 조각). 여기 손으로 적어 두던 사본은 2026-09-25 에 걷었다.
+   지도가 그 파일을 원본에서 끌어오려 하면(위 🔴 사고의 모양) 여기서 멈춘다. */
+{
+  const 겹침 = [...여기가원본].filter((rel) => claimed.has(key(join(SRC, rel))));
+  if (겹침.length) {
+    console.error(`여기가 원본인 파일이 원본 갱신 지도에 들어 있습니다: ${겹침.join(', ')}`);
+    console.error('  지도(MAP)에서 빼십시오. 그대로 두면 정본 자리에 머리표 찍힌 사본을 도로 덮습니다.');
+    process.exit(1);
+  }
+}
 
 for (const entry of MAP) {
   const dir = join(SRC, entry.dest);

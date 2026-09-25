@@ -1,0 +1,160 @@
+// =============================================================================
+// 내보낼 조각과 받는 곳 (sync.mjs · refresh-source.mjs 가 함께 읽습니다)
+// =============================================================================
+// 새 조각이나 새 제품이 늘면 여기에 한 줄 더합니다.
+//
+// 🔑 src 가 `source/…` 인 조각은 «여기(Q-Design)가 원본» 입니다. refresh-source 는 이 목록에서
+//    그 파일들을 골라, 원본 갱신 때 덮거나 고아로 지우지 않습니다. 종전에는 그 목록을 따로 손으로
+//    적어 두어, 새 부품을 넣을 때마다 두 곳을 고쳐야 했습니다(2026-09-25 여기로 모음).
+//
+// 2026-09-20: Q-Works(ISO 9001 판 · 지금 이름 Q-Maison)가 넷째 제품으로 늘었습니다. Login 에서
+// 복제해 온 터라 원본의 짜임을 아직 들고 있고, 이 세 벌로 얼굴을 맞춥니다.
+// 받는 쪽 경로가 저장소마다 다른 것은 폴더 구조가 달라서입니다(Next 의 app 위치).
+// =============================================================================
+
+export const PARTS = [
+  {
+    name: '차림표',
+    src: 'dist/q-design.nav.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.nav.css',
+      'Q-Forge': 'D:/Claude/DHR/app/q-design.nav.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.nav.css',
+    },
+  },
+  {
+    name: '목록',
+    src: 'dist/q-design.list.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.list.css',
+      'Q-Forge': 'D:/Claude/DHR/app/q-design.list.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.list.css',
+    },
+  },
+  {
+    name: '뼈대',
+    src: 'dist/q-design.screen.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.screen.css',
+      'Q-Forge': 'D:/Claude/DHR/app/q-design.screen.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.screen.css',
+    },
+  },
+  /*
+   * ── 2026-09-10 확장: 문서 범주 ────────────────────────────────────────────
+   * 화면 밖(종이·DOCX)도 같은 체계로 내보냅니다.
+   *
+   * 🔴 이 범주가 생긴 이유: Q-Atelier 의 `lib/export/docx-builder/brand.ts` 가
+   *    라이트 팔레트를 손으로 베낀 사본이었습니다. 주석에 「색 수정 시 양쪽 모두
+   *    변경」이라 적혀 있었지만 실제로는 **세 값이 어긋나** 있었고, 그중 둘(#7a7468)은
+   *    웹에서 이미 AA 미달로 고친 값이었습니다. 심사원이 읽는 출력물에만 남았습니다.
+   *
+   * ⚠️ Q-Atelier 도 받는 쪽입니다. 화면 토큰의 원본은 Q-Atelier 지만,
+   *    «문서 토큰» 의 원본은 Q-Design 입니다(라이트 팔레트에서 파생하고 검증합니다).
+   */
+  /*
+   * ── 2026-09-10 확장: 상태색 ───────────────────────────────────────────────
+   * 위험 · 정상 · 주의 · 안내. Q-Sonar 가 이 이름을 안 갖고 있어 화면 87곳이
+   * Tailwind 기본 팔레트를 직접 부르고 있었습니다(감사 Q-Sonar #11).
+   *
+   * ⚠️ 지금은 Q-Sonar 만 받습니다. Q-Forge 는 --dhr-danger/-ok/-warn 을 이미
+   *    갖고 있어, 보내면 «있는데 아무도 안 읽는» 파일이 하나 늘 뿐입니다.
+   *    그쪽 이름을 정본으로 옮길 때 함께 붙입니다.
+   */
+  {
+    name: '상태색',
+    src: 'dist/q-design.state.css',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.state.css',
+    },
+  },
+  {
+    name: '문서 토큰',
+    src: 'dist/q-design.doc.ts',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/lib/design/q-design.doc.ts',
+    },
+  },
+  /*
+   * ── 2026-09-10 확장: 움직임 ───────────────────────────────────────────────
+   * 겉모습이 아니라 «언제 무엇이 움직이는가» 도 정본이 정합니다.
+   *
+   * 🔴 이 조각이 생긴 이유(감사 주제 #8): 같은 부품이 세 벌 있었고, 그중 Q-Forge
+   *    사본만 「누른 순간 시작해 90% 에서 멈추는」 형태로 고쳐져 있었습니다.
+   *    정본과 Q-Atelier 는 옛 형태 그대로 바이트가 같았습니다. 고친 것이
+   *    한 저장소에만 남는 것이 바로 사본이 갈리는 모습입니다.
+   *
+   * ⚠️ 앞의 조각들과 달리 src 가 dist 가 아니라 source 입니다. 움직임에는
+   *    추출기가 없습니다. 이 파일 자체가 원본입니다.
+   * ⚠️ TS 머리표는 줄 주석이라 'use client' «위» 에 놓입니다. 두 저장소에 같은
+   *    모양(주석이 지시어보다 위인 client 컴포넌트)이 이미 스무 개 넘게 빌드됩니다.
+   */
+  {
+    name: '진행선',
+    src: 'source/components/TopProgressBar.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/components/TopProgressBar.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/top-progress.tsx',
+    },
+  },
+  /*
+   * ── 2026-09-25 확장: 초점 여백 ─────────────────────────────────────────────
+   * 따라오는 거르개 띠가 키보드 초점을 가리지 않게 스크롤 틀에 띠 높이만큼 여백을 둡니다
+   * (오너 결정 「초점 가림 고침」). 진행선처럼 여기가 원본이고 네 제품이 받습니다.
+   * 받는 쪽은 앱 셸에 <StickyFocusGuard /> 를 한 번 둡니다.
+   */
+  {
+    name: '초점 여백',
+    src: 'source/components/sticky-focus-guard.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/components/StickyFocusGuard.tsx',
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/components/StickyFocusGuard.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/sticky-focus-guard.tsx',
+      'Q-Works': 'D:/Claude/Q-Works/components/shared/sticky-focus-guard.tsx',
+    },
+  },
+  /*
+   * ── 2026-09-25 확장: 인쇄는 밝게 ───────────────────────────────────────────
+   * 다크 테마로 인쇄하면 흰 종이에 상아색 글자만 남습니다(대비 1.19). 인쇄하는 동안만 테마 표시를
+   * 밝은 쪽으로 돌렸다가 되돌립니다(오너 결정 「인쇄는 늘 밝은 색으로」). 원본 Q-Atelier 는 인쇄에서
+   * 색 이름을 종이 값으로 덮어 이미 밝게 찍히므로 받지 않습니다(받아 두기만 하는 사본을 만들지 않음).
+   * 받는 쪽은 앱 셸에 <PrintLight /> 를 한 번 둡니다. Q-Carnet 은 기록서 서식을 비켜 가게
+   * <PrintLight except=".sheet" /> 입니다.
+   */
+  {
+    name: '인쇄는 밝게',
+    src: 'source/components/print-light.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Sonar': 'D:/Claude/Lead-Radar/src/components/PrintLight.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/print-light.tsx',
+      'Q-Works': 'D:/Claude/Q-Works/components/shared/print-light.tsx',
+    },
+  },
+  /*
+   * ⚠️ 인쇄 조각은 Q-Works(Q-Maison)만 받습니다(2026-09-25).
+   *    9월 10일부터 Q-Atelier · Q-Sonar · Q-Forge 에도 보냈지만 셋 다 한 번도 불러 쓰지 않았습니다
+   *    (sync.mjs 의 «받아 두기만 하는 사본» 알림이 잡았습니다). 그 사이 이 조각에 넣은 거르개 띠 규칙은
+   *    그 세 제품에서 아무 일도 하지 않았습니다. 받아 두기만 하는 파일은 «여기 고치면 된다» 는 착각만
+   *    남기므로 보내지 않습니다(상태색과 같은 원칙). Q-Atelier 는 이 조각의 원본(globals.css 인쇄 규칙)을
+   *    직접 갖고 있고, 다크 테마 인쇄는 «인쇄는 밝게» 부품이, 거르개 띠 인쇄는 목록 조각이 맡습니다.
+   */
+  {
+    name: '인쇄',
+    src: 'dist/q-design.print.css',
+    /* 층으로 감싸지 않고 있습니다. 그 까닭으로 적어 두었던 「감싸면 제품의 층 밖 규칙에 진다」 는
+       반대였습니다(2026-09-25 실측). sync.mjs 의 🔴 설명을 보십시오 */
+    layer: false,
+    to: {
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.print.css',
+    },
+  },
+];
+
+/** 여기(Q-Design)가 원본인 파일들. `source/` 아래 상대 경로로 돌려줍니다. */
+export const 여기가원본 = new Set(
+  PARTS.filter((p) => p.src.startsWith('source/')).map((p) => p.src.slice('source/'.length)),
+);

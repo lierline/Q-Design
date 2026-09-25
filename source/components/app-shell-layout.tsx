@@ -27,6 +27,7 @@ import { SessionIdleMonitor } from '@/components/SessionIdleMonitor';
 //   (BACKLOG 「AI Assistant 재검토·복원」)
 // import { AIQuickAccessFab } from '@/components/AIQuickAccessFab';
 import { TopProgressBar } from '@/components/TopProgressBar';
+import { StickyFocusGuard } from '@/components/StickyFocusGuard';
 import { PageTransition } from '@/components/PageTransition';
 import { WelcomeFlow } from '@/components/WelcomeFlow';
 import { resolveGsRole } from '@/lib/onboarding/getting-started';
@@ -346,6 +347,10 @@ export default async function AppLayout({
 
       {/* 라우트 전환 시 상단 champagne progress bar */}
       <TopProgressBar />
+
+      {/* 따라오는 목록 도구줄이 키보드 초점을 가리지 않게(WCAG 2.4.11 · 오너 결정 2026-09-25).
+         정본 Q-Design 에서 온 부품이다. 스크롤 틀에 도구줄 높이만큼 여백을 둔다. */}
+      <StickyFocusGuard />
 
       {/* skip-link: 키보드 첫 Tab 시 노출, 사이드바 등 nav 건너뛰고 본문 이동.
          WCAG 2.4.1 Bypass Blocks. */}
