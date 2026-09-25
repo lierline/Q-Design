@@ -440,7 +440,7 @@ export function planImport(file: ExchangeFile, target: Product, existing: Existi
         } else if (hits.length > 1) {
           action = 'ambiguous'; note = `받는 쪽에 같은 열쇠를 가진 줄이 ${hits.length}개 있습니다.`;
         } else {
-          const row = hits[0];
+          const row = hits[0] as ExistingRow;
           localId = row.localId;
           if (row.origin === 'local') {
             action = 'link_only'; note = '이쪽에서 적은 줄이라 고치지 않고 짝만 짓습니다.';
