@@ -47,9 +47,13 @@ function bodyOf(text: string, lang: 'css' | 'ts'): string {
   return rest.startsWith('\r\n') ? rest.slice(2) : rest.startsWith('\n') ? rest.slice(1) : rest;
 }
 
+/*
+ * 인쇄 CSS 사본(app/q-design.print.css)은 2026-09-25 에 걷었다. 이 저장소는 그 사본을 한 번도 부르지 않았다.
+ * 인쇄 정본은 이 저장소 globals.css 의 인쇄 규칙에서 «뽑은» 것이라, 여기서는 원본이 곧 동작이다.
+ * (Q-Design tools/sync-parts.mjs · 받아 두기만 하는 사본은 보내지 않는다)
+ */
 const COPIES: Array<{ name: string; path: string; lang: 'css' | 'ts' }> = [
   { name: '문서 토큰', path: 'lib/design/q-design.doc.ts', lang: 'ts' },
-  { name: '인쇄 CSS', path: 'app/q-design.print.css', lang: 'css' },
 ];
 
 describe('Q-Design 사본: 손으로 고치지 않았는가', () => {

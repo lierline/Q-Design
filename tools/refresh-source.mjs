@@ -202,6 +202,33 @@ for (const entry of MAP) {
   }
 }
 
+const key = (p) => p.split('\\').join('/');
+const claimed = new Set(plan.map((i) => key(i.dest)));
+/*
+ * 여기가 «원본» 인 파일들. 지도에 없다고 고아가 아니고, 지도에 들어 있으면 안 됩니다.
+ *
+ * 🔴 이 목록이 생긴 경위(2026-09-10): 진행선 부품을 정본으로 삼아 고치고 sync 로
+ *    내보낸 직후 이 도구가 «머리표까지 찍힌 사본» 을 정본 자리에 도로 덮었습니다.
+ *    지도에서 빼니 이번에는 고아로 잡혀 --write 가 **지울 참**이었습니다.
+ *    방향이 반대인 파일은 두 가지를 다 피해야 합니다.
+ *
+ * 🔑 판별법: sync-parts.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
+ *    그 파일은 여기가 원본입니다. 목록은 그 파일이 만들어 준다(여기가원본). 여기 손으로
+ *    적어 두던 사본은 2026-09-25 에 걷었습니다.
+ *
+ * 🔴 이 검사는 «쓰기 전» 에 돕니다(2026-09-25 Codex 검토로 옮김). 처음에는 아래 쓰기 고리
+ *    «뒤» 에 두어, --write 로 돌리면 정본을 이미 덮은 다음에야 멈췄습니다. 막으려던 사고를
+ *    막지 못하는 자리였고, 쓰지 않는 모드로만 시험해서 놓쳤습니다.
+ */
+{
+  const 겹침 = [...여기가원본].filter((rel) => claimed.has(key(join(SRC, rel))));
+  if (겹침.length) {
+    console.error(`여기가 원본인 파일이 원본 갱신 지도에 들어 있습니다: ${겹침.join(', ')}`);
+    console.error('  지도(MAP)에서 빼십시오. 그대로 두면 정본 자리에 머리표 찍힌 사본을 도로 덮습니다.');
+    process.exit(1);
+  }
+}
+
 const added = [];
 const changed = [];
 const orphan = [];
@@ -231,31 +258,7 @@ for (const item of plan) {
   }
 }
 
-/* 지도가 설명하지 못하는 사본을 찾습니다. */
-const key = (p) => p.split('\\').join('/');
-const claimed = new Set(plan.map((i) => key(i.dest)));
-/*
- * 여기가 «원본» 인 파일들. 지도에 없다고 고아가 아닙니다.
- *
- * 🔴 이 목록이 생긴 경위(2026-09-10): 진행선 부품을 정본으로 삼아 고치고 sync 로
- *    내보낸 직후 이 도구가 «머리표까지 찍힌 사본» 을 정본 자리에 도로 덮었습니다.
- *    지도에서 빼니 이번에는 고아로 잡혀 --write 가 **지울 참**이었습니다.
- *    방향이 반대인 파일은 두 가지를 다 피해야 합니다.
- *
- * 🔑 판별법: sync-parts.mjs 의 PARTS 에 src 가 `source/…` 인 조각으로 들어 있으면
- *    그 파일은 여기가 원본입니다. 목록은 그 파일이 만들어 준다(여기가원본).
- */
-/* 목록은 sync-parts.mjs 가 쥔다(src 가 source/ 인 조각). 여기 손으로 적어 두던 사본은 2026-09-25 에 걷었다.
-   지도가 그 파일을 원본에서 끌어오려 하면(위 🔴 사고의 모양) 여기서 멈춘다. */
-{
-  const 겹침 = [...여기가원본].filter((rel) => claimed.has(key(join(SRC, rel))));
-  if (겹침.length) {
-    console.error(`여기가 원본인 파일이 원본 갱신 지도에 들어 있습니다: ${겹침.join(', ')}`);
-    console.error('  지도(MAP)에서 빼십시오. 그대로 두면 정본 자리에 머리표 찍힌 사본을 도로 덮습니다.');
-    process.exit(1);
-  }
-}
-
+/* 지도가 설명하지 못하는 사본을 찾습니다. 여기가 원본인 파일은 고아가 아닙니다(위 겹침 검사 참고). */
 for (const entry of MAP) {
   const dir = join(SRC, entry.dest);
   if (!existsSync(dir)) continue;
