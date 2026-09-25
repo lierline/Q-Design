@@ -19,6 +19,8 @@
 //   doc     → tokens 의 «라이트» 팔레트에서 파생합니다
 //   nav/list/screen → 화면 정본
 //   inline  → 색인(원본을 안 바꿈)
+//   앱 아이콘 → source/brand 의 크롬 Q 에서 네 제품의 홈 화면 · 파비콘 아이콘을 그립니다
+//             (크롬 렌더러를 띄우므로 몇 초 걸립니다). --sync 는 제품 public 에도 씁니다
 
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -45,6 +47,7 @@ const STEPS = [
   { name: '목록', file: 'extract-list.mjs' },
   { name: '뼈대', file: 'extract-screen.mjs' },
   { name: '인라인 색인', file: 'extract-inline-styles.mjs', why: '원본을 바꾸지 않는 색인' },
+  { name: '앱 아이콘', file: 'app-icons.mjs', why: '네 제품 홈 화면 · 파비콘 아이콘을 dist/app-icons 에 그립니다' },
 ];
 
 function run(file, extra = []) {
@@ -72,7 +75,11 @@ if (checkOnly) {
   console.log('');
   const r = run('sync.mjs');
   console.log(r.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0));
+  console.log('');
+  // 앱 아이콘: 제품 public 의 아이콘이 지금 원본으로 그린 것과 같은가 (그림 파일이라 지문 머리표 대신 전체 대조)
+  const ico = run('app-icons.mjs', ['--check']);
+  console.log(ico.out.trim());
+  process.exit((src.code || 0) || (tbl.code || 0) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
 }
 
 console.log('산출물 다시 만들기');
@@ -131,3 +138,9 @@ if (v.code === 0) {
   console.log(v.out.trim().split('\n').filter((l) => l.includes('어긋남') || l.includes('없음')).map((l) => '  ' + l).join('\n'));
   process.exit(1);
 }
+
+// 앱 아이콘도 제품 public 으로 냅니다. 이 도구는 쓴 뒤 다시 읽어 대조까지 합니다.
+const icons = run('app-icons.mjs', ['--write']);
+console.log('');
+console.log(icons.out.trim().split('\n').filter((l) => !/그대로/.test(l)).map((l) => '  ' + l).join('\n'));
+if (icons.code !== 0) process.exit(1);

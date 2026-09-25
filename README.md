@@ -167,7 +167,12 @@ node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02 에 �
 node tools/check-chars.mjs         # 긴 대시 등 금지 문자 검사 (자체 검출력 시험 포함)
 node tools/check-voice.mjs         # 화면 글의 종결 검사 (자체 검출력 시험 포함)
 node tools/verify-fonts.mjs        # 글꼴이 «이름만» 이 아니라 실제로 그려지는가
+node tools/app-icons.mjs           # 네 제품 앱 아이콘(홈 화면 · 파비콘). --write 로 제품 public 에 씀
 ```
+
+> 🔑 **제품 앱 아이콘**(2026-09-25 오너 결정): 네 제품이 같은 크롬 붓 Q 를 쓰고 **금속 색 + 상징 틀**로
+> 갈립니다. Q-Atelier 은 · 원 / Q-Maison 샴페인 금 · 집 / Q-Carnet 구리 · 수첩 / Q-Sonar 강철 청 · 음파.
+> 견본은 `dist/app-icons/sheet.png`, 규칙은 `tools/app-icons.mjs` 머리에 있습니다.
 
 > 🔴 **문서의 숫자를 손으로 고치지 마십시오.** `docs/02-color.md` 의 표 세 벌은
 > `<!-- 생성:이름 -->` 표시 사이에 도구가 씁니다. 손으로 고치면 다음 실행에 덮어씁니다.
