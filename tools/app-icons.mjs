@@ -14,8 +14,16 @@
 //   Q-Carnet   구리      수첩과 고무줄 띠 (작업대 옆의 작업 수첩)
 //   Q-Sonar    강철 청    음파 (시장이 떠오르기 전에 듣는다)
 //
+// 오너 결정 (같은 날 이어서): 「외곽 틀을 더 다듬고, Q 위치가 위아래로 안 맞는다」
+//   → B. 붓 획 틀 (시안 둘 중 고름). 틀을 Q 처럼 굵고 가는 획으로 그린다: 세로 획 굵게 · 가로 획
+//   가늘게 · 음파는 양 끝이 가늘어진다. 수첩 띠는 오른쪽 고무줄에서 왼쪽 제본선으로 옮겼다
+//   (Q 를 가운데에 두면 붓 꼬리가 오른쪽 띠에 닿는다).
+//
 // 🔑 Q 는 네 제품이 같은 크롬 붓 Q 입니다(패밀리 표식 · 화면 속 차림표 · 로그인과 같은 그림).
 //    모양은 건드리지 않고 명도를 금속 계단에 대응시켜 색만 바꿉니다. 음영은 원본 그대로 남습니다.
+// 🔑 **Q 의 크기와 자리는 네 아이콘이 같습니다**(Q_H · Q_AT 한 벌). 틀은 그 Q 둘레에 같은 중심 ·
+//    비슷한 부피로 그립니다. 처음 판은 틀마다 Q 를 따로 맞춰 넣어 집의 Q 가 44 아래 · 작고 수첩의 Q 가
+//    16 왼쪽이었습니다(오빠 지적). 틀에 맞춰 Q 를 옮기지 말고 Q 에 맞춰 틀을 그릴 것.
 // 🔑 원본 그림은 source/brand/logo-dark.png (Q-Atelier public 의 사본, refresh-source 가 받아 옵니다).
 //
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
@@ -24,7 +32,9 @@
 //             안쪽 지름 80% 원(반지름 204.8) 밖은 잘릴 수 있어 내용을 0.84 로 줄입니다  192 · 512
 //   apple     판 없이 가득 찬 먹색. iOS 가 모서리를 스스로 둥글립니다                 180
 //   small     브라우저 탭 · 작업 표시줄의 16 · 24 · 32px. 가는 선과 붓 Q 의 머리카락 획이
-//             사라지므로 선을 굵게, Q 획을 부풀려(dilate) 그립니다                    ICO 16 · 32 · 48
+//             사라지므로 선을 굵게, Q 획을 부풀려(dilate) 그립니다. 붓 획 틀의 굵고 가는 차이는
+//             이 크기에서 안 보이고 가는 획이 먼저 사라지므로, 같은 모양을 고른 굵기로 그립니다  ICO 16 · 32 · 48
+//   maskable 은 그린 뒤 안전 원 밖에 먹색이 아닌 점이 있는지 스스로 세어, 있으면 멈춥니다.
 //
 // ── 확인한 것 (2026-09-25 시안) ──────────────────────────────────────────────
 //   금속 색만 바꾼 안은 24px 이하에서 Q 획이 가늘어 색이 거의 안 갈렸습니다. 상징 틀은
@@ -107,16 +117,17 @@ async function metalQs() {
   }
   const cw = x1 - x0 + 1;
   const ch = y1 - y0 + 1;
-  /*
-   * 몸통 원의 가운데: 꼬리(아래 30%)를 빼고 위 70% 의 가로 범위로 잡습니다. 붓 꼬리가 오른쪽으로
-   * 길게 나가므로 그림 전체의 가운데에 놓으면 원이 왼쪽으로 치우쳐 보입니다.
-   */
-  let bx0 = cw, bx1 = -1;
-  for (let y = 0; y < Math.floor(ch * 0.7); y++) for (let x = 0; x < cw; x++) {
-    if (data[((y + y0) * W + (x + x0)) * 4 + 3] > 127) { if (x < bx0) bx0 = x; if (x > bx1) bx1 = x; }
-  }
   const crop = Buffer.alloc(cw * ch * 4);
   for (let y = 0; y < ch; y++) data.copy(crop, y * cw * 4, ((y + y0) * W + x0) * 4, ((y + y0) * W + x1 + 1) * 4);
+  /*
+   * 무게중심(알파 가중). 붓 꼬리가 아래 · 오른쪽으로 길게 나가 그림 상자의 가운데는 눈에 보이는
+   * 가운데보다 아래 · 오른쪽에 있습니다. 네 아이콘의 Q 를 이 점으로 맞춥니다.
+   */
+  let m = 0, mx = 0, my = 0;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const a = crop[(y * cw + x) * 4 + 3] / 255;
+    m += a; mx += a * x; my += a * y;
+  }
 
   const out = {};
   for (const metal of ['silver', 'gold', 'copper', 'steel']) {
@@ -132,42 +143,131 @@ async function metalQs() {
     }
     out[metal] = await sharp(buf, { raw: { width: cw, height: ch, channels: 4 } }).png().toBuffer();
   }
-  return { png: out, w: cw, h: ch, bowlCx: (bx0 + bx1) / 2 };
+  return { png: out, w: cw, h: ch, gx: mx / m, gy: my / m };
 }
 
-// ── 틀과 Q 의 자리 (512 단위) ───────────────────────────────────────────────
+// ── Q 의 크기와 자리: 네 아이콘 공통 (512 단위) ──────────────────────────────
+const Q_H = 216; // 그림 높이
+const Q_AT = { x: 256, y: 258 }; // Q 의 무게중심이 올 자리
+
+/** Q 그림 상자. 네 아이콘 · 모든 크기가 이 한 벌을 씁니다 */
+function qBox(Q) {
+  const s = Q_H / Q.h;
+  const x = Q_AT.x - Q.gx * s;
+  const y = Q_AT.y - Q.gy * s;
+  return `x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${(Q.w * s).toFixed(2)}" height="${Q_H}"`;
+}
+
+// ── 틀 기하 (512 단위). 모두 중심 256,256 둘레에 비슷한 부피로 ────────────────
 /*
- * Q 의 h 는 그림 높이, (cx, cy) 는 «몸통 원의 가운데 · 그림 높이의 가운데» 입니다.
- * 수첩은 오른쪽 고무줄 띠 때문에 Q 를 왼쪽으로 조금 옮기고 줄였습니다(붓 꼬리가 띠에 닿았습니다).
+ * 집은 지붕이 위로 솟아 부피가 위로 쏠리므로, 몸통이 Q 를 감싸고 전체 높이의 가운데가 판의
+ * 가운데에 오게 했습니다(지붕 꼭짓점 72 · 바닥 440). 수첩은 왼쪽 제본선과 오른쪽 가장자리 사이에
+ * Q 가 서도록 제본선을 왼쪽 가장자리에서 30 안쪽에 둡니다.
  */
-const LAYOUT = {
-  ring: { q: { h: 232, cx: 248, cy: 256 } },
-  house: { q: { h: 198, cx: 248, cy: 300 } },
-  notebook: { q: { h: 212, cx: 232, cy: 258 } },
-  waves: { q: { h: 236, cx: 248, cy: 256 } },
-};
+const RING = { r: 184 };
+const HOUSE = { apexY: 72, eaveY: 190, left: 102, right: 410, baseY: 440, r: 16 };
+const NOTE = { left: 106, right: 406, top: 72, bottom: 440, r: 24, spine: 136 };
+const WAVES = { r1: 158, r2: 198, deg: 40 };
 
 /*
- * 🔴 틀의 결은 userSpaceOnUse 로 겁니다. objectBoundingBox(기본값)로 걸면 폭이 0 인 세로선(수첩의
- *    고무줄 띠)에서 결을 계산하지 못해 선이 통째로 사라집니다(2026-09-25 시안에서 실제로 빠졌습니다).
+ * 붓 획 틀의 굵기. 세로 획 14 · 가로 획 6 (512 단위). 가는 획을 4.5 로 두었더니 홈 화면 60px 에서
+ * 집의 지붕 · 바닥이 흐려져 6 으로 올렸습니다(2026-09-25 시안 실측).
  */
-function frameSvg(kind, sw, paint = 'url(#metal)') {
+const THICK = 14;
+const THIN = 6;
+
+/*
+ * 🔴 틀의 결은 userSpaceOnUse 로 겁니다. objectBoundingBox(기본값)로 걸면 폭이 0 인 세로선에서
+ *    결을 계산하지 못해 선이 통째로 사라집니다(2026-09-25 첫 시안에서 수첩 띠가 실제로 빠졌습니다).
+ */
+
+/** 고른 굵기의 한 줄 틀. 작은 판(16 · 32 · 48)과 알림 표식이 씁니다 */
+function frameLine(kind, sw, paint = 'url(#metal)') {
   const st = `fill="none" stroke="${paint}" stroke-width="${sw}" stroke-linejoin="round" stroke-linecap="round"`;
-  if (kind === 'ring') return `<circle cx="256" cy="256" r="186" ${st}/>`;
-  if (kind === 'house') return `<path d="M100 212 L256 84 L412 212 L412 432 L100 432 Z" ${st}/>`;
+  if (kind === 'ring') return `<circle cx="256" cy="256" r="${RING.r}" ${st}/>`;
+  if (kind === 'house') {
+    const { apexY, eaveY, left, right, baseY, r } = HOUSE;
+    return `<path d="M${left} ${eaveY} L256 ${apexY} L${right} ${eaveY} L${right} ${baseY - r} Q${right} ${baseY} ${right - r} ${baseY} ` +
+      `L${left + r} ${baseY} Q${left} ${baseY} ${left} ${baseY - r} Z" ${st}/>`;
+  }
   if (kind === 'notebook') {
-    return `<rect x="118" y="74" width="276" height="364" rx="24" ${st}/>` +
-      `<line x1="366" y1="74" x2="366" y2="438" ${st}/>`;
+    const { left, right, top, bottom, r, spine } = NOTE;
+    return `<rect x="${left}" y="${top}" width="${right - left}" height="${bottom - top}" rx="${r}" ${st}/>` +
+      `<line x1="${spine}" y1="${top}" x2="${spine}" y2="${bottom}" ${st}/>`;
   }
   if (kind === 'waves') {
     let s = '';
-    for (const [r, op] of [[166, 1], [208, 0.55]]) {
+    for (const [r, op] of [[WAVES.r1, 1], [WAVES.r2, 0.55]]) {
       for (const side of [-1, 1]) {
-        let a0 = (-38 * Math.PI) / 180;
-        let a1 = (38 * Math.PI) / 180;
+        let a0 = (-WAVES.deg * Math.PI) / 180;
+        let a1 = (WAVES.deg * Math.PI) / 180;
         if (side < 0) [a0, a1] = [Math.PI - a1, Math.PI - a0];
         const p = (a) => `${(256 + r * Math.cos(a)).toFixed(2)} ${(256 + r * Math.sin(a)).toFixed(2)}`;
         s += `<path d="M${p(a0)} A${r} ${r} 0 0 1 ${p(a1)}" ${st} opacity="${op}"/>`;
+      }
+    }
+    return s;
+  }
+  throw new Error(`모르는 틀: ${kind}`);
+}
+
+/*
+ * 붓 획 틀. 속을 판 도형을 «채웁니다»(선이 아니라 면이라 굵기를 자리마다 다르게 줄 수 있습니다).
+ * 붓 Q 처럼 세로 획은 굵고(THICK) 가로 · 비스듬한 획은 가늡니다(THIN).
+ */
+function frameStroke(kind, thick = THICK, thin = THIN, paint = 'url(#metal)') {
+  const fill = `fill="${paint}" fill-rule="evenodd"`;
+  const h = thick / 2;
+  const t = thin / 2;
+  if (kind === 'ring') {
+    // 디돈 O: 바깥은 원, 안은 좌우로 더 파인 타원 → 좌우 굵고 위아래 가늚
+    const R = RING.r + h;
+    const ix = R - thick;
+    const iy = R - thin;
+    return `<path ${fill} d="M${256 - R} 256 A${R} ${R} 0 1 0 ${256 + R} 256 A${R} ${R} 0 1 0 ${256 - R} 256 Z ` +
+      `M${256 - ix} 256 A${ix} ${iy} 0 1 1 ${256 + ix} 256 A${ix} ${iy} 0 1 1 ${256 - ix} 256 Z"/>`;
+  }
+  if (kind === 'house') {
+    const { apexY, eaveY, left, right, baseY, r } = HOUSE;
+    const slope = (eaveY - apexY) / (256 - left);
+    const norm = Math.sqrt(1 + slope * slope);
+    // 지붕은 꼭짓점에서 좌우로 내려갑니다: 가운데에서 떨어진 거리(절댓값)만큼 y 가 커집니다
+    const roof = (apex) => (x) => (apex + slope * Math.abs(256 - x)).toFixed(2);
+    const house = (l, rr, b, apex, rad) => {
+      const y = roof(apex);
+      return `M256 ${apex.toFixed(2)} L${rr} ${y(rr)} L${rr} ${b - rad} Q${rr} ${b} ${rr - rad} ${b} ` +
+        `L${l + rad} ${b} Q${l} ${b} ${l} ${b - rad} L${l} ${y(l)} Z`;
+    };
+    const outer = house(left - h, right + h, baseY + t, apexY - t * norm, r);
+    const inner = house(left + h, right - h, baseY - t, apexY + t * norm, Math.max(2, r - h));
+    return `<path ${fill} d="${outer} ${inner}"/>`;
+  }
+  if (kind === 'notebook') {
+    const { left, right, top, bottom, r, spine } = NOTE;
+    const rr = (x0, y0, x1, y1, rad) => `M${x0 + rad} ${y0} L${x1 - rad} ${y0} Q${x1} ${y0} ${x1} ${y0 + rad} ` +
+      `L${x1} ${y1 - rad} Q${x1} ${y1} ${x1 - rad} ${y1} L${x0 + rad} ${y1} Q${x0} ${y1} ${x0} ${y1 - rad} ` +
+      `L${x0} ${y0 + rad} Q${x0} ${y0} ${x0 + rad} ${y0} Z`;
+    const outer = rr(left - h, top - t, right + h, bottom + t, r + h);
+    const inner = rr(left + h, top + t, right - h, bottom - t, Math.max(2, r - h));
+    // 제본선은 세로 획이라 굵게. 위아래 끝은 표지 안쪽 선에 붙습니다
+    return `<path ${fill} d="${outer} ${inner}"/>` +
+      `<rect x="${spine - h}" y="${top + t}" width="${thick}" height="${bottom - top - thin}" fill="${paint}"/>`;
+  }
+  if (kind === 'waves') {
+    // 가운데가 굵고 양 끝이 가늘어지는 호(초승달 꼴)
+    let s = '';
+    for (const [r, op] of [[WAVES.r1, 1], [WAVES.r2, 0.55]]) {
+      for (const side of [-1, 1]) {
+        const n = 48;
+        const w = (d) => t + (h - t) * Math.cos(((d / WAVES.deg) * Math.PI) / 2);
+        const at = (d, rad) => {
+          const a = (d * Math.PI) / 180;
+          return `${(256 + side * rad * Math.cos(a)).toFixed(2)} ${(256 + rad * Math.sin(a)).toFixed(2)}`;
+        };
+        const pts = [];
+        for (let i = 0; i <= n; i++) { const d = -WAVES.deg + (2 * WAVES.deg * i) / n; pts.push(at(d, r + w(d))); }
+        for (let i = n; i >= 0; i--) { const d = -WAVES.deg + (2 * WAVES.deg * i) / n; pts.push(at(d, r - w(d))); }
+        s += `<path d="M${pts.join(' L')} Z" fill="${paint}" opacity="${op}"/>`;
       }
     }
     return s;
@@ -187,16 +287,10 @@ const SMALL = {
 };
 
 function iconSvg(product, Q, variant, px) {
-  const lay = LAYOUT[product.frame].q;
   const small = variant === 'small' ? SMALL[px] : null;
-  const sw = small ? small.sw : 9;
-  const s = lay.h / Q.h;
-  const qw = Q.w * s;
-  const qx = lay.cx - Q.bowlCx * s;
-  const qy = lay.cy - lay.h / 2;
   const [a, b, c] = STROKE[product.metal];
   const href = 'data:image/png;base64,' + Q.png[product.metal].toString('base64');
-  const box = `x="${qx.toFixed(2)}" y="${qy.toFixed(2)}" width="${qw.toFixed(2)}" height="${lay.h}"`;
+  const box = qBox(Q);
   /*
    * 작은 판의 Q: 크롬 그림을 그대로 부풀리면 dilate 가 채널마다 가장 큰 값을 퍼뜨려 반사광이 번지고,
    * 금 · 구리도 거의 흰 Q 가 됩니다(2026-09-25 확대 실측). 제품 색이 틀에만 남으므로, 부풀린 Q 를
@@ -205,7 +299,8 @@ function iconSvg(product, Q, variant, px) {
   const qMark = small
     ? `<rect ${box} fill="url(#qmetal)" mask="url(#qmask)"/>`
     : `<image href="${href}" ${box}/>`;
-  const content = frameSvg(product.frame, sw) + qMark;
+  const frame = small ? frameLine(product.frame, small.sw) : frameStroke(product.frame);
+  const content = frame + qMark;
   const defs = `<defs><linearGradient id="metal" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="180" y2="500">` +
     `<stop offset="0" stop-color="${a}"/><stop offset="0.45" stop-color="${b}"/><stop offset="1" stop-color="${c}"/></linearGradient>` +
     (small
@@ -230,14 +325,32 @@ function iconSvg(product, Q, variant, px) {
  * 반투명 조각이 흐려지므로, 틀과 Q 를 흰색 한 가지로 그립니다.
  */
 function badgeSvg(product, Q) {
-  const lay = LAYOUT[product.frame].q;
-  const s = lay.h / Q.h;
   const href = 'data:image/png;base64,' + Q.png.silver.toString('base64');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512"><defs>` +
     `<filter id="white" x="-25%" y="-25%" width="150%" height="150%"><feMorphology operator="dilate" radius="4"/>` +
     `<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.6 0"/></filter></defs>` +
-    frameSvg(product.frame, 26, '#fff') +
-    `<image href="${href}" x="${(lay.cx - Q.bowlCx * s).toFixed(2)}" y="${(lay.cy - lay.h / 2).toFixed(2)}" width="${(Q.w * s).toFixed(2)}" height="${lay.h}" filter="url(#white)"/></svg>`;
+    frameLine(product.frame, 26, '#fff') +
+    `<image href="${href}" ${qBox(Q)} filter="url(#white)"/></svg>`;
+}
+
+/*
+ * 안드로이드 원형 오림의 안전 원: 판 한 변의 40% 반지름. 그린 maskable 에서 그 원 밖에 먹색이 아닌
+ * 점이 있으면 틀이 잘릴 수 있으므로 멈춥니다. 반투명 가장자리는 허용하도록 문턱을 둡니다.
+ */
+async function outsideSafeZone(png) {
+  const { data, info } = await sharp(png).raw().toBuffer({ resolveWithObject: true });
+  const { width: W, height: H, channels: C } = info;
+  const [br, bg, bb] = hex(BG);
+  const R = 0.4 * W;
+  let n = 0;
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const dx = x + 0.5 - W / 2;
+    const dy = y + 0.5 - H / 2;
+    if (dx * dx + dy * dy <= R * R) continue;
+    const p = (y * W + x) * C;
+    if (Math.max(Math.abs(data[p] - br), Math.abs(data[p + 1] - bg), Math.abs(data[p + 2] - bb)) > 24) n++;
+  }
+  return n;
 }
 
 /** ICO: 머리(6) + 항목(16 × n) + PNG 본문. PNG 를 품은 ICO 는 윈도 비스타 이후와 모든 브라우저가 읽습니다. */
@@ -289,6 +402,12 @@ async function main() {
     const any = await render(iconSvg(p, Q, 'any'));
     const apple = await render(iconSvg(p, Q, 'apple'));
     const mask = await render(iconSvg(p, Q, 'maskable'));
+    const outside = await outsideSafeZone(mask);
+    if (outside > 0) {
+      await browser.close();
+      console.error(`❌ ${p.name}: 안드로이드 안전 원 밖에 그림이 ${outside} 점 있습니다. 틀을 줄이거나 maskable 배율을 낮추십시오.`);
+      process.exit(1);
+    }
     const small = {};
     for (const px of [16, 32, 48]) small[px] = await down(await render(iconSvg(p, Q, 'small', px)), px);
     const files = {
