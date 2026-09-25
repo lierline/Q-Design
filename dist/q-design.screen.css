@@ -191,6 +191,8 @@ html[data-theme='light'] {
   font-family: var(--qd-font-mono);
   font-size: 10px;
   font-weight: 500;
+  /* 원본은 본문 줄간격(1.6)을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
+  line-height: 1.6;
   letter-spacing: 2.2px;
   text-transform: uppercase;
   color: var(--qd-accent);
@@ -214,6 +216,7 @@ html[data-theme='light'] {
   font-family: var(--qd-font-mono);
   font-size: 10px;
   font-weight: 500;
+  line-height: 1.6;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--qd-subtle);
@@ -223,6 +226,8 @@ html[data-theme='light'] {
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
 }
+/* 이름표가 단추 · 배지와 한 줄에 서는 머리 줄에서는 아래 여백을 뺍니다 */
+.qd-field-label--flush { margin-bottom: 0; }
 
 /* ── 2차 탭 ────────────────────────────────────────────────────────────────
    화면 «안» 을 가르는 탭 줄입니다(원본 PageTabs). 밑선 하나 위에 글자만 놓고, 고른 탭은
@@ -252,9 +257,16 @@ html[data-theme='light'] {
   font-family: var(--qd-font-ui);
   font-size: 13px;
   font-weight: 400;
+  line-height: 1.6;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+}
+/* 원본 전역 초점 규칙([role='tab'])과 같은 고리. 제품의 전역 규칙에 기대지 않습니다 */
+.qd-tab:focus-visible {
+  outline: 2px solid var(--qd-accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--qd-accent) 22%, transparent);
 }
 .qd-tab[aria-selected='true'],
 .qd-tab--active {

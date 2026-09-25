@@ -22,7 +22,13 @@ import { TOP_BAND_HEIGHT } from '@/components/TopHeaderBand';
 import { PAGE_SIZE, pageWindow, type SortOption } from '@/lib/api/list-page';
 import { useBreakpoints } from '@/lib/hooks/useBreakpoints';
 import { stickyTopInset, useScrollHostPadding } from '@/lib/design/sticky-inset';
-import { F, FS, LH, RADIUS, S, T, Z } from '@/lib/design/tokens';
+import { F, FS, LH, RADIUS, S, T, Z, labelTracking, labelCase } from '@/lib/design/tokens';
+
+/*
+ * 찾기 단추의 글. 네 제품이 「찾기」 · 「검색」 · 「조회하기」 로 갈려 있던 것을 오너가
+ * 「검색」 으로 통일했다(2026-09-25 · Q-Design 감사 22). 찾기 칸 안내(「… 검색」)와도 같은 말이다.
+ */
+const 검색글 = '검색';
 
 interface ListToolbarProps {
   /** 현재 경로. 예: '/capa' */
@@ -83,14 +89,15 @@ export function ListToolbar({
     ([k, v]) => v !== undefined && v !== '' && k !== 'q' && k !== 'sort' && k !== 'page',
   );
 
-  const 라벨: React.CSSProperties = {
+  /* 한글이 섞인 글(「검색 지우기」 · 「총 57건」)은 자간 0 (오너 규칙 「한글이면 자간 0」) */
+  const 라벨 = (text: string): React.CSSProperties => ({
     fontFamily: F.mono,
     fontSize: FS[11],
     color: T.muted,
     lineHeight: LH.none,
-    letterSpacing: 0.4,
+    letterSpacing: labelTracking(text, 0.4),
     fontVariantNumeric: 'tabular-nums',
-  };
+  });
 
   const 칸: React.CSSProperties = {
     height: 36,
@@ -182,13 +189,13 @@ export function ListToolbar({
             fontFamily: F.ui,
             fontSize: FS[11],
             lineHeight: LH.none,
-            letterSpacing: 1.2,
-            textTransform: 'uppercase',
+            letterSpacing: labelTracking(검색글, 1.2),
+            textTransform: labelCase(검색글),
             cursor: 'pointer',
             flex: '0 0 auto',
           }}
         >
-          찾기
+          {검색글}
         </button>
 
         {/*
@@ -198,13 +205,13 @@ export function ListToolbar({
         {좁힘 && (
           <a
             href={basePath}
-            style={{ ...라벨, textDecoration: 'underline', flex: '0 0 auto' }}
+            style={{ ...라벨('검색 지우기'), textDecoration: 'underline', flex: '0 0 auto' }}
           >
             검색 지우기
           </a>
         )}
 
-        <span style={{ ...라벨, marginLeft: 'auto', flex: '0 0 auto' }}>{셈}</span>
+        <span style={{ ...라벨(셈), marginLeft: 'auto', flex: '0 0 auto' }}>{셈}</span>
       </form>
 
       {/*

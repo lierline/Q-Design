@@ -11,7 +11,7 @@
 
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { S, FS, T, F, LH, RADIUS, ICON } from '@/lib/design/tokens';
+import { S, FS, T, F, LH, RADIUS, ICON, labelTracking, labelCase } from '@/lib/design/tokens';
 import { pageCount, pageWindow, PAGE_SIZE } from '@/lib/api/list-page';
 
 interface ListPagerProps {
@@ -62,17 +62,23 @@ export function ListPager({
   // 한 페이지에 다 들어오면 이동 UI 는 군더더기다. 다만 **총건수는 늘 보여준다**:
   // 「내가 보는 것이 전부인가」에 답이 없으면 목록을 믿을 수 없다.
   const showNav = last > 1;
+  const 셈 = win ? `${win.first}-${win.last} / 총 ${total.toLocaleString('ko-KR')}건` : '0건';
+  const 쪽 = `${page} / ${last}`;
 
-  const label: React.CSSProperties = {
+  /*
+   * 한글이 섞인 글(「총 57건」 · 「이전」)은 자간 0 · 대문자 없음, 숫자 · 라틴만 벌린다
+   * (오너 규칙 「한글이면 자간 0」 · 2026-09-25 네 제품 대조에서 이 부품만 한글에도 벌리고 있었다).
+   */
+  const label = (text: string): React.CSSProperties => ({
     fontFamily: F.mono,
     fontSize: FS[11],
     color: T.muted,
     lineHeight: LH.none,
-    letterSpacing: 0.4,
+    letterSpacing: labelTracking(text, 0.4),
     fontVariantNumeric: 'tabular-nums',
-  };
+  });
 
-  const btn = (enabled: boolean): React.CSSProperties => ({
+  const btn = (enabled: boolean, text: string): React.CSSProperties => ({
     display: 'inline-flex',
     alignItems: 'center',
     gap: S[1],
@@ -85,8 +91,8 @@ export function ListPager({
     fontFamily: F.ui,
     fontSize: FS[11],
     lineHeight: LH.none,
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
+    letterSpacing: labelTracking(text, 1.2),
+    textTransform: labelCase(text),
     textDecoration: 'none',
     opacity: enabled ? 1 : 0.4,
     pointerEvents: enabled ? 'auto' : 'none',
@@ -107,8 +113,8 @@ export function ListPager({
       }}
     >
       {!위 && (
-        <span style={label}>
-          {win ? `${win.first}-${win.last} / 총 ${total.toLocaleString('ko-KR')}건` : '0건'}
+        <span style={label(셈)}>
+          {셈}
         </span>
       )}
 
@@ -116,7 +122,7 @@ export function ListPager({
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: S[2] }}>
           <Link
             href={hrefFor(basePath, page - 1, params)}
-            style={btn(page > 1)}
+            style={btn(page > 1, '이전')}
             aria-disabled={page <= 1}
             tabIndex={page <= 1 ? -1 : undefined}
           >
@@ -124,13 +130,13 @@ export function ListPager({
             이전
           </Link>
 
-          <span style={{ ...label, minWidth: 64, textAlign: 'center' }}>
-            {page} / {last}
+          <span style={{ ...label(쪽), minWidth: 64, textAlign: 'center' }}>
+            {쪽}
           </span>
 
           <Link
             href={hrefFor(basePath, page + 1, params)}
-            style={btn(page < last)}
+            style={btn(page < last, '다음')}
             aria-disabled={page >= last}
             tabIndex={page >= last ? -1 : undefined}
           >

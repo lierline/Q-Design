@@ -240,6 +240,15 @@ html[data-theme='light'] {
   font-size: 12px;
   color: var(--qd-muted);
 }
+/* 표 «안» 의 빈 줄(td colspan)에 걸어도 같은 얼굴이어야 합니다. 표 칸 규칙(13px · text)이 더 무거워
+   글꼴만 바뀌고 색은 오히려 밝아졌습니다(2026-09-25 Q-Sonar 실측). 칸 선택자보다 무겁게 겁니다. */
+.qd-table td.qd-table-empty,
+.qd-table .qd-td.qd-table-empty {
+  padding: 20px 12px;
+  font-family: var(--qd-font-mono);
+  font-size: 12px;
+  color: var(--qd-muted);
+}
 /*
  * 못 읽은 자리. 「없음」(.qd-table-empty)과 **반드시 달라 보여야** 합니다.
  *
@@ -316,6 +325,8 @@ html[data-theme='light'] {
   font-family: var(--qd-font-ui);
   font-size: 22px;
   font-weight: 700;
+  /* 원본은 본문 줄간격(1.6)을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
+  line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--qd-subtle);
 }
@@ -347,6 +358,7 @@ html[data-theme='light'] {
   color: var(--qd-accent);
   font-family: var(--qd-font-mono);
   font-size: 10px;
+  line-height: 1.6;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-decoration: none;
@@ -377,8 +389,8 @@ html[data-theme='light'] {
      </nav>
 
    🔑 한글 단추(이전 · 다음)는 자간을 두지 않습니다. 라틴(PREV · NEXT)만 data-latin 을 붙여
-      대문자 · 1.2px 를 받습니다(.qd-btn 과 같은 한글 규칙). 원본은 한글에도
-      1.2px 를 두는데, 오너 지적(2026-08-21 「한글이면 자간 0」)을 정본이 따릅니다. */
+      대문자 · 1.2px 를 받습니다(.qd-btn 과 같은 한글 규칙). 원본도 2026-09-25 부터
+      같습니다(Q-Atelier 476e8096 · 전에는 한글에도 벌렸다). 찾기 단추 글은 원본을 따라 「검색」 입니다. */
 .qd-pager {
   display: flex;
   flex-wrap: wrap;
@@ -551,6 +563,19 @@ html[data-theme='light'] {
 .qd-filter-clear[data-hangul] {
   letter-spacing: 0;
   word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 초점 고리 (목록 둘레 조작부) ──────────────────────────────────────────
+   원본은 전역 :focus-visible 규칙이 단추 · 링크 · 입력칸 · 탭에 금색 외곽선과 옅은 고리를 겁니다.
+   제품마다 그 규칙이 있다고 믿지 않고 정본 조작부에 같은 값을 둡니다(.qd-btn · .qd-input 과 같은 이유). */
+.qd-pager-btn:focus-visible,
+.qd-filter-submit:focus-visible,
+.qd-filter-input:focus-visible,
+.qd-filter-select:focus-visible,
+.qd-empty-hint:focus-visible {
+  outline: 2px solid var(--qd-accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--qd-accent) 22%, transparent);
 }
 
 /* ── 항목 카드 ─────────────────────────────────────────────────────────────

@@ -104,9 +104,16 @@
     "submitPadX": 16,
     "submitSize": 11,
     "submitTracking": 1.2,
+    "submitText": "검색",
     "labelSize": 11,
     "labelTracking": 0.4,
     "z": 100
+  },
+  "focus": {
+    "outline": 2,
+    "offset": 4,
+    "ring": 4,
+    "ringMix": 22
   },
   "empty": {
     "paddingCompact": "32px 24px",
@@ -138,5 +145,8 @@
     "hintTracking": 0.5,
     "hintArrowGap": 6,
     "lineHeight": 1.7
+  },
+  "body": {
+    "lineHeight": 1.6
   }
 }

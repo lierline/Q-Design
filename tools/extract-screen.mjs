@@ -265,6 +265,30 @@ put(spec, 'panel.radius', tokens.radius.md);
     ['field.weight',    Q.field,   /fontWeight: (\d+),/, Number],
   ]);
   Object.assign(spec, got);
+  /*
+   * 줄 높이와 초점 고리 (2026-09-25 다듬기).
+   * 원본은 이 셋이 줄간격을 안 적고 본문 줄간격(--qa-lh-relaxed)을 물려받는다. 제품마다 바탕
+   * 줄간격이 1.5 · 1.6 · 1.7 로 달라 탭 높이 46 ~ 48 · 이름표 15 ~ 17 로 갈렸다. 원본 값을 못 박는다.
+   * 탭의 초점은 원본 전역 규칙([role='tab']:focus-visible)이 준다. 같은 값을 정본에 둔다.
+   */
+  {
+    const bodyBlock = slice(gcss, 'body {\n  background: var(--qa-bg);', '\n}', 'globals.body');
+    if (!/line-height: var\(--qa-lh-relaxed\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
+    const relaxed = tokens.typography.lineHeight.relaxed;
+    if (typeof relaxed !== 'number') throw new Error('LH.relaxed 를 토큰에서 못 읽었습니다.');
+    put(spec, 'body.lineHeight', relaxed);
+    /* 🔴 선택자 목록 사이 주석에 `}}` 가 있어 앞에서 자르면 거기서 끝난다. 선언 직전 선택자부터 자른다 */
+    const focus = slice(gcss, "[tabindex]:focus-visible {", '}', 'globals.focus-visible');
+    if (!/\[role='tab'\]:focus-visible,/.test(slice(gcss, 'button:focus-visible:not(:disabled),', "[tabindex]:focus-visible {", 'globals.focus-list'))) {
+      throw new Error('원본 전역 초점 규칙이 더는 탭을 덮지 않습니다.');
+    }
+    Object.assign(spec, probeAll([
+      ['focus.outline', focus, /outline: (\d+)px solid var\(--qa-champagne\);/, Number],
+      ['focus.offset',  focus, /outline-offset: (\d+)px;/, Number],
+      ['focus.ring',    focus, /box-shadow: 0 0 0 (\d+)px color-mix/, Number],
+      ['focus.ringMix', focus, /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
+    ]));
+  }
   /* 원본이 말하는 색 · 글꼴이 정본 변수와 같은 뜻인지 봅니다. 다르면 이름을 잘못 잇게 됩니다 */
   for (const [what, zone, re] of [
     ['탭 줄 밑선 = border', Q.tabsRow, /borderBottom: `1px solid \$\{T\.border\}`/],
@@ -475,6 +499,8 @@ ${bind('light')}
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.section.fontSize)};
   font-weight: ${spec.section.weight};
+  /* 원본은 본문 줄간격(${spec.body.lineHeight})을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
+  line-height: ${spec.body.lineHeight};
   letter-spacing: ${px(spec.section.tracking)};
   text-transform: uppercase;
   color: var(--qd-accent);
@@ -498,6 +524,7 @@ ${bind('light')}
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.field.fontSize)};
   font-weight: ${spec.field.weight};
+  line-height: ${spec.body.lineHeight};
   letter-spacing: ${px(spec.field.tracking)};
   text-transform: uppercase;
   color: var(--qd-subtle);
@@ -507,6 +534,8 @@ ${bind('light')}
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
 }
+/* 이름표가 단추 · 배지와 한 줄에 서는 머리 줄에서는 아래 여백을 뺍니다 */
+.qd-field-label--flush { margin-bottom: 0; }
 
 /* ── 2차 탭 ────────────────────────────────────────────────────────────────
    화면 «안» 을 가르는 탭 줄입니다(원본 PageTabs). 밑선 하나 위에 글자만 놓고, 고른 탭은
@@ -536,9 +565,16 @@ ${bind('light')}
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.tabs.fontSize)};
   font-weight: ${spec.tabs.weightOff};
+  line-height: ${spec.body.lineHeight};
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+}
+/* 원본 전역 초점 규칙([role='tab'])과 같은 고리. 제품의 전역 규칙에 기대지 않습니다 */
+.qd-tab:focus-visible {
+  outline: ${px(spec.focus.outline)} solid var(--qd-accent);
+  outline-offset: ${px(spec.focus.offset)};
+  box-shadow: 0 0 0 ${px(spec.focus.ring)} color-mix(in srgb, var(--qd-accent) ${spec.focus.ringMix}%, transparent);
 }
 .qd-tab[aria-selected='true'],
 .qd-tab--active {

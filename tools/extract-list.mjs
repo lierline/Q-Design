@@ -192,18 +192,24 @@ put(spec, 'table.transition', tokens.motion.fast);
   const barSrc = read(join(SRC, 'components', 'ListToolbar.tsx'));
   const empty = slice(comp, 'export function EmptyState({', '// ─── GRID', 'EmptyState');
   const Q = {
-    pagerLabel: slice(pagerSrc, 'const label: React.CSSProperties = {', '};', 'ListPager.label'),
-    pagerBtn: slice(pagerSrc, 'const btn = (enabled: boolean): React.CSSProperties => ({', '});', 'ListPager.btn'),
+    /* 2026-09-25 원본이 한글 글에 자간 0 을 주려고 글을 받는 함수로 바뀌었다(476e8096) */
+    pagerLabel: slice(pagerSrc, 'const label = (text: string): React.CSSProperties => ({', '});', 'ListPager.label'),
+    pagerBtn: slice(pagerSrc, 'const btn = (enabled: boolean, text: string): React.CSSProperties => ({', '});', 'ListPager.btn'),
     pagerNav: slice(pagerSrc, 'aria-label="목록 페이지 이동"', 'flexWrap', 'ListPager.nav'),
     pagerPages: slice(pagerSrc, '{showNav && (', '<Link', 'ListPager.pages'),
-    pagerPageNo: slice(pagerSrc, '<span style={{ ...label, minWidth', '}}>', 'ListPager.pageNo'),
+    pagerPageNo: slice(pagerSrc, '<span style={{ ...label(쪽), minWidth', '}}>', 'ListPager.pageNo'),
     barOuter: slice(barSrc, 'className="qa-list-toolbar"', '<form', 'ListToolbar.outer'),
     barForm: slice(barSrc, 'method="get"', '{함께보낼것.map', 'ListToolbar.form'),
     barField: slice(barSrc, 'const 칸: React.CSSProperties = {', '};', 'ListToolbar.field'),
-    barLabel: slice(barSrc, 'const 라벨: React.CSSProperties = {', '};', 'ListToolbar.label'),
+    barLabel: slice(barSrc, 'const 라벨 = (text: string): React.CSSProperties => ({', '});', 'ListToolbar.label'),
     barSearch: slice(barSrc, "<span style={{ position: 'relative'", '<input', 'ListToolbar.search'),
     barSelect: slice(barSrc, 'aria-label="정렬"', '>', 'ListToolbar.select'),
-    barSubmit: slice(barSrc, 'type="submit"', '찾기', 'ListToolbar.submit'),
+    barSubmit: slice(barSrc, 'type="submit"', '{검색글}', 'ListToolbar.submit'),
+    barSubmitText: slice(barSrc, 'const 검색글 = ', ';', 'ListToolbar.submitText'),
+    /* 원본의 전역 초점 고리. 정본의 새 조작부(탭 · 거르개 칸 · 이동 단추 · 표지)가 이 값을 받는다 */
+    /* 🔴 선택자 목록 사이 주석에 `style={{ outline: 'none' }}` 이 있어 앞에서 자르면 거기서 끝난다.
+       선언이 시작되는 마지막 선택자부터 자른다 */
+    focus: slice(globals, "[tabindex]:focus-visible {", '}', 'globals.focus-visible'),
     emptyBox: slice(empty, 'padding: compact ?', 'textAlign', 'EmptyState.box'),
     emptyGlow: slice(empty, 'backgroundImage:', ',\n', 'EmptyState.glow'),
     emptyIcon: slice(empty, '{icon && (', '{icon}', 'EmptyState.icon'),
@@ -221,14 +227,14 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['pager.gapAbove',    Q.pagerNav,   /marginTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
     ['pager.padAbove',    Q.pagerNav,   /paddingTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
     ['pager.labelSize',   Q.pagerLabel, /fontSize: FS\[(\d+)\],/, Number],
-    ['pager.labelTracking', Q.pagerLabel, /letterSpacing: ([\d.]+),/, Number],
+    ['pager.labelTracking', Q.pagerLabel, /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
     ['pager.navGap',      Q.pagerPages, /gap: S\[([\d.]+)\] \}\}>/, S4],
     ['pager.pageMinWidth', Q.pagerPageNo, /minWidth: (\d+),/, Number],
     ['pager.btnGap',      Q.pagerBtn,   /gap: S\[([\d.]+)\],/, S4],
     ['pager.btnPadding',  Q.pagerBtn,   /padding: '([^']+)',/, String],
     ['pager.btnMinHeight', Q.pagerBtn,  /minHeight: (\d+),/, Number],
     ['pager.btnSize',     Q.pagerBtn,   /fontSize: FS\[(\d+)\],/, Number],
-    ['pager.btnTracking', Q.pagerBtn,   /letterSpacing: ([\d.]+),/, Number],
+    ['pager.btnTracking', Q.pagerBtn,   /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
     ['pager.disabledOpacity', Q.pagerBtn, /opacity: enabled \? 1 : ([\d.]+),/, Number],
     // ── 거르개 띠 (ListToolbar) ─────────────────────────────────────────────
     ['bar.padTop',        Q.barOuter,   /paddingTop: S\[([\d.]+)\],/, S4],
@@ -246,9 +252,15 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['bar.submitHeight',  Q.barSubmit,  /height: (\d+),/, Number],
     ['bar.submitPadX',    Q.barSubmit,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, S4],
     ['bar.submitSize',    Q.barSubmit,  /fontSize: FS\[(\d+)\],/, Number],
-    ['bar.submitTracking', Q.barSubmit, /letterSpacing: ([\d.]+),/, Number],
+    ['bar.submitTracking', Q.barSubmit, /letterSpacing: labelTracking\(검색글, ([\d.]+)\),/, Number],
+    ['bar.submitText',    Q.barSubmitText, /const 검색글 = '([^']+)'/, String],
     ['bar.labelSize',     Q.barLabel,   /fontSize: FS\[(\d+)\],/, Number],
-    ['bar.labelTracking', Q.barLabel,   /letterSpacing: ([\d.]+),/, Number],
+    ['bar.labelTracking', Q.barLabel,   /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
+    // ── 원본 전역 초점 고리 ────────────────────────────────────────────────
+    ['focus.outline',     Q.focus,      /outline: (\d+)px solid var\(--qa-champagne\);/, Number],
+    ['focus.offset',      Q.focus,      /outline-offset: (\d+)px;/, Number],
+    ['focus.ring',        Q.focus,      /box-shadow: 0 0 0 (\d+)px color-mix/, Number],
+    ['focus.ringMix',     Q.focus,      /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
     // ── 빈 목록 (EmptyState) ───────────────────────────────────────────────
     ['empty.paddingCompact', Q.emptyBox, /padding: compact \? '([^']+)' :/, String],
     ['empty.padding',     Q.emptyBox,   /padding: compact \? '[^']+' : '([^']+)',/, String],
@@ -303,6 +315,18 @@ put(spec, 'table.transition', tokens.motion.fast);
   /* 두 건수 글(목록 아래 · 도구줄)은 한 모양이어야 합니다. 갈리면 사람이 두 셈을 못 믿습니다 */
   if (spec.pager.labelSize !== spec.bar.labelSize || spec.pager.labelTracking !== spec.bar.labelTracking) {
     throw new Error('쪽 이동 줄과 거르개 띠의 건수 글이 서로 다릅니다.');
+  }
+  /*
+   * 본문 줄간격. 원본은 body 에 --qa-lh-relaxed(LH.relaxed)를 두고 줄간격을 안 적은 글이 모두
+   * 물려받는다. 제품마다 바탕 줄간격이 1.5 · 1.6 · 1.7 로 달라 상속에 맡기면 1px 씩 갈렸다
+   * (2026-09-25 세 제품 대조). 정본 글자리에 원본 값을 못 박는다.
+   */
+  {
+    const bodyBlock = slice(globals, 'body {\n  background: var(--qa-bg);', '\n}', 'globals.body');
+    if (!/line-height: var\(--qa-lh-relaxed\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
+    const relaxed = tokens.typography.lineHeight.relaxed;
+    if (typeof relaxed !== 'number') throw new Error('LH.relaxed 를 토큰에서 못 읽었습니다.');
+    put(spec, 'body.lineHeight', relaxed);
   }
   /* 설명 줄간격(LH.loose)과 붙어 따라오는 층(Z.sticky)은 토큰에서 옵니다. 없으면 멈춥니다 */
   const loose = tokens.typography.lineHeight.loose;
@@ -566,6 +590,15 @@ ${bind('light')}
   font-size: 12px;
   color: var(--qd-muted);
 }
+/* 표 «안» 의 빈 줄(td colspan)에 걸어도 같은 얼굴이어야 합니다. 표 칸 규칙(13px · text)이 더 무거워
+   글꼴만 바뀌고 색은 오히려 밝아졌습니다(2026-09-25 Q-Sonar 실측). 칸 선택자보다 무겁게 겁니다. */
+.qd-table td.qd-table-empty,
+.qd-table .qd-td.qd-table-empty {
+  padding: 20px ${px(spec.table.padX)};
+  font-family: var(--qd-font-mono);
+  font-size: 12px;
+  color: var(--qd-muted);
+}
 /*
  * 못 읽은 자리. 「없음」(.qd-table-empty)과 **반드시 달라 보여야** 합니다.
  *
@@ -642,6 +675,8 @@ ${bind('light')}
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.empty.titleSize)};
   font-weight: 700;
+  /* 원본은 본문 줄간격(${spec.body.lineHeight})을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
+  line-height: ${spec.body.lineHeight};
   letter-spacing: ${spec.empty.titleTracking};
   color: var(--qd-subtle);
 }
@@ -673,6 +708,7 @@ ${bind('light')}
   color: var(--qd-accent);
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.empty.hintSize)};
+  line-height: ${spec.body.lineHeight};
   letter-spacing: ${px(spec.empty.hintTracking)};
   text-transform: uppercase;
   text-decoration: none;
@@ -703,8 +739,8 @@ ${bind('light')}
      </nav>
 
    🔑 한글 단추(이전 · 다음)는 자간을 두지 않습니다. 라틴(PREV · NEXT)만 data-latin 을 붙여
-      대문자 · ${px(spec.pager.btnTracking)} 를 받습니다(.qd-btn 과 같은 한글 규칙). 원본은 한글에도
-      ${px(spec.pager.btnTracking)} 를 두는데, 오너 지적(2026-08-21 「한글이면 자간 0」)을 정본이 따릅니다. */
+      대문자 · ${px(spec.pager.btnTracking)} 를 받습니다(.qd-btn 과 같은 한글 규칙). 원본도 2026-09-25 부터
+      같습니다(Q-Atelier 476e8096 · 전에는 한글에도 벌렸다). 찾기 단추 글은 원본을 따라 「${spec.bar.submitText}」 입니다. */
 .qd-pager {
   display: flex;
   flex-wrap: wrap;
@@ -877,6 +913,19 @@ ${bind('light')}
 .qd-filter-clear[data-hangul] {
   letter-spacing: 0;
   word-spacing: var(--qd-hangul-word-space);
+}
+
+/* ── 초점 고리 (목록 둘레 조작부) ──────────────────────────────────────────
+   원본은 전역 :focus-visible 규칙이 단추 · 링크 · 입력칸 · 탭에 금색 외곽선과 옅은 고리를 겁니다.
+   제품마다 그 규칙이 있다고 믿지 않고 정본 조작부에 같은 값을 둡니다(.qd-btn · .qd-input 과 같은 이유). */
+.qd-pager-btn:focus-visible,
+.qd-filter-submit:focus-visible,
+.qd-filter-input:focus-visible,
+.qd-filter-select:focus-visible,
+.qd-empty-hint:focus-visible {
+  outline: ${px(spec.focus.outline)} solid var(--qd-accent);
+  outline-offset: ${px(spec.focus.offset)};
+  box-shadow: 0 0 0 ${px(spec.focus.ring)} color-mix(in srgb, var(--qd-accent) ${spec.focus.ringMix}%, transparent);
 }
 
 /* ── 항목 카드 ─────────────────────────────────────────────────────────────
