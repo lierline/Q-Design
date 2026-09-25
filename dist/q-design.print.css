@@ -42,12 +42,6 @@
     display: none !important;
   }
 
-  /* 따라오는 거르개 띠: 종이에는 스크롤이 없어 sticky 가 첫 장에만 남고 나머지 장에서 자리만
-     차지합니다. 제자리로 돌리고, 찾기 폼(칸 · 단추 · 건수)은 종이에서 쓸 수 없으니 걷습니다.
-     지금 무엇으로 좁혀 놓았는지는 주소가 말합니다(원본 globals.css 의 .qa-list-toolbar 인쇄 규칙과 같음) */
-  .qd-filter-bar { position: static !important; }
-  .qd-filter-row { display: none !important; }
-
   /* 떠 있는 효과 제거: 종이에는 그림자가 없습니다 */
   * {
     box-shadow: none !important;

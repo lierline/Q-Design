@@ -1069,8 +1069,21 @@ ${['gray', 'cobalt', 'copper', 'gold', 'violet', 'green', 'red']
 @media print {
   .qd-row { break-inside: avoid; }
   .qd-table tbody tr { break-inside: avoid; }
+
+  /* 따라오는 거르개 띠: 종이에는 스크롤이 없어 sticky 가 첫 장에만 남고 나머지 장에서 자리만
+     차지합니다. 제자리로 돌리고, 찾기 폼(칸 · 단추 · 건수)은 종이에서 쓸 수 없으니 걷습니다.
+     지금 무엇으로 좁혀 놓았는지는 주소가 말합니다(원본 globals.css 의 .qa-list-toolbar 인쇄 규칙과 같음).
+     인쇄 정본(q-design.print.css)이 아니라 여기 두는 까닭: 목록 정본은 네 제품이 모두 불러 쓰지만
+     인쇄 정본을 불러 쓰는 곳은 Q-Maison 하나뿐입니다(2026-09-25 운영 CSS 로 확인) */
+  .qd-filter-bar { position: static !important; }
+  .qd-filter-row { display: none !important; }
 }
 `;
+
+/* 거르개 띠 인쇄 규칙은 원본이 그렇게 하기 때문에 둡니다. 원본이 바뀌면 여기서 멈춥니다 */
+if (!/\.qa-list-toolbar \{ position: static; \}/.test(globals) || !/\.qa-list-toolbar form \{ display: none; \}/.test(globals)) {
+  throw new Error('원본의 도구줄 인쇄 규칙(.qa-list-toolbar)이 바뀌었습니다. 목록 정본의 거르개 띠 인쇄 규칙을 다시 보세요.');
+}
 
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'q-design.list.css'), css, 'utf8');

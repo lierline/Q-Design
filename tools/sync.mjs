@@ -20,9 +20,9 @@
 //    덩이만 건너뛰어, 원본에 없는 설명문이 본문에 섞여 지문이 어긋났습니다.
 // =============================================================================
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { resolve, dirname, join } from 'node:path';
+import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -142,8 +142,8 @@ const PARTS = [
   {
     name: '인쇄',
     src: 'dist/q-design.print.css',
-    /* 층으로 감싸지 않습니다. !important 는 층 순서가 뒤집혀서, 감싸면
-       종이에서 반드시 지워야 할 것이 제품의 층 밖 규칙에 집니다 */
+    /* 층으로 감싸지 않고 있습니다. 그 까닭으로 적어 두었던 「감싸면 제품의 층 밖 규칙에 진다」 는
+       반대였습니다(2026-09-25 실측). 아래 🔴 설명을 보십시오 */
     layer: false,
     to: {
       'Q-Atelier': 'D:/Claude/Q-Atelier/app/q-design.print.css',
@@ -237,11 +237,13 @@ for (const part of PARTS) {
    * 🔑 아래 sha 는 «감싼 본문» 을 해싱하므로 받는 쪽 지문 검사는 손댈 것이 없습니다.
    * 🔑 TS 조각(진행선)은 감싸지 않습니다. CSS 가 아닙니다.
    *
-   * 🔴 **인쇄 조각도 감싸지 않습니다.** `!important` 는 층 순서가 «뒤집힙니다» -
-   *    층 밖 `!important` 가 층 안 `!important` 를 이깁니다. 인쇄 CSS 의 힘은
-   *    `display: none !important` 같은 «반드시 이겨야 하는» 규칙에 있고, 감싸면
-   *    제품의 층 밖 `!important` 에 집니다. 종이에서 지워야 할 것이 안 지워지는
-   *    쪽이, 유틸리티가 죽는 쪽보다 나쁩니다.
+   * 🔴 **인쇄 조각은 감싸지 않고 있습니다.** 그 까닭으로 「층 밖 `!important` 가 층 안
+   *    `!important` 를 이긴다」 고 적어 두었는데 **반대였습니다**(2026-09-25 Chromium 실측).
+   *    `!important` 끼리는 층 순서가 뒤집혀 **층 안이 층 밖을 이기고**, 층끼리는 앞 층이
+   *    이깁니다. 층 밖이 이기는 것은 보통 선언끼리뿐입니다. 그러니 감싸지 않은 지금의 인쇄
+   *    규칙은 제품의 층 안 `!important`(Tailwind 의 `!` 유틸리티 같은 것)에 «집니다». 감싸면
+   *    더 세지지만, 인쇄 조각을 불러 쓰는 Q-Maison 의 종이가 달라질 수 있어 옮기는 것은 따로
+   *    판단합니다. 목록 조각 안의 인쇄 규칙(거르개 띠)은 층 안이라 이미 센 쪽입니다.
    *
    * ⚠️ 본문 들여쓰기는 건드리지 않습니다. 받는 쪽 검사가 'padding: 11px 12px' 같은
    *    글자를 그대로 찾습니다.
@@ -267,6 +269,63 @@ for (const part of PARTS) {
       console.log(`  ${same ? '같음  ' : has ? '어긋남' : '없음  '}  ${who}  ${path}`);
     }
   }
+}
+
+/*
+ * ── 받아 두기만 하는 사본 (2026-09-25) ─────────────────────────────────────────
+ * 지문은 «손으로 고쳤나» 만 봅니다. «쓰이나» 는 안 봅니다. 인쇄 조각은 9월 10일부터
+ * Q-Atelier · Q-Sonar · Q-Forge 에 사본만 있고 아무도 불러 쓰지 않았는데, 이 스크립트도
+ * 받는 쪽 검사도 초록이었습니다. 그 사이 인쇄 조각에 넣은 규칙은 그 세 제품에서 아무 일도
+ * 하지 않았습니다(운영 CSS 를 받아 보고서야 알았습니다). [[declared-but-unread]]
+ *
+ * 그래서 받는 저장소의 코드에서 사본을 부르는 줄을 찾습니다. CSS 는 파일 이름이 든
+ * import 줄, TS 는 확장자를 뺀 이름으로 끝나는 import 경로입니다. 시험 파일과 사본 자신은
+ * 셈에서 뺍니다(시험이 읽는 것은 «쓰는» 것이 아닙니다). 알리기만 하고 멈추지는 않습니다.
+ */
+const 건너뛸곳 = new Set(['node_modules', '.next', '.git', '.turbo', '.vercel', 'dist', 'build', 'out', 'coverage', 'reports', 'docs', 'public', 'test', 'tests', '__tests__']);
+const 코드확장자 = /\.(css|tsx?|jsx?|mjs|cjs)$/;
+const 저장소코드 = new Map();
+function 저장소뿌리(path) {
+  for (let d = dirname(path); d !== dirname(d); d = dirname(d)) if (existsSync(join(d, 'package.json'))) return d;
+  return dirname(path);
+}
+function 코드파일들(root) {
+  if (저장소코드.has(root)) return 저장소코드.get(root);
+  const out = [];
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) {
+        if (!건너뛸곳.has(e.name)) walk(join(dir, e.name));
+      } else if (코드확장자.test(e.name) && !/\.(test|spec)\./.test(e.name)) {
+        out.push(join(dir, e.name));
+      }
+    }
+  };
+  walk(root);
+  저장소코드.set(root, out);
+  return out;
+}
+const 글자틀 = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function 부르는곳(path, lang) {
+  const 이름 = basename(path);
+  const 찾기 = lang === 'ts'
+    ? new RegExp(`(?:from|import)\\s*\\(?\\s*['"][^'"]*/${글자틀(이름.replace(/\.tsx?$/, ''))}(?:\\.tsx?|\\.js)?['"]`)
+    : new RegExp(`(?:@import|import)\\s[^;\\n]*${글자틀(이름)}`);
+  const 자신 = resolve(path);
+  return 코드파일들(저장소뿌리(path)).filter((f) => resolve(f) !== 자신 && 찾기.test(readFileSync(f, 'utf8'))).length;
+}
+const 안부름 = [];
+for (const part of PARTS) {
+  for (const [who, path] of Object.entries(part.to)) {
+    if (existsSync(path) && 부르는곳(path, part.lang) === 0) 안부름.push(`  ${part.name}  ${who}  ${path}`);
+  }
+}
+console.log('');
+if (안부름.length) {
+  console.log(`받아 두기만 하는 사본 ${안부름.length}곳 (받는 저장소의 코드가 부르지 않습니다. 여기 규칙은 그 제품에서 아무 일도 안 합니다)`);
+  for (const line of 안부름) console.log(line);
+} else {
+  console.log('받아 두기만 하는 사본: 없음 (모든 사본을 받는 저장소의 코드가 부릅니다)');
 }
 
 if (!write && drift) {
