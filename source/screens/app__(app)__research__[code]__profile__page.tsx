@@ -680,7 +680,7 @@ export default function ProfilePage() {
                   {a.device_class_reasoning}
                 </div>
               </MetaField>
-              <MetaField label="Go / No-Go">
+              <MetaField label="진행 판단">
                 {goCfg && <Tag color={goCfg.color}>{goCfg.label}</Tag>}
                 <div style={{ fontSize: FS[11], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>
                   {a.go_no_go_reasoning}

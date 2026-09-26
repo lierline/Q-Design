@@ -12,7 +12,7 @@
 //   - 삭제 후 /experts/farewell 로 이동 (브랜드 일관성).
 //
 // 2단계 확인:
-//   ① 입력란에 "DELETE MY ACCOUNT" 정확히 입력
+//   ① 입력란에 확인 문구(ACCOUNT_DELETE_PHRASE)를 정확히 입력
 //   ② 영구 삭제 버튼 클릭 → 브라우저 confirm 다이얼로그 최종 확인
 
 'use client';
@@ -21,8 +21,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signOutAndClear } from '@/lib/auth/sign-out';
 import { useConfirm } from '@/components/Confirm';
+import { ACCOUNT_DELETE_PHRASE } from '@/lib/account/delete-phrase';
 
-const CONFIRMATION_PHRASE = 'DELETE MY ACCOUNT';
+const CONFIRMATION_PHRASE = ACCOUNT_DELETE_PHRASE;
 
 export function ExpertDangerZone() {
   const router = useRouter();

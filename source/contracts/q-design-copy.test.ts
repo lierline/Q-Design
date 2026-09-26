@@ -54,6 +54,10 @@ function bodyOf(text: string, lang: 'css' | 'ts'): string {
  */
 const COPIES: Array<{ name: string; path: string; lang: 'css' | 'ts' }> = [
   { name: '문서 토큰', path: 'lib/design/q-design.doc.ts', lang: 'ts' },
+  // 2026-09-25: 패밀리 자료 교환 형식(Q-Design source/exchange). 세 제품이 같은 뜻으로 읽어야 한다.
+  { name: '자료 교환', path: 'lib/exchange/family-exchange.ts', lang: 'ts' },
+  // 2026-09-26: 설치한 앱 창 제목에서 뒤의 제품 이름을 뗀다(Q-Design source/components). app/layout.tsx 가 부른다.
+  { name: '앱 창 제목', path: 'components/AppWindowTitle.tsx', lang: 'ts' },
 ];
 
 describe('Q-Design 사본: 손으로 고치지 않았는가', () => {

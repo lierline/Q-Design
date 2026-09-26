@@ -158,7 +158,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 aria-hidden
                 style={{ width: 24, height: 1, background: T.champagne, opacity: 0.7 }}
               />
-              <span>Q-Atelier · Welcome</span>
+              <span>Q-Atelier · 환영합니다</span>
             </div>
             <h2
               id="qa-welcome-title"

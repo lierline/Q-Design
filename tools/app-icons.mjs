@@ -31,6 +31,13 @@
 //   --check 가 각 제품의 taglineIn 파일에 그 글자가 그대로 있는지 봅니다. 윈도 작업 표시줄 풍선 도움말 ·
 //   설치 화면에 이름과 함께 나오는 한 줄입니다. 이미 설치한 앱은 설치 때 이름 · 설명을 들고 있습니다.
 //
+// 오너 결정 (2026-09-26): 「첫 방문 무게 줄이기」 → 화면에 그리는 붓 Q 도 이 도구가 만듭니다(아래 MARKS).
+//   로그인 · 차림표의 붓 Q 는 원본 PNG(은 126KB · 검정 286KB)를 그대로 싣고 있었습니다. 화면에서 가장 크게
+//   그리는 자리가 120px 라 3배 화면 기준 너비 360px 면 충분하고, WebP 90 으로 26KB · 23KB 가 됩니다
+//   (2배 확대 대조에서 붓 끝 가는 획까지 원본과 구별되지 않음). 원본 PNG 는 그대로 둡니다(이 도구의 원본 그림).
+//   🔑 설치 앱 아이콘이 아니므로 판 번호(ICON_VERSION) 지문에 넣지 않습니다. 넣으면 붓 Q 를 다시 뽑을 때마다
+//      설치된 앱에 쓸데없는 갱신 안내가 뜹니다.
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
@@ -72,26 +79,44 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  * refs 는 그 제품에서 아이콘 주소를 적는 파일입니다(저장소 뿌리 기준). 아래 판 번호 검사가 봅니다.
  * tagline 은 설치 앱 설명 한 줄의 원본, taglineIn 은 그 글자가 그대로 있어야 하는 파일입니다.
  * Q-Sonar 는 매니페스트가 brand.ts 의 상수를 부르므로 brand.ts 를 봅니다(이름은 brand.ts 에만 두는 계약).
+ * marksIn 은 화면용 붓 Q(MARKS)를 그리는 파일입니다. 붓 Q 를 화면에 그리는 제품만 받습니다(Q-Maison 은 안 그림).
+ * --check 가 그 파일들이 WebP 두 장을 부르고 옛 PNG 사본을 부르지 않는지 봅니다.
  */
 const PRODUCTS = [
   {
     key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', root: 'D:/Claude/Q-Atelier', badge: true,
     refs: ['public/manifest.json', 'app/layout.tsx', 'public/sw.js', 'public/offline.html', 'components/InstallAppPrompt.tsx'],
     tagline: '의료기기 개발 · 인허가 시스템', taglineIn: ['public/manifest.json', 'public/offline.html'],
+    marksIn: ['components/Logo.tsx', 'components/expert/BrandLogo.tsx'],
   },
   {
     key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
+    marksIn: [],
   },
   {
     key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
+    marksIn: ['components/q-mark.tsx'],
   },
   {
     key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
     tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
+    marksIn: ['src/components/QMark.tsx'],
   },
 ].map((p) => ({ ...p, pub: `${p.root}/public` }));
+
+/*
+ * 화면용 붓 Q (2026-09-26 · 머리의 오너 결정). 이름은 받는 세 제품이 같습니다.
+ * 원본 그림의 가로세로 비율을 그대로 둡니다(정사각으로 채우면 너비만 주는 자리에서 높이가 달라집니다).
+ * 🔑 옛 PNG 사본 이름은 OLD_MARK_PNGS 에 둡니다. marksIn 파일이 이 이름을 부르면 --check 가 잡습니다.
+ */
+const MARK_PX = 360;
+const MARKS = {
+  'q-mark-on-dark.webp': join(ROOT, 'source', 'brand', 'logo-dark.png'), // 은색 Q · 어두운 면 위
+  'q-mark-on-light.webp': join(ROOT, 'source', 'brand', 'logo-light.png'), // 검정 Q · 밝은 면 위
+};
+const OLD_MARK_PNGS = ['logo-dark.png', 'logo-light.png', 'logo-mark.png', 'logo-mark-light.png', 'q-mark-on-dark.png', 'q-mark-on-light.png'];
 
 /*
  * 아이콘 판 번호. 제품 코드는 아이콘을 «?v=판 번호» 를 붙여 부릅니다(refs 의 파일들).
@@ -436,6 +461,46 @@ function checkTaglines() {
   return { good, problems };
 }
 
+/** 화면용 붓 Q 두 장. 원본 비율 그대로 너비 MARK_PX 로 줄여 WebP 90 으로 굽습니다. */
+async function displayMarks() {
+  const out = {};
+  for (const [name, src] of Object.entries(MARKS)) {
+    out[name] = await sharp(src)
+      .resize({ width: MARK_PX, kernel: 'lanczos3' })
+      .webp({ quality: 90, alphaQuality: 100, effort: 6 })
+      .toBuffer();
+  }
+  return out;
+}
+
+/**
+ * 붓 Q 를 그리는 파일(marksIn)이 WebP 두 장을 부르고, 옛 PNG 사본을 부르지 않는가.
+ * 한 제품이 옛 PNG 로 되돌아가면 첫 방문에 다시 400KB 가 실립니다.
+ */
+function checkMarkRefs() {
+  const problems = [];
+  let good = 0;
+  for (const p of PRODUCTS) {
+    for (const rel of p.marksIn) {
+      const file = join(p.root, rel);
+      if (!existsSync(file)) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 파일이 없습니다`); continue; }
+      /*
+       * 주석은 걷고 봅니다. 「옛날에 /logo-dark.png 를 박아 썼다」 같은 사연 주석이 옛 PNG 를 «부르는» 것으로
+       * 잡혔습니다(2026-09-26 첫 판 · Q-Atelier BrandLogo.tsx). 줄 주석은 «://» 앞은 건드리지 않습니다(주소 보호).
+       */
+      const text = readFileSync(file, 'utf8')
+        .replace(/\/\*[\s\S]*?\*\//g, ' ')
+        .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+      const missing = Object.keys(MARKS).filter((n) => !text.includes(`/${n}`));
+      const old = OLD_MARK_PNGS.filter((n) => new RegExp(`['"\`(]/${n.replace(/[.-]/g, '\\$&')}`).test(text));
+      if (missing.length) problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: ${missing.join(' · ')} 를 부르지 않습니다`);
+      if (old.length) problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 옛 PNG(${old.join(' · ')})를 부릅니다`);
+      if (!missing.length && !old.length) good++;
+    }
+  }
+  return { good, problems };
+}
+
 /** ICO: 머리(6) + 항목(16 × n) + PNG 본문. PNG 를 품은 ICO 는 윈도 비스타 이후와 모든 브라우저가 읽습니다. */
 function ico(pngs) {
   const head = Buffer.alloc(6 + 16 * pngs.length);
@@ -546,20 +611,47 @@ async function main() {
   }
   if (!checkOnly) writeFileSync(VERSION_FILE, JSON.stringify({ version: ICON_VERSION, sha: setSha }, null, 2) + '\n', 'utf8');
 
-  // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가
+  /*
+   * 화면용 붓 Q. 위 판 번호 지문(setSha)이 만들어진 «뒤에» 다룹니다. 설치 앱 아이콘이 아니라서 지문에
+   * 넣지 않습니다(머리 주석). 쓰고 · 다시 읽어 대조하는 방식은 아이콘과 같습니다.
+   */
+  const marks = await displayMarks();
+  if (!checkOnly) {
+    mkdirSync(join(OUT, 'marks'), { recursive: true });
+    for (const [name, buf] of Object.entries(marks)) writeFileSync(join(OUT, 'marks', name), buf);
+  }
+  for (const p of PRODUCTS.filter((x) => x.marksIn.length)) {
+    for (const [name, buf] of Object.entries(marks)) {
+      const target = join(p.pub, name);
+      const has = existsSync(target);
+      const same = has && sha(readFileSync(target)) === sha(buf);
+      if (write && !same) {
+        writeFileSync(target, buf);
+        if (sha(readFileSync(target)) !== sha(buf)) {
+          report.push(`  ❌ 쓴 뒤에도 다름  ${p.name.padEnd(9)} ${name}`);
+          continue;
+        }
+      }
+      report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}`);
+    }
+  }
+
+  // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가 · 붓 Q 를 WebP 로 부르는가
   const refs = checkRefs();
   const taglines = checkTaglines();
+  const markRefs = checkMarkRefs();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
-    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳`);
+    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');
     }
     if (refs.problems.length) console.log(refs.problems.join('\n'));
     if (taglines.problems.length) console.log(taglines.problems.join('\n'));
-    process.exit(drift.length || refs.problems.length || taglines.problems.length ? 1 : 0);
+    if (markRefs.problems.length) console.log(markRefs.problems.join('\n'));
+    process.exit(drift.length || refs.problems.length || taglines.problems.length || markRefs.problems.length ? 1 : 0);
   }
 
   // 한 장짜리 견본: 제품마다 둥근 판 · 안드로이드 원형 오림 · 작은 판 48 · 32 · 16 (실제 크기)
@@ -595,6 +687,9 @@ async function main() {
     '파일: `icon-192.png` `icon-512.png`(둥근 판) · `icon-192-maskable.png` `icon-512-maskable.png`(안드로이드) ·',
     '`apple-icon.png`(180, iOS) · `favicon.ico`(16 · 32 · 48, 굵게 그린 작은 판) · `badge-96.png`(알림 표시줄, Q-Atelier)',
     '',
+    '화면용 붓 Q: `marks/q-mark-on-dark.webp`(은색 · 어두운 면 위) · `marks/q-mark-on-light.webp`(검정 · 밝은 면 위).',
+    `너비 ${MARK_PX}px · WebP 90 · 원본 비율 그대로. 받는 곳은 붓 Q 를 화면에 그리는 제품(PRODUCTS 의 marksIn)이고, 판 번호와 무관합니다.`,
+    '',
     `제품 코드는 아이콘을 \`?v=${ICON_VERSION}\` 를 붙여 부릅니다. 그림을 바꾸면 판 번호를 올립니다(\`version.json\` 이 지킴).`,
     '',
   ].join('\n'), 'utf8');
@@ -612,7 +707,11 @@ async function main() {
     console.log('\n설치 앱 설명이 원본(PRODUCTS 의 tagline)과 다릅니다:');
     console.log(taglines.problems.join('\n'));
   }
-  if (broken || refs.problems.length || taglines.problems.length) process.exit(1);
+  if (markRefs.problems.length) {
+    console.log('\n화면용 붓 Q 를 부르는 곳이 어긋났습니다(PRODUCTS 의 marksIn):');
+    console.log(markRefs.problems.join('\n'));
+  }
+  if (broken || refs.problems.length || taglines.problems.length || markRefs.problems.length) process.exit(1);
 }
 
 main().catch((e) => {

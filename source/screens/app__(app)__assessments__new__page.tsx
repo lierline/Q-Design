@@ -255,7 +255,7 @@ export default function NewAssessmentPage() {
   if (products.length === 0) {
     return (
       <div>
-        <PageHd title="새 변경평가" sub="New change assessment" />
+        <PageHd title="새 변경평가" sub="새 변경 평가" />
         <InfoBox color={T.warning}>
           등록된 제품이 없습니다. 먼저 <a href="/products" style={{ color: T.champagne, textDecoration: 'underline' }}>제품</a>을 등록해주세요.
         </InfoBox>
@@ -267,7 +267,7 @@ export default function NewAssessmentPage() {
     <div>
       <PageHd
         title="새 변경평가"
-        sub="New change assessment"
+        sub="새 변경 평가"
         actions={
           <Btn p={false} onClick={() => { startRouteProgress(); router.push('/assessments'); }}>
             ← 취소

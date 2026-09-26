@@ -62,7 +62,7 @@ const ACTIONS: FabAction[] = [
   {
     onAction: 'open-approve',
     icon: Check,
-    label: 'Quick Approve',
+    label: '빠른 결재',
     desc: '결재 대기 빠른 처리',
   },
   {

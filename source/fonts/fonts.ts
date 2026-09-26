@@ -1,8 +1,11 @@
 // =============================================================================
-// Fonts: Pretendard Variable (한글+영문 UI 본문) via next/font/local
+// Fonts
 // =============================================================================
-// 단일 가변 폰트 파일(2MB) 로 weight 45~920 전체 커버.
-// Build 단계에서 self-host 되며, Vercel CDN 으로 캐시된다.
+// Pretendard Variable (한글+영문 UI 본문) 와 JetBrains Mono 는 app/fonts.css 가 싣는다
+// (scripts/fonts/build-fonts.mjs 가 만든다 · 자체 서버에서 · 쓰인 글자의 조각만).
+// 전에는 Pretendard 2MB 한 파일을 next/font/local 로 미리 받기까지 걸어 실었다. 처음 들어오는
+// 사람이 어느 화면에서나 2MB 를 먼저 받았다(2026-09-26 걷음 · 사연은 그 스크립트 머리 주석).
+// --qa-font-pretendard 이름은 그대로다(lib/design/tokens.ts 의 글꼴 사슬이 부른다).
 //
 // 메인 앱은 Pretendard 단일 글꼴 정책 (한글/영문 일관성 최우선).
 // 럭셔리 디스플레이 세리프 (Cormorant Garamond) 는 "얼굴" 화면(로그인 히어로 등)의
@@ -10,29 +13,7 @@
 // (외부 전문가 포털 `app/experts/*` 는 자체 layout 에서 별도 스코프 로드 유지.)
 // 본문·페이지 헤딩(TYPE.*)은 Pretendard 그대로: 메인 앱 단일 글꼴 정책 불변.
 
-import localFont from 'next/font/local';
 import { Cormorant_Garamond } from 'next/font/google';
-
-export const pretendard = localFont({
-  src: [
-    {
-      path: '../public/fonts/PretendardVariable.woff2',
-      weight: '45 920',
-      style: 'normal',
-    },
-  ],
-  variable: '--qa-font-pretendard',
-  display: 'swap',
-  preload: true,
-  fallback: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Noto Sans KR',
-    'Inter',
-    'sans-serif',
-  ],
-});
 
 // =============================================================================
 // Cormorant Garamond: 럭셔리 디스플레이 세리프 ("얼굴" 화면 영문 히어로 전용)

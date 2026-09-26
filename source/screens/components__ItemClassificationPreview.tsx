@@ -1004,7 +1004,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
   if (result.refined && result.refinement) {
     if (result.refinement.fallback) {
       reasons.push(
-        'Q-Atelier 정밀 분석이 timeout 등으로 실패해 키워드 결과만 사용. 그래서 신뢰도가 낮게 잡힘.',
+        'Q-Atelier 정밀 분석이 시간 초과 등으로 실패해 키워드 결과만 사용했습니다. 그래서 신뢰도가 낮게 잡혔습니다.',
       );
     } else if (result.refinement.alternative_note) {
       reasons.push(

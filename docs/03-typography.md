@@ -12,16 +12,23 @@
 
 | 역할 | 글꼴 | 원본 앱의 로딩 | Q-Design |
 |---|---|---|---|
-| 본문·UI·헤딩 전부 | **Pretendard Variable** | self-host (`next/font/local`, weight 45~920 단일 파일 2MB) | 파일 있음 |
-| 코드·라벨·배지 | **JetBrains Mono** | Google Fonts `@import` | **파일 있음** (400~700 × latin/latin-ext) |
+| 본문·UI·헤딩 전부 | **Pretendard Variable** | self-host · 공식 조각판 92조각(`app/fonts.css`, weight 45~920) | 파일 있음 (조각 전 온전한 한 파일 2MB) |
+| 코드·라벨·배지 | **JetBrains Mono** | self-host · 이 저장소의 그 파일(가변 한 파일 · latin/latin-ext) | **파일 있음** (400~700 × latin/latin-ext · 네 굵기가 같은 가변 파일) |
 | 영문 디스플레이 | **Cormorant Garamond** | `next/font/google`, **italic 미로드** | **파일 있음** (italic 제외) |
 
 ```css
---qa-font-pretendard  /* next/font 가 주입 */
---qa-font-cormorant
+--qa-font-pretendard  /* 원본은 app/fonts.css 가 :root 에 세운다 (2026-09-26 전에는 next/font 가 주입) */
+--qa-font-cormorant   /* next/font 가 주입 */
 ```
 
-원본은 Pretendard 만 self-host 하지만, 이 저장소는 **세 벌 모두 파일로 갖고 있습니다.**
+> **2026-09-26 원본이 바뀌었습니다(오너 결정 「첫 방문 무게 줄이기」).** 전에는 Pretendard 2MB 한 파일을
+> next/font/local 로 미리 받기까지 걸었고, JetBrains Mono 는 구글 글꼴 CSS 를 `@import` 했습니다. 처음 들어오는
+> 사람이 어느 화면에서나 2MB 를 받고 외부 서버 두 곳을 기다렸습니다. 지금 원본은 Pretendard 1.3.9 공식 조각판
+> (쓰인 글자가 든 조각만 받음 · 로그인 화면 약 0.25MB)과 JetBrains Mono 를 자기 서버에서 냅니다
+> (`scripts/fonts/build-fonts.mjs` · `/fonts/*` 1년 불변 캐시). 🔴 원본의 미들웨어가 `/fonts/` 를 로그인 확인에서
+> 빼야 합니다. 안 빼면 로그인 전에 글꼴 자리로 로그인 화면(HTML)이 가 조용히 시스템 글꼴로 그려집니다.
+
+이 저장소는 **세 벌 모두 파일로 갖고 있습니다**(Cormorant 까지).
 CDN 이 막힌 환경에서 라벨 글꼴이 시스템 monospace 로 떨어지면 라벨 언어가 통째로 무너지기 때문입니다.
 
 ```html

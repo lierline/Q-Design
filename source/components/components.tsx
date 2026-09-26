@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
 import { TAG_DIMS } from './tag-metrics';
+import { riskLabelKo } from '@/lib/labels/risk';
 import { printZoom } from './print';
 
 // prefers-reduced-motion 감지 (SSR-safe). JS 기반 애니메이션 (count-up 등) 에서 사용.
@@ -1484,7 +1485,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
 
 // ─── LOADING STATE ───────────────────────────────────────────────────────────
 export function LoadingState({
-  label = 'Loading',
+  label = '불러오는 중',
   mode = 'page',
 }: {
   label?: string;
@@ -3061,7 +3062,7 @@ export function RiskPill({ level }: { level?: string }) {
           : upper === 'LOW'
             ? T.green
             : T.muted;
-  return <Tag color={color}>{upper}</Tag>;
+  return <Tag color={color}>{riskLabelKo(upper)}</Tag>;
 }
 
 // ─── MODAL ───────────────────────────────────────────────────────────────────

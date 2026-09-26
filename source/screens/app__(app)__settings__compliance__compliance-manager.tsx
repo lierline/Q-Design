@@ -366,7 +366,7 @@ function ComplianceDetail({
         <ClauseTab
           active={activeClause === 'gaps'}
           onClick={() => setActiveClause('gaps')}
-          label="Gap 리포트"
+          label="미흡 항목 보고서"
           sub={`${score.gaps.length}건`}
           accent={score.gaps.length > 0 ? T.red : T.muted}
         />
@@ -595,16 +595,16 @@ function ScoreOverview({
   );
 }
 
-/** 심각도별 강조색·영문 꼬리표. 🔑 전수 표라 새 심각도가 생기면 타입이 막는다. */
+/** 심각도별 강조색·꼬리표. 🔑 전수 표라 새 심각도가 생기면 타입이 막는다. */
 const SEV_ACCENT: Record<Severity, string> = {
   critical: T.red,
   major: T.warning,
   minor: T.subtle,
 };
 const SEV_SUB: Record<Severity, string> = {
-  critical: 'Critical',
-  major: 'Major',
-  minor: 'Minor',
+  critical: '즉시 시정',
+  major: '시정 필요',
+  minor: '개선 권고',
 };
 
 /** 부분 적합이 가중치의 절반을 주므로 가중 점수는 .5 가 나온다. 소수 한 자리까지만 낸다. */

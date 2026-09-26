@@ -75,7 +75,13 @@ check('키프레임', origKf, copyKf);
 const origCss = new Set(
   [...walk(join(SRC, 'app'), (n) => /\.css$/.test(n)), ...walk(join(SRC, 'components'), (n) => /\.css$/.test(n))]
     .map((p) => basename(p))
-    .filter((n) => !내보낸것(n)),
+    .filter((n) => !내보낸것(n))
+    /*
+     * app/fonts.css 는 뺀다(2026-09-26). 원본의 scripts/fonts/build-fonts.mjs 가 Pretendard 공식 꾸러미에서 만든
+     * @font-face 목록(92조각)이라 디자인 규칙이 없다. 글꼴은 이 저장소의 source/fonts · dist/q-design.fonts.css 가
+     * 담고, 원본이 싣는 글꼴 «종류» 는 아래 ⑥ 이 센다.
+     */
+    .filter((n) => n !== 'fonts.css'),
 );
 const copyCss = new Set(readdirSync(join(ROOT, 'source', 'css')));
 check('CSS 파일', origCss, copyCss);
@@ -109,13 +115,17 @@ const copyBrand = new Set(readdirSync(join(ROOT, 'source', 'brand')));
 check('브랜드 자산', origBrand, copyBrand, 'public/ 의 png·svg·json');
 
 // ── ⑥ 폰트 ──────────────────────────────────────────────────────────────────
-// 원본은 Pretendard 만 self-host 합니다. 이 저장소는 JetBrains Mono 와 Cormorant 도
-// 파일로 갖고 있으므로(CDN 없이 쓰려고) 복사본이 원본보다 «많은» 것이 정상입니다.
-const origFonts = new Set(readdirSync(join(SRC, 'public', 'fonts')));
-const copyFontFiles = readdirSync(join(ROOT, 'source', 'fonts'));
-const copyFonts = new Set(copyFontFiles);
-const extra = copyFontFiles.filter((n) => /\.woff2?$/.test(n) && !origFonts.has(n)).length;
-check('폰트', origFonts, copyFonts, '원본 self-host 분 · 추가 self-host ' + extra + '개는 별도');
+// 이름이 아니라 «글꼴 종류» 로 셉니다(2026-09-26). 원본은 이제 Pretendard 를 공식 조각판 92조각
+// (public/fonts/pretendard-<판>/)으로, JetBrains Mono 를 이 저장소의 그 파일(public/fonts/jetbrains-mono/)로
+// 싣습니다. 이 저장소는 Pretendard 를 조각 전의 온전한 한 파일로 갖고 있어 파일 이름이 서로 다릅니다.
+// Cormorant 는 원본이 next/font/google 로 받아 public 에 없고, 이 저장소에만 파일이 있는 것이 정상입니다.
+const fontFamily = (n) =>
+  /pretendard/i.test(n) ? 'Pretendard' : /jetbrains/i.test(n) ? 'JetBrains Mono' : /cormorant/i.test(n) ? 'Cormorant Garamond' : n;
+const origFonts = new Set(readdirSync(join(SRC, 'public', 'fonts')).map(fontFamily));
+const copyFontFiles = readdirSync(join(ROOT, 'source', 'fonts')).filter((n) => /\.woff2?$/.test(n));
+const copyFonts = new Set(copyFontFiles.map(fontFamily));
+const extra = [...copyFonts].filter((f) => !origFonts.has(f));
+check('폰트', origFonts, copyFonts, '원본이 싣는 글꼴 종류 · 이 저장소에만 있는 것: ' + (extra.join(', ') || '없음'));
 
 // ── 검출력 자체 시험 ────────────────────────────────────────────────────────
 // 「누락 없음」이 «다 있다» 가 아니라 «내 그물이 아무것도 못 봤다» 일 수 있습니다.

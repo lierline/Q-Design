@@ -213,7 +213,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
 
           {/* 발행기관: 세그먼트 버튼 그리드 (라디오 의미 · M-08) */}
           <div>
-            <Lbl>발행기관 <span style={{ color: T.muted, fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>· Issuing Agency</span></Lbl>
+            <Lbl>발행기관</Lbl>
             <HelpNote compact>
               <strong style={{ color: T.text }}>UDI-DI 코드를 부여하는 국제 표준화 기구</strong>입니다. FDA·EU·MFDS 가 공인한 기관에서 코드를 발급받아야 UDI 로 인정됩니다. 대부분의 의료기기는 <strong style={{ color: T.text }}>GS1</strong> 을 씁니다.
             </HelpNote>
@@ -235,7 +235,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
 
           {/* UDI-DI: mono 입력 + MFDS 조회 버튼 복합 컨트롤 (공통 In 미적용: inputStyle 유지) */}
           <div>
-            <Lbl htmlFor="udi-di">UDI-DI (Device Identifier) <span style={{ color: T.red }}>*</span></Lbl>
+            <Lbl htmlFor="udi-di">UDI-DI (기기 식별자) <span style={{ color: T.red }}>*</span></Lbl>
             <div style={{ display: 'flex', gap: S[2], alignItems: 'stretch' }}>
               <input id="udi-di" type="text" value={udiDi} onChange={(e) => { setUdiDi(e.target.value); setLookupInfo(null); setLookupMsg(null); }} placeholder={agency === 'gs1' ? '예: 08806311234567 (GTIN-14)' : '발행기관 DI'} style={{ ...inputStyle(), fontFamily: F.mono, flex: 1, minWidth: 0 }} />
               <button

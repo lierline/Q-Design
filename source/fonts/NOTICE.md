@@ -36,7 +36,11 @@ OFL 1.1 은 임베딩과 재배포를 허용합니다. 다만 **글꼴 자체를
 
 ## 원본 앱과 다른 점
 
-Q-Atelier 는 **Pretendard 만 self-host** 하고 나머지 둘은 밖에서 받습니다.
+> 2026-09-26 부터 Q-Atelier 는 Pretendard 를 공식 조각판 92조각으로, JetBrains Mono 를 이 폴더의 그 파일로
+> 자기 서버에서 냅니다(`app/fonts.css` · `scripts/fonts/build-fonts.mjs`). 아래는 그 전의 모습이고,
+> Cormorant 는 지금도 `next/font/google` 입니다.
+
+그 전의 Q-Atelier 는 **Pretendard 만 self-host** 하고 나머지 둘은 밖에서 받았습니다.
 
 ```css
 /* globals.css */

@@ -4,6 +4,29 @@
 
 ---
 
+## 화면용 붓 Q WebP · 원본 글꼴 방식 바뀜 반영 · 거울 갱신 · 2026-09-26
+
+오빠 「전체 프로그램의 반응 속도 및 서버 속도 관련 점검 해줘봐」 → 선택지에서 「첫 방문 무게 줄이기」.
+
+- **화면용 붓 Q**: `tools/app-icons.mjs` 가 원본 그림(`source/brand/logo-dark.png` · `logo-light.png`)에서
+  `q-mark-on-dark.webp` · `q-mark-on-light.webp`(너비 360 · WebP 90 · 원본 비율 · 27KB / 24KB)를 만들어 붓 Q 를
+  화면에 그리는 세 제품(Q-Atelier · Q-Carnet · Q-Sonar)에 씁니다. 전에는 제품마다 원본 PNG 사본(126KB · 286KB)을
+  싣고 있었습니다. 2배 확대 대조에서 붓 끝 가는 획까지 구별되지 않았습니다(PNG 팔레트 · AVIF 도 견줘 봄).
+  PRODUCTS 의 `marksIn` 이 붓 Q 를 그리는 파일이고, `--check` 가 그 파일이 WebP 두 장을 부르고 옛 PNG 사본을
+  부르지 않는지 봅니다. 🔴 첫 판은 주석까지 봐서, 「옛날에 /logo-dark.png 를 박아 썼다」 는 사연 주석을 잡았습니다
+  (Q-Atelier BrandLogo.tsx). 주석을 걷고 봅니다. 🔑 설치 앱 아이콘이 아니므로 판 번호 지문(ICON_VERSION)에 넣지
+  않았습니다. 원본 PNG 는 그대로 둡니다(아이콘 생성기의 원본 그림이라 줄여 덮으면 아이콘 화질이 떨어짐).
+- **원본 글꼴 방식이 바뀜**: Q-Atelier 가 Pretendard 를 공식 조각판 92조각으로, JetBrains Mono 를 이 저장소의
+  그 파일로 자기 서버에서 냅니다(Q-Atelier 2f8b7aa9). `docs/03-typography.md` 의 「원본 앱의 로딩」 칸 ·
+  `source/fonts/NOTICE.md` · `source/fonts/fonts.ts`(손 사본, 지도 밖) 를 고쳤습니다. `tools/audit-coverage.mjs`
+  ⑥ 폰트는 이름이 아니라 «글꼴 종류» 로 셉니다(원본은 폴더 두 개, 여기는 온전한 파일이라 이름이 다름).
+  ② CSS 축에서 원본의 `app/fonts.css`(꾸러미에서 만든 @font-face 목록 · 디자인 규칙 없음)는 뺐습니다.
+- **거울 갱신**: `refresh-source.mjs --write` 로 34곳(오늘 여러 작업이 원본을 바꾼 뒤 멈춰 있던 것 포함 · 고아
+  svg 둘 걷음). 다시 만든 `dist/q-design.nav.css` 는 머리글(원본 날짜 · 지문)만 바뀌어 세 제품에 내보냈습니다
+  (Q-Carnet 427064f · Q-Sonar 5871546 · Q-Maison 은 그쪽 작업과 함께).
+- 남은 것(이 작업 전부터 있던 빨간 불 · 손대지 않음): 감사 ② CSS 축 `components/qms/sheet-paper.css`(09-25) ·
+  lib/design 축 `print.ts`(09-10) · Q-Forge 색 `#000000`.
+
 ## 설치 앱 이름 · 설명 한 줄의 원본을 제품 목록에 · 2026-09-26
 
 오빠 「PWA 아이콘 설명.. 전체 시스템 동일하게 맞춰주고」(윈도 작업 표시줄 풍선 도움말 「Q-Atelier  Medical Device QMS」 캡처).

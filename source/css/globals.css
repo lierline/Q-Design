@@ -2,9 +2,9 @@
    Q-Atelier Cloud: Global Styles
    ============================================================================= */
 
-/* Pretendard Variable 은 next/font/local (lib/fonts.ts) 로 self-host 됨.
-   영문/숫자 모노스페이스만 Google Fonts 에서 로드 (한글 글리프는 Pretendard 폴백). */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Pretendard Variable 과 JetBrains Mono 는 app/fonts.css 가 싣는다(자체 서버 · 쓰인 글자의 조각만 ·
+   scripts/fonts/build-fonts.mjs 가 만든다). 전에는 JetBrains Mono 를 여기서 구글 글꼴 CSS 로 @import 해,
+   그 CSS 를 받기 전에는 화면을 그리지 못했다(2026-09-26 걷음). 한글 글리프는 Pretendard 폴백. */
 
 /* ── Dark (default) ─────────────────────────────────────── */
 :root,
@@ -146,8 +146,8 @@ html,
 body {
   background: var(--qa-bg);
   color: var(--qa-text);
-  /* Pretendard Variable: next/font/local 에서 --qa-font-pretendard 로 주입.
-     선언이 늦더라도 시스템 한글 폰트로 fallback. */
+  /* Pretendard Variable: app/fonts.css 가 --qa-font-pretendard 를 :root 에 세운다.
+     조각이 늦게 와도 시스템 한글 폰트로 먼저 그리고 바꿔 끼운다(font-display: swap). */
   font-family:
     var(--qa-font-pretendard),
     'Pretendard Variable',
@@ -1018,8 +1018,15 @@ select.qa-input::-ms-expand {
     background: #ffffff !important;
     color: #1a1814 !important;
   }
+  /* 🔴 2026-09-25 실측: 어두운 테마에서 「배경 그래픽」 을 켜고 뽑으면 종이 여백(@page 여백)이
+     검게 찍혔다. 바탕을 흰색으로 덮어도 브라우저는 여백을 «색 구성표» 의 바탕으로 칠한다.
+     인쇄는 늘 밝은 구성표로 못 박는다. */
+  :root {
+    color-scheme: light !important;
+  }
   /* 사이드바·인터랙티브 chrome 인쇄 시 숨김 */
   aside.qa-sidebar-aside,
+  .qa-coachmark,
   .qa-skip-link,
   .qa-top-progress,
   [aria-hidden='true']:not(.qa-print-watermark),

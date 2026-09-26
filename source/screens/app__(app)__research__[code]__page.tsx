@@ -490,7 +490,7 @@ export default function ResearchHomePage() {
             <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, lineHeight: LH.relaxed }}>
               <strong>최종 승인자가 없어 결재가 멈출 수 있어요.</strong>
               <br />
-              1차 검토를 통과한 문서를 최종 승인하려면 Exec · R&D 팀장 · Owner 권한이 필요한데, 본인 외에 승인 가능한 멤버가 없습니다. 설정에서 <strong>Solo Mode</strong>를 켜거나 <strong>Exec · R&D 팀장</strong> 직무 멤버를 추가하세요.
+              1차 검토를 통과한 문서를 최종 승인하려면 경영진 · R&D 팀장 · 소유자 권한이 필요한데, 본인 외에 승인 가능한 멤버가 없습니다. 설정에서 <strong>1인 조직 모드</strong>를 켜거나 <strong>경영진 · R&D 팀장</strong> 직무 멤버를 추가하세요.
             </div>
             <Link href="/settings/members" style={{ display: 'inline-block', marginTop: S[2], fontSize: FS[11], color: T.champagne, fontFamily: F.mono, textDecoration: 'none' }}>
               멤버 · 직무 설정으로 →
@@ -792,9 +792,9 @@ function computeNextAction(
     const w = briefing.waiting.find((x) => x.days_since >= 7);
     if (w) {
       return {
-        category: '응답 follow-up 필요',
-        title: w.cr_title ?? '검토 응답 follow-up',
-        detail: `${w.days_since}일째 대기 중. 검토자에게 confirm 요청 권장.`,
+        category: '응답 확인 필요',
+        title: w.cr_title ?? '검토 응답 확인',
+        detail: `${w.days_since}일째 대기 중. 검토자에게 확인을 요청하시기 바랍니다.`,
         href: `/research/${encodeURIComponent(project.code)}/reviews`,
         color: T.warning,
         Icon: Clock,

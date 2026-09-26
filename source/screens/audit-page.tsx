@@ -9,7 +9,6 @@ import {
   Alert,
   Bx,
   EmptyState,
-  En,
   Grid,
   KPI,
   PageHd,
@@ -102,7 +101,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
   if (!canViewAudit) {
     return (
       <div>
-        <PageHd title="감사 추적" sub={<En>Audit Trail</En>} />
+        <PageHd title="감사 추적" />
         <Alert kind="warning" title="권한 부족">
           감사 로그는 owner / RA / QA / R&D 팀장 만 조회할 수 있습니다.
         </Alert>
@@ -388,7 +387,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[1], marginTop: S[1], alignItems: 'center' }}>
                       {(l.details as Record<string, unknown>).single_role_workflow === true && (
                         <span
-                          title="1인 조직 Solo Mode: SOD(직무분리) 완화 워크플로. ISO 13485 §5.5.1(소규모 조직 책임·권한)·§5.5.2(경영대리인 겸직) 근거 · audit_logs 에 기록되어 추적성 보증 · §8.2.4 내부심사는 외부 위탁 필수."
+                          title="1인 조직 모드: SOD(직무분리) 완화 흐름. ISO 13485 §5.5.1(소규모 조직 책임·권한)·§5.5.2(경영대리인 겸직) 근거 · audit_logs 에 기록되어 추적성 보증 · §8.2.4 내부심사는 외부 위탁 필수."
                           style={{
                             borderRadius: RADIUS.sm,
                             fontSize: FS[9],

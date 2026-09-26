@@ -10,6 +10,7 @@ import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } f
 import { menuForPath } from '@/lib/nav/menu-for-path';
 import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
+import { AppPushSync } from '@/components/AppPushSync';
 import { RibbonBackground } from '@/components/RibbonBackground';
 import { Sidebar } from '@/components/Sidebar';
 import { SubscriptionIndicator, type SubscriptionSummaryData } from '@/components/SubscriptionIndicator';
@@ -464,6 +465,8 @@ export default async function AppLayout({
         </PageTransition>
       </main>
       <RealtimeNotifications userId={user.id} />
+      {/* 안드로이드 앱(WebView) 안에서만: 알림 토큰을 서버와 맞춘다(2026-09-26 · 브라우저에서는 아무것도 안 함) */}
+      <AppPushSync />
       {/* ⏸ AI Assistant FAB: 2026-06-04 오빠 지시로 일시 비활성화. 기능/컴포넌트는
           보존(삭제 X). "AI assistant 다시 보자" 요청 시 위 import 와 이 렌더 주석을
           해제하면 즉시 복원. (BACKLOG 「AI Assistant 재검토·복원」) */}

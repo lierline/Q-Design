@@ -993,7 +993,7 @@ function SidebarBody({
             type="button"
             onClick={toggleTheme}
             className="qa-nav-item"
-            title={`Theme: ${mode === 'system' ? `System (현재 ${theme === 'dark' ? 'Dark' : 'Light'})` : mode === 'dark' ? 'Dark' : 'Light'}: 클릭하여 Dark → Light → System 순환`}
+            title={`화면 테마: ${mode === 'system' ? `System (현재 ${theme === 'dark' ? 'Dark' : 'Light'})` : mode === 'dark' ? 'Dark' : 'Light'}. 누를 때마다 Dark → Light → System 순서로 바뀝니다.`}
             style={{
               flex: 1,
               background: 'transparent',

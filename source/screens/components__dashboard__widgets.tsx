@@ -589,7 +589,7 @@ export function RecentList({ items }: { items: AssessmentRow[] }) {
         return risk ? (
           <Tag color={riskColor(risk)}>{risk}</Tag>
         ) : (
-          <Tag color={T.muted}>NOT EVAL</Tag>
+          <Tag color={T.muted}>평가 전</Tag>
         );
       },
     },

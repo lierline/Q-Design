@@ -177,7 +177,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
       </Section>
 
       {/* 포장 단계 UDI */}
-      <Section title="포장 단계 UDI (Package Levels)">
+      <Section title="포장 단계 UDI">
         <HelpNote compact>
           기본 단위(each)는 위 <span style={{ fontFamily: F.mono }}>{initial.udi_di}</span> 입니다. 박스·케이스 등 <strong style={{ color: T.text }}>상위 포장마다 별도 UDI-DI</strong>가 필요합니다 (FDA 21 CFR 830.50 / EU MDR Annex VI).
         </HelpNote>

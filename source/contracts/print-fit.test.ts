@@ -68,6 +68,8 @@ describe('배율 규칙이 제자리에 있다', () => {
      * `max-width: 1023px` 에 걸린다. 안 지우면 표 좌우에 회색 띠가 찍힌다.
      */
     expect(블록, '인쇄에서 표 좌우에 회색 띠가 찍힌다').toContain('background: none !important');
+    // 2026-09-25 실측: 어두운 테마에서 뽑으면 종이 여백(@page 여백)이 검게 찍혔다
+    expect(블록, '어두운 테마에서 종이 여백이 검게 찍힌다').toContain('color-scheme: light !important');
   });
 
   it('ScrollTable 이 배율을 실어 보낸다', () => {
