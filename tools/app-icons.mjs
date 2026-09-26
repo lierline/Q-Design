@@ -26,6 +26,11 @@
 //    16 왼쪽이었습니다(오빠 지적). 틀에 맞춰 Q 를 옮기지 말고 Q 에 맞춰 틀을 그릴 것.
 // 🔑 원본 그림은 source/brand/logo-dark.png (Q-Atelier public 의 사본, refresh-source 가 받아 옵니다).
 //
+// 오너 결정 (2026-09-26): 「PWA 아이콘 설명.. 전체 시스템 동일하게」 → 설치 앱 이름은 제품 이름만,
+//   설명은 「… 시스템」 한 줄 (선택지에서 고름 · Login 은 뺌). 설명의 원본은 아래 PRODUCTS 의 tagline 이고,
+//   --check 가 각 제품의 taglineIn 파일에 그 글자가 그대로 있는지 봅니다. 윈도 작업 표시줄 풍선 도움말 ·
+//   설치 화면에 이름과 함께 나오는 한 줄입니다. 이미 설치한 앱은 설치 때 이름 · 설명을 들고 있습니다.
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
@@ -65,15 +70,27 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  * 받는 곳. 파일 이름은 네 제품이 같습니다(layout · 매니페스트가 같은 이름을 부릅니다).
  * badge 는 알림 표시줄의 단색 표식입니다. 웹 푸시를 쓰는 Q-Atelier 만 받습니다.
  * refs 는 그 제품에서 아이콘 주소를 적는 파일입니다(저장소 뿌리 기준). 아래 판 번호 검사가 봅니다.
+ * tagline 은 설치 앱 설명 한 줄의 원본, taglineIn 은 그 글자가 그대로 있어야 하는 파일입니다.
+ * Q-Sonar 는 매니페스트가 brand.ts 의 상수를 부르므로 brand.ts 를 봅니다(이름은 brand.ts 에만 두는 계약).
  */
 const PRODUCTS = [
   {
     key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', root: 'D:/Claude/Q-Atelier', badge: true,
     refs: ['public/manifest.json', 'app/layout.tsx', 'public/sw.js', 'public/offline.html', 'components/InstallAppPrompt.tsx'],
+    tagline: '의료기기 개발 · 인허가 시스템', taglineIn: ['public/manifest.json', 'public/offline.html'],
   },
-  { key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'] },
-  { key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'] },
-  { key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'] },
+  {
+    key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
+    tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
+  },
+  {
+    key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
+    tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
+  },
+  {
+    key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
+    tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
+  },
 ].map((p) => ({ ...p, pub: `${p.root}/public` }));
 
 /*
@@ -400,6 +417,25 @@ function checkRefs() {
   return { good, problems };
 }
 
+/**
+ * 설치 앱 설명 한 줄이 제품 쪽 파일에 원본(tagline) 그대로 있는가. 한 제품이 문구를 바꾸면 여기서 드러납니다.
+ * 코드 문자열의 «\uXXXX» 는 풀어서 봅니다. Q-Carnet 매니페스트는 설명을 그렇게 적습니다(같은 줄의 · 와 한 모양).
+ */
+function checkTaglines() {
+  const unescape = (s) => s.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)));
+  const problems = [];
+  let good = 0;
+  for (const p of PRODUCTS) {
+    for (const rel of p.taglineIn) {
+      const file = join(p.root, rel);
+      if (!existsSync(file)) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 파일이 없습니다`); continue; }
+      if (unescape(readFileSync(file, 'utf8')).includes(p.tagline)) good++;
+      else problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 설명 「${p.tagline}」 이 없습니다`);
+    }
+  }
+  return { good, problems };
+}
+
 /** ICO: 머리(6) + 항목(16 × n) + PNG 본문. PNG 를 품은 ICO 는 윈도 비스타 이후와 모든 브라우저가 읽습니다. */
 function ico(pngs) {
   const head = Buffer.alloc(6 + 16 * pngs.length);
@@ -510,18 +546,20 @@ async function main() {
   }
   if (!checkOnly) writeFileSync(VERSION_FILE, JSON.stringify({ version: ICON_VERSION, sha: setSha }, null, 2) + '\n', 'utf8');
 
-  // 제품 코드가 지금 판 번호로 부르는가
+  // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가
   const refs = checkRefs();
+  const taglines = checkTaglines();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
-    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳`);
+    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');
     }
     if (refs.problems.length) console.log(refs.problems.join('\n'));
-    process.exit(drift.length || refs.problems.length ? 1 : 0);
+    if (taglines.problems.length) console.log(taglines.problems.join('\n'));
+    process.exit(drift.length || refs.problems.length || taglines.problems.length ? 1 : 0);
   }
 
   // 한 장짜리 견본: 제품마다 둥근 판 · 안드로이드 원형 오림 · 작은 판 48 · 32 · 16 (실제 크기)
@@ -570,7 +608,11 @@ async function main() {
     console.log(`\n제품 코드의 아이콘 주소가 판 v=${ICON_VERSION} 과 다릅니다:`);
     console.log(refs.problems.join('\n'));
   }
-  if (broken || refs.problems.length) process.exit(1);
+  if (taglines.problems.length) {
+    console.log('\n설치 앱 설명이 원본(PRODUCTS 의 tagline)과 다릅니다:');
+    console.log(taglines.problems.join('\n'));
+  }
+  if (broken || refs.problems.length || taglines.problems.length) process.exit(1);
 }
 
 main().catch((e) => {

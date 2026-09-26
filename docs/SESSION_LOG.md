@@ -4,6 +4,24 @@
 
 ---
 
+## 설치 앱 이름 · 설명 한 줄의 원본을 제품 목록에 · 2026-09-26
+
+오빠 「PWA 아이콘 설명.. 전체 시스템 동일하게 맞춰주고」(윈도 작업 표시줄 풍선 도움말 「Q-Atelier  Medical Device QMS」 캡처).
+그 문구는 9/23 전 Q-Atelier 매니페스트의 앱 이름 「Q-Atelier: Medical Device QMS」 가 옛 설치에 남은 것이었고
+(윈도가 쌍점을 공백으로 바꿈), 네 제품의 설명은 제각각이었습니다. 오빠 선택(선택지): 이름은 제품 이름만,
+설명은 「… 시스템」 한 줄, Login 은 뺌.
+
+- `tools/app-icons.mjs` 의 PRODUCTS 에 `tagline`(원본)과 `taglineIn`(그 글자가 있어야 할 파일)을 두고, `--check` 가
+  대조합니다(`checkTaglines`). 코드 문자열의 «\uXXXX» 는 풀어서 봅니다(Q-Carnet 매니페스트가 그렇게 적음).
+  - Q-Atelier 「의료기기 개발 · 인허가 시스템」: `public/manifest.json` · `public/offline.html`(영어 문구를 한글로) d280c05d
+  - Q-Maison 「ISO 9001 품질경영 시스템」: `app/manifest.ts` d91bdd3d
+  - Q-Carnet 「의료기기 제조기록서 시스템」: `app/manifest.ts`, 설치 앱 이름에서 제조소 이름을 뺌 40dad4e
+  - Q-Sonar 「의료기기 잠재고객 발굴 시스템」: `src/lib/brand.ts` 의 PRODUCT_TAGLINE, 이름 · 탭 제목을 제품 이름만 cff4fbd
+- `source/brand/manifest.json`(Q-Atelier 매니페스트 참고본)의 설명도 같게.
+- 검증: `--check` 통과(설명 5곳). 원본 문구를 일부러 바꿔 Q-Maison(한글 그대로 적힌 쪽) · Q-Carnet(escape 로 적힌 쪽)
+  둘 다 ❌ 로 잡히는 것을 본 뒤 되돌렸습니다(원본과 cmp 동일).
+- 이미 설치한 앱은 설치 때 이름 · 설명을 들고 있습니다. 새 문구를 보려면 지우고 다시 설치합니다.
+
 ## 앱 창 제목 · 설치한 앱 창에서만 뒤의 제품 이름을 뗍니다 · 2026-09-26
 
 오빠 「PWA 위에 이렇게 문구가 중복으로 나온다」(캡처: 창 제목 「Q-Maison - 대시보드 · Q-Maison」).
