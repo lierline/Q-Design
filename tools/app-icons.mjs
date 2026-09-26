@@ -64,13 +64,32 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
 /*
  * 받는 곳. 파일 이름은 네 제품이 같습니다(layout · 매니페스트가 같은 이름을 부릅니다).
  * badge 는 알림 표시줄의 단색 표식입니다. 웹 푸시를 쓰는 Q-Atelier 만 받습니다.
+ * refs 는 그 제품에서 아이콘 주소를 적는 파일입니다(저장소 뿌리 기준). 아래 판 번호 검사가 봅니다.
  */
 const PRODUCTS = [
-  { key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', pub: 'D:/Claude/Q-Atelier/public', badge: true },
-  { key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', pub: 'D:/Claude/Q-Works/public' },
-  { key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', pub: 'D:/Claude/DHR/public' },
-  { key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', pub: 'D:/Claude/Lead-Radar/public' },
-];
+  {
+    key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', root: 'D:/Claude/Q-Atelier', badge: true,
+    refs: ['public/manifest.json', 'app/layout.tsx', 'public/sw.js', 'public/offline.html', 'components/InstallAppPrompt.tsx'],
+  },
+  { key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'] },
+  { key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'] },
+  { key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'] },
+].map((p) => ({ ...p, pub: `${p.root}/public` }));
+
+/*
+ * 아이콘 판 번호. 제품 코드는 아이콘을 «?v=판 번호» 를 붙여 부릅니다(refs 의 파일들).
+ *
+ * 🔴 크롬 144(2026-01)부터 설치된 앱은 매니페스트의 아이콘 «주소» 가 바뀔 때만 새 아이콘을 알아챕니다.
+ *    주소가 같으면 그림이 달라도 바뀌지 않은 것으로 봅니다(아이콘 주소를 Cache-Control: immutable 처럼
+ *    다룹니다 · developer.chrome.com/blog/improvements-to-web-app-updates). 2026-09-25 첫 판과 다듬은 판을
+ *    같은 주소로 올렸다가, 설치된 앱에 갱신 안내가 안 뜬다는 것을 이튿날 크롬 문서에서 확인했습니다.
+ *    주소가 바뀌면 크롬(PC · 안드로이드)의 설치 앱에 «앱 업데이트 검토» 가 뜹니다. iOS 는 해당 없음(다시 추가).
+ * 🔑 그림을 바꾸면 이 값을 올리고 refs 의 «?v=» 도 같이 바꿉니다. 그림이 바뀌었는데 이 값이 그대로면
+ *    이 도구가 멈춥니다(dist/app-icons/version.json 과 대조). 그림이 그대로인데 이 값만 올리면 설치 앱에
+ *    쓸데없는 갱신 안내가 뜨므로 알립니다.
+ */
+const ICON_VERSION = '2';
+const ICON_NAMES = ['icon-192', 'icon-512', 'icon-192-maskable', 'icon-512-maskable', 'apple-icon', 'badge-96'];
 
 // ── 금속 계단: 명도 L(0..1) → 색. 은은 원본 그대로 ─────────────────────────────
 /*
@@ -353,6 +372,34 @@ async function outsideSafeZone(png) {
   return n;
 }
 
+/*
+ * 제품 코드가 아이콘을 지금 판 번호로 부르는가. 주소 꼴(앞에 글자 · 점 · 사선이 붙지 않은 «/이름.png»)만
+ * 셉니다. 그래서 「public/icon-192.png」 · 「app/favicon.ico」 같은 설명은 세지 않습니다.
+ * 파일마다 부르는 곳이 한 곳도 없으면 그것도 어긋남입니다(파일이 옮겨졌거나 refs 가 낡음).
+ */
+function checkRefs() {
+  const names = ICON_NAMES.map((n) => n.replace(/[-]/g, '\\-')).join('|');
+  const re = new RegExp(`(?<![\\w./-])/(?:(?:${names})\\.png|favicon\\.ico)(\\?v=[\\w.-]*)?`, 'g');
+  const problems = [];
+  let good = 0;
+  for (const p of PRODUCTS) {
+    for (const rel of p.refs) {
+      const file = join(p.root, rel);
+      if (!existsSync(file)) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 파일이 없습니다`); continue; }
+      const text = readFileSync(file, 'utf8');
+      let found = 0;
+      for (const m of text.matchAll(re)) {
+        found++;
+        const line = text.slice(0, m.index).split('\n').length;
+        if (m[1] === `?v=${ICON_VERSION}`) good++;
+        else problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}:${line}  ${m[0]}  (${m[1] ? '다른 판' : '판 번호 없음'} · 지금 판 v=${ICON_VERSION})`);
+      }
+      if (found === 0) problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 아이콘을 부르는 곳이 없습니다`);
+    }
+  }
+  return { good, problems };
+}
+
 /** ICO: 머리(6) + 항목(16 × n) + PNG 본문. PNG 를 품은 ICO 는 윈도 비스타 이후와 모든 브라우저가 읽습니다. */
 function ico(pngs) {
   const head = Buffer.alloc(6 + 16 * pngs.length);
@@ -419,8 +466,30 @@ async function main() {
       'favicon.ico': ico([16, 32, 48].map((size) => ({ size, buf: small[size] }))),
     };
     if (p.badge) files['badge-96.png'] = await down(await render(badgeSvg(p, Q)), 96);
-    sheet.push({ p, any, mask, small });
+    sheet.push({ p, any, mask, small, files });
+  }
+  await browser.close();
 
+  /*
+   * ── 판 번호 지킴 ──────────────────────────────────────────────────────────
+   * 그림 한 벌의 지문을 판 번호와 함께 dist/app-icons/version.json 에 적어 둡니다. 다음에 돌릴 때
+   * 지문이 달라졌는데 판 번호가 같으면, 설치된 앱이 새 그림을 모르는 채 남으므로 쓰기 전에 멈춥니다.
+   */
+  const setSha = sha(Buffer.from(sheet
+    .flatMap(({ p, files }) => Object.entries(files).map(([name, buf]) => `${p.key}/${name}:${sha(buf)}`))
+    .sort().join('\n')));
+  const VERSION_FILE = join(OUT, 'version.json');
+  const recorded = existsSync(VERSION_FILE) ? JSON.parse(readFileSync(VERSION_FILE, 'utf8')) : null;
+  if (recorded && recorded.version === ICON_VERSION && recorded.sha !== setSha) {
+    console.error(`❌ 그림이 바뀌었는데 판 번호가 그대로입니다(v=${ICON_VERSION}). 설치된 앱은 주소가 같으면 새 그림을 모릅니다.`);
+    console.error('   ICON_VERSION 을 올리고, 네 제품 refs 파일의 «?v=» 도 같은 번호로 바꾼 뒤 다시 돌리십시오.');
+    process.exit(1);
+  }
+  if (recorded && recorded.version !== ICON_VERSION && recorded.sha === setSha) {
+    console.log(`⚠️ 그림은 그대로인데 판 번호만 바뀌었습니다(v=${recorded.version} → v=${ICON_VERSION}). 설치 앱에 쓸데없는 갱신 안내가 뜹니다.`);
+  }
+
+  for (const { p, files } of sheet) {
     const dir = join(OUT, p.key);
     if (!checkOnly) mkdirSync(dir, { recursive: true });
     for (const [name, buf] of Object.entries(files)) {
@@ -439,16 +508,20 @@ async function main() {
       report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}`);
     }
   }
-  await browser.close();
+  if (!checkOnly) writeFileSync(VERSION_FILE, JSON.stringify({ version: ICON_VERSION, sha: setSha }, null, 2) + '\n', 'utf8');
+
+  // 제품 코드가 지금 판 번호로 부르는가
+  const refs = checkRefs();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
-    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음`);
+    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');
     }
-    process.exit(drift.length ? 1 : 0);
+    if (refs.problems.length) console.log(refs.problems.join('\n'));
+    process.exit(drift.length || refs.problems.length ? 1 : 0);
   }
 
   // 한 장짜리 견본: 제품마다 둥근 판 · 안드로이드 원형 오림 · 작은 판 48 · 32 · 16 (실제 크기)
@@ -479,19 +552,25 @@ async function main() {
     '',
     '| 제품 | 금속 | 틀 |',
     '|---|---|---|',
-    ...PRODUCTS.map((p) => `| ${p.name} | ${{ silver: '은', gold: '샴페인 금', copper: '구리', steel: '강철 청' }[p.metal]} | ${{ ring: '원', house: '집', notebook: '수첩 · 고무줄 띠', waves: '음파' }[p.frame]} |`),
+    ...PRODUCTS.map((p) => `| ${p.name} | ${{ silver: '은', gold: '샴페인 금', copper: '구리', steel: '강철 청' }[p.metal]} | ${{ ring: '원', house: '집', notebook: '수첩 · 제본선', waves: '음파' }[p.frame]} |`),
     '',
     '파일: `icon-192.png` `icon-512.png`(둥근 판) · `icon-192-maskable.png` `icon-512-maskable.png`(안드로이드) ·',
     '`apple-icon.png`(180, iOS) · `favicon.ico`(16 · 32 · 48, 굵게 그린 작은 판) · `badge-96.png`(알림 표시줄, Q-Atelier)',
+    '',
+    `제품 코드는 아이콘을 \`?v=${ICON_VERSION}\` 를 붙여 부릅니다. 그림을 바꾸면 판 번호를 올립니다(\`version.json\` 이 지킴).`,
     '',
   ].join('\n'), 'utf8');
 
   const drift = report.filter((l) => /어긋남|없음/.test(l)).length;
   const broken = report.filter((l) => l.includes('❌')).length;
-  console.log(`제품 앱 아이콘 → ${OUT}  (${PRODUCTS.length}개 제품 · 파일 ${report.length}개)`);
+  console.log(`제품 앱 아이콘 → ${OUT}  (${PRODUCTS.length}개 제품 · 파일 ${report.length}개 · 판 v=${ICON_VERSION})`);
   console.log(report.join('\n'));
   if (!write && drift) console.log(`\n제품 쪽과 다른 파일 ${drift}개. 반영하려면 --write`);
-  if (broken) process.exit(1);
+  if (refs.problems.length) {
+    console.log(`\n제품 코드의 아이콘 주소가 판 v=${ICON_VERSION} 과 다릅니다:`);
+    console.log(refs.problems.join('\n'));
+  }
+  if (broken || refs.problems.length) process.exit(1);
 }
 
 main().catch((e) => {
