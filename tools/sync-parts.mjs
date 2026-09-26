@@ -169,6 +169,25 @@ export const PARTS = [
       'Q-Forge': 'D:/Claude/DHR/lib/exchange/family-exchange.ts',
     },
   },
+  /*
+   * ── 2026-09-26 확장: 앱 창 제목 ────────────────────────────────────────────
+   * 설치한 앱 창의 제목에 제품 이름이 두 번 나왔습니다(「Q-Maison - 대시보드 · Q-Maison」 · 오너 지적).
+   * 크롬이 앞에 앱 이름을 붙이는데 우리 제목 뒤에도 제품 이름이 있어서입니다. 앱 창에서만 뒤의 이름을
+   * 뗍니다. 받는 쪽은 루트 레이아웃에 <AppWindowTitle /> 를 한 번 두고, metadata 에 applicationName 을
+   * 둡니다(부품이 제품 이름을 거기서 읽습니다).
+   * ⚠️ Q-Sonar 는 받지 않습니다. 제목이 곧 앱 이름(매니페스트 name · APP_TITLE)이라 크롬이 그대로 두고,
+   *    겹치지 않습니다(받아 두기만 하는 사본은 보내지 않는다는 원칙).
+   */
+  {
+    name: '앱 창 제목',
+    src: 'source/components/app-window-title.tsx',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/components/AppWindowTitle.tsx',
+      'Q-Forge': 'D:/Claude/DHR/components/app-window-title.tsx',
+      'Q-Works': 'D:/Claude/Q-Works/components/shared/app-window-title.tsx',
+    },
+  },
 ];
 
 /** 여기(Q-Design)가 원본인 파일들. `source/` 아래 상대 경로로 돌려줍니다. */
