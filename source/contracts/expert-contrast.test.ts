@@ -170,3 +170,16 @@ describe('텍스트 아님으로 면제한 색', () => {
     }
   });
 });
+
+describe('전문가 포털 대비 (라이트 카드 종이)', () => {
+  // 🔴 2026-09-27(A41 · 오너 결정 «A 종이»): 밝은 판의 카드가 비치는 유리에서 불투명 종이(--paper)로
+  //    바뀌었다. 지금은 페이지보다 밝아 대비가 오히려 좋지만, 누가 종이 색을 어둡게 바꾸면
+  //    위 SURFACES 목록은 이 표면을 모른다. 어두운 판에는 이 표면이 없다(카드는 반투명 그대로).
+  it(`텍스트 토큰 ${TEXT_TOKENS.length}종이 --paper 위에서도 AA(${AA}:1)를 넘는다`, () => {
+    const paper = resolve('--paper', LIGHT);
+    const fails = TEXT_TOKENS.map((t) => [t, resolve(t, LIGHT)] as const)
+      .filter(([, fg]) => ratio(fg, paper) < AA)
+      .map(([t, fg]) => `${t} ${fg} on --paper ${paper} = ${ratio(fg, paper).toFixed(2)}`);
+    expect(fails, `라이트 카드 종이 위 AA 미달:\n  ${fails.join('\n  ')}`).toEqual([]);
+  });
+});

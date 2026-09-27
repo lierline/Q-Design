@@ -2,7 +2,7 @@
 // /experts/farewell: 로그아웃 후 작별 페이지 (시네마틱 luxe)
 // =============================================================================
 // 사용자 제공 디자인(farewell.html) 그대로 포팅. 자동 redirect / countdown bar
-// 제거. "다시 로그인하시겠습니까?" 링크만 유지. 모든 스타일이 self-contained.
+// 제거. «다시 로그인» 은 가운데 문구 밑에 둔다(화면 검토 A42). 모든 스타일이 self-contained.
 //
 // 브랜드 통일 (2026-05):
 // - Google Fonts(Cormorant/Noto Serif KR/Montserrat) 별도 로드 제거.
@@ -252,22 +252,29 @@ export default function ExpertFarewellPage() {
           color: rgba(201, 169, 110, 1);
         }
 
-        .farewell-root .footer-link {
-          font-family: var(--mono);
-          font-weight: 300;
-          font-size: 11px;
-          letter-spacing: 0.18em;
-          color: rgba(201, 169, 110, 0.55);
+        /* 다시 로그인: 가운데 문구 밑에 뚜렷하게 (화면 검토 A42 · 2026-09-27).
+           바닥의 작은 글귀라 로그아웃을 잘못 누른 사람이 돌아갈 길을 찾기 어려웠다. */
+        .farewell-root .relogin {
+          margin-top: 40px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 44px;
+          padding: 0 30px;
+          font-family: var(--sans);
+          font-size: 15px;
+          font-weight: 500;
+          color: var(--white);
+          border: 1px solid rgba(201, 169, 110, 0.55);
+          border-radius: 10px;
           text-decoration: none;
-          border-bottom: 1px solid rgba(201, 169, 110, 0.25);
-          padding-bottom: 2px;
-          transition: color 0.3s, border-color 0.3s;
-          text-transform: uppercase;
+          transition: border-color 0.3s, background 0.3s;
+          opacity: 0;
+          animation: qa-rise-soft 1.2s cubic-bezier(0.4, 0, 0.2, 1) 3.8s forwards;
         }
-
-        .farewell-root .footer-link:hover {
-          color: var(--gold);
+        .farewell-root .relogin:hover {
           border-color: var(--gold);
+          background: rgba(201, 169, 110, 0.08);
         }
 
         /* 접근성: reduced motion */
@@ -279,6 +286,7 @@ export default function ExpertFarewellPage() {
           .farewell-root .hairline-wrap,
           .farewell-root .hairline,
           .farewell-root .subtext,
+          .farewell-root .relogin,
           .farewell-root .farewell-footer {
             animation-duration: 0.01s !important;
             animation-delay: 0s !important;
@@ -309,9 +317,12 @@ export default function ExpertFarewellPage() {
             <div className="hairline" />
           </div>
           <p className="subtext">오늘도 Q-Atelier 와 함께해 주셔서 감사합니다.</p>
+          <Link className="relogin" href="/experts/portal/login">
+            다시 로그인
+          </Link>
         </main>
 
-        {/* 푸터. 다시 로그인 링크만 (자동 redirect 없음) */}
+        {/* 푸터. 브랜드 줄만 (다시 로그인은 가운데로 올렸다 · 자동 redirect 없음) */}
         <footer className="farewell-footer">
           <div className="footer-brand">
             <span>Q-Atelier</span>
@@ -320,9 +331,6 @@ export default function ExpertFarewellPage() {
               <span className="word-d">Documented.</span>
             </span>
           </div>
-          <Link className="footer-link" href="/experts/portal/login">
-            다시 로그인하시겠습니까?
-          </Link>
         </footer>
       </div>
     </>

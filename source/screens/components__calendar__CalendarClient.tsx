@@ -21,6 +21,7 @@ import { Bx, Btn, SectionTitle, SkeletonPanel } from '@/lib/design/components';
 import { S, FS, F, T, alpha, RADIUS } from '@/lib/design/tokens';
 import { MeetingComposeDialog } from './MeetingComposeDialog';
 import { MeetingDetailPanel } from './MeetingDetailPanel';
+import { TextAction } from '@/components/TextAction';
 
 export interface OrgMember {
   user_id: string;
@@ -330,9 +331,13 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                     border: `1px solid ${T.border}`,
                     borderTop: 'none',
                     borderLeft: i % 7 === 0 ? 'none' : `1px solid ${T.border}`,
+                    // 다른 달 칸은 반투명(opacity)이라 뒤의 물결 바탕이 비쳐 음영처럼 보였다 (화면 검토 A46 · 2026-09-27).
+                    // 칸 바탕은 늘 불투명하게 두고, 다른 달은 옅은 면 · 흐린 글자로 가른다.
                     background: isSelected
                       ? alpha(T.champagne, 0.15)
-                      : T.bg,  // transparent → T.bg: 라이트 모드에서 셀 분리 현상 방지
+                      : isOtherMonth
+                        ? T.surface2
+                        : T.bg,  // transparent → T.bg: 라이트 모드에서 셀 분리 현상 방지
                     boxShadow: isToday && !isSelected
                       ? `inset 0 0 0 2px ${alpha(T.champagne, 0.5)}`
                       : 'none',
@@ -341,7 +346,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                     display: 'flex',
                     flexDirection: 'column',
                     gap: S[1],
-                    opacity: isOtherMonth ? 0.4 : 1,
+                    color: isOtherMonth ? T.muted : undefined,
                     transition: 'background 150ms ease',
                   }}
                 >
@@ -416,9 +421,10 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
             <Bx style={{ padding: '44px 24px', color: T.muted, fontSize: FS[13], textAlign: 'center' }}>
               이 날에 잡힌 회의가 없습니다.
               <br />
-              <Btn onClick={() => setComposeOpen(true)} style={{ marginTop: S[4.5] }}>
-                + 이 날에 회의 제안
-              </Btn>
+              {/* 위 «새 회의 제안» 과 같은 채운 단추가 둘이었다. 이쪽은 글귀 (화면 검토 A46 · A11 · 2026-09-27) */}
+              <span style={{ display: 'inline-block', marginTop: S[4] }}>
+                <TextAction onClick={() => setComposeOpen(true)}>+ 이 날에 회의 제안</TextAction>
+              </span>
             </Bx>
           ) : (
             selectedDayMeetings.map((m) => (

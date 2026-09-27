@@ -487,6 +487,11 @@ function SidebarBody({
   // 워크스페이스 2개까지는 기본 펼침(내 도구 바로 보임): 멀티롤 QA Lead 등이
   // "메뉴가 비었다"고 느끼지 않게. 3개+면 접힘(사이드바 과길이 방지).
   const wsDefaultOpen = presentWorkspaces.length <= 2;
+  // 화면 검토 A75 · 2026-09-27: 묶음이 품은 경로. 지금 화면이 그 아래면 접힌 묶음도 펼친다(CollapsibleNavGroup).
+  const hrefsOf = (ids: readonly SidebarMenuId[]): string[] =>
+    ids.map((m) => NAV_ITEMS[m]?.href).filter((h): h is string => !!h);
+  const WORK_HREFS = ['/assessments', '/products', '/experts', '/audit'] as const;
+  const COMMON_HREFS = ['/inbox', '/messages', '/calendar'] as const;
 
   return (
     <aside
@@ -623,7 +628,7 @@ function SidebarBody({
             {/* 허브가 없어 갈 곳이 없던 도메인 모듈: 「관련 모듈」이라는 한 통에 쏟지 않고
                 **부서별로 나눠** 보여 준다(2026-08-21). 이름이 있어야 찾을 수 있다. */}
             {leftoverByDept.length > 0 && (
-              <CollapsibleNavGroup label="연계 부서" groupKey="multi-linked-depts" collapsed={collapsedNav} defaultOpen={false}>
+              <CollapsibleNavGroup label="연계 부서" groupKey="multi-linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={hrefsOf(leftoverByDept.flatMap((d) => d.modules))}>
                 {leftoverByDept.map((d) => (
                   <WorkspaceNavGroup
                     key={d.group}
@@ -641,7 +646,7 @@ function SidebarBody({
             {/* ── 업무 그룹: 부서에 따라 갈리는 업무 도구 (2026-08-21 신설) ──
                 「공통」에 섞여 있던 것들을 여기로 내렸다. 생산 직무는 이 넷을 쓰지 않는다.
                 제품은 menuSet(번들)로 판정: 하드코딩 노출이 번들과 어긋나던 것을 맞춘다. */}
-            <CollapsibleNavGroup label="업무" groupKey="multi-work" collapsed={collapsedNav} defaultOpen={true}>
+            <CollapsibleNavGroup label="업무" groupKey="multi-work" collapsed={collapsedNav} defaultOpen={true} activeHrefs={WORK_HREFS}>
               {canSeeAssessments && (
                 <NavLink href="/assessments" label="변경평가" icon={ClipboardList} collapsed={collapsedNav} />
               )}
@@ -662,7 +667,7 @@ function SidebarBody({
             {/* ── 공통 그룹: **모든 부서가 접근 가능한 것만** (오빠 기준, 2026-08-21) ──
                 판정은 전부 menuSet(번들)로 한다. 조건 없이 렌더하면 번들에 없는 직무에게도
                 보여 「공통」의 정의가 무너진다. 실제로 그렇게 어긋나 있었다. */}
-            <CollapsibleNavGroup label="공통" groupKey="multi-common" collapsed={collapsedNav} defaultOpen={true}>
+            <CollapsibleNavGroup label="공통" groupKey="multi-common" collapsed={collapsedNav} defaultOpen={true} activeHrefs={COMMON_HREFS}>
               {menuSet.has('inbox') && (
                 <NavLink
                   href="/inbox"
@@ -690,7 +695,7 @@ function SidebarBody({
             </CollapsibleNavGroup>
 
             {/* 설정 그룹: 온보딩 중 기본 접힘 */}
-            <CollapsibleNavGroup label="설정" groupKey="multi-settings" collapsed={collapsedNav} defaultOpen={!isOnboarding}>
+            <CollapsibleNavGroup label="설정" groupKey="multi-settings" collapsed={collapsedNav} defaultOpen={!isOnboarding} activeHrefs={['/settings']}>
               {canSeeCompliance && (
                 <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
               )}
@@ -773,7 +778,7 @@ function SidebarBody({
                 return (
                   <>
                     {mine.length > 0 && (
-                      <CollapsibleNavGroup label="워크스페이스" groupKey="workspace" collapsed={collapsedNav} defaultOpen={true}>
+                      <CollapsibleNavGroup label="워크스페이스" groupKey="workspace" collapsed={collapsedNav} defaultOpen={true} activeHrefs={[...mine.map((d) => d.hubHref), ...hrefsOf(mine.flatMap((d) => d.modules))]}>
                         {mine.map((d) => (
                           <WorkspaceNavGroup
                             key={d.group}
@@ -792,7 +797,7 @@ function SidebarBody({
                       /* 연계 부서: 내 부서는 아니지만 접근 권한이 있는 도메인.
                          라벨이 링크가 아니라 표제인 이유가 여기 있다(허브에 못 들어간다).
                          기본 접힘: 내 부서보다 뒤에 있고 자주 쓰지 않는다. */
-                      <CollapsibleNavGroup label="연계 부서" groupKey="linked-depts" collapsed={collapsedNav} defaultOpen={false}>
+                      <CollapsibleNavGroup label="연계 부서" groupKey="linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={hrefsOf(linked.flatMap((d) => d.modules))}>
                         {linked.map((d) => (
                           <WorkspaceNavGroup
                             key={d.group}
@@ -814,7 +819,7 @@ function SidebarBody({
             {/* ── 업무 그룹: 부서에 따라 갈리는 업무 도구 (2026-08-21 신설) ──
                 멀티롤 경로의 같은 이름 그룹과 **구성·조건을 일치**시킨다. */}
             {!isMedqraftAdmin && (
-              <CollapsibleNavGroup label="업무" groupKey="work" collapsed={collapsedNav} defaultOpen={true}>
+              <CollapsibleNavGroup label="업무" groupKey="work" collapsed={collapsedNav} defaultOpen={true} activeHrefs={WORK_HREFS}>
                 {canSeeAssessments && (
                   <NavLink href="/assessments" label="변경평가" icon={ClipboardList} collapsed={collapsedNav} />
                 )}
@@ -837,7 +842,7 @@ function SidebarBody({
                 판정은 전부 menuSet(번들)로 한다. 조건 없이 렌더하면 번들에 없는 직무에게도
                 보여 「공통」의 정의가 무너진다. 실제로 그렇게 어긋나 있었다. */}
             {!isMedqraftAdmin && (
-              <CollapsibleNavGroup label="공통" groupKey="common" collapsed={collapsedNav} defaultOpen={true}>
+              <CollapsibleNavGroup label="공통" groupKey="common" collapsed={collapsedNav} defaultOpen={true} activeHrefs={COMMON_HREFS}>
                 {menuSet.has('inbox') && (
                   <NavLink
                     href="/inbox"
@@ -914,7 +919,7 @@ function SidebarBody({
 
             {/* ── 설정 그룹: 온보딩 중 기본 접힘, 졸업 후 펼침 ── */}
             {!isMedqraftAdmin && (
-              <CollapsibleNavGroup label="설정" groupKey="settings" collapsed={collapsedNav} defaultOpen={!isOnboarding}>
+              <CollapsibleNavGroup label="설정" groupKey="settings" collapsed={collapsedNav} defaultOpen={!isOnboarding} activeHrefs={['/glossary', '/settings']}>
                 {/* 용어집: 2026-08-21 오빠 지시로 최상위 단독에서 이 그룹 안으로 옮겼다
                     (「덩그러니 나와 있는 메뉴는 홈 하나면 충분」). 조건부 항목들보다 위에
                     두는 이유: 아래 셋은 권한·역할에 따라 사라지지만 이것은 전 사용자에게
@@ -929,7 +934,7 @@ function SidebarBody({
                   <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
                 )}
                 {isOwnerExec && (
-                  <NavLink href="/settings/usage" label="사용량 / 결제" icon={GaugeIcon} collapsed={collapsedNav} />
+                  <NavLink href="/settings/usage" label="사용량 · 결제" icon={GaugeIcon} collapsed={collapsedNav} />
                 )}
                 {role === 'owner' && (
                   <NavLink href="/settings/members" label="멤버 관리" icon={Users} collapsed={collapsedNav} />
@@ -1091,7 +1096,9 @@ function SidebarBody({
 
 // 모든 사이드바 항목 href: NavLink 가 longest-prefix-match 로 active 결정.
 // /settings 와 /settings/compliance 가 둘 다 active 되는 버그 방지.
-const ALL_NAV_HREFS = [
+// 화면 검토 A75 · 2026-09-27: 부서 묶음의 모듈 경로(NAV_ITEMS)도 함께 센다. 손으로 적은 목록에 없던
+//   /research/review 에서는 「R&D」 허브와 「팀 검토」 가 함께 강조됐다. 모듈 경로는 NAV_ITEMS 에서 파생한다.
+const FIXED_NAV_HREFS = [
   '/dashboard',
   '/research',
   '/ra',
@@ -1125,6 +1132,20 @@ const ALL_NAV_HREFS = [
   '/settings/members',
   '/settings',
 ];
+const ALL_NAV_HREFS = [
+  ...new Set([
+    ...FIXED_NAV_HREFS,
+    ...Object.values(NAV_ITEMS)
+      .map((m) => m.href)
+      .filter((h): h is string => !!h),
+  ]),
+];
+
+/** 지금 경로가 이 경로들 가운데 하나이거나 그 아래인가(묶음을 펼칠지 가른다). */
+function containsPath(hrefs: readonly string[] | undefined, pathname: string | null | undefined): boolean {
+  if (!pathname || !hrefs) return false;
+  return hrefs.some((h) => pathname === h || pathname.startsWith(h + '/'));
+}
 
 function isActiveForHref(pathname: string | null | undefined, href: string): boolean {
   if (!pathname) return false;
@@ -1341,10 +1362,13 @@ function IconBtn({
 
 /** Clean chevron SVG (Apple-style hairline). dir: left(<) right(>) up(^) down(v) */
 function ChevronIcon({ dir, size = 14 }: { dir: 'left' | 'right' | 'up' | 'down'; size?: number }) {
+  // 밑그림은 «<»(꼭짓점이 왼쪽)다. 화면 회전은 시계 방향이 +라 꼭짓점을 위로 보내려면 +90 이다.
+  // 화면 검토 A75 · 2026-09-27: 'up' · 'down' 이 서로 뒤바뀌어 있었다(이름은 up 인데 v 로 그려졌다).
+  //   그래서 호출부가 «펼침 = up» 을 적고 화면에는 v 가 나와 접힌 묶음이 ^ 로 보였다.
   const rotation =
     dir === 'right' ? 'rotate(180deg)'
-    : dir === 'up' ? 'rotate(-90deg)'
-    : dir === 'down' ? 'rotate(90deg)'
+    : dir === 'up' ? 'rotate(90deg)'
+    : dir === 'down' ? 'rotate(-90deg)'
     : undefined;
   return (
     <svg
@@ -1416,16 +1440,21 @@ function CollapsibleNavGroup({
   groupKey,
   collapsed,
   defaultOpen,
+  activeHrefs,
   children,
 }: {
   label: string;
   groupKey: string;
   collapsed: boolean;
   defaultOpen: boolean;
+  /** 이 묶음 안 항목의 경로. 지금 화면이 그 아래면 접혀 있어도 펼친다(화면 검토 A75). */
+  activeHrefs?: readonly string[];
   children: React.ReactNode;
 }) {
   const storageKey = `qa-nav-grp-${groupKey}`;
-  const [open, setOpen] = useState(defaultOpen);
+  const pathname = usePathname();
+  const holdsCurrent = containsPath(activeHrefs, pathname);
+  const [open, setOpen] = useState(defaultOpen || holdsCurrent);
 
   useEffect(() => {
     try {
@@ -1435,6 +1464,12 @@ function CollapsibleNavGroup({
       // localStorage 미사용 (Private Browsing 등): 기본값 유지, 의도적 no-op
     }
   }, [storageKey]);
+
+  // 화면 검토 A75 · 2026-09-27: 접힌 「연계 부서」 안의 부적합 · PMS · UDI 에 있어도 아무 항목도 강조되지 않았다.
+  //   지금 화면이 이 묶음 아래면 펼친다(저장된 접힘보다 뒤에 돌아 이긴다). 사용자가 접은 기록은 건드리지 않는다.
+  useEffect(() => {
+    if (holdsCurrent) setOpen(true);
+  }, [holdsCurrent, pathname]);
 
   function toggle() {
     setOpen((prev) => {
@@ -1486,7 +1521,8 @@ function CollapsibleNavGroup({
         onMouseLeave={(e) => { e.currentTarget.style.color = T.muted; }}
       >
         <span>{label}</span>
-        <ChevronIcon dir={open ? 'up' : 'down'} size={10} />
+        {/* 꺾쇠 규칙 하나(화면 검토 A75): 펼침 = v, 접힘 = >. 워크스페이스 묶음과 같다 */}
+        <ChevronIcon dir={open ? 'down' : 'right'} size={10} />
       </button>
       {open && <div>{children}</div>}
     </div>
@@ -1524,7 +1560,13 @@ function WorkspaceNavGroup({
   const Icon = icon;
   // v2: 기본 펼침 정책 변경 시 묵은 접힘 상태 리셋(키 버전 올림).
   const storageKey = `qa-nav-ws2-${hubHref ?? label}`;
-  const [open, setOpen] = useState(defaultOpen);
+  const pathname = usePathname();
+  // 화면 검토 A75: 지금 화면이 이 부서의 모듈 아래면 펼친다(CollapsibleNavGroup 과 같은 규칙).
+  const holdsCurrent = containsPath(
+    modules.map((m) => NAV_ITEMS[m]?.href).filter((h): h is string => !!h),
+    pathname,
+  );
+  const [open, setOpen] = useState(defaultOpen || holdsCurrent);
   useEffect(() => {
     try {
       const s = localStorage.getItem(storageKey);
@@ -1533,6 +1575,9 @@ function WorkspaceNavGroup({
       // localStorage 미사용: 기본값 유지
     }
   }, [storageKey]);
+  useEffect(() => {
+    if (holdsCurrent) setOpen(true);
+  }, [holdsCurrent, pathname]);
   function toggle() {
     setOpen((p) => {
       const n = !p;
@@ -1620,7 +1665,7 @@ function WorkspaceNavGroup({
           onMouseEnter={(e) => { e.currentTarget.style.color = T.subtle; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = T.muted; }}
         >
-          <ChevronIcon dir={open ? 'up' : 'down'} size={11} />
+          <ChevronIcon dir={open ? 'down' : 'right'} size={11} />
         </button>
       </div>
       {open && (

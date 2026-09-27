@@ -238,6 +238,13 @@ a {
   opacity: 1;
 }
 
+/* 상세 양식 구역(Section · 영향 범위 같은 칸 묶음)의 칸과 칸 사이 (화면 검토 A81 · 2026-09-27).
+   간격이 0 이라 이름표(칸 위 4px)가 위 칸과 아래 칸 사이 가운데 떠서 어느 칸의 이름인지 헷갈렸다.
+   블록 흐름은 그대로 두고 둘째 칸부터 위를 띄운다(단추 · 글 같은 줄 요소의 폭이 바뀌지 않게). */
+.qa-section-body > * + * {
+  margin-top: 12px;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--qa-champagne) 30%, transparent);
   color: var(--qa-text);
@@ -317,8 +324,10 @@ a {
   transition: background-color 0.12s ease;
   cursor: pointer;
 }
+/* 🔴 !important: 괘선 줄(EntityRow 등)은 단추일 때 기본 바탕을 걷으려고 인라인으로 background: transparent 를
+   적는다. 인라인이 이 규칙을 이겨 옅은 바탕이 한 번도 안 떴다(2026-09-27 · 문서 결 1차 · 계산값으로 확인). */
 .qa-row-clickable:hover {
-  background-color: var(--qa-surface2);
+  background-color: var(--qa-surface2) !important;
 }
 
 /* ── Numbers should always be tabular ─────────────────────── */

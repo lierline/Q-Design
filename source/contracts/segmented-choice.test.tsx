@@ -66,6 +66,15 @@ describe('SegmentedChoice 마크업', () => {
     );
     expect(html).toContain('7일');
   });
+
+  // 화면 검토 A11 · A38 · A62 (2026-09-27): 골라진 칸이 주 단추와 같은 채운 면이라 단추처럼 보였다
+  it('골라진 칸은 채운 면이 아니라 짙은 테두리 + 체크다 (뜻 색은 면으로 깔리지 않는다)', () => {
+    const html = renderToStaticMarkup(
+      <SegmentedChoice options={OPTS} value="c" onChange={() => {}} ariaLabel="보기" color="#ff0000" />,
+    );
+    expect(html.match(/✓/g)).toHaveLength(1);
+    expect(html).not.toMatch(/background:#ff0000/i);
+  });
 });
 
 describe('화살표 이동 규칙 (nextEnabledIndex · rovingIndex)', () => {

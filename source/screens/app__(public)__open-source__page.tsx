@@ -20,6 +20,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BP, S, FS, F, T, LH, RADIUS, alpha } from '@/lib/design/tokens';
 import notice from '@/lib/legal/oss-notice.generated.json';
+import { isoDateTime } from '@/lib/date';
 
 export const metadata: Metadata = {
   title: 'Q-Atelier · 오픈소스 라이선스',
@@ -59,7 +60,8 @@ export default function OpenSourcePage() {
       <p className="qa-legal-meta">
         문서 종류: 오픈소스 소프트웨어 고지
         <br />
-        생성 시각: {notice.generatedAt} (실제 설치 트리에서 자동 생성)
+        {/* 원문 UTC 대신 한국 시각으로 (화면 검토 A33 · 2026-09-27). 자료(JSON)는 그대로다 */}
+        생성 시각: {isoDateTime(notice.generatedAt)} (한국 시각 · 실제 설치 트리에서 자동 생성)
         <br />
         스캔 지문: <code>{notice.fingerprint}</code>
       </p>

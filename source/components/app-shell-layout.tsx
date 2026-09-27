@@ -462,15 +462,18 @@ export default async function AppLayout({
               moduleId={lockedModule}
               offered={lockedIsOffered}
               canActivate={lockedIsOffered && (role === 'owner' || hasRole(profile, 'exec'))}
+              /* 화면 검토 A72 · 2026-09-27: 「첫 판매 · 가지 · 세 기둥」 은 파는 쪽의 말이었다. 고객이 알아듣는 말로,
+                 알려 달라면 알릴 길(도입 문의)을 함께 둔다(ModuleLockedNotice 의 offered=false 갈래). */
               headline={
                 lockedIsOffered
-                  ? `${MODULE_LABEL_KR[lockedModule]} 업무를 시작할 준비가 되면 켜세요`
-                  : `${MODULE_LABEL_KR[lockedModule]} 가지는 지금 제품에서 제공하지 않습니다`
+                  ? `${MODULE_LABEL_KR[lockedModule]} 업무를 시작할 준비가 되면 켜십시오`
+                  : `${MODULE_LABEL_KR[lockedModule]} 기능은 지금 제공하지 않습니다`
               }
               description={
                 lockedIsOffered
-                  ? '이 화면은 아직 켜지 않은 업무 가지에 속합니다. 켜면 차림표와 화면이 함께 열립니다.'
-                  : '첫 판매는 제품 개발 · 품질 · 인허가 관리 세 기둥입니다. 이 가지가 필요하면 MedQraft 에 알려 주십시오.'
+                  ? '이 화면은 아직 켜지 않은 업무에 속합니다. 켜면 차림표와 화면이 함께 열립니다.'
+                  // «세 기둥 · 가지» 는 사내 비유라 고객 말로. 아래 주 단추가 «도입 문의» 다 (화면 검토 A31 · A72 · 2026-09-27)
+                  : '지금은 제품 개발 · 품질 · 인허가 관리 기능을 제공합니다. 이 기능이 필요하면 아래 「도입 문의」로 알려 주십시오.'
               }
             />
           ) : (

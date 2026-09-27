@@ -227,7 +227,9 @@ for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radi
  */
 {
   const audit = read(join(SRC, 'screens', 'audit-page.tsx'));
-  const m = audit.match(/<Grid cols=\{4\} minCol=\{(\d+)\} gap=\{(\d+)\}/);
+  /* 칸 수는 화면이 정합니다. 2026-09-27 화면 검토(A18)가 이 화면의 KPI 를 넷에서 둘로 줄였고(세지 못하는
+     «종류» 칸을 뺐다) 칸 폭 · 간격(180 · 14)은 그대로라, 칸 수를 못 박지 않고 폭과 간격만 읽습니다. */
+  const m = audit.match(/<Grid cols=\{\d+\} minCol=\{(\d+)\} gap=\{(\d+)\}/);
   if (!m) throw new Error('KPI 격자 값을 못 찾았습니다 (source/screens/audit-page.tsx).');
   put(spec, 'kpi.gridMinCol', Number(m[1]));
   put(spec, 'kpi.gridGap', Number(m[2]));

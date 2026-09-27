@@ -2,15 +2,16 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { ArrowLeft, ScanBarcode } from 'lucide-react';
+import { ScanBarcode } from 'lucide-react';
 import { useToast } from '@/components/Toast';
 import { Btn, Bx, PageHd, Lbl, Field, In, Sel, FormActions } from '@/lib/design/components';
 import { SegmentedChoice } from '@/lib/design/segmented-choice';
-import { S, FS, F, T, alpha, RADIUS, SHADOW, MOTION, ICON, LAYOUT, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, RADIUS, SHADOW, MOTION, LAYOUT, LH } from '@/lib/design/tokens';
 import { ISSUING_AGENCY_LABEL, ISSUING_AGENCY_DESC, PI_COMPONENT_META, suggestPi, type IssuingAgency, type PiComponents, type PiSuggestion } from '@/lib/udi';
 import type { MfdsProduct } from '@/lib/mfds-api/products';
 import { HelpNote } from '@/components/HelpNote';
+import { ListBackLink } from '@/components/ListBackLink';
+import { TextLinkAction } from '@/components/TextAction';
 
 const PI_LABEL: Record<string, string> = Object.fromEntries(PI_COMPONENT_META.map((m) => [m.key, m.label]));
 
@@ -90,7 +91,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
       }
       const item = ((json.items ?? []) as MfdsProduct[])[0];
       if (!item) {
-        setLookupMsg('해당 UDI-DI 의 MFDS 조회 결과가 없습니다. DI 를 확인해 주세요.');
+        setLookupMsg('해당 UDI-DI 의 MFDS 조회 결과가 없습니다. DI 를 확인해 주십시오.');
         return;
       }
       setLookupInfo(item);
@@ -106,7 +107,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
           sterile: item.needs_sterile === true || !!item.sterilization_method,
         }),
       );
-      toast.success('MFDS 조회 완료: 빈 항목을 자동으로 채웠어요.');
+      toast.success('MFDS 조회를 마쳤습니다. 빈 항목을 채웠으니 확인해 주십시오.');
       // 통합정보는 식약처 쪽이 5~9초 걸린다. 뒤에서 받아 붙인다.
       void (async () => {
         try {
@@ -169,48 +170,20 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
         @media (max-width: 880px) { .qa-udi-layout { grid-template-columns: 1fr; } .qa-udi-aside { position: static !important; } }
       `}</style>
 
-      <Link href="/udi" style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], fontSize: FS[13], color: T.subtle, textDecoration: 'none', marginBottom: S[3] }}>
-        <ArrowLeft size={ICON.sizeXs} aria-hidden="true" />
-        UDI 목록으로
-      </Link>
+      {/* «← UDI 목록» 한 형식 (화면 검토 A32 · A74 · 2026-09-27) */}
+      <ListBackLink href="/udi" label="UDI 목록" />
       <PageHd title="새 UDI 등록" sub="UDI-DI + 발행기관 + 생산 식별자(PI) 구성" />
 
       <div className="qa-udi-layout">
         {/* ── 좌: 입력 폼 ── */}
         <Bx style={{ padding: S[7], background: T.surface, borderColor: T.border, borderRadius: RADIUS.md, boxShadow: SHADOW.hairline, display: 'flex', flexDirection: 'column', gap: S[6] }}>
           <HelpNote>
-            <strong style={{ color: T.text }}>UDI</strong> = 정적 식별자 <strong>UDI-DI</strong>(제품/모델 고유) + 동적 <strong>UDI-PI</strong>(로트·시리얼·유효기간 등 생산 정보). 발행기관에서 DI 를 발급받아 입력하세요.
+            <strong style={{ color: T.text }}>UDI</strong> = 정적 식별자 <strong>UDI-DI</strong>(제품/모델 고유) + 동적 <strong>UDI-PI</strong>(로트·시리얼·유효기간 등 생산 정보). 발행기관에서 DI 를 발급받아 입력하십시오.
           </HelpNote>
 
-          {products.length > 0 && (
-            <Field id="udi-product" label="우리 제품 연결 (선택)">
-              <>
-                <Sel
-                  id="udi-product"
-                  value={productId}
-                  onChange={(e) => onSelectProduct(e.target.value)}
-                  opts={[
-                    { v: '', l: '(연결 안 함)' },
-                    ...products.map((p) => ({
-                      v: p.id,
-                      l: `${p.name}${gradeLabel(p.device_class) ? ` · ${gradeLabel(p.device_class)}` : ''}`,
-                    })),
-                  ]}
-                />
-                <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
-                  이 UDI 가 어떤 제품에 대한 것인지 연결하면, 제품 화면에서도 UDI 를 함께 추적할 수 있어요.
-                </div>
-              </>
-            </Field>
-          )}
-
-          <Field id="udi-device" label="제품명" required>
-            <In id="udi-device" value={deviceName} onChange={(e) => setDeviceName(e.target.value)} placeholder="예: 무선 심전계 ECG-200" />
-          </Field>
-          <Field id="udi-brand" label="브랜드명">
-            <In id="udi-brand" value={brandName} onChange={(e) => setBrandName(e.target.value)} placeholder="예: CardioTrace" />
-          </Field>
-
+          {/* 화면 검토 A83 · 2026-09-27: 「UDI-DI 입력 → MFDS 불러오기 → 채워진 값 확인」 순서로 칸을 올렸다.
+              종전엔 제품명 · 브랜드명을 손으로 먼저 적게 한 뒤 한참 아래에서 불러오기를 해, 같은 칸을 두 번 채우고
+              손으로 적은 이름과 허가 이름이 갈릴 수 있었다. 불러오기는 빈 칸만 채운다. */}
           {/* 발행기관: 세그먼트 버튼 그리드 (라디오 의미 · M-08) */}
           <div>
             <Lbl>발행기관</Lbl>
@@ -256,11 +229,11 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
               </button>
             </div>
             <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
-              제품/모델당 고유. 조직 내 중복 등록 불가. DI 입력 후 <strong style={{ color: T.subtle }}>「MFDS 불러오기」</strong>로 제품명·품목·등급을 자동으로 채울 수 있어요.
+              제품/모델당 고유하며 조직 안에서 중복 등록할 수 없습니다. DI 를 넣고 <strong style={{ color: T.subtle }}>「MFDS 불러오기」</strong>를 누르면 아래 제품명 · 품목 코드 칸의 빈 곳을 허가 정보로 채웁니다.
             </div>
             {diHasEmbeddedAi && (
               <div style={{ marginTop: S[2], padding: '8px 12px', background: alpha(T.warning, 0.06), border: `1px solid ${alpha(T.warning, 0.3)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-                여기엔 <strong style={{ color: T.text }}>DI 만</strong> 넣어주세요. 입력하신 값에 <span style={{ fontFamily: F.mono }}>(10)</span> 같은 <strong>PI(생산정보) AI</strong>가 섞여 있어요. PI 는 아래에서 별도로 구성합니다.
+                여기엔 <strong style={{ color: T.text }}>DI 만</strong> 넣어 주십시오. 입력하신 값에 <span style={{ fontFamily: F.mono }}>(10)</span> 같은 <strong>PI(생산정보) AI</strong>가 섞여 있습니다. PI 는 아래에서 따로 구성합니다.
               </div>
             )}
             {lookupMsg && (
@@ -295,6 +268,35 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
               </div>
             )}
           </div>
+
+          {products.length > 0 && (
+            <Field id="udi-product" label="우리 제품 연결" optional>
+              <>
+                <Sel
+                  id="udi-product"
+                  value={productId}
+                  onChange={(e) => onSelectProduct(e.target.value)}
+                  opts={[
+                    { v: '', l: '(연결 안 함)' },
+                    ...products.map((p) => ({
+                      v: p.id,
+                      l: `${p.name}${gradeLabel(p.device_class) ? ` · ${gradeLabel(p.device_class)}` : ''}`,
+                    })),
+                  ]}
+                />
+                <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
+                  이 UDI 가 어떤 제품에 대한 것인지 연결하면, 제품 화면에서도 UDI 를 함께 추적할 수 있습니다.
+                </div>
+              </>
+            </Field>
+          )}
+
+          <Field id="udi-device" label="제품명" required>
+            <In id="udi-device" value={deviceName} onChange={(e) => setDeviceName(e.target.value)} placeholder="예: 무선 심전계 ECG-200" />
+          </Field>
+          <Field id="udi-brand" label="브랜드명">
+            <In id="udi-brand" value={brandName} onChange={(e) => setBrandName(e.target.value)} placeholder="예: CardioTrace" />
+          </Field>
 
           {/* UDI-PI: 권장 배지 포함 체크박스 카드 (공통 In/Sel 아님: 의도적 UI) */}
           <div>
@@ -358,10 +360,8 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
           </Field>
 
           <FormActions>
-            <Link href="/udi" style={{ textDecoration: 'none' }}>
-              <Btn p={false} sm>취소</Btn>
-            </Link>
-            <Btn sm onClick={submit} disabled={!canSubmit} style={{ background: canSubmit ? T.champagne : 'transparent', color: canSubmit ? T.bg : T.subtle, borderColor: canSubmit ? T.champagne : T.border, borderRadius: RADIUS.md, minWidth: 140, fontWeight: 600 }}>
+            <TextLinkAction href="/udi">취소</TextLinkAction>
+            <Btn sm onClick={submit} disabled={!canSubmit} style={{ minWidth: 140, fontWeight: 600 }}>
               {submitting ? '등록 중...' : 'UDI 등록'}
             </Btn>
           </FormActions>

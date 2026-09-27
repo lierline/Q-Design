@@ -490,7 +490,7 @@ function ResultBody({
                   marginBottom: S[1.5],
                 }}
               >
-                기기 정체: AI 가 이 축으로 판단했어요
+                기기 정체: 이 기준으로 품목을 판단했습니다
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[1.5] }}>
                 {(

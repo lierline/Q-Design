@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 import { useToast } from '@/components/Toast';
-import { Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard } from '@/lib/design/components';
+import { Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard, Tag } from '@/lib/design/components';
 import { DocumentArtifactPanel } from '@/components/DocumentArtifactPanel';
-import { S, FS, F, T, alpha, RADIUS, ICON, LAYOUT } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, RADIUS, LAYOUT } from '@/lib/design/tokens';
 import {
   PMDA_CLASS_LABEL,
   PMDA_CLASS_HINT,
@@ -26,6 +24,8 @@ import {
   type PmdaStatus,
   type PmdaSection,
 } from '@/lib/pmda';
+import { ListBackLink } from '@/components/ListBackLink';
+import { ChoiceCheck, choiceLook } from '@/lib/design/segmented-choice';
 
 export interface PmdaFull {
   id: string;
@@ -134,11 +134,14 @@ export function PmdaDetailClient({
           }
         }
       `}</style>
-      <Link href="/pmda" style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], fontSize: FS[13], color: T.subtle, textDecoration: 'none', marginBottom: S[3] }}>
-        <ArrowLeft size={ICON.sizeXs} aria-hidden="true" />
-        목록으로
-      </Link>
-      <PageHd title={`${initial.code} · ${initial.device_name}`} sub={`${PMDA_CLASS_LABEL[deviceClass]} · ${PATHWAY_LABEL[pathway]} · ${PMDA_STATUS_LABEL[status]}`} />
+      {/* «← PMDA 목록» 한 형식 (화면 검토 A32 · A74 · 2026-09-27) */}
+      <ListBackLink href="/pmda" label="PMDA 목록" />
+      {/* 상태는 제목 위 작은 글씨가 아니라 제목 줄 배지로 (화면 검토 A68 · 2026-09-27) */}
+      <PageHd
+        title={`${initial.code} · ${initial.device_name}`}
+        sub={`${PMDA_CLASS_LABEL[deviceClass]} · ${PATHWAY_LABEL[pathway]}`}
+        actions={<Tag size="md" dot color={T.blue}>{PMDA_STATUS_LABEL[status]}</Tag>}
+      />
 
       <div style={{ marginBottom: S[5] }}>
         <DocumentArtifactPanel
@@ -159,15 +162,15 @@ export function PmdaDetailClient({
 
       <SectionProgressCard label="STED 완료율 (적용 섹션 기준)" value={progress} />
 
-      <Section title="등급 · 認証基準 · 경로">
+      <Section title="등급 · 인증기준 · 경로">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginBottom: S[2.5] }}>
           {CLASSES.map((c) => (
-            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], background: deviceClass === c ? T.champagne : 'transparent', color: deviceClass === c ? T.bg : T.text, border: `1px solid ${deviceClass === c ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>{PMDA_CLASS_LABEL[c]}</button>
+            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], ...choiceLook(deviceClass === c), cursor: readOnly ? 'default' : 'pointer' }}><ChoiceCheck on={deviceClass === c} />{PMDA_CLASS_LABEL[c]}</button>
           ))}
         </div>
         <div style={{ fontFamily: F.serif, fontSize: FS[11], color: T.subtle, marginBottom: S[2.5] }}>{PMDA_CLASS_HINT[deviceClass]}</div>
         <div className="qa-pmda-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3], alignItems: 'end' }}>
-          <Field id="pmda-cert" label="認証基準(Ninsho Kijun) 유무">
+          <Field id="pmda-cert" label="인증기준(認証基準) 유무">
             <Sel id="pmda-cert" value={certStatus} onChange={(e) => setCertStatus(e.target.value as CertStatus)} ro={readOnly} opts={CERTS.map((c) => ({ v: c, l: CERT_STATUS_LABEL[c] }))} />
           </Field>
           <div style={{ padding: '8px 12px', borderRadius: RADIUS.sm, border: `1px solid ${pathway === 'verify' ? alpha(T.warning, 0.4) : alpha(T.champagne, 0.3)}`, background: alpha(pathway === 'verify' ? T.warning : T.champagne, 0.05) }}>
@@ -195,7 +198,7 @@ export function PmdaDetailClient({
         </div>
       </Section>
 
-      <Section title="행위자 · 인증 정보 (MAH/D-MAH · FMR · 認証番号)">
+      <Section title="행위자 · 인증 정보 (MAH/D-MAH · FMR · 인증 번호)">
         <div className="qa-pmda-grid-2fr1fr" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: S[3], marginBottom: S[3] }}>
           <Field id="pmda-mah" label="제조판매업자 (MAH / D-MAH)">
             <In id="pmda-mah" value={mahName} onChange={(e) => setMahName(e.target.value)} ro={readOnly} placeholder="일본 내 MAH 또는 선임(D-MAH)" />
@@ -211,20 +214,20 @@ export function PmdaDetailClient({
           <Field id="pmda-fmr" label="외국제조업자등록 (FMR)">
             <In id="pmda-fmr" value={fmr} onChange={(e) => setFmr(e.target.value)} ro={readOnly} placeholder="FMR 번호" />
           </Field>
-          <Field id="pmda-certno" label="認証番号 / 承認番号">
+          <Field id="pmda-certno" label="인증 · 승인 번호 (認証番号 / 承認番号)">
             <In id="pmda-certno" value={certNo} onChange={(e) => setCertNo(e.target.value)} ro={readOnly} placeholder="취득 후" />
           </Field>
         </div>
       </Section>
 
       <Section title="비고">
-        <Txt value={notes} onChange={(e) => setNotes(e.target.value)} ro={readOnly} rows={2} placeholder="PMDA/RCB 照会 대응, 임상 bridging 전략 등" />
+        <Txt value={notes} onChange={(e) => setNotes(e.target.value)} ro={readOnly} rows={2} placeholder="PMDA/RCB 조회(照会) 대응, 임상 브리징 전략 등" />
       </Section>
 
       <Section title="상태">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
           {STATUS_OPTIONS.map((s) => (
-            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em', background: status === s ? T.champagne : 'transparent', color: status === s ? T.bg : T.text, border: `1px solid ${status === s ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>
+            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em', ...choiceLook(status === s), cursor: readOnly ? 'default' : 'pointer' }}>
               {PMDA_STATUS_LABEL[s]}
             </button>
           ))}

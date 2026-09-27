@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 import { useToast } from '@/components/Toast';
-import { Btn, Bx, PageHd, Field, In, Txt, FormActions, Section, DetailRow } from '@/lib/design/components';
-import { S, FS, F, T, alpha, RADIUS, SHADOW, ICON, LAYOUT, LH } from '@/lib/design/tokens';
+import { Btn, Bx, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';
+import { S, FS, F, T, alpha, RADIUS, SHADOW, LAYOUT, LH } from '@/lib/design/tokens';
 import { Plus, Trash2 } from 'lucide-react';
 import { HelpNote } from '@/components/HelpNote';
 import {
@@ -21,6 +20,8 @@ import {
   type PackageLevel,
   type SubmissionDates,
 } from '@/lib/udi';
+import { ListBackLink } from '@/components/ListBackLink';
+import { choiceLook } from '@/lib/design/segmented-choice';
 
 function todayYmd(): string {
   const d = new Date();
@@ -123,11 +124,14 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
         .qa-udi-detail { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
         @media (max-width: 900px) { .qa-udi-detail { grid-template-columns: 1fr; } }
       `}</style>
-      <Link href="/udi" style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], fontSize: FS[13], color: T.subtle, textDecoration: 'none', marginBottom: S[3] }}>
-        <ArrowLeft size={ICON.sizeXs} aria-hidden="true" />
-        목록으로
-      </Link>
-      <PageHd title={`${initial.device_name}${initial.brand_name ? ' · ' + initial.brand_name : ''}`} sub={`UDI-DI ${initial.udi_di} · ${ISSUING_AGENCY_LABEL[initial.issuing_agency]} · 상태: ${UDI_STATUS_LABEL[status]}`} />
+      {/* «← UDI 목록» 한 형식 (화면 검토 A32 · A74 · 2026-09-27) */}
+      <ListBackLink href="/udi" label="UDI 목록" />
+      {/* 상태는 제목 위 작은 글씨가 아니라 제목 줄 배지로 (화면 검토 A68 · 2026-09-27) */}
+      <PageHd
+        title={`${initial.device_name}${initial.brand_name ? ' · ' + initial.brand_name : ''}`}
+        sub={`UDI-DI ${initial.udi_di} · ${ISSUING_AGENCY_LABEL[initial.issuing_agency]}`}
+        actions={<Tag size="md" dot color={T.blue}>{UDI_STATUS_LABEL[status]}</Tag>}
+      />
 
       <HelpNote>
         <strong style={{ color: T.text }}>UDI 관리</strong>는 우리 제품의 <strong style={{ color: T.text }}>고유 식별 코드(UDI) 등록 대장</strong>입니다. 코드 자체는 발행기관·정부 시스템에서 발급·등록하고, 이 화면은 <strong style={{ color: T.text }}>어떤 제품에 어떤 UDI 가 부여됐는지</strong> + <strong style={{ color: T.text }}>각 시장(미국·EU·한국)의 제출·갱신·변경 재신고</strong>를 추적하는 곳입니다.
@@ -213,7 +217,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
       {/* 규제기관 제출 상태 + 제출일/갱신기한 */}
       <Section title="규제기관 제출 상태">
         <HelpNote compact>
-          각 시장의 <strong style={{ color: T.text }}>UDI 데이터베이스</strong>(미국 GUDID·EU EUDAMED·한국 MFDS)에 등록했는지 추적합니다. 해당 시장에 판매하려면 제출이 의무입니다. 미제출이면 빨리 처리하세요.
+          각 시장의 <strong style={{ color: T.text }}>UDI 데이터베이스</strong>(미국 GUDID·EU EUDAMED·한국 MFDS)에 등록했는지 추적합니다. 해당 시장에 판매하려면 제출이 의무입니다. 미제출이면 서둘러 처리하십시오.
         </HelpNote>
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[2] }}>
           {SUBMISSION_TARGETS.map((t) => {
@@ -239,6 +243,17 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
                   >
                     {on ? '✓ ' : ''}{t.label}
                   </button>
+                  {/*
+                    빈 칸이 «대상 아님» 인지 «미제출» 인지 알 수 없었다 (화면 검토 A51 · 2026-09-27). 글로 적는다.
+                    «대상 아님» 을 기록으로 남기려면 칸이 더 필요하다(마이그레이션) · 지금은 안내만.
+                  */}
+                  <span style={{ fontFamily: F.ui, fontSize: FS[12], color: on ? (d.submitted ? T.subtle : T.warning) : T.warning }}>
+                    {on
+                      ? d.submitted
+                        ? `제출함 · ${d.submitted}`
+                        : '제출함 · 제출일을 적으십시오'
+                      : '미제출 (이 시장에 팔지 않으면 해당 없음)'}
+                  </span>
                   {dueDays !== null && (
                     <span style={{ fontFamily: F.mono, fontSize: FS[11], color: dueDays <= 90 ? T.red : T.subtle }}>
                       갱신 {dueDays < 0 ? `만료 ${-dueDays}일` : `D-${dueDays}`}
@@ -250,7 +265,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
                     <Field id={`udi-sub-${t.dateKey}`} label="제출일">
                       <In id={`udi-sub-${t.dateKey}`} type="date" value={d.submitted ?? ''} onChange={(e) => setSubDate(t.dateKey, 'submitted', e.target.value)} />
                     </Field>
-                    <Field id={`udi-due-${t.dateKey}`} label="갱신 기한 (선택)">
+                    <Field id={`udi-due-${t.dateKey}`} label="갱신 기한" optional>
                       <In id={`udi-due-${t.dateKey}`} type="date" value={due} onChange={(e) => setSubDate(t.dateKey, 'due', e.target.value)} />
                     </Field>
                   </div>
@@ -264,7 +279,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
       {linkedProduct && (
         <Section title="변경 ↔ UDI 재신고">
           <div style={{ padding: '11px 14px', background: alpha(T.warning, 0.05), border: `1px solid ${alpha(T.warning, 0.25)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, marginBottom: productChanges.length ? 10 : 0 }}>
-            <strong style={{ color: T.text }}>{linkedProduct.name}</strong> 의 변경(포장·멸균·사용목적·등급 등)이 발생하면 <strong style={{ color: T.text }}>UDI 통합정보 재신고</strong>가 필요할 수 있습니다. 변경평가 검토 시 함께 확인하세요.
+            <strong style={{ color: T.text }}>{linkedProduct.name}</strong> 의 변경(포장·멸균·사용목적·등급 등)이 발생하면 <strong style={{ color: T.text }}>UDI 통합정보 재신고</strong>가 필요할 수 있습니다. 변경평가를 검토할 때 함께 확인하십시오.
           </div>
           {productChanges.length > 0 ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
@@ -295,9 +310,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
               onClick={() => setStatus(s)}
               style={{
                 padding: '8px 16px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em',
-                background: status === s ? T.champagne : 'transparent',
-                color: status === s ? T.bg : T.text,
-                border: `1px solid ${status === s ? T.champagne : T.border}`,
+                ...choiceLook(status === s),
                 borderRadius: RADIUS.md, cursor: 'pointer',
               }}
             >

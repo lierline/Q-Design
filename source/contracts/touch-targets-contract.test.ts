@@ -49,7 +49,8 @@ describe('공용 부품이 이름표를 단다', () => {
     ['components/NotificationBell.tsx', /className="qa-touch-44sq"/g, 1, '알림 종'],
     ['components/SubscriptionIndicator.tsx', /className="qa-touch-44"/g, 1, '구독 칩'],
     ['components/MyActionsViews.tsx', /className="qa-touch-44"/g, 1, '할 일 탭'],
-    ['lib/design/segmented-choice.tsx', /className="qa-touch-44"/g, 1, '둘 중 고르기'],
+    // 2026-09-27: 켜고 끄는 선택 칩(ChoiceChip)이 같은 파일에 더해졌다 (화면 검토 A11 · A62)
+    ['lib/design/segmented-choice.tsx', /className="qa-touch-44"/g, 2, '둘 중 고르기 · 선택 칩'],
     ['components/PageGuide.tsx', /className="qa-touch-hit"/g, 1, '이 페이지 사용법'],
     ['components/dashboard/CustomizableWidgetBoard.tsx', /className="qa-touch-hit"/g, 1, '위젯 편집'],
     ['lib/design/components.tsx', /className="qa-touch-44"/g, 1, '거르기 칩(FilterChip)'],

@@ -199,6 +199,9 @@
      종전에는 정보 토스트만 내부 앱 파랑 #2d5fa8 로 떠서 화면에서 유일한 이질색이었다. */
   --qa-blue: var(--status-progress);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* 사용자 메뉴(드롭다운) 그림자. 검은 바탕 위에서는 짙은 그림자가 메뉴를 띄운다.
+     밝은 판은 아래 블록에서 금빛 옅은 그림자로 바꾼다(A41 · 2026-09-27). */
+  --menu-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 
   position: relative;
   min-height: 100vh;
@@ -275,6 +278,12 @@ html[data-theme='light'] .expert-portal-root {
   --ink-rgb: 247, 244, 238;
   --velvet-rgb: 235, 230, 219;
   --raise-rgb: 224, 218, 205;
+
+  /* 카드 종이(A41 · 오너 결정 2026-09-27 «A 종이»). 페이지(--ink)보다 조금 밝은 불투명 상아.
+     밝은 판에만 있는 표면이라 대비 계약이 따로 본다(expert-contrast.test.ts). */
+  --paper: #fcfaf6;
+  --paper-hover: #fffdf9;
+  --menu-shadow: 0 12px 32px rgba(var(--champagne-rgb), 0.16);
 }
 
 /* 배경 라이트 워시 */
@@ -306,6 +315,37 @@ html[data-theme='light'] .expert-portal-root {
   pointer-events: none;
   background: radial-gradient(ellipse 80% 60% at center, transparent 50%, rgba(0, 0, 0, 0.35) 100%);
   z-index: 2;
+}
+
+/* =============================================================================
+   밝은 판: 어두운 판에서 온 장치 셋을 걷는다 (A41 · 오너 결정 2026-09-27 «A 종이»)
+   =============================================================================
+   🔴 포털은 어두운 판을 먼저 설계했다(검은 벨벳 위 조명). 세 제품이 밝은 판으로 통일된 뒤에도
+      ① 가장자리 검정 35% 그늘(위 .expert-portal-vignette) ② 머리 띠 아래 검은 그림자
+      ③ 비치는 카드(반투명 + 흐림)가 그대로 남아, 상아색이 가장자리부터 회색으로 탁해졌다.
+      휴대폰에서는 화면 절반이 회색이었다. 상아색 위에서는 조명이 아니라 먼지로 읽혔다.
+   🔑 오너 기준: 고급스러움이 핵심. 모노그램 · 세리프 · 금선 · 영문 표제 · 여백은 그대로 두고
+      회색만 걷는다. 세 안(종이 · 등불 · 각인)을 실제 화면으로 비교해 «종이» 로 정했다.
+   ⚠️ 어두운 판은 건드리지 않는다. 검은 바탕 위의 그늘과 반투명은 원래 뜻대로 어울린다.
+   ⚠️ 계정 삭제 칸(.expert-danger-card)은 settings/danger-zone.tsx 의 <style> 에 있다. 여기서 함께 덮는다. */
+html[data-theme='light'] .expert-portal-root .expert-portal-vignette { display: none; }
+
+html[data-theme='light'] .expert-portal-root .luxe-card,
+html[data-theme='light'] .expert-portal-root .panel,
+html[data-theme='light'] .expert-portal-root .expert-danger-card {
+  background: var(--paper);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 2px rgba(var(--champagne-rgb), 0.08);
+}
+html[data-theme='light'] .expert-portal-root .luxe-card.clickable:hover { background: var(--paper-hover); }
+
+html[data-theme='light'] .expert-portal-root .app-topbar,
+html[data-theme='light'] .expert-portal-root .bottom-nav {
+  background: var(--ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 
 .expert-portal-root > *:not(.expert-portal-noise):not(.expert-portal-vignette) {

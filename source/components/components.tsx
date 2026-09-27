@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
+import { ruleBand, tintBorder } from './grain';
 import { TAG_DIMS } from './tag-metrics';
 import { riskLabelKo } from '@/lib/labels/risk';
 import { printZoom } from './print';
@@ -440,7 +441,7 @@ export function Bx({
         //    폴백이 RADIUS.md 라 내부 앱은 한 픽셀도 바뀌지 않고,
         //    포털만 `.expert-portal-root { --qa-radius-card: 0 }` 로 자기 언어를 말한다.
         borderRadius: `var(--qa-radius-card, ${RADIUS.md}px)`, // 럭셔리 표준: 카드 10px 라운드
-        ...(accentColor ? { borderColor: alpha(accentColor, 0.55) } : {}),
+        ...(accentColor ? { borderColor: tintBorder(accentColor) } : {}),
         ...style,
       }}
     >
@@ -882,6 +883,7 @@ export function FldRow({
     <>
       {label}
       {required && <span style={{ color: T.red, marginLeft: S[0.5] }}>*</span>}
+      {/* 화면 검토 A81 · 2026-09-27: 「선택」 은 «필수 아님» 인데 «고르라» 로도 읽혀 필수 칸을 건너뛰게 했다 */}
       {optional && (
         <span
           style={{
@@ -889,7 +891,7 @@ export function FldRow({
             letterSpacing: 0.8, textTransform: 'none', marginLeft: S[1],
           }}
         >
-          선택
+          필수 아님
         </span>
       )}
     </>
@@ -1349,10 +1351,10 @@ export function InfoBox({
   //   오너 문서 기준(STYLE_GUIDE): 「작은 강조문은 금색 라벨과 얇은 가로선 사이의 한두 문장」.
   return (
     <div
+      // 띠 · 바탕 없이 위아래 가는 가로선 사이(화면 검토 A10 · 문서 결 · 2026-09-27). 뜻은 글이 말한다
       style={{
         padding: '10px 2px',
-        borderTop: `1px solid ${alpha(c, 0.45)}`,
-        borderBottom: `1px solid ${alpha(c, 0.45)}`,
+        ...ruleBand(c),
         fontSize: FS[13],
         color: T.subtle,
         lineHeight: LH.relaxed,
@@ -1414,8 +1416,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
         //    가는 가로선(종류 색) 사이의 강조문으로. 종류 단서는 아이콘(이름 있음)과 종류 말(오류 · 주의 · 완료 · 안내)이
         //    색 없이도 말한다. 글자는 13px(원칙 「깔끔하게 눈에 잘 보이게」 · 종전 12px).
         padding: '10px 2px',
-        borderTop: `1px solid ${alpha(c, 0.55)}`,
-        borderBottom: `1px solid ${alpha(c, 0.55)}`,
+        ...ruleBand(c),
         color: T.text,
         fontSize: FS[13],
         fontFamily: F.ui,
@@ -2163,7 +2164,7 @@ export function KPI({
             width: tooltipRect.width,
             background: T.bg,
             // 왼쪽 3px 막대를 걷고 테두리 전체를 강조 색으로(2026-09-27 «문서 결»)
-            border: `1px solid ${alpha(accent, 0.6)}`,
+            border: `1px solid ${tintBorder(accent)}`,
             padding: '12px 14px',
             paddingRight: isTouch ? 38 : 14,
             zIndex: 9999,
@@ -2390,8 +2391,10 @@ export function SectionTitle({
 
 /** 라벨형 섹션: mono uppercase 헤더 + 본문(카드 없이 그룹 구분). [id] 폼 표준. */
 export function Section({ title, children }: { title: ReactNode; children: ReactNode }) {
+  // qa-section-body: 칸과 칸 사이를 띄운다(globals.css). 화면 검토 A81 · 2026-09-27: 간격이 0 이라
+  //   이름표가 위 칸과 아래 칸 사이 가운데 떠서 어느 칸의 이름인지 헷갈렸다(공급자 상세 등 [id] 양식).
   return (
-    <div style={{ marginBottom: S[6] }}>
+    <div className="qa-section-body" style={{ marginBottom: S[6] }}>
       <div
         style={{
           fontFamily: F.mono,
@@ -3837,12 +3840,15 @@ export function WorkspaceTab({
   onClick,
   label,
   count,
+  countUnit,
   sub,
 }: {
   active: boolean;
   onClick: () => void;
   label: string;
   count: number;
+  /** 건수가 무엇을 세는지(예: 「제품」). 탭 이름과 다른 것을 셀 때 붙인다 · 화면 검토 A89 */
+  countUnit?: string;
   sub: string;
 }) {
   return (
@@ -3863,7 +3869,7 @@ export function WorkspaceTab({
       }}
     >
       <div>
-        {label} <span style={{ color: T.champagne, fontWeight: 500 }}>({count})</span>
+        {label} <span style={{ color: T.champagne, fontWeight: 500 }}>({countUnit ? `${countUnit} ${count}` : count})</span>
       </div>
       <div
         style={{

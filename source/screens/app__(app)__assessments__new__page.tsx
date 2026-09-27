@@ -36,6 +36,8 @@ const MARKET_FOR_JUR: Record<string, string> = { KR: 'mfds', US: 'fda', EU: 'eu_
 import type { ChangeTarget } from '@/lib/engine/types';
 import { AssessmentPreviewPanel } from '@/components/AssessmentPreviewPanel';
 import { startRouteProgress } from '@/components/TopProgressBar';
+import { ListBackLink } from '@/components/ListBackLink';
+import { TextLinkAction } from '@/components/TextAction';
 
 interface ProductRow {
   id: string;
@@ -119,7 +121,11 @@ export default function NewAssessmentPage() {
   const [jur, setJur] = useState<string>('한국 (MFDS)');
   // 구독 해금 시장: 관할국 옵션 제한(과금 정합). 기본은 자국(MFDS).
   const [allowedMarkets, setAllowedMarkets] = useState<string[]>(['mfds']);
-  const [target, setTarget] = useState<ChangeTarget>('SOFTWARE');
+  /*
+   * 변경 대상은 미리 고르지 않는다 (화면 검토 A20 · 2026-09-27). 기본값이 «소프트웨어» 라
+   * SW 미포함 제품에서도 그대로 넘어가 엉뚱한 세부 유형 · 판정이 나올 수 있었다. 사람이 고른다.
+   */
+  const [target, setTarget] = useState<ChangeTarget | ''>('');
   const [subTypes, setSubTypes] = useState<string[]>([]);
   const [beforeKey, setBeforeKey] = useState('');
   const [afterKey, setAfterKey] = useState('');
@@ -179,7 +185,7 @@ export default function NewAssessmentPage() {
     })();
   }, [supabase, router, presetProductId]);
 
-  const subTypeOptions = useMemo(() => getSubTypes(target), [target]);
+  const subTypeOptions = useMemo(() => (target ? getSubTypes(target) : []), [target]);
   const [beforeLbl, afterLbl] = KEY_LABELS[target] || KEY_LABELS.DEFAULT;
   const selectedProduct = products.find((p) => p.local_id === pid);
 
@@ -265,14 +271,11 @@ export default function NewAssessmentPage() {
 
   return (
     <div>
+      {/* 제목 옆 상자 «← 취소» 대신 제목 위 글귀 «← 변경평가 목록» (화면 검토 A11 · A32 · 2026-09-27) */}
+      <ListBackLink href="/assessments" label="변경평가 목록" />
       <PageHd
         title="새 변경평가"
         sub="새 변경 평가"
-        actions={
-          <Btn p={false} onClick={() => { startRouteProgress(); router.push('/assessments'); }}>
-            ← 취소
-          </Btn>
-        }
       />
 
       {/* 본문 폭: 진행바·알림·폼을 같은 컬럼에 정렬 + 화면 중앙 배치(margin auto).
@@ -420,7 +423,7 @@ export default function NewAssessmentPage() {
               <In
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="예: LLM 분석 엔진 v1 → v2 전환"
+                placeholder="예: 광선치료 패드 원재료 공급처 변경"
               />
             </FldRow>
           </div>
@@ -443,10 +446,23 @@ export default function NewAssessmentPage() {
                 setTarget(e.target.value as ChangeTarget);
                 setSubTypes([]);
               }}
-              opts={CHANGE_TARGETS.map((t) => ({
-                v: t,
-                l: `${CHANGE_TARGETS_KR[t]} (${t})`,
-              }))}
+              // 코드 괄호(«(SOFTWARE)») 없이 한글 이름 (A13). SW 미포함 제품이면 소프트웨어를 맨 뒤로 알림과 함께 (A20)
+              opts={[
+                { v: '', l: '고르십시오' },
+                ...[...CHANGE_TARGETS]
+                  .sort((a, b) =>
+                    selectedProduct && !selectedProduct.software_included
+                      ? Number(a === 'SOFTWARE') - Number(b === 'SOFTWARE')
+                      : 0,
+                  )
+                  .map((t) => ({
+                    v: t,
+                    l:
+                      t === 'SOFTWARE' && selectedProduct && !selectedProduct.software_included
+                        ? `${CHANGE_TARGETS_KR[t]} (이 제품은 SW 미포함으로 등록됨)`
+                        : CHANGE_TARGETS_KR[t],
+                  })),
+              ]}
             />
           </FldRow>
           <div style={{ marginTop: S[4] }}>
@@ -454,6 +470,9 @@ export default function NewAssessmentPage() {
               세부 유형 <span style={{ color: T.red }}>*</span>
             </Lbl>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginTop: S[2] }}>
+              {!target && (
+                <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>변경 대상을 먼저 고르십시오.</span>
+              )}
               {subTypeOptions.map((st) => {
                 const on = subTypes.includes(st.id);
                 return (
@@ -512,14 +531,14 @@ export default function NewAssessmentPage() {
               <In
                 value={beforeKey}
                 onChange={(e) => setBeforeKey(e.target.value)}
-                placeholder="예: v1.2.3 / LightGBM / ISO 10993-5:2009"
+                placeholder="예: 실리콘 A사 · 펌웨어 v1.2 · ISO 10993-5:2009"
               />
             </FldRow>
             <FldRow label={afterLbl} required>
               <In
                 value={afterKey}
                 onChange={(e) => setAfterKey(e.target.value)}
-                placeholder="예: v2.0.0 / LLM (GPT-4o) / ISO 10993-5:2021"
+                placeholder="예: 실리콘 B사 · 펌웨어 v2.0 · ISO 10993-5:2021"
               />
             </FldRow>
           </Grid>
@@ -795,9 +814,8 @@ export default function NewAssessmentPage() {
             borderTop: `1px solid ${T.border}`,
           }}
         >
-          <Btn p={false} onClick={() => { startRouteProgress(); router.push('/assessments'); }}>
-            취소
-          </Btn>
+          {/* 보조 동작 «취소» 는 글귀 (화면 검토 A11 · 2026-09-27) */}
+          <TextLinkAction href="/assessments">취소</TextLinkAction>
           <Btn onClick={handleEvaluate} disabled={!readyToEval || submitting}>
             {submitting ? '평가 중...' : 'MedQraft Core 평가 실행 →'}
           </Btn>

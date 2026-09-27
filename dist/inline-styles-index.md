@@ -41,7 +41,7 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | `app/(app)/settings/compliance/compliance-manager.tsx` | 없음 | `.qa-compliance-score-strip` | 1 |
 | `app/(app)/udi/[id]/client.tsx` | 없음 | `.qa-udi-detail` | 1 |
 | `app/(app)/udi/new/client.tsx` | 없음 | `.qa-udi-layout` | 1 |
-| `app/(public)/layout.tsx` | 없음 | `.qa-legal-brand` `.qa-legal-draft` `.qa-legal-footer` `.qa-legal-footer-note` `.qa-legal-header` `.qa-legal-main` 외 3 | 1 |
+| `app/(public)/layout.tsx` | 없음 | `.qa-legal-brand` `.qa-legal-footer` `.qa-legal-footer-note` `.qa-legal-header` `.qa-legal-main` `.qa-legal-nav` 외 1 | 1 |
 | `app/(public)/open-source/page.tsx` | 없음 | 없음 | 1 |
 | `app/experts/settings/danger-zone.tsx` | 없음 | `.expert-danger-actions` `.expert-danger-btn` `.expert-danger-card` `.expert-danger-desc` `.expert-danger-error` `.expert-danger-eyebrow` 외 3 | 0 |
 | `audit-page.tsx` | 없음 | 없음 | 0 |

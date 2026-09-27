@@ -61,7 +61,8 @@ const MAP = [
   {
     dest: 'tokens',
     repo: 'qa',
-    files: ['lib/design/tokens.ts', 'lib/design/tag-metrics.ts', 'lib/design/sticky-inset.ts', 'lib/design/main-padding.ts'],
+    /* grain.ts: «문서 결» 의 상태 색 비율(2026-09-27). tokens.ts 는 엔진 검증 근거가 지문을 들어 따로 뒀다 */
+    files: ['lib/design/tokens.ts', 'lib/design/grain.ts', 'lib/design/tag-metrics.ts', 'lib/design/sticky-inset.ts', 'lib/design/main-padding.ts'],
   },
   {
     dest: 'components',

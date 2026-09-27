@@ -112,14 +112,23 @@ put(spec, 'panel.radius', tokens.radius.md);
 
 /*
  * 판의 상태 색 테두리(2026-09-27 «문서 결»). 원본 Bx 의 accent 가 왼쪽 3px 색 띠에서
- * «테두리 전체를 옅은 상태 색으로» 바뀌었습니다. 몇 % 섞는지를 원본에서 읽습니다.
+ * «테두리 전체를 옅은 상태 색으로» 바뀌었습니다. 몇 % 섞는지는 원본 lib/design/grain.ts 의 GRAIN.tint
+ * 한 곳에 있고(Bx · Alert · InfoBox · 화면들이 함께 부름), 여기서도 그 값을 읽습니다.
+ * (tokens.ts 가 아닌 까닭: 그 파일은 원본의 요구사항 엔진 검증 근거가 지문을 듭니다.)
  */
 {
+  const grainTs = read(join(SRC, 'tokens', 'grain.ts'));
+  const g = grainTs.match(/export const GRAIN = \{[\s\S]*?tint: ([\d.]+),/);
+  if (!g) throw new Error('원본 grain.ts 의 GRAIN.tint 를 못 찾았습니다.');
+  if (!/export const ruleBand = [\s\S]*?tintBorder\(color\)/.test(grainTs)) {
+    throw new Error('원본 ruleBand 가 tintBorder(GRAIN.tint)를 거치지 않습니다. 두 비율이 갈립니다.');
+  }
   const bx = slice(comp, 'export function Bx({', '// ─── DIVIDER', 'Bx');
-  const m = bx.match(/borderColor: alpha\(accentColor, ([\d.]+)\)/);
-  if (!m) throw new Error('Bx 의 상태 색 테두리(borderColor: alpha(accentColor, …))를 못 찾았습니다.');
+  if (!/borderColor: tintBorder\(accentColor\)/.test(bx)) {
+    throw new Error('Bx 의 상태 색 테두리(borderColor: tintBorder(accentColor))를 못 찾았습니다.');
+  }
   if (/borderLeft/.test(bx)) throw new Error('Bx 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
-  put(spec, 'panel.accentMix', Number(m[1]));
+  put(spec, 'panel.accentMix', Number(g[1]));
 }
 
 /*
@@ -128,10 +137,9 @@ put(spec, 'panel.radius', tokens.radius.md);
  */
 {
   const al = slice(comp, 'export function Alert({', '// ─── ', 'Alert');
-  const m = al.match(/borderTop: `1px solid \$\{alpha\(c, ([\d.]+)\)\}`,/);
-  if (!m) throw new Error('Alert 의 위 가로선(borderTop: 1px solid alpha(c, …))을 못 찾았습니다.');
+  if (!/\.\.\.ruleBand\(c\),/.test(al)) throw new Error('Alert 의 위아래 가는 가로선(...ruleBand(c))을 못 찾았습니다.');
   if (/borderLeft/.test(al)) throw new Error('Alert 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
-  put(spec, 'state.ruleMix', Number(m[1]));
+  put(spec, 'state.ruleMix', spec.panel.accentMix);
 }
 put(spec, 'tag.radius', tokens.radius.sm);
 /* 단추·입력의 모서리도 같은 사다리에서 옵니다(2026-09-09 감사 · 주제 #13).

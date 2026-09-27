@@ -101,7 +101,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
   if (!canViewAudit) {
     return (
       <div>
-        <PageHd title="감사 추적" />
+        <PageHd title="감사 로그" />
         <Alert kind="warning" title="권한 부족">
           감사 로그는 owner / RA / QA / R&D 팀장 만 조회할 수 있습니다.
         </Alert>
@@ -168,8 +168,8 @@ export default async function AuditPage({ searchParams }: PageProps) {
   }
 
   // KPI: 총건수·24시간은 **DB 가 센다**(배열을 세면 페이지만 세게 된다).
-  //   사용자·액션 «종류» 는 DISTINCT 라 PostgREST 로 셀 수 없어 이 페이지 기준으로
-  //   두되 라벨에 그렇게 적는다. 모르는 것을 아는 척하지 않는다.
+  //   사용자·활동 «종류» 는 DISTINCT 라 PostgREST 로 셀 수 없어 요약 칸에서 뺐다(화면 검토 A18).
+  //   종류별 분포는 목록 아래 접힌 칸에서 «이 쪽 기준» 이라고 적고 보인다.
   const totalCount = totalLogs;
   const since24h = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
   const last24hRes = await applyAuditFilters(
@@ -178,16 +178,14 @@ export default async function AuditPage({ searchParams }: PageProps) {
     relatedEntityIds,
   );
   const last24h = last24hRes.count ?? 0;
-  const uniqueActors = new Set(logList.map((l) => l.actor_email).filter(Boolean))
-    .size;
-  const uniqueActions = Object.keys(byAction).length;
 
   const filterActive = !!(productFilter || actionFilter || queryText || dateFrom || dateTo);
 
   return (
     <div>
+      {/* 차림표(«감사 로그»)와 같은 이름 (화면 검토 A12 · 2026-09-27) */}
       <PageHd
-        title="감사 추적"
+        title="감사 로그"
         sub={
           filterActive
             ? `필터 적용됨 · 총 ${totalLogs.toLocaleString()}건`
@@ -209,7 +207,11 @@ export default async function AuditPage({ searchParams }: PageProps) {
         dateTo={dateTo}
       />
 
-      <Grid cols={4} minCol={180} gap={14} style={{ marginBottom: S[7] }}>
+      {/*
+        요약 숫자는 모두 «전체 기준» 만 둔다 (화면 검토 A18 · 2026-09-27). «고유 사용자 · 액션 종류» 는
+        이 쪽 기준이라 같은 줄의 전체 숫자와 섞여 «사용자 3명» 을 그대로 믿으면 틀렸다.
+      */}
+      <Grid cols={2} minCol={180} gap={14} style={{ marginBottom: S[7] }}>
         <KPI
           label="총 활동"
           value={totalCount}
@@ -219,63 +221,11 @@ export default async function AuditPage({ searchParams }: PageProps) {
           label="최근 24시간"
           value={last24h}
           sub="활동 기록"
-          color={last24h > 0 ? T.champagne : undefined}
         />
-        <KPI label="고유 사용자" value={uniqueActors} sub="이 페이지 기준" />
-        <KPI label="액션 종류" value={uniqueActions} sub="이 페이지 기준" />
       </Grid>
 
-      {/* Action stats: 모노크롬 chip (카테고리별 색 빼고 깔끔하게) */}
-      {Object.keys(byAction).length > 0 && (
-        <>
-          <SectionTitle>액션별 분포</SectionTitle>
-          <Bx style={{ padding: S[4.5], marginBottom: S[7] }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
-              {Object.entries(byAction)
-                .sort(([, a], [, b]) => b - a)
-                .map(([action, count]) => (
-                  <div
-                    key={action}
-                    style={{
-                      borderRadius: RADIUS.md,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: S[2],
-                      padding: '5px 12px',
-                      border: `1px solid ${T.border}`,
-                      background: T.surface,
-                    }}
-                    title={action}
-                  >
-                    <span
-                      style={{
-                        fontSize: FS[11],
-                        color: T.text,
-                        fontFamily: F.ui,
-                        letterSpacing: labelTracking(actionLabel(action), 0.3),
-                        fontWeight: 500,
-                      }}
-                    >
-                      {actionLabel(action)}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: FS[10],
-                        color: T.champagne,
-                        fontFamily: F.mono,
-                        fontWeight: 600,
-                      }}
-                    >
-                      {count}
-                    </span>
-                  </div>
-                ))}
-            </div>
-          </Bx>
-        </>
-      )}
 
-      <SectionTitle>활동 로그</SectionTitle>
+      <SectionTitle>활동 기록</SectionTitle>
       {logList.length === 0 ? (
         <EmptyState
           title={filterActive ? '필터 결과 없음' : '아직 활동 로그가 없습니다'}
@@ -298,7 +248,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
               borderBottom: `1px solid ${T.border}`,
             }}
           >
-            {['시간', '액션', '사용자', '요약'].map((l) => (
+            {['시간', '활동', '사용자', '요약'].map((l) => (
               <div
                 key={l}
                 style={{
@@ -410,6 +360,61 @@ export default async function AuditPage({ searchParams }: PageProps) {
           })}
           </ScrollTable>
         </Bx>
+      )}
+
+      {/*
+        종류별 분포는 접어서 목록 아래로 (화면 검토 A18 · 2026-09-27). 칩 70여 개가 첫 화면 절반을
+        채워 정작 «누가 언제 무엇을 했나» 기록 줄이 밀려났다. 이 쪽에 보이는 기록 기준이다.
+      */}
+      {Object.keys(byAction).length > 0 && (
+        <details style={{ marginTop: S[5], marginBottom: S[5] }}>
+          <summary style={{ cursor: 'pointer', fontSize: FS[13], color: T.subtle, fontFamily: F.ui }}>
+            종류별 보기 (이 쪽의 기록 {logList.length}건 기준 · {Object.keys(byAction).length}종)
+          </summary>
+          <Bx style={{ padding: S[4.5], marginTop: S[2.5] }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
+              {Object.entries(byAction)
+                .sort(([, a], [, b]) => b - a)
+                .map(([action, count]) => (
+                  <div
+                    key={action}
+                    style={{
+                      borderRadius: RADIUS.md,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: S[2],
+                      padding: '5px 12px',
+                      border: `1px solid ${T.border}`,
+                      background: T.surface,
+                    }}
+                    title={action}
+                  >
+                    <span
+                      style={{
+                        fontSize: FS[11],
+                        color: T.text,
+                        fontFamily: F.ui,
+                        letterSpacing: labelTracking(actionLabel(action), 0.3),
+                        fontWeight: 500,
+                      }}
+                    >
+                      {actionLabel(action)}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: FS[10],
+                        color: T.champagne,
+                        fontFamily: F.mono,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {count}
+                    </span>
+                  </div>
+                ))}
+            </div>
+          </Bx>
+        </details>
       )}
 
       {/* 필터를 유지한 채 페이지를 넘긴다. 안 넘기면 2페이지에서 필터가 풀려

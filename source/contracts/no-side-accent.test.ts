@@ -17,6 +17,8 @@ import { join } from 'node:path';
 // 기록
 //   188 [2026-09-27] 첫 동결(결재함 카드의 4px 금색 선을 가로 결재 길로 바꾼 뒤의 실측).
 //   180 [2026-09-27] 정본 부품 1차: Bx accent · InfoBox · Alert · KPI 풍선 · EntityRow · 사이드바 선택 표시(둘) · 부서 단추 −8.
+//   121 [2026-09-27] 화면 검토 w4(A10 왼쪽 색 띠 걷기 · 판 안의 판 걷기 등)를 위에 합친 뒤 다시 동결.
+//   118 [2026-09-27] 문서 결 2차: 대상시장 칸 · §7.3 점수 판과 항목 −3(공용 값 lib/design/grain.ts).
 
 const ROOT = process.cwd();
 const SCAN_DIRS = ['app', 'components', 'lib'];
@@ -68,7 +70,7 @@ function countSideAccents(): { total: number; byFile: Record<string, number> } {
   return { total, byFile };
 }
 
-const BASELINE = 180;
+const BASELINE = 118;
 
 describe('디자인 가드: 굵은 옆 색 선을 새로 쓰지 않는다', () => {
   it(`굵은 옆 색 선이 기준(${BASELINE}) 이하`, () => {

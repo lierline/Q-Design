@@ -167,7 +167,8 @@
       "--qa-red": "var(--status-rejected)",
       "--qa-warning": "var(--status-pending)",
       "--qa-blue": "var(--status-progress)",
-      "--ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+      "--ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "--menu-shadow": "0 20px 40px rgba(0, 0, 0, 0.6)"
     },
     "expertLight": {
       "--ink": "#f7f4ee",
@@ -199,7 +200,10 @@
       "--champagne-rgb": "125, 92, 46",
       "--ink-rgb": "247, 244, 238",
       "--velvet-rgb": "235, 230, 219",
-      "--raise-rgb": "224, 218, 205"
+      "--raise-rgb": "224, 218, 205",
+      "--paper": "#fcfaf6",
+      "--paper-hover": "#fffdf9",
+      "--menu-shadow": "0 12px 32px rgba(var(--champagne-rgb), 0.16)"
     }
   },
   "typography": {

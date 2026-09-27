@@ -38,6 +38,7 @@ import { F, FS, ICON, LH, MOTION, RADIUS, S, SHADOW, STATE, T, TYPE, alpha, labe
 import { httpStatusMessage } from '@/lib/api/client-error';
 import { captureBestEffort } from '@/lib/observability';
 import type { TodayQueueItem, TodayQueueKind } from '@/lib/today-queue/score';
+import type { TodayQueueEntry } from '@/lib/today-queue/sign';
 
 const KIND_ICON: Record<TodayQueueKind, LucideIcon> = {
   research_doc_review: Eye,
@@ -80,7 +81,7 @@ const KIND_ICON: Record<TodayQueueKind, LucideIcon> = {
 };
 
 interface TodayQueueResponse {
-  items: TodayQueueItem[];
+  items: TodayQueueEntry[];
   count: number;
   totalScanned: number;
   /** C-04: 조회에 실패한 업무 원본 이름. 비어 있지 않으면 «깨끗함» 을 말하지 않는다. */
@@ -434,7 +435,6 @@ export function TodayQueue({
             marginBottom: S[2.5],
             background: T.surface,
             border: `1px solid ${alpha(T.champagne, 0.35)}`,
-            borderLeft: `2px solid ${T.champagne}`,
             borderRadius: RADIUS.md,
             textDecoration: 'none',
             color: T.text,
@@ -552,7 +552,8 @@ export function TodayQueue({
       {items.length > 0 && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[2.5] }}>
           {items.map((item) => {
-            const ItemIcon = KIND_ICON[item.kind] ?? Eye;
+            const overdue = (item as TodayQueueEntry).dueDays !== undefined && ((item as TodayQueueEntry).dueDays as number) < 0;
+            const ItemIcon = overdue ? AlertTriangle : KIND_ICON[item.kind] ?? Eye;
             const aria = `${item.title}: ${item.subtitle}: ${item.cta}`;
             const baseStyle: CSSProperties = {
               display: 'flex',
@@ -561,7 +562,6 @@ export function TodayQueue({
               padding: '16px 18px',
               background: T.surface,
               border: `1px solid ${T.border}`,
-              borderLeft: `2px solid ${scoreToColor(item.score)}`,
               borderRadius: RADIUS.md,
               textDecoration: 'none',
               color: T.text,
@@ -590,7 +590,7 @@ export function TodayQueue({
                     width: 36,
                     height: 36,
                     borderRadius: RADIUS.pill,
-                    background: alpha(T.champagne, 0.06),
+                    background: alpha(overdue ? T.red : scoreToColor(item.score), 0.08),
                     flexShrink: 0,
                   }}
                 >
@@ -598,7 +598,7 @@ export function TodayQueue({
                     size={ICON.sizeMd}
                     strokeWidth={ICON.strokeWidth}
                     aria-hidden="true"
-                    style={{ color: T.champagne }}
+                    style={{ color: overdue ? T.red : scoreToColor(item.score) }}
                   />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -613,7 +613,13 @@ export function TodayQueue({
                       lineHeight: 1.35,
                     }}
                   >
-                    {item.title}
+                    {/* 기한을 넘긴 줄만 빨간 글 · 경고 표시 (화면 검토 A58 · 2026-09-27) */}
+                    {overdue ? (
+                      <span style={{ fontFamily: F.ui, fontSize: FS[11], fontWeight: 600, color: T.red, marginRight: S[1.5] }}>기한 초과</span>
+                    ) : item.score >= 70 ? (
+                      <span style={{ fontFamily: F.ui, fontSize: FS[11], fontWeight: 600, color: T.warning, marginRight: S[1.5] }}>급함</span>
+                    ) : null}
+                    <span style={{ color: overdue ? T.red : T.text }}>{item.title}</span>
                   </div>
                   <div
                     style={{
@@ -718,9 +724,13 @@ export function TodayQueue({
   );
 }
 
-/** 점수 기반 좌측 border 색상: 높을수록 시급 (champagne / warning / red) */
+/**
+ * 점수 기반 급한 정도의 색: 높을수록 시급 (champagne / warning / red).
+ * 🔴 2026-09-27 화면 검토 A10: 이 색으로 그리던 좌측 띠는 걷었다. 이제 앞의 아이콘 칩이 이 색을 받고,
+ *    가장 급한 줄(70점 이상)은 «급함» 글자를 함께 단다(색만으로 말하지 않는다).
+ */
 function scoreToColor(score: number): string {
-  if (score >= 70) return T.red;
+  // 빨강은 «기한 초과» 줄 전용이다(그 줄은 overdue 로 따로 칠한다 · 화면 검토 A58 · 2026-09-27)
   if (score >= 45) return T.warning;
   return T.champagne;
 }

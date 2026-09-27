@@ -607,7 +607,7 @@ html[data-theme='light'] {
 }
 /* 누를 수 있는 줄만 옅은 바탕으로 답합니다. 못 누르는 줄이 반응하면 거짓 어포던스입니다. */
 a.qd-row, button.qd-row { cursor: pointer; }
-a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2); }
+a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2) !important; }
 
 .qd-row-chip {
   display: inline-flex;

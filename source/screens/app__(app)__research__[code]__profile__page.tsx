@@ -30,6 +30,7 @@ const ItemClassificationPreview = dynamic(
   { ssr: false, loading: () => <SkeletonPanel height={160} lines={3} /> },
 );
 import type { ClassifyResponse } from '@/components/ItemClassificationPreview';
+import { TextAction, TextLinkAction } from '@/components/TextAction';
 
 
 interface AnalysisData {
@@ -279,29 +280,28 @@ export default function ProfilePage() {
         title="제품 정보"
         sub="아이디어 · 프로파일 · Q-Atelier 분석"
         actions={
+          // 검정 채운 단추 셋이 나란히 있었다 (화면 검토 A62 · A63 · 2026-09-27). 내려받기 · 다시 분석은
+          // 보조 동작이라 글귀로 둔다.
           <div style={{ display: 'flex', gap: S[2], alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href={`/api/research/${encodeURIComponent(code)}/export-docx`} style={{ textDecoration: 'none' }}>
-              <Btn sm>
-                <Download size={11} style={{ marginRight: S[1] }} />
-                Docx 내보내기
-              </Btn>
-            </a>
-            <a href={`/api/research/${encodeURIComponent(code)}/closure-report`} style={{ textDecoration: 'none' }}>
-              <Btn sm>
-                <Download size={11} style={{ marginRight: S[1] }} />
-                종료 보고서
-              </Btn>
-            </a>
-            <Btn sm onClick={reanalyze} disabled={reanalyzing}>
+            <TextLinkAction href={`/api/research/${encodeURIComponent(code)}/export-docx`}>
+              <Download size={12} style={{ marginRight: S[1] }} aria-hidden="true" />
+              문서 내려받기 (DOCX)
+            </TextLinkAction>
+            <TextLinkAction href={`/api/research/${encodeURIComponent(code)}/closure-report`}>
+              <Download size={12} style={{ marginRight: S[1] }} aria-hidden="true" />
+              종료 보고서 내려받기
+            </TextLinkAction>
+            <TextAction onClick={() => void reanalyze()} disabled={reanalyzing}>
               <RefreshCw
-                size={11}
+                size={12}
+                aria-hidden="true"
                 style={{
                   marginRight: S[1],
                   animation: reanalyzing ? 'qa-spin 1s linear infinite' : 'none',
                 }}
               />
-              {reanalyzing ? '재분석 중...' : 'Q-Atelier 분석 다시 실행'}
-            </Btn>
+              {reanalyzing ? '다시 분석하는 중...' : '분석 다시 실행'}
+            </TextAction>
           </div>
         }
       />
@@ -311,7 +311,7 @@ export default function ProfilePage() {
       <HelpNote>
         제품 프로파일 문항입니다. 의료기기 <strong>등급 · 위험도 · 신체 접촉 · 멸균 · 소프트웨어</strong>
         등을 입력하면, 시스템이 이 답을 근거로 「내 제품에 필요한 인허가 경로 · 문서 · 시험」을
-        자동으로 짚어줍니다. <strong>정확히 답할수록 맞춤 안내가 정교</strong>해져요.
+        자동으로 짚어줍니다. <strong>정확히 답할수록 맞춤 안내가 정교</strong>해집니다.
       </HelpNote>
 
       {/* [RR-5] RA 등급 제안: R&D 가 검토·반영(자동 덮어쓰기 금지). */}
@@ -475,7 +475,7 @@ export default function ProfilePage() {
             </span>
             <span style={{ flex: 1, minWidth: 240 }}>
               Q-Match 후보 중 적합한 품목이 없어 보류 상태입니다. 아이디어를 보완하거나
-              새 후보를 확인하려면 <strong>확정 재개</strong> 를 눌러주세요.
+              새 후보를 확인하려면 <strong>확정 재개</strong> 를 누르십시오.
             </span>
             <button
               type="button"
@@ -518,7 +518,7 @@ export default function ProfilePage() {
               {project.predicted_item_grade != null && (
                 <> ({project.predicted_item_grade}등급)</>
               )}
-              . 아래에서 {Q_MATCH_ENGINE_NAME} 으로 재검토 후 <strong>이 품목으로 확정</strong> 을 눌러 결정해 주세요.
+              . 아래에서 {Q_MATCH_ENGINE_NAME} 으로 재검토 후 <strong>이 품목으로 확정</strong> 을 눌러 결정하십시오.
             </span>
             <button
               type="button"
@@ -559,7 +559,7 @@ export default function ProfilePage() {
           >
             <span style={{ flex: 1, minWidth: 280 }}>
               아직 품목이 결정되지 않았습니다. 아래에서 {Q_MATCH_ENGINE_NAME} 을 실행해 후보를
-              살피고 <strong>이 품목으로 확정</strong> 을 눌러 결정하세요.
+              살피고 <strong>이 품목으로 확정</strong> 을 눌러 결정하십시오.
             </span>
             <button
               type="button"
@@ -666,7 +666,7 @@ export default function ProfilePage() {
         <Bx style={{ padding: S[4.5], marginBottom: S[7], textAlign: 'center' }}>
           <Loader2 size={16} className="animate-spin" style={{ color: T.muted, marginBottom: S[2] }} />
           <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
-            Q-Atelier 분석이 아직 완료되지 않았습니다. 위 「Q-Atelier 분석 다시 실행」 을 눌러주세요.
+            Q-Atelier 분석이 아직 끝나지 않았습니다. 위 「분석 다시 실행」 을 누르십시오.
           </div>
         </Bx>
       ) : (

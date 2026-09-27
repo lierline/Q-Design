@@ -20,7 +20,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BP, S, FS, F, T, LH, RADIUS, alpha } from '@/lib/design/tokens';
+import { BP, S, FS, F, T, LH } from '@/lib/design/tokens';
 
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
@@ -65,8 +65,8 @@ export default function PublicLegalLayout({
           초안 배너는 종전에 여기서 «모든» 자식에게 무조건 그려졌다. 이 그룹에 법률 초안
           셋뿐일 때는 맞았지만, /open-source 가 들어오면서 전제가 깨졌다. 오픈소스 고지는
           초안이 아니라 실제 트리에서 뽑은 사실이라 「최종 입장이 아니다」를 붙이면 안 된다.
-          → `_components/legal-draft-banner.tsx` 한 곳에 정의하고 «초안인 문서만» 부른다.
-             문구의 사본은 여전히 없다(정의 1 · 호출 3).
+          → 그래서 세 문서만 (drafts)/layout.tsx 로 감쌌고, 2026-09-27 오너 결정으로 그 초안 상자도
+             내렸다(법률 검토는 아직 전).
         */}
         {children}
       </main>
@@ -157,34 +157,7 @@ const legalCss = `
   box-sizing: border-box;
 }
 
-.qa-legal-draft {
-  display: flex;
-  flex-direction: column;
-  gap: ${S[1.5]}px;
-  padding: ${S[4]}px ${S[4.5]}px;
-  margin-bottom: ${S[8]}px;
-  border: 1px solid ${alpha(T.warning, 0.45)};
-  border-radius: ${RADIUS.md}px;
-  background: ${alpha(T.warning, 0.08)};
-  font-size: ${FS[12]}px;
-  line-height: ${LH.relaxed};
-  color: ${T.subtle};
-}
-
-.qa-legal-draft strong {
-  font-size: ${FS[13]}px;
-  color: ${T.warning};
-}
-
-.qa-tbd {
-  background: ${alpha(T.warning, 0.22)};
-  color: ${T.text};
-  padding: 0 ${S[1]}px;
-  border-radius: ${RADIUS.sm}px;
-  font-family: ${F.mono};
-  font-size: ${FS[11]}px;
-  white-space: nowrap;
-}
+/* 초안 상자(.qa-legal-draft) · 빈 값 표시(.qa-tbd) 는 2026-09-27 오너 결정으로 공개 화면에서 내려 규칙도 걷었다 */
 
 .qa-legal-doc h1 {
   font-size: ${FS[28]}px;

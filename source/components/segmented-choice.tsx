@@ -13,12 +13,109 @@
 //   · roving tabindex: 골라진 것(없으면 첫 활성 항목)만 Tab 순서에 들어갑니다.
 //   · 좌우(상하) 화살표로 이동하면 곧 선택됩니다(WAI-ARIA 라디오 관례). Home/End 지원.
 //   · disabled 항목은 건너뜁니다. readOnly 는 이동만 하고 선택을 바꾸지 않습니다.
-// 색·크기·배치는 prop 으로 받아 각 화면의 현재 모습을 그대로 유지합니다(fill·color·font·padding·layout).
+// 크기·배치는 prop 으로 받아 각 화면의 현재 모습을 그대로 유지합니다(font·padding·layout).
+//
+// 🔴 2026-09-27 화면 검토 A11 · A38 · A62: «골라진 칸» 이 주 단추와 같은 채운 면(갈색 · 초록 · 파랑)이었다.
+//    선택 표시가 단추처럼 보여 «눌러야 하나» 헷갈렸고, 뜻 색(초록 = 정상)과 겹쳐 상태로 읽혔다.
+//    이제 골라진 칸은 «짙은 테두리 + 체크» 한 가지다(choiceLook). 채운 면은 주 단추 전용이다.
+//    항목 색(color)은 체크 표시에만 남는다. fill 은 옛 호출부 호환으로만 받고 모양을 가르지 않는다.
 //
 // 현장 모드 ChoiceGroup 은 장갑 손 규격(56px)이 따로 있어 그대로 둡니다.
 
 import { useRef, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
 import { S, FS, F, T, RADIUS, MOTION, alpha } from '@/lib/design/tokens';
+
+/**
+ * 선택 칸의 모양 한 벌 (화면 검토 A11 · A38 · A62 · 2026-09-27).
+ * 골라진 칸: 짙은 테두리(글자색 · 안쪽 그림자로 2px 처럼) + 아주 옅은 바탕. 안 골라진 칸: 보통 테두리.
+ * 손으로 짠 선택 칩도 이것을 쓴다. 체크 글자는 CHOICE_CHECK 를 라벨 앞에 둔다.
+ */
+export function choiceLook(on: boolean): CSSProperties {
+  // 모서리는 공용 값(10). 부르는 쪽이 radius 를 따로 주면 그 뒤에 덮는다
+  return on
+    ? {
+        background: alpha(T.text, 0.04),
+        color: T.text,
+        border: `1px solid ${T.text}`,
+        borderRadius: RADIUS.md,
+        boxShadow: `inset 0 0 0 1px ${T.text}`,
+      }
+    : {
+        background: 'transparent',
+        color: T.text,
+        border: `1px solid ${T.border}`,
+        borderRadius: RADIUS.md,
+        boxShadow: 'none',
+      };
+}
+
+/** 골라진 칸의 라벨 앞 체크 표시. 색은 항목의 뜻 색(없으면 글자색) */
+export function ChoiceCheck({ on, color }: { on: boolean; color?: string }) {
+  if (!on) return null;
+  return (
+    <span aria-hidden style={{ color: color ?? T.text, fontWeight: 700, marginRight: S[1] }}>
+      ✓
+    </span>
+  );
+}
+
+/**
+ * 하나씩 누르는 선택 칩 (화면 검토 A11 · A62 · 2026-09-27).
+ * `<Btn p={골랐나}>` 로 선택을 그리면 골라진 칸이 주 단추와 같은 채운 면이 된다. 여러 화면이
+ * 그렇게 짜여 있어 «눌러야 하나» 헷갈렸다. 라디오 묶음이면 SegmentedChoice, 칩 몇 개를 따로
+ * 켜고 끄는 자리(여럿 고르기 포함)면 이것을 쓴다. aria-pressed 로 켜짐을 낭독기에 알린다.
+ */
+export function ChoiceChip({
+  on,
+  onClick,
+  children,
+  disabled,
+  color,
+  sm = true,
+  style,
+  title,
+}: {
+  on: boolean;
+  onClick: () => void;
+  children: ReactNode;
+  disabled?: boolean;
+  /** 체크 표시 색(뜻 색). 면에는 깔지 않는다 */
+  color?: string;
+  sm?: boolean;
+  style?: CSSProperties;
+  title?: string;
+}) {
+  const look = choiceLook(on);
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      disabled={disabled}
+      title={title}
+      className="qa-touch-44"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: sm ? `${S[2]}px ${S[3.5]}px` : `${S[2.5]}px ${S[4.5]}px`,
+        minHeight: sm ? 36 : 44,
+        fontFamily: F.ui,
+        fontSize: sm ? FS[12] : FS[13],
+        fontWeight: on ? 600 : 500,
+        borderRadius: RADIUS.md,
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        opacity: disabled ? 0.5 : 1,
+        transition: `background ${MOTION.fast}, border-color ${MOTION.fast}`,
+        ...look,
+        ...style,
+      }}
+    >
+      <ChoiceCheck on={on} color={color} />
+      {children}
+    </button>
+  );
+}
 
 export interface SegmentedOption<V extends string> {
   value: V;
@@ -46,9 +143,9 @@ export interface SegmentedChoiceProps<V extends string> {
   layout?: 'wrap' | 'grid' | 'column';
   minCol?: number;
   gap?: number;
-  /** solid: 색 배경 + 반전 글자 · tint: 옅은 배경 + 색 글자. */
+  /** @deprecated 2026-09-27 부터 모양을 가르지 않는다(골라진 칸은 choiceLook 한 가지). 옛 호출부 호환용 */
   fill?: 'solid' | 'tint';
-  /** 기본 선택 색. 항목별 color 가 우선합니다. */
+  /** 체크 표시 색. 항목별 color 가 우선합니다. */
   color?: string;
   font?: 'serif' | 'mono';
   fontSize?: number;
@@ -102,7 +199,6 @@ export function SegmentedChoice<V extends string>({
   layout = 'wrap',
   minCol = 140,
   gap = S[2],
-  fill = 'solid',
   color = T.champagne,
   font = 'serif',
   fontSize = FS[13],
@@ -167,8 +263,7 @@ export function SegmentedChoice<V extends string>({
         const on = value === o.value;
         const c = o.color ?? color;
         const disabled = !!o.disabled;
-        const onBg = fill === 'solid' ? c : alpha(c, 0.12);
-        const onFg = fill === 'solid' ? T.onAccent : c;
+        const look = choiceLook(on);
         return (
           <button
             key={o.value}
@@ -199,17 +294,28 @@ export function SegmentedChoice<V extends string>({
               fontSize,
               fontWeight,
               letterSpacing,
-              background: on ? onBg : 'transparent',
-              color: disabled ? T.muted : on ? onFg : T.text,
-              border: `1px solid ${on ? c : T.border}`,
+              ...look,
+              color: disabled ? T.muted : look.color,
               borderRadius: radius,
-              opacity: disabled ? 0.6 : 1,
+              // 못 고르는 항목은 옅은 글자색 하나로 말한다. 불투명도(0.6)까지 겹치면 글자가 거의 안 보여
+              // 무엇이 잠겼는지 읽을 수 없었다(화면 검토 A84 · 2026-09-27 · 부작용 보고 유형)
+              opacity: 1,
               cursor: disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer',
               transition: `background ${MOTION.fast}, color ${MOTION.fast}, border-color ${MOTION.fast}`,
               ...itemStyle,
             }}
           >
-            {o.label}
+            {o.sub ? (
+              <span>
+                <ChoiceCheck on={on} color={c} />
+                {o.label}
+              </span>
+            ) : (
+              <>
+                <ChoiceCheck on={on} color={c} />
+                {o.label}
+              </>
+            )}
             {o.sub && (
               <span style={{ fontSize: FS[10], opacity: 0.8, fontFamily: F.mono, fontWeight: 500 }}>{o.sub}</span>
             )}

@@ -18,6 +18,7 @@ import { isoDateTime } from '@/lib/date';
 import { computeResearchProgress } from '@/lib/research/progress';
 import { latestResult } from './utils';
 import type { AssessmentRow, OrgSubRow } from './types';
+import { subscriptionPlanLabel, SUBSCRIPTION_STATUS_LABEL } from '@/lib/subscription/plan-policy';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // OrgBreakdownList: KPI 툴팁 안에서 조직별 breakdown 표시.
@@ -455,7 +456,8 @@ function orgSubColumns(tierColor: Record<string, string>): DataTableColumn<OrgSu
       key: 'plan',
       header: '플랜',
       width: '110px',
-      render: (row) => <Tag color={tierColor[row.tier] ?? T.muted}>{row.tier.toUpperCase()}</Tag>,
+      // 요금제 표기를 한 벌로 (화면 검토 A29 · 2026-09-27)
+      render: (row) => <Tag color={tierColor[row.tier] ?? T.muted}>{subscriptionPlanLabel(row.tier)}</Tag>,
     },
     {
       key: 'usage',
@@ -497,7 +499,7 @@ function orgSubColumns(tierColor: Record<string, string>): DataTableColumn<OrgSu
       header: '상태',
       width: '110px',
       render: (row) => (
-        <Tag color={row.status === 'active' ? T.green : T.red}>{row.status.toUpperCase()}</Tag>
+        <Tag color={row.status === 'active' ? T.green : T.red}>{SUBSCRIPTION_STATUS_LABEL[row.status] ?? row.status}</Tag>
       ),
     },
     {
