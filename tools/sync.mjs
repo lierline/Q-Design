@@ -35,6 +35,13 @@ const MARK = 'q-design-nav-sha256:';
 /** TS 머리표의 끝 표시. 본문이 주석으로 시작해도 안전하게 자르기 위한 것입니다. */
 const END_MARK = '// q-design-header-end';
 const write = process.argv.includes('--write');
+/*
+ * 받는 제품 일부만(2026-09-27). 다른 세션이 어떤 제품 폴더에서 커밋 안 된 고침을 들고 일하는 중이면
+ * 그 폴더에 사본을 쓰는 순간 인덱스가 섞입니다. `--only=Q-Sonar,Q-Forge` 처럼 이름을 적으면 그 제품만
+ * 보고 씁니다. 빠진 제품은 다음에 다시 돌려 맞춥니다(지문이 어긋남으로 남아 잊히지 않습니다).
+ */
+const onlyArg = process.argv.find((a) => a.startsWith('--only='));
+const only = onlyArg ? new Set(onlyArg.slice('--only='.length).split(',').map((x) => x.trim()).filter(Boolean)) : null;
 
 /**
  * 머리표를 뺀 본문. 받는 쪽 검사도 이 함수와 같은 규칙으로 잘라야 합니다.
@@ -131,6 +138,10 @@ for (const part of PARTS) {
   const digest = sha(body);
   console.log(`${part.name}  ${digest.slice(0, 12)}…`);
   for (const [who, path] of Object.entries(part.to)) {
+    if (only && !only.has(who)) {
+      console.log(`  건너뜀  ${who}  (--only)`);
+      continue;
+    }
     const has = existsSync(path);
     const same = has && sha(bodyOf(readFileSync(path, 'utf8'), part.lang)) === digest;
     if (!same) drift++;
