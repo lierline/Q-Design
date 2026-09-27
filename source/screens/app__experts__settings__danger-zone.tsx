@@ -63,7 +63,7 @@ export function ExpertDangerZone() {
     });
     const data = await res.json();
     if (!res.ok) {
-      setError(data.message ?? data.error ?? 'Account deletion failed. Please try again later.');
+      setError(data.message ?? data.error ?? '계정을 삭제하지 못했습니다. 잠시 뒤 다시 시도해 주십시오.');
       setBusy(false);
       return;
     }
@@ -94,8 +94,11 @@ export function ExpertDangerZone() {
         }
 
         .expert-danger-card {
-          /* luxe-card 기본값 + 왼쪽 burgundy 라인. */
-          background: rgba(24, 22, 26, 0.55);
+          /* luxe-card 기본값 + 왼쪽 burgundy 라인.
+             🔴 2026-09-27 화면 검토(A41): 배경을 어두운 색으로 박아 두어, 밝은 테마에서 글자
+                (--cream-muted #4a4540)가 어두운 바탕에 놓여 거의 안 읽혔다. 되돌릴 수 없는 일을
+                설명하는 글이라 luxe-card 와 같은 테마 변수를 쓴다. */
+          background: rgba(var(--velvet-rgb), 0.4);
           border: 1px solid var(--hairline);
           border-left: 2px solid var(--burgundy);
           border-radius: var(--radius);

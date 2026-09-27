@@ -362,7 +362,7 @@ export function AIQuickAccessFab() {
         <IfuClassifyDrawer controlledOpen={classifyOpen} onClose={() => setClassifyOpen(false)} />
       )}
 
-      {/* Quick Approve: 별도 페이지(/m/approve) 대신 팝업으로 통일. */}
+      {/* Quick Approve: 결재함(/approve)과 같은 부품을 팝업으로 띄운다. */}
       {approveOpen && (
         <QuickApproveDrawer controlledOpen={approveOpen} onClose={() => setApproveOpen(false)} />
       )}

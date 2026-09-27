@@ -180,6 +180,8 @@ export function CustomizableWidgetBoard({
       <button
         type="button"
         onClick={() => setEditing((v) => !v)}
+        // 터치 화면에서 모양은 두고 누르는 자리만 넓힌다(globals.css · 알약 높이 28)
+        className="qa-touch-hit"
         style={{
           display: 'inline-flex',
           alignItems: 'center',

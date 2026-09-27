@@ -461,6 +461,8 @@ export default function NewAssessmentPage() {
                     key={st.id}
                     type="button"
                     onClick={() => toggleArr(setSubTypes, subTypes, st.id)}
+                    // 터치 화면에서는 높이 44(globals.css · 세부 유형 칩 29). PC 는 그대로
+                    className="qa-touch-44"
                     style={{
                       borderRadius: RADIUS.md,
                       padding: '7px 14px',
@@ -684,6 +686,7 @@ export default function NewAssessmentPage() {
                       onClick={() =>
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'none' }))
                       }
+                      className="qa-touch-44"
                       style={{
                         borderRadius: RADIUS.md,
                         flex: 1,
@@ -704,6 +707,7 @@ export default function NewAssessmentPage() {
                       onClick={() =>
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'has' }))
                       }
+                      className="qa-touch-44"
                       style={{
                         borderRadius: RADIUS.md,
                         flex: 1,

@@ -158,6 +158,7 @@ export function ListToolbar({
             defaultValue={q}
             placeholder={`${searchIn} 검색`}
             aria-label={`${searchIn} 검색`}
+            className="qa-touch-44"
             style={{ ...칸, flex: 1 }}
           />
         </span>
@@ -167,6 +168,7 @@ export function ListToolbar({
             name="sort"
             defaultValue={sort?.key ?? sorts[0].key}
             aria-label="정렬"
+            className="qa-touch-44"
             style={{ ...칸, padding: `0 ${S[3]}px`, flex: '0 0 auto' }}
           >
             {sorts.map((o) => (
@@ -179,6 +181,7 @@ export function ListToolbar({
 
         <button
           type="submit"
+          className="qa-touch-44"
           style={{
             height: 36,
             padding: `0 ${S[4]}px`,

@@ -38,7 +38,7 @@ const tokens = JSON.parse(readFileSync(join(OUT, 'q-design.tokens.json'), 'utf8'
 
 // ── 구역 자르기 ──────────────────────────────────────────────────────────────
 // 파일 전체에 정규식을 걸면 접힘 상태 값과 펼침 상태 값이 섞입니다.
-// (접힌 레일은 2px 테두리 · 펼친 레일은 3px 입니다. 둘은 다른 값입니다.)
+// (접힌 레일과 펼친 레일이 같은 속성을 다른 값으로 씁니다. 아이콘 18 · 16 이 그렇습니다.)
 function slice(text, from, to, what) {
   const a = text.indexOf(from);
   if (a < 0) throw new Error(`구역 시작을 못 찾았습니다 [${what}]: ${from}`);
@@ -55,11 +55,12 @@ const Z = {
   navEl: slice(sidebar, '<nav\n        ref={navRef}', '{isExpert ? (', 'nav'),
   brand: slice(sidebar, '{/* Logo: flexShrink:0.', '{/* Nav: 데스크톱은', 'brand'),
   itemConst: slice(sidebar, "const NAV_ITEM_PADDING", 'function NavLink(', 'itemConst'),
-  // 항목 하나가 네 조각(링크 · 아이콘 · 점 · 배지)이고 조각마다 fontSize 가
+  // 항목 하나가 네 조각(링크 · 아이콘 · 선택 밑줄 · 배지)이고 조각마다 치수가
   // 있습니다. 한 구역으로 두면 어느 값인지 모르는 채로 뽑게 됩니다.
   itemLink: slice(sidebar, "key={`${href}-${active ? 'active' : 'idle'}`}", '      <span\n        aria-hidden', 'itemLink'),
-  itemIcon: slice(sidebar, '      <span\n        aria-hidden', '<span style={{ flex: 1 }}>', 'itemIcon'),
-  itemDot: slice(sidebar, 'className="qa-nav-active-dot"', '{badge !== undefined && (', 'itemDot'),
+  itemIcon: slice(sidebar, '      <span\n        aria-hidden', "<span style={{ flex: 1, position: 'relative' }}>", 'itemIcon'),
+  // 2026-09-27 «문서 결»(docs/24): 왼쪽 금막대 · 오른쪽 금점 대신 글자 밑 짧은 금색 선
+  itemMark: slice(sidebar, 'className="qa-nav-active-underline"', '/>', 'itemMark'),
   // 앞에 줄바꿈을 붙입니다. 들여쓰기만 다른 접힘 상태의 같은 줄(8칸)이
   // 6칸짜리 표지를 부분 문자열로 품고 있어, 그것부터 잘려 배지가 둘 잡혔습니다.
   itemBadge: slice(sidebar, '\n      {badge !== undefined && (', '/* ─── Subcomponents', 'itemBadge'),
@@ -97,11 +98,15 @@ const PROBES = [
   ['item.tracking',         Z.itemLink, /letterSpacing: ([\d.]+),/, Number],
   ['item.activeWeight',     Z.itemLink, /fontWeight: active \? (\d+) : \d+,/, Number],
   ['item.idleWeight',       Z.itemLink, /fontWeight: active \? \d+ : (\d+),/, Number],
-  ['item.railWidth',        Z.itemLink, /borderLeft: `(\d+)px solid/, Number],
+  // 금막대가 차지하던 3px 를 왼쪽 여백으로 돌렸습니다(글자 자리가 그대로입니다).
+  ['item.paddingLeft',      Z.itemLink, /paddingLeft: (\d+),/, Number],
   ['item.iconBox',          Z.itemIcon, /width: (\d+),\n          height: \d+,/, Number],
   ['item.iconGlyph',        Z.itemIcon, /<Icon size=\{(\d+)\} strokeWidth=\{[\d.]+\} \/>/, Number],
   ['item.iconStroke',       Z.itemIcon, /<Icon size=\{\d+\} strokeWidth=\{([\d.]+)\} \/>/, Number],
-  ['item.dotSize',          Z.itemDot,  /width: (\d+),/, Number],
+  ['item.markWidth',        Z.itemMark, /width: (\d+),/, Number],
+  ['item.markHeight',       Z.itemMark, /height: ([\d.]+),/, Number],
+  ['item.markOffset',       Z.itemMark, /bottom: (-?\d+),/, Number],
+  ['item.markRadius',       Z.itemMark, /borderRadius: (\d+),/, Number],
   ['item.badgePadding',     Z.itemBadge, /padding: '(\d+px \d+px)',/, String],
 
   // 묶음 이름표
@@ -162,15 +167,16 @@ for (const [path, zone, re, cast] of PROBES) {
   put('rail.width', Number(m[2]));
 }
 
-// 활성 점의 펄스는 globals.css 에 있습니다.
+// 선택 밑줄이 펼쳐지는 움직임은 globals.css 에 있습니다.
 {
   const m = globals.match(
-    /@keyframes qa-nav-active-pulse \{([\s\S]*?)\}\n\.qa-nav-active-dot \{\n\s*animation: qa-nav-active-pulse (\d+)ms (cubic-bezier\([^)]+\)) 1;/,
+    /@keyframes qa-nav-active-underline-in \{([\s\S]*?)\}\n\.qa-nav-active-underline \{\n\s*transform-origin: ([^;]+);\n\s*animation: qa-nav-active-underline-in (\d+)ms (cubic-bezier\([^)]+\)) 1;/,
   );
-  if (!m) throw new Error('활성 점 펄스 키프레임을 못 찾았습니다.');
-  put('item.dotPulseMs', Number(m[2]));
-  put('item.dotPulseEase', m[3]);
-  put('item.dotPulseKeyframes', m[1].trim().replace(/\s+/g, ' '));
+  if (!m) throw new Error('선택 밑줄의 펼침 키프레임을 못 찾았습니다.');
+  put('item.markOrigin', m[2].trim());
+  put('item.markMs', Number(m[3]));
+  put('item.markEase', m[4]);
+  put('item.markKeyframes', m[1].trim().replace(/\s+/g, ' '));
 }
 
 // 로그아웃 단추는 공용 Btn(secondary · sm)입니다. 그 치수를 components.tsx 에서 봅니다.
@@ -292,7 +298,6 @@ const css = `/* ================================================================
             <a class="qd-nav-item is-active">
               <span class="qd-nav-icon">svg</span>
               <span class="qd-nav-label">이름</span>
-              <span class="qd-nav-dot"></span>
             </a>
           </nav>
           <div class="qd-rail-version"><span>Q-SONAR</span><b>v1.0.0</b></div>
@@ -455,15 +460,16 @@ ${bindBlock('light')}
 }
 
 /* ── 항목 ──────────────────────────────────────────────────────────────────
-   모서리를 굴리지 않습니다. 왼쪽 금막대가 항목 높이를 «꽉» 채워야 눈이 세로로
-   훑을 때 걸립니다. 굴린 알약으로 만들면 막대가 안쪽으로 들어가 흐려집니다. */
+   2026-09-27 «문서 결»(오너 결정 · docs/24): 선택 표시는 굵은 글자와 글자 밑 짧은 금색 선입니다.
+   종전의 왼쪽 금막대와 오른쪽 금점은 걷었습니다. 막대가 차지하던 자리는 왼쪽 여백으로 돌려
+   (padding-left) 글자 자리가 그대로입니다. 모서리는 굴리지 않습니다. */
 .qd-nav-item {
   position: relative;
   display: flex;
   align-items: center;
   gap: ${px(spec.item.gap * 4)};
   padding: ${spec.item.padding};
-  border-left: ${px(spec.item.railWidth)} solid transparent;
+  padding-left: ${px(spec.item.paddingLeft)};
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.item.fontSize)};
   font-weight: ${spec.item.idleWeight};
@@ -471,7 +477,7 @@ ${bindBlock('light')}
   color: var(--qd-subtle);
   background: transparent;
   text-decoration: none;
-  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  transition: background-color 0.12s ease, color 0.12s ease;
 }
 .qd-nav-item:hover:not(.is-active) {
   background-color: var(--qd-surface2);
@@ -481,7 +487,6 @@ ${bindBlock('light')}
   color: var(--qd-text);
   font-weight: ${spec.item.activeWeight};
   background: var(--qd-surface2);
-  border-left-color: var(--qd-accent);
 }
 .qd-nav-icon {
   display: inline-flex;
@@ -499,6 +504,7 @@ ${bindBlock('light')}
 }
 .qd-nav-item.is-active .qd-nav-icon { color: var(--qd-accent); }
 .qd-nav-label {
+  position: relative;
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -506,20 +512,33 @@ ${bindBlock('light')}
   white-space: nowrap;
 }
 
-/* 활성 점. 들어설 때 한 번만 뛰고 그 뒤로는 가만히 있습니다. */
-.qd-nav-dot {
-  width: ${px(spec.item.dotSize)};
-  height: ${px(spec.item.dotSize)};
-  border-radius: 50%;
+/* 선택 밑줄. 들어설 때 한 번 왼쪽부터 펼쳐지고 그 뒤로는 가만히 있습니다.
+   이름표는 말줄임 때문에 넘친 것을 자릅니다(overflow: hidden). 그래서 선이 들어갈 자리를 아래 안쪽
+   여백으로 만들고 같은 만큼 바깥 여백을 줄여, 줄 높이와 글자 자리가 그대로입니다.
+   원본은 글자 아래 ${-spec.item.markOffset}px 에 놓인 별도 요소(qa-nav-active-underline)입니다. */
+.qd-nav-item.is-active .qd-nav-label {
+  padding-bottom: ${px(-spec.item.markOffset)};
+  margin-bottom: ${px(spec.item.markOffset)};
+}
+.qd-nav-item.is-active .qd-nav-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: ${px(spec.item.markWidth)};
+  height: ${px(spec.item.markHeight)};
+  border-radius: ${px(spec.item.markRadius)};
   background: var(--qd-accent);
-  flex-shrink: 0;
-  margin-right: 2px;
-  animation: qd-nav-dot-pulse ${spec.item.dotPulseMs}ms ${spec.item.dotPulseEase} 1;
+  transform-origin: ${spec.item.markOrigin};
+  animation: qd-nav-mark-in ${spec.item.markMs}ms ${spec.item.markEase} 1;
 }
-@keyframes qd-nav-dot-pulse { ${spec.item.dotPulseKeyframes} }
+@keyframes qd-nav-mark-in { ${spec.item.markKeyframes} }
 @media (prefers-reduced-motion: reduce) {
-  .qd-nav-dot { animation: none; }
+  .qd-nav-item.is-active .qd-nav-label::after { animation: none; }
 }
+/* 2026-09-27 걷은 금점. 받는 제품의 마크업에 아직 남아 있어도 보이지 않게 둡니다
+   (마크업에서 걷을 때까지의 다리입니다. 받는 세 제품에서 걷고 나면 이 줄도 지웁니다). */
+.qd-nav-dot { display: none; }
 
 .qd-nav-badge {
   flex-shrink: 0;
@@ -534,7 +553,6 @@ ${bindBlock('light')}
   color: var(--qd-on-accent);
   background: var(--qd-danger);
 }
-.qd-nav-dot + .qd-nav-badge { margin-left: 4px; }
 
 /* 조용한 배지. 「3」 같은 숫자가 아니라 「26일」 처럼 읽는 말이 들어가는 자리입니다.
    빨간 알약으로 만들면 급하지 않은 것이 급해 보이고, 열 칸에 열 개가 켜집니다. */
@@ -794,7 +812,7 @@ console.log(`dist/q-design.nav.css   ${lines} 줄`);
 console.log(`dist/q-design.nav.json  치수 ${flat(spec).length} 개`);
 console.log('');
 console.log('  레일    ' + spec.rail.width + 'px · 패딩 ' + spec.rail.padding + ' · 서랍 ' + spec.rail.drawerWidth + 'px');
-console.log('  항목    ' + spec.item.padding + ' · ' + spec.item.fontSize + 'px · 금막대 ' + spec.item.railWidth + 'px · 점 ' + spec.item.dotSize + 'px');
+console.log('  항목    ' + spec.item.padding + ' · 왼쪽 ' + spec.item.paddingLeft + 'px · ' + spec.item.fontSize + 'px · 선택 밑줄 ' + spec.item.markWidth + 'x' + spec.item.markHeight + 'px');
 console.log('  아이콘  자리 ' + spec.item.iconBox + ' · 글리프 ' + spec.item.iconGlyph + ' · 굵기 ' + spec.item.iconStroke);
 console.log('  묶음    ' + spec.group.padding + ' · ' + spec.group.fontSize + 'px · 자간 ' + spec.group.tracking);
 console.log('  바닥    아바타 ' + spec.foot.avatarSize + ' · 이름 ' + spec.foot.nameFontSize + ' · 메타 ' + spec.foot.metaFontSize);

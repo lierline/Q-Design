@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState, type ComponentType } from 'react';
+import { useEffect, useRef, useState, type ComponentType, type CSSProperties } from 'react';
 import {
   LayoutDashboard,
   ClipboardList,
@@ -84,6 +84,25 @@ const STORAGE_KEY_LEGACY = 'qa-sidebar-collapsed'; // 계정 구분이 없던 �
 const collapseKeyFor = (who: string) => `qa-sidebar-collapsed:${who}`;
 const DRAWER_BP = BP.lg; // 1024px: 그 미만은 drawer 모드
 const SWIPE_CLOSE_THRESHOLD = 60; // px: 좌측 스와이프 임계값
+
+/** 좌상단 차림표 열기 단추. display 는 넣지 않는다: 첫 그림의 자리표시 단추는 globals.css 가 폭으로 켠다 */
+const DRAWER_FAB_STYLE: CSSProperties = {
+  position: 'fixed',
+  // L1: notch / dynamic island 회피: safe-area-inset-top 만큼 내려서 배치
+  top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+  left: 'calc(env(safe-area-inset-left, 0px) + 12px)',
+  zIndex: Z.drawerFab,
+  width: 44,
+  height: 44,
+  background: T.surface,
+  border: `1px solid ${T.border}`,
+  borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 차림표 발치도 전부 굴린다(통일)
+  color: T.text,
+  cursor: 'pointer',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxShadow: 'var(--qa-shadow-sm)',
+};
 
 export function Sidebar(props: SidebarProps) {
   const { theme, mode, toggleTheme } = useTheme();
@@ -195,19 +214,30 @@ export function Sidebar(props: SidebarProps) {
     });
   }
 
-  // SSR / 첫 paint: 데스크탑 가정 (가장 흔한 케이스). 마운트 후 isMobile 동기화.
+  // SSR / 첫 paint: 서버는 화면 폭을 모르므로 데스크탑 차림표를 그리고, 폭이 lg 미만이면 CSS 가 그것을 감추고
+  // 자리표시 단추를 켠다(globals.css 「첫 그림의 차림표」). 마운트 후 isMobile 로 진짜 모양이 들어선다.
+  // 🔴 2026-09-27 가상 폰 앱을 켤 때 데스크탑 차림표가 화면의 60% 를 덮은 채 먼저 그려졌다. 스크립트를 받을
+  //    때까지 그 모양이라, 망이 느린 폰일수록 오래 보였다. 감싸개는 display: contents 라 데스크탑 배치는 그대로다.
   if (!mounted) {
     return (
-      <SidebarBody
-        {...props}
-        collapsed={false}
-        theme={theme}
-        mode={mode}
-        toggleTheme={toggleTheme}
-        onToggle={() => {}}
-        isMobile={false}
-        drawerOpen={false}
-      />
+      <>
+        <div className="qa-sidebar-ssr">
+          <SidebarBody
+            {...props}
+            collapsed={false}
+            theme={theme}
+            mode={mode}
+            toggleTheme={toggleTheme}
+            onToggle={() => {}}
+            isMobile={false}
+            drawerOpen={false}
+          />
+        </div>
+        {/* 스크립트가 붙기 전이라 눌러도 열리지 않는다. 붙는 즉시 같은 자리의 진짜 단추로 바뀐다 */}
+        <button type="button" className="qa-drawer-fab-ssr" aria-label="사이드바 열기" aria-expanded={false} style={DRAWER_FAB_STYLE}>
+          <MenuIcon size={20} />
+        </button>
+      </>
     );
   }
 
@@ -236,24 +266,7 @@ export function Sidebar(props: SidebarProps) {
           onClick={() => setDrawerOpen(true)}
           aria-label="사이드바 열기"
           aria-expanded={false}
-          style={{
-            position: 'fixed',
-            // L1: notch / dynamic island 회피: safe-area-inset-top 만큼 내려서 배치
-            top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
-            left: 'calc(env(safe-area-inset-left, 0px) + 12px)',
-            zIndex: Z.drawerFab,
-            width: 44,
-            height: 44,
-            background: T.surface,
-            border: `1px solid ${T.border}`,
-            borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 차림표 발치도 전부 굴린다(통일)
-            color: T.text,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 'var(--qa-shadow-sm)',
-          }}
+          style={{ ...DRAWER_FAB_STYLE, display: 'flex' }}
         >
           <MenuIcon size={20} />
         </button>
@@ -527,6 +540,8 @@ function SidebarBody({
         <Link
           href="/dashboard"
           aria-label="홈으로"
+          // qa-sidebar-logo: 높이 820 이하 화면에서 로고를 줄인다(globals.css · 오너 결정 2026-09-27)
+          className="qa-sidebar-logo"
           style={{
             marginBottom: S[5.5],
             flexShrink: 0,
@@ -940,7 +955,8 @@ function SidebarBody({
           flexShrink:0 으로 줄어들지 않게.
           ★ 디자인 통일: RuleEngineBadge 의 'left brand / right version' 레이아웃을
             동일 패턴으로 Q-Atelier 에도 적용. fontSize / letterSpacing / color tone 정렬. */}
-      <div style={{ flexShrink: 0 }}>
+      {/* qa-sidebar-versions: 높이 820 이하 화면에서는 접는다(globals.css · 오너 결정 2026-09-27 「낮은 화면만 줄이기」) */}
+      <div className="qa-sidebar-versions" style={{ flexShrink: 0 }}>
         <RuleEngineBadge variant="sidebar" compact={collapsed && !isMobile} />
         {!(collapsed && !isMobile) && (
           <div
@@ -1161,11 +1177,9 @@ function NavLink({
           height: 42,
           margin: '1px 0',
           color: active ? T.champagne : T.subtle,
-          // 접힘 상태에선 좌측 rail 대신 champagne tinted 사각으로 active 강조
-          //: 로고가 작아진 만큼 nav 의 시각 무게감을 살림.
+          // 접힘 상태: champagne 옅은 사각 + 금빛 아이콘으로 active 강조(2026-09-27 왼쪽 2px 선은 걷었다 · «문서 결»)
           background: active ? `${alpha(T.champagne, 0.10)}` : 'transparent',
-          borderLeft: `2px solid ${active ? T.champagne : 'transparent'}`,
-          transition: 'background 0.14s ease, color 0.14s ease, border-color 0.14s ease',
+          transition: 'background 0.14s ease, color 0.14s ease',
         }}
       >
         {/* Fixed-size SVG icon: same dimensions for every nav item */}
@@ -1211,22 +1225,24 @@ function NavLink({
   return (
     <Link
       href={href}
-      key={`${href}-${active ? 'active' : 'idle'}`}  /* active 진입 시 dot remount → pulse 한 번 */
+      key={`${href}-${active ? 'active' : 'idle'}`}  /* active 진입 시 밑줄 remount → 한 번 펼쳐짐 */
       className={`qa-nav-item${active ? ' active' : ''}`}
       style={{
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
         gap: S[3],
+        // 선택 표시(2026-09-27 «문서 결» · Q-Design docs/24): 왼쪽 3px 금색 막대 · 오른쪽 금색 점 대신 굵은 글자 +
+        //   글자 밑 짧은 금색 선. 막대가 차지하던 3px 는 왼쪽 여백으로 돌려 글자 자리가 그대로다.
         padding: NAV_ITEM_PADDING,
+        paddingLeft: 17,
         color: active ? T.text : T.subtle,
         background: active ? T.surface2 : 'transparent',
-        borderLeft: `3px solid ${active ? T.champagne : 'transparent'}`,
         fontSize: FS[14],
         fontFamily: F.ui,
-        fontWeight: active ? 500 : 400,
+        fontWeight: active ? 600 : 400,
         letterSpacing: 0.1,
-        transition: 'background 0.14s ease, color 0.14s ease, border-color 0.14s ease',
+        transition: 'background 0.14s ease, color 0.14s ease',
       }}
     >
       <span
@@ -1243,22 +1259,17 @@ function NavLink({
       >
         <Icon size={16} strokeWidth={1.75} />
       </span>
-      <span style={{ flex: 1 }}>{label}</span>
-      {/* active dot: 진입 시 한 번 pulse, 그 후 정적 champagne dot */}
-      {active && (
-        <span
-          aria-hidden
-          className="qa-nav-active-dot"
-          style={{
-            width: 6,
-            height: 6,
-            borderRadius: '50%',
-            background: T.champagne,
-            flexShrink: 0,
-            marginRight: badge !== undefined ? 6 : 2,
-          }}
-        />
-      )}
+      <span style={{ flex: 1, position: 'relative' }}>
+        {label}
+        {/* 선택 표시: 글자 밑 짧은 금색 선(16px). 진입 시 한 번 펼쳐진다(qa-nav-active-underline) */}
+        {active && (
+          <span
+            aria-hidden
+            className="qa-nav-active-underline"
+            style={{ position: 'absolute', left: 0, bottom: -5, width: 16, height: 1.5, borderRadius: 1, background: T.champagne }}
+          />
+        )}
+      </span>
       {badge !== undefined && (
         <span
           style={{
@@ -1559,9 +1570,9 @@ function WorkspaceNavGroup({
                 gap: S[3],
                 width: '100%',
                 padding: NAV_ITEM_PADDING,
+                paddingLeft: 17, // NavLink 과 같은 글자 자리(종전 투명 3px 왼쪽 선 대신 · 2026-09-27)
                 background: 'transparent',
                 border: 'none',
-                borderLeft: '3px solid transparent',
                 color: T.subtle,
                 fontSize: FS[14],
                 fontFamily: F.ui,

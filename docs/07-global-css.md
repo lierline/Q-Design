@@ -79,7 +79,8 @@ html { transition: background-color 0.2s ease, color 0.2s ease; }
 | `.qa-fade-in` | 비동기 위젯 등장 (6px · 480ms) |
 | `.qa-pulse` | 부드러운 맥박 (2s 무한) |
 | `.qa-toast-shake` | 좌우 흔들림 (240ms 1회) |
-| `.qa-nav-active-dot` | 사이드바 활성 점 (600ms 1회) |
+| `.qa-nav-active-underline` | 사이드바 선택 밑줄 (왼쪽부터 펼침 · 320ms 1회 · 2026-09-27 금점을 대신함) |
+| `.qa-row-clickable` | 누를 수 있는 괘선 줄 (올리면 surface2 바탕 · EntityRow) |
 
 ### 레이아웃
 
@@ -130,7 +131,7 @@ qa-toast-progress scaleX 1→0 (TTL 카운트다운)
 qa-toast-shake    ±3px
 qa-fld-error-rise -4px 에서 내려옴 (입력 오류)
 qa-tip-rise       2px 떠오름 (툴팁, translateX 보존)
-qa-nav-active-pulse  scale 1→1.4 (1회)
+qa-nav-active-underline-in  scaleX 0→1 (1회 · 선택 밑줄)
 ```
 
 **무한 반복은 각각 `prefers-reduced-motion` 에서 `animation: none` 을 따로 선언합니다.**

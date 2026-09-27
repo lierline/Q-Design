@@ -85,6 +85,8 @@ interface TodayQueueResponse {
   totalScanned: number;
   /** C-04: 조회에 실패한 업무 원본 이름. 비어 있지 않으면 «깨끗함» 을 말하지 않는다. */
   failedSources?: string[];
+  /** 결재함에 있는 결재 건수. 결재는 이 목록에 없고(오너 결정 2026-09-27 「결재는 결재함에만」) 입구만 둔다 */
+  approvalCount?: number;
 }
 
 // 권한별 오늘 처리할 것 설명 데이터
@@ -289,6 +291,7 @@ export function TodayQueue({
   // 비어있을 때: 평온한 메시지 (다 처리됨)
   const items = data?.items ?? [];
   const failed = data?.failedSources ?? [];
+  const approvalCount = data?.approvalCount ?? 0;
 
   return (
     // marginBottom 제거: 대시보드 보드(CustomizableWidgetBoard)의 gap 이 섹션 간
@@ -418,6 +421,69 @@ export function TodayQueue({
         }
       `}</style>
 
+      {/* 결재 입구: 결재는 결재함에서만 처리한다(오너 결정 2026-09-27). 목록 줄과 같은 모양으로 맨 위에 둔다 */}
+      {approvalCount > 0 && (
+        <Link
+          href="/approve"
+          aria-label={`결재할 안건 ${approvalCount}건: 결재함 열기`}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: S[3.5],
+            padding: '16px 18px',
+            marginBottom: S[2.5],
+            background: T.surface,
+            border: `1px solid ${alpha(T.champagne, 0.35)}`,
+            borderLeft: `2px solid ${T.champagne}`,
+            borderRadius: RADIUS.md,
+            textDecoration: 'none',
+            color: T.text,
+            minHeight: 68,
+            boxShadow: SHADOW.hairline,
+          }}
+        >
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 36,
+              height: 36,
+              borderRadius: RADIUS.pill,
+              background: alpha(T.champagne, 0.06),
+              flexShrink: 0,
+            }}
+          >
+            <PenLine size={ICON.sizeMd} strokeWidth={ICON.strokeWidth} aria-hidden="true" style={{ color: T.champagne }} />
+          </span>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[15], fontWeight: 600, color: T.text, marginBottom: 3, lineHeight: 1.35 }}>
+              결재할 안건 {approvalCount}건
+            </span>
+            <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
+              결재는 결재함에서 처리합니다. 폰에서도 됩니다.
+            </span>
+          </span>
+          <span
+            className="qa-today-cta"
+            aria-hidden="true"
+            style={{
+              fontSize: FS[12],
+              fontWeight: 500,
+              color: T.champagne,
+              padding: '6px 12px',
+              border: `1px solid ${alpha(T.champagne, 0.35)}`,
+              borderRadius: RADIUS.md,
+              flexShrink: 0,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            결재함 열기
+          </span>
+          <ChevronRight size={ICON.sizeSm} strokeWidth={ICON.strokeWidth} color={T.subtle} style={{ flexShrink: 0 }} aria-hidden="true" />
+        </Link>
+      )}
+
       {loading && !data && (
         <Bx style={{ padding: S[6], background: alpha(T.champagne, 0.02) }}>
           <div style={{ fontSize: FS[13], color: T.subtle }}>오늘 처리할 것을 정리 중...</div>
@@ -468,7 +534,7 @@ export function TodayQueue({
               marginBottom: S[1.5],
             }}
           >
-            {failed.length > 0 ? '일부 업무를 불러오지 못했습니다.' : '오늘은 깨끗합니다.'}
+            {failed.length > 0 ? '일부 업무를 불러오지 못했습니다.' : approvalCount > 0 ? '결재 말고 다른 할 일은 없습니다.' : '오늘은 깨끗합니다.'}
           </div>
           <div style={{ ...TYPE.caption, color: failed.length > 0 ? T.warning : T.subtle }}>
             {failed.length > 0

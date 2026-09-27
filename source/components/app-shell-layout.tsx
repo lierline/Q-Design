@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
@@ -8,7 +8,9 @@ import { gateMenusByModules, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/l
 import { loadEnabledModules } from '@/lib/subscription/module-gate';
 import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } from '@/lib/subscription/plan-policy';
 import { menuForPath } from '@/lib/nav/menu-for-path';
+import { isPhoneAppRequest, PHONE_COOKIE, PHONE_HOME } from '@/lib/nav/phone-mode';
 import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
+import { PhoneModeGate } from '@/components/PhoneModeGate';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
 import { AppPushSync } from '@/components/AppPushSync';
 import { RibbonBackground } from '@/components/RibbonBackground';
@@ -34,6 +36,7 @@ import { WelcomeFlow } from '@/components/WelcomeFlow';
 import { resolveGsRole } from '@/lib/onboarding/getting-started';
 import { InstallAppPrompt } from '@/components/InstallAppPrompt';
 import { VaultProvider } from '@/lib/vault/vault-context';
+import { BreakpointsFirstGuess } from '@/lib/hooks/useBreakpoints';
 import { T } from '@/lib/design/tokens';
 
 // 사이드바 배지 카운트(미읽음 알림, 검토 큐 등)가 매 요청 최신이어야 함
@@ -153,7 +156,15 @@ export default async function AppLayout({
   //    /sterilization 은 로그인만 보고 열렸다. 미들웨어가 실어 준 x-pathname 으로 메뉴를
   //    찾아(menuForPath, href 정본은 NAV_ITEMS) 사이드바와 같은 판정(moduleAllowsMenu)을 한다.
   //    운영 계정(isMedqraftAdmin)은 enabledModules 자체가 파일럿 전체라 자연히 통과한다.
-  const pathname = (await headers()).get('x-pathname');
+  const reqHeaders = await headers();
+  const pathname = reqHeaders.get('x-pathname');
+
+  // 폰 앱은 «알림과 결재만»(오너 결정 2026-09-26 · lib/nav/phone-mode.ts). 서버는 화면 크기를 모르므로
+  // 화면이 남긴 쿠키와 앱 사용자 에이전트를 함께 본다. 첫 방문(쿠키 없음)은 화면(PhoneModeGate)이 판다.
+  const phoneApp = isPhoneAppRequest(reqHeaders.get('user-agent'), (await cookies()).get(PHONE_COOKIE)?.value);
+  // 앱이 여는 첫 주소가 /dashboard 다. 폰에서는 결재함이 첫 화면이다.
+  if (phoneApp && pathname === '/dashboard') redirect(PHONE_HOME);
+
   const pathMenu = menuForPath(pathname);
   const lockedModule: (typeof ALL_MODULES)[number] | null =
     pathMenu && !moduleAllowsMenu(pathMenu, enabledModules)
@@ -324,6 +335,8 @@ export default async function AppLayout({
       initialVaultEnabled={vaultEnabled}
       initialKeyVersion={vaultKeyVersion}
     >
+    {/* 폰 앱이면 폭 판정의 첫 값을 폰으로(구독 칩 · 알림 종 · 머리띠가 서버 그림부터 폰 모양 · lib/hooks/useBreakpoints) */}
+    <BreakpointsFirstGuess phone={phoneApp}>
     <div
       // 인쇄에서 이 상자를 되돌려야 한다. 아래 인라인 height/overflow 는
       // @media print 규칙으로 못 덮으므로 globals.css 의 인쇄 블록이
@@ -408,7 +421,7 @@ export default async function AppLayout({
             fixed 로 동작합니다(TopHeaderBand 가 모바일에서는 상자를 만들지 않습니다). */}
         <TopHeaderBand>
           {/* 모든 화면의 «뒤로» 단추(오빠 지시 2026-09-14). 띠의 왼쪽 끝, 홈에서는 안 그린다. */}
-          <BackButton />
+          <BackButton initialPhoneApp={phoneApp} />
           {subscriptionData && membership && (
             <SubscriptionIndicator
               placement="static"
@@ -442,6 +455,7 @@ export default async function AppLayout({
           <NotificationBell placement="static" userId={user.id} isRdLead={caps.sidebarMenus.has('rd-review')} />
         </TopHeaderBand>
         <PageTransition>
+          <PhoneModeGate initialPhone={phoneApp}>
           {lockedModule ? (
             <ModuleLockedNotice
               title={MODULE_LABEL_KR[lockedModule]}
@@ -462,6 +476,7 @@ export default async function AppLayout({
           ) : (
             children
           )}
+          </PhoneModeGate>
         </PageTransition>
       </main>
       <RealtimeNotifications userId={user.id} />
@@ -478,6 +493,7 @@ export default async function AppLayout({
         isMedqraftAdmin={isMedqraftAdmin}
         pendingAssignments={inboxBadge}
         showFieldMode={enabledModules.includes('production')}
+        initialPhoneApp={phoneApp}
       />
       {/* 신규 사용자 first-time tooltip: 한 번만 노출 (localStorage) */}
       <Coachmark
@@ -506,6 +522,7 @@ export default async function AppLayout({
       {/* PWA "앱으로 설치" 안내: 로그인 후 우하단에 잠깐 노출(설치 버튼 포함). */}
       <InstallAppPrompt />
     </div>
+    </BreakpointsFirstGuess>
     </VaultProvider>
   );
 }

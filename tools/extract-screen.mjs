@@ -188,7 +188,9 @@ for (const [what, zone, re] of [
   put(spec, 'input.fontSizeNarrow', Number(m1[1]));
   put(spec, 'input.narrowBelow', 1023);
   const touch = slice(gcss, '@media (hover: none) and (pointer: coarse) {\n  .qa-btn,', '}\n}', 'qa-btn touch');
-  const m2 = touch.match(/min-height: (\d+)px;/);
+  /* 2026-09-27 원본이 이 규칙에 !important 를 붙였다(인라인 style 에 져서 한 번도 안 걸리던 터치 44).
+     같은 블록에 입력칸 · 작은 조작부의 44 도 들어와, 단추 규칙 하나를 짚어 읽는다 */
+  const m2 = touch.match(/\.qa-btn-secondary \{\s*min-height: (\d+)px(?: !important)?;/);
   if (!m2 || Number(m2[1]) !== spec.btn.minHeight) throw new Error('손가락 기기 단추 높이가 TOUCH.min 과 다릅니다.');
 }
 

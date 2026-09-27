@@ -17,7 +17,7 @@
 //
 // ── 표를 카드로 바꾸지 않습니다 ───────────────────────────────────────────────
 // 저쪽에는 두 가지가 다 있습니다. 항목 수가 적고 «하나하나가 사건» 인 목록은
-// `EntityRow`(카드), 수천 줄을 훑는 자리는 `DataTable`(표)입니다. 4만 개 회사와
+// `EntityRow`(괘선 줄 · 2026-09-27 전에는 카드), 수천 줄을 훑는 자리는 `DataTable`(표)입니다. 4만 개 회사와
 // 55개 자재 로트를 전부 카드로 바꾸면 한 화면에 여섯 줄만 보입니다.
 // **꼴을 통일하는 것이 아니라 «같은 꼴끼리» 맞춥니다.**
 //
@@ -78,10 +78,12 @@ const spec = probeAll([
   ['table.headTracking',Z.tableHead, /letterSpacing: labelTracking\(c\.header, '([\d.]+em)'\),/, String],
   ['table.cellFontSize',Z.tableCell, /fontSize: FS\[(\d+)\],/, Number],
 
-  // ── 항목 카드 (EntityRow) ───────────────────────────────────────────────
+  // ── 항목 줄 (EntityRow) ─────────────────────────────────────────────────
+  // 2026-09-27 «문서 결»(오너 결정 · docs/24): 상자 · 왼쪽 색 띠 대신 행 아래 가는 괘선 하나
   ['row.gap',           Z.rowBox,    /gap: S\[([\d.]+)\],/, Number],
   ['row.padding',       Z.rowBox,    /padding: '([^']+)',/, String],
-  ['row.accentWidth',   Z.rowBox,    /borderLeft: `(\d+)px solid \$\{accent\}`,/, Number],
+  ['row.ruleWidth',     Z.rowBox,    /borderBottom: `(\d+)px solid \$\{T\.border\}`,/, Number],
+  ['row.radius',        Z.rowBox,    /borderRadius: (\d+),/, Number],
   ['row.minHeight',     Z.rowBox,    /minHeight: (\d+),/, Number],
   ['row.chipSize',      Z.rowChip,   /width: (\d+),/, Number],
   ['row.chipAlpha',     Z.rowChip,   /background: alpha\(chipColor, ([\d.]+)\),/, Number],
@@ -104,8 +106,33 @@ const spec = probeAll([
   put(spec, 'panel.padding', Number(m[1]) * 4);
 }
 
-/* 모서리·전환·그림자는 토큰에서 옵니다. 여기서 다시 재지 않습니다. */
-put(spec, 'row.radius', tokens.radius.md);
+/* 모서리·전환·그림자는 토큰에서 옵니다. 여기서 다시 재지 않습니다.
+   판(.qd-panel)의 모서리입니다. 항목 줄은 2026-09-27 부터 모서리가 없어(괘선) 원본에서 따로 읽습니다. */
+put(spec, 'panel.radius', tokens.radius.md);
+
+/*
+ * 판의 상태 색 테두리(2026-09-27 «문서 결»). 원본 Bx 의 accent 가 왼쪽 3px 색 띠에서
+ * «테두리 전체를 옅은 상태 색으로» 바뀌었습니다. 몇 % 섞는지를 원본에서 읽습니다.
+ */
+{
+  const bx = slice(comp, 'export function Bx({', '// ─── DIVIDER', 'Bx');
+  const m = bx.match(/borderColor: alpha\(accentColor, ([\d.]+)\)/);
+  if (!m) throw new Error('Bx 의 상태 색 테두리(borderColor: alpha(accentColor, …))를 못 찾았습니다.');
+  if (/borderLeft/.test(bx)) throw new Error('Bx 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
+  put(spec, 'panel.accentMix', Number(m[1]));
+}
+
+/*
+ * 못 읽은 자리(.qd-state-error)의 선. 원본 Alert 가 2026-09-27 부터 «위아래 가는 가로선(종류 색)
+ * 사이의 강조문» 입니다. 그 섞는 비율을 읽습니다.
+ */
+{
+  const al = slice(comp, 'export function Alert({', '// ─── ', 'Alert');
+  const m = al.match(/borderTop: `1px solid \$\{alpha\(c, ([\d.]+)\)\}`,/);
+  if (!m) throw new Error('Alert 의 위 가로선(borderTop: 1px solid alpha(c, …))을 못 찾았습니다.');
+  if (/borderLeft/.test(al)) throw new Error('Alert 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
+  put(spec, 'state.ruleMix', Number(m[1]));
+}
 put(spec, 'tag.radius', tokens.radius.sm);
 /* 단추·입력의 모서리도 같은 사다리에서 옵니다(2026-09-09 감사 · 주제 #13).
    Q-Sonar 는 판이 10px 인데 그 안의 단추 191개·입력 12개가 전부 0px 이었습니다.
@@ -151,33 +178,24 @@ put(spec, 'table.transition', tokens.motion.fast);
 }
 
 /*
- * 카드 hover. 저쪽은 `.qa-card-lift` 가 맡습니다.
- *
- * ⚠️ 그림자 선언이 여러 줄이라 `[^;]+` 로는 안 잡힙니다. 줄바꿈까지 먹여야
- *    합니다 - 한 줄짜리 값만 상정한 정규식은 조용히 «없다» 고 말합니다.
+ * 줄 hover. 저쪽은 `.qa-row-clickable` 이 맡습니다(2026-09-27 «문서 결» 부터 · 종전 `.qa-card-lift` 는
+ * 떠오르는 카드였습니다). 누를 수 있는 줄만 옅은 바탕으로 답합니다.
  */
 {
-  const lift = slice(globals, '.qa-card-lift {', '\n}', 'cardLift');
-  const hover = slice(globals, '.qa-card-lift:hover', '\n}', 'cardLiftHover');
-  const t = lift.match(/transition:\s*([\s\S]+?);/);
-  const shadow = hover.match(/box-shadow:\s*([\s\S]+?);/);
-  const border = hover.match(/border-color:\s*([\s\S]+?);/);
-  const lift2 = hover.match(/transform:\s*([^;]+);/);
-  if (!t || !shadow || !border) throw new Error('.qa-card-lift 값을 못 찾았습니다.');
+  const base = slice(globals, '.qa-row-clickable {', '\n}', 'rowClickable');
+  const hover = slice(globals, '.qa-row-clickable:hover {', '\n}', 'rowClickableHover');
+  const t = base.match(/transition:\s*([^;]+);/);
+  const bg = hover.match(/background-color:\s*([^;]+);/);
+  if (!t || !bg) throw new Error('.qa-row-clickable 값을 못 찾았습니다.');
   /*
    * 저쪽 변수 이름(`--qa-*`)을 정본 이름(`--qd-*`)으로 바꿔 넣습니다.
-   * 안 바꾸면 두 제품에는 그 이름이 없어 **테두리와 그림자가 통째로 사라집니다** ·
+   * 안 바꾸면 받는 제품에는 그 이름이 없어 **바탕이 통째로 사라집니다** ·
    * CSS 는 없는 변수를 에러로 만들지 않고 그냥 아무것도 안 그립니다.
    */
-  const oneLine = (s) =>
-    s.trim()
-      .replace(/\s*\n\s*/g, ' ')
-      .replace(/--qa-champagne/g, '--qd-accent')
-      .replace(/--qa-border\b/g, '--qd-border');
-  put(spec, 'row.hoverTransition', oneLine(t[1]));
-  put(spec, 'row.hoverShadow', oneLine(shadow[1]));
-  put(spec, 'row.hoverBorder', oneLine(border[1]));
-  put(spec, 'row.hoverLift', (lift2?.[1] ?? 'none').trim());
+  const hoverBg = bg[1].trim().replace(/--qa-surface2\b/g, '--qd-surface2');
+  if (/--qa-/.test(hoverBg)) throw new Error(`정본 이름으로 못 바꾼 원본 변수가 있습니다: ${hoverBg}`);
+  put(spec, 'row.hoverTransition', t[1].trim());
+  put(spec, 'row.hoverBackground', hoverBg);
 }
 
 /*
@@ -337,7 +355,7 @@ put(spec, 'table.transition', tokens.motion.fast);
 }
 
 assertFilled(spec);
-if (spec.row.padding !== '16px 18px') throw new Error(`항목 카드 여백이 바뀌었습니다: ${spec.row.padding}`);
+if (spec.row.padding !== '14px 6px') throw new Error(`항목 줄 여백이 바뀌었습니다: ${spec.row.padding}`);
 if (spec.table.padX !== 12) throw new Error(`셀 좌우 여백이 바뀌었습니다: ${spec.table.padX}`);
 
 // ── CSS ──────────────────────────────────────────────────────────────────────
@@ -421,23 +439,23 @@ ${bind('light')}
   box-sizing: border-box;
   background: var(--qd-surface);
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, ${px(spec.row.radius)});
+  border-radius: var(--qd-radius-card, ${px(spec.panel.radius)});
 }
-/* 왼쪽 색 띠로 «이 판이 무엇인가» 를 말할 때 */
-.qd-panel--accent { border-left: 3px solid var(--qd-panel-accent, var(--qd-accent)); }
+/* 상태 판 · 강조 판. 2026-09-27 «문서 결»(오너 결정 · docs/24): 왼쪽 3px 세로줄을 걷고
+   **테두리 전체를 옅은 상태 색**으로 칠합니다(원본 Bx 의 accent 와 같은 규칙 · ${Math.round(spec.panel.accentMix * 100)}%).
 
-/* 상태 판. 색«만»으로 가르지 않고 왼쪽 3px 세로줄을 함께 줍니다.
-   다크 판 위에서 주의색과 액센트(금)의 색차 ΔE76 이 10.37 밖에 안 됩니다 ·
-   성공(40.94)·막힘(32.84)은 색만으로 갈리지만 주의는 안 갈립니다.
-   그 간격을 «형태» 로 메웁니다. 액센트 판에는 이 세로줄을 주지 않습니다.
+   🔴 색«만»으로 가르지 않습니다. 다크 판 위에서 주의색과 액센트(금)의 색차 ΔE76 이 10.37 밖에
+      안 됩니다(성공 40.94 · 막힘 32.84 는 색만으로 갈립니다). 종전에는 그 간격을 세로줄로 메웠고,
+      이제는 판 **안의 글자**(«주의» · «막힘» 같은 첫 낱말)가 메웁니다. 상태 판을 쓰는 쪽이 그 말을 둡니다.
 
    🔑 ok·warn 은 q-design.state.css 가 내는데 그 파일을 «모든» 제품이 받지는
       않습니다(Q-Forge 는 자기 이름을 이미 갖고 있어 안 받습니다). 값을 못 찾으면
-      border-left 가 통째로 무효가 되어 «조용히 세로줄만 사라집니다» · 그래서
+      선언이 통째로 무효가 되어 «조용히 테두리 색만 사라집니다» · 그래서
       이 파일이 스스로 값을 들고 있습니다(extract-nav 의 Z 사다리와 같은 이유). */
-.qd-panel--ok { border-left: 3px solid var(--qd-ok, var(--qa-green, ${tokens.color.dark['--qa-green']})); }
-.qd-panel--warn { border-left: 3px solid var(--qd-warn, var(--qa-warning, ${tokens.color.dark['--qa-warning']})); }
-.qd-panel--danger { border-left: 3px solid var(--qd-danger); }
+.qd-panel--accent { border-color: color-mix(in srgb, var(--qd-panel-accent, var(--qd-accent)) ${Math.round(spec.panel.accentMix * 100)}%, transparent); }
+.qd-panel--ok { border-color: color-mix(in srgb, var(--qd-ok, var(--qa-green, ${tokens.color.dark['--qa-green']})) ${Math.round(spec.panel.accentMix * 100)}%, transparent); }
+.qd-panel--warn { border-color: color-mix(in srgb, var(--qd-warn, var(--qa-warning, ${tokens.color.dark['--qa-warning']})) ${Math.round(spec.panel.accentMix * 100)}%, transparent); }
+.qd-panel--danger { border-color: color-mix(in srgb, var(--qd-danger) ${Math.round(spec.panel.accentMix * 100)}%, transparent); }
 /* 표가 아니라 글이 들어가는 판 */
 .qd-panel--pad { padding: ${px(spec.panel.padding)}; }
 /* 판 안에 표가 꽉 차게 들어갈 때, 표의 모서리가 판 밖으로 삐져나오지 않게 */
@@ -611,10 +629,13 @@ ${bind('light')}
  *
  * 원인 문자열은 code 로 함께 답니다. 원인을 버리면 고칠 수가 없습니다.
  */
+/* 2026-09-27 «문서 결»: 왼쪽 색 선 대신 위아래 가는 가로선(원본 Alert 와 같은 규칙).
+   붉은 글과 붉은 가로선 두 겹이 「없음」(흐린 모노 한 줄)과 가릅니다. */
 .qd-state-error {
   padding: 14px ${px(spec.table.padX)};
-  border-left: ${px(spec.row.accentWidth)} solid var(--qd-danger);
-  background: var(--qd-surface);
+  border-top: 1px solid color-mix(in srgb, var(--qd-danger) ${Math.round(spec.state.ruleMix * 100)}%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--qd-danger) ${Math.round(spec.state.ruleMix * 100)}%, transparent);
+  background: transparent;
   font-family: var(--qd-font-mono);
   font-size: 12px;
   line-height: 1.6;
@@ -931,8 +952,10 @@ ${bind('light')}
   box-shadow: 0 0 0 ${px(spec.focus.ring)} color-mix(in srgb, var(--qd-accent) ${spec.focus.ringMix}%, transparent);
 }
 
-/* ── 항목 카드 ─────────────────────────────────────────────────────────────
-   왼쪽 ${spec.row.accentWidth}px 색 띠가 상태를 말합니다. 배지보다 조용하고 훑기가 빠릅니다. */
+/* ── 항목 줄 ───────────────────────────────────────────────────────────────
+   2026-09-27 «문서 결»(오너 결정 · docs/24): 상자(바탕 · 테두리 · 둥근 모서리 · 떠오름)와 왼쪽 색 띠를
+   걷고 **괘선 목록** 으로 섭니다. 행 아래 가는 선 하나, 상태는 배지 글자와 아이콘 칩 색이 말합니다.
+   --qd-row-accent 는 아이콘 칩의 색으로만 씁니다. */
 .qd-row {
   box-sizing: border-box;
   display: flex;
@@ -941,26 +964,18 @@ ${bind('light')}
   width: 100%;
   min-height: ${px(spec.row.minHeight)};
   padding: ${spec.row.padding};
-  background: var(--qd-surface);
-  border: 1px solid var(--qd-border);
-  border-left: ${px(spec.row.accentWidth)} solid var(--qd-row-accent, var(--qd-accent));
+  background: transparent;
+  border: 0;
+  border-bottom: ${px(spec.row.ruleWidth)} solid var(--qd-border);
   border-radius: ${px(spec.row.radius)};
   color: var(--qd-text);
   text-align: left;
   text-decoration: none;
-  transition: background ${spec.row.transition}, ${spec.row.hoverTransition};
+  transition: ${spec.row.hoverTransition};
 }
-/* 누를 수 있는 카드만 떠오릅니다. 못 누르는 카드가 반응하면 거짓 어포던스입니다. */
+/* 누를 수 있는 줄만 옅은 바탕으로 답합니다. 못 누르는 줄이 반응하면 거짓 어포던스입니다. */
 a.qd-row, button.qd-row { cursor: pointer; }
-a.qd-row:hover, button.qd-row:hover {
-  transform: ${spec.row.hoverLift};
-  border-color: ${spec.row.hoverBorder};
-  box-shadow: ${spec.row.hoverShadow};
-}
-@media (prefers-reduced-motion: reduce) {
-  a.qd-row:hover, button.qd-row:hover { transform: none; }
-}
-.qd-row + .qd-row { margin-top: 8px; }
+a.qd-row:hover, button.qd-row:hover { background-color: ${spec.row.hoverBackground}; }
 
 .qd-row-chip {
   display: inline-flex;
@@ -1108,5 +1123,5 @@ console.log(`dist/q-design.list.css   ${css.split('\n').length} 줄`);
 console.log(`dist/q-design.list.json  치수 ${flat(spec).length} 개`);
 console.log('');
 console.log(`  표      셀 ${spec.table.padY}px ${spec.table.padX}px · 머리글 mono ${spec.table.headFontSize} · 본문 ${spec.table.cellFontSize}`);
-console.log(`  카드    ${spec.row.padding} · 최소높이 ${spec.row.minHeight} · 왼쪽 띠 ${spec.row.accentWidth}px · 모서리 ${spec.row.radius}`);
+console.log(`  줄      ${spec.row.padding} · 최소높이 ${spec.row.minHeight} · 괘선 ${spec.row.ruleWidth}px · 모서리 ${spec.row.radius} · 판 테두리 ${Math.round(spec.panel.accentMix * 100)}%`);
 console.log(`  배지    xs ${spec.tag.xs.minH} · sm ${spec.tag.sm.minH} · md ${spec.tag.md.minH}`);

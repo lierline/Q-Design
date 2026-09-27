@@ -133,7 +133,8 @@ cubic-bezier(0.16, 1, 0.3, 1)   /* ease-out expo */
 ### 🔴 회전 금지 · scale 금지
 
 이 시스템의 모션 어휘는 **`translateY` 와 `opacity` 뿐**입니다.
-예외는 스피너(`qa-spin`)와 사이드바 활성 점의 1회 펄스뿐입니다.
+예외는 스피너(`qa-spin`), 알림의 남은 시간 띠(`qa-toast-progress` · scaleX), 사이드바 선택 밑줄의
+1회 펼침(scaleX 0 → 1 · 2026-09-27 부터 · 종전에는 활성 점의 1회 펄스)뿐입니다.
 
 | 이름 | 움직임 | 시간 |
 |---|---|---|
@@ -143,7 +144,7 @@ cubic-bezier(0.16, 1, 0.3, 1)   /* ease-out expo */
 | `qa-shimmer` | 띠가 좌→우 통과 | 1.4s 무한 |
 | `qa-soft-pulse` | opacity 1→0.6, scale 1→1.08 | 2s 무한 |
 | `qa-toast-shake` | ±3px 좌우 | 240ms 1회 |
-| `qa-nav-active-pulse` | scale 1→1.4 | 600ms **1회** |
+| `qa-nav-active-underline-in` | 선택 밑줄 scaleX 0→1 (왼쪽부터) | 320ms **1회** |
 | `qa-ribbon-drift` | 리본 2겹 표류 | 32s / 38s 무한 |
 
 ### 값이 «너무 느려서» 되돌려진 기록

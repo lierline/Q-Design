@@ -162,7 +162,7 @@ export function PmdaDetailClient({
       <Section title="등급 · 認証基準 · 경로">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginBottom: S[2.5] }}>
           {CLASSES.map((c) => (
-            <button key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], background: deviceClass === c ? T.champagne : 'transparent', color: deviceClass === c ? T.bg : T.text, border: `1px solid ${deviceClass === c ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>{PMDA_CLASS_LABEL[c]}</button>
+            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], background: deviceClass === c ? T.champagne : 'transparent', color: deviceClass === c ? T.bg : T.text, border: `1px solid ${deviceClass === c ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>{PMDA_CLASS_LABEL[c]}</button>
           ))}
         </div>
         <div style={{ fontFamily: F.serif, fontSize: FS[11], color: T.subtle, marginBottom: S[2.5] }}>{PMDA_CLASS_HINT[deviceClass]}</div>
@@ -184,11 +184,11 @@ export function PmdaDetailClient({
             const dim = !s.applicable;
             return (
               <div key={s.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: S[3], padding: '10px 14px', background: T.surface, border: `1px solid ${T.border}`, borderLeft: `2px solid ${meta.color}`, borderRadius: RADIUS.sm, opacity: dim ? 0.5 : 1 }}>
-                <button type="button" onClick={() => toggleApplicable(s.key)} disabled={readOnly} style={{ display: 'flex', alignItems: 'center', gap: S[2], background: 'transparent', border: 'none', cursor: readOnly ? 'default' : 'pointer', textAlign: 'left', minWidth: 0 }}>
+                <button className="qa-touch-44" type="button" onClick={() => toggleApplicable(s.key)} disabled={readOnly} style={{ display: 'flex', alignItems: 'center', gap: S[2], background: 'transparent', border: 'none', cursor: readOnly ? 'default' : 'pointer', textAlign: 'left', minWidth: 0 }}>
                   <span style={{ fontFamily: F.mono, fontSize: FS[11], color: s.applicable ? T.champagne : T.muted, flexShrink: 0 }}>{s.applicable ? '☑' : '☐'}</span>
                   <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{s.label}</span>
                 </button>
-                <button type="button" onClick={() => cycleSection(s.key)} disabled={dim || readOnly} style={{ fontFamily: F.mono, fontSize: FS[10], fontWeight: 500, letterSpacing: '0.1em', color: meta.color, textTransform: 'uppercase', padding: '3px 10px', border: `1px solid ${alpha(meta.color, 0.4)}`, borderRadius: RADIUS.md, background: 'transparent', cursor: dim || readOnly ? 'default' : 'pointer', flexShrink: 0 }}>{meta.label}</button>
+                <button className="qa-touch-44" type="button" onClick={() => cycleSection(s.key)} disabled={dim || readOnly} style={{ fontFamily: F.mono, fontSize: FS[10], fontWeight: 500, letterSpacing: '0.1em', color: meta.color, textTransform: 'uppercase', padding: '3px 10px', border: `1px solid ${alpha(meta.color, 0.4)}`, borderRadius: RADIUS.md, background: 'transparent', cursor: dim || readOnly ? 'default' : 'pointer', flexShrink: 0 }}>{meta.label}</button>
               </div>
             );
           })}
@@ -224,7 +224,7 @@ export function PmdaDetailClient({
       <Section title="상태">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
           {STATUS_OPTIONS.map((s) => (
-            <button key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em', background: status === s ? T.champagne : 'transparent', color: status === s ? T.bg : T.text, border: `1px solid ${status === s ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>
+            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em', background: status === s ? T.champagne : 'transparent', color: status === s ? T.bg : T.text, border: `1px solid ${status === s ? T.champagne : T.border}`, borderRadius: RADIUS.md, cursor: readOnly ? 'default' : 'pointer' }}>
               {PMDA_STATUS_LABEL[s]}
             </button>
           ))}

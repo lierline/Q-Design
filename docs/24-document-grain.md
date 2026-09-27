@@ -51,32 +51,48 @@
 부품 원본은 Q-Atelier 에 있고, `node tools/extract-all.mjs --sync` 가 정본 CSS · 사본을 세 제품에
 내려보냅니다([Q-Design 흐름](../README.md)). 강조 표시를 바꾸는 부품은 아래와 같습니다.
 
-| 부품(Q-Atelier) | 지금 | 바꿀 것 |
+| 부품(Q-Atelier) | 지금 | 남은 것 |
 |---|---|---|
 | `components/ApprovalRoute.tsx` | ✅ 가로 결재 길(2026-09-27 · f561ffff) | 문서 화면의 결재 관리 판(`DocumentApprovalPanel`)에도 |
 | `lib/approvals/route-view.ts` | ✅ 결재선 + 서명 → 길의 칸(«지금» 은 my-turn 과 같은 규칙) | |
-| `lib/design/components.tsx` `Bx` | `accentColor` → 왼쪽 3px | 괘선 목록 행 또는 강조문으로. `accentColor` 는 없앤다 |
-| `InfoBox` · `Alert` | 왼쪽 2 · 3px | 강조문 |
-| `KPI` | 왼쪽 3px | 요약표 칸 |
-| `EntityRow` | 왼쪽 2px | 괘선 목록 행 |
-| 사이드바 `NavLink` | 왼쪽 2 · 3px 금색 | 굵은 글자 + 밑 금색 선 |
+| `lib/design/components.tsx` `Bx` | ✅ `accent` → 테두리 전체를 옅은 상태 색(55%)으로(2e9e4d87) | `accent` 를 쓰는 화면을 괘선 목록 · 강조문으로 옮기고 나면 prop 을 없앤다 |
+| `InfoBox` · `Alert` | ✅ 위아래 가는 가로선 사이의 강조문 · 첫 줄에 종류 말(오류 · 주의 · 완료 · 안내) · 13px(2e9e4d87) | |
+| `KPI` | 카드에는 원래 왼쪽 선이 없었다(처음 적은 표가 틀렸다). 도움말 풍선의 3px 만 ✅ 테두리 전체로(2e9e4d87) | 여러 지표를 한 줄에 둘 때 요약표로 |
+| `EntityRow` | ✅ 괘선 줄: 행 아래 가는 선 · 누르면 옅은 바탕(`qa-row-clickable`)(2e9e4d87) | |
+| 사이드바 `NavLink` | ✅ 굵은 글자(600) + 글자 밑 16px 금색 선 · 막대의 3px 는 왼쪽 여백으로 · 접힌 상태의 2px 도 걷음(2e9e4d87) | |
+
+### 정본 CSS (받는 제품이 쓰는 것)
+
+`tools/extract-nav.mjs` · `tools/extract-list.mjs` 가 위 부품을 읽어 같은 모양을 냅니다(2026-09-27).
+
+- `.qd-nav-item`: 왼쪽 금막대 대신 `padding-left` 17px, 선택은 굵은 글자와 이름표의 `::after` 밑줄(한 번 펼쳐짐).
+  이름표는 말줄임 때문에 넘친 것을 자르므로 밑줄 자리를 아래 안쪽 여백으로 만들고 같은 만큼 바깥 여백을 줄입니다.
+  걷은 금점(`.qd-nav-dot`)은 받는 제품 마크업에서 걷을 때까지 `display: none` 으로 둡니다.
+- `.qd-row`: 괘선 줄(행 아래 가는 선 · 모서리 없음 · 떠오름 없음 · 누르면 옅은 바탕). 줄 사이 8px 띄움도 걷었습니다.
+- `.qd-panel--accent · ok · warn · danger`: 왼쪽 3px 대신 테두리 전체를 옅은 상태 색(원본 Bx 와 같은 55%).
+  🔴 주의(호박색)와 금은 색차가 작아(ΔE76 10.37) 종전에는 세로줄로 갈랐습니다. 이제는 판 안의 **글자**가 가릅니다.
+- `.qd-state-error`(못 읽은 자리): 왼쪽 선 대신 위아래 붉은 가는 가로선(원본 Alert 와 같은 규칙).
+
+🔴 받는 세 제품(Q-Sonar · Q-Carnet · Q-Maison)으로 내려보내기는 이행 순서 4에서 합니다. 세 제품의 계약 시험이
+옛 금막대(`border-left: 3px solid transparent`)와 금점을 찾고 있어, 내려보내는 날 그 시험과 마크업을 함께 고칩니다.
 
 ---
 
 ## 되돌아오지 않게
 
 - Q-Atelier `lib/design/no-side-accent.test.ts`: 굵기 2px 이상 옆 색 선(`borderLeft` · `borderRight` ·
-  CSS `border-left` · `border-right`)을 센다. **188 에서 동결**(2026-09-27). 늘면 배포 빌드가 멈춘다.
+  CSS `border-left` · `border-right`)을 센다. **188 에서 동결**(2026-09-27), 부품 1차 뒤 **180**. 늘면 배포 빌드가 멈춘다.
   줄였으면 기준을 낮춰 다시 동결한다. 1px 옆 선은 나무 줄 · 칸 구분 같은 구조선일 수 있어 세지 않는다.
-- [클리셰 걸러내기](19-ai-cliche-screening.md) 도구(`tools/screen-ai-cliches.mjs`)에도 이 항목을 더한다
-  (금지 목록과 걸러내기 도구가 같은 목록을 보게).
+- ✅ [클리셰 걸러내기](19-ai-cliche-screening.md) 도구(`tools/screen-ai-cliches.mjs`)에 «옆 색 선» 항목을 더했다
+  (2026-09-27 · 같은 규칙 · 주석 줄 제외). 첫 실측 Q-Atelier 화면 183 · 메일 16.
+- 정본 생성기가 원본 부품에 왼쪽 선이 다시 생기면 멈춘다(`extract-list.mjs` 가 Bx · Alert 구역에서 `borderLeft` 를 찾으면 실패).
 
 ---
 
 ## 이행 순서 (오너 「둘 다」)
 
 1. ✅ 폰 결재함: 가로 결재 길 + 문서 결(2026-09-27 · 운영 · 실제 폰 확인)
-2. 부품: 위 표의 여섯
+2. ✅ 부품: 위 표의 여섯(2026-09-27 · Q-Atelier 2e9e4d87 · 정본 생성기 차림표 · 목록)
 3. PC 화면: 대시보드(오늘 처리할 것 · 지표) → R&D 과제 → 목록 화면들
 4. Q-Maison · Q-Carnet: 정본 CSS 를 받아 같은 결로
 

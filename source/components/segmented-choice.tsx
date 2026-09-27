@@ -177,6 +177,7 @@ export function SegmentedChoice<V extends string>({
             }}
             type="button"
             role="radio"
+            className="qa-touch-44"
             aria-checked={on}
             aria-disabled={disabled || undefined}
             disabled={disabled}

@@ -158,6 +158,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
             const on = !!pi[m.key];
             return (
               <button
+                className="qa-touch-44"
                 key={m.key}
                 type="button"
                 onClick={() => setPi((p) => ({ ...p, [m.key]: !p[m.key] }))}
@@ -193,14 +194,14 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
                 </select>
                 <input value={row.udi_di} onChange={(e) => updatePkg(i, { udi_di: e.target.value })} placeholder="이 포장의 UDI-DI" style={{ ...fieldStyle, fontFamily: F.mono, flex: 1, minWidth: 150 }} />
                 <input type="number" min={1} value={row.quantity} onChange={(e) => updatePkg(i, { quantity: Math.max(1, Number(e.target.value) || 1) })} title="하위 단계 포함 수량" style={{ ...fieldStyle, width: 88 }} />
-                <button type="button" onClick={() => removePkg(i)} aria-label="삭제" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 38, height: 40, background: 'transparent', border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, color: T.subtle, cursor: 'pointer', flexShrink: 0 }}>
+                <button className="qa-touch-44" type="button" onClick={() => removePkg(i)} aria-label="삭제" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 38, height: 40, background: 'transparent', border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, color: T.subtle, cursor: 'pointer', flexShrink: 0 }}>
                   <Trash2 size={14} aria-hidden="true" />
                 </button>
               </div>
             ))}
           </div>
         )}
-        <button type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
+        <button className="qa-touch-44" type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
           <Plus size={13} aria-hidden="true" /> 포장 단계 추가
         </button>
       </Section>
@@ -224,6 +225,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
               <div key={t.key} style={{ padding: '10px 12px', border: `1px solid ${on ? alpha(T.green, 0.4) : T.border}`, borderRadius: RADIUS.sm, background: on ? alpha(T.green, 0.04) : 'transparent' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: S[2], flexWrap: 'wrap' }}>
                   <button
+                    className="qa-touch-44"
                     type="button"
                     onClick={() => toggleSubmit(t.key, t.dateKey)}
                     style={{
@@ -287,6 +289,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
         <div style={{ display: 'flex', gap: S[2] }}>
           {STATUS_OPTIONS.map((s) => (
             <button
+              className="qa-touch-44"
               key={s}
               type="button"
               onClick={() => setStatus(s)}

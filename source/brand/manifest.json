@@ -43,7 +43,7 @@
   ],
   "shortcuts": [
     {
-      "name": "오늘 할 일",
+      "name": "오늘 처리할 것",
       "short_name": "할 일",
       "description": "결재 차례 · 검토 요청 · 기다리는 일",
       "url": "/my-actions",
@@ -56,22 +56,9 @@
       ]
     },
     {
-      "name": "검토함",
-      "short_name": "검토함",
-      "description": "나에게 온 검토 요청",
-      "url": "/inbox",
-      "icons": [
-        {
-          "src": "/icon-192.png?v=2",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "R&D 프로젝트",
+      "name": "R&D",
       "short_name": "R&D",
-      "description": "제품 개발 문서 흐름과 단계",
+      "description": "연구개발 작업대 · 제품 개발 문서 흐름과 단계",
       "url": "/research",
       "icons": [
         {
@@ -82,10 +69,23 @@
       ]
     },
     {
-      "name": "품질 문서",
-      "short_name": "품질 문서",
-      "description": "QMS 문서 결재와 개정",
+      "name": "QMS 문서",
+      "short_name": "QMS 문서",
+      "description": "품질 문서 결재와 개정 · 품질 기록",
       "url": "/qms-documents",
+      "icons": [
+        {
+          "src": "/icon-192.png?v=2",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "인허가 현황",
+      "short_name": "인허가",
+      "description": "인허가 트래커 · 나라별 진행 상황",
+      "url": "/device-licenses",
       "icons": [
         {
           "src": "/icon-192.png?v=2",

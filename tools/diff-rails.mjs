@@ -42,7 +42,8 @@ const PROBES = [
   ['항목(활성)',  '.qd-nav-item.is-active', ['padding', 'fontSize', 'fontWeight', 'color', 'backgroundColor', 'borderLeftWidth', 'borderLeftColor', 'borderRadius']],
   ['아이콘 자리', '.qd-nav-item.is-active .qd-nav-icon', ['width', 'height', 'color']],
   ['아이콘 글리프', '.qd-nav-item.is-active .qd-nav-icon > svg', ['width', 'height', 'strokeWidth']],
-  ['활성 점',     '.qd-nav-dot', ['width', 'height', 'backgroundColor', 'borderRadius']],
+  // 2026-09-27 «문서 결»: 금점 대신 글자 밑 짧은 금색 선. 정본은 이름표의 ::after, 원본은 별도 요소입니다.
+  ['선택 밑줄',   '.qd-nav-item.is-active .qd-nav-label', ['width', 'height', 'backgroundColor', 'borderRadius'], '::after'],
   ['판 번호 줄',  '.qd-rail-version', ['padding', 'fontSize', 'fontFamily', 'letterSpacing', 'color']],
   ['판 번호 값',  '.qd-rail-version b', ['color', 'textTransform']],
   ['바닥 경계',   '.qd-rail-foot', ['paddingTop', 'borderTopWidth', 'borderTopColor']],
@@ -76,7 +77,7 @@ const 제품별선택자 = {
     '항목(활성)':    'aside.qa-sidebar-aside nav a.qa-nav-item.active',
     '아이콘 자리':   'aside.qa-sidebar-aside nav a.qa-nav-item.active > span:first-child',
     '아이콘 글리프': 'aside.qa-sidebar-aside nav a.qa-nav-item.active > span:first-child > svg',
-    '활성 점':       'aside.qa-sidebar-aside .qa-nav-active-dot',
+    '선택 밑줄':     { sel: 'aside.qa-sidebar-aside .qa-nav-active-underline', pseudo: null },
     /* 판 번호가 두 줄입니다(엔진 · 제품). 정본이 뽑아 간 것은 아래 줄입니다 -
        padding 4px 4px 8px 이 그 줄의 값입니다. */
     '판 번호 줄':    'aside.qa-sidebar-aside > div:nth-of-type(1) > div:last-child',
@@ -100,7 +101,12 @@ const browser = await chromium.launch();
 async function measure(name, url, prepare) {
   /* 이 제품에서 이 부품을 어디서 찾는지. 사전에 없으면 정본 선택자를 씁니다 */
   const 사전 = 제품별선택자[name] || {};
-  const probes = PROBES.map(([label, sel, props]) => [label, 사전[label] || sel, props]);
+  /* 사전 값은 선택자 글이거나 { sel, pseudo } 입니다(정본의 선택 밑줄은 ::after, 원본은 별도 요소) */
+  const probes = PROBES.map(([label, sel, props, pseudo]) => {
+    const own = 사전[label];
+    if (own && typeof own === 'object') return [label, own.sel, props, own.pseudo ?? null];
+    return [label, own || sel, props, pseudo ?? null];
+  });
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     locale: 'ko-KR', timezoneId: 'Asia/Seoul',
@@ -113,10 +119,12 @@ async function measure(name, url, prepare) {
   const out = await page.evaluate((probes) => {
     const canvas = document.createElement('canvas').getContext('2d');
     const r = {};
-    for (const [label, sel, props] of probes) {
+    for (const [label, sel, props, pseudo] of probes) {
       const el = document.querySelector(sel);
       if (!el) { r[label] = null; continue; }
-      const cs = getComputedStyle(el);
+      const cs = getComputedStyle(el, pseudo);
+      /* 가상 요소는 content 가 none 이면 그려지지 않습니다. 없는 것으로 셉니다 */
+      if (pseudo && (cs.content === 'none' || cs.content === 'normal')) { r[label] = null; continue; }
       const v = Object.fromEntries(props.map((p) => [p, cs[p]]));
       /*
        * 🔑 글꼴은 «사슬» 이 아니라 «실제로 그려지는 얼굴» 을 견줍니다.

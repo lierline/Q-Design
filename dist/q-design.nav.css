@@ -1,7 +1,7 @@
 /* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
-   원본: Q-Atelier components/Sidebar.tsx (2026-09-26)
+   원본: Q-Atelier components/Sidebar.tsx (2026-09-27)
    =============================================================================
 
    ── 쓰는 법 ────────────────────────────────────────────────────────────────
@@ -29,7 +29,6 @@
             <a class="qd-nav-item is-active">
               <span class="qd-nav-icon">svg</span>
               <span class="qd-nav-label">이름</span>
-              <span class="qd-nav-dot"></span>
             </a>
           </nav>
           <div class="qd-rail-version"><span>Q-SONAR</span><b>v1.0.0</b></div>
@@ -223,15 +222,16 @@ html[data-theme='light'] {
 }
 
 /* ── 항목 ──────────────────────────────────────────────────────────────────
-   모서리를 굴리지 않습니다. 왼쪽 금막대가 항목 높이를 «꽉» 채워야 눈이 세로로
-   훑을 때 걸립니다. 굴린 알약으로 만들면 막대가 안쪽으로 들어가 흐려집니다. */
+   2026-09-27 «문서 결»(오너 결정 · docs/24): 선택 표시는 굵은 글자와 글자 밑 짧은 금색 선입니다.
+   종전의 왼쪽 금막대와 오른쪽 금점은 걷었습니다. 막대가 차지하던 자리는 왼쪽 여백으로 돌려
+   (padding-left) 글자 자리가 그대로입니다. 모서리는 굴리지 않습니다. */
 .qd-nav-item {
   position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 11px 14px;
-  border-left: 3px solid transparent;
+  padding-left: 17px;
   font-family: var(--qd-font-ui);
   font-size: 14px;
   font-weight: 400;
@@ -239,7 +239,7 @@ html[data-theme='light'] {
   color: var(--qd-subtle);
   background: transparent;
   text-decoration: none;
-  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  transition: background-color 0.12s ease, color 0.12s ease;
 }
 .qd-nav-item:hover:not(.is-active) {
   background-color: var(--qd-surface2);
@@ -247,9 +247,8 @@ html[data-theme='light'] {
 }
 .qd-nav-item.is-active {
   color: var(--qd-text);
-  font-weight: 500;
+  font-weight: 600;
   background: var(--qd-surface2);
-  border-left-color: var(--qd-accent);
 }
 .qd-nav-icon {
   display: inline-flex;
@@ -267,6 +266,7 @@ html[data-theme='light'] {
 }
 .qd-nav-item.is-active .qd-nav-icon { color: var(--qd-accent); }
 .qd-nav-label {
+  position: relative;
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -274,20 +274,33 @@ html[data-theme='light'] {
   white-space: nowrap;
 }
 
-/* 활성 점. 들어설 때 한 번만 뛰고 그 뒤로는 가만히 있습니다. */
-.qd-nav-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+/* 선택 밑줄. 들어설 때 한 번 왼쪽부터 펼쳐지고 그 뒤로는 가만히 있습니다.
+   이름표는 말줄임 때문에 넘친 것을 자릅니다(overflow: hidden). 그래서 선이 들어갈 자리를 아래 안쪽
+   여백으로 만들고 같은 만큼 바깥 여백을 줄여, 줄 높이와 글자 자리가 그대로입니다.
+   원본은 글자 아래 5px 에 놓인 별도 요소(qa-nav-active-underline)입니다. */
+.qd-nav-item.is-active .qd-nav-label {
+  padding-bottom: 5px;
+  margin-bottom: -5px;
+}
+.qd-nav-item.is-active .qd-nav-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 1px;
   background: var(--qd-accent);
-  flex-shrink: 0;
-  margin-right: 2px;
-  animation: qd-nav-dot-pulse 600ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+  transform-origin: left center;
+  animation: qd-nav-mark-in 320ms cubic-bezier(0.16, 1, 0.3, 1) 1;
 }
-@keyframes qd-nav-dot-pulse { 0% { transform: scale(1); opacity: 0.6; } 35% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1); opacity: 0.6; } }
+@keyframes qd-nav-mark-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: reduce) {
-  .qd-nav-dot { animation: none; }
+  .qd-nav-item.is-active .qd-nav-label::after { animation: none; }
 }
+/* 2026-09-27 걷은 금점. 받는 제품의 마크업에 아직 남아 있어도 보이지 않게 둡니다
+   (마크업에서 걷을 때까지의 다리입니다. 네 제품에서 걷고 나면 이 줄도 지웁니다). */
+.qd-nav-dot { display: none; }
 
 .qd-nav-badge {
   flex-shrink: 0;
@@ -302,7 +315,6 @@ html[data-theme='light'] {
   color: var(--qd-on-accent);
   background: var(--qd-danger);
 }
-.qd-nav-dot + .qd-nav-badge { margin-left: 4px; }
 
 /* 조용한 배지. 「3」 같은 숫자가 아니라 「26일」 처럼 읽는 말이 들어가는 자리입니다.
    빨간 알약으로 만들면 급하지 않은 것이 급해 보이고, 열 칸에 열 개가 켜집니다. */

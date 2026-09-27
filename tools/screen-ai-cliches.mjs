@@ -99,6 +99,23 @@ const RULES = [
     re: /box-?[Ss]hadow[^;,}]*\b0\s+0\s+[2-9]\d+px/g,
   },
   {
+    /*
+     * 2026-09-27 오너 결정 «문서 결»(docs/24). 금지 목록에는 9월 1일부터 있었는데 이 도구가 세지 않아
+     * Q-Atelier 에 188곳이 남았습니다. 금지 목록과 이 도구가 같은 목록을 보게 더합니다.
+     * 1px 옆 선은 나무 줄 · 칸 구분 같은 구조선일 수 있어 세지 않습니다(제품 계약 no-side-accent 와 같은 규칙).
+     */
+    name: '옆 색 선',
+    desc: '상자 한쪽의 굵은 색 선 (2px 이상 borderLeft · borderRight · border-left · border-right)',
+    scan(text) {
+      const hits = [];
+      const re = /border(?:Left|Right)\s*:\s*[`'"]?\s*(\d+(?:\.\d+)?)px\s+(?:solid|dashed|double)|border-(?:left|right)\s*:\s*(\d+(?:\.\d+)?)px\s+(?:solid|dashed|double)/g;
+      for (const m of text.matchAll(re)) {
+        if (Number(m[1] ?? m[2]) >= 2) hits.push(m.index);
+      }
+      return hits;
+    },
+  },
+  {
     name: '이모지',
     desc: '아이콘·글머리 자리의 이모지',
     re: /['"`][^'"`]{0,3}[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}][^'"`]{0,20}['"`]/gu,

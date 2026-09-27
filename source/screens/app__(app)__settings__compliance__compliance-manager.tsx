@@ -389,7 +389,11 @@ function ComplianceDetail({
 
       <div style={{ marginTop: S[4] }}>
         {activeClause === 'gaps' ? (
-          <GapReport gaps={score.gaps} onUpdateItem={onUpdateItem} />
+          <GapReport
+            gaps={score.gaps}
+            onUpdateItem={onUpdateItem}
+            unanswered={score.overall.applicable - score.overall.answered}
+          />
         ) : (
           <ClauseItems
             clause={activeClause}
@@ -536,9 +540,11 @@ function ScoreOverview({
           <MetricCard
             key={sv}
             label={`${SEVERITY_LABEL[sv]} 부적합`}
-            value={score.overall[`${sv}_gaps`]}
-            accent={SEV_ACCENT[sv]}
-            sub={SEV_SUB[sv]}
+            /* 하나도 안 답했으면 «0» 이 아니라 «-»: 0 은 «점검했더니 깨끗하다» 로 읽힌다
+               (화면 검토 A51 · 2026-09-27) */
+            value={score.overall.answered === 0 ? '-' : score.overall[`${sv}_gaps`]}
+            accent={score.overall.answered === 0 ? T.muted : SEV_ACCENT[sv]}
+            sub={score.overall.answered === 0 ? '답한 항목 없음' : SEV_SUB[sv]}
           />
         ))}
       </div>
@@ -979,10 +985,27 @@ const textareaStyle: React.CSSProperties = {
 function GapReport({
   gaps,
   onUpdateItem,
+  unanswered = 0,
 }: {
   gaps: ScoreResult['gaps'];
   onUpdateItem: (code: string, patch: Partial<ItemRow>) => Promise<void>;
+  /** 아직 답하지 않은 적용 항목 수 */
+  unanswered?: number;
 }) {
+  /* 안 답한 항목이 남아 있으면 «부적합 없음» 을 초록 체크로 말하지 않는다 (화면 검토 A51).
+     0/49 에서 초록 체크가 떠 «점검했더니 깨끗하다» 로 읽혔다 */
+  if (gaps.length === 0 && unanswered > 0) {
+    return (
+      <Bx style={{ padding: S[6], textAlign: 'center' }}>
+        <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
+          아직 답하지 않은 항목이 {unanswered}개 있어 미흡 항목을 셀 수 없습니다.
+        </div>
+        <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.serif }}>
+          절별 탭에서 답하면 부적합이 여기 모입니다.
+        </div>
+      </Bx>
+    );
+  }
   if (gaps.length === 0) {
     return (
       <Bx style={{ padding: S[6], textAlign: 'center', borderLeft: `3px solid ${T.green}` }}>

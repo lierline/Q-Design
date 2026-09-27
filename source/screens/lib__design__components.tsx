@@ -375,10 +375,10 @@ export function IconBtn({
 }
 
 // ─── BOX ─────────────────────────────────────────────────────────────────────
-// accent: 좌측 강조 컬러 띠 (3px solid). champagne/green/warning/red/blue/muted.
-//   기존엔 각 호출처에서 borderLeft 를 inline 으로 작성 (6+ 곳 중복) →
-//   prop 화로 일관성 + DRY.
-// boxSizing 'border-box': 강조 border 가 outer 사이즈에 영향 안 주도록.
+// accent: 상태 색(champagne/green/warning/red/blue/muted). 2026-09-27 부터 **테두리 전체를 옅은 상태 색**으로 칠한다.
+//   종전엔 왼쪽 3px 색 띠였다. 오너 결정 «문서 결»(Q-Design docs/24): 「클로드 특유의 디자인 형태라서 다른 형태를」.
+//   상태의 뜻은 상자 안의 글자가 말하고, 테두리 색은 거들기만 한다.
+// boxSizing 'border-box': 테두리가 outer 사이즈에 영향 안 주도록.
 type AccentColor = 'champagne' | 'green' | 'warning' | 'red' | 'blue' | 'muted';
 const ACCENT_MAP: Record<AccentColor, string> = {
   champagne: T.champagne,
@@ -440,7 +440,7 @@ export function Bx({
         //    폴백이 RADIUS.md 라 내부 앱은 한 픽셀도 바뀌지 않고,
         //    포털만 `.expert-portal-root { --qa-radius-card: 0 }` 로 자기 언어를 말한다.
         borderRadius: `var(--qa-radius-card, ${RADIUS.md}px)`, // 럭셔리 표준: 카드 10px 라운드
-        ...(accentColor ? { borderLeft: `3px solid ${accentColor}` } : {}),
+        ...(accentColor ? { borderColor: alpha(accentColor, 0.55) } : {}),
         ...style,
       }}
     >
@@ -796,6 +796,8 @@ export function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
+      // 터치 화면에서는 높이 44(globals.css · 2026-09-27 패드 UX 감사: 거르기 칩 22). PC 는 그대로
+      className="qa-touch-44"
       style={{
         borderRadius: RADIUS.md,
         padding: '5px 12px',
@@ -1343,13 +1345,15 @@ export function InfoBox({
   style?: CSSProperties;
 }) {
   const c = color || T.champagne;
+  // 2026-09-27 «문서 결»(Q-Design docs/24): 옅은 바탕 · 왼쪽 2px 막대를 걷고 위아래 가는 가로선 사이의 한두 문장으로.
+  //   오너 문서 기준(STYLE_GUIDE): 「작은 강조문은 금색 라벨과 얇은 가로선 사이의 한두 문장」.
   return (
     <div
       style={{
-        padding: '12px 16px',
-        background: alpha(c, 0.06),
-        borderLeft: `2px solid ${alpha(c, 0.5)}`,
-        fontSize: FS[12],
+        padding: '10px 2px',
+        borderTop: `1px solid ${alpha(c, 0.45)}`,
+        borderBottom: `1px solid ${alpha(c, 0.45)}`,
+        fontSize: FS[13],
         color: T.subtle,
         lineHeight: LH.relaxed,
         ...style,
@@ -1406,18 +1410,19 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
        */
       role={kind === 'error' || kind === 'warning' ? 'alert' : 'status'}
       style={{
-        borderRadius: RADIUS.md,
-        padding: '12px 16px',
-        background: alpha(c, 0.08),
-        border: `1px solid ${alpha(c, 0.3)}`,
-        borderLeft: `3px solid ${c}`,
+        // 🔑 2026-09-27 «문서 결»(오너 결정 · Q-Design docs/24): 상자 · 옅은 바탕 · 왼쪽 3px 막대를 걷고, 위아래
+        //    가는 가로선(종류 색) 사이의 강조문으로. 종류 단서는 아이콘(이름 있음)과 종류 말(오류 · 주의 · 완료 · 안내)이
+        //    색 없이도 말한다. 글자는 13px(원칙 「깔끔하게 눈에 잘 보이게」 · 종전 12px).
+        padding: '10px 2px',
+        borderTop: `1px solid ${alpha(c, 0.55)}`,
+        borderBottom: `1px solid ${alpha(c, 0.55)}`,
         color: T.text,
-        fontSize: FS[12],
+        fontSize: FS[13],
         fontFamily: F.ui,
         lineHeight: LH.relaxed,
         display: 'flex',
         alignItems: 'flex-start',
-        gap: S[3],
+        gap: S[2.5],
         // 🔴 2026-08-25 오빠 지적(디자인 통일성)에서 실측으로 찾은 것.
         //    Alert 에 기본 아래 여백이 없어서 **다음 요소가 테두리에 딱 붙는다.**
         //    권한 매트릭스에서 재 보니 Alert 3개 전부 아래 간격이 «0px» 이었다.
@@ -1444,21 +1449,11 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
       />
 
       <div style={{ flex: 1, minWidth: 0 }}>
-        {title && (
-          <div
-            style={{
-              fontSize: FS[10],
-              color: c,
-              fontFamily: F.mono,
-              letterSpacing: labelTracking(title, 1.5),
-              wordSpacing: labelWordSpacing(title),
-              textTransform: labelCase(title),
-              marginBottom: S[1],
-            }}
-          >
-            {title}
-          </div>
-        )}
+        {/* 라벨: 종류 말(색 · 낭독기는 아이콘 이름으로 이미 읽으므로 숨김) + 제목 */}
+        <div style={{ fontSize: FS[12], fontWeight: 600, lineHeight: LH.normal, marginBottom: 2 }}>
+          <span aria-hidden="true" style={{ color: c }}>{말}</span>
+          {title && <span style={{ color: T.text }}> · {title}</span>}
+        </div>
         <div style={{ wordBreak: 'break-word' }}>{children}</div>
       </div>
       {onClose && (
@@ -2167,8 +2162,8 @@ export function KPI({
             left: tooltipRect.left,
             width: tooltipRect.width,
             background: T.bg,
-            border: `1px solid ${alpha(accent, 0.45)}`,
-            borderLeft: `3px solid ${accent}`,
+            // 왼쪽 3px 막대를 걷고 테두리 전체를 강조 색으로(2026-09-27 «문서 결»)
+            border: `1px solid ${alpha(accent, 0.6)}`,
             padding: '12px 14px',
             paddingRight: isTouch ? 38 : 14,
             zIndex: 9999,
@@ -2632,6 +2627,9 @@ export function DistributionBars({
 //
 // stickyFirstCol: 첫 번째 grid 컬럼 (보통 code 등 primary identifier) 을
 // 좌측에 고정. 가로 스크롤 시에도 어느 row 인지 식별 가능.
+/** 표가 옆으로 밀리기 전에 줄여 담는 폭(px). 768 폭 패드 세로(본문 712)에 최소 폭 760 표가 들어간다 */
+export const SCROLL_TABLE_SQUEEZE = 48;
+
 export function ScrollTable({
   children,
   minWidth = 760,
@@ -2666,12 +2664,16 @@ export function ScrollTable({
    *    안에서만 읽힌다. 여기서는 값만 실어 보낸다.
    */
   const z = printZoom(minWidth);
+  // 옆으로 밀기 전에 SCROLL_TABLE_SQUEEZE 만큼은 줄여 담는다(2026-09-27 패드 UX 감사). 패드 세로에서 표가 들어갈 폭이
+  // 742(800 폭) · 712(768 폭)인데 최소 폭이 760 이라 18~48px 때문에 표 전체를 옆으로 밀어야 했다(5개 화면).
+  // 말줄임이 칸 안에서 동작하므로(qa-dt-cell) 이만큼 좁아져도 글이 넘치지 않는다. 인쇄 배율은 원래 최소 폭으로 잰다.
+  const innerMin = Math.max(0, minWidth - SCROLL_TABLE_SQUEEZE);
   return (
     <div
       className={wrapperCls}
       style={z < 1 ? ({ '--qa-print-zoom': String(z) } as CSSProperties) : undefined}
     >
-      <div className="qa-scroll-table-inner" style={{ minWidth }}>
+      <div className="qa-scroll-table-inner" style={{ minWidth: innerMin }}>
         {children}
       </div>
     </div>
@@ -2810,6 +2812,9 @@ export function DataTable<T>({
           <div
             key={c.key}
             role="cell"
+            // qa-dt-cell: 칸 안의 부품을 칸 폭으로 묶는다(globals.css). 세로 flex 라 자식이 «내용 폭» 으로 서서
+            // 한 줄 말줄임 글이 옆 칸 위로 넘쳤다(2026-09-26 패드 점검 · /assessments 허가 전 CR 목록).
+            className="qa-dt-cell"
             style={{
               padding: `${padY}px 12px`,
               minWidth: 0,
@@ -2865,7 +2870,10 @@ export function DataTable<T>({
 }
 
 // ─── ENTITY ROW ──────────────────────────────────────────────────────────────
-// 목록 화면의 표준 "항목 행": 좌측 accent 띠 + 아이콘 칩 + (코드/배지 행) + 제목
+// 목록 화면의 표준 "항목 행": 아이콘 칩 + (코드/배지 행) + 제목
+// 🔑 2026-09-27 «문서 결»(오너 결정 · Q-Design docs/24): 상자(바탕 · 테두리 · 둥근 모서리 · 그림자)와 왼쪽 2px 색 띠를
+//    걷고 **괘선 행**으로. 행 사이 가는 선, 상태는 배지 글자와 아이콘 칩 색이 말한다. 누르면 옅은 바탕(qa-row-clickable).
+//    accent 는 호출부 호환을 위해 남기고 아이콘 칩 색의 기본값으로만 쓴다.
 // + 우측 메타. 이전엔 complaints/vigilance/capa/pms 등 화면마다 거의 동일한
 // Link 카드를 각자 손으로 재구현 → 패딩(16 vs 14)·보더(2 vs 3px)·배지 정렬이
 // 미세하게 달라 "통일성 없음" 의 주범이었음. 단일 컴포넌트로 통일 + qa-card-lift
@@ -2898,7 +2906,7 @@ export function EntityRow({
   /** 있으면 Link, 없으면 div(+onClick). */
   href?: string;
   onClick?: () => void;
-  /** 좌측 2px accent 색 (상태/심각도). */
+  /** 상태/심각도 색. 아이콘 칩의 기본 색(2026-09-27 부터 왼쪽 색 띠는 없다). */
   accent: string;
   /** 이미 색을 입힌 아이콘 엘리먼트 (없으면 칩 생략). */
   icon?: ReactNode;
@@ -2921,16 +2929,15 @@ export function EntityRow({
     display: 'flex',
     alignItems: 'center',
     gap: S[3.5],
-    padding: '16px 18px',
-    background: T.surface,
-    border: `1px solid ${T.border}`,
-    borderLeft: `2px solid ${accent}`,
-    borderRadius: RADIUS.md,
+    padding: '14px 6px',
+    background: 'transparent',
+    border: 'none',
+    borderBottom: `1px solid ${T.border}`,
+    borderRadius: 0,
     textDecoration: 'none',
     color: T.text,
-    transition: `background ${MOTION.fast}, border-color ${MOTION.fast}, box-shadow ${MOTION.fast}`,
-    minHeight: 72,
-    boxShadow: SHADOW.hairline,
+    transition: `background ${MOTION.fast}`,
+    minHeight: 68,
     width: '100%',
     textAlign: 'left',
     cursor: interactive ? 'pointer' : 'default',
@@ -3012,7 +3019,7 @@ export function EntityRow({
         )}
       </div>
       {right && <div style={{ flexShrink: 0 }}>{right}</div>}
-      {/* 고급화: 네비게이션 가능 행에 절제된 chevron 어포던스. hover lift 와 함께. */}
+      {/* 누를 수 있는 줄에 절제된 chevron 어포던스. 올리면 옅은 바탕(qa-row-clickable)과 함께. */}
       {(href || onClick) && (
         <span
           aria-hidden
@@ -3032,14 +3039,14 @@ export function EntityRow({
 
   if (href) {
     return (
-      <Link href={href} className="qa-card-lift" style={rowStyle}>
+      <Link href={href} className="qa-row-clickable" style={rowStyle}>
         {inner}
       </Link>
     );
   }
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} className="qa-card-lift" style={rowStyle}>
+      <button type="button" onClick={onClick} className="qa-row-clickable" style={rowStyle}>
         {inner}
       </button>
     );
