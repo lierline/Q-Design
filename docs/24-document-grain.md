@@ -53,7 +53,7 @@
 
 | 부품(Q-Atelier) | 지금 | 남은 것 |
 |---|---|---|
-| `components/ApprovalRoute.tsx` | ✅ 가로 결재 길(2026-09-27 · f561ffff) | 문서 화면의 결재 관리 판(`DocumentApprovalPanel`)에도 |
+| `components/ApprovalRoute.tsx` | ✅ 가로 결재 길(2026-09-27 · f561ffff) · 문서의 결재 관리 판 두 벌(R&D `DocumentApprovalPanel` · 변경평가 `AssessmentDocApprovalPanel` · 2026-09-28 · cda29734) | |
 | `lib/approvals/route-view.ts` | ✅ 결재선 + 서명 → 길의 칸(«지금» 은 my-turn 과 같은 규칙) | |
 | `lib/design/components.tsx` `Bx` | ✅ `accent` → 테두리 전체를 옅은 상태 색(55%)으로(2e9e4d87) | `accent` 를 쓰는 화면을 괘선 목록 · 강조문으로 옮기고 나면 prop 을 없앤다 |
 | `InfoBox` · `Alert` | ✅ 위아래 가는 가로선 사이의 강조문 · 첫 줄에 종류 말(오류 · 주의 · 완료 · 안내) · 13px(2e9e4d87) | |
