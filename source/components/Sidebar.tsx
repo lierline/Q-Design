@@ -494,7 +494,7 @@ function SidebarBody({
   // 화면 검토 A75 · 2026-09-27: 묶음이 품은 경로. 지금 화면이 그 아래면 접힌 묶음도 펼친다(CollapsibleNavGroup).
   const hrefsOf = (ids: readonly SidebarMenuId[]): string[] =>
     ids.map((m) => NAV_ITEMS[m]?.href).filter((h): h is string => !!h);
-  const WORK_HREFS = ['/assessments', '/products', '/experts', '/audit'] as const;
+  const WORK_HREFS = ['/assessments', '/products', '/experts', '/audit', '/settings/compliance'] as const;
   const COMMON_HREFS = ['/inbox', '/messages', '/calendar'] as const;
 
   return (
@@ -667,6 +667,10 @@ function SidebarBody({
               {canSeeAudit && (
                 <NavLink href="/audit" label="감사 로그" icon={ScrollText} collapsed={collapsedNav} />
               )}
+              {/* 적합성 점검은 자주 쓰는 점검이라 «설정» 이 아니라 «업무» 에 둔다(화면 검토 A75 · 오너 결정 2026-09-28) */}
+              {canSeeCompliance && (
+                <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
+              )}
             </CollapsibleNavGroup>
 
             {/* ── 공통 그룹: **모든 부서가 접근 가능한 것만** (오빠 기준, 2026-08-21) ──
@@ -701,9 +705,6 @@ function SidebarBody({
 
             {/* 설정 그룹: 온보딩 중 기본 접힘 */}
             <CollapsibleNavGroup label="설정" groupKey="multi-settings" collapsed={collapsedNav} defaultOpen={!isOnboarding} activeHrefs={['/settings']}>
-              {canSeeCompliance && (
-                <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
-              )}
               {role === 'owner' && (
                 <NavLink href="/settings/members" label="멤버 관리" icon={Users} collapsed={collapsedNav} />
               )}
@@ -840,6 +841,10 @@ function SidebarBody({
                 {canSeeAudit && (
                   <NavLink href="/audit" label="감사 로그" icon={ScrollText} collapsed={collapsedNav} />
                 )}
+                {/* 적합성 점검은 자주 쓰는 점검이라 «설정» 이 아니라 «업무» 에 둔다(화면 검토 A75 · 오너 결정 2026-09-28) */}
+                {canSeeCompliance && (
+                  <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
+                )}
               </CollapsibleNavGroup>
             )}
 
@@ -935,9 +940,6 @@ function SidebarBody({
                     GlossaryTooltip 이 인라인으로 설명하므로 «뜻을 못 보는» 상태는 아니다.
                     FAB 을 되살리면 이 제약은 함께 풀린다. */}
                 <NavLink href="/glossary" label="용어집" icon={BookOpen} collapsed={collapsedNav} />
-                {canSeeCompliance && (
-                  <NavLink href="/settings/compliance" label="적합성 점검" icon={ClipboardCheck} collapsed={collapsedNav} />
-                )}
                 {isOwnerExec && (
                   <NavLink href="/settings/usage" label="사용량 · 결제" icon={GaugeIcon} collapsed={collapsedNav} />
                 )}
@@ -1083,7 +1085,8 @@ function SidebarBody({
                     color: T.muted,
                     fontFamily: F.ui,
                     letterSpacing: labelTracking(footMeta, 0.4),
-                    wordSpacing: labelWordSpacing(footMeta),
+                    // 🔴 한글 좁은 띄어쓰기(labelWordSpacing · -0.35em)는 고정폭 글꼴 전용이다. 본문 글꼴에 걸면
+                    //    «소유자 · 엔터프라이즈» 가 «소유자엔터프라이즈» 로 겹친다(2026-09-28 운영에서 봄)
                     textTransform: 'none',
                   }}
                 >
@@ -1091,9 +1094,12 @@ function SidebarBody({
                 </p>
               </div>
             </div>
-            {/* 좁은 화면(폰 · 더보기 서랍): 설정이 안내 뒤라 지문 등록 칸으로 곧장 가는 글귀(오너 결정 2026-09-28) */}
-            {isMobile && <PasskeyDrawerLink onNavigate={onToggle} />}
-            <LogoutButton />
+            {/* 계정 글귀는 한 줄에 하나씩, 같은 왼쪽 선에(2026-09-28 오너 «위치 정돈»: 두 글귀가 한 줄에 붙어 있었다).
+                좁은 화면(폰 · 더보기 서랍)에는 설정이 안내 뒤라 지문 등록 칸으로 곧장 가는 글귀가 로그아웃 위에 선다. */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              {isMobile && <PasskeyDrawerLink onNavigate={onToggle} />}
+              <LogoutButton />
+            </div>
           </>
         )}
       </div>

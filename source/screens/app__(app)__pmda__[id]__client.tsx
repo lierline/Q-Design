@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ChangeReasonPanel, type LastChangeView, type PendingChange } from '@/components/ChangeReasonPanel';
+import { missingChangeReason } from '@/lib/api/change-reason';
 import { useToast } from '@/components/Toast';
 import { Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard, Tag } from '@/lib/design/components';
 import { DocumentArtifactPanel } from '@/components/DocumentArtifactPanel';
@@ -55,16 +57,21 @@ export function PmdaDetailClient({
   products = EMPTY_ORG_PRODUCTS,
   canReview = false,
   canApprove = false,
+  lastChange = null,
 }: {
   initial: PmdaFull;
   products?: OrgProductList;
   canReview?: boolean;
   canApprove?: boolean;
+  /** 마지막 상태 · 등급 변경(누가 · 언제 · 까닭) · 화면 검토 A70 */
+  lastChange?: LastChangeView | null;
 }) {
   const router = useRouter();
   const toast = useToast();
   const [status, setStatus] = useState<PmdaStatus>(initial.status);
   const [deviceClass, setDeviceClass] = useState<PmdaClass>(initial.device_class);
+  // 상태 · 등급을 바꾸는 까닭(화면 검토 A70 · 2026-09-28). 등급이 바뀌면 등록 경로와 서류 목록이 바뀐다(서버도 본다)
+  const [reason, setReason] = useState('');
   // 연결 제품(화면 검토 A57 · 2026-09-27): 만든 뒤에도 잇거나 바꿀 수 있다. 저장하면 API 가 같은 조직 제품인지 본다
   const [productId, setProductId] = useState(initial.product_id ?? '');
   const [certStatus, setCertStatus] = useState<CertStatus>(initial.cert_standard_status);
@@ -95,6 +102,30 @@ export function PmdaDetailClient({
     setSections((arr) => arr.map((s) => (s.key === key ? { ...s, applicable: !s.applicable } : s)));
   }
 
+  // 바뀌는 것(화면 검토 A70): 등급 · 상태. 등급이 바뀌면 인허가 경로와 서류 목록이 바뀔 수 있다
+  const pending: PendingChange[] = [];
+  if (deviceClass !== initial.device_class) {
+    const before = pathwayFor(initial.device_class, initial.cert_standard_status);
+    pending.push({
+      label: '등급',
+      from: PMDA_CLASS_LABEL[initial.device_class],
+      to: PMDA_CLASS_LABEL[deviceClass],
+      consequence:
+        before !== pathway
+          ? `인허가 경로가 «${PATHWAY_LABEL[before]}» 에서 «${PATHWAY_LABEL[pathway]}» 로 바뀌고 서류 목록이 달라집니다`
+          : '서류 목록을 다시 확인하십시오',
+    });
+  }
+  if (status !== initial.status) {
+    pending.push({
+      label: '상태',
+      from: PMDA_STATUS_LABEL[initial.status],
+      to: PMDA_STATUS_LABEL[status],
+      consequence: status === 'withdrawn' ? '철회하면 이 기록의 내용이 잠깁니다' : undefined,
+    });
+  }
+  const reasonMissing = missingChangeReason(pending.length > 0, reason);
+
   async function save(nextStatus?: PmdaStatus) {
     setSaving(true);
     try {
@@ -113,6 +144,7 @@ export function PmdaDetailClient({
           sections,
           notes: notes.trim() || null,
           ...(nextStatus ? { status: nextStatus } : {}),
+          ...(pending.length > 0 ? { change_reason: reason.trim() } : {}),
         }),
       });
       const json = await res.json();
@@ -122,6 +154,7 @@ export function PmdaDetailClient({
         return;
       }
       if (nextStatus) setStatus(nextStatus);
+      setReason('');
       toast.success('저장됨');
       setSaving(false);
       router.refresh();
@@ -249,8 +282,12 @@ export function PmdaDetailClient({
       </Section>
 
       {!readOnly && (
+        <ChangeReasonPanel id="pmda-change" changes={pending} reason={reason} onReason={setReason} lastChange={lastChange} />
+      )}
+
+      {!readOnly && (
         <FormActions>
-          <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} disabled={saving} style={{ minWidth: 140 }}>
+          <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} disabled={saving || !!reasonMissing} title={reasonMissing ?? undefined} style={{ minWidth: 140 }}>
             {saving ? '저장 중...' : '저장'}
           </Btn>
         </FormActions>

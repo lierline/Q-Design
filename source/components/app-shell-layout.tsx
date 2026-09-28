@@ -5,10 +5,11 @@ import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
 import type { JobRole } from '@/lib/permissions';
 import { gateMenusByModules, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/lib/permissions/module-menus';
+import { canAccessFieldSurface } from '@/lib/permissions/field-mode';
 import { loadEnabledModules } from '@/lib/subscription/module-gate';
 import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } from '@/lib/subscription/plan-policy';
 import { menuForPath } from '@/lib/nav/menu-for-path';
-import { isPhoneAppRequest, PHONE_COOKIE, PHONE_HOME } from '@/lib/nav/phone-mode';
+import { isPhoneAppRequest, PHONE_COOKIE } from '@/lib/nav/phone-mode';
 import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
 import { PhoneModeGate } from '@/components/PhoneModeGate';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
@@ -162,8 +163,9 @@ export default async function AppLayout({
   // 폰 앱은 «알림과 결재만»(오너 결정 2026-09-26 · lib/nav/phone-mode.ts). 서버는 화면 크기를 모르므로
   // 화면이 남긴 쿠키와 앱 사용자 에이전트를 함께 본다. 첫 방문(쿠키 없음)은 화면(PhoneModeGate)이 판다.
   const phoneApp = isPhoneAppRequest(reqHeaders.get('user-agent'), (await cookies()).get(PHONE_COOKIE)?.value);
-  // 앱이 여는 첫 주소가 /dashboard 다. 폰에서는 결재함이 첫 화면이다.
-  if (phoneApp && pathname === '/dashboard') redirect(PHONE_HOME);
+  // 폰 앱의 /dashboard → 결재함 넘김은 미들웨어가 한다(lib/supabase/middleware.ts). 🔴 여기서 이 껍데기 아래
+  // 화면으로 redirect 하지 말 것: 로그인 뒤 router.push 로 들어오면 넘김이 껍데기 조각에 남아 결재함을 끝없이
+  // 다시 부른다(2026-09-28 폰 앱 «로그인 뒤 검은 화면»). 잠금: lib/nav/phone-mode.test.ts
 
   const pathMenu = menuForPath(pathname);
   const lockedModule: (typeof ALL_MODULES)[number] | null =
@@ -497,6 +499,8 @@ export default async function AppLayout({
         isMedqraftAdmin={isMedqraftAdmin}
         pendingAssignments={inboxBadge}
         showFieldMode={enabledModules.includes('production')}
+        // 부적합 등록 탭(화면 검토 A71 · 오너 결정 2026-09-28): 현장 부적합 보고를 열 수 있는 사람(생산 · 품질 · 소유자 · 경영진)
+        showNcReport={!isExpert && canAccessFieldSurface(profile, role, 'nc')}
         initialPhoneApp={phoneApp}
       />
       {/* 신규 사용자 first-time tooltip: 한 번만 노출 (localStorage) */}

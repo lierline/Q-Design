@@ -57,6 +57,13 @@ describe('화면 글자는 12px 이상', () => {
       for (const m of code.matchAll(/fontSize:\s*(\d+(?:\.\d+)?)(?=\s*[,}\n])/g)) {
         if (Number(m[1]) < 12) hits.push(`${f} ${m[0]}`);
       }
+      // 삼항 · 변수로 적은 것(`const fontSize = md ? 10 : 9` · 2026-09-28 부서 배지에서 찾음)
+      for (const m of code.matchAll(/fontSize\s*[:=][^;,\n{}]*?\?\s*(\d+(?:\.\d+)?)\s*:\s*(\d+(?:\.\d+)?)/g)) {
+        if (Number(m[1]) < 12 || Number(m[2]) < 12) hits.push(`${f} ${m[0]}`);
+      }
+      for (const m of code.matchAll(/const\s+fontSize\s*=\s*(\d+(?:\.\d+)?)\b/g)) {
+        if (Number(m[1]) < 12) hits.push(`${f} ${m[0]}`);
+      }
     }
     expect(hits, '보조 글씨도 12px 이상입니다(오너 결정 2026-09-27)').toEqual([]);
   });

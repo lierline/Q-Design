@@ -715,9 +715,8 @@ ${bindBlock('light')}
   text-overflow: ellipsis;
 }
 .qd-rail-user-meta[data-hangul] {
+  /* 본문 글꼴이라 한글 좁은 띄어쓰기(-0.35em)는 걸지 않는다. 걸면 «소유자 · 엔터프라이즈» 가 겹친다(2026-09-28) */
   letter-spacing: 0;
-  text-transform: none;
-  word-spacing: var(--qd-hangul-word-space);
 }
 
 /* 로그아웃은 «글귀» 입니다(오너 결정 2026-09-28 · 원본 TextAction 과 같은 모양).

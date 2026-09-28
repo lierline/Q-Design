@@ -736,15 +736,7 @@ select:focus-visible,
     min-width: 0 !important;
     flex: 1 !important;
   }
-  /* /admin/* 표 (사용자·활동·멀티뷰): 헤더 숨김 + row 1열 카드화 */
-  .qa-admin-table-header {
-    display: none !important;
-  }
-  .qa-admin-table-row {
-    grid-template-columns: 1fr !important;
-    gap: 6px !important;
-    padding: 14px 16px !important;
-  }
+  /* /admin/* 표 규칙은 폰(599 이하) 블록으로 옮겼다(2026-09-28 · 아래 «운영 화면 폰 · 패드»). 폴드 펼침(750)에서는 표 그대로 */
   /* RA 워크스페이스: 시판품/허가준비 카드 4컬럼 → 모바일 1열 */
   .qa-ra-4col {
     grid-template-columns: 1fr !important;
@@ -780,6 +772,78 @@ select:focus-visible,
   .qa-rddoc-chips {
     gap: 5px 8px !important;
   }
+}
+
+/* =============================================================================
+   운영 화면 폰 · 패드 (2026-09-28 오너 결정 · 폰 = 폭 599 이하)
+   앱이 폰으로 보는 선(짧은 변 600 미만 · lib/nav/phone-mode.ts)과 같다. 폴드 펼침(약 750) · 패드는 표 · 탭 그대로.
+   ============================================================================= */
+
+/* 같은 자료를 두 모양으로(PhoneSwap): 폰에서는 카드 줄만, 그 위에서는 표만 */
+@media (min-width: 600px) {
+  .qa-phone-only { display: none !important; }
+}
+@media (max-width: 599px) {
+  .qa-phone-hide { display: none !important; }
+}
+
+/* 카드 줄(CardRows · CardRow): 줄 사이 가는 선, 마지막 줄은 선 없음(«문서 결») */
+.qa-card-rows > .qa-card-row:last-child {
+  border-bottom: none !important;
+}
+
+/* 지표 카드 격자(KpiGrid): 다섯까지 한 줄 · 여섯부터 두 줄(칸 수는 --qa-kpi-cols) */
+.qa-kpi-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(var(--qa-kpi-cols, 4), minmax(0, 1fr));
+}
+@media (max-width: 599px) {
+  /* 폰: 두 칸, 개수가 홀수면 마지막 카드가 두 칸을 채운다(외톨이 한 장이 반쪽으로 남지 않게) */
+  .qa-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .qa-kpi-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  /* 지표 카드 한 장: 여백 · 최소 높이를 줄인다(KPI 의 Bx 인라인 값을 덮는다) */
+  .qa-kpi-card {
+    padding: 14px 16px !important;
+    min-height: 92px !important;
+  }
+}
+
+/* 운영 허브 탭줄(AdminHubTabs): 폰은 «고르기 줄 하나 + 아래 판», 그 위는 탭줄 */
+.qa-hub-picker { display: none; }
+@media (max-width: 599px) {
+  .qa-hub-picker { display: block; }
+  .qa-hub-tabs,
+  .qa-hub-hint { display: none !important; }
+}
+/* 폴드 펼침 · 패드 세로: 탭 여백을 줄여 탭줄이 덜 쌓이게 */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .qa-hub-tab { padding: 10px 12px !important; }
+  .qa-hub-section { padding: 0 8px 0 10px !important; }
+}
+
+/* 운영 표(사용자 · 활동 · 멀티 뷰 · 손으로 짠 격자 줄): 폰에서는 머리글을 숨기고 한 줄을 세로 카드로.
+   칸 안의 표시(배지)가 칸 폭으로 늘어나 막대처럼 보이던 것(2026-09-28 폰 실측)을 justify-items 로 막는다. */
+@media (max-width: 599px) {
+  .qa-admin-table-header {
+    display: none !important;
+  }
+  .qa-admin-table-row {
+    grid-template-columns: 1fr !important;
+    justify-items: start !important;
+    gap: 6px !important;
+    padding: 14px 16px !important;
+  }
+}
+
+/* 당겨서 새로 고침(components/PullToRefresh.tsx · 앱 안에서만): 놓은 뒤 다시 불러오는 동안 도는 표시 */
+@keyframes qa-ptr-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* 모바일에서 숨김 */

@@ -60,11 +60,14 @@ export function TextLinkAction({
   children,
   href,
   target,
+  onClick,
 }: {
   children: ReactNode;
   href: string;
   /** 새 창으로 여는 내려받기 등 */
   target?: '_blank';
+  /** 누르면 함께 할 일(폰 서랍을 닫는 등). 이동은 href 가 한다 */
+  onClick?: () => void;
 }) {
   const [hover, setHover] = useState(false);
   const style = {
@@ -90,6 +93,7 @@ export function TextLinkAction({
         target={target}
         rel={target ? 'noopener' : undefined}
         className="qa-touch-44"
+        onClick={onClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={style}
@@ -104,6 +108,7 @@ export function TextLinkAction({
       target={target}
       rel={target ? 'noopener' : undefined}
       className="qa-touch-44"
+      onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={style}

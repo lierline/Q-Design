@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { Children, Fragment, useEffect, useId, useRef, useState } from 'react';
 import { useNoviceMode } from '@/lib/novice-mode';
 import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
@@ -1491,10 +1491,16 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
           <span aria-hidden="true" style={{ color: c }}>{말}</span>
           {title && <span style={{ color: T.text }}> · {title}</span>}
         </div>
-        <div style={{ wordBreak: 'break-word' }}>{children}</div>
+        {/* 한글은 낱말 단위로 줄을 바꾼다(2026-09-28 오빠 지적: 로그인 오류가 «누르십시 / 오.» 로 끊겼다).
+            break-word 는 한글을 음절마다 끊는다. 띄어쓰기 없는 긴 주소 · 코드만 anywhere 로 넘치지 않게 끊고,
+            pretty 는 마지막 줄에 낱말 하나만 남지 않게 한다. */}
+        <div style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere', textWrap: 'pretty' }}>{children}</div>
       </div>
       {onClose && (
         <button
+          // 🔴 type 이 없으면 <form> 안에서 «제출» 단추가 된다. 로그인 양식의 오류를 닫으려고 누르면
+          //    로그인을 다시 보냈다(빈 칸이면 브라우저의 «입력란을 작성하세요» 가 떴다 · 2026-09-28).
+          type="button"
           onClick={onClose}
           aria-label="닫기"
           style={{
@@ -2107,6 +2113,8 @@ export function KPI({
       {...ariaProps}
     >
       <Bx
+        // 폰(599 이하)에서는 여백 · 최소 높이를 줄인다(globals.css .qa-kpi-card · 2026-09-28 운영 화면 폰 · 패드)
+        className="qa-kpi-card"
         style={{
           padding: '18px 20px',
           // 값 글자가 칸 폭(cqw)을 재도록 카드를 크기 컨테이너로 (위 fontSize clamp 와 한 벌)
@@ -2751,6 +2759,7 @@ export function DataTable<T>({
   empty,
   getRowStyle,
   ariaLabel,
+  phoneRow,
 }: {
   columns: DataTableColumn<T>[];
   rows: readonly T[];
@@ -2786,6 +2795,12 @@ export function DataTable<T>({
   /** 행 단위 스타일(배경 tint·opacity 등): per-row 상태/강조 표현. */
   getRowStyle?: (row: T, index: number) => CSSProperties | undefined;
   ariaLabel?: string;
+  /**
+   * 폰(폭 599 이하)에서 표 대신 그릴 «카드 줄» 한 줄(보통 `<CardRow …/>`). 주면 폰에서는 이것만, 그 위에서는
+   * 표만 보인다(CSS 로 가른다 · PhoneSwap). 2026-09-28 오너 결정 «폰의 표는 카드 줄»: 칸이 한 글자 폭으로
+   * 좁아져 글이 세로로 흘러내렸다(운영 규칙표 · 평가 세트 · 폰 412 실측).
+   */
+  phoneRow?: (row: T, index: number) => ReactNode;
 }) {
   const template = columns.map((c) => c.width ?? 'minmax(0, 1fr)').join(' ');
   const padY = dense ? 8 : 11;
@@ -2898,14 +2913,173 @@ export function DataTable<T>({
     </div>
   );
 
-  if (minWidth || stickyFirstCol) {
-    return (
+  const table =
+    minWidth || stickyFirstCol ? (
       <ScrollTable minWidth={minWidth} stickyFirstCol={stickyFirstCol} tall={stickyHeader}>
         {content}
       </ScrollTable>
+    ) : (
+      content
     );
-  }
-  return content;
+  if (!phoneRow) return table;
+  return (
+    <PhoneSwap
+      phone={
+        rows.length === 0 ? (
+          <div style={{ padding: '20px 12px' }}>
+            {empty ?? <span style={{ fontSize: FS[12], color: T.muted }}>표시할 항목이 없습니다.</span>}
+          </div>
+        ) : (
+          <CardRows ariaLabel={ariaLabel}>
+            {rows.map((row, i) => (
+              <Fragment key={getRowKey(row, i)}>{phoneRow(row, i)}</Fragment>
+            ))}
+          </CardRows>
+        )
+      }
+    >
+      {table}
+    </PhoneSwap>
+  );
+}
+
+// ─── 폰 · 패드 (2026-09-28 오너 결정 · 운영 화면 폰 · 패드 다듬기) ───────────────────────
+// 폰 = 폭 599 이하(앱이 폰으로 보는 «짧은 변 600 미만» 과 같은 선 · lib/nav/phone-mode.ts PHONE_SHORT_SIDE_MAX).
+// 폴드 펼침(약 750) · 패드는 표 · 탭 그대로 쓴다. 가르는 것은 CSS(.qa-phone-only · .qa-phone-hide)라 첫 그림부터 맞다.
+
+/** 같은 자료를 폰에서는 phone 으로, 그 위에서는 children 으로 그린다 */
+export function PhoneSwap({ phone, children }: { phone: ReactNode; children: ReactNode }) {
+  return (
+    <>
+      <div className="qa-phone-only">{phone}</div>
+      <div className="qa-phone-hide">{children}</div>
+    </>
+  );
+}
+
+/** 카드 줄 묶음: 줄 사이 가는 선(«문서 결» 괘선 · 상자를 겹치지 않는다). 마지막 줄은 선이 없다 */
+export function CardRows({ children, ariaLabel }: { children: ReactNode; ariaLabel?: string }) {
+  return (
+    <div className="qa-card-rows" role="list" aria-label={ariaLabel}>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * 폰의 «카드 줄» 한 줄(오너 결정 2026-09-28): 첫 줄 = 이름 + 상태 표시, 둘째 줄 = 부가 정보,
+ * 셋째 줄 = 숫자, 맨 아래 = 단추. href 를 주면 줄 전체가 링크다(그때는 actions 를 두지 않는다 · 링크 안 단추 금지).
+ */
+export function CardRow({
+  title,
+  badge,
+  meta,
+  figures,
+  actions,
+  href,
+  onClick,
+}: {
+  title: ReactNode;
+  badge?: ReactNode;
+  meta?: ReactNode;
+  figures?: ReactNode;
+  actions?: ReactNode;
+  href?: string;
+  onClick?: () => void;
+}) {
+  const body = (
+    <>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: S[2] }}>
+        <div
+          style={{
+            minWidth: 0,
+            flex: 1,
+            fontSize: FS[14],
+            fontWeight: 600,
+            color: T.text,
+            lineHeight: LH.snug,
+            overflowWrap: 'anywhere',
+          }}
+        >
+          {title}
+        </div>
+        {badge && (
+          <div style={{ flexShrink: 0, display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: S[1] }}>
+            {badge}
+          </div>
+        )}
+      </div>
+      {meta && (
+        <div style={{ marginTop: 4, fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, overflowWrap: 'anywhere' }}>
+          {meta}
+        </div>
+      )}
+      {figures && (
+        <div
+          style={{
+            marginTop: 6,
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '4px 14px',
+            fontSize: FS[13],
+            color: T.text,
+            fontVariantNumeric: 'tabular-nums',
+          }}
+        >
+          {figures}
+        </div>
+      )}
+      {actions && (
+        <div style={{ marginTop: S[2.5], display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: S[2] }}>
+          {actions}
+        </div>
+      )}
+    </>
+  );
+  // 목록 항목(줄 사이 선)과 누르는 자리(링크)를 나눈다. 링크에 role 을 덮으면 «링크» 라는 뜻이 사라진다.
+  const inner: CSSProperties = { display: 'block', padding: '12px 14px', textDecoration: 'none', color: 'inherit' };
+  return (
+    <div role="listitem" className="qa-card-row" style={{ borderBottom: `1px solid ${T.border}` }}>
+      {href ? (
+        <Link href={href} className="qa-row-clickable" style={inner}>
+          {body}
+        </Link>
+      ) : (
+        <div
+          className={onClick ? 'qa-row-clickable' : undefined}
+          onClick={onClick}
+          style={{ ...inner, cursor: onClick ? 'pointer' : undefined }}
+        >
+          {body}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** 카드 줄 셋째 줄의 «이름 값» 한 쌍 */
+export function CardFigure({ label, value, color }: { label: string; value: ReactNode; color?: string }) {
+  return (
+    <span style={{ whiteSpace: 'nowrap' }}>
+      <span style={{ color: T.muted, fontSize: FS[12] }}>{label} </span>
+      <span style={{ color: color ?? T.text, fontWeight: 600 }}>{value}</span>
+    </span>
+  );
+}
+
+/**
+ * 지표 카드 격자(오너 결정 2026-09-28): 폰(599 이하)은 두 칸 · 개수가 홀수면 마지막 카드가 두 칸을 채운다.
+ * 그 위로는 다섯 개까지 한 줄, 여섯 개부터 두 줄로 나눈다. 종전 auto-fit 은 폰에서 한 줄에 하나씩 크게 쌓이고
+ * (고객사 현황 다섯 장이 화면 한 장), 패드에서는 3+1 · 4+1 로 하나만 외톨이로 남았다.
+ */
+export function KpiGrid({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+  const n = Children.toArray(children).filter(Boolean).length;
+  const cols = Math.max(1, n <= 5 ? n : Math.ceil(n / 2));
+  return (
+    <div className="qa-kpi-grid" style={{ ['--qa-kpi-cols' as string]: cols, ...style } as CSSProperties}>
+      {children}
+    </div>
+  );
 }
 
 // ─── ENTITY ROW ──────────────────────────────────────────────────────────────
@@ -3347,7 +3521,11 @@ export function Drawer({
   children: ReactNode;
   footer?: ReactNode;
   width?: number | string;
-  side?: 'right' | 'left';
+  /**
+   * 'bottom' 은 폰의 «아래에서 올라오는 판»이다(2026-09-28 오너 결정 · 운영 허브 고르기). 폭은 화면 전체,
+   * 높이는 내용만큼(화면의 85% 까지), 위 두 모서리만 둥글다. width 는 쓰지 않는다.
+   */
+  side?: 'right' | 'left' | 'bottom';
   /** title 대신 외부 제목 id 로 aria-labelledby 지정 시. */
   labelledBy?: string;
 }) {
@@ -3418,7 +3596,29 @@ export function Drawer({
 
   if (!open || !mounted) return null;
 
-  const anim = side === 'left' ? 'qa-drawer-slide-l' : 'qa-drawer-slide-r';
+  const anim = side === 'left' ? 'qa-drawer-slide-l' : side === 'bottom' ? 'qa-drawer-slide-b' : 'qa-drawer-slide-r';
+  const place: CSSProperties =
+    side === 'bottom'
+      ? {
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100%',
+          maxHeight: '85vh',
+          borderTop: `1px solid ${T.border}`,
+          borderTopLeftRadius: RADIUS.md,
+          borderTopRightRadius: RADIUS.md,
+          // 폰의 몸짓 막대(아래 가장자리)에 마지막 줄이 가리지 않게
+          paddingBottom: 'env(safe-area-inset-bottom)',
+        }
+      : {
+          top: 0,
+          bottom: 0,
+          [side]: 0,
+          width,
+          maxWidth: '100vw',
+          [side === 'left' ? 'borderRight' : 'borderLeft']: `1px solid ${T.border}`,
+        };
 
   const content = (
     <div
@@ -3438,6 +3638,7 @@ export function Drawer({
       <style>{`
         @keyframes qa-drawer-slide-r { from { transform: translateX(24px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes qa-drawer-slide-l { from { transform: translateX(-24px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes qa-drawer-slide-b { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
       `}</style>
       <div
         ref={panelRef}
@@ -3447,13 +3648,8 @@ export function Drawer({
         tabIndex={-1}
         style={{
           position: 'absolute',
-          top: 0,
-          bottom: 0,
-          [side]: 0,
-          width,
-          maxWidth: '100vw',
+          ...place,
           background: T.bg,
-          [side === 'left' ? 'borderRight' : 'borderLeft']: `1px solid ${T.border}`,
           boxShadow: SHADOW.anchor,
           display: 'flex',
           flexDirection: 'column',

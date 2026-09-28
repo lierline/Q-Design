@@ -394,7 +394,9 @@ function LoginForm() {
         background: T.bg,
         color: T.text,
         position: 'relative',
-        overflow: 'hidden',
+        // hidden 이 아니라 clip: hidden 은 이 상자를 스크롤 상자로 만들어 아래 왼쪽 판의 sticky 가 먹지 않는다
+        // (sticky 는 가장 가까운 스크롤 상자에 붙는데, 이 상자는 늘어날 뿐 스크롤하지 않는다). 넘침을 자르는 것은 같다.
+        overflow: 'clip',
       }}
     >
       {/* 골드 입장 트랜지션: 로그인 성공 시 화면을 덮으며 대시보드로 전환 (①셔머+③입자 하이브리드) */}
@@ -969,6 +971,10 @@ const layoutCss = `
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
+  /* 한글은 낱말 단위로 줄을 바꾼다(2026-09-28 · 폰 폭 360 에서 바닥글이 «오픈소 / 스» · «지 / 원하는» ·
+     «않 / 습니다» 로 끊겼다). 띄어쓰기 없는 긴 글만 넘치지 않게 끊는다. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .qa-auth-brand {
@@ -1020,8 +1026,17 @@ const layoutCss = `
 
 /* ── Desktop split (>= 1024px) ─────────────────────────── */
 @media (min-width: 1024px) {
+  /* 2026-09-28 오빠 지적 «오류가 뜨면 화면 구조가 다 틀어진다»: 오른쪽 칸이 화면보다 길어지면(오류 상자 ·
+     지문 단추 · 회원가입 탭) 두 칸이 한 줄이라 왼쪽 판도 그 길이만큼 늘어났다. 그 바람에 큰 제목이 가운데를
+     따라 아래로 밀리고(1440x900 에서 42px) 아래의 버전 표시가 화면 밖으로 나갔다. 이제 왼쪽 판은 화면 높이로
+     서서 제자리에 붙어 있고(sticky), 길어진 만큼은 페이지가 스크롤한다. 늘 가운데인 오른쪽 판은 그대로다. */
   .qa-auth-split {
     grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+  }
+  /* 스크롤 막대가 생기고 없어질 때마다 두 판이 옆으로 흔들리지 않게 막대 자리를 늘 비워 둔다(이 화면에만). */
+  html:has(.qa-auth-split) {
+    scrollbar-gutter: stable;
   }
 
   /* 라이트/다크 자동 대응. 다크에선 bg 70% 로 살짝 가리고, 라이트에선
@@ -1037,7 +1052,11 @@ const layoutCss = `
       color-mix(in oklab, var(--qa-champagne) 6%, transparent) 100%
     );
     border-right: 1px solid color-mix(in oklab, var(--qa-border) 60%, transparent);
-    position: relative;
+    /* 화면 높이로 서서 스크롤해도 제자리(위 주석). 글이 화면보다 긴 아주 낮은 창에서는 min 이라 늘어난다. */
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
     z-index: 2;
     animation: qa-auth-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }

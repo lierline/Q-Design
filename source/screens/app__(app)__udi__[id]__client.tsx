@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ChangeReasonPanel, type LastChangeView, type PendingChange } from '@/components/ChangeReasonPanel';
+import { missingChangeReason } from '@/lib/api/change-reason';
 import Link from 'next/link';
 import { useToast } from '@/components/Toast';
 import { Btn, Bx, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';
@@ -11,6 +13,7 @@ import { HelpNote } from '@/components/HelpNote';
 import {
   ISSUING_AGENCY_LABEL,
   UDI_STATUS_LABEL,
+  UDI_MARKET_STATE_LABEL,
   PI_COMPONENT_META,
   SUBMISSION_TARGETS,
   PACKAGE_LEVEL_OPTIONS,
@@ -47,6 +50,7 @@ export interface UdiFull {
   eudamed_submitted: boolean;
   mfds_udi_submitted: boolean;
   submission_dates: SubmissionDates | null;
+  not_applicable_markets?: string[] | null;
   notes: string | null;
 }
 
@@ -57,15 +61,30 @@ export function UdiDetailClient({
   linkedProduct,
   productChanges = [],
   products = EMPTY_ORG_PRODUCTS,
+  lastChange = null,
 }: {
   initial: UdiFull;
   linkedProduct?: { id: string; name: string } | null;
   productChanges?: Array<{ id: string; code: string; title: string }>;
   products?: OrgProductList;
+  /** 마지막 상태 변경(누가 · 언제 · 까닭) · 화면 검토 A70 */
+  lastChange?: LastChangeView | null;
 }) {
   const router = useRouter();
   const toast = useToast();
   const [status, setStatus] = useState<UdiStatus>(initial.status);
+  // 상태를 바꾸는 까닭(화면 검토 A70 · 2026-09-28). 폐기는 기록을 잠그므로 까닭 없이 못 바꾼다(서버도 본다)
+  const [reason, setReason] = useState('');
+  const pending: PendingChange[] =
+    status !== initial.status
+      ? [{
+          label: '상태',
+          from: UDI_STATUS_LABEL[initial.status],
+          to: UDI_STATUS_LABEL[status],
+          consequence: status === 'obsolete' ? '폐기하면 이 기록은 잠겨 더 고칠 수 없습니다' : undefined,
+        }]
+      : [];
+  const reasonMissing = missingChangeReason(pending.length > 0, reason);
   // 연결 제품(화면 검토 A57 · 2026-09-27). 폐기(저장된 상태 기준)면 API 가 기록 전체를 잠그므로 고르지 못하게 둔다
   const [productId, setProductId] = useState(initial.product_id ?? '');
   const locked = (LOCKED_STATUSES.udi_records as readonly string[]).includes(initial.status);
@@ -77,6 +96,18 @@ export function UdiDetailClient({
     mfds_udi_submitted: initial.mfds_udi_submitted,
   });
   const [subDates, setSubDates] = useState<SubmissionDates>(initial.submission_dates ?? {});
+  // 팔지 않는 시장(화면 검토 A51 · 마이그 0421). 제출함과 겹치지 않는다(고르면 제출함을 끈다)
+  const [naMarkets, setNaMarkets] = useState<string[]>(initial.not_applicable_markets ?? []);
+  function setMarketState(key: string, market: string, state: 'submitted' | 'pending' | 'na') {
+    const on = subs[key as keyof typeof subs];
+    if (state === 'na') {
+      if (on) setSubs((s) => ({ ...s, [key]: false }));
+      setNaMarkets((a) => (a.includes(market) ? a : [...a, market]));
+      return;
+    }
+    setNaMarkets((a) => a.filter((x) => x !== market));
+    if ((state === 'submitted') !== on) toggleSubmit(key, market);
+  }
 
   function toggleSubmit(key: string, dateKey: string) {
     setSubs((s) => {
@@ -105,9 +136,10 @@ export function UdiDetailClient({
           pi_components: pi,
           package_levels: pkgs.filter((p) => p.udi_di.trim()),
           ...subs,
+          not_applicable_markets: naMarkets,
           submission_dates: subDates,
           notes: notes.trim() || null,
-          ...(nextStatus ? { status: nextStatus } : {}),
+          ...(nextStatus ? { status: nextStatus, change_reason: reason.trim() } : {}),
         }),
       });
       const json = await res.json();
@@ -117,6 +149,7 @@ export function UdiDetailClient({
         return;
       }
       if (nextStatus) setStatus(nextStatus);
+      setReason('');
       toast.success('저장됨');
       setSaving(false);
       router.refresh();
@@ -254,32 +287,34 @@ export function UdiDetailClient({
             return (
               <div key={t.key} style={{ padding: '10px 12px', border: `1px solid ${on ? alpha(T.green, 0.4) : T.border}`, borderRadius: RADIUS.sm, background: on ? alpha(T.green, 0.04) : 'transparent' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: S[2], flexWrap: 'wrap' }}>
-                  <button
-                    className="qa-touch-44"
-                    type="button"
-                    onClick={() => toggleSubmit(t.key, t.dateKey)}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '6px 12px',
-                      fontFamily: F.serif, fontSize: FS[12], fontWeight: 600,
-                      background: on ? alpha(T.green, 0.12) : 'transparent',
-                      color: on ? T.green : T.text,
-                      border: `1px solid ${on ? alpha(T.green, 0.5) : T.border}`,
-                      borderRadius: RADIUS.md, cursor: 'pointer',
-                    }}
-                  >
-                    {on ? '✓ ' : ''}{t.label}
-                  </button>
+                  <span style={{ fontFamily: F.ui, fontSize: FS[13], fontWeight: 600, color: T.text, minWidth: 96 }}>{t.label}</span>
                   {/*
-                    빈 칸이 «대상 아님» 인지 «미제출» 인지 알 수 없었다 (화면 검토 A51 · 2026-09-27). 글로 적는다.
-                    «대상 아님» 을 기록으로 남기려면 칸이 더 필요하다(마이그레이션) · 지금은 안내만.
+                    시장마다 세 가지를 고른다: 제출함 · 미제출 · 대상 아님 (화면 검토 A51 · 2026-09-28 · 마이그 0421).
+                    전에는 «대상 아님» 을 남길 칸이 없어, 팔지 않는 시장도 영영 «미제출» 로 보였다.
                   */}
-                  <span style={{ fontFamily: F.ui, fontSize: FS[12], color: on ? (d.submitted ? T.subtle : T.warning) : T.warning }}>
-                    {on
-                      ? d.submitted
-                        ? `제출함 · ${d.submitted}`
-                        : '제출함 · 제출일을 적으십시오'
-                      : '미제출 (이 시장에 팔지 않으면 해당 없음)'}
-                  </span>
+                  <div role="radiogroup" aria-label={`${t.label} 제출 상태`} style={{ display: 'inline-flex', gap: S[1.5], flexWrap: 'wrap' }}>
+                    {(['submitted', 'pending', 'na'] as const).map((st) => {
+                      const cur = on ? 'submitted' : naMarkets.includes(t.dateKey) ? 'na' : 'pending';
+                      return (
+                        <button
+                          key={st}
+                          className="qa-touch-44"
+                          type="button"
+                          role="radio"
+                          aria-checked={cur === st}
+                          onClick={() => setMarketState(t.key, t.dateKey, st)}
+                          style={{ padding: '6px 12px', fontFamily: F.ui, fontSize: FS[13], ...choiceLook(cur === st), cursor: 'pointer' }}
+                        >
+                          {UDI_MARKET_STATE_LABEL[st]}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {on && (
+                    <span style={{ fontFamily: F.ui, fontSize: FS[12], color: d.submitted ? T.subtle : T.warning }}>
+                      {d.submitted ? `제출일 ${d.submitted}` : '제출일을 적으십시오'}
+                    </span>
+                  )}
                   {dueDays !== null && (
                     <span style={{ fontFamily: F.mono, fontSize: FS[12], color: dueDays <= 90 ? T.red : T.subtle }}>
                       갱신 {dueDays < 0 ? `만료 ${-dueDays}일` : `D-${dueDays}`}
@@ -344,10 +379,11 @@ export function UdiDetailClient({
             </button>
           ))}
         </div>
+        <ChangeReasonPanel id="udi-status" changes={pending} reason={reason} onReason={setReason} lastChange={lastChange} />
       </Section>
 
       <FormActions>
-        <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} disabled={saving} style={{ minWidth: 140 }}>
+        <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} disabled={saving || !!reasonMissing} title={reasonMissing ?? undefined} style={{ minWidth: 140 }}>
           {saving ? '저장 중...' : '저장'}
         </Btn>
       </FormActions>
