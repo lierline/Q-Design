@@ -16,4 +16,6 @@
 화면용 붓 Q: `marks/q-mark-on-dark.webp`(은색 · 어두운 면 위) · `marks/q-mark-on-light.webp`(검정 · 밝은 면 위).
 너비 360px · WebP 90 · 원본 비율 그대로. 받는 곳은 붓 Q 를 화면에 그리는 제품(PRODUCTS 의 marksIn)이고, 판 번호와 무관합니다.
 
+iOS 앱 아이콘: `ios-app-icon-1024.png`(1024 · 알파 없음 · apple 그림을 줄이지 않은 것). 받는 곳은 PRODUCTS 의 native(앱 저장소의 아이콘 자리)이고, 판 번호와 무관합니다.
+
 제품 코드는 아이콘을 `?v=2` 를 붙여 부릅니다. 그림을 바꾸면 판 번호를 올립니다(`version.json` 이 지킴).

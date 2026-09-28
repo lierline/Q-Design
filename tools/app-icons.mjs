@@ -38,11 +38,17 @@
 //   🔑 설치 앱 아이콘이 아니므로 판 번호(ICON_VERSION) 지문에 넣지 않습니다. 넣으면 붓 Q 를 다시 뽑을 때마다
 //      설치된 앱에 쓸데없는 갱신 안내가 뜹니다.
 //
+// 오너 결정 (2026-09-28): 「깃허브의 맥으로 앱 만들기」 → iOS 앱(Q-Atelier-iOS)의 아이콘도 이 도구가 만듭니다
+//   (아래 PRODUCTS 의 native). apple 그림을 1024 그대로 먹색 바탕에 눌러 붙이고 알파를 걷습니다(앱 스토어는
+//   투명 채널이 있는 아이콘을 받지 않습니다). 설치 앱(PWA)처럼 주소로 갱신을 알아채는 구조가 아니라서
+//   판 번호 지문에 넣지 않습니다. 앱 아이콘은 앱을 새 판으로 올릴 때 바뀝니다.
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
 //             안쪽 지름 80% 원(반지름 204.8) 밖은 잘릴 수 있어 내용을 0.84 로 줄입니다  192 · 512
 //   apple     판 없이 가득 찬 먹색. iOS 가 모서리를 스스로 둥글립니다                 180
+//             같은 그림을 줄이지 않고 1024 로 두면 iOS 앱 아이콘입니다(아래 native)      1024
 //   small     브라우저 탭 · 작업 표시줄의 16 · 24 · 32px. 가는 선과 붓 Q 의 머리카락 획이
 //             사라지므로 선을 굵게, Q 획을 부풀려(dilate) 그립니다. 붓 획 틀의 굵고 가는 차이는
 //             이 크기에서 안 보이고 가는 획이 먼저 사라지므로, 같은 모양을 고른 굵기로 그립니다  ICO 16 · 32 · 48
@@ -81,6 +87,7 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  * Q-Sonar 는 매니페스트가 brand.ts 의 상수를 부르므로 brand.ts 를 봅니다(이름은 brand.ts 에만 두는 계약).
  * marksIn 은 화면용 붓 Q(MARKS)를 그리는 파일입니다. 붓 Q 를 화면에 그리는 제품만 받습니다(Q-Maison 은 안 그림).
  * --check 가 그 파일들이 WebP 두 장을 부르고 옛 PNG 사본을 부르지 않는지 봅니다.
+ * native 는 iOS 앱 아이콘(1024 · 알파 없음)을 받는 파일입니다(2026-09-28 · 머리의 오너 결정). iOS 앱이 있는 제품만.
  */
 const PRODUCTS = [
   {
@@ -88,23 +95,25 @@ const PRODUCTS = [
     refs: ['public/manifest.json', 'app/layout.tsx', 'public/sw.js', 'public/offline.html', 'components/InstallAppPrompt.tsx'],
     tagline: '의료기기 개발 · 인허가 시스템', taglineIn: ['public/manifest.json', 'public/offline.html'],
     marksIn: ['components/Logo.tsx', 'components/expert/BrandLogo.tsx'],
+    native: ['D:/Claude/Q-Atelier-iOS/QAtelier/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png'],
   },
   {
     key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
-    marksIn: [],
+    marksIn: [], native: [],
   },
   {
     key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
-    marksIn: ['components/q-mark.tsx'],
+    marksIn: ['components/q-mark.tsx'], native: [],
   },
   {
     key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
     tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
-    marksIn: ['src/components/QMark.tsx'],
+    marksIn: ['src/components/QMark.tsx'], native: [],
   },
 ].map((p) => ({ ...p, pub: `${p.root}/public` }));
+const NATIVE_ICON = 'ios-app-icon-1024.png';
 
 /*
  * 화면용 붓 Q (2026-09-26 · 머리의 오너 결정). 이름은 받는 세 제품이 같습니다.
@@ -567,7 +576,11 @@ async function main() {
       'favicon.ico': ico([16, 32, 48].map((size) => ({ size, buf: small[size] }))),
     };
     if (p.badge) files['badge-96.png'] = await down(await render(badgeSvg(p, Q)), 96);
-    sheet.push({ p, any, mask, small, files });
+    // iOS 앱 아이콘: 줄이지 않은 apple 그림. 판 번호 지문(files)에는 넣지 않습니다(머리의 오너 결정 2026-09-28)
+    const native = p.native.length
+      ? await sharp(apple).flatten({ background: BG }).removeAlpha().png({ compressionLevel: 9 }).toBuffer()
+      : null;
+    sheet.push({ p, any, mask, small, files, native });
   }
   await browser.close();
 
@@ -636,6 +649,27 @@ async function main() {
     }
   }
 
+  /*
+   * iOS 앱 아이콘(2026-09-28). 판 번호 지문 «뒤에» 다룹니다(지문에 넣지 않음 · 머리의 오너 결정).
+   * 받는 파일은 앱 저장소의 아이콘 자리입니다. 쓰고 · 다시 읽어 대조하는 방식은 위와 같습니다.
+   */
+  for (const { p, native } of sheet) {
+    if (!native) continue;
+    if (!checkOnly) writeFileSync(join(OUT, p.key, NATIVE_ICON), native);
+    for (const target of p.native) {
+      const has = existsSync(target);
+      const same = has && sha(readFileSync(target)) === sha(native);
+      if (write && !same) {
+        writeFileSync(target, native);
+        if (sha(readFileSync(target)) !== sha(native)) {
+          report.push(`  ❌ 쓴 뒤에도 다름  ${p.name.padEnd(9)} iOS 앱 아이콘`);
+          continue;
+        }
+      }
+      report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} iOS 앱 아이콘 (${target.split('/').slice(-1)[0]})`);
+    }
+  }
+
   // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가 · 붓 Q 를 WebP 로 부르는가
   const refs = checkRefs();
   const taglines = checkTaglines();
@@ -689,6 +723,8 @@ async function main() {
     '',
     '화면용 붓 Q: `marks/q-mark-on-dark.webp`(은색 · 어두운 면 위) · `marks/q-mark-on-light.webp`(검정 · 밝은 면 위).',
     `너비 ${MARK_PX}px · WebP 90 · 원본 비율 그대로. 받는 곳은 붓 Q 를 화면에 그리는 제품(PRODUCTS 의 marksIn)이고, 판 번호와 무관합니다.`,
+    '',
+    `iOS 앱 아이콘: \`${NATIVE_ICON}\`(1024 · 알파 없음 · apple 그림을 줄이지 않은 것). 받는 곳은 PRODUCTS 의 native(앱 저장소의 아이콘 자리)이고, 판 번호와 무관합니다.`,
     '',
     `제품 코드는 아이콘을 \`?v=${ICON_VERSION}\` 를 붙여 부릅니다. 그림을 바꾸면 판 번호를 올립니다(\`version.json\` 이 지킴).`,
     '',
