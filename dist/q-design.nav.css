@@ -1,7 +1,7 @@
 /* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
-   원본: Q-Atelier components/Sidebar.tsx (2026-09-27)
+   원본: Q-Atelier components/Sidebar.tsx (2026-09-28)
    =============================================================================
 
    ── 쓰는 법 ────────────────────────────────────────────────────────────────
@@ -46,7 +46,7 @@
         </aside>
 
    ── 한글 자간 ──────────────────────────────────────────────────────────────
-   `.qd-nav-group` 과 `.qd-rail-user-meta` 는 모노 · 대문자 · 넓은 자간입니다.
+   `.qd-nav-group` 은 모노 · 대문자 · 넓은 자간입니다(`.qd-rail-user-meta` 는 2026-09-28 부터 한글 본문체).
    그 장치는 «라틴 글자 사이» 를 벌리라고 만든 값이라 한글에 걸면 「묶 음」 처럼
    벌어집니다. 한글이 섞인 글에는 `data-hangul` 을 붙이세요. 자간과 대문자가
    함께 풀립니다. (Q-Atelier lib/design/tokens.ts 의 labelTracking 과 같은 규칙)
@@ -180,9 +180,10 @@ html[data-theme='light'] {
 .qd-rail-org {
   margin-top: 6px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  /* 등록한 표기 그대로(오너 결정 2026-09-28). «Demo co.» 가 «DEMO CO.» 로 바뀌어 보였다 */
+  text-transform: none;
   color: var(--qd-muted);
   word-break: break-all;
 }
@@ -209,7 +210,7 @@ html[data-theme='light'] {
 .qd-nav-group {
   padding: 12px 14px 4px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: var(--qd-muted);
@@ -298,15 +299,14 @@ html[data-theme='light'] {
 @media (prefers-reduced-motion: reduce) {
   .qd-nav-item.is-active .qd-nav-label::after { animation: none; }
 }
-/* 2026-09-27 걷은 금점. 받는 제품의 마크업에 아직 남아 있어도 보이지 않게 둡니다
-   (마크업에서 걷을 때까지의 다리입니다. 받는 세 제품에서 걷고 나면 이 줄도 지웁니다). */
-.qd-nav-dot { display: none; }
+/* 2026-09-27 걷은 금점의 다리(.qd-nav-dot { display: none })는 2026-09-28 에 지웠습니다.
+   받는 세 제품 마크업에서 금점을 모두 걷었습니다(docs/24). */
 
 .qd-nav-badge {
   flex-shrink: 0;
   padding: 2px 8px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.3;
   border-radius: 9999px;
@@ -336,7 +336,7 @@ html[data-theme='light'] {
   flex-shrink: 0;
   padding: 4px 4px 8px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.6px;
   color: var(--qd-muted);
 }
@@ -372,7 +372,7 @@ html[data-theme='light'] {
   border-radius: 10px;
   color: var(--qd-subtle);
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
@@ -469,10 +469,11 @@ html[data-theme='light'] {
 .qd-rail-user-meta {
   display: block;
   margin-top: 3px;
-  font-family: var(--qd-font-mono);
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+  /* «소유자 · 엔터프라이즈» 처럼 한글이고 적힌 그대로다(오너 결정 2026-09-28 · 전에는 모노 대문자) */
+  font-family: var(--qd-font-ui);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-transform: none;
   color: var(--qd-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -484,30 +485,31 @@ html[data-theme='light'] {
   word-spacing: var(--qd-hangul-word-space);
 }
 
-/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다.
-   차림표에서 모서리가 굴려진 것은 이것 하나입니다 - 항목과 테마 줄은 각집니다. */
+/* 로그아웃은 «글귀» 입니다(오너 결정 2026-09-28 · 원본 TextAction 과 같은 모양).
+   흐린 글자 → 올리면 진한 글자. 테두리 · 바탕이 없어 주 동작과 무게가 갈립니다.
+   터치 기기에서는 높이만 44 로 올립니다(원본 qa-touch-44). */
 .qd-rail-logout {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
   min-height: 36px;
-  padding: 7px 14px;
+  padding: 0 4px;
   background: transparent;
-  border: 1px solid var(--qd-border);
-  border-radius: 10px;
-  color: var(--qd-subtle);
+  border: 0;
+  color: var(--qd-muted);
   font-family: var(--qd-font-ui);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
-.qd-rail-logout:hover { border-color: var(--qd-danger); color: var(--qd-danger); }
+.qd-rail-logout:hover { color: var(--qd-text); }
+@media (pointer: coarse) {
+  .qd-rail-logout { min-height: 44px; }
+}
 
 /* ── 좁은 화면 ─────────────────────────────────────────────────────────────
    1024px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지

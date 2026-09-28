@@ -351,7 +351,7 @@ export function TodayQueue({
                   오늘 처리할 것: 선정 기준
                 </div>
               </div>
-              <div style={{ fontSize: FS[11], color: T.subtle, lineHeight: LH.relaxed, marginBottom: S[3], fontFamily: F.serif }}>
+              <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, marginBottom: S[3], fontFamily: F.serif }}>
                 우선순위 점수 = 경과 시간(60%) + 항목 중요도(25%) + 제품 등급(15%) 로 자동 계산.
                 상위 5건만 표시됩니다.
               </div>
@@ -360,7 +360,7 @@ export function TodayQueue({
                   <div key={group.role}>
                     <div
                       style={{
-                        fontSize: FS[10],
+                        fontSize: FS[12],
                         fontFamily: F.mono,
                         letterSpacing: labelTracking(group.role, 1.4),
                         wordSpacing: labelWordSpacing(group.role),
@@ -375,7 +375,7 @@ export function TodayQueue({
                     </div>
                     <ul style={{ margin: 0, padding: '0 0 0 14px', listStyleType: 'disc' }}>
                       {group.items.map((item) => (
-                        <li key={item} style={{ fontSize: FS[11], color: T.subtle, lineHeight: LH.relaxed, fontFamily: F.serif }}>
+                        <li key={item} style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, fontFamily: F.serif }}>
                           {item}
                         </li>
                       ))}
@@ -536,7 +536,7 @@ export function TodayQueue({
           >
             {failed.length > 0 ? '일부 업무를 불러오지 못했습니다.' : approvalCount > 0 ? '결재 말고 다른 할 일은 없습니다.' : '오늘은 깨끗합니다.'}
           </div>
-          <div style={{ ...TYPE.caption, color: failed.length > 0 ? T.warning : T.subtle }}>
+          <div style={{ ...TYPE.caption, fontSize: FS[12], color: failed.length > 0 ? T.warning : T.subtle }}>
             {failed.length > 0
               ? `${failed.join(' · ')} 조회가 실패해 그쪽 할 일은 보이지 않습니다. 잠시 뒤 새로고침하십시오.`
               : '다음 작업을 기다리는 중입니다.'}
@@ -545,7 +545,7 @@ export function TodayQueue({
       )}
 
       {items.length > 0 && failed.length > 0 && (
-        <div role="status" style={{ ...TYPE.caption, color: T.warning, marginBottom: S[2] }}>
+        <div role="status" style={{ ...TYPE.caption, fontSize: FS[12], color: T.warning, marginBottom: S[2] }}>
           {failed.join(' · ')} 조회가 실패해 그쪽 할 일은 이 목록에 없습니다.
         </div>
       )}
@@ -615,9 +615,9 @@ export function TodayQueue({
                   >
                     {/* 기한을 넘긴 줄만 빨간 글 · 경고 표시 (화면 검토 A58 · 2026-09-27) */}
                     {overdue ? (
-                      <span style={{ fontFamily: F.ui, fontSize: FS[11], fontWeight: 600, color: T.red, marginRight: S[1.5] }}>기한 초과</span>
+                      <span style={{ fontFamily: F.ui, fontSize: FS[12], fontWeight: 600, color: T.red, marginRight: S[1.5] }}>기한 초과</span>
                     ) : item.score >= 70 ? (
-                      <span style={{ fontFamily: F.ui, fontSize: FS[11], fontWeight: 600, color: T.warning, marginRight: S[1.5] }}>급함</span>
+                      <span style={{ fontFamily: F.ui, fontSize: FS[12], fontWeight: 600, color: T.warning, marginRight: S[1.5] }}>급함</span>
                     ) : null}
                     <span style={{ color: overdue ? T.red : T.text }}>{item.title}</span>
                   </div>
@@ -636,7 +636,7 @@ export function TodayQueue({
                   className="qa-today-cta"
                   style={{
                     fontFamily: F.mono,
-                    fontSize: FS[10],
+                    fontSize: FS[12],
                     fontWeight: 500,
                     letterSpacing: labelTracking(item.cta, '0.12em'),
                     wordSpacing: labelWordSpacing(item.cta),

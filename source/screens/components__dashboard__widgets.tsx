@@ -43,7 +43,7 @@ export function OrgBreakdownList({
     <div>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.2),
@@ -64,7 +64,7 @@ export function OrgBreakdownList({
               justifyContent: 'space-between',
               alignItems: 'baseline',
               gap: S[2.5],
-              fontSize: FS[11],
+              fontSize: FS[12],
               fontFamily: F.serif,
             }}
           >
@@ -83,7 +83,7 @@ export function OrgBreakdownList({
               style={{
                 color: T.muted,
                 fontFamily: F.mono,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 letterSpacing: 0.3,
                 whiteSpace: 'nowrap',
               }}
@@ -93,7 +93,7 @@ export function OrgBreakdownList({
           </div>
         ))}
         {rows.length > 12 && (
-          <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
             ... 외 {rows.length - 12}개 조직
           </div>
         )}
@@ -126,7 +126,7 @@ export function KpiItemList({
       <div>
         <div
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.champagne,
             fontFamily: F.mono,
             letterSpacing: labelTracking(title, 1.2),
@@ -138,14 +138,14 @@ export function KpiItemList({
         >
           {title}
         </div>
-        <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.serif }}>
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif }}>
           표시할 항목 없음
         </div>
         {emptyHint && (
           <div
             style={{
               marginTop: S[1.5],
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.subtle,
               fontFamily: F.serif,
               lineHeight: LH.normal,
@@ -163,7 +163,7 @@ export function KpiItemList({
     <div>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.2),
@@ -184,7 +184,7 @@ export function KpiItemList({
               justifyContent: 'space-between',
               alignItems: 'baseline',
               gap: S[2.5],
-              fontSize: FS[11],
+              fontSize: FS[12],
               fontFamily: F.serif,
             }}
           >
@@ -204,7 +204,7 @@ export function KpiItemList({
                 style={{
                   color: T.muted,
                   fontFamily: F.mono,
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   letterSpacing: 0.3,
                   whiteSpace: 'nowrap',
                 }}
@@ -217,7 +217,7 @@ export function KpiItemList({
         {remaining > 0 && (
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
               marginTop: S[0.5],
@@ -258,7 +258,7 @@ export function AdminToolCard({
         <CardTitle>{title}</CardTitle>
         <div
           style={{
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.subtle,
             lineHeight: LH.relaxed,
             flex: 1,
@@ -312,7 +312,7 @@ export function OrgSubTable({
       <div
         style={{
           padding: '12px 18px',
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: 1.5,
@@ -327,7 +327,7 @@ export function OrgSubTable({
           조직별 상세 · 전체 {rows.length}개
           {tail.length > 0 ? ` (Top ${initialVisible} 상시)` : ''}
         </span>
-        <span style={{ marginLeft: 'auto', fontSize: FS[9], letterSpacing: 1, color: T.subtle }}>
+        <span style={{ marginLeft: 'auto', fontSize: FS[12], letterSpacing: 1, color: T.subtle }}>
           한도 임박 · 만료 임박 순
         </span>
       </div>
@@ -350,7 +350,7 @@ export function OrgSubTable({
           <summary
             style={{
               padding: '10px 18px',
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.champagne,
               fontFamily: F.mono,
               letterSpacing: 1.5,
@@ -368,7 +368,7 @@ export function OrgSubTable({
             <span className="qa-org-details-label">
               ▼ 나머지 {tail.length}개 조직 펼치기
             </span>
-            <span style={{ fontSize: FS[9], color: T.muted }}>
+            <span style={{ fontSize: FS[12], color: T.muted }}>
               전체 {rows.length}개 / Top {head.length} 노출
             </span>
           </summary>
@@ -395,7 +395,7 @@ export function OrgSubTable({
           font-size: 0;
         }
         details[open] > summary .qa-org-details-label::before {
-          font-size: 10px;
+          font-size: 12px;
           letter-spacing: 1.5px;
           text-transform: uppercase;
         }
@@ -434,9 +434,9 @@ function orgSubColumns(tierColor: Record<string, string>): DataTableColumn<OrgSu
         const s = orgSubRowState(row);
         return (
           <div style={{ display: 'flex', alignItems: 'center', gap: S[2], overflow: 'hidden' }}>
-            {(s.isOverQuota || s.isExpired) && <span style={{ color: T.red, fontSize: FS[10] }}>●</span>}
+            {(s.isOverQuota || s.isExpired) && <span style={{ color: T.red, fontSize: FS[12] }}>●</span>}
             {!s.isOverQuota && !s.isExpired && (s.isNearQuota || s.isExpiringSoon) && (
-              <span style={{ color: T.warning, fontSize: FS[10] }}>●</span>
+              <span style={{ color: T.warning, fontSize: FS[12] }}>●</span>
             )}
             <span
               style={{
@@ -514,7 +514,7 @@ function orgSubColumns(tierColor: Record<string, string>): DataTableColumn<OrgSu
             style={{
               textAlign: 'right',
               fontFamily: F.mono,
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: s.expiryColor,
               fontWeight: s.isExpired || s.isExpiringSoon ? 600 : 400,
             }}
@@ -550,7 +550,7 @@ export function RecentList({ items }: { items: AssessmentRow[] }) {
         <span
           style={{
             fontFamily: F.mono,
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.champagne,
             letterSpacing: 0.5,
           }}
@@ -578,7 +578,7 @@ export function RecentList({ items }: { items: AssessmentRow[] }) {
       key: 'target',
       width: '130px',
       render: (a) => (
-        <span style={{ fontSize: FS[10], color: T.subtle, fontFamily: F.mono }}>
+        <span style={{ fontSize: FS[12], color: T.subtle, fontFamily: F.mono }}>
           {a.target ?? '-'}
         </span>
       ),
@@ -602,7 +602,7 @@ export function RecentList({ items }: { items: AssessmentRow[] }) {
       render: (a) => (
         <span
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.mono,
             textAlign: 'right',

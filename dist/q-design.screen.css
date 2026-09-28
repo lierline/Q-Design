@@ -87,7 +87,7 @@ html[data-theme='light'] {
   gap: 5px;
   margin-bottom: 10px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -113,7 +113,7 @@ html[data-theme='light'] {
 /* 값 뒤의 단위. 숫자보다 작고 조용하게, 밑줄을 맞춘다 */
 .qd-kpi-unit {
   margin-left: 4px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   color: var(--qd-muted);
@@ -121,7 +121,7 @@ html[data-theme='light'] {
 .qd-kpi-sub {
   margin-top: 10px;
   min-height: 16px;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2px;
   line-height: 1.5;
   color: var(--qd-muted);
@@ -143,7 +143,7 @@ html[data-theme='light'] {
 .qd-stat-label {
   margin-bottom: 4px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--qd-muted);
@@ -165,7 +165,7 @@ html[data-theme='light'] {
    누를 수 없는 글이므로 아주 조용하게 둡니다. */
 .qd-label {
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--qd-muted);
@@ -189,7 +189,7 @@ html[data-theme='light'] {
 .qd-section-title {
   margin: 0 0 14px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   /* 원본은 본문 줄간격(1.6)을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
   line-height: 1.6;
@@ -214,7 +214,7 @@ html[data-theme='light'] {
   display: block;
   margin-bottom: 7px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 1.5px;
@@ -318,7 +318,7 @@ html[data-theme='light'] {
 .qd-page-head-sub {
   margin: 0 0 8px;
   font-family: var(--qd-font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 2.2px;
   text-transform: uppercase;
@@ -376,7 +376,7 @@ html[data-theme='light'] {
   transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 0.05s ease;
 }
 .qd-btn[data-latin] { letter-spacing: 1.2px; text-transform: uppercase; }
-.qd-btn--sm { min-height: 36px; padding: 7px 14px; font-size: 11px; }
+.qd-btn--sm { min-height: 36px; padding: 7px 14px; font-size: 12px; }
 .qd-btn--primary { background: var(--qd-text); color: var(--qd-bg); }
 .qd-btn--primary:hover:not(:disabled) { opacity: 0.88; }
 .qd-btn--primary:active:not(:disabled) { transform: translateY(1px); }

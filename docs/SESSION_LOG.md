@@ -4,6 +4,19 @@
 
 ---
 
+## 보조 글씨 최소 12px · 차림표 발치 한글 · 두 제품 동결(HOLD) · 2026-09-28
+
+- 원본 Q-Atelier eb3e9bc8(12px · 차림표 발치 · 로그아웃 글귀)에서 다시 뽑았다. 정본 세 조각의 12px 미만이 0 이 됐다(전에는 27곳).
+  뼈대 추출기가 원본의 옛 글자 `fontSize: FS[10]` 를 표지로 찾고 있어 멈췄다 → 표지를 FS[12] 로. 목록 조각의 오류 코드 11px(손으로 적은 값) → 12.
+- 차림표 발치(오너 결정 2026-09-28 «한글 · 적힌 그대로 · 로그아웃 글귀»): `.qd-rail-org` · `.qd-rail-user-meta` 는 대문자로 바꾸지 않고,
+  역할 줄은 한글 본문체. `.qd-rail-logout` 은 글귀(원본 LogoutButton → TextAction 에서 치수를 읽고, TextAction 을 안 쓰게 되면 추출기가 멈춘다).
+- 🔴 **묶어 둠(HOLD)**: `tools/sync-parts.mjs` 에 HOLD 를 두고 `sync.mjs` 가 따른다. Q-Works(Q-Maison) · Q-Forge(Q-Carnet)는 모든 조각을 묶었다
+  (오너 지시 2026-09-28 「메종, 카르넷은 동결하고 큐 아뜰리애만을 기준으로」). Q-Sonar 는 화면 정본 세 조각만(12px 규칙 제외 결정).
+  풀 때는 오너 확인 뒤 그 줄을 지우고 `extract-all --sync`. 두 제품에 옮길 일은 Q-Atelier `docs/FAMILY_PORT_QUEUE.md`.
+- `refresh-source.mjs`: 원본 경로를 `QD_QA_REPO` 로 바꿀 수 있다(D:/Claude/Q-Atelier 는 다른 세션의 폴더라 HEAD 가 뒤처질 수 있다).
+  사본 지도에 LogoutButton · TextAction 을 더했다.
+- 금점 다리 `.qd-nav-dot { display: none }` 를 정본에서 지웠다(옆 세션 요청 · docs/24). 세 제품 사본에는 동결로 남아 있다(무해).
+
 ## 문서 결 3차 · 두 제품으로 내려보냄 · sync --only · 2026-09-27
 
 - Q-Carnet(0956727) · Q-Sonar(acb3c1e)에 차림표 · 목록 정본을 내려보냈다. 두 제품의 계약 검사가 찾던 옛 글자(금막대 ·

@@ -653,7 +653,7 @@ ${bind('light')}
   display: block;
   margin-top: 4px;
   color: var(--qd-subtle);
-  font-size: 11px;
+  font-size: 12px; /* 보조 글씨 최소 12px (오너 결정 2026-09-27 · 원본 오류 코드 줄도 12) */
   word-break: break-all;
 }
 

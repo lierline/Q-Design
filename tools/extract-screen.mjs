@@ -50,9 +50,9 @@ const P = {
 
 const Z = {
   kpiBox: slice(P.kpi, "          padding: '18px 20px',", '<div', 'kpiBox'),
-  kpiLabel: slice(P.kpi, '            fontSize: FS[10],\n            color: T.subtle,', '{label}', 'kpiLabel'),
+  kpiLabel: slice(P.kpi, '            fontSize: FS[12],\n            color: T.subtle,', '{label}', 'kpiLabel'),
   kpiValue: slice(P.kpi, '            fontFamily: F.serif,\n            fontWeight: 700,', '{displayedValue}', 'kpiValue'),
-  kpiSub: slice(P.kpi, '            fontSize: FS[11],\n            color: T.muted,', '{sub ??', 'kpiSub'),
+  kpiSub: slice(P.kpi, '            fontSize: FS[12],\n            color: T.muted,', '{sub ??', 'kpiSub'),
   statLabel: slice(P.stat, 'fontFamily: F.mono,', '{label}', 'statLabel'),
   statValue: slice(P.stat, '<div style={{ fontSize:', '</div>', 'statValue'),
   statGrid: P.statGrid,

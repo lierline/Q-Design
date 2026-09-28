@@ -92,7 +92,7 @@ export function ListToolbar({
   /* 한글이 섞인 글(「검색 지우기」 · 「총 57건」)은 자간 0 (오너 규칙 「한글이면 자간 0」) */
   const 라벨 = (text: string): React.CSSProperties => ({
     fontFamily: F.mono,
-    fontSize: FS[11],
+    fontSize: FS[12],
     color: T.muted,
     lineHeight: LH.none,
     letterSpacing: labelTracking(text, 0.4),
@@ -190,7 +190,7 @@ export function ListToolbar({
             background: 'transparent',
             color: T.text,
             fontFamily: F.ui,
-            fontSize: FS[11],
+            fontSize: FS[12],
             lineHeight: LH.none,
             letterSpacing: labelTracking(검색글, 1.2),
             textTransform: labelCase(검색글),

@@ -396,7 +396,7 @@ export default function ProfilePage() {
           >
             <span
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.green,
                 fontFamily: F.mono,
                 fontWeight: 600,
@@ -412,7 +412,7 @@ export default function ProfilePage() {
             )}
             <span
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
                 flex: 1,
@@ -432,7 +432,7 @@ export default function ProfilePage() {
                 border: `1px solid ${T.border}`,
                 color: T.muted,
                 padding: '4px 10px',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 letterSpacing: 0.6,
                 textTransform: 'uppercase',
@@ -464,7 +464,7 @@ export default function ProfilePage() {
           >
             <span
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
                 fontWeight: 600,
@@ -485,7 +485,7 @@ export default function ProfilePage() {
                 border: `1px solid ${T.border}`,
                 color: T.text,
                 padding: '4px 10px',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
@@ -529,7 +529,7 @@ export default function ProfilePage() {
                 border: `1px solid ${T.border}`,
                 color: T.muted,
                 padding: '4px 10px',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
@@ -570,7 +570,7 @@ export default function ProfilePage() {
                 border: `1px solid ${T.border}`,
                 color: T.muted,
                 padding: '4px 10px',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
@@ -675,13 +675,13 @@ export default function ProfilePage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3.5] }}>
               <MetaField label="추정 등급">
                 {a.device_class_estimate}
-                <div style={{ fontSize: FS[11], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>
+                <div style={{ fontSize: FS[12], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>
                   {a.device_class_reasoning}
                 </div>
               </MetaField>
               <MetaField label="진행 판단">
                 {goCfg && <Tag color={goCfg.color}>{goCfg.label}</Tag>}
-                <div style={{ fontSize: FS[11], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>
+                <div style={{ fontSize: FS[12], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>
                   {a.go_no_go_reasoning}
                 </div>
               </MetaField>
@@ -691,7 +691,7 @@ export default function ProfilePage() {
           </Bx>
           {a.major_risk_areas.length > 0 && (
             <Bx style={{ padding: S[3.5], marginBottom: S[4] }}>
-              <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
                 주요 위험 영역
               </div>
               <ul style={{ margin: 0, paddingLeft: S[4.5], fontSize: FS[12], color: T.subtle, lineHeight: LH.loose }}>
@@ -701,7 +701,7 @@ export default function ProfilePage() {
           )}
           {a.predicate_devices.length > 0 && (
             <Bx style={{ padding: S[3.5], marginBottom: S[4] }}>
-              <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
                 Predicate 후보
               </div>
               {a.predicate_devices.map((p, i) => {
@@ -745,12 +745,12 @@ export default function ProfilePage() {
                         {p.similarity}
                       </Tag>
                     </div>
-                    <div style={{ fontSize: FS[11], color: T.subtle, marginTop: S[0.5] }}>{p.rationale}</div>
+                    <div style={{ fontSize: FS[12], color: T.subtle, marginTop: S[0.5] }}>{p.rationale}</div>
                     {/* MFDS 매칭된 정식 한글명이 다르면 보조 표시 */}
                     {matched && matched.name_kr && matched.name_kr !== p.name && (
                       <div
                         style={{
-                          fontSize: FS[10],
+                          fontSize: FS[12],
                           color: T.muted,
                           fontFamily: F.mono,
                           marginTop: S[0.5],
@@ -770,7 +770,7 @@ export default function ProfilePage() {
               Q-Match 품목 매칭 신뢰도가 아니다. 두 축은 이름만 같고 뜻이 다르므로
               match-confidence 의 뜻풀이를 여기 붙이면 안 된다(붙였다가 되돌렸다).
               그래서 「분석 신뢰도」로 이름을 붙여 어느 축인지 드러낸다. */}
-          <div style={{ marginTop: S[2], fontSize: FS[10], color: T.muted, fontFamily: F.mono, textAlign: 'right' }}>
+          <div style={{ marginTop: S[2], fontSize: FS[12], color: T.muted, fontFamily: F.mono, textAlign: 'right' }}>
             <Sparkles size={10} style={{ display: 'inline', marginRight: S[1], verticalAlign: 'middle' }} />
             Q-Atelier 분석툴 · {project.ai_analyzed_at ? longDateTime(project.ai_analyzed_at) : '-'} · 분석 신뢰도{' '}
             {ANALYSIS_CONFIDENCE_LABEL[a.confidence]}
@@ -784,7 +784,7 @@ export default function ProfilePage() {
 function MetaField({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
+      <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
         {label}
       </div>
       <div style={{ fontSize: FS[13], color: T.text }}>{children}</div>

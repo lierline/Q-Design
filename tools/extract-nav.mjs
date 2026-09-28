@@ -30,7 +30,7 @@ const ROOT = resolve(HERE, '..');
 const OUT = join(ROOT, 'dist');
 const SIDEBAR = join(ROOT, 'source', 'components', 'Sidebar.tsx');
 const GLOBALS = join(ROOT, 'source', 'css', 'globals.css');
-const LOGOUT_HINT = 'Btn p={false} sm';
+const LOGOUT_HINT = 'LogoutButton → TextAction (글귀 · 오너 결정 2026-09-28)';
 
 const sidebar = readFileSync(SIDEBAR, 'utf8');
 const globals = readFileSync(GLOBALS, 'utf8');
@@ -179,28 +179,25 @@ for (const [path, zone, re, cast] of PROBES) {
   put('item.markKeyframes', m[1].trim().replace(/\s+/g, ' '));
 }
 
-// 로그아웃 단추는 공용 Btn(secondary · sm)입니다. 그 치수를 components.tsx 에서 봅니다.
+// 로그아웃은 «글귀» 입니다(오너 결정 2026-09-28 · 화면 검토 A09 · M99). 전에는 공용 Btn(secondary · sm)
+// 상자였는데, 차림표 발치에서 주 동작처럼 무게를 가졌습니다. 원본 LogoutButton 이 보조 동작 글귀(TextAction)를
+// 쓰므로 치수를 거기서 읽습니다. LogoutButton 이 TextAction 을 안 쓰게 되면 여기서 멈춥니다(조용히 옛 값을 내지 않게).
 {
-  const comp = readFileSync(join(ROOT, 'source', 'components', 'components.tsx'), 'utf8');
-  const pad = comp.match(/padding: sm \? '([^']+)' : '[^']+',/);
-  const fs = comp.match(/fontSize: sm \? FS\[(\d+)\] : FS\[\d+\],/);
-  const mh = comp.match(/const minHeight = sm \? (\d+) : TOUCH\.min;/);
-  if (!pad || !fs || !mh) throw new Error('Btn(sm) 의 치수를 못 찾았습니다.');
-  put('logout.padding', pad[1]);
+  const logout = readFileSync(join(ROOT, 'source', 'components', 'LogoutButton.tsx'), 'utf8');
+  if (!/<TextAction onClick=\{handleLogout\}>/.test(logout)) {
+    throw new Error('LogoutButton 이 TextAction 을 쓰지 않습니다. 정본 .qd-rail-logout 을 다시 정해야 합니다.');
+  }
+  const ta = readFileSync(join(ROOT, 'source', 'components', 'TextAction.tsx'), 'utf8');
+  const body = slice(ta, 'export function TextAction(', 'export function TextLinkAction(', 'textAction');
+  const pad = body.match(/padding: `0 \$\{S\[([\d.]+)\]\}px`,/);
+  const fs = body.match(/fontSize: FS\[(\d+)\],/);
+  const mh = body.match(/minHeight: (\d+),/);
+  if (!pad || !fs || !mh) throw new Error('TextAction 의 치수를 못 찾았습니다.');
+  put('logout.padding', `0 ${tokens.space.scale[pad[1]]}px`);
   put('logout.fontSize', Number(fs[1]));
   put('logout.minHeight', Number(mh[1]));
+  put('logout.touchMin', tokens.space.touch.min);
   put('logout.hint', LOGOUT_HINT);
-
-  /*
-   * 모서리. 이 단추만 굴립니다.
-   *
-   * 처음에는 「차림표는 각지게」라 보고 0 을 넣었는데, 띄워 찍어 보니 로그아웃만
-   * 굴려져 있었습니다. 항목과 테마 줄은 각지고 이 단추는 10px 입니다 - 저쪽에서
-   * 이것만 «공용 단추» 를 그대로 쓰기 때문입니다. 눈으로 안 봤으면 못 잡았습니다.
-   */
-  const r = globals.match(/\.qa-btn-secondary \{\n\s*border-radius: (\d+)px;/);
-  if (!r) throw new Error('.qa-btn-secondary 의 모서리를 못 찾았습니다.');
-  put('logout.radius', Number(r[1]));
 }
 
 // 아바타 원판은 globals.css 의 .qa-avatar 입니다.
@@ -315,7 +312,7 @@ const css = `/* ================================================================
         </aside>
 
    ── 한글 자간 ──────────────────────────────────────────────────────────────
-   \`.qd-nav-group\` 과 \`.qd-rail-user-meta\` 는 모노 · 대문자 · 넓은 자간입니다.
+   \`.qd-nav-group\` 은 모노 · 대문자 · 넓은 자간입니다(\`.qd-rail-user-meta\` 는 2026-09-28 부터 한글 본문체).
    그 장치는 «라틴 글자 사이» 를 벌리라고 만든 값이라 한글에 걸면 「묶 음」 처럼
    벌어집니다. 한글이 섞인 글에는 \`data-hangul\` 을 붙이세요. 자간과 대문자가
    함께 풀립니다. (Q-Atelier lib/design/tokens.ts 의 labelTracking 과 같은 규칙)
@@ -420,7 +417,8 @@ ${bindBlock('light')}
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.brand.orgFontSize)};
   letter-spacing: ${px(spec.brand.orgTracking)};
-  text-transform: uppercase;
+  /* 등록한 표기 그대로(오너 결정 2026-09-28). «Demo co.» 가 «DEMO CO.» 로 바뀌어 보였다 */
+  text-transform: none;
   color: var(--qd-muted);
   word-break: break-all;
 }
@@ -536,9 +534,8 @@ ${bindBlock('light')}
 @media (prefers-reduced-motion: reduce) {
   .qd-nav-item.is-active .qd-nav-label::after { animation: none; }
 }
-/* 2026-09-27 걷은 금점. 받는 제품의 마크업에 아직 남아 있어도 보이지 않게 둡니다
-   (마크업에서 걷을 때까지의 다리입니다. 받는 세 제품에서 걷고 나면 이 줄도 지웁니다). */
-.qd-nav-dot { display: none; }
+/* 2026-09-27 걷은 금점의 다리(.qd-nav-dot { display: none })는 2026-09-28 에 지웠습니다.
+   받는 세 제품 마크업에서 금점을 모두 걷었습니다(docs/24). */
 
 .qd-nav-badge {
   flex-shrink: 0;
@@ -707,10 +704,11 @@ ${bindBlock('light')}
 .qd-rail-user-meta {
   display: block;
   margin-top: 3px;
-  font-family: var(--qd-font-mono);
+  /* «소유자 · 엔터프라이즈» 처럼 한글이고 적힌 그대로다(오너 결정 2026-09-28 · 전에는 모노 대문자) */
+  font-family: var(--qd-font-ui);
   font-size: ${px(spec.foot.metaFontSize)};
   letter-spacing: ${px(spec.foot.metaTracking)};
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--qd-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -722,30 +720,31 @@ ${bindBlock('light')}
   word-spacing: var(--qd-hangul-word-space);
 }
 
-/* 로그아웃은 공용 secondary 단추(sm)와 같은 치수입니다.
-   차림표에서 모서리가 굴려진 것은 이것 하나입니다 - 항목과 테마 줄은 각집니다. */
+/* 로그아웃은 «글귀» 입니다(오너 결정 2026-09-28 · 원본 TextAction 과 같은 모양).
+   흐린 글자 → 올리면 진한 글자. 테두리 · 바탕이 없어 주 동작과 무게가 갈립니다.
+   터치 기기에서는 높이만 44 로 올립니다(원본 qa-touch-44). */
 .qd-rail-logout {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
   min-height: ${px(spec.logout.minHeight)};
   padding: ${spec.logout.padding};
   background: transparent;
-  border: 1px solid var(--qd-border);
-  border-radius: ${px(spec.logout.radius)};
-  color: var(--qd-subtle);
+  border: 0;
+  color: var(--qd-muted);
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.logout.fontSize)};
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
-.qd-rail-logout:hover { border-color: var(--qd-danger); color: var(--qd-danger); }
+.qd-rail-logout:hover { color: var(--qd-text); }
+@media (pointer: coarse) {
+  .qd-rail-logout { min-height: ${px(spec.logout.touchMin)}; }
+}
 
 /* ── 좁은 화면 ─────────────────────────────────────────────────────────────
    1024px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지

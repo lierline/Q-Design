@@ -228,7 +228,7 @@ export default function ExpertFarewellPage() {
         .farewell-root .footer-brand {
           font-family: var(--mono);
           font-weight: 300;
-          font-size: 11px;
+          font-size: 12px;
           letter-spacing: 0.32em;
           color: rgba(201, 169, 110, 0.8);
           text-transform: uppercase;
@@ -241,7 +241,7 @@ export default function ExpertFarewellPage() {
         .farewell-root .footer-brand-slogan {
           font-family: var(--mono);
           font-weight: 300;
-          font-size: 11px;
+          font-size: 12px;
           letter-spacing: 0.32em;
           text-transform: uppercase;
         }

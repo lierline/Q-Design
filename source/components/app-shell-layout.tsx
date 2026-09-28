@@ -455,7 +455,8 @@ export default async function AppLayout({
           <NotificationBell placement="static" userId={user.id} isRdLead={caps.sidebarMenus.has('rd-review')} />
         </TopHeaderBand>
         <PageTransition>
-          <PhoneModeGate initialPhone={phoneApp}>
+          {/* 운영진(직무 admin)은 폰 앱에서도 모든 화면을 안내 없이 연다(오너 결정 2026-09-28 · 즉시 대응) */}
+          <PhoneModeGate initialPhone={phoneApp} unrestricted={isMedqraftAdmin}>
           {lockedModule ? (
             <ModuleLockedNotice
               title={MODULE_LABEL_KR[lockedModule]}

@@ -35,6 +35,8 @@ import { Avatar } from './Avatar';
 // Coachmark 는 layout.tsx 에서 직접 마운트: 본 컴포넌트는 data-coachmark="sidebar" 만 표시.
 import { Logo, LogoMark } from './Logo';
 import { LogoutButton } from './LogoutButton';
+import { orgRolePlanLabel } from '@/lib/labels/org';
+import { PasskeyDrawerLink } from './PasskeyDrawerLink';
 import { detectAdminGroup } from './AdminHubTabs';
 import { RuleEngineBadge } from './RuleEngineBadge';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
@@ -362,6 +364,8 @@ function SidebarBody({
   //   → 224 (복구) → 240 (2026-06-06, THEME 행 "◑ System" 줄바뀜 재발: 너비 보강
   //   + 아래 Theme 버튼 값 span 에 whiteSpace:nowrap 으로 근본 차단).
   const width = collapsed ? 60 : 240;
+  /* 발치 사용자 줄: «소유자 · 엔터프라이즈» 처럼 한글로(오너 결정 2026-09-28 · 화면 검토 A09 · A64) */
+  const footMeta = isExpert ? '전문가 · 외부 자문' : orgRolePlanLabel(role, plan);
   const pathname = usePathname();
   // Admin 허브 active 감지: 하나의 hub entry 가 그룹 내 모든 sub-tab 에 대해
   // active 표시되도록.
@@ -560,13 +564,14 @@ function SidebarBody({
           <Logo size={108} style={{ display: 'block' }} />
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: isExpert ? T.champagne : T.muted,
               fontFamily: F.mono,
               // 2026-09-09: 한글 조직명이 «메 드 크 래 프 트» 로 벌어지던 자리
-              letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 1.6),
+              // 2026-09-28: 등록한 표기 그대로 둔다(«Demo co.» 가 «DEMO CO.» 로 바뀌어 보였다 · 오너 결정 · 화면 검토 A64)
+              letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 0.4),
               wordSpacing: labelWordSpacing(isExpert ? '외부 자문 전문가' : orgName),
-              textTransform: labelCase(isExpert ? '외부 자문 전문가' : orgName),
+              textTransform: 'none',
               marginTop: S[1.5],
               wordBreak: 'break-all',
               textAlign: 'center',
@@ -970,7 +975,7 @@ function SidebarBody({
               justifyContent: 'space-between',
               alignItems: 'center',
               padding: '4px 4px 8px',
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
               letterSpacing: 0.6,
@@ -1021,7 +1026,7 @@ function SidebarBody({
               border: `1px solid ${T.border}`,
               borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 발치 상자도 굴린다. 정본(extract-nav)이 이 값을 읽는다
               color: T.subtle,
-              fontSize: FS[10],
+              fontSize: FS[12],
               fontFamily: F.mono,
               letterSpacing: 1.5,
               textTransform: 'uppercase',
@@ -1074,18 +1079,20 @@ function SidebarBody({
                 <p
                   style={{
                     margin: '3px 0 0',
-                    fontSize: FS[10],
+                    fontSize: FS[12],
                     color: T.muted,
-                    fontFamily: F.mono,
-                    letterSpacing: labelTracking(isExpert ? 'Expert · External' : `${role} · ${plan}`, 1.2),
-                    wordSpacing: labelWordSpacing(isExpert ? 'Expert · External' : `${role} · ${plan}`),
-                    textTransform: labelCase(isExpert ? 'Expert · External' : `${role} · ${plan}`),
+                    fontFamily: F.ui,
+                    letterSpacing: labelTracking(footMeta, 0.4),
+                    wordSpacing: labelWordSpacing(footMeta),
+                    textTransform: 'none',
                   }}
                 >
-                  {isExpert ? 'Expert · External' : `${role} · ${plan}`}
+                  {footMeta}
                 </p>
               </div>
             </div>
+            {/* 좁은 화면(폰 · 더보기 서랍): 설정이 안내 뒤라 지문 등록 칸으로 곧장 가는 글귀(오너 결정 2026-09-28) */}
+            {isMobile && <PasskeyDrawerLink onNavigate={onToggle} />}
             <LogoutButton />
           </>
         )}
@@ -1223,7 +1230,7 @@ function NavLink({
               position: 'absolute',
               top: 3,
               right: 3,
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.bg,
               background: T.red,
               padding: '2px 6px',
@@ -1294,7 +1301,7 @@ function NavLink({
       {badge !== undefined && (
         <span
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.bg,
             background: T.red,
             padding: '2px 8px',
@@ -1412,7 +1419,7 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
     <div
       style={{
         padding: '12px 14px 4px',
-        fontSize: FS[10],
+        fontSize: FS[12],
         fontFamily: F.mono,
         // 2026-09-09: 여기만 labelTracking 을 안 거치고 있었습니다. 그룹 라벨은
         // 한글(「워크스페이스」·「연계 부서」)인데 1.6px 이 그대로 걸려 «워 크 스
@@ -1504,7 +1511,7 @@ function CollapsibleNavGroup({
           justifyContent: 'space-between',
           width: '100%',
           padding: '12px 14px 4px',
-          fontSize: FS[10],
+          fontSize: FS[12],
           fontFamily: F.mono,
           // 2026-09-09: SectionHeader 만 고치고 여기를 놓쳤다. 화면에 실제로 보이는
           // 묶음 이름표는 접이식인 이쪽이고, 「워 크 스 페 이 스」가 여기서 나왔다.
@@ -1686,7 +1693,7 @@ function WorkspaceNavGroup({
                 {ungrouped.map((m) => renderModule(m))}
                 {NAV_SUBGROUP_ORDER.filter((sg) => bySub.has(sg)).map((sg) => (
                   <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                    <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), wordSpacing: labelWordSpacing(NAV_SUBGROUP_LABEL[sg]), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
+                    <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), wordSpacing: labelWordSpacing(NAV_SUBGROUP_LABEL[sg]), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
                       {NAV_SUBGROUP_LABEL[sg]}
                     </div>
                     {bySub.get(sg)!.map((m) => renderModule(m))}

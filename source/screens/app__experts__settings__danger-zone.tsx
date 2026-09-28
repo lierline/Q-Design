@@ -128,7 +128,7 @@ export function ExpertDangerZone() {
 
         .expert-danger-hint {
           font-family: var(--mono);
-          font-size: 10px;
+          font-size: 12px;
           letter-spacing: 0.16em;
           color: var(--mist);
           line-height: 1.75;
@@ -174,7 +174,7 @@ export function ExpertDangerZone() {
           justify-content: center;
           padding: 12px 24px;
           font-family: var(--sans);
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
@@ -220,7 +220,7 @@ export function ExpertDangerZone() {
           border: 1px solid rgba(184, 98, 76, 0.3);
           color: var(--burgundy-soft);
           font-family: var(--mono);
-          font-size: 11px;
+          font-size: 12px;
           letter-spacing: 0.04em;
           line-height: 1.6;
         }

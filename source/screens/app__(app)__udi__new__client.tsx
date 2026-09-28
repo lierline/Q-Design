@@ -205,7 +205,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                 title="MFDS 통합정보시스템에서 이 UDI-DI 의 제품 정보를 불러옵니다"
                 style={{
                   flexShrink: 0, padding: '0 14px', minHeight: 44, whiteSpace: 'nowrap',
-                  fontFamily: F.mono, fontSize: FS[11], letterSpacing: 0.5, fontWeight: 600,
+                  fontFamily: F.mono, fontSize: FS[12], letterSpacing: 0.5, fontWeight: 600,
                   background: canLookup ? alpha(T.champagne, 0.1) : 'transparent',
                   color: canLookup ? T.champagne : T.muted,
                   border: `1px solid ${canLookup ? alpha(T.champagne, 0.5) : T.border}`,
@@ -215,7 +215,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                 {looking ? '조회 중…' : 'MFDS 불러오기'}
               </button>
             </div>
-            <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
+            <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
               제품/모델당 고유하며 조직 안에서 중복 등록할 수 없습니다. DI 를 넣고 <strong style={{ color: T.subtle }}>「MFDS 불러오기」</strong>를 누르면 아래 제품명 · 품목 코드 칸의 빈 곳을 허가 정보로 채웁니다.
             </div>
             {diHasEmbeddedAi && (
@@ -230,7 +230,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
             )}
             {lookupInfo && (
               <div style={{ marginTop: S[2], padding: '10px 12px', background: alpha(T.green, 0.05), border: `1px solid ${alpha(T.green, 0.35)}`, borderRadius: RADIUS.sm }}>
-                <div style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: 1, textTransform: 'uppercase', color: T.green, marginBottom: S[1.5] }}>MFDS 조회 결과</div>
+                <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.green, marginBottom: S[1.5] }}>MFDS 조회 결과</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {([
                     ['제품명', lookupInfo.product_name],
@@ -300,18 +300,18 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
             {suggestion && (
               <div style={{ marginBottom: S[2.5], padding: '10px 13px', background: alpha(T.champagne, 0.05), border: `1px solid ${alpha(T.champagne, 0.3)}`, borderRadius: RADIUS.sm }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: S[2], flexWrap: 'wrap', marginBottom: S[1.5] }}>
-                  <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: 1, textTransform: 'uppercase', color: T.champagne, fontWeight: 600 }}>제품 특성 기반 권장 PI</span>
+                  <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.champagne, fontWeight: 600 }}>제품 특성 기반 권장 PI</span>
                   <button
                     type="button"
                     onClick={() => setPi((p) => ({ ...p, ...suggestion.recommended }))}
-                    style={{ marginLeft: 'auto', padding: '3px 10px', fontFamily: F.mono, fontSize: FS[10], fontWeight: 600, background: T.champagne, color: T.bg, border: 'none', borderRadius: RADIUS.md, cursor: 'pointer' }}
+                    style={{ marginLeft: 'auto', padding: '3px 10px', fontFamily: F.mono, fontSize: FS[12], fontWeight: 600, background: T.champagne, color: T.bg, border: 'none', borderRadius: RADIUS.md, cursor: 'pointer' }}
                   >
                     권장값 적용
                   </button>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {suggestion.reasons.map((r) => (
-                    <div key={r.key} style={{ fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
+                    <div key={r.key} style={{ fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
                       <strong style={{ color: T.text }}>{PI_LABEL[r.key] ?? r.key}</strong>: {r.reason}
                     </div>
                   ))}
@@ -333,17 +333,17 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                     borderRadius: RADIUS.md, cursor: 'pointer',
                   }}
                 >
-                  <span style={{ fontFamily: F.mono, fontSize: FS[11], color: pi[m.key] ? T.green : T.subtle, flexShrink: 0, marginTop: 1 }}>
+                  <span style={{ fontFamily: F.mono, fontSize: FS[12], color: pi[m.key] ? T.green : T.subtle, flexShrink: 0, marginTop: 1 }}>
                     {pi[m.key] ? '☑' : '☐'}
                   </span>
                   <span style={{ flex: 1 }}>
                     <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text, fontWeight: 600 }}>
                       {m.label}
                       {isRec && (
-                        <span style={{ marginLeft: S[1.5], fontFamily: F.mono, fontSize: FS[9], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: RADIUS.sm, padding: '1px 5px', letterSpacing: 0.5, verticalAlign: 'middle' }}>권장</span>
+                        <span style={{ marginLeft: S[1.5], fontFamily: F.mono, fontSize: FS[12], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: RADIUS.sm, padding: '1px 5px', letterSpacing: 0.5, verticalAlign: 'middle' }}>권장</span>
                       )}
                     </span>
-                    <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[11], color: T.subtle, marginTop: S[0.5], lineHeight: LH.normal }}>{m.help}</span>
+                    <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[12], color: T.subtle, marginTop: S[0.5], lineHeight: LH.normal }}>{m.help}</span>
                   </span>
                 </button>
                 );
@@ -368,7 +368,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
           <Bx style={{ padding: 0, overflow: 'hidden', borderRadius: RADIUS.md, borderColor: T.border }}>
             <div style={{ padding: '11px 16px', borderBottom: `1px solid ${T.border}`, display: 'flex', alignItems: 'center', gap: S[2] }}>
               <ScanBarcode size={15} aria-hidden="true" style={{ color: T.champagne }} />
-              <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: 1.4, textTransform: 'uppercase', color: T.subtle, fontWeight: 600 }}>
+              <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1.4, textTransform: 'uppercase', color: T.subtle, fontWeight: 600 }}>
                 UDI 캐리어 미리보기
               </span>
             </div>
@@ -392,14 +392,14 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                         <CarrierLine key={m.key} ai={isGs1 ? GS1_AI[m.key] : undefined} value={m.label} example={isGs1 ? PI_EXAMPLE[m.key] : undefined} />
                       ))}
                     </div>
-                    <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[10], color: T.muted, lineHeight: LH.normal }}>
+                    <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[12], color: T.muted, lineHeight: LH.normal }}>
                       ↳ 회색 값은 <strong>예시</strong>입니다. PI 는 등록이 아니라 <strong>생산 로트마다</strong> 라벨에 찍히는 정보: 여기선 어떤 항목을 쓸지 <strong>구성</strong>만 정합니다.
                     </div>
                   </>
                 )}
               </div>
               {!isGs1 && (
-                <div style={{ fontFamily: F.serif, fontSize: FS[11], color: T.muted, lineHeight: LH.normal }}>
+                <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.muted, lineHeight: LH.normal }}>
                   {ISSUING_AGENCY_LABEL[agency]} 는 GS1 의 (AI) 대신 자체 데이터 구조를 사용합니다. 위 번호는 GS1 기준 참고용입니다.
                 </div>
               )}
@@ -417,7 +417,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
 function CarrierLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: 1, textTransform: 'uppercase', color: T.muted, marginBottom: S[1.5] }}>
+    <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.muted, marginBottom: S[1.5] }}>
       {children}
     </div>
   );
@@ -427,7 +427,7 @@ function CarrierLine({ ai, value, dim, example }: { ai?: string; value: string; 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: S[2], padding: '7px 10px', background: alpha(T.champagne, 0.04), border: `1px solid ${T.border}`, borderRadius: RADIUS.sm }}>
       {ai && (
-        <span style={{ fontFamily: F.mono, fontSize: FS[10], color: T.champagne, background: alpha(T.champagne, 0.1), border: `1px solid ${alpha(T.champagne, 0.35)}`, borderRadius: RADIUS.sm, padding: '1px 5px', flexShrink: 0 }}>
+        <span style={{ fontFamily: F.mono, fontSize: FS[12], color: T.champagne, background: alpha(T.champagne, 0.1), border: `1px solid ${alpha(T.champagne, 0.35)}`, borderRadius: RADIUS.sm, padding: '1px 5px', flexShrink: 0 }}>
           ({ai})
         </span>
       )}
@@ -435,7 +435,7 @@ function CarrierLine({ ai, value, dim, example }: { ai?: string; value: string; 
         {value}
       </span>
       {example && (
-        <span style={{ marginLeft: 'auto', fontFamily: F.mono, fontSize: FS[11], color: T.muted, flexShrink: 0 }}>
+        <span style={{ marginLeft: 'auto', fontFamily: F.mono, fontSize: FS[12], color: T.muted, flexShrink: 0 }}>
           예: {example}
         </span>
       )}

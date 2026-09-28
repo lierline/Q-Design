@@ -408,7 +408,7 @@ export default function ResearchHomePage() {
             border: `1px solid ${alpha(T.champagne, 0.33)}`,
             borderColor: tintBorder(T.champagne),
             background: `${alpha(T.champagne, 0.05)}`,
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.subtle,
             fontFamily: F.serif,
             lineHeight: LH.relaxed,
@@ -493,7 +493,7 @@ export default function ResearchHomePage() {
               <br />
               1차 검토를 통과한 문서를 최종 승인하려면 경영진 · R&D 팀장 · 소유자 권한이 필요한데, 본인 외에 승인 가능한 멤버가 없습니다. 설정에서 <strong>1인 조직 모드</strong>를 켜거나 <strong>경영진 · R&D 팀장</strong> 직무 멤버를 추가하세요.
             </div>
-            <Link href="/settings/members" style={{ display: 'inline-block', marginTop: S[2], fontSize: FS[11], color: T.champagne, fontFamily: F.mono, textDecoration: 'none' }}>
+            <Link href="/settings/members" style={{ display: 'inline-block', marginTop: S[2], fontSize: FS[12], color: T.champagne, fontFamily: F.mono, textDecoration: 'none' }}>
               멤버 · 직무 설정으로 →
             </Link>
           </Bx>
@@ -540,7 +540,7 @@ export default function ResearchHomePage() {
               >
                 <nextAction.Icon size={32} style={{ color: nextAction.color, flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
+                  <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
                     {nextAction.category}
                   </div>
                   <div style={{ fontSize: FS[18], color: T.text, fontFamily: F.serif, fontWeight: 600, marginBottom: S[1] }}>

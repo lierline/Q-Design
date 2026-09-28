@@ -126,7 +126,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
         </div>
         <span
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: CONF_COLOR[judgment.confidence],
             fontFamily: F.mono,
             letterSpacing: 1.5,
@@ -141,7 +141,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
         {judgment.expert_count > 0 && (
           <span
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
             }}
@@ -240,7 +240,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
               background: 'transparent',
               border: 'none',
               color: T.muted,
-              fontSize: FS[10],
+              fontSize: FS[12],
               fontFamily: F.mono,
               letterSpacing: 1,
               textTransform: 'uppercase',
@@ -260,7 +260,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
               style={{
                 padding: '12px 14px',
                 background: T.surface,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 color: T.muted,
                 display: 'grid',
@@ -294,7 +294,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
                     border: `1px solid ${T.border}`,
                     color: T.muted,
                     padding: '4px 10px',
-                    fontSize: FS[10],
+                    fontSize: FS[12],
                     fontFamily: F.mono,
                     letterSpacing: 1,
                     textTransform: 'uppercase',
@@ -359,7 +359,7 @@ function WeightsBar({
           display: 'flex',
           alignItems: 'baseline',
           justifyContent: 'space-between',
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: 1.5,
@@ -398,7 +398,7 @@ function WeightsBar({
           flexWrap: 'wrap',
           gap: S[3.5],
           marginTop: S[2],
-          fontSize: FS[10],
+          fontSize: FS[12],
           fontFamily: F.mono,
           color: T.subtle,
         }}
@@ -423,7 +423,7 @@ function WeightsBar({
         <div
           style={{
             marginTop: S[2],
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.mono,
             letterSpacing: 0.5,
@@ -456,7 +456,7 @@ function JudgmentSection({
           display: 'flex',
           alignItems: 'center',
           gap: S[1.5],
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: 1.5,

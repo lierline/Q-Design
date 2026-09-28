@@ -239,7 +239,7 @@ const ossCss = `
 
 .qa-oss .qa-oss-ver {
   font-family: ${F.mono};
-  font-size: ${FS[10]}px;
+  font-size: ${FS[12]}px;
   color: ${T.muted};
 }
 
@@ -257,13 +257,13 @@ const ossCss = `
 
 .qa-oss .qa-oss-count {
   font-family: ${F.mono};
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   color: ${T.muted};
   font-weight: 400;
 }
 
 .qa-oss .qa-oss-members {
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   line-height: ${LH.relaxed};
   color: ${T.muted};
   margin: 0 0 ${S[2]}px;
@@ -278,7 +278,7 @@ const ossCss = `
   background: ${T.surface2};
   color: ${T.subtle};
   font-family: ${F.mono};
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   line-height: ${LH.relaxed};
   white-space: pre-wrap;
   word-break: break-word;
@@ -287,12 +287,12 @@ const ossCss = `
 
 .qa-oss .qa-oss-back {
   margin: ${S[1.5]}px 0 0;
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
 }
 
 .qa-oss code {
   font-family: ${F.mono};
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   color: ${T.text};
   background: ${alpha(T.champagne, 0.08)};
   padding: 0 ${S[1]}px;

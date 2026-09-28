@@ -35,7 +35,12 @@ const CHECK = process.argv.includes('--check');
  * 내는 것이 가장 나쁩니다.
  */
 const REPOS = {
-  qa: 'D:/Claude/Q-Atelier',
+  /*
+   * QD_QA_REPO 로 다른 체크아웃을 가리킬 수 있습니다(2026-09-28). D:/Claude/Q-Atelier 는 다른 세션이
+   * 쓰는 폴더라, 그 HEAD 가 방금 올린 원본보다 뒤처져 있을 수 있습니다. 올린 커밋을 품은 워크트리를
+   * 가리키면 그 HEAD 를 읽습니다(여전히 «커밋된 내용만» 입니다).
+   */
+  qa: process.env.QD_QA_REPO || 'D:/Claude/Q-Atelier',
   mq: 'D:/Claude/MedQraft Docs', // 2026-09-20 폴더 이름이 바뀌었다 (옛 D:/Claude/MedQraft)
 };
 
@@ -74,6 +79,9 @@ const MAP = [
       'components/PageTransition.tsx',
       'components/RibbonBackground.tsx',
       'components/Sidebar.tsx',
+      /* 차림표 발치의 로그아웃 글귀(2026-09-28 · extract-nav 가 치수를 TextAction 에서 읽습니다) */
+      'components/LogoutButton.tsx',
+      'components/TextAction.tsx',
       'components/Skeleton.tsx',
       /*
        * 목록 둘레 부품 셋 (2026-09-24 · 감사 22 10절 · 오너 결정 「정본을 늘려 모두 맞추기」).

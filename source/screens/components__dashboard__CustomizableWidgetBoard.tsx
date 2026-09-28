@@ -192,7 +192,7 @@ export function CustomizableWidgetBoard({
           border: `1px solid ${editing ? T.champagne : T.border}`,
           borderRadius: RADIUS.md,
           fontFamily: F.mono,
-          fontSize: FS[10],
+          fontSize: FS[12],
           cursor: 'pointer',
           transition: `background ${MOTION.fast}, color ${MOTION.fast}, border-color ${MOTION.fast}`,
         }}
@@ -225,7 +225,7 @@ export function CustomizableWidgetBoard({
             border: `1px dashed ${alpha(T.champagne, 0.4)}`,
             borderRadius: RADIUS.md,
             fontFamily: F.mono,
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.subtle,
             letterSpacing: 0.3,
             lineHeight: LH.relaxed,
@@ -250,7 +250,7 @@ export function CustomizableWidgetBoard({
               border: `1px solid ${T.border}`,
               borderRadius: RADIUS.md,
               fontFamily: F.mono,
-              fontSize: FS[10],
+              fontSize: FS[12],
               cursor: 'pointer',
               flexShrink: 0,
             }}
@@ -280,7 +280,7 @@ export function CustomizableWidgetBoard({
             content: '표시할 데이터가 아직 없습니다. 데이터가 생기면 이 자리에 자동 표시됩니다';
             display: flex; align-items: center; justify-content: center;
             min-height: 76px; padding: 18px 14px; text-align: center;
-            font-family: ${F.mono}; font-size: 10.5px; line-height: ${LH.relaxed};
+            font-family: ${F.mono}; font-size: 12px; line-height: ${LH.relaxed};
             color: ${T.muted}; letter-spacing: 0.3px;
           }
         `}</style>
@@ -407,7 +407,7 @@ export function CustomizableWidgetBoard({
                     borderRadius: RADIUS.sm,
                     backdropFilter: 'blur(4px)',
                     fontFamily: F.mono,
-                    fontSize: FS[10],
+                    fontSize: FS[12],
                     color: isHidden ? T.muted : T.subtle,
                     letterSpacing: 0.3,
                     maxWidth: 'calc(100% - 150px)',

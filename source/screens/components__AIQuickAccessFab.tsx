@@ -216,7 +216,7 @@ export function AIQuickAccessFab() {
                       <span
                         style={{
                           fontFamily: F.mono,
-                          fontSize: FS[9],
+                          fontSize: FS[12],
                           fontWeight: 500,
                           letterSpacing: '0.12em',
                           color: T.champagne,
@@ -303,7 +303,7 @@ export function AIQuickAccessFab() {
               marginTop: S[1],
               padding: '12px 16px',
               fontFamily: F.mono,
-              fontSize: FS[9],
+              fontSize: FS[12],
               fontWeight: 500,
               letterSpacing: '0.14em',
               color: T.muted,

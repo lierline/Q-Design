@@ -138,7 +138,6 @@ Q-Atelier `lib/design/tokens.ts` 의 `labelTracking()` 과 같은 규칙입니�
     <a class="qd-nav-item is-active" href="/dashboard">
       <span class="qd-nav-icon"><svg>...</svg></span>
       <span class="qd-nav-label">오늘 할 일</span>
-      <span class="qd-nav-dot"></span>
     </a>
     <a class="qd-nav-item" href="/targets">
       <span class="qd-nav-icon"><svg>...</svg></span>

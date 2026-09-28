@@ -160,7 +160,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
             border: `1px solid ${alpha(T.red, 0.25)}`,
             color: T.red,
             fontFamily: F.mono,
-            fontSize: FS[11],
+            fontSize: FS[12],
             marginBottom: S[3.5],
           }}
         >
@@ -239,7 +239,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                 style={{
                   padding: '10px 0',
                   textAlign: 'center',
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: i === 5 ? T.blue : i === 6 ? T.red : T.muted,
                   fontFamily: F.mono,
                   letterSpacing: 1,
@@ -352,7 +352,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                 >
                   <div
                     style={{
-                      fontSize: FS[11],
+                      fontSize: FS[12],
                       color: isToday
                         ? T.champagne
                         : dayOfWeek === 5
@@ -372,7 +372,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                         <div
                           key={m.id}
                           style={{
-                            fontSize: FS[9],
+                            fontSize: FS[12],
                             color: m.status === 'cancelled' ? T.muted : T.subtle,
                             fontFamily: F.ui,
                             overflow: 'hidden',
@@ -392,7 +392,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                       {dayMeetings.length > 2 && (
                         <div
                           style={{
-                            fontSize: FS[9],
+                            fontSize: FS[12],
                             color: T.muted,
                             fontFamily: F.mono,
                           }}

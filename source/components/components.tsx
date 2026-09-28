@@ -76,7 +76,7 @@ export function Lbl({ children, htmlFor }: { children: ReactNode; htmlFor?: stri
     <label
       htmlFor={htmlFor}
       style={{
-        fontSize: FS[10],
+        fontSize: FS[12],
         color: T.subtle,
         // 2026-09-03 M-02: 한글 라벨이면 자간 0 · uppercase 해제(tokens 의 labelTracking 규칙).
         letterSpacing: labelTracking(children, 1.5),
@@ -290,7 +290,7 @@ export function Btn({
         // 2026-08-21: raw 0.5(10.5/11.5)였다. **공용 버튼**이라 화면 어디서나 나타나는데,
         // 주변 텍스트는 FS 정수 토큰을 쓰니 버튼만 0.5 어긋난 크기로 떠 있었다.
         // 「글씨 크기가 들쑥날쑥」의 큰 몫이 여기였다. raw 라서 토큰 치환도 닿지 않았다.
-        fontSize: sm ? FS[11] : FS[12],
+        fontSize: sm ? FS[12] : FS[12],
         lineHeight: LH.none,
         // 2026-09-03 M-02: 한글 버튼 문구는 자간 0 · uppercase 해제. minWidth 는 호출부 불변.
         letterSpacing: labelTracking(children, 1.2),
@@ -669,7 +669,7 @@ export function SectionProgressCard({
   return (
     <div style={{ marginBottom: S[6], padding: S[4.5], borderRadius: RADIUS.md, border: `1px solid ${T.border}`, background: alpha(T.champagne, 0.02) }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: S[2] }}>
-        <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.12em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
+        <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: labelTracking(label, '0.12em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
         <span style={{ fontFamily: F.serif, fontSize: FS[20], fontWeight: 700, color: fill }}>{value}%</span>
       </div>
       <ProgressBar value={value} height={6} />
@@ -805,7 +805,7 @@ export function FilterChip({
         background: active ? color : 'transparent',
         color: active ? T.bg : color,
         border: `1px solid ${active ? color : alpha(color, 0.45)}`,
-        fontSize: FS[10],
+        fontSize: FS[12],
         fontFamily: F.mono,
         letterSpacing: labelTracking(label, 0.5),
         wordSpacing: labelWordSpacing(label),
@@ -874,7 +874,7 @@ export function FldRow({
 }) {
   // htmlFor 유무로 «요소»는 달라지지만 «모습»은 하나여야 한다.
   //
-  // 2026-08-06 이전에는 htmlFor 가 없으면 <Lbl>(FS[11] · T.subtle · ls 1.5 ·
+  // 2026-08-06 이전에는 htmlFor 가 없으면 <Lbl>(FS[12] · T.subtle · ls 1.5 ·
   // marginBottom 7) 로 빠져, 같은 폼 안에서도 id 를 준 필드와 안 준 필드의 라벨이
   // 크기·색·자간이 다르고 컨트롤이 7px 내려앉았다. SSOT 컴포넌트가 «입력에 따라
   // 모습을 바꾸는» 패턴: Tag 가 색으로 tier 를 바꾸던 것과 같은 결함이다.
@@ -887,7 +887,7 @@ export function FldRow({
       {optional && (
         <span
           style={{
-            color: T.muted, opacity: 0.6, fontSize: FS[9],
+            color: T.muted, opacity: 0.6, fontSize: FS[12],
             letterSpacing: 0.8, textTransform: 'none', marginLeft: S[1],
           }}
         >
@@ -905,7 +905,7 @@ export function FldRow({
           <span style={lblStyleFor(label)}>{labelNode}</span>
         )}
         {hint && (
-          <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.ui }}>
+          <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
             {hint}
           </span>
         )}
@@ -969,7 +969,7 @@ export function FormSection({
     <section style={{ marginTop: S[5] }}>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.champagne,
           fontFamily: F.mono,
           letterSpacing: labelTracking(title, 1.8),
@@ -984,7 +984,7 @@ export function FormSection({
         {title}
       </div>
       {description && (
-        <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.serif, marginBottom: S[2.5], lineHeight: LH.normal }}>
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif, marginBottom: S[2.5], lineHeight: LH.normal }}>
           {description}
         </div>
       )}
@@ -1119,9 +1119,9 @@ export function EntityCardHeader({
         {tags}
         <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: S[2.5] }}>
           {meta != null && (
-            <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>{meta}</span>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>{meta}</span>
           )}
-          <span style={{ color: T.muted, fontSize: FS[10] }}>{expanded ? '▼' : '▶'}</span>
+          <span style={{ color: T.muted, fontSize: FS[12] }}>{expanded ? '▼' : '▶'}</span>
         </span>
       </div>
       {/* 2단: 제목 행: 전체 폭, 가독성 우선 */}
@@ -1145,7 +1145,7 @@ export function EntityCardHeader({
 // 문구를 받아 labelTracking 으로 정합니다. 크기·색·굵기는 종전과 같습니다.
 function lblStyleFor(label: ReactNode): CSSProperties {
   return {
-    fontSize: FS[10],
+    fontSize: FS[12],
     color: T.muted,
     fontFamily: F.mono,
     letterSpacing: labelTracking(label, 1.2),
@@ -1252,7 +1252,7 @@ export function PageHd({ title, sub, desc, actions, accent = true }: PageHdProps
           {sub && (
             <div
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.subtle,
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(sub, 2.2),
@@ -1334,7 +1334,7 @@ export function Card({ label, value, color, sub, children, style, minHeight = 12
       {!isContainerMode && label && (
         <div
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.subtle,
             letterSpacing: labelTracking(label, 1.5),
             wordSpacing: labelWordSpacing(label),
@@ -1527,7 +1527,7 @@ export function LoadingState({
     return (
       <span
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: labelTracking(label, 1.5),
@@ -1562,7 +1562,7 @@ export function LoadingState({
           alignItems: 'center',
           gap: S[3.5],
           fontFamily: F.mono,
-          fontSize: FS[10],
+          fontSize: FS[12],
           letterSpacing: labelTracking(label, 2.2),
           wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
@@ -1837,7 +1837,7 @@ export function EmptyState({
                 background: 'transparent',
                 border: `1px solid ${alpha(T.champagne, 0.4)}`,
                 color: T.champagne,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 letterSpacing: labelTracking(h.label, 0.5),
                 wordSpacing: labelWordSpacing(h.label),
@@ -2123,7 +2123,7 @@ export function KPI({
       >
         <div
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.subtle,
             fontFamily: F.mono,
             letterSpacing: labelTracking(label, 1.5),
@@ -2140,7 +2140,7 @@ export function KPI({
           {tooltip && novice && (
             <span
               aria-hidden="true"
-              style={{ fontSize: FS[10], color: T.muted, opacity: 0.6 }}
+              style={{ fontSize: FS[12], color: T.muted, opacity: 0.6 }}
             >
               ⓘ
             </span>
@@ -2173,7 +2173,7 @@ export function KPI({
         {/* sub 자리: 값이 없을 때도 동일 높이로 자리 확보 */}
         <div
           style={{
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.ui,
             marginTop: S[2.5],
@@ -2268,7 +2268,7 @@ export function TooltipBody({
     <div>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.champagne,
           letterSpacing: labelTracking(title, 1.5),
           wordSpacing: labelWordSpacing(title),
@@ -2300,7 +2300,7 @@ export function TooltipRow({
         display: 'flex',
         alignItems: 'center',
         gap: S[1.5],
-        fontSize: FS[11],
+        fontSize: FS[12],
         fontFamily: F.mono,
         color: T.subtle,
         letterSpacing: 0.3,
@@ -2336,7 +2336,7 @@ export function TooltipNote({ children }: { children: ReactNode }) {
         marginTop: S[2],
         paddingTop: S[2],
         borderTop: `1px dashed ${T.border}`,
-        fontSize: FS[10],
+        fontSize: FS[12],
         lineHeight: LH.relaxed,
         color: T.muted,
         fontFamily: F.serif,
@@ -2403,7 +2403,7 @@ export function SectionTitle({
     <Comp
       style={{
         margin: 0,
-        fontSize: FS[10],
+        fontSize: FS[12],
         color: T.champagne,
         // 🔴 2026-08-21: 한글이면 자간 0. 이 컴포넌트는 **전 페이지 섹션 헤더**라,
         //    2.2px 트래킹이 「오늘  처리할  것」처럼 낱글자로 흩어져 보였다(오빠 지적).
@@ -2434,7 +2434,7 @@ export function Section({ title, children }: { title: ReactNode; children: React
       <div
         style={{
           fontFamily: F.mono,
-          fontSize: FS[10],
+          fontSize: FS[12],
           fontWeight: 500,
           letterSpacing: labelTracking(title, '0.14em'),
           wordSpacing: labelWordSpacing(title),
@@ -2476,7 +2476,7 @@ export function SectionCard({
     >
       <div>
         <div style={{ ...TYPE.h3, color: T.text, marginBottom: subtitle ? 4 : 0 }}>{title}</div>
-        {subtitle && <div style={{ ...TYPE.caption, color: T.subtle }}>{subtitle}</div>}
+        {subtitle && <div style={{ ...TYPE.caption, fontSize: FS[12], color: T.subtle }}>{subtitle}</div>}
       </div>
       {children}
     </Bx>
@@ -2521,7 +2521,7 @@ export function SectionTitleInfo({
     >
       <span
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.champagne,
           letterSpacing: labelTracking(children, 2.2),
           wordSpacing: labelWordSpacing(children),
@@ -2532,7 +2532,7 @@ export function SectionTitleInfo({
       >
         {children}
       </span>
-      <span aria-hidden style={{ fontSize: FS[10], color: T.muted, opacity: 0.7 }}>
+      <span aria-hidden style={{ fontSize: FS[12], color: T.muted, opacity: 0.7 }}>
         ⓘ
       </span>
       {open && (
@@ -2565,7 +2565,7 @@ export function CardTitle({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
-        fontSize: FS[10],
+        fontSize: FS[12],
         color: T.muted,
         fontFamily: F.mono,
         letterSpacing: labelTracking(children, 1),
@@ -2591,7 +2591,7 @@ export function DistributionBars({
     return (
       <div
         style={{
-          fontSize: FS[11],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           padding: '20px 0',
@@ -2613,7 +2613,7 @@ export function DistributionBars({
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 marginBottom: S[1],
               }}
@@ -2812,7 +2812,7 @@ export function DataTable<T>({
             padding: `${padY + 1}px 12px`,
             textAlign: c.align ?? 'left',
             fontFamily: F.mono,
-            fontSize: FS[10],
+            fontSize: FS[12],
             fontWeight: 500,
             letterSpacing: labelTracking(c.header, '0.12em'),
             wordSpacing: labelWordSpacing(c.header),
@@ -3015,7 +3015,7 @@ export function EntityRow({
               <span
                 style={{
                   fontFamily: F.mono,
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   fontWeight: 500,
                   letterSpacing: labelTracking(code, '0.1em'),
                   wordSpacing: labelWordSpacing(code),
@@ -3492,7 +3492,7 @@ export function Drawer({
               )}
               {sub && (
                 <div
-                  style={{ fontFamily: F.mono, fontSize: FS[10], color: T.muted, letterSpacing: 0.5, marginTop: 3 }}
+                  style={{ fontFamily: F.mono, fontSize: FS[12], color: T.muted, letterSpacing: 0.5, marginTop: 3 }}
                 >
                   {sub}
                 </div>
@@ -3584,7 +3584,7 @@ export function ProgressRing({
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: F.mono,
-          fontSize: size <= 48 ? 11 : 13,
+          fontSize: size <= 48 ? 12 : 13, // 작은 고리도 12px 이상 (오너 결정 2026-09-27)
           fontWeight: 600,
           color: T.text,
           letterSpacing: '-0.02em',
@@ -3722,7 +3722,7 @@ function StageTimelineItem({
       <div style={{ textAlign: 'center', minHeight: 32 }}>
         <div
           style={{
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: selected ? T.champagne : emphasis ? T.text : filled ? T.subtle : T.muted,
             fontFamily: F.serif,
             fontWeight: selected || emphasis ? 700 : 400,
@@ -3816,7 +3816,7 @@ export function Stat({
       <div
         style={{
           fontFamily: F.mono,
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           letterSpacing: labelTracking(label, '0.12em'),
           wordSpacing: labelWordSpacing(label),
@@ -3857,7 +3857,7 @@ export function StatGrid({ children, minCol = 120 }: { children: ReactNode; minC
 export function DetailRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
-      <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: labelTracking(label, '0.1em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
+      <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: labelTracking(label, '0.1em'), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
       <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{value}</span>
     </div>
   );
@@ -3909,7 +3909,7 @@ export function WorkspaceTab({
       </div>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: labelTracking(sub, 0.5),

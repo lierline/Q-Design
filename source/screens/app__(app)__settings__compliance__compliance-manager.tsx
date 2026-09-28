@@ -266,7 +266,7 @@ export function ComplianceManager({
           pill 을 Btn sm 과 동일한 minHeight/padding/lineHeight/boxSizing 으로
           맞춰 같은 row 의 모든 사각형 높이 통일. */}
       <div style={{ display: 'flex', gap: S[2], alignItems: 'center', marginBottom: S[3.5], flexWrap: 'wrap' }}>
-        <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 1, textTransform: 'uppercase' }}>
+        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1, textTransform: 'uppercase' }}>
           점검 세션
         </span>
         {assessments.map((a) => {
@@ -286,7 +286,7 @@ export function ComplianceManager({
                 background: active ? alpha(T.champagne, 0.1) : 'transparent',
                 border: `1px solid ${active ? T.champagne : T.border}`,
                 color: active ? T.text : T.subtle,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 letterSpacing: 0.3,
                 lineHeight: LH.none,
@@ -316,7 +316,7 @@ export function ComplianceManager({
           <div style={{ fontSize: FS[13], color: T.subtle, fontFamily: F.serif, marginBottom: S[1.5] }}>
             아직 점검 기록이 없습니다.
           </div>
-          <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.mono, lineHeight: LH.relaxed }}>
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, lineHeight: LH.relaxed }}>
             새 점검 을 눌러 ISO 13485 §4~§8 약 45개 항목을 자가 점검하세요.
             <br />외부 감사 대비 + Gap 우선순위 + 관련 양식 자동 연결.
           </div>
@@ -423,7 +423,7 @@ function ComplianceDetail({
         <Tag color={assessment.status === 'completed' ? T.green : T.muted}>
           {assessment.status === 'completed' ? '완료됨' : '진행 중'}
         </Tag>
-        <span style={{ fontSize: FS[11], color: T.muted, fontFamily: F.mono }}>
+        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
           시작 {dateOnly(assessment.started_at)}
           {assessment.completed_at && ' · 완료 ' + dateOnly(assessment.completed_at)}
         </span>
@@ -443,7 +443,7 @@ function ComplianceDetail({
             background: 'transparent',
             color: T.red,
             border: `1px solid ${T.red}`,
-            fontSize: FS[10],
+            fontSize: FS[12],
             fontFamily: F.mono,
             letterSpacing: 1.2,
             textTransform: 'uppercase',
@@ -503,7 +503,7 @@ function ScoreOverview({
         <Bx style={{ padding: S[4.5], borderColor: tintBorder(outlookColor), background: alpha(outlookColor, 0.04) }}>
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
               marginBottom: S[1],
@@ -519,7 +519,7 @@ function ScoreOverview({
                 분모는 «가중 합» 이라, 「3점 / 6점: 가중」 옆에 머리 숫자가 100% 로 떴다.
                 올바른 값(`weighted_score`)이 이미 있는데 화면이 따로 계산한 탓이다
                 ([[duplicated-fact-drift]]). 이제 그 값을 그대로 읽는다. */}
-            <span style={{ fontSize: FS[11], color: T.muted, fontFamily: F.mono }}>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
               ({round1(score.overall.weighted_score)}점 / {round1(score.overall.weighted_total)}점: 가중)
             </span>
           </div>
@@ -527,7 +527,7 @@ function ScoreOverview({
           <div style={{ height: 4, background: alpha(T.muted, 0.2), marginBottom: S[2.5] }}>
             <div style={{ height: '100%', width: `${pct}%`, background: outlookColor, transition: 'width 300ms' }} />
           </div>
-          <div style={{ fontSize: FS[11], color: T.subtle, lineHeight: LH.relaxed, fontFamily: F.serif }}>
+          <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, fontFamily: F.serif }}>
             {outlook.message}
           </div>
         </Bx>
@@ -562,7 +562,7 @@ function ScoreOverview({
           gap: S[4],
           alignItems: 'center',
           flexWrap: 'wrap',
-          fontSize: FS[11],
+          fontSize: FS[12],
           fontFamily: F.mono,
           color: T.muted,
           letterSpacing: 0.3,
@@ -582,7 +582,7 @@ function ScoreOverview({
       <div style={{ marginTop: S[3] }}>
         <div
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.mono,
             marginBottom: S[2],
@@ -634,7 +634,7 @@ function MetricCard({
     <Bx style={{ padding: S[3.5], borderColor: tintBorder(accent) }}>
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           letterSpacing: 1.5,
           fontFamily: F.mono,
@@ -646,7 +646,7 @@ function MetricCard({
       </div>
       <div style={{ fontSize: FS[24], color: accent, fontFamily: F.serif, fontWeight: 500 }}>{value}</div>
       {sub && (
-        <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, marginTop: S[0.5] }}>{sub}</div>
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, marginTop: S[0.5] }}>{sub}</div>
       )}
     </Bx>
   );
@@ -657,14 +657,14 @@ function ClauseBar({ cl }: { cl: ScoreResult['by_clause'][number] }) {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: S[1] }}>
-        <span style={{ fontSize: FS[11], color: T.text, fontFamily: F.serif }}>{cl.label}</span>
-        <span style={{ fontSize: FS[11], color: labelColor, fontFamily: F.mono, fontWeight: 600, letterSpacing: 0.3 }}>
+        <span style={{ fontSize: FS[12], color: T.text, fontFamily: F.serif }}>{cl.label}</span>
+        <span style={{ fontSize: FS[12], color: labelColor, fontFamily: F.mono, fontWeight: 600, letterSpacing: 0.3 }}>
           {cl.answered > 0 ? `${cl.pct}%` : '미응답'}
           {cl.critical_gaps > 0 && (
-            <span style={{ marginLeft: S[2], color: T.red, fontSize: FS[10] }}>● {cl.critical_gaps}</span>
+            <span style={{ marginLeft: S[2], color: T.red, fontSize: FS[12] }}>● {cl.critical_gaps}</span>
           )}
           {cl.major_gaps > 0 && (
-            <span style={{ marginLeft: S[1], color: T.warning, fontSize: FS[10] }}>● {cl.major_gaps}</span>
+            <span style={{ marginLeft: S[1], color: T.warning, fontSize: FS[12] }}>● {cl.major_gaps}</span>
           )}
         </span>
       </div>
@@ -712,7 +712,7 @@ function ClauseTab({
       }}
     >
       <span style={{ fontWeight: active ? 600 : 400, letterSpacing: 0.2 }}>{label}</span>
-      <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono, letterSpacing: 0.5 }}>
+      <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 0.5 }}>
         {sub}
         {score && (
           <span style={{ marginLeft: S[1.5], color: accent, fontWeight: 600 }}>{score}</span>
@@ -783,7 +783,7 @@ function ClauseItems({
               padding: '8px 14px',
               background: alpha(T.champagne, 0.05),
               borderBottom: `1px solid ${T.border}`,
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: T.champagne,
               fontFamily: F.mono,
               letterSpacing: 1,
@@ -860,12 +860,12 @@ function ItemBlock({
               {item.question}
             </span>
             <Tag color={SEVERITY_COLOR[item.severity]}>{SEVERITY_LABEL[item.severity]}</Tag>
-            <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
               {item.iso_reference}
             </span>
           </div>
           {item.hint && (
-            <div style={{ fontSize: FS[11], color: T.subtle, fontFamily: F.serif, lineHeight: LH.normal, marginBottom: S[1.5] }}>
+            <div style={{ fontSize: FS[12], color: T.subtle, fontFamily: F.serif, lineHeight: LH.normal, marginBottom: S[1.5] }}>
               <HelpCircle size={10} style={{ display: 'inline', marginRight: S[1], verticalAlign: 'middle' }} />
               {item.hint}
             </div>
@@ -887,7 +887,7 @@ function ItemBlock({
                       background: 'transparent',
                       border: `1px solid ${alpha(T.champagne, 0.3)}`,
                       color: T.champagne,
-                      fontSize: FS[10],
+                      fontSize: FS[12],
                       fontFamily: F.mono,
                       letterSpacing: 0.3,
                       textDecoration: 'none',
@@ -912,7 +912,7 @@ function ItemBlock({
             background: T.surface,
             border: `1px solid ${T.border}`,
             color: STATUS_COLOR[status] ?? T.text,
-            fontSize: FS[11],
+            fontSize: FS[12],
             fontFamily: F.mono,
             letterSpacing: 0.3,
             cursor: editable ? 'pointer' : 'not-allowed',
@@ -976,7 +976,7 @@ const textareaStyle: React.CSSProperties = {
   background: T.surface,
   border: `1px solid ${T.border}`,
   color: T.text,
-  fontSize: FS[11],
+  fontSize: FS[12],
   fontFamily: F.serif,
   resize: 'vertical',
   lineHeight: LH.normal,
@@ -1001,7 +1001,7 @@ function GapReport({
         <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
           아직 답하지 않은 항목이 {unanswered}개 있어 미흡 항목을 셀 수 없습니다.
         </div>
-        <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.serif }}>
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif }}>
           절별 탭에서 답하면 부적합이 여기 모입니다.
         </div>
       </Bx>
@@ -1014,7 +1014,7 @@ function GapReport({
         <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
           식별된 부적합이 없습니다.
         </div>
-        <div style={{ fontSize: FS[11], color: T.muted, fontFamily: F.mono }}>
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
           미응답 항목이 있다면 절별 탭에서 답변하세요.
         </div>
       </Bx>
@@ -1027,7 +1027,7 @@ function GapReport({
         style={{
           padding: '12px 2px',
           ...ruleBand(T.red),
-          fontSize: FS[11],
+          fontSize: FS[12],
           color: T.subtle,
           fontFamily: F.mono,
           letterSpacing: 0.3,
@@ -1057,18 +1057,18 @@ function GapReport({
                 왜 중대로 나오지」에서 멈춘다. */}
             <Tag color={SEVERITY_COLOR[g.grade]}>{SEVERITY_LABEL[g.grade]}</Tag>
             {g.grade !== g.item.severity && (
-              <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.serif }}>
+              <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif }}>
                 ({SEVERITY_LABEL[g.item.severity]} 조항 · 부분 이행이라 한 단계 낮춤)
               </span>
             )}
             <Tag color={STATUS_COLOR[g.answer.status]}>{STATUS_LABEL[g.answer.status]}</Tag>
-            <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>{g.item.iso_reference}</span>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>{g.item.iso_reference}</span>
           </div>
           <div style={{ fontSize: FS[12], color: T.text, fontFamily: F.serif, marginBottom: S[1.5], lineHeight: LH.normal }}>
             {g.item.question}
           </div>
           {g.item.hint && (
-            <div style={{ fontSize: FS[11], color: T.subtle, fontFamily: F.serif, marginBottom: S[1.5], lineHeight: LH.normal }}>
+            <div style={{ fontSize: FS[12], color: T.subtle, fontFamily: F.serif, marginBottom: S[1.5], lineHeight: LH.normal }}>
               {g.item.hint}
             </div>
           )}
@@ -1077,7 +1077,7 @@ function GapReport({
               style={{
                 padding: S[2],
                 background: T.surface,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 color: T.subtle,
                 fontFamily: F.mono,
                 lineHeight: LH.normal,
@@ -1104,7 +1104,7 @@ function GapReport({
                       background: 'transparent',
                       border: `1px solid ${alpha(T.champagne, 0.4)}`,
                       color: T.champagne,
-                      fontSize: FS[10],
+                      fontSize: FS[12],
                       fontFamily: F.mono,
                       letterSpacing: 0.3,
                       textDecoration: 'none',
@@ -1149,7 +1149,7 @@ function smallBtn(color: string): React.CSSProperties {
     background: 'transparent',
     color,
     border: `1px solid ${color}`,
-    fontSize: FS[10],
+    fontSize: FS[12],
     fontFamily: F.mono,
     letterSpacing: 0.5,
     textTransform: 'uppercase',

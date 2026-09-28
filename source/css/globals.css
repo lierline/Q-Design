@@ -890,8 +890,8 @@ select:focus-visible,
 }
 .qa-mag-divider-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; /* 2026-08-21: 9.5px 표류값 정리(FS 사다리에 0.5 없음) */
-  letter-spacing: 2.2px;
+  font-size: 12px; /* 보조 글씨 최소 12px (오너 결정 2026-09-27 · 화면 검토 M77 · M43). 커진 만큼 자간을 줄였다 */
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--qa-muted);
 }

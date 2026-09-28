@@ -121,7 +121,7 @@ const legalCss = `
 
 .qa-legal-brand {
   font-family: ${F.mono};
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   letter-spacing: 0.22em;
   color: ${T.champagne};
   text-decoration: none;
@@ -169,7 +169,7 @@ const legalCss = `
 
 .qa-legal-doc .qa-legal-meta {
   font-family: ${F.mono};
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   color: ${T.muted};
   line-height: ${LH.relaxed};
   margin: 0 0 ${S[8]}px;
@@ -248,7 +248,7 @@ const legalCss = `
   border-top: 1px solid ${T.border};
   padding: ${S[6]}px;
   text-align: center;
-  font-size: ${FS[11]}px;
+  font-size: ${FS[12]}px;
   line-height: ${LH.loose};
   color: ${T.muted};
 }

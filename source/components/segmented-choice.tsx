@@ -317,7 +317,7 @@ export function SegmentedChoice<V extends string>({
               </>
             )}
             {o.sub && (
-              <span style={{ fontSize: FS[10], opacity: 0.8, fontFamily: F.mono, fontWeight: 500 }}>{o.sub}</span>
+              <span style={{ fontSize: FS[12], opacity: 0.8, fontFamily: F.mono, fontWeight: 500 }}>{o.sub}</span>
             )}
           </button>
         );

@@ -250,7 +250,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
               <div
                 key={l}
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   letterSpacing: 1.5,
                   fontFamily: F.mono,
@@ -277,7 +277,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   fontSize: FS[12],
                 }}
               >
-                <span style={{ fontFamily: F.mono, color: T.muted, fontSize: FS[10] }}>
+                <span style={{ fontFamily: F.mono, color: T.muted, fontSize: FS[12] }}>
                   {isoDateTime(l.ts)}
                 </span>
                 <span
@@ -290,7 +290,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                     border: `1px solid ${T.border}`,
                     background: T.surface,
                     color: T.text,
-                    fontSize: FS[11],
+                    fontSize: FS[12],
                     fontFamily: F.ui,
                     letterSpacing: labelTracking(actionLabel(l.action), 0.3),
                     fontWeight: 500,
@@ -301,7 +301,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 </span>
                 <span
                   style={{
-                    fontSize: FS[11],
+                    fontSize: FS[12],
                     color: T.subtle,
                     fontFamily: F.mono,
                     overflow: 'hidden',
@@ -338,7 +338,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                           title="1인 조직 모드: SOD(직무분리) 완화 흐름. ISO 13485 §5.5.1(소규모 조직 책임·권한)·§5.5.2(경영대리인 겸직) 근거 · audit_logs 에 기록되어 추적성 보증 · §8.2.4 내부심사는 외부 위탁 필수."
                           style={{
                             borderRadius: RADIUS.sm,
-                            fontSize: FS[9],
+                            fontSize: FS[12],
                             padding: '2px 6px',
                             border: `1px solid ${T.champagne}`,
                             color: T.champagne,
@@ -389,7 +389,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   >
                     <span
                       style={{
-                        fontSize: FS[11],
+                        fontSize: FS[12],
                         color: T.text,
                         fontFamily: F.ui,
                         letterSpacing: labelTracking(actionLabel(action), 0.3),
@@ -400,7 +400,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                     </span>
                     <span
                       style={{
-                        fontSize: FS[10],
+                        fontSize: FS[12],
                         color: T.champagne,
                         fontFamily: F.mono,
                         fontWeight: 600,

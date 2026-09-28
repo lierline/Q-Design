@@ -25,10 +25,15 @@ export const TAG_BORDER = 1;
  * 크기별 규격. `padY`/`padX` 를 숫자로 분리해 둔 이유는 높이 계산에 padY 가
  * 필요해서다. `'4px 10px'` 문자열이면 테스트가 파싱해야 하고, 파싱은 틀린다.
  */
+/*
+ * 2026-09-28: 글자를 12 · 12 · 13 으로 올렸다(보조 글씨 최소 12px · 오너 결정 2026-09-27 · 화면 검토 M77 · M43).
+ * 전에는 10 · 11 · 11.5 라 표 안의 «재평가 필요» · «높음» 배지가 가장 작은 글씨였다. 높이도 함께 올려
+ * 높이를 정하는 쪽(xs · sm 은 minHeight, md 는 줄 높이)이 전과 같게 했다(tag-metrics.test).
+ */
 export const TAG_DIMS = {
-  xs: { minH: 18, fs: 10, padY: 0, padX: 6, dotSize: 5, gap: S[1] },
-  sm: { minH: 22, fs: 11, padY: 2, padX: 8, dotSize: 6, gap: S[1] },
-  md: { minH: 26, fs: 11.5, padY: 4, padX: 10, dotSize: 7, gap: 5 },
+  xs: { minH: 20, fs: 12, padY: 0, padX: 6, dotSize: 5, gap: S[1] },
+  sm: { minH: 24, fs: 12, padY: 2, padX: 8, dotSize: 6, gap: S[1] },
+  md: { minH: 28, fs: 13, padY: 4, padX: 10, dotSize: 7, gap: 5 },
 } as const;
 
 export type TagSize = keyof typeof TAG_DIMS;

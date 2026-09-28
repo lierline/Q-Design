@@ -141,7 +141,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: S[2.5],
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.champagne,
                 fontFamily: F.mono,
                 letterSpacing: 2.2,
@@ -229,7 +229,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
           >
             <span
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
               }}
@@ -246,7 +246,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 color: T.bg,
                 border: 'none',
                 fontFamily: F.mono,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 letterSpacing: 1.4,
                 textTransform: 'uppercase',
                 cursor: busy ? 'not-allowed' : 'pointer',
@@ -306,7 +306,7 @@ function Step({
             className="qa-tabular"
             style={{
               fontFamily: F.mono,
-              fontSize: FS[10],
+              fontSize: FS[12],
               letterSpacing: 1.6,
               color: T.muted,
               textTransform: 'uppercase',

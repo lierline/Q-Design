@@ -24,7 +24,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PARTS } from './sync-parts.mjs';
+import { PARTS, HOLD } from './sync-parts.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -140,6 +140,11 @@ for (const part of PARTS) {
   for (const [who, path] of Object.entries(part.to)) {
     if (only && !only.has(who)) {
       console.log(`  건너뜀  ${who}  (--only)`);
+      continue;
+    }
+    /* 오너가 묶어 둔 조각은 쓰지 않습니다(sync-parts.mjs 의 HOLD). 어긋남은 그대로 보입니다 */
+    if (HOLD[who] && (HOLD[who].parts === '*' || HOLD[who].parts.includes(part.name))) {
+      console.log(`  묶어 둠  ${who}  (${HOLD[who].why})`);
       continue;
     }
     const has = existsSync(path);

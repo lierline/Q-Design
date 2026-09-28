@@ -16,8 +16,8 @@
   "brand": {
     "logoSize": 108,
     "markSize": 36,
-    "orgFontSize": 10,
-    "orgTracking": 1.6
+    "orgFontSize": 12,
+    "orgTracking": 0.4
   },
   "nav": {
     "gap": 3
@@ -45,17 +45,17 @@
   },
   "group": {
     "padding": "12px 14px 4px",
-    "fontSize": 10,
+    "fontSize": 12,
     "tracking": 1.6
   },
   "version": {
     "padding": "4px 4px 8px",
-    "fontSize": 10,
+    "fontSize": 12,
     "tracking": 0.6
   },
   "theme": {
     "padding": "10px 14px",
-    "fontSize": 10,
+    "fontSize": 12,
     "tracking": 1.5,
     "btnSize": 44,
     "radius": 10
@@ -66,16 +66,16 @@
   "foot": {
     "avatarSize": 32,
     "nameFontSize": 13,
-    "metaFontSize": 10,
-    "metaTracking": 1.2,
+    "metaFontSize": 12,
+    "metaTracking": 0.4,
     "avatarBackground": "color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-surface2))",
     "avatarWeight": 600
   },
   "logout": {
-    "padding": "7px 14px",
-    "fontSize": 11,
+    "padding": "0 4px",
+    "fontSize": 14,
     "minHeight": 36,
-    "hint": "Btn p={false} sm",
-    "radius": 10
+    "touchMin": 44,
+    "hint": "LogoutButton → TextAction (글귀 · 오너 결정 2026-09-28)"
   }
 }

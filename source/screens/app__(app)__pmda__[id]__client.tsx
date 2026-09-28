@@ -173,16 +173,16 @@ export function PmdaDetailClient({
       <Section title="등급 · 인증기준 · 경로">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginBottom: S[2.5] }}>
           {CLASSES.map((c) => (
-            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], ...choiceLook(deviceClass === c), cursor: readOnly ? 'default' : 'pointer' }}><ChoiceCheck on={deviceClass === c} />{PMDA_CLASS_LABEL[c]}</button>
+            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], ...choiceLook(deviceClass === c), cursor: readOnly ? 'default' : 'pointer' }}><ChoiceCheck on={deviceClass === c} />{PMDA_CLASS_LABEL[c]}</button>
           ))}
         </div>
-        <div style={{ fontFamily: F.serif, fontSize: FS[11], color: T.subtle, marginBottom: S[2.5] }}>{PMDA_CLASS_HINT[deviceClass]}</div>
+        <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.subtle, marginBottom: S[2.5] }}>{PMDA_CLASS_HINT[deviceClass]}</div>
         <div className="qa-pmda-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3], alignItems: 'end' }}>
           <Field id="pmda-cert" label="인증기준(認証基準) 유무">
             <Sel id="pmda-cert" value={certStatus} onChange={(e) => setCertStatus(e.target.value as CertStatus)} ro={readOnly} opts={CERTS.map((c) => ({ v: c, l: CERT_STATUS_LABEL[c] }))} />
           </Field>
           <div style={{ padding: '8px 12px', borderRadius: RADIUS.sm, border: `1px solid ${pathway === 'verify' ? alpha(T.warning, 0.4) : alpha(T.champagne, 0.3)}`, background: alpha(pathway === 'verify' ? T.warning : T.champagne, 0.05) }}>
-            <span style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: '0.08em', color: T.subtle, textTransform: 'uppercase' }}>도출 경로</span>
+            <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.08em', color: T.subtle, textTransform: 'uppercase' }}>도출 경로</span>
             <div style={{ fontFamily: F.serif, fontSize: FS[13], fontWeight: 600, color: pathway === 'verify' ? T.warning : T.text }}>{PATHWAY_LABEL[pathway]}</div>
           </div>
         </div>
@@ -196,10 +196,10 @@ export function PmdaDetailClient({
             return (
               <div key={s.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: S[3], padding: '10px 14px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, opacity: dim ? 0.5 : 1 }}>
                 <button className="qa-touch-44" type="button" onClick={() => toggleApplicable(s.key)} disabled={readOnly} style={{ display: 'flex', alignItems: 'center', gap: S[2], background: 'transparent', border: 'none', cursor: readOnly ? 'default' : 'pointer', textAlign: 'left', minWidth: 0 }}>
-                  <span style={{ fontFamily: F.mono, fontSize: FS[11], color: s.applicable ? T.champagne : T.muted, flexShrink: 0 }}>{s.applicable ? '☑' : '☐'}</span>
+                  <span style={{ fontFamily: F.mono, fontSize: FS[12], color: s.applicable ? T.champagne : T.muted, flexShrink: 0 }}>{s.applicable ? '☑' : '☐'}</span>
                   <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{s.label}</span>
                 </button>
-                <button className="qa-touch-44" type="button" onClick={() => cycleSection(s.key)} disabled={dim || readOnly} style={{ fontFamily: F.mono, fontSize: FS[10], fontWeight: 500, letterSpacing: '0.1em', color: meta.color, textTransform: 'uppercase', padding: '3px 10px', border: `1px solid ${alpha(meta.color, 0.4)}`, borderRadius: RADIUS.md, background: 'transparent', cursor: dim || readOnly ? 'default' : 'pointer', flexShrink: 0 }}>{meta.label}</button>
+                <button className="qa-touch-44" type="button" onClick={() => cycleSection(s.key)} disabled={dim || readOnly} style={{ fontFamily: F.mono, fontSize: FS[12], fontWeight: 500, letterSpacing: '0.1em', color: meta.color, textTransform: 'uppercase', padding: '3px 10px', border: `1px solid ${alpha(meta.color, 0.4)}`, borderRadius: RADIUS.md, background: 'transparent', cursor: dim || readOnly ? 'default' : 'pointer', flexShrink: 0 }}>{meta.label}</button>
               </div>
             );
           })}
@@ -238,12 +238,12 @@ export function PmdaDetailClient({
       <Section title="상태">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
           {STATUS_OPTIONS.map((s) => (
-            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em', ...choiceLook(status === s), cursor: readOnly ? 'default' : 'pointer' }}>
+            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.06em', ...choiceLook(status === s), cursor: readOnly ? 'default' : 'pointer' }}>
               {PMDA_STATUS_LABEL[s]}
             </button>
           ))}
         </div>
-        <div style={{ marginTop: S[2], fontFamily: F.mono, fontSize: FS[9], color: T.subtle, letterSpacing: '0.06em' }}>
+        <div style={{ marginTop: S[2], fontFamily: F.mono, fontSize: FS[12], color: T.subtle, letterSpacing: '0.06em' }}>
           흐름: {PMDA_STATUS_FLOW.map((s) => PMDA_STATUS_LABEL[s]).join(' → ')}
         </div>
       </Section>

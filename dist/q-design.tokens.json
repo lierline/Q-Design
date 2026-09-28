@@ -2,7 +2,7 @@
   "$meta": {
     "name": "Q-Design",
     "source": "Q-Atelier · lib/design/tokens.ts + app/globals.css + app/experts/expert-theme.css",
-    "generatedAt": "2026-09-27",
+    "generatedAt": "2026-09-28",
     "note": "손으로 고치지 마세요. tools/extract-tokens.mjs 를 다시 돌리세요.",
     "rootFontSizeWarning": "rem 기준은 16px 이 아니라 14px 입니다. TYPE 의 rem 값을 16 으로 환산하면 전부 틀립니다."
   },
@@ -145,8 +145,8 @@
       "--serif": "var(--font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), Georgia, serif",
       "--sans": "var(--qa-font-pretendard), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       "--mono": "'JetBrains Mono', 'SF Mono', Consolas, var(--qa-font-pretendard), monospace",
-      "--fs-label": "11px",
-      "--fs-ui": "12px",
+      "--fs-label": "12px",
+      "--fs-ui": "13px",
       "--fs-body": "14px",
       "--fs-lead": "16px",
       "--fs-title": "20px",
@@ -421,24 +421,24 @@
     "border": 1,
     "dims": {
       "xs": {
-        "minH": 18,
-        "fs": 10,
+        "minH": 20,
+        "fs": 12,
         "padY": 0,
         "padX": 6,
         "dotSize": 5,
         "gap": 4
       },
       "sm": {
-        "minH": 22,
-        "fs": 11,
+        "minH": 24,
+        "fs": 12,
         "padY": 2,
         "padX": 8,
         "dotSize": 6,
         "gap": 4
       },
       "md": {
-        "minH": 26,
-        "fs": 11.5,
+        "minH": 28,
+        "fs": 13,
         "padY": 4,
         "padX": 10,
         "dotSize": 7,

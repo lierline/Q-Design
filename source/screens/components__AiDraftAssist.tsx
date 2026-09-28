@@ -99,7 +99,7 @@ export function AiDraftAssist({
           border: `1px solid ${alpha(T.champagne, 0.5)}`,
           borderRadius: RADIUS.pill,
           color: T.champagne,
-          fontSize: FS[11],
+          fontSize: FS[12],
           fontFamily: F.mono,
           letterSpacing: '0.04em',
           cursor: 'pointer',
@@ -145,7 +145,7 @@ export function AiDraftAssist({
           <X size={15} aria-hidden="true" />
         </button>
       </div>
-      <div style={{ fontFamily: F.mono, fontSize: FS[10], color: T.subtle, letterSpacing: '0.03em', lineHeight: LH.normal }}>
+      <div style={{ fontFamily: F.mono, fontSize: FS[12], color: T.subtle, letterSpacing: '0.03em', lineHeight: LH.normal }}>
         ▸ AI 는 적어주신 사실을 정리만 합니다. 없는 내용은 지어내지 않아요. <strong style={{ color: T.champagne }}>초안을 받은 뒤 반드시 사실을 확인하고 수정</strong>하세요.
       </div>
 
@@ -165,7 +165,7 @@ export function AiDraftAssist({
             border: `1px solid ${alpha(T.red, 0.4)}`,
             borderRadius: RADIUS.sm,
             color: T.red,
-            fontSize: FS[11],
+            fontSize: FS[12],
             fontFamily: F.mono,
             lineHeight: LH.normal,
           }}
@@ -177,7 +177,7 @@ export function AiDraftAssist({
       {/* 생성 초안 미리보기: 주입 전 사용자 확인 */}
       {draft && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
-          <div style={{ fontFamily: F.mono, fontSize: FS[10], letterSpacing: '0.12em', textTransform: 'uppercase', color: T.muted }}>
+          <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.12em', textTransform: 'uppercase', color: T.muted }}>
             생성된 초안 (미리보기)
           </div>
           <div

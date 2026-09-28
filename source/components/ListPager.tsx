@@ -71,7 +71,7 @@ export function ListPager({
    */
   const label = (text: string): React.CSSProperties => ({
     fontFamily: F.mono,
-    fontSize: FS[11],
+    fontSize: FS[12],
     color: T.muted,
     lineHeight: LH.none,
     letterSpacing: labelTracking(text, 0.4),
@@ -89,7 +89,7 @@ export function ListPager({
     background: 'transparent',
     color: enabled ? T.text : T.muted,
     fontFamily: F.ui,
-    fontSize: FS[11],
+    fontSize: FS[12],
     lineHeight: LH.none,
     letterSpacing: labelTracking(text, 1.2),
     textTransform: labelCase(text),

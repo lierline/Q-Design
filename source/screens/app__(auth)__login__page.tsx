@@ -11,7 +11,9 @@ import { Logo } from '@/components/Logo';
 import { S, FS, BRAND, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { tintBorder } from '@/lib/design/grain';
 import { translateAuthError } from '@/lib/auth/translate-error';
-import { passkeyErrorMessage, passkeyUsableHere } from '@/lib/auth/passkey';
+import { markPasskeyOffered, passkeyErrorMessage, passkeyOfferedHere, passkeyUsableHere } from '@/lib/auth/passkey';
+import { hasPasskeyForThisDevice } from '@/lib/auth/passkey-register';
+import { PasskeyOffer } from '@/components/PasskeyOffer';
 import { Fingerprint } from 'lucide-react';
 import { validatePassword, PASSWORD_POLICY_HINT } from '@/lib/auth/password-policy';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
@@ -72,6 +74,8 @@ function LoginForm() {
   // 지문 · 얼굴 로그인(패스키 · 오너 결정 2026-09-27): 브라우저 · 주소(qatelier.co.kr) · 운영 인증 서버 설정이
   // 셋 다 맞을 때만 단추를 보인다(lib/auth/passkey.ts). 누르면 실패하는 단추는 두지 않는다.
   const [passkeyReady, setPasskeyReady] = useState(false);
+  // 비밀번호 로그인 직후 «이 기기에 지문 로그인 등록?» 을 한 번 묻는 동안 true(오너 결정 2026-09-28)
+  const [offerPasskey, setOfferPasskey] = useState(false);
   useEffect(() => {
     let alive = true;
     passkeyUsableHere().then((ok) => {
@@ -241,6 +245,14 @@ function LoginForm() {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setError(translateAuthError(error.message));
+        setLoading(false);
+        return;
+      }
+      // 이 기기에서 지문 로그인을 쓸 수 있고 아직 이 기기로 등록한 것이 없으면 한 번 묻는다(기기마다 한 번).
+      // 폰에서는 설정 화면이 «패드나 PC 에서» 안내 뒤라 등록할 자리가 멀었다(2026-09-28 오너 보고).
+      if (passkeyReady && !passkeyOfferedHere() && !(await hasPasskeyForThisDevice())) {
+        markPasskeyOffered();
+        setOfferPasskey(true);
         setLoading(false);
         return;
       }
@@ -480,6 +492,14 @@ function LoginForm() {
 
             {/* Glass form card (C) */}
             <div className="qa-auth-card">
+              {offerPasskey ? (
+                <PasskeyOffer
+                  onDone={() => {
+                    setOfferPasskey(false);
+                    enterDashboard();
+                  }}
+                />
+              ) : (
               <form onSubmit={handleSubmit}>
                 {mode === 'signup' && (
                   <div style={{ marginBottom: S[4] }}>
@@ -604,7 +624,7 @@ function LoginForm() {
                       />
                       <p
                         style={{
-                          fontSize: FS[10],
+                          fontSize: FS[12],
                           color: T.muted,
                           margin: '6px 0 0',
                           fontFamily: F.mono,
@@ -677,7 +697,7 @@ function LoginForm() {
                           marginTop: S[3],
                           paddingTop: S[3],
                           borderTop: `1px solid ${T.border}`,
-                          fontSize: FS[11],
+                          fontSize: FS[12],
                           lineHeight: LH.relaxed,
                           color: T.muted,
                         }}
@@ -725,7 +745,7 @@ function LoginForm() {
                   <Btn
                     type="submit"
                     disabled={loading || oauthLoading || !signupReady}
-                    style={{ width: '100%', padding: '13px 24px', fontSize: FS[11] }}
+                    style={{ width: '100%', padding: '13px 24px', fontSize: FS[12] }}
                   >
                     {loading ? '처리 중...' : mode === 'login' ? 'Step inside →' : 'Sign up →'}
                   </Btn>
@@ -741,7 +761,7 @@ function LoginForm() {
                       style={{
                         width: '100%',
                         padding: '12px 24px',
-                        fontSize: FS[11],
+                        fontSize: FS[12],
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -754,11 +774,12 @@ function LoginForm() {
                   </div>
                 )}
               </form>
+              )}
 
               {/* OAuth divider + GitHub 버튼: 회사 사용자 SSO 진입점.
                   expert 포털에는 노출하지 않음 (invite 흐름 보존).
-                  env var 로 제어: Supabase provider 설정 전엔 숨김. */}
-              {githubOAuthEnabled && (
+                  env var 로 제어: Supabase provider 설정 전엔 숨김. 지문 등록을 묻는 동안에는 숨긴다. */}
+              {githubOAuthEnabled && !offerPasskey && (
                 <>
                   <div
                     style={{
@@ -773,7 +794,7 @@ function LoginForm() {
                     <div style={{ flex: 1, height: 1, background: T.border }} />
                     <div
                       style={{
-                        fontSize: FS[10],
+                        fontSize: FS[12],
                         color: T.muted,
                         fontFamily: F.mono,
                       }}
@@ -794,7 +815,7 @@ function LoginForm() {
                   color: T.bg,
                   border: 'none',
                   fontFamily: F.mono,
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   fontWeight: 500,
                   letterSpacing: 1,
                   textTransform: 'uppercase',
@@ -829,7 +850,7 @@ function LoginForm() {
                   href="/forgot-password"
                   style={{
                     color: T.muted,
-                    fontSize: FS[11],
+                    fontSize: FS[12],
                     fontFamily: F.mono,
                     textDecoration: 'none',
                     // Codex R-05 (오너 결정 2026-09-13): 높이 16px 링크는 터치에서 오조작이 잦다. 클릭 영역만 키우고 문구 · 밑줄은 그대로.
@@ -848,7 +869,7 @@ function LoginForm() {
             <div
               style={{
                 textAlign: 'center',
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
                 letterSpacing: 1,
@@ -872,7 +893,7 @@ function LoginForm() {
                 textAlign: 'center',
                 fontFamily: F.mono,
                 color: T.muted,
-                fontSize: FS[9],
+                fontSize: FS[12],
                 letterSpacing: 1,
                 lineHeight: 1.9,
               }}
@@ -912,7 +933,7 @@ function LoginForm() {
               <div
                 style={{
                   marginTop: S[2.5],
-                  fontSize: FS[9],
+                  fontSize: FS[12],
                   color: T.muted,
                   lineHeight: LH.loose,
                   letterSpacing: 0.5,
@@ -1068,7 +1089,7 @@ const layoutCss = `
   align-items: center;
   gap: 12px;
   font-family: ${F.mono};
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--qa-champagne);
@@ -1127,7 +1148,7 @@ const layoutCss = `
 .qa-auth-tagline {
   margin-top: 20px;
   font-family: ${F.mono};
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--qa-muted);
@@ -1157,7 +1178,7 @@ const layoutCss = `
 }
 .qa-auth-desktop-brand-sub {
   font-family: ${F.mono};
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--qa-muted);
@@ -1302,7 +1323,7 @@ function KstClock() {
     <div
       style={{
         fontFamily: F.mono,
-        fontSize: FS[10],
+        fontSize: FS[12],
         letterSpacing: 1.5,
         color: T.muted,
         textTransform: 'uppercase',
@@ -1425,7 +1446,7 @@ function FieldHint({
   return (
     <p
       style={{
-        fontSize: FS[10],
+        fontSize: FS[12],
         color: kind === 'error' ? T.red : T.muted,
         margin: '6px 0 0',
         fontFamily: F.mono,
@@ -1459,7 +1480,7 @@ function PasswordStrengthBar({ strength }: { strength: number }) {
       </div>
       <p
         style={{
-          fontSize: FS[9],
+          fontSize: FS[12],
           color,
           margin: '6px 0 0',
           fontFamily: F.mono,
@@ -1505,7 +1526,7 @@ function OrgPreviewBanner({
         <div style={{ fontWeight: 600, marginBottom: S[0.5] }}>
           ✓ 이미 등록된 조직입니다. 가입 처리됩니다
         </div>
-        <div style={{ fontSize: FS[10], color: T.subtle }}>
+        <div style={{ fontSize: FS[12], color: T.subtle }}>
           {m.org_name} · @{m.domain} · {m.member_count}명 가입
         </div>
       </BannerBox>
@@ -1530,7 +1551,7 @@ function OrgPreviewBanner({
                 border: `1px solid ${alpha(T.champagne, 0.4)}`,
                 color: T.text,
                 padding: '5px 10px',
-                fontSize: FS[11],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 textAlign: 'left',
                 cursor: 'pointer',
@@ -1540,14 +1561,14 @@ function OrgPreviewBanner({
               }}
             >
               <span style={{ flex: 1 }}>{m.org_name}</span>
-              <span style={{ fontSize: FS[9], color: T.muted }}>
+              <span style={{ fontSize: FS[12], color: T.muted }}>
                 {m.member_count}명
               </span>
-              <span style={{ fontSize: FS[9], color: T.champagne }}>이 조직으로 가입 →</span>
+              <span style={{ fontSize: FS[12], color: T.champagne }}>이 조직으로 가입 →</span>
             </button>
           ))}
         </div>
-        <div style={{ fontSize: FS[10], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
+        <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
           또는 위 입력란에 새 이름을 직접 적으면 신규 조직으로 생성됩니다.
         </div>
       </BannerBox>
@@ -1560,7 +1581,7 @@ function OrgPreviewBanner({
         <div style={{ fontWeight: 600, marginBottom: S[0.5] }}>
           ⚠ 같은 도메인에 다른 이름의 조직이 이미 있어요
         </div>
-        <div style={{ fontSize: FS[10], color: T.subtle, lineHeight: LH.normal }}>
+        <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
           입력한 이름이 기존 조직 이름과 달라 <strong>새 조직</strong> 으로 생성됩니다. 같은
           조직이라면 위 박스에서 정확한 이름을 선택해 주세요.
         </div>
@@ -1576,7 +1597,7 @@ function OrgPreviewBanner({
                 border: `1px dashed ${alpha(T.warning, 0.4)}`,
                 color: T.subtle,
                 padding: '4px 8px',
-                fontSize: FS[11],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 textAlign: 'left',
                 cursor: 'pointer',
@@ -1595,7 +1616,7 @@ function OrgPreviewBanner({
       <div style={{ fontWeight: 600, marginBottom: S[0.5], color: T.text }}>
         + 새 조직으로 생성됩니다
       </div>
-      <div style={{ fontSize: FS[10], color: T.subtle, lineHeight: LH.normal }}>
+      <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
         이 이메일 도메인과 일치하는 기존 조직이 없어 본인이 owner 가 되는 새
         조직이 만들어집니다.
       </div>
@@ -1613,7 +1634,7 @@ function BannerBox({ color, children }: { color: string; children: React.ReactNo
         background: alpha(color, 0.07),
         border: `1px solid ${alpha(color, 0.35)}`,
         borderColor: tintBorder(color),
-        fontSize: FS[11],
+        fontSize: FS[12],
         color: T.text,
         fontFamily: F.serif,
         letterSpacing: 0.2,
@@ -1646,7 +1667,7 @@ function TabBtn({
         borderBottom: active ? `2px solid ${T.champagne}` : '2px solid transparent',
         color: active ? T.text : T.muted,
         fontFamily: F.mono,
-        fontSize: FS[10],
+        fontSize: FS[12],
         letterSpacing: 1.5,
         textTransform: 'uppercase',
         cursor: 'pointer',

@@ -80,7 +80,7 @@ function SectionHead({ n, title, hint, done }: SectionHeadProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: FS[11],
+          fontSize: FS[12],
           color: done ? T.bg : T.muted,
           fontFamily: F.mono,
           flexShrink: 0,
@@ -92,7 +92,7 @@ function SectionHead({ n, title, hint, done }: SectionHeadProps) {
       <div>
         <div style={{ fontSize: FS[14], color: T.text, fontWeight: 500 }}>{title}</div>
         {hint && (
-          <div style={{ fontSize: FS[11], color: T.muted, marginTop: S[1] }}>{hint}</div>
+          <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1] }}>{hint}</div>
         )}
       </div>
     </div>
@@ -300,7 +300,7 @@ export default function NewAssessmentPage() {
             }
           >
             {treeRationale ?? ''}
-            <div style={{ fontSize: FS[10], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
+            <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
               ▸ 이 평가서의 <strong>비고/근거</strong> 란에 진단 결과를 자동 기록할 수 있게 위 정보를 활용하세요.
             </div>
           </Alert>
@@ -327,7 +327,7 @@ export default function NewAssessmentPage() {
         >
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
             }}
@@ -336,7 +336,7 @@ export default function NewAssessmentPage() {
           </div>
           <div
             style={{
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: readyToEval ? T.green : T.champagne,
               fontFamily: F.mono,
               fontVariantNumeric: 'tabular-nums',
@@ -396,12 +396,12 @@ export default function NewAssessmentPage() {
                 padding: '10px 14px',
                 background: T.surface2,
                 border: `1px solid ${T.border}`,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 color: T.subtle,
                 lineHeight: LH.normal,
               }}
             >
-              <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
                 {selectedProduct.local_id} · 환자접촉:{' '}
                 {selectedProduct.patient_contact
                   ? `있음${selectedProduct.contact_type ? ` (${selectedProduct.contact_type})` : ''}`
@@ -482,7 +482,7 @@ export default function NewAssessmentPage() {
                     style={{
                       borderRadius: RADIUS.md,
                       padding: '7px 14px',
-                      fontSize: FS[11],
+                      fontSize: FS[12],
                       cursor: 'pointer',
                       border: `1px solid ${on ? T.text : T.border}`,
                       background: on ? T.text : 'transparent',
@@ -499,7 +499,7 @@ export default function NewAssessmentPage() {
             {subTypes.length > 0 && (
               <div
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   marginTop: S[2],
                   fontFamily: F.mono,
@@ -551,7 +551,7 @@ export default function NewAssessmentPage() {
                 border: 'none',
                 cursor: 'pointer',
                 padding: 0,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.ui,
               }}
@@ -593,7 +593,7 @@ export default function NewAssessmentPage() {
                   style={{
                     borderRadius: RADIUS.md,
                     padding: '7px 16px',
-                    fontSize: FS[11],
+                    fontSize: FS[12],
                     cursor: 'pointer',
                     fontFamily: F.ui,
                     border: `1px solid ${on ? T.champagne : T.border}`,
@@ -632,7 +632,7 @@ export default function NewAssessmentPage() {
               style={{
                 borderRadius: RADIUS.md,
                 padding: '7px 16px',
-                fontSize: FS[11],
+                fontSize: FS[12],
                 cursor: 'pointer',
                 fontFamily: F.ui,
                 border: `1px solid ${T.border}`,
@@ -648,7 +648,7 @@ export default function NewAssessmentPage() {
               style={{
                 borderRadius: RADIUS.md,
                 padding: '7px 16px',
-                fontSize: FS[11],
+                fontSize: FS[12],
                 cursor: 'pointer',
                 fontFamily: F.ui,
                 border: `1px solid ${T.border}`,
@@ -692,7 +692,7 @@ export default function NewAssessmentPage() {
                     <div style={{ fontSize: FS[12], color: T.text, fontWeight: 500 }}>
                       {ic.label}
                     </div>
-                    <div style={{ fontSize: FS[10], color: T.muted, marginTop: S[0.5] }}>
+                    <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[0.5] }}>
                       {ic.hint}
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export default function NewAssessmentPage() {
                         borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
-                        fontSize: FS[11],
+                        fontSize: FS[12],
                         cursor: 'pointer',
                         fontFamily: F.ui,
                         border: `1px solid ${val === 'none' ? T.green : T.border}`,
@@ -728,7 +728,7 @@ export default function NewAssessmentPage() {
                         borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
-                        fontSize: FS[11],
+                        fontSize: FS[12],
                         cursor: 'pointer',
                         fontFamily: F.ui,
                         border: `1px solid ${val === 'has' ? T.warning : T.border}`,
@@ -743,7 +743,7 @@ export default function NewAssessmentPage() {
                   <div
                     style={{
                       textAlign: 'right',
-                      fontSize: FS[9],
+                      fontSize: FS[12],
                       fontFamily: F.mono,
                       color: T.muted,
                     }}

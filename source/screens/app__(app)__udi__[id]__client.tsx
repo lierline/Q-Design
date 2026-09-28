@@ -231,7 +231,7 @@ export function UdiDetailClient({
             ))}
           </div>
         )}
-        <button className="qa-touch-44" type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
+        <button className="qa-touch-44" type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
           <Plus size={13} aria-hidden="true" /> 포장 단계 추가
         </button>
       </Section>
@@ -281,7 +281,7 @@ export function UdiDetailClient({
                       : '미제출 (이 시장에 팔지 않으면 해당 없음)'}
                   </span>
                   {dueDays !== null && (
-                    <span style={{ fontFamily: F.mono, fontSize: FS[11], color: dueDays <= 90 ? T.red : T.subtle }}>
+                    <span style={{ fontFamily: F.mono, fontSize: FS[12], color: dueDays <= 90 ? T.red : T.subtle }}>
                       갱신 {dueDays < 0 ? `만료 ${-dueDays}일` : `D-${dueDays}`}
                     </span>
                   )}
@@ -311,7 +311,7 @@ export function UdiDetailClient({
             <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
               {productChanges.map((c) => (
                 <Link key={c.id} href={`/assessments/${encodeURIComponent(c.code)}`} style={{ display: 'flex', alignItems: 'center', gap: S[2.5], padding: '8px 12px', border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, textDecoration: 'none' }}>
-                  <span style={{ fontFamily: F.mono, fontSize: FS[10], color: T.champagne, flexShrink: 0 }}>{c.code}</span>
+                  <span style={{ fontFamily: F.mono, fontSize: FS[12], color: T.champagne, flexShrink: 0 }}>{c.code}</span>
                   <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.title}</span>
                 </Link>
               ))}
@@ -335,7 +335,7 @@ export function UdiDetailClient({
               type="button"
               onClick={() => setStatus(s)}
               style={{
-                padding: '8px 16px', fontFamily: F.mono, fontSize: FS[11], letterSpacing: '0.06em',
+                padding: '8px 16px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.06em',
                 ...choiceLook(status === s),
                 borderRadius: RADIUS.md, cursor: 'pointer',
               }}

@@ -250,7 +250,7 @@ export function MeetingComposeDialog({
               color: T.muted,
               border: `1px solid ${T.border}`,
               fontFamily: F.mono,
-              fontSize: FS[10],
+              fontSize: FS[12],
               cursor: busy ? 'not-allowed' : 'pointer',
             }}
           >
@@ -266,7 +266,7 @@ export function MeetingComposeDialog({
               color: T.bg,
               border: 'none',
               fontFamily: F.mono,
-              fontSize: FS[10],
+              fontSize: FS[12],
               letterSpacing: 1.2,
               textTransform: 'uppercase',
               cursor: busy ? 'not-allowed' : 'pointer',
@@ -435,7 +435,7 @@ function SectionDivider({ label }: { label: string }) {
     >
       <span
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           letterSpacing: 1.8,

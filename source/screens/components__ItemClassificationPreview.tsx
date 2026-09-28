@@ -314,7 +314,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
         <div>
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.blue,
               fontFamily: F.mono,
               letterSpacing: 1.5,
@@ -358,7 +358,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       {!enabled && (
         <div
           style={{
-            fontSize: FS[11],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.mono,
             marginTop: S[1.5],
@@ -468,7 +468,7 @@ function ResultBody({
         >
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.champagne,
               fontFamily: F.mono,
               marginBottom: S[2],
@@ -483,7 +483,7 @@ function ResultBody({
             <div style={{ marginBottom: S[3] }}>
               <div
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   fontFamily: F.mono,
                   marginBottom: S[1.5],
@@ -514,7 +514,7 @@ function ResultBody({
                         borderRadius: RADIUS.pill,
                       }}
                     >
-                      <span style={{ fontSize: FS[9], color: T.champagne, fontFamily: F.mono, letterSpacing: 0.5 }}>
+                      <span style={{ fontSize: FS[12], color: T.champagne, fontFamily: F.mono, letterSpacing: 0.5 }}>
                         {label}
                       </span>
                       <span style={{ fontSize: FS[12], color: T.subtle, fontFamily: F.serif }}>{v}</span>
@@ -540,7 +540,7 @@ function ResultBody({
                 marginTop: S[2.5],
                 paddingTop: S[2.5],
                 borderTop: `1px dashed ${T.border}`,
-                fontSize: FS[11],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.serif,
                 lineHeight: LH.relaxed,
@@ -559,7 +559,7 @@ function ResultBody({
             >
               <span
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.champagne,
                   fontFamily: F.mono,
                   marginRight: S[1.5],
@@ -598,7 +598,7 @@ function ResultBody({
           <div style={{ display: 'flex', alignItems: 'baseline', gap: S[2.5] }}>
             <span
               style={{
-                fontSize: FS[11],
+                fontSize: FS[12],
                 color: T.champagne,
                 fontFamily: F.mono,
                 letterSpacing: 0.5,
@@ -610,7 +610,7 @@ function ResultBody({
           </div>
           <span
             style={{
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: GRADE_COLOR[top.grade],
               fontFamily: F.mono,
               fontWeight: 600,
@@ -643,7 +643,7 @@ function ResultBody({
         </div>
         <div
           style={{
-            fontSize: FS[10],
+            fontSize: FS[12],
             color: T.muted,
             fontFamily: F.mono,
             letterSpacing: 0.5,
@@ -663,7 +663,7 @@ function ResultBody({
           >
             <div
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
                 marginBottom: S[1.5],
@@ -683,7 +683,7 @@ function ResultBody({
             </div>
             <div
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 color: T.muted,
                 fontFamily: F.mono,
                 marginTop: S[1.5],
@@ -715,7 +715,7 @@ function ResultBody({
               display: 'flex',
               flexWrap: 'wrap',
               gap: S[1.5],
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
             }}
@@ -767,7 +767,7 @@ function ResultBody({
                   border: `1px solid ${T.green}`,
                   background: alpha(T.green, 0.08),
                   color: T.green,
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   fontFamily: F.mono,
                 }}
               >
@@ -798,7 +798,7 @@ function ResultBody({
                   background: T.champagne,
                   color: T.bg,
                   border: `1px solid ${T.champagne}`,
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   fontFamily: F.mono,
                   letterSpacing: 0.8,
                   textTransform: 'uppercase',
@@ -812,7 +812,7 @@ function ResultBody({
             {confirmedCode && confirmedCode !== top.code && (
               <span
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   fontFamily: F.mono,
                   letterSpacing: 0.3,
@@ -822,7 +822,7 @@ function ResultBody({
               </span>
             )}
             {confirmErr && (
-              <span style={{ fontSize: FS[10], color: T.red, fontFamily: F.mono }}>
+              <span style={{ fontSize: FS[12], color: T.red, fontFamily: F.mono }}>
                 ✗ {confirmErr}
               </span>
             )}
@@ -835,7 +835,7 @@ function ResultBody({
         <div>
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
               letterSpacing: 1.5,
@@ -872,7 +872,7 @@ function ResultBody({
 
       <div
         style={{
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: T.muted,
           fontFamily: F.mono,
           lineHeight: LH.relaxed,
@@ -925,12 +925,12 @@ function VerdictPanel({ verdict }: { verdict: MatchVerdict }) {
         const d = describeVerdictAxis(axis, verdict);
         return (
           <Fragment key={axis}>
-            <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
               {d.question}
             </span>
             <span
               style={{
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 fontWeight: 600,
                 color: colorOf(axis),
@@ -944,7 +944,7 @@ function VerdictPanel({ verdict }: { verdict: MatchVerdict }) {
                 <span style={{ color: T.muted, fontWeight: 400 }}> · 실측 {d.measured}</span>
               )}
             </span>
-            <span style={{ fontSize: FS[10], color: T.subtle, lineHeight: 1.55 }}>{d.meaning}</span>
+            <span style={{ fontSize: FS[12], color: T.subtle, lineHeight: 1.55 }}>{d.meaning}</span>
           </Fragment>
         );
       })}
@@ -977,13 +977,13 @@ function InputHintPanel({
         marginBottom: S[2.5],
       }}
     >
-      <div style={{ fontSize: FS[10], fontFamily: F.mono, color: STATE.copper, letterSpacing: 0.4 }}>
+      <div style={{ fontSize: FS[12], fontFamily: F.mono, color: STATE.copper, letterSpacing: 0.4 }}>
         더 적으시면 좁혀집니다
       </div>
       {hints.map((h) => (
         <div key={h.axis} style={{ display: 'flex', flexDirection: 'column', gap: S[0.5] }}>
-          <div style={{ fontSize: FS[11], color: T.text, lineHeight: LH.notice }}>{h.message}</div>
-          <div style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>예: {h.examples}</div>
+          <div style={{ fontSize: FS[12], color: T.text, lineHeight: LH.notice }}>{h.message}</div>
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>예: {h.examples}</div>
         </div>
       ))}
     </div>
@@ -1059,7 +1059,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
       <span
         style={{
           borderRadius: RADIUS.sm,
-          fontSize: FS[10],
+          fontSize: FS[12],
           color: cfg.color,
           fontFamily: F.mono,
           letterSpacing: 1.2,
@@ -1088,7 +1088,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
         >
           <div
             style={{
-              fontSize: FS[10],
+              fontSize: FS[12],
               color: cfg.color,
               letterSpacing: 1.5,
               fontFamily: F.mono,
@@ -1103,7 +1103,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
             style={{
               margin: 0,
               padding: '0 0 0 14px',
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: T.subtle,
               fontFamily: F.serif,
               lineHeight: LH.loose,
@@ -1120,7 +1120,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
               marginTop: S[2.5],
               paddingTop: S[2.5],
               borderTop: `1px dashed ${T.border}`,
-              fontSize: FS[9],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.mono,
               lineHeight: LH.relaxed,
@@ -1203,7 +1203,7 @@ function GradeMetaRow({
 
   const badgeStyle = (color: string): React.CSSProperties => ({
     borderRadius: RADIUS.sm,
-    fontSize: FS[9],
+    fontSize: FS[12],
     color,
     fontFamily: F.mono,
     letterSpacing: 0.3,
@@ -1241,7 +1241,7 @@ function GradeMetaRow({
             key={d}
             style={{
               borderRadius: RADIUS.sm,
-              fontSize: FS[9],
+              fontSize: FS[12],
               color: c,
               fontFamily: F.mono,
               letterSpacing: 0.3,
@@ -1414,7 +1414,7 @@ function ManualEntryForm({
           background: 'transparent',
           border: 'none',
           color: T.subtle,
-          fontSize: FS[10],
+          fontSize: FS[12],
           fontFamily: F.mono,
           letterSpacing: 0.8,
           textTransform: 'uppercase',
@@ -1425,7 +1425,7 @@ function ManualEntryForm({
         <span>
           {open ? '▲' : '▼'} 직접 입력: 후보 중 적합한 품목이 없을 때
         </span>
-        <span style={{ fontSize: FS[9], color: T.muted, letterSpacing: 0.3 }}>
+        <span style={{ fontSize: FS[12], color: T.muted, letterSpacing: 0.3 }}>
           MFDS 코드 / 품목명 / 등급 수동 등록
         </span>
       </button>
@@ -1434,7 +1434,7 @@ function ManualEntryForm({
         <div style={{ marginTop: S[3] }}>
           <div
             style={{
-              fontSize: FS[11],
+              fontSize: FS[12],
               color: T.muted,
               fontFamily: F.serif,
               lineHeight: LH.loose,
@@ -1501,7 +1501,7 @@ function ManualEntryForm({
             >
               <div
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   fontFamily: F.mono,
                   letterSpacing: 1.2,
@@ -1539,7 +1539,7 @@ function ManualEntryForm({
                           background: isChosen ? alpha(T.champagne, 0.1) : 'transparent',
                           border: `1px solid ${isChosen ? T.champagne : T.border}`,
                           color: T.text,
-                          fontSize: FS[11],
+                          fontSize: FS[12],
                           fontFamily: F.ui,
                           cursor: 'pointer',
                           textAlign: 'left',
@@ -1555,7 +1555,7 @@ function ManualEntryForm({
                           style={{
                             color: GRADE_COLOR[s.grade],
                             fontFamily: F.mono,
-                            fontSize: FS[10],
+                            fontSize: FS[12],
                             textAlign: 'right',
                           }}
                         >
@@ -1569,7 +1569,7 @@ function ManualEntryForm({
               {!lookingUp && suggestions.length === 0 && nameKr.trim().length >= 2 && (
                 <div
                   style={{
-                    fontSize: FS[10],
+                    fontSize: FS[12],
                     color: T.muted,
                     fontFamily: F.mono,
                     lineHeight: LH.relaxed,
@@ -1600,7 +1600,7 @@ function ManualEntryForm({
                 background: canSubmit ? T.champagne : 'transparent',
                 color: canSubmit ? T.bg : T.muted,
                 border: `1px solid ${canSubmit ? T.champagne : T.border}`,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 letterSpacing: 0.8,
                 textTransform: 'uppercase',
@@ -1611,14 +1611,14 @@ function ManualEntryForm({
               {submitting ? '확정 중...' : '이 품목으로 확정 (직접 입력)'}
             </button>
             {!canSubmit && (code.length > 0 || nameKr.length > 0) && (
-              <span style={{ fontSize: FS[10], color: T.muted, fontFamily: F.mono }}>
+              <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
                 코드(영문/숫자/. -_/ 2~20자) · 품목명 · 등급을 모두 입력해 주세요.
               </span>
             )}
             {confirmedCode && (
               <span
                 style={{
-                  fontSize: FS[10],
+                  fontSize: FS[12],
                   color: T.muted,
                   fontFamily: F.mono,
                   letterSpacing: 0.3,
@@ -1628,7 +1628,7 @@ function ManualEntryForm({
               </span>
             )}
             {err && (
-              <span style={{ fontSize: FS[10], color: T.red, fontFamily: F.mono }}>
+              <span style={{ fontSize: FS[12], color: T.red, fontFamily: F.mono }}>
                 ✗ {err}
               </span>
             )}
@@ -1686,7 +1686,7 @@ function AlternativeRow({
         gap: S[3],
         alignItems: 'center',
         padding: '8px 12px',
-        fontSize: FS[11],
+        fontSize: FS[12],
         color: T.subtle,
         fontFamily: F.ui,
         opacity: excluded ? 0.72 : 1,
@@ -1706,7 +1706,7 @@ function AlternativeRow({
               padding: '1px 6px',
               border: `1px solid ${T.border}`,
               color: T.muted,
-              fontSize: FS[10],
+              fontSize: FS[12],
               fontFamily: F.mono,
               whiteSpace: 'nowrap',
             }}
@@ -1715,15 +1715,15 @@ function AlternativeRow({
           </span>
         )}
         {err && (
-          <span style={{ marginLeft: S[2], fontSize: FS[10], color: T.red, fontFamily: F.mono }}>
+          <span style={{ marginLeft: S[2], fontSize: FS[12], color: T.red, fontFamily: F.mono }}>
             ✗ {err}
           </span>
         )}
       </span>
-      <span style={{ color: GRADE_COLOR[a.grade], fontFamily: F.mono, fontSize: FS[10] }}>
+      <span style={{ color: GRADE_COLOR[a.grade], fontFamily: F.mono, fontSize: FS[12] }}>
         {a.grade}등급
       </span>
-      <span style={{ color: T.muted, fontFamily: F.mono, fontSize: FS[10], textAlign: 'right' }}>
+      <span style={{ color: T.muted, fontFamily: F.mono, fontSize: FS[12], textAlign: 'right' }}>
         {/* 원값(1.1587980380015848)이 그대로 찍히던 것 · 2026-09-14 오빠 지적. 둘째 자리까지만 */}
         {a.score.toFixed(2)}점
       </span>
@@ -1738,7 +1738,7 @@ function AlternativeRow({
                 border: `1px solid ${T.green}`,
                 background: alpha(T.green, 0.1),
                 color: T.green,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
               }}
             >
@@ -1765,7 +1765,7 @@ function AlternativeRow({
                 background: 'transparent',
                 border: `1px solid ${T.champagne}`,
                 color: T.champagne,
-                fontSize: FS[10],
+                fontSize: FS[12],
                 fontFamily: F.mono,
                 letterSpacing: 0.5,
                 textTransform: 'uppercase',
@@ -1784,7 +1784,7 @@ function AlternativeRow({
         style={{
           padding: '6px 12px 8px',
           borderTop: `1px solid ${alpha(T.red, 0.2)}`,
-          fontSize: FS[10],
+          fontSize: FS[12],
           lineHeight: LH.relaxed,
           color: T.muted,
           fontFamily: F.ui,
@@ -1831,7 +1831,7 @@ function ExtendedCandidates({
           border: `1px dashed ${T.border}`,
           color: T.subtle,
           fontFamily: F.mono,
-          fontSize: FS[10],
+          fontSize: FS[12],
           letterSpacing: 0.3,
           padding: `${S[2]}px ${S[3]}px`,
           width: '100%',
