@@ -22,6 +22,10 @@ import {
 } from '@/lib/udi';
 import { ListBackLink } from '@/components/ListBackLink';
 import { choiceLook } from '@/lib/design/segmented-choice';
+import { ProductLinkField } from '@/components/ProductPickField';
+import { TextLinkAction } from '@/components/TextAction';
+import { EMPTY_ORG_PRODUCTS, type OrgProductList } from '@/lib/products/org-products';
+import { LOCKED_STATUSES } from '@/lib/api/locked-statuses';
 
 function todayYmd(): string {
   const d = new Date();
@@ -31,6 +35,7 @@ function todayYmd(): string {
 export interface UdiFull {
   id: string;
   device_name: string;
+  product_id: string | null;
   brand_name: string | null;
   udi_di: string;
   issuing_agency: IssuingAgency;
@@ -47,10 +52,23 @@ export interface UdiFull {
 
 const STATUS_OPTIONS: UdiStatus[] = ['draft', 'active', 'obsolete'];
 
-export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }: { initial: UdiFull; linkedProduct?: { id: string; name: string } | null; productChanges?: Array<{ id: string; code: string; title: string }> }) {
+export function UdiDetailClient({
+  initial,
+  linkedProduct,
+  productChanges = [],
+  products = EMPTY_ORG_PRODUCTS,
+}: {
+  initial: UdiFull;
+  linkedProduct?: { id: string; name: string } | null;
+  productChanges?: Array<{ id: string; code: string; title: string }>;
+  products?: OrgProductList;
+}) {
   const router = useRouter();
   const toast = useToast();
   const [status, setStatus] = useState<UdiStatus>(initial.status);
+  // 연결 제품(화면 검토 A57 · 2026-09-27). 폐기(저장된 상태 기준)면 API 가 기록 전체를 잠그므로 고르지 못하게 둔다
+  const [productId, setProductId] = useState(initial.product_id ?? '');
+  const locked = (LOCKED_STATUSES.udi_records as readonly string[]).includes(initial.status);
   const [pi, setPi] = useState<PiComponents>(initial.pi_components ?? {});
   const [pkgs, setPkgs] = useState<PackageLevel[]>(initial.package_levels ?? []);
   const [subs, setSubs] = useState({
@@ -83,6 +101,7 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          product_id: productId || null,
           pi_components: pi,
           package_levels: pkgs.filter((p) => p.udi_di.trim()),
           ...subs,
@@ -146,10 +165,17 @@ export function UdiDetailClient({ initial, linkedProduct, productChanges = [] }:
           <DetailRow label="UDI-DI" value={<span style={{ fontFamily: F.mono }}>{initial.udi_di}</span>} />
           <DetailRow label="발행기관" value={ISSUING_AGENCY_LABEL[initial.issuing_agency]} />
           {initial.gmdn_code && <DetailRow label="GMDN" value={initial.gmdn_code} />}
-          {linkedProduct && (
-            <DetailRow label="연결 제품" value={<Link href={`/products?focus=${linkedProduct.id}`} style={{ color: T.champagne, textDecoration: 'none' }}>{linkedProduct.name} →</Link>} />
-          )}
         </Bx>
+        {/* 연결 제품: 읽기 줄 대신 고르는 칸(화면 검토 A57 · 2026-09-27). 만든 뒤에도 잇거나 바꿀 수 있다.
+            저장하면 API 가 같은 조직 제품인지 본다. 폐기된 UDI 는 잠긴다(API 와 같은 목록) */}
+        <div style={{ marginTop: S[3] }}>
+          <ProductLinkField id="udi-product" products={products} value={productId} onChange={setProductId} ro={locked} />
+          {linkedProduct && (
+            <div style={{ marginTop: S[1] }}>
+              <TextLinkAction href={`/products?focus=${linkedProduct.id}`}>{linkedProduct.name} 제품 화면 열기</TextLinkAction>
+            </div>
+          )}
+        </div>
       </Section>
 
       {/* PI 구성 */}

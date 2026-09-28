@@ -9,7 +9,10 @@ import { Alert, Btn, In, Lbl, Sel } from '@/lib/design/components';
 import { AuthThemeToggle } from '@/components/AuthThemeToggle';
 import { Logo } from '@/components/Logo';
 import { S, FS, BRAND, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { tintBorder } from '@/lib/design/grain';
 import { translateAuthError } from '@/lib/auth/translate-error';
+import { passkeyErrorMessage, passkeyUsableHere } from '@/lib/auth/passkey';
+import { Fingerprint } from 'lucide-react';
 import { validatePassword, PASSWORD_POLICY_HINT } from '@/lib/auth/password-policy';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
 import { useCoreVersion } from '@/lib/hooks/useCoreVersion';
@@ -66,6 +69,18 @@ function LoginForm() {
   const [oauthLoading, setOauthLoading] = useState(false);
   // 'Step inside' 후 골드 입장 트랜지션 오버레이 표시 여부.
   const [entering, setEntering] = useState(false);
+  // 지문 · 얼굴 로그인(패스키 · 오너 결정 2026-09-27): 브라우저 · 주소(qatelier.co.kr) · 운영 인증 서버 설정이
+  // 셋 다 맞을 때만 단추를 보인다(lib/auth/passkey.ts). 누르면 실패하는 단추는 두지 않는다.
+  const [passkeyReady, setPasskeyReady] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    passkeyUsableHere().then((ok) => {
+      if (alive) setPasskeyReady(ok);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
   // 입장 트랜지션 골드 입자: 위치·크기·속도·드리프트 무작위(마운트 시 1회 고정).
   // entering 시에만 렌더되므로(초기 SSR 은 false) hydration mismatch 없음.
   const embers = useMemo(
@@ -169,6 +184,51 @@ function LoginForm() {
       password === passwordConfirm &&
       consented);
 
+  // 로그인 뒤 대시보드로(비밀번호 · 지문 로그인이 함께 쓴다).
+  // 골드 입장 트랜지션: 'Step inside' 후 화면이 샤라랑하며 대시보드로.
+  // prefers-reduced-motion 이면 연출 없이 즉시 전환(접근성).
+  function enterDashboard() {
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      router.push(redirectTo);
+      router.refresh();
+      return;
+    }
+    // 세션이 생긴 직후 대시보드를 백그라운드 prefetch: 애니메이션이 도는 ~1.15초
+    // 동안 미리 로드되어, push 시 딜레이 없이 즉시 전환된다(애니 끝→홈 사이 빈 시간 제거).
+    // (refresh 중복 호출 제거: 새 라우트 push 가 이미 인증 쿠키로 서버 렌더한다.)
+    router.prefetch(redirectTo);
+    setEntering(true);
+    window.setTimeout(() => {
+      router.push(redirectTo);
+    }, 1150);
+  }
+
+  // 지문 · 얼굴 로그인. 브라우저가 이 기기의 패스키를 고르게 하고(이메일을 먼저 묻지 않는다) 세션을 만든다.
+  async function handlePasskeyLogin() {
+    setLoading(true);
+    setError(null);
+    setMessage(null);
+    const supabase = createClient();
+    try {
+      const { error: passkeyError } = await supabase.auth.signInWithPasskey();
+      if (passkeyError) {
+        console.warn('[passkey] 로그인 실패', passkeyError);
+        setError(passkeyErrorMessage(passkeyError, 'login'));
+        setLoading(false);
+        return;
+      }
+    } catch (err) {
+      console.warn('[passkey] 로그인 실패', err);
+      setError(passkeyErrorMessage(err, 'login'));
+      setLoading(false);
+      return;
+    }
+    enterDashboard();
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -184,24 +244,7 @@ function LoginForm() {
         setLoading(false);
         return;
       }
-      // 골드 입장 트랜지션: 'Step inside' 후 화면이 샤라랑하며 대시보드로.
-      // prefers-reduced-motion 이면 연출 없이 즉시 전환(접근성).
-      const reduceMotion =
-        typeof window !== 'undefined' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) {
-        router.push(redirectTo);
-        router.refresh();
-        return;
-      }
-      // 세션이 생긴 직후 대시보드를 백그라운드 prefetch: 애니메이션이 도는 ~1.15초
-      // 동안 미리 로드되어, push 시 딜레이 없이 즉시 전환된다(애니 끝→홈 사이 빈 시간 제거).
-      // (refresh 중복 호출 제거: 새 라우트 push 가 이미 인증 쿠키로 서버 렌더한다.)
-      router.prefetch(redirectTo);
-      setEntering(true);
-      window.setTimeout(() => {
-        router.push(redirectTo);
-      }, 1150);
+      enterDashboard();
       return;
     }
 
@@ -687,6 +730,29 @@ function LoginForm() {
                     {loading ? '처리 중...' : mode === 'login' ? 'Step inside →' : 'Sign up →'}
                   </Btn>
                 </div>
+                {/* 지문 · 얼굴 로그인: 보조 단추(주 동작은 위의 비밀번호 로그인). 쓸 수 있는 주소 · 설정일 때만 */}
+                {mode === 'login' && passkeyReady && (
+                  <div style={{ marginTop: S[3] }}>
+                    <Btn
+                      p={false}
+                      type="button"
+                      onClick={handlePasskeyLogin}
+                      disabled={loading || oauthLoading}
+                      style={{
+                        width: '100%',
+                        padding: '12px 24px',
+                        fontSize: FS[11],
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: S[2],
+                      }}
+                    >
+                      <Fingerprint size={15} strokeWidth={1.75} aria-hidden="true" />
+                      지문 · 얼굴로 로그인
+                    </Btn>
+                  </div>
+                )}
               </form>
 
               {/* OAuth divider + GitHub 버튼: 회사 사용자 SSO 진입점.
@@ -1546,7 +1612,7 @@ function BannerBox({ color, children }: { color: string; children: React.ReactNo
         padding: '10px 12px',
         background: alpha(color, 0.07),
         border: `1px solid ${alpha(color, 0.35)}`,
-        borderLeft: `3px solid ${color}`,
+        borderColor: tintBorder(color),
         fontSize: FS[11],
         color: T.text,
         fontFamily: F.serif,

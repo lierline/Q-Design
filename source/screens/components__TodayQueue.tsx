@@ -131,7 +131,7 @@ const ROLE_INFO = [
     color: T.red,
     matchRoles: ['qa', 'qa_lead', 'admin'],
     items: [
-      '치명 고객 불만 또는 MDR 보고 대상 접수',
+      '치명 고객 불만 또는 부작용 보고 대상 접수',
       '신규 고객 불만 조사 미시작',
       '심사 발견 사항: CAPA 미발행',
       '부적합: 처분 미결정 또는 CAPA 필요',

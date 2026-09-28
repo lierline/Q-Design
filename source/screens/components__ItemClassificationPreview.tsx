@@ -8,6 +8,7 @@
 
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { S, FS, F, T, alpha, STATE, RADIUS, LH } from '@/lib/design/tokens';
+import { ruleBand, tintBorder } from '@/lib/design/grain';
 import { Btn, Field, infoPopoverStyle } from '@/lib/design/components';
 import {
   Q_MATCH_ENGINE_NAME,
@@ -297,7 +298,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
         marginTop: S[5],
         padding: '20px 22px',
         background: alpha(T.blue, 0.05),
-        borderLeft: `3px solid ${T.blue}`,
+        ...ruleBand(T.blue),
       }}
     >
       <div
@@ -370,9 +371,8 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       {error && (
         <div
           style={{
-            padding: '10px 14px',
-            background: alpha(T.red, 0.08),
-            borderLeft: `2px solid ${T.red}`,
+            padding: '10px 2px',
+            ...ruleBand(T.red),
             fontSize: FS[12],
             color: T.red,
             fontFamily: F.mono,
@@ -386,10 +386,9 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       {result && result.top === null && (
         <div
           style={{
-            padding: '12px 14px',
+            padding: '12px 2px',
             // copper 상태색: 테마 변수 추종(라이트는 AA 보정 진한 톤)
-            background: alpha(STATE.copper, 0.06),
-            borderLeft: `2px solid ${STATE.copper}`,
+            ...ruleBand(STATE.copper),
             fontSize: FS[12],
             color: T.subtle,
             fontFamily: F.serif,
@@ -464,7 +463,7 @@ function ResultBody({
           style={{
             padding: '14px 18px',
             background: alpha(T.champagne, 0.05),
-            borderLeft: `3px solid ${T.champagne}`,
+            ...ruleBand(T.champagne),
           }}
         >
           <div
@@ -583,7 +582,7 @@ function ResultBody({
           padding: '16px 18px',
           background: T.surface,
           border: `1px solid ${T.border}`,
-          borderLeft: `3px solid ${cfg.color}`,
+          borderColor: tintBorder(cfg.color),
         }}
       >
         <div
@@ -973,7 +972,7 @@ function InputHintPanel({
         flexDirection: 'column',
         gap: S[2],
         padding: `${S[2.5]}px ${S[3]}px`,
-        borderLeft: `2px solid ${STATE.copper}`,
+        ...ruleBand(STATE.copper),
         background: alpha(STATE.copper, 0.05),
         marginBottom: S[2.5],
       }}
@@ -1085,7 +1084,6 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
             top: 'calc(100% + 6px)',
             left: 0,
             zIndex: 50,
-            borderLeft: `3px solid ${cfg.color}`,
           }}
         >
           <div

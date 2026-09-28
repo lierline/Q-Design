@@ -26,12 +26,15 @@ import {
 } from '@/lib/pmda';
 import { ListBackLink } from '@/components/ListBackLink';
 import { ChoiceCheck, choiceLook } from '@/lib/design/segmented-choice';
+import { ProductLinkField } from '@/components/ProductPickField';
+import { EMPTY_ORG_PRODUCTS, type OrgProductList } from '@/lib/products/org-products';
 
 export interface PmdaFull {
   id: string;
   code: string;
   device_name: string;
   device_class: PmdaClass;
+  product_id: string | null;
   cert_standard_status: CertStatus;
   jmdn_code: string | null;
   mah_name: string | null;
@@ -49,10 +52,12 @@ const STATUS_OPTIONS: PmdaStatus[] = ['preparing', 'submitted', 'under_review', 
 
 export function PmdaDetailClient({
   initial,
+  products = EMPTY_ORG_PRODUCTS,
   canReview = false,
   canApprove = false,
 }: {
   initial: PmdaFull;
+  products?: OrgProductList;
   canReview?: boolean;
   canApprove?: boolean;
 }) {
@@ -60,6 +65,8 @@ export function PmdaDetailClient({
   const toast = useToast();
   const [status, setStatus] = useState<PmdaStatus>(initial.status);
   const [deviceClass, setDeviceClass] = useState<PmdaClass>(initial.device_class);
+  // 연결 제품(화면 검토 A57 · 2026-09-27): 만든 뒤에도 잇거나 바꿀 수 있다. 저장하면 API 가 같은 조직 제품인지 본다
+  const [productId, setProductId] = useState(initial.product_id ?? '');
   const [certStatus, setCertStatus] = useState<CertStatus>(initial.cert_standard_status);
   const [jmdn, setJmdn] = useState(initial.jmdn_code ?? '');
   const [mahName, setMahName] = useState(initial.mah_name ?? '');
@@ -96,6 +103,7 @@ export function PmdaDetailClient({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           device_class: deviceClass,
+          product_id: productId || null,
           cert_standard_status: certStatus,
           jmdn_code: jmdn.trim() || null,
           mah_name: mahName.trim() || null,
@@ -186,7 +194,7 @@ export function PmdaDetailClient({
             const meta = SECTION_STATUS_META[s.status];
             const dim = !s.applicable;
             return (
-              <div key={s.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: S[3], padding: '10px 14px', background: T.surface, border: `1px solid ${T.border}`, borderLeft: `2px solid ${meta.color}`, borderRadius: RADIUS.sm, opacity: dim ? 0.5 : 1 }}>
+              <div key={s.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: S[3], padding: '10px 14px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, opacity: dim ? 0.5 : 1 }}>
                 <button className="qa-touch-44" type="button" onClick={() => toggleApplicable(s.key)} disabled={readOnly} style={{ display: 'flex', alignItems: 'center', gap: S[2], background: 'transparent', border: 'none', cursor: readOnly ? 'default' : 'pointer', textAlign: 'left', minWidth: 0 }}>
                   <span style={{ fontFamily: F.mono, fontSize: FS[11], color: s.applicable ? T.champagne : T.muted, flexShrink: 0 }}>{s.applicable ? '☑' : '☐'}</span>
                   <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{s.label}</span>
@@ -199,6 +207,9 @@ export function PmdaDetailClient({
       </Section>
 
       <Section title="행위자 · 인증 정보 (MAH/D-MAH · FMR · 인증 번호)">
+        <div style={{ marginBottom: S[3] }}>
+          <ProductLinkField id="pmda-product" products={products} value={productId} onChange={setProductId} ro={readOnly} />
+        </div>
         <div className="qa-pmda-grid-2fr1fr" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: S[3], marginBottom: S[3] }}>
           <Field id="pmda-mah" label="제조판매업자 (MAH / D-MAH)">
             <In id="pmda-mah" value={mahName} onChange={(e) => setMahName(e.target.value)} ro={readOnly} placeholder="일본 내 MAH 또는 선임(D-MAH)" />

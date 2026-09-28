@@ -382,7 +382,6 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                               ? 'transparent'
                               : alpha(T.champagne, 0.12),
                             padding: '1px 4px',
-                            borderLeft: `2px solid ${m.status === 'cancelled' ? T.muted : T.champagne}`,
                             textDecoration: m.status === 'cancelled' ? 'line-through' : 'none',
                           }}
                           title={m.title}

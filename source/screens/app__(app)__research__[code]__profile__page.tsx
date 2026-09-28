@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { Alert, Bx, Btn, LoadingState, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { tintBorder } from '@/lib/design/grain';
 import { longDateTime } from '@/lib/date';
 import { Download, Loader2, RefreshCw, Sparkles } from 'lucide-react';
 import { PageGuide } from '@/components/PageGuide';
@@ -278,7 +279,7 @@ export default function ProfilePage() {
     <div>
       <PageHd
         title="제품 정보"
-        sub="아이디어 · 프로파일 · Q-Atelier 분석"
+        desc="아이디어 · 프로파일 · Q-Atelier 분석"
         actions={
           // 검정 채운 단추 셋이 나란히 있었다 (화면 검토 A62 · A63 · 2026-09-27). 내려받기 · 다시 분석은
           // 보조 동작이라 글귀로 둔다.
@@ -385,8 +386,7 @@ export default function ProfilePage() {
               borderRadius: RADIUS.md,
               padding: '14px 16px',
               background: `${alpha(T.green, 0.05)}`,
-              border: `1px solid ${T.green}`,
-              borderLeft: `3px solid ${T.green}`,
+              border: `1px solid ${tintBorder(T.green)}`,
               marginBottom: qMatchOpen ? 14 : 0,
               display: 'flex',
               alignItems: 'center',
@@ -451,7 +451,6 @@ export default function ProfilePage() {
               padding: '12px 14px',
               background: `${alpha(T.muted, 0.06)}`,
               border: `1px dashed ${T.muted}`,
-              borderLeft: `3px solid ${T.muted}`,
               marginBottom: qMatchOpen ? 14 : 0,
               fontSize: FS[12],
               color: T.subtle,

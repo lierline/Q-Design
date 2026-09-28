@@ -18,6 +18,7 @@ import {
 import { PageGuide } from '@/components/PageGuide';
 import { F, FS, LH, S, T, labelTracking, RADIUS } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
+import { hasAnyRole, ROLE_SELECT } from '@/lib/permissions/has-role';
 import { ListPager } from '@/components/ListPager';
 import { parsePage, pageRange, clampPage } from '@/lib/api/list-page';
 import {
@@ -82,21 +83,22 @@ export default async function AuditPage({ searchParams }: PageProps) {
     .eq('user_id', user.id)
     .limit(1)
     .maybeSingle();
+  // 직책(job_grade)까지 읽어 공용 판정(hasAnyRole)으로 본다. 목록에 rd 없이 rd_lead 만 있어, 저장값만 보면 직책으로 정한
+  //   R&D 팀장이 막혔다(DB 의 audit_logs 읽기 정책은 has_job_role 로 이미 직책을 본다 · 화면 검토 A73 후속 · 2026-09-27).
   const { data: profile } = await supabase
     .from('profiles')
-    .select('job_role, job_roles')
+    .select(ROLE_SELECT)
     .eq('id', user.id)
     .maybeSingle();
 
   const role = membership?.role ?? 'member';
-  const jobRoles = (profile?.job_roles ?? (profile?.job_role ? [profile.job_role] : [])) as string[];
   // 감사 추적: owner/admin 외에 RA/QA(및 Lead)·R&D 팀장도 접근: R&D 문서
   // 작성·검토·승인 이력 추적(ISO 13485 §8.2.4 / 규제·품질 가시성).
   // org-role 'admin' 은 0172 에서 제거(owner 단일). job_role 'admin'(MedQraft 운영)은
   // is_admin RLS 로 전체 접근하므로 여기 별도 분기 불요.
   const canViewAudit =
     role === 'owner' ||
-    jobRoles.some((r) => ['ra', 'ra_lead', 'qa', 'qa_lead', 'rd_lead'].includes(r));
+    hasAnyRole(profile, ['ra', 'qa', 'rd_lead']);
 
   if (!canViewAudit) {
     return (
@@ -183,14 +185,10 @@ export default async function AuditPage({ searchParams }: PageProps) {
 
   return (
     <div>
-      {/* 차림표(«감사 로그»)와 같은 이름 (화면 검토 A12 · 2026-09-27) */}
+      {/* 차림표(«감사 로그»)와 같은 이름 (화면 검토 A12 · 2026-09-27).
+          전체 건수는 아래 «총 활동» 카드가 말한다. 제목 위에 되풀이하지 않는다 (화면 검토 A35 · A66 · 2026-09-27) */}
       <PageHd
         title="감사 로그"
-        sub={
-          filterActive
-            ? `필터 적용됨 · 총 ${totalLogs.toLocaleString()}건`
-            : `전체 ${totalLogs.toLocaleString()}건의 활동 기록`
-        }
         actions={<AuditExportButton query={auditFiltersToQuery(filters)} total={totalLogs} />}
       />
       <PageGuide pageId="audit" />

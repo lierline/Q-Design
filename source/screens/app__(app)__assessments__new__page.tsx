@@ -261,7 +261,7 @@ export default function NewAssessmentPage() {
   if (products.length === 0) {
     return (
       <div>
-        <PageHd title="새 변경평가" sub="새 변경 평가" />
+        <PageHd title="새 변경평가" />
         <InfoBox color={T.warning}>
           등록된 제품이 없습니다. 먼저 <a href="/products" style={{ color: T.champagne, textDecoration: 'underline' }}>제품</a>을 등록해주세요.
         </InfoBox>
@@ -273,10 +273,7 @@ export default function NewAssessmentPage() {
     <div>
       {/* 제목 옆 상자 «← 취소» 대신 제목 위 글귀 «← 변경평가 목록» (화면 검토 A11 · A32 · 2026-09-27) */}
       <ListBackLink href="/assessments" label="변경평가 목록" />
-      <PageHd
-        title="새 변경평가"
-        sub="새 변경 평가"
-      />
+      <PageHd title="새 변경평가" />
 
       {/* 본문 폭: 진행바·알림·폼을 같은 컬럼에 정렬 + 화면 중앙 배치(margin auto).
           넓은 화면에서 좌측 쏠림 없이 균형 + 폭 확대(1100)로 멀티컬럼 섹션 여유. */}

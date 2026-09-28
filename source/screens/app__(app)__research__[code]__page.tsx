@@ -20,6 +20,7 @@ import { Alert, Bx, En, LoadingState, PageHd, SectionTitle, SectionTitleInfo, Sk
 import { PageGuide } from '@/components/PageGuide';
 import { HelpNote } from '@/components/HelpNote';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { tintBorder } from '@/lib/design/grain';
 import { shortDate } from '@/lib/date';
 import {
   AlertTriangle,
@@ -351,7 +352,7 @@ export default function ResearchHomePage() {
   if (!project) {
     return (
       <div>
-        <PageHd title="프로젝트 없음" sub="-" />
+        <PageHd title="프로젝트 없음" />
         <Alert kind="error">{error ?? '프로젝트를 찾을 수 없습니다.'}</Alert>
       </div>
     );
@@ -405,7 +406,7 @@ export default function ResearchHomePage() {
             padding: '10px 14px',
             marginBottom: S[4],
             border: `1px solid ${alpha(T.champagne, 0.33)}`,
-            borderLeft: `3px solid ${T.champagne}`,
+            borderColor: tintBorder(T.champagne),
             background: `${alpha(T.champagne, 0.05)}`,
             fontSize: FS[11],
             color: T.subtle,
@@ -440,7 +441,7 @@ export default function ResearchHomePage() {
         style={{
           padding: S[3.5],
           marginBottom: S[5],
-          borderLeft: `3px solid ${isApproved ? T.green : T.champagne}`,
+          borderColor: tintBorder(isApproved ? T.green : T.champagne),
           background: alpha(isApproved ? T.green : T.champagne, 0.04),
         }}
       >
@@ -486,7 +487,7 @@ export default function ResearchHomePage() {
       {/* 검토 «중» 인 문서가 생긴 순간부터 알린다. 종전엔 reviewed 가 생긴 뒤에야 떠서 이미 막힌 뒤에 알았다(R&D 흐름 감사 C-11). */}
       {!orgHasOtherApprover && !orgIsSoloMode && Array.from(docStatusByCode.values()).some((s) => s === 'review' || s === 'reviewed') && (
         <div style={{ marginBottom: S[5] }}>
-          <Bx style={{ padding: S[4], borderLeft: `4px solid ${T.warning}`, background: alpha(T.warning, 0.06) }}>
+          <Bx style={{ padding: S[4], borderColor: tintBorder(T.warning), background: alpha(T.warning, 0.06) }}>
             <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, lineHeight: LH.relaxed }}>
               <strong>최종 승인자가 없어 결재가 멈출 수 있어요.</strong>
               <br />
@@ -529,7 +530,7 @@ export default function ResearchHomePage() {
               <Bx
                 style={{
                   padding: S[6],
-                  borderLeft: `4px solid ${nextAction.color}`,
+                  borderColor: tintBorder(nextAction.color),
                   background: alpha(nextAction.color, 0.06),
                   cursor: 'pointer',
                   display: 'flex',

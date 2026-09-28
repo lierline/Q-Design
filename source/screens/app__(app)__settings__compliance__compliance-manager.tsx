@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { Alert, Bx, Btn, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
 import { useConfirm } from '@/components/Confirm';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { ruleBand, tintBorder } from '@/lib/design/grain';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -499,7 +500,7 @@ function ScoreOverview({
         style={{ display: 'grid', gridTemplateColumns: `2fr ${REACHABLE_FINDING_GRADES.map(() => '1fr').join(' ')}`, gap: S[2.5] }}
       >
         {/* ─── 전체 점수 큰 카드 ─── */}
-        <Bx style={{ padding: S[4.5], borderLeft: `3px solid ${outlookColor}`, background: alpha(outlookColor, 0.04) }}>
+        <Bx style={{ padding: S[4.5], borderColor: tintBorder(outlookColor), background: alpha(outlookColor, 0.04) }}>
           <div
             style={{
               fontSize: FS[10],
@@ -630,7 +631,7 @@ function MetricCard({
   sub?: string;
 }) {
   return (
-    <Bx style={{ padding: S[3.5], borderLeft: `2px solid ${accent}` }}>
+    <Bx style={{ padding: S[3.5], borderColor: tintBorder(accent) }}>
       <div
         style={{
           fontSize: FS[10],
@@ -763,7 +764,7 @@ function ClauseItems({
             padding: '10px 14px',
             background: alpha(T.warning, 0.08),
             border: `1px solid ${alpha(T.warning, 0.35)}`,
-            borderLeft: `3px solid ${T.warning}`,
+            borderColor: tintBorder(T.warning),
             fontSize: FS[12],
             color: T.text,
             fontFamily: F.serif,
@@ -1008,7 +1009,7 @@ function GapReport({
   }
   if (gaps.length === 0) {
     return (
-      <Bx style={{ padding: S[6], textAlign: 'center', borderLeft: `3px solid ${T.green}` }}>
+      <Bx style={{ padding: S[6], textAlign: 'center' }}>
         <CheckCircle2 size={28} style={{ color: T.green, marginBottom: S[2] }} />
         <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
           식별된 부적합이 없습니다.
@@ -1024,9 +1025,8 @@ function GapReport({
     <div style={{ display: 'flex', flexDirection: 'column', gap: S[2.5] }}>
       <div
         style={{
-          padding: S[3],
-          background: alpha(T.red, 0.04),
-          borderLeft: `2px solid ${T.red}`,
+          padding: '12px 2px',
+          ...ruleBand(T.red),
           fontSize: FS[11],
           color: T.subtle,
           fontFamily: F.mono,
@@ -1044,7 +1044,6 @@ function GapReport({
           key={g.item.code}
           style={{
             padding: S[3.5],
-            borderLeft: `2px solid ${SEVERITY_COLOR[g.grade]}`,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'baseline', gap: S[2], flexWrap: 'wrap', marginBottom: S[1.5] }}>

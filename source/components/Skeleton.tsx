@@ -103,14 +103,18 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
 };
 
 /**
- * Page header skeleton: PageHd 동등 시각 무게 (title 28px + sub 11px).
+ * Page header skeleton: PageHd 동등 시각 무게 (title 28px + 제목 아래 설명 줄 14px).
+ *
+ * 제목 위 이름표 줄은 기본으로 그리지 않는다. 이름표는 «뜻 있을 때만» 두기로 해 대부분 화면에 없고,
+ * 비워 둔 줄이 있으면 자료가 올 때 머리가 한 줄 뛴다. 이름표가 있는 화면(홈의 «직무 · 날짜»)만 sub 로 켠다.
+ * 설명 줄(desc)은 이 뼈대를 쓰는 화면 대부분에 있어 기본으로 둔다 (화면 검토 A35 · A66 · 2026-09-27).
  */
-Skeleton.PageHd = function SkeletonPageHd() {
+Skeleton.PageHd = function SkeletonPageHd({ sub = false, desc = true }: { sub?: boolean; desc?: boolean } = {}) {
   return (
     <div style={{ marginBottom: S[7] }} aria-busy="true">
-      <Skeleton height={11} width={140} style={{ marginBottom: S[3] }} />
+      {sub && <Skeleton height={11} width={140} style={{ marginBottom: S[3] }} />}
       <Skeleton height={28} width="42%" />
-      <Skeleton height={14} width="28%" style={{ marginTop: S[2.5] }} />
+      {desc && <Skeleton height={14} width="28%" style={{ marginTop: S[2.5] }} />}
     </div>
   );
 };

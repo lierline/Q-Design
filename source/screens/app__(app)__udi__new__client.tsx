@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ScanBarcode } from 'lucide-react';
 import { useToast } from '@/components/Toast';
-import { Btn, Bx, PageHd, Lbl, Field, In, Sel, FormActions } from '@/lib/design/components';
+import { Btn, Bx, PageHd, Lbl, Field, In, FormActions } from '@/lib/design/components';
 import { SegmentedChoice } from '@/lib/design/segmented-choice';
 import { S, FS, F, T, alpha, RADIUS, SHADOW, MOTION, LAYOUT, LH } from '@/lib/design/tokens';
 import { ISSUING_AGENCY_LABEL, ISSUING_AGENCY_DESC, PI_COMPONENT_META, suggestPi, type IssuingAgency, type PiComponents, type PiSuggestion } from '@/lib/udi';
@@ -12,24 +12,10 @@ import type { MfdsProduct } from '@/lib/mfds-api/products';
 import { HelpNote } from '@/components/HelpNote';
 import { ListBackLink } from '@/components/ListBackLink';
 import { TextLinkAction } from '@/components/TextAction';
+import { ProductPickField, useProductPick } from '@/components/ProductPickField';
+import type { OrgProductList } from '@/lib/products/org-products';
 
 const PI_LABEL: Record<string, string> = Object.fromEntries(PI_COMPONENT_META.map((m) => [m.key, m.label]));
-
-export interface UdiProductOption {
-  id: string;
-  local_id: number | null;
-  name: string;
-  /** products.device_class 는 text("2등급" 등: 이미 '등급' 포함될 수 있음). */
-  device_class: string | number | null;
-}
-
-/** 등급 라벨: 값에 이미 '등급' 이 있으면 중복 방지(버그: "2등급등급"). 빈값이면 ''. */
-function gradeLabel(dc: string | number | null): string {
-  if (dc === null || dc === undefined) return '';
-  const s = String(dc).trim();
-  if (!s) return '';
-  return /등급$/.test(s) ? s : `${s}등급`;
-}
 
 const AGENCIES: IssuingAgency[] = ['gs1', 'hibcc', 'iccbba'];
 
@@ -39,13 +25,18 @@ const GS1_AI: Record<string, string> = { di: '01', lot: '10', serial: '21', expi
 // 미리보기에 예시를 붙여 "지금 정하는 건 라벨 구성, 값은 생산 때"임을 직관화.
 const PI_EXAMPLE: Record<string, string> = { lot: 'LOT250612', serial: 'SN0001234', expiry: '260630', manufacture_date: '250612' };
 
-export function NewUdiClient({ products = [], initialProductId }: { products?: UdiProductOption[]; initialProductId?: string }) {
+export function NewUdiClient({ products, initialProductId }: { products: OrgProductList; initialProductId?: string }) {
   const router = useRouter();
   const toast = useToast();
-  // 제품 화면에서 진입(?product=id) 시 자동 연결·제품명 프리필 (제품 → UDI 흐름).
-  const initialProduct = products.find((p) => p.id === initialProductId);
-  const [productId, setProductId] = useState(initialProductId ?? '');
-  const [deviceName, setDeviceName] = useState(initialProduct?.name ?? '');
+  // 화면 검토 A57 · 2026-09-27: 「우리 제품 연결(선택)」 + 「제품명 *」 이중 입력을 없앴다. 종전엔 이름을 먼저
+  //   적은 뒤 제품을 고르면 이름이 안 바뀌어, 고른 제품과 적힌 이름이 갈렸다.
+  //   이제 제품을 목록에서 고르면(제품 화면에서 ?product= 로 오면 골라진 채로) 이름이 따라 채워지고,
+  //   사람이 이름을 고친 적이 없으면 제품을 바꿀 때 따라 바뀐다. 등록 전 제품만 «새 제품으로 적기».
+  const pick = useProductPick(products, initialProductId);
+  const [nameInput, setNameInput] = useState('');
+  const [nameTouched, setNameTouched] = useState(false);
+  // 고친 적이 없으면 고른 제품의 이름을 따른다. 등록 전 제품(이름으로 적기)이면 적은 값 그대로.
+  const deviceName = nameTouched ? nameInput : pick.picked?.name ?? nameInput;
   const [brandName, setBrandName] = useState('');
   const [udiDi, setUdiDi] = useState('');
   const [agency, setAgency] = useState<IssuingAgency>('gs1');
@@ -59,17 +50,13 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
   const [lookupMsg, setLookupMsg] = useState<string | null>(null);
   const [suggestion, setSuggestion] = useState<PiSuggestion | null>(null);
 
-  const canSubmit = deviceName.trim().length >= 2 && udiDi.trim().length >= 4 && !submitting;
+  // 제품을 목록에서 골랐거나 «새 제품으로 적기» 를 눌렀을 때만 저장한다(기본은 목록에서 고르기).
+  const productChosen = pick.productId !== '' || pick.manual;
+  const canSubmit = productChosen && deviceName.trim().length >= 2 && udiDi.trim().length >= 4 && !submitting;
   const canLookup = udiDi.trim().length >= 4 && !looking;
 
   function togglePi(key: keyof PiComponents) {
     setPi((p) => ({ ...p, [key]: !p[key] }));
-  }
-
-  function onSelectProduct(id: string) {
-    setProductId(id);
-    const p = products.find((x) => x.id === id);
-    if (p && !deviceName.trim()) setDeviceName(p.name);
   }
 
   // MFDS 통합정보 조회 → 빈 항목 자동 프리필.
@@ -95,9 +82,9 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
         return;
       }
       setLookupInfo(item);
-      // 사용자가 이미 입력한 값은 보존, 빈 항목만 채움
+      // 사용자가 이미 입력한 값은 보존, 빈 항목만 채움(고른 제품의 이름이 있으면 그것이 우선)
       const name = item.product_name || item.item_name;
-      if (name && !deviceName.trim()) setDeviceName(name);
+      if (name && !deviceName.trim()) setNameInput(name);
       if (item.class_no && !gmdn.trim()) setGmdn(item.class_no);
       // 제품 특성으로 PI 자동제안 (멸균→유효기간, 이식/추적관리→시리얼)
       setSuggestion(
@@ -139,7 +126,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
           issuing_agency: agency,
           gmdn_code: gmdn.trim() || undefined,
           pi_components: pi,
-          product_id: productId || undefined,
+          product_id: pick.productId || undefined,
         }),
       });
       const json = await res.json();
@@ -172,7 +159,7 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
 
       {/* «← UDI 목록» 한 형식 (화면 검토 A32 · A74 · 2026-09-27) */}
       <ListBackLink href="/udi" label="UDI 목록" />
-      <PageHd title="새 UDI 등록" sub="UDI-DI + 발행기관 + 생산 식별자(PI) 구성" />
+      <PageHd title="새 UDI 등록" desc="UDI-DI + 발행기관 + 생산 식별자(PI) 구성" />
 
       <div className="qa-udi-layout">
         {/* ── 좌: 입력 폼 ── */}
@@ -269,31 +256,40 @@ export function NewUdiClient({ products = [], initialProductId }: { products?: U
             )}
           </div>
 
-          {products.length > 0 && (
-            <Field id="udi-product" label="우리 제품 연결" optional>
-              <>
-                <Sel
-                  id="udi-product"
-                  value={productId}
-                  onChange={(e) => onSelectProduct(e.target.value)}
-                  opts={[
-                    { v: '', l: '(연결 안 함)' },
-                    ...products.map((p) => ({
-                      v: p.id,
-                      l: `${p.name}${gradeLabel(p.device_class) ? ` · ${gradeLabel(p.device_class)}` : ''}`,
-                    })),
-                  ]}
-                />
-                <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[11], color: T.subtle, lineHeight: LH.normal }}>
-                  이 UDI 가 어떤 제품에 대한 것인지 연결하면, 제품 화면에서도 UDI 를 함께 추적할 수 있습니다.
-                </div>
-              </>
+          <ProductPickField
+            id="udi-product"
+            label="대상 제품"
+            products={products}
+            pick={pick}
+            withNameInput={false}
+            hint="제품 화면에서도 이 UDI 를 함께 추적합니다"
+          />
+
+          {/* 이름 칸은 제품을 골랐거나 «새 제품으로 적기» 를 눌렀을 때 보인다(무엇의 이름인지 정해진 뒤) */}
+          {productChosen && (
+            <Field
+              id="udi-device"
+              label="제품명"
+              required
+              hint={
+                pick.picked
+                  ? nameTouched
+                    ? '고른 제품 이름과 다르게 적었습니다. 제품을 바꿔도 이 이름은 그대로입니다.'
+                    : '고른 제품 이름으로 채웠습니다. 허가 · 등록 이름이 다르면 고치십시오.'
+                  : undefined
+              }
+            >
+              <In
+                id="udi-device"
+                value={deviceName}
+                onChange={(e) => {
+                  setNameInput(e.target.value);
+                  setNameTouched(true);
+                }}
+                placeholder="예: 무선 심전계 ECG-200"
+              />
             </Field>
           )}
-
-          <Field id="udi-device" label="제품명" required>
-            <In id="udi-device" value={deviceName} onChange={(e) => setDeviceName(e.target.value)} placeholder="예: 무선 심전계 ECG-200" />
-          </Field>
           <Field id="udi-brand" label="브랜드명">
             <In id="udi-brand" value={brandName} onChange={(e) => setBrandName(e.target.value)} placeholder="예: CardioTrace" />
           </Field>

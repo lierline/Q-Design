@@ -1182,10 +1182,24 @@ export function FldError({ children }: { children: ReactNode }) {
 }
 
 // ─── PAGE HEADER ─────────────────────────────────────────────────────────────
+/** 두 글이 공백을 빼면 같은가. PageHd 가 제목을 되풀이하는 이름표를 거를 때 쓴다. */
+function sameHeadText(a: string, b: string): boolean {
+  return a.replace(/\s+/g, '') === b.replace(/\s+/g, '');
+}
 interface PageHdProps {
   title: string;
-  /** ReactNode 허용: 영문 약어를 <En> 으로 감싸 lang 힌트 부여 가능. */
+  /**
+   * 제목 위 작은 이름표. **뜻 있을 때만** 둔다: 조항 · 규격, 기록 번호, 날짜 · 기간, 판,
+   * 상위 기록, 상세 화면의 상태 · 분류. 제목 되풀이 · 차림표나 역할 이름 · «-» 는 두지 않고,
+   * 설명문 · 건수 · 조직 이름은 desc 로 보낸다(오너 결정 2번 · 화면 검토 A35 · A66 · 2026-09-27).
+   * ReactNode 허용: 영문 약어를 <En> 으로 감싸 lang 힌트 부여 가능.
+   */
   sub?: ReactNode;
+  /**
+   * 제목 아래 설명 한 줄. 본문 글꼴 · 보조 색 · 줄바꿈 허용(고정폭 · 대문자 · 넓은 자간 없음).
+   * 한글 문장을 이름표 자리에 두면 고정폭으로 벌어졌다(화면 검토 A44). 글 · 인라인 요소만 넣는다(<p> 안).
+   */
+  desc?: ReactNode;
   actions?: ReactNode;
   /** title 위에 1.5px × 32px champagne 가로선 accent. 기본 true. */
   accent?: boolean;
@@ -1196,7 +1210,11 @@ interface PageHdProps {
    */
   display?: boolean;
 }
-export function PageHd({ title, sub, actions, accent = true }: PageHdProps) {
+export function PageHd({ title, sub, desc, actions, accent = true }: PageHdProps) {
+  // 안전망: 이름표가 제목과 같은 글자(공백 무시)면 그리지 않는다(화면 검토 A35 · A66 · 2026-09-27).
+  // 🔴 걸러낸 값을 새 이름에 담지 않고 매개변수를 다시 대입한다. Q-Design 추출기
+  //    (tools/extract-screen.mjs)가 아래 JSX 의 이름표 조각을 글자 그대로 찾아 값을 뽑는다.
+  if (typeof sub === 'string' && sameHeadText(sub, title)) sub = undefined;
   const id = useId().replace(/:/g, '');
   const headerClass = `qa-page-hd-${id}`;
   // 모바일: title 폰트 fluid + actions 100% wrap.
@@ -1265,6 +1283,24 @@ export function PageHd({ title, sub, actions, accent = true }: PageHdProps) {
           >
             {title}
           </h1>
+          {desc && (
+            <p
+              style={{
+                margin: 0,
+                marginTop: S[2],
+                maxWidth: '60em',
+                fontFamily: F.ui,
+                fontSize: FS[13],
+                lineHeight: LH.relaxed,
+                color: T.subtle,
+                // 한글은 낱말 단위로 줄을 바꾼다(폰 폭에서 낱말 가운데서 끊기지 않게)
+                wordBreak: 'keep-all',
+                overflowWrap: 'break-word',
+              }}
+            >
+              {desc}
+            </p>
+          )}
         </div>
         {actions && (
           <div
