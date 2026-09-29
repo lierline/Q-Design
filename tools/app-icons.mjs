@@ -43,6 +43,17 @@
 //   투명 채널이 있는 아이콘을 받지 않습니다). 설치 앱(PWA)처럼 주소로 갱신을 알아채는 구조가 아니라서
 //   판 번호 지문에 넣지 않습니다. 앱 아이콘은 앱을 새 판으로 올릴 때 바뀝니다.
 //
+// 오너 결정 (2026-09-29): 「상단 바 색상을 넣을 거라면 각 아이콘에 들어간 색상으로」 → 설치 앱 창의 상단 바
+//   (매니페스트 theme_color · 화면의 themeColor)를 아이콘 금속 색으로 칠합니다. 시안 셋(지금 · 짙은 금속 색 · 금속 색
+//   그대로) 가운데 **짙은 금속 색**: 틀 선 가운데 금속 색을 먹색 바탕(BG)에 26% 만 섞습니다(아래 titleBarOf).
+//   금속 색 그대로는 상단 바가 화면에서 가장 밝은 자리가 되어 본문보다 먼저 눈을 끕니다(오너 「짙은 금속색이 눈을
+//   덜 홀릴 거 같은데」). 짙은 쪽은 흰 글자 대비 11.6 ~ 13.8 이고 네 색이 서로 갈립니다(2026-09-29 계산). 밝은
+//   테마에서도 같은 색입니다(금을 옅게 하면 크림색이 됩니다). Q-Carnet 은 제조소 회사 색 대신 늘 구리입니다(설치 앱
+//   이름에 제조소 이름을 붙이지 않는 것과 같은 결 · 2026-09-26). 이 색은 설치한 앱 창과 폰 브라우저 위쪽에서만
+//   보입니다. 폰 앱(안드로이드)은 화면 바탕색을 따로 읽으므로 상관이 없습니다. 동결 중인 Q-Maison · Q-Carnet 에도
+//   이 색만은 곧바로 반영했습니다(같은 날 오너 결정 · 동결의 유일한 예외). --check 가 각 제품의 titleBarIn 파일에서
+//   상단 바 색 자리를 모두 찾아 원본과 같은지 봅니다.
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
@@ -88,6 +99,8 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  * marksIn 은 화면용 붓 Q(MARKS)를 그리는 파일입니다. 붓 Q 를 화면에 그리는 제품만 받습니다(Q-Maison 은 안 그림).
  * --check 가 그 파일들이 WebP 두 장을 부르고 옛 PNG 사본을 부르지 않는지 봅니다.
  * native 는 iOS 앱 아이콘(1024 · 알파 없음)을 받는 파일입니다(2026-09-28 · 머리의 오너 결정). iOS 앱이 있는 제품만.
+ * titleBarIn 은 설치 앱 창의 상단 바 색(theme_color · themeColor)을 적는 파일입니다(2026-09-29 · 머리의 오너 결정).
+ * 값은 금속에서 나오므로(titleBarOf) 여기 적지 않습니다. --check 가 그 파일들의 색 자리가 모두 그 값인지 봅니다.
  */
 const PRODUCTS = [
   {
@@ -96,21 +109,25 @@ const PRODUCTS = [
     tagline: '의료기기 개발 · 인허가 시스템', taglineIn: ['public/manifest.json', 'public/offline.html'],
     marksIn: ['components/Logo.tsx', 'components/expert/BrandLogo.tsx'],
     native: ['D:/Claude/Q-Atelier-iOS/QAtelier/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png'],
+    titleBarIn: ['public/manifest.json', 'app/layout.tsx', 'app/experts/layout.tsx'],
   },
   {
     key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: [], native: [],
+    titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
   },
   {
     key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: ['components/q-mark.tsx'], native: [],
+    titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
   },
   {
     key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
     tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
     marksIn: ['src/components/QMark.tsx'], native: [],
+    titleBarIn: ['src/app/manifest.ts', 'src/app/layout.tsx'],
   },
 ].map((p) => ({ ...p, pub: `${p.root}/public` }));
 const NATIVE_ICON = 'ios-app-icon-1024.png';
@@ -162,6 +179,19 @@ const STROKE = {
 };
 
 const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+
+/*
+ * 설치 앱 창의 상단 바 색 (2026-09-29 · 머리의 오너 결정). 틀 선 가운데 금속 색을 먹색 바탕(BG)에 26% 만 섞습니다.
+ * 은 #393939 · 금 #3d3425 · 구리 #3d281d · 강철 #222e3a (흰 글자 대비 11.6 · 12.2 · 13.8 · 13.8).
+ * 🔑 금속 색이나 이 비율을 바꾸면 네 제품의 titleBarIn 파일도 같이 바꿉니다. --check 가 어긋남을 잡습니다.
+ */
+const TITLE_BAR_MIX = 0.26;
+function titleBarOf(metal) {
+  const m = hex(STROKE[metal][1]);
+  const b = hex(BG);
+  return '#' + m.map((v, i) => Math.round(b[i] + (v - b[i]) * TITLE_BAR_MIX).toString(16).padStart(2, '0')).join('');
+}
+
 function rampAt(stops, t) {
   for (let i = 1; i < stops.length; i++) {
     const [t1, c1] = stops[i];
@@ -510,6 +540,40 @@ function checkMarkRefs() {
   return { good, problems };
 }
 
+/**
+ * 상단 바 색 자리(theme_color · themeColor)가 titleBarIn 파일마다 있고, 모두 금속에서 나온 색 그대로인가.
+ * 값은 따옴표 친 «#rrggbb» 하나여야 합니다. 밝은 테마 · 어두운 테마로 가르는 배열이나 변수 · 함수 호출은
+ * 어긋남으로 셉니다(2026-09-29 결정: 두 테마 같은 색 · Q-Carnet 도 회사 색이 아니라 구리).
+ * 주석은 걷고 봅니다(「옛날엔 themeColor: '#0c0c0c' 였다」 같은 사연이 걸리지 않게).
+ */
+function checkTitleBars() {
+  const problems = [];
+  let good = 0;
+  for (const p of PRODUCTS) {
+    const want = titleBarOf(p.metal);
+    for (const rel of p.titleBarIn) {
+      const file = join(p.root, rel);
+      if (!existsSync(file)) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 파일이 없습니다`); continue; }
+      // 여러 줄 주석은 줄바꿈을 남겨 걷습니다(알리는 줄 번호가 파일과 같게).
+      const text = readFileSync(file, 'utf8')
+        .replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, ' '))
+        .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+      const slots = [...text.matchAll(/(?:theme_color|themeColor)["']?\s*:\s*([^,\n}]*)/g)];
+      if (!slots.length) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 상단 바 색 자리가 없습니다 (${want} 이어야 합니다)`); continue; }
+      let ok = true;
+      for (const m of slots) {
+        const v = m[1].trim();
+        if (v === `'${want}'` || v === `"${want}"`) continue;
+        ok = false;
+        const line = text.slice(0, m.index).split('\n').length;
+        problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}:${line}  ${v || '(값이 다음 줄)'}  (${want} 이어야 합니다)`);
+      }
+      if (ok) good++;
+    }
+  }
+  return { good, problems };
+}
+
 /** ICO: 머리(6) + 항목(16 × n) + PNG 본문. PNG 를 품은 ICO 는 윈도 비스타 이후와 모든 브라우저가 읽습니다. */
 function ico(pngs) {
   const head = Buffer.alloc(6 + 16 * pngs.length);
@@ -670,14 +734,15 @@ async function main() {
     }
   }
 
-  // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가 · 붓 Q 를 WebP 로 부르는가
+  // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가 · 붓 Q 를 WebP 로 부르는가 · 상단 바가 금속 색인가
   const refs = checkRefs();
   const taglines = checkTaglines();
   const markRefs = checkMarkRefs();
+  const titleBars = checkTitleBars();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
-    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳`);
+    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳 · 상단 바 색 ${titleBars.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');
@@ -685,7 +750,8 @@ async function main() {
     if (refs.problems.length) console.log(refs.problems.join('\n'));
     if (taglines.problems.length) console.log(taglines.problems.join('\n'));
     if (markRefs.problems.length) console.log(markRefs.problems.join('\n'));
-    process.exit(drift.length || refs.problems.length || taglines.problems.length || markRefs.problems.length ? 1 : 0);
+    if (titleBars.problems.length) console.log(titleBars.problems.join('\n'));
+    process.exit(drift.length || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length ? 1 : 0);
   }
 
   // 한 장짜리 견본: 제품마다 둥근 판 · 안드로이드 원형 오림 · 작은 판 48 · 32 · 16 (실제 크기)
@@ -714,9 +780,11 @@ async function main() {
     '`node tools/app-icons.mjs` 가 만든 산출물입니다. 손으로 고치지 마십시오.',
     '원본 그림은 `source/brand/logo-dark.png`, 규칙과 오너 결정은 `tools/app-icons.mjs` 머리에 있습니다.',
     '',
-    '| 제품 | 금속 | 틀 |',
-    '|---|---|---|',
-    ...PRODUCTS.map((p) => `| ${p.name} | ${{ silver: '은', gold: '샴페인 금', copper: '구리', steel: '강철 청' }[p.metal]} | ${{ ring: '원', house: '집', notebook: '수첩 · 제본선', waves: '음파' }[p.frame]} |`),
+    '| 제품 | 금속 | 틀 | 상단 바 |',
+    '|---|---|---|---|',
+    ...PRODUCTS.map((p) => `| ${p.name} | ${{ silver: '은', gold: '샴페인 금', copper: '구리', steel: '강철 청' }[p.metal]} | ${{ ring: '원', house: '집', notebook: '수첩 · 제본선', waves: '음파' }[p.frame]} | \`${titleBarOf(p.metal)}\` |`),
+    '',
+    `상단 바: 설치 앱 창의 제목 줄 색(theme_color · themeColor). 틀 선 가운데 금속 색을 먹색 바탕 \`${BG}\` 에 ${Math.round(TITLE_BAR_MIX * 100)}% 섞은 색이고, 밝은 테마에서도 같습니다. 받는 곳은 PRODUCTS 의 titleBarIn 입니다.`,
     '',
     '파일: `icon-192.png` `icon-512.png`(둥근 판) · `icon-192-maskable.png` `icon-512-maskable.png`(안드로이드) ·',
     '`apple-icon.png`(180, iOS) · `favicon.ico`(16 · 32 · 48, 굵게 그린 작은 판) · `badge-96.png`(알림 표시줄, Q-Atelier)',
@@ -747,7 +815,11 @@ async function main() {
     console.log('\n화면용 붓 Q 를 부르는 곳이 어긋났습니다(PRODUCTS 의 marksIn):');
     console.log(markRefs.problems.join('\n'));
   }
-  if (broken || refs.problems.length || taglines.problems.length || markRefs.problems.length) process.exit(1);
+  if (titleBars.problems.length) {
+    console.log('\n상단 바 색이 금속 색(titleBarOf)과 다릅니다(PRODUCTS 의 titleBarIn):');
+    console.log(titleBars.problems.join('\n'));
+  }
+  if (broken || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length) process.exit(1);
 }
 
 main().catch((e) => {
