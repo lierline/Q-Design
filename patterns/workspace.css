@@ -88,10 +88,11 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-workspace--overview .qd-page-head-title { font-size: clamp(24px,3vw,32px); line-height: 1.25; }
 .qd-workspace--overview .qd-kpi { padding: 18px 16px; min-height: 116px; border-radius: 0; border-width: 0 0 1px; background: transparent; }
 .qd-workspace--overview .qd-kpi-label { font: 500 13px/1.5 var(--qd-font-ui); letter-spacing: 0; text-transform: none; margin-bottom: 8px; }
+.qd-workspace--overview .qd-kpi-label[data-hangul] { word-spacing: normal; }
 .qd-workspace--overview .qd-kpi-sub { font-size: 13px; line-height: 1.5; }
 /* Atelier's legacy component uses inline styles. These narrow overrides are intentional. */
 .qd-workspace--overview .qa-kpi-card { padding: 18px 16px !important; min-height: 116px !important; border-radius: 0 !important; border-width: 0 0 1px !important; background: transparent !important; }
-.qd-workspace--overview .qa-kpi-card > div:first-child { font-family: var(--qd-font-ui) !important; font-size: 13px !important; letter-spacing: 0 !important; margin-bottom: 8px !important; }
+.qd-workspace--overview .qa-kpi-card > div:first-child { font-family: var(--qd-font-ui) !important; font-size: 13px !important; letter-spacing: 0 !important; word-spacing: normal !important; margin-bottom: 8px !important; }
 .qd-workspace--overview .qa-kpi-card > div:last-child { font-size: 13px !important; }
 .qd-workspace .qd-work-library-tools { margin: 24px 0; max-width: 640px; }
 .qd-workspace .qd-work-library-tools label { display: block; margin-bottom: 8px; color: var(--qd-subtle); font-size: 13px; }
