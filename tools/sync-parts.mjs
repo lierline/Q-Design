@@ -17,9 +17,8 @@
  * 오너가 «이 제품에는 정본 변경을 내보내지 말라» 고 정한 조각. sync --write 가 이 제품의 이 조각은
  * 건너뛰고 「묶어 둠」 이라고 알립니다(지문이 어긋난 채 남아 잊히지 않습니다). parts 가 '*' 면 모든 조각.
  *
- * Q-Works(Q-Maison) · Q-Forge(Q-Carnet): 동결(오너 지시 2026-09-28 「메종, 카르넷은 동결하고 큐 아뜰리애만을
- *   기준으로 수정작업을 진행」). 두 제품에 옮길 고침은 Q-Atelier docs/FAMILY_PORT_QUEUE.md 에 꼬리표로 모인다.
- *   풀 때: 오너 확인 → 이 두 줄을 지움 → node tools/extract-all.mjs --sync → 두 제품의 사본 검사.
+ * Q-Works(Q-Maison) · Q-Forge(Q-Carnet): 2026-09-28 동결, 2026-10-04 오너가 «동결 줄 전체 해제» 를 선택해 풀었다
+ *   (연동 규약 조각을 내보내기 위해 물은 자리). 이 두 줄은 이제 없다.
  *
  * Q-Sonar: 보조 글씨 최소 12px · 대비 4.5 규칙(오너 결정 2026-09-27 · 화면 검토 M77 · M43)을
  *   «세 제품(Q-Atelier · Q-Maison · Q-Carnet)» 에만 적용하기로 했다(2026-09-28 오너 결정 «Q-Sonar 는 빼기»).
@@ -27,8 +26,6 @@
  *   Q-Sonar 로는 안 간다. 풀려면 오너께 여쭌 뒤 이 줄을 지우고 sync --write 를 돌린다.
  */
 export const HOLD = {
-  'Q-Works': { parts: '*', except: ['업무 화면'], why: '기존 조각 동결. 업무 화면은 오너 운영 적용 승인 2026-10-03' },
-  'Q-Forge': { parts: '*', except: ['업무 화면'], why: '기존 조각 동결. 업무 화면은 오너 운영 적용 승인 2026-10-03' },
   'Q-Sonar': {
     parts: ['차림표', '목록', '뼈대'],
     why: '오너 결정 2026-09-28: 보조 글씨 최소 12px 규칙에서 Q-Sonar 는 뺀다',
@@ -199,6 +196,20 @@ export const PARTS = [
       'Q-Atelier': 'D:/Claude/Q-Atelier/lib/exchange/family-exchange.ts',
       'Q-Works': 'D:/Claude/Q-Works/lib/exchange/family-exchange.ts',
       'Q-Forge': 'D:/Claude/DHR/lib/exchange/family-exchange.ts',
+    },
+  },
+  /*
+   * ── 2026-10-04: Q-Atelier 와 Q-Carnet 연동 규약(서명 · 봉투 · 로트 카드 · 건강 판정) ──
+   * 순수 규약만 정본에 둡니다. 암호 연산(HMAC · SHA-256)은 각 제품이 LinkCrypto 로 주입합니다.
+   * 시험은 tools/link-protocol.test.mjs. Q-Maison 은 이 연동의 당사자가 아니라 받지 않습니다.
+   */
+  {
+    name: '연동 규약',
+    src: 'source/exchange/link-protocol.ts',
+    lang: 'ts',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/lib/exchange/link-protocol.ts',
+      'Q-Forge': 'D:/Claude/DHR/lib/exchange/link-protocol.ts',
     },
   },
   /*
