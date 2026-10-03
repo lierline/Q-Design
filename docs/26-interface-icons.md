@@ -56,4 +56,20 @@ React에서도 같은 클래스와 `data-icon`을 사용한다. 두 번째 버�
 
 Q-Design의 부품 견본, 업무 화면 견본, 새 아이콘 견본에 적용했다. 부품 견본의 직접 그린
 검색 SVG와 빈 목록의 기하 문자를 교체하고, 업무 화면의 메뉴·이동·닫기를 같은 아이콘으로 맞췄다.
-운영 제품으로의 동기화와 배포는 이번 변경에 포함하지 않는다.
+
+## React 제품 적용 (2026-10-03)
+
+오너의 세 제품 전체 적용 지시로 Q-Atelier, Q-Maison(Q-Works), Q-Carnet(DHR)에
+같은 Regular 원본을 내보낸다. 기존 화면에서 필요한 아이콘은 `patterns/react-icons.json`에
+대응 관계를 기록한다. 30종 견본은 기본 업무 목록이고, 제품별 추가 기능도 같은 스타일을 쓴다.
+
+`node tools/build-react-icons.mjs`가 원본 SVG에서 아이콘별 TSX 모듈을 만든다.
+`python tools/sync-react-icons.py --write`는 세 제품의 사용 아이콘과 MIT 라이선스만
+`components/q-design-icons/`로 보낸다. 옵션 없이 실행하면 사본 일치 여부를 검사한다.
+다른 동결 조각을 갱신하지 않는다. 런타임 네트워크 요청이나 아이콘 패키지 설치는 없다.
+
+각 화면은 `@/components/q-design-icons/Search`처럼 필요한 파일을 직접 가져온다.
+기존 크기, 색, 클릭 동작, ref, 접근성 속성을 유지한다. 기본 크기는 20px이며
+기존 `strokeWidth`는 Regular 외곽선을 다시 두껍게 만들지 않도록 무시한다.
+`Sparkles`라는 기존 코드 이름은 호환을 위해 남기되, 실제 모양은 분석을 뜻하는 chart-line이다.
+로고, 바코드, 데이터 차트, 인쇄 도형은 업무 아이콘 교체 대상이 아니다.

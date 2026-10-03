@@ -18,7 +18,11 @@ def download(pair):
     (target / destination).write_bytes(data)
     return destination
 
-files = [('LICENSE', 'LICENSE')] + [(f"assets/regular/{i['source']}.svg", f"regular/{i['source']}.svg") for i in catalog['icons']]
+sources = {i['source'] for i in catalog['icons']}
+react_catalog = root / 'patterns/react-icons.json'
+if react_catalog.exists():
+    sources.update(json.loads(react_catalog.read_text(encoding='utf-8')).values())
+files = [('LICENSE', 'LICENSE')] + [(f"assets/regular/{name}.svg", f"regular/{name}.svg") for name in sorted(sources)]
 with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
     for name in pool.map(download, files):
         print(name)

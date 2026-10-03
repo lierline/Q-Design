@@ -8,6 +8,8 @@ Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입
 [업무 아이콘 30종](preview/icons.html): Phosphor Regular 단색 SVG를 메뉴·검색·문서·상태에 적용했다.
 [선정과 사용 규칙](docs/26-interface-icons.md), 원본·라이선스는 `vendor/phosphor/`에 있다.
 `node tools/build-icons.mjs`로 로컬 자산을 생성하며 제품 운영 배포는 실행하지 않는다.
+세 제품의 React 적용본은 `node tools/build-react-icons.mjs`로 만들고,
+`python tools/sync-react-icons.py --write`로 사용 아이콘만 내보낸다. 다른 동결 조각은 갱신하지 않는다.
 
 [작동하는 업무 화면 견본](preview/workspace.html)에서 제품·밝기·문서 검색·상태 필터·상세 보기를 확인할 수 있습니다.
 작은 글씨와 흐린 행동을 정돈하고, 검토할 일을 먼저 보여주는 배치를 추가했습니다.

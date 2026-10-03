@@ -41,6 +41,7 @@ const STEPS = [
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write'], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
+  { name: 'React 업무 아이콘', file: 'build-react-icons.mjs', why: '제품에서 직접 가져올 수 있는 개별 React 모듈을 만듭니다' },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
   { name: '종이 문서 v8', file: 'extract-mqdoc.mjs', why: 'MedQraft 종이 문서 규격서 v8 에서 뽑고 회사 Word 변환기와 대조' },
