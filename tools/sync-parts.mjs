@@ -27,8 +27,8 @@
  *   Q-Sonar 로는 안 간다. 풀려면 오너께 여쭌 뒤 이 줄을 지우고 sync --write 를 돌린다.
  */
 export const HOLD = {
-  'Q-Works': { parts: '*', why: '동결 · 오너 지시 2026-09-28 (Q-Atelier 만 고침)' },
-  'Q-Forge': { parts: '*', why: '동결 · 오너 지시 2026-09-28 (Q-Atelier 만 고침)' },
+  'Q-Works': { parts: '*', except: ['업무 화면'], why: '기존 조각 동결. 업무 화면은 오너 운영 적용 승인 2026-10-03' },
+  'Q-Forge': { parts: '*', except: ['업무 화면'], why: '기존 조각 동결. 업무 화면은 오너 운영 적용 승인 2026-10-03' },
   'Q-Sonar': {
     parts: ['차림표', '목록', '뼈대'],
     why: '오너 결정 2026-09-28: 보조 글씨 최소 12px 규칙에서 Q-Sonar 는 뺀다',
@@ -36,6 +36,15 @@ export const HOLD = {
 };
 
 export const PARTS = [
+  {
+    name: '업무 화면',
+    src: 'patterns/workspace.css',
+    to: {
+      'Q-Atelier': 'D:/Claude/Q-Atelier/app/q-design.workspace.css',
+      'Q-Works': 'D:/Claude/Q-Works/app/q-design.workspace.css',
+      'Q-Forge': 'D:/Claude/DHR/app/q-design.workspace.css',
+    },
+  },
   {
     name: '차림표',
     src: 'dist/q-design.nav.css',

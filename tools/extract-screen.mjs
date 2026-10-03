@@ -769,15 +769,18 @@ ${bind('light')}
 }
 `;
 
+// Q-Design owns opt-in composition patterns; source/ remains an upstream mirror.
+const workspaceCss = read(join(ROOT, 'patterns', 'workspace.css'));
+const screenCss = css + '\n' + workspaceCss;
 mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'q-design.screen.css'), css, 'utf8');
+writeFileSync(join(OUT, 'q-design.screen.css'), screenCss, 'utf8');
 writeFileSync(
   join(OUT, 'q-design.screen.json'),
   JSON.stringify(
     {
       $meta: {
         generatedBy: 'tools/extract-screen.mjs',
-        source: 'source/components/components.tsx + source/tokens/tokens.ts + source/tokens/main-padding.ts',
+        source: 'source/components/components.tsx + source/tokens/tokens.ts + source/tokens/main-padding.ts + patterns/workspace.css',
         note: '손으로 고치지 마세요. 원본을 고치고 다시 돌리세요.',
       },
       ...spec,
@@ -788,7 +791,7 @@ writeFileSync(
   'utf8',
 );
 
-console.log(`dist/q-design.screen.css   ${css.split('\n').length} 줄`);
+console.log(`dist/q-design.screen.css   ${screenCss.split('\n').length} 줄`);
 console.log(`dist/q-design.screen.json  치수 ${flat(spec).length} 개`);
 console.log('');
 console.log(`  KPI    ${spec.kpi.padding} · 최소높이 ${spec.kpi.minHeight} · 숫자 ${spec.kpi.valueMin}~${spec.kpi.valueSize}(${spec.kpi.valueFluid}cqw)/${spec.kpi.valueWeight}`);

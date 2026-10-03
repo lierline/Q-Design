@@ -22,6 +22,7 @@
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .field { margin-bottom: 16px; }
   .qd-input { width: 100%; box-sizing: border-box; }
+  @media (max-width: 640px) { .wrap { padding: 24px 20px 48px; } .grid2 { grid-template-columns: 1fr; } }
 </style>
 <script>
   if (new URLSearchParams(location.search).get('theme') === 'light') document.documentElement.dataset.theme = 'light';
@@ -29,6 +30,7 @@
 </head>
 <body>
 <div class="wrap">
+  <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px"><a href="workspace.html" style="color:var(--qd-text);text-underline-offset:4px">업무 화면 개선 견본 ↗</a></nav>
 
   <section class="demo">
     <p class="note">2차 탭 (.qd-tabs)</p>

@@ -35,6 +35,9 @@ const MARK = 'q-design-nav-sha256:';
 /** TS 머리표의 끝 표시. 본문이 주석으로 시작해도 안전하게 자르기 위한 것입니다. */
 const END_MARK = '// q-design-header-end';
 const write = process.argv.includes('--write');
+const partArg = process.argv.find((a) => a.startsWith('--part='));
+const selectedPart = partArg?.slice('--part='.length);
+if (selectedPart && !PARTS.some((p) => p.name === selectedPart)) throw new Error(`Unknown part: ${selectedPart}`);
 /*
  * 받는 제품 일부만(2026-09-27). 다른 세션이 어떤 제품 폴더에서 커밋 안 된 고침을 들고 일하는 중이면
  * 그 폴더에 사본을 쓰는 순간 인덱스가 섞입니다. `--only=Q-Sonar,Q-Forge` 처럼 이름을 적으면 그 제품만
@@ -101,6 +104,7 @@ const header = (srcRel, digest, lang = 'css') => {
 
 let drift = 0;
 for (const part of PARTS) {
+  if (selectedPart && part.name !== selectedPart) continue;
   const srcPath = join(ROOT, part.src);
   if (!existsSync(srcPath)) {
     console.error(`원본이 없습니다: ${part.src}. 추출기를 먼저 돌리세요.`);
@@ -143,7 +147,7 @@ for (const part of PARTS) {
       continue;
     }
     /* 오너가 묶어 둔 조각은 쓰지 않습니다(sync-parts.mjs 의 HOLD). 어긋남은 그대로 보입니다 */
-    if (HOLD[who] && (HOLD[who].parts === '*' || HOLD[who].parts.includes(part.name))) {
+    if (HOLD[who] && !HOLD[who].except?.includes(part.name) && (HOLD[who].parts === '*' || HOLD[who].parts.includes(part.name))) {
       console.log(`  묶어 둠  ${who}  (${HOLD[who].why})`);
       continue;
     }

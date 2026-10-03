@@ -3,6 +3,10 @@
 [차림표](15-navigation-canon.md) · [목록](16-list-canon.md)에 이어 **목록의 위와 아래**를
 묶는 규격입니다. `dist/q-design.screen.css` 한 파일에서 나옵니다.
 
+2026-10-03: [업무 화면 정돈](25-workspace-refinement.md)의 조합 규칙도 같은 CSS에 포함됩니다.
+`.qd-workspace`를 붙인 화면에만 적용하며, 원본은 `patterns/workspace.css`입니다.
+기존 부품의 기본 치수와 새 조합 규칙의 읽기 크기를 구분합니다.
+
 | 클래스 | 무엇 |
 |---|---|
 | `.qd-kpi` / `.qd-grid-kpi` | 요약 지표 카드와 그 격자 |

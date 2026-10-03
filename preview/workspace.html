@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>업무 화면 · Q-Design</title>
+  <link rel="icon" href="../dist/app-icons/atelier/icon-192.png">
+  <link rel="stylesheet" href="../dist/q-design.fonts.css">
+  <link rel="stylesheet" href="../dist/q-design.tokens.css">
+  <link rel="stylesheet" href="../dist/q-design.nav.css">
+  <link rel="stylesheet" href="../dist/q-design.list.css">
+  <link rel="stylesheet" href="../dist/q-design.screen.css">
+  <link rel="stylesheet" href="workspace-preview.css">
+  <script src="workspace.js" defer></script>
+</head>
+<body class="qd-workspace" data-product="atelier">
+  <a class="preview-skip" href="#workspace-main">본문으로 건너뛰기</a>
+  <header class="preview-controls">
+    <a href="index.html" class="preview-home">Q-Design <span>업무 화면 견본</span></a>
+    <div class="preview-switches">
+      <label for="product">제품</label>
+      <select id="product" class="qd-input"><option value="atelier">Q-Atelier</option><option value="maison">Q-Maison</option><option value="carnet">Q-Carnet</option></select>
+      <button id="theme" class="qd-work-action" type="button" aria-pressed="false">밝은 화면</button>
+    </div>
+  </header>
+  <div class="preview-shell">
+    <aside class="preview-sidebar" aria-label="제품 메뉴">
+      <div class="preview-brand"><img id="product-icon" src="../dist/app-icons/atelier/icon-192.png" width="40" height="40" alt=""><div><span id="product-name" class="qd-product-name">Q-Atelier</span><p id="product-purpose">설계와 개발의 기록</p></div></div>
+      <nav class="preview-nav" aria-label="업무 메뉴">
+        <a href="#overview" data-view="overview" aria-current="page"><span>업무 현황</span><span aria-hidden="true">01</span></a>
+        <a href="#documents" data-view="documents"><span>문서 목록</span><span aria-hidden="true">02</span></a>
+      </nav>
+      <div class="preview-sidebar-foot"><span>MedQraft · Q-Suite</span><p>공통 구조, 제품별 업무.</p></div>
+    </aside>
+    <main id="workspace-main" class="preview-main" tabindex="-1">
+      <div class="preview-context"><span>디자인 검토용 · 예시 데이터</span><a href="parts.html">공통 부품 보기 ↗</a></div>
+      <section id="overview" aria-labelledby="overview-title">
+        <header class="qd-work-head"><div><h1 id="overview-title" class="qd-work-title" tabindex="-1">오늘 처리할 일</h1><p class="qd-work-intro">검토가 필요한 기록을 먼저 확인하고, 다음 업무로 이어갑니다.</p></div><button id="review-all" class="qd-btn qd-btn--primary" type="button">검토할 문서 보기 <span aria-hidden="true">↗</span></button></header>
+        <dl class="qd-work-summary" aria-label="문서 현황">
+          <div class="qd-work-metric"><dt>검토 대기</dt><dd id="metric-review"></dd><p>내용 확인이 필요한 기록</p></div>
+          <div class="qd-work-metric"><dt>작성 중</dt><dd id="metric-draft"></dd><p>계속 작성할 기록</p></div>
+          <div class="qd-work-metric"><dt>승인 완료</dt><dd id="metric-approved"></dd><p>사용 가능한 문서</p></div>
+        </dl>
+        <div class="qd-work-columns">
+          <section aria-labelledby="priority-title"><div class="qd-work-section-head"><h2 id="priority-title">검토 대기</h2><small>기한이 빠른 순</small></div><div id="priority-list"></div></section>
+          <aside aria-labelledby="recent-title"><div class="qd-work-section-head"><h2 id="recent-title">최근 변경</h2><small>갱신일 기준</small></div><div id="recent-list"></div><div class="qd-work-note"><h3>이어지는 업무</h3><p id="workflow-note"></p></div></aside>
+        </div>
+      </section>
+      <section id="documents" aria-labelledby="documents-title" hidden>
+        <header class="qd-work-head"><div><h1 id="documents-title" class="qd-work-title" tabindex="-1">문서 목록</h1><p class="qd-work-intro">문서명이나 번호로 찾고, 상태에 따라 필요한 기록을 좁혀 보세요.</p></div></header>
+        <form id="filters" class="qd-work-tools" role="search" aria-label="문서 검색">
+          <div class="qd-work-search"><label for="search" class="qd-field-label">문서 찾기</label><input id="search" class="qd-input" type="search" placeholder="문서명 또는 문서번호" autocomplete="off"></div>
+          <div><label for="status" class="qd-field-label">문서 상태</label><select id="status" class="qd-input"><option value="all">모든 상태</option><option value="review">검토 대기</option><option value="draft">작성 중</option><option value="approved">승인 완료</option></select></div>
+          <div><label for="sort" class="qd-field-label">정렬</label><select id="sort" class="qd-input"><option value="recent">최근 변경순</option><option value="name">문서명순</option></select></div>
+        </form>
+        <p id="result-count" class="qd-work-results" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="document-list"></div>
+        <div id="empty" class="qd-work-empty" hidden><h3>일치하는 문서가 없습니다</h3><p>검색어나 문서 상태를 바꾸면 다른 기록을 볼 수 있습니다.</p><button id="reset" type="button" class="qd-btn qd-btn--secondary">검색 조건 초기화</button></div>
+      </section>
+      <footer class="preview-foot">예시 데이터로 동작하는 화면입니다. 운영 문서를 조회하거나 변경하지 않습니다.</footer>
+    </main>
+  </div>
+  <dialog id="document-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="preview-dialog-head"><span class="qd-work-meta">문서 상세 견본</span><button id="close-dialog" class="qd-work-action" type="button" autofocus>닫기 <span aria-hidden="true">×</span></button></div>
+    <h2 id="dialog-title"></h2><p id="dialog-description" class="qd-work-meta"></p>
+    <dl id="dialog-fields" class="preview-detail-fields"></dl>
+    <div class="qd-work-note"><h3>내용 확인</h3><p id="dialog-summary"></p></div>
+    <p class="preview-dialog-note">문서 상세의 읽기 순서를 확인하는 견본입니다. 실제 파일이나 결재 기능은 연결되어 있지 않습니다.</p>
+  </dialog>
+</body>
+</html>

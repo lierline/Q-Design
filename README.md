@@ -3,6 +3,19 @@
 Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입니다.
 다른 사이트에서 이 언어를 다시 말하게 하려고 만들었습니다.
 
+## 업무 화면 다듬기 · 2026-10-03
+
+[작동하는 업무 화면 견본](preview/workspace.html)에서 제품·밝기·문서 검색·상태 필터·상세 보기를 확인할 수 있습니다.
+작은 글씨와 흐린 행동을 정돈하고, 검토할 일을 먼저 보여주는 배치를 추가했습니다.
+실제 공통 CSS를 사용하며, 예시 데이터만 표시합니다.
+
+- 규칙과 적용 범위: [업무 화면 정돈](docs/25-workspace-refinement.md)
+- 조합 규칙 원본: [patterns/workspace.css](patterns/workspace.css)
+- 재생성: `node tools/extract-screen.mjs` (제품 자동 배포 없음)
+
+기존 부품은 `source/`의 원본 사본에서 추출합니다. 새 조합 규칙은 Q-Design이 소유하고,
+`.qd-workspace`를 붙인 화면에서만 적용됩니다. 두 원본의 소유 범위를 구분합니다.
+
 추출일: 2026-09-09 · 원본: `D:\Claude\Q-Atelier` (커밋 `17876c4c`)
 
 ---
