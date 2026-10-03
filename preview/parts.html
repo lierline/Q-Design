@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../dist/q-design.nav.css">
 <link rel="stylesheet" href="../dist/q-design.list.css">
 <link rel="stylesheet" href="../dist/q-design.screen.css">
+<link rel="stylesheet" href="../dist/q-design.icons.css">
 <style>
   :root { --qd-font-ui-src: 'Pretendard Variable', Pretendard, sans-serif; }
   body { margin: 0; background: var(--qd-bg); color: var(--qd-text); font-family: var(--qd-font-ui); }
@@ -30,7 +31,7 @@
 </head>
 <body>
 <div class="wrap">
-  <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px"><a href="workspace.html" style="color:var(--qd-text);text-underline-offset:4px">업무 화면 개선 견본 ↗</a></nav>
+  <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px;display:flex;gap:24px;flex-wrap:wrap"><a href="workspace.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px">업무 화면 개선 견본<span class="qd-icon" data-icon="next" aria-hidden="true"></span></a><a href="icons.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px"><span class="qd-icon" data-icon="overview" aria-hidden="true"></span>업무 아이콘 30종</a></nav>
 
   <section class="demo">
     <p class="note">2차 탭 (.qd-tabs)</p>
@@ -69,7 +70,7 @@
     <div class="qd-filter-bar">
       <form class="qd-filter-row" method="get" onsubmit="return false">
         <span class="qd-filter-search">
-          <svg class="qd-filter-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="qd-filter-search-icon qd-icon qd-icon--sm" data-icon="search" aria-hidden="true"></span>
           <input class="qd-filter-input" type="search" name="q" placeholder="코드·제목 검색" aria-label="코드·제목 검색">
         </span>
         <select class="qd-filter-select" name="sort" aria-label="정렬"><option>최신순</option><option>오래된순</option></select>
@@ -99,7 +100,7 @@
   <section class="demo">
     <p class="note">빈 목록 (.qd-empty) · 좁은 자리 (.qd-empty--compact)</p>
     <div class="qd-empty">
-      <div class="qd-empty-icon" aria-hidden="true">◇</div>
+      <div class="qd-empty-icon" aria-hidden="true"><span class="qd-icon qd-icon--lg" data-icon="review"></span></div>
       <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
       <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다. 먼저 수입검사 기록을 확인해 보십시오.</p>
       <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="#">부적합 등록</a></div>
@@ -115,7 +116,7 @@
         <p class="qd-empty-desc">파일을 끌어다 놓으면 여기에 붙습니다.</p>
       </div>
       <div class="qd-empty qd-empty--compact">
-        <div class="qd-empty-icon" aria-hidden="true">○</div>
+        <div class="qd-empty-icon" aria-hidden="true"><span class="qd-icon qd-icon--lg" data-icon="notifications"></span></div>
         <div class="qd-empty-title">알림이 없습니다</div>
       </div>
     </div>

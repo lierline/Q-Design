@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>업무 아이콘 · Q-Design</title>
+  <link rel="icon" href="../dist/app-icons/atelier/icon-192.png">
+  <link rel="stylesheet" href="../dist/q-design.fonts.css">
+  <link rel="stylesheet" href="../dist/q-design.tokens.css">
+  <link rel="stylesheet" href="../dist/q-design.icons.css">
+  <link rel="stylesheet" href="icons-preview.css">
+  <script src="icons.js" defer></script>
+</head>
+<body>
+  <div class="icon-wrap">
+    <nav class="icon-nav" aria-label="견본 화면">
+      <a href="parts.html" class="qd-icon-label"><span class="qd-icon" data-icon="back" aria-hidden="true"></span>공통 부품</a>
+      <button id="theme" type="button" aria-pressed="false">밝은 화면</button>
+    </nav>
+    <header class="icon-heading">
+      <p class="icon-eyebrow">Q-Design · 아이콘 기준</p>
+      <h1>업무를 구분하는 아이콘</h1>
+      <p>문서, 검토, 생산의 뜻을 단색 기호로 표시합니다. Phosphor Regular 한 벌을 쓰고, 상태는 글자로 함께 설명합니다.</p>
+      <a href="https://github.com/phosphor-icons/core" class="qd-icon-label">GitHub 원본<span class="qd-icon qd-icon--sm" data-icon="external" aria-hidden="true"></span></a>
+    </header>
+    <section class="icon-examples" aria-label="사용 예시">
+      <div><span class="icon-caption">행동은 이름과 함께</span><a href="workspace.html#documents" class="icon-action qd-icon-label"><span class="qd-icon" data-icon="documents" aria-hidden="true"></span>문서 목록 보기</a></div>
+      <div><span class="icon-caption">상태는 글자로 구분</span><span class="qd-icon-label icon-approved"><span class="qd-icon" data-icon="approved" aria-hidden="true"></span>승인 완료</span></div>
+      <div><span class="icon-caption">장식보다 업무의 뜻</span><span class="qd-icon-label"><span class="qd-icon" data-icon="analysis" aria-hidden="true"></span>검토 결과 분석</span></div>
+    </section>
+    <section aria-labelledby="catalog-title">
+      <div class="icon-catalog-head"><h2 id="catalog-title">선정 아이콘</h2><p>기본 20px · 큰 표시 24px · 단색 Regular</p></div>
+      <label for="icon-search">이름이나 용도로 찾기</label>
+      <input id="icon-search" type="search" placeholder="예: 문서, 검색, 생산" autocomplete="off" aria-controls="icon-grid">
+      <p id="icon-count" role="status">불러오는 중</p>
+      <div id="icon-grid" class="icon-grid"></div>
+      <p id="icon-empty" hidden>일치하는 아이콘이 없습니다. 다른 이름으로 검색하십시오.</p>
+      <noscript><p>아이콘 목록을 검색하려면 JavaScript가 필요합니다. <a href="../dist/q-design.icons.json">선정 목록 JSON</a>도 확인할 수 있습니다.</p></noscript>
+    </section>
+    <footer>Phosphor Icons · MIT 라이선스. 원본 SVG와 라이선스를 함께 보관합니다. 제품의 공식 Q 마크는 기존 자산을 사용합니다.</footer>
+  </div>
+</body>
+</html>

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../dist/q-design.list.css">
   <link rel="stylesheet" href="../dist/q-design.screen.css">
   <link rel="stylesheet" href="workspace-preview.css">
+  <link rel="stylesheet" href="../dist/q-design.icons.css">
   <script src="workspace.js" defer></script>
 </head>
 <body class="qd-workspace" data-product="atelier">
@@ -28,15 +29,15 @@
     <aside class="preview-sidebar" aria-label="제품 메뉴">
       <div class="preview-brand"><img id="product-icon" src="../dist/app-icons/atelier/icon-192.png" width="40" height="40" alt=""><div><span id="product-name" class="qd-product-name">Q-Atelier</span><p id="product-purpose">설계와 개발의 기록</p></div></div>
       <nav class="preview-nav" aria-label="업무 메뉴">
-        <a href="#overview" data-view="overview" aria-current="page"><span>업무 현황</span><span aria-hidden="true">01</span></a>
-        <a href="#documents" data-view="documents"><span>문서 목록</span><span aria-hidden="true">02</span></a>
+        <a href="#overview" data-view="overview" aria-current="page"><span class="qd-icon-label"><span class="qd-icon" data-icon="overview" aria-hidden="true"></span>업무 현황</span></a>
+        <a href="#documents" data-view="documents"><span class="qd-icon-label"><span class="qd-icon" data-icon="documents" aria-hidden="true"></span>문서 목록</span></a>
       </nav>
       <div class="preview-sidebar-foot"><span>MedQraft · Q-Suite</span><p>공통 구조, 제품별 업무.</p></div>
     </aside>
     <main id="workspace-main" class="preview-main" tabindex="-1">
-      <div class="preview-context"><span>디자인 검토용 · 예시 데이터</span><a href="parts.html">공통 부품 보기 ↗</a></div>
+      <div class="preview-context"><span>디자인 검토용 · 예시 데이터</span><a href="parts.html">공통 부품 보기 <span class="qd-icon qd-icon--sm" data-icon="next" aria-hidden="true"></span></a></div>
       <section id="overview" aria-labelledby="overview-title">
-        <header class="qd-work-head"><div><h1 id="overview-title" class="qd-work-title" tabindex="-1">오늘 처리할 일</h1><p class="qd-work-intro">검토가 필요한 기록을 먼저 확인하고, 다음 업무로 이어갑니다.</p></div><button id="review-all" class="qd-btn qd-btn--primary" type="button">검토할 문서 보기 <span aria-hidden="true">↗</span></button></header>
+        <header class="qd-work-head"><div><h1 id="overview-title" class="qd-work-title" tabindex="-1">오늘 처리할 일</h1><p class="qd-work-intro">검토가 필요한 기록을 먼저 확인하고, 다음 업무로 이어갑니다.</p></div><button id="review-all" class="qd-btn qd-btn--primary" type="button">검토할 문서 보기 <span class="qd-icon" data-icon="next" aria-hidden="true"></span></button></header>
         <dl class="qd-work-summary" aria-label="문서 현황">
           <div class="qd-work-metric"><dt>검토 대기</dt><dd id="metric-review"></dd><p>내용 확인이 필요한 기록</p></div>
           <div class="qd-work-metric"><dt>작성 중</dt><dd id="metric-draft"></dd><p>계속 작성할 기록</p></div>
@@ -62,7 +63,7 @@
     </main>
   </div>
   <dialog id="document-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
-    <div class="preview-dialog-head"><span class="qd-work-meta">문서 상세 견본</span><button id="close-dialog" class="qd-work-action" type="button" autofocus>닫기 <span aria-hidden="true">×</span></button></div>
+    <div class="preview-dialog-head"><span class="qd-work-meta">문서 상세 견본</span><button id="close-dialog" class="qd-work-action" type="button" autofocus>닫기 <span class="qd-icon" data-icon="close" aria-hidden="true"></span></button></div>
     <h2 id="dialog-title"></h2><p id="dialog-description" class="qd-work-meta"></p>
     <dl id="dialog-fields" class="preview-detail-fields"></dl>
     <div class="qd-work-note"><h3>내용 확인</h3><p id="dialog-summary"></p></div>

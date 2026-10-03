@@ -16,9 +16,8 @@ a { color: inherit; }
 .preview-brand p { font-size: 12px; color: var(--qd-subtle); margin-top: 3px; }
 .preview-nav { display: grid; gap: 6px; margin-top: 36px; }
 .preview-nav a { display: flex; justify-content: space-between; padding: 12px; min-height: 46px; text-decoration: none; color: var(--qd-subtle); border-radius: 10px; }
-.preview-nav a span:last-child { font: 12px/1.8 var(--qd-font-mono); }
 .preview-nav a[aria-current='page'] { background: var(--qd-surface2); color: var(--qd-text); font-weight: 600; }
-.preview-nav a[aria-current='page'] span:last-child { color: var(--qd-product); }
+.preview-nav a[aria-current='page'] .qd-icon { color: var(--qd-product); }
 .preview-nav a:hover { background: var(--qd-surface); }
 .preview-sidebar-foot { margin-top: auto; padding-top: 48px; color: var(--qd-subtle); font-size: 12px; }
 .preview-sidebar-foot p { margin-top: 8px; }
