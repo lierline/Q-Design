@@ -64,6 +64,10 @@ describe('화면 글자는 12px 이상', () => {
       for (const m of code.matchAll(/const\s+fontSize\s*=\s*(\d+(?:\.\d+)?)\b/g)) {
         if (Number(m[1]) < 12) hits.push(`${f} ${m[0]}`);
       }
+      // SVG 글자 속성(`fontSize="10"` · 2026-09-28 시계열 그래프 축에서 찾음)
+      for (const m of code.matchAll(/fontSize=(?:"|\{)(\d+(?:\.\d+)?)(?:"|\})/g)) {
+        if (Number(m[1]) < 12) hits.push(`${f} ${m[0]}`);
+      }
     }
     expect(hits, '보조 글씨도 12px 이상입니다(오너 결정 2026-09-27)').toEqual([]);
   });

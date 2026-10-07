@@ -143,7 +143,8 @@ Object.assign(spec, probeAll([
   ['btn.fontSize',      H.btn,       /fontSize: sm \? FS\[\d+\] : FS\[(\d+)\],/, Number],
   ['btn.fontSizeSm',    H.btn,       /fontSize: sm \? FS\[(\d+)\] :/, Number],
   ['btn.tracking',      H.btn,       /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
-  ['btn.gap',           H.btn,       /gap: S\[([\d.]+)\],/, Number],
+  /* 2026-10-08 Btn pending(회전 표시) 안에도 gap 이 있어, 단추 자신의 gap(바로 뒤가 padding)만 잡는다 */
+  ['btn.gap',           H.btn,       /gap: S\[([\d.]+)\],\n\s*padding: sm \?/, Number],
   ['btn.weight',        H.btn,       /fontWeight: (\d+),/, Number],
   ['btn.disabledOpacity', H.btn,     /opacity: disabled \? ([\d.]+) : 1,/, Number],
   ['btn.radius',        H.qaBtn,     /border-radius: (\d+)px;/, Number],

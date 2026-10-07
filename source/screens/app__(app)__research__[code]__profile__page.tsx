@@ -10,10 +10,12 @@ import type { AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { Alert, Bx, Btn, LoadingState, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
-import { tintBorder } from '@/lib/design/grain';
+import { S, FS, F, T, LH } from '@/lib/design/tokens';
 import { longDateTime } from '@/lib/date';
-import { Download, Loader2, RefreshCw, Sparkles } from 'lucide-react';
+import { Download } from '@/components/q-design-icons/Download';
+import { Loader2 } from '@/components/q-design-icons/Loader2';
+import { RefreshCw } from '@/components/q-design-icons/RefreshCw';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
 import { PageGuide } from '@/components/PageGuide';
 import { HelpNote } from '@/components/HelpNote';
 import { Q_MATCH_ENGINE_NAME } from '@/lib/branding';
@@ -100,6 +102,8 @@ const ANALYSIS_CONFIDENCE_LABEL: Record<AnalysisData['confidence'], string> = {
   medium: '보통',
   low: '낮음',
 };
+// 비교 기기 후보의 유사도(분석 결과의 영문 값)를 한글로 (화면 한글 표기 원칙 · 2026-09-28)
+const SIMILARITY_LABEL: Record<'high' | 'medium' | 'low', string> = { high: '유사도 높음', medium: '유사도 중간', low: '유사도 낮음' };
 const GO_LABEL: Record<AnalysisData['go_no_go'], { label: string; color: string }> = {
   go: { label: '진행 권고', color: T.green },
   go_with_caveats: { label: '조건부 진행', color: T.warning },
@@ -279,7 +283,7 @@ export default function ProfilePage() {
     <div>
       <PageHd
         title="제품 정보"
-        desc="아이디어 · 프로파일 · Q-Atelier 분석"
+        desc="아이디어 · 프로파일 · 코어 분석"
         actions={
           // 검정 채운 단추 셋이 나란히 있었다 (화면 검토 A62 · A63 · 2026-09-27). 내려받기 · 다시 분석은
           // 보조 동작이라 글귀로 둔다.
@@ -322,8 +326,7 @@ export default function ProfilePage() {
             style={{
               marginBottom: S[4],
               padding: '14px 16px',
-              borderColor: alpha(T.champagne, 0.4),
-              background: alpha(T.champagne, 0.06),
+              borderColor: T.border,
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: S[3], flexWrap: 'wrap' }}>
@@ -383,11 +386,8 @@ export default function ProfilePage() {
         {project.confirmed_item_code && project.predicted_item_name ? (
           <div
             style={{
-              borderRadius: RADIUS.md,
-              padding: '14px 16px',
-              background: `${alpha(T.green, 0.05)}`,
-              border: `1px solid ${tintBorder(T.green)}`,
-              marginBottom: qMatchOpen ? 14 : 0,
+              // 판 안의 초록 · 회색 · 노란 점선 판을 걷고 한 줄 상태로(화면 검토 A35 · A76 · 2026-09-28)
+              marginBottom: qMatchOpen ? S[3.5] : 0,
               display: 'flex',
               alignItems: 'center',
               gap: S[3],
@@ -398,7 +398,7 @@ export default function ProfilePage() {
               style={{
                 fontSize: FS[12],
                 color: T.green,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 fontWeight: 600,
               }}
             >
@@ -414,7 +414,7 @@ export default function ProfilePage() {
               style={{
                 fontSize: FS[12],
                 color: T.muted,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 flex: 1,
                 minWidth: 200,
               }}
@@ -422,39 +422,18 @@ export default function ProfilePage() {
               등급과 품목이 이 단계에서 결정되어 카탈로그·문서·인허가 경로 산출에 사용됩니다.
             </span>
             {/* 확정 후 분석 카드 펼치기/접기 토글 */}
-            <button
-              type="button"
-              onClick={() => setQMatchOpen((v) => !v)}
-              style={{
-                borderRadius: RADIUS.md,
-                marginLeft: 'auto',
-                background: 'transparent',
-                border: `1px solid ${T.border}`,
-                color: T.muted,
-                padding: '4px 10px',
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                letterSpacing: 0.6,
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {qMatchOpen ? '▲ 분석 결과 접기' : '▼ 분석 결과 펼치기'}
-            </button>
+            <span style={{ marginLeft: 'auto' }}>
+              <TextAction onClick={() => setQMatchOpen((v) => !v)}>{qMatchOpen ? '분석 결과 접기' : '분석 결과 펼치기'}</TextAction>
+            </span>
           </div>
         ) : project.item_classification_deferred_at ? (
           // 보류됨. 사용자가 후보 중 적절한 게 없어 일단 넘어간 상태
           <div
             style={{
-              borderRadius: RADIUS.md,
-              padding: '12px 14px',
-              background: `${alpha(T.muted, 0.06)}`,
-              border: `1px dashed ${T.muted}`,
-              marginBottom: qMatchOpen ? 14 : 0,
+              marginBottom: qMatchOpen ? S[3.5] : 0,
               fontSize: FS[12],
               color: T.subtle,
-              fontFamily: F.serif,
+              fontFamily: F.ui,
               lineHeight: LH.relaxed,
               display: 'flex',
               alignItems: 'center',
@@ -466,45 +445,25 @@ export default function ProfilePage() {
               style={{
                 fontSize: FS[12],
                 color: T.muted,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 fontWeight: 600,
               }}
             >
-              ⏸ 보류됨
+              보류됨
             </span>
             <span style={{ flex: 1, minWidth: 240 }}>
-              Q-Match 후보 중 적합한 품목이 없어 보류 상태입니다. 아이디어를 보완하거나
+              코어 분석 후보 중 적합한 품목이 없어 보류 상태입니다. 아이디어를 보완하거나
               새 후보를 확인하려면 <strong>확정 재개</strong> 를 누르십시오.
             </span>
-            <button
-              type="button"
-              onClick={() => void deferItem(true)}
-              style={{
-                borderRadius: RADIUS.md,
-                background: 'transparent',
-                border: `1px solid ${T.border}`,
-                color: T.text,
-                padding: '4px 10px',
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              ▶ 확정 재개
-            </button>
+            <TextAction onClick={() => void deferItem(true)}>확정 재개</TextAction>
           </div>
         ) : project.predicted_item_code ? (
           <div
             style={{
-              borderRadius: RADIUS.md,
-              padding: '12px 14px',
-              background: `${alpha(T.warning, 0.05)}`,
-              border: `1px dashed ${T.warning}`,
               marginBottom: S[3.5],
               fontSize: FS[12],
               color: T.subtle,
-              fontFamily: F.serif,
+              fontFamily: F.ui,
               lineHeight: LH.relaxed,
               display: 'flex',
               alignItems: 'center',
@@ -517,38 +476,17 @@ export default function ProfilePage() {
               {project.predicted_item_grade != null && (
                 <> ({project.predicted_item_grade}등급)</>
               )}
-              . 아래에서 {Q_MATCH_ENGINE_NAME} 으로 재검토 후 <strong>이 품목으로 확정</strong> 을 눌러 결정하십시오.
+              . 아래에서 {Q_MATCH_ENGINE_NAME}으로 재검토 후 <strong>이 품목으로 확정</strong> 을 눌러 결정하십시오.
             </span>
-            <button
-              type="button"
-              onClick={() => void deferItem(false)}
-              title="후보 중 맞는 게 없으면 일단 보류하고 나중에 확정할 수 있습니다."
-              style={{
-                borderRadius: RADIUS.md,
-                background: 'transparent',
-                border: `1px solid ${T.border}`,
-                color: T.muted,
-                padding: '4px 10px',
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              ⏸ 보류
-            </button>
+            <TextAction onClick={() => void deferItem(false)} title="후보 중 맞는 게 없으면 일단 보류하고 나중에 확정할 수 있습니다.">보류</TextAction>
           </div>
         ) : (
           <div
             style={{
-              borderRadius: RADIUS.md,
-              padding: '12px 14px',
-              background: T.surface,
-              border: `1px dashed ${T.border}`,
               marginBottom: S[3.5],
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.serif,
+              fontFamily: F.ui,
               lineHeight: LH.relaxed,
               display: 'flex',
               alignItems: 'center',
@@ -557,27 +495,10 @@ export default function ProfilePage() {
             }}
           >
             <span style={{ flex: 1, minWidth: 280 }}>
-              아직 품목이 결정되지 않았습니다. 아래에서 {Q_MATCH_ENGINE_NAME} 을 실행해 후보를
+              아직 품목이 결정되지 않았습니다. 아래에서 {Q_MATCH_ENGINE_NAME}을 실행해 후보를
               살피고 <strong>이 품목으로 확정</strong> 을 눌러 결정하십시오.
             </span>
-            <button
-              type="button"
-              onClick={() => void deferItem(false)}
-              title="지금 결정하지 않고 나중에 입력하시려면 보류해 두실 수 있습니다."
-              style={{
-                borderRadius: RADIUS.md,
-                background: 'transparent',
-                border: `1px solid ${T.border}`,
-                color: T.muted,
-                padding: '4px 10px',
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              ⏸ 보류
-            </button>
+            <TextAction onClick={() => void deferItem(false)} title="지금 결정하지 않고 나중에 입력하시려면 보류해 두실 수 있습니다.">보류</TextAction>
           </div>
         )}
 
@@ -664,13 +585,13 @@ export default function ProfilePage() {
       {!a ? (
         <Bx style={{ padding: S[4.5], marginBottom: S[7], textAlign: 'center' }}>
           <Loader2 size={16} className="animate-spin" style={{ color: T.muted, marginBottom: S[2] }} />
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
-            Q-Atelier 분석이 아직 끝나지 않았습니다. 위 「분석 다시 실행」 을 누르십시오.
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
+            코어 분석이 아직 끝나지 않았습니다. 위 「분석 다시 실행」 을 누르십시오.
           </div>
         </Bx>
       ) : (
         <>
-          <SectionTitle>Q-Atelier 분석 결과</SectionTitle>
+          <SectionTitle>코어 분석 결과</SectionTitle>
           <Bx style={{ padding: S[4.5], marginBottom: S[4] }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3.5] }}>
               <MetaField label="추정 등급">
@@ -691,7 +612,7 @@ export default function ProfilePage() {
           </Bx>
           {a.major_risk_areas.length > 0 && (
             <Bx style={{ padding: S[3.5], marginBottom: S[4] }}>
-              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, marginBottom: S[1.5] }}>
                 주요 위험 영역
               </div>
               <ul style={{ margin: 0, paddingLeft: S[4.5], fontSize: FS[12], color: T.subtle, lineHeight: LH.loose }}>
@@ -701,8 +622,8 @@ export default function ProfilePage() {
           )}
           {a.predicate_devices.length > 0 && (
             <Bx style={{ padding: S[3.5], marginBottom: S[4] }}>
-              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1.5] }}>
-                Predicate 후보
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, marginBottom: S[1.5] }}>
+                비교 기기 (Predicate) 후보
               </div>
               {a.predicate_devices.map((p, i) => {
                 const matched = predicateCodes[p.name] ?? null;
@@ -742,7 +663,7 @@ export default function ProfilePage() {
                               : T.muted
                         }
                       >
-                        {p.similarity}
+                        {SIMILARITY_LABEL[p.similarity] ?? p.similarity}
                       </Tag>
                     </div>
                     <div style={{ fontSize: FS[12], color: T.subtle, marginTop: S[0.5] }}>{p.rationale}</div>
@@ -752,9 +673,8 @@ export default function ProfilePage() {
                         style={{
                           fontSize: FS[12],
                           color: T.muted,
-                          fontFamily: F.mono,
+                          fontFamily: F.ui,
                           marginTop: S[0.5],
-                          letterSpacing: 0.3,
                         }}
                       >
                         ↳ MFDS 정식 명칭: {matched.name_kr}
@@ -770,9 +690,9 @@ export default function ProfilePage() {
               Q-Match 품목 매칭 신뢰도가 아니다. 두 축은 이름만 같고 뜻이 다르므로
               match-confidence 의 뜻풀이를 여기 붙이면 안 된다(붙였다가 되돌렸다).
               그래서 「분석 신뢰도」로 이름을 붙여 어느 축인지 드러낸다. */}
-          <div style={{ marginTop: S[2], fontSize: FS[12], color: T.muted, fontFamily: F.mono, textAlign: 'right' }}>
+          <div style={{ marginTop: S[2], fontSize: FS[12], color: T.muted, fontFamily: F.ui, textAlign: 'right' }}>
             <Sparkles size={10} style={{ display: 'inline', marginRight: S[1], verticalAlign: 'middle' }} />
-            Q-Atelier 분석툴 · {project.ai_analyzed_at ? longDateTime(project.ai_analyzed_at) : '-'} · 분석 신뢰도{' '}
+            코어 분석 · {project.ai_analyzed_at ? longDateTime(project.ai_analyzed_at) : '-'} · 분석 신뢰도{' '}
             {ANALYSIS_CONFIDENCE_LABEL[a.confidence]}
           </div>
         </>
@@ -784,7 +704,8 @@ export default function ProfilePage() {
 function MetaField({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
+      {/* 한글 칸 이름이라 본문 글꼴 · 자간 0 (화면 검토 A44 · 2026-09-28) */}
+      <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, marginBottom: S[1] }}>
         {label}
       </div>
       <div style={{ fontSize: FS[13], color: T.text }}>{children}</div>

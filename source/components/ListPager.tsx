@@ -10,8 +10,9 @@
 // 규칙과 계산은 lib/api/list-page.ts 가 SSOT.
 
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { S, FS, T, F, LH, RADIUS, ICON, labelTracking, labelCase } from '@/lib/design/tokens';
+import { ChevronLeft } from '@/components/q-design-icons/ChevronLeft';
+import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
+import { S, FS, T, F, LH, RADIUS, ICON, labelTracking, labelCase, hasHangul } from '@/lib/design/tokens';
 import { pageCount, pageWindow, PAGE_SIZE } from '@/lib/api/list-page';
 
 interface ListPagerProps {
@@ -69,8 +70,10 @@ export function ListPager({
    * 한글이 섞인 글(「총 57건」 · 「이전」)은 자간 0 · 대문자 없음, 숫자 · 라틴만 벌린다
    * (오너 규칙 「한글이면 자간 0」 · 2026-09-25 네 제품 대조에서 이 부품만 한글에도 벌리고 있었다).
    */
+  // 한글이 섞인 글(«1-26 / 총 26건»)은 본문 글꼴 · 숫자 자리 맞춤. 고정폭이면 어절 공백이 두 배로 벌어졌다
+  // (화면 검토 A44 · 2026-09-28). 숫자만인 «2 / 5» 는 고정폭 그대로
   const label = (text: string): React.CSSProperties => ({
-    fontFamily: F.mono,
+    fontFamily: hasHangul(text) ? F.ui : F.mono,
     fontSize: FS[12],
     color: T.muted,
     lineHeight: LH.none,

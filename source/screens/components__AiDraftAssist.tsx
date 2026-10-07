@@ -12,9 +12,12 @@
 // 재사용: endpoint + extraBody + onInject 만 바꾸면 다른 작성 화면에도 부착.
 
 import { useState } from 'react';
-import { Sparkles, X, RefreshCw } from 'lucide-react';
-import { Btn, Txt } from '@/lib/design/components';
-import { S, FS, F, T, alpha, RADIUS, MOTION, ICON, LH } from '@/lib/design/tokens';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
+import { X } from '@/components/q-design-icons/X';
+import { RefreshCw } from '@/components/q-design-icons/RefreshCw';
+import { Btn, Txt, Alert } from '@/lib/design/components';
+import { S, FS, F, T, RADIUS, MOTION, ICON, LH } from '@/lib/design/tokens';
+import { TextAction } from '@/components/TextAction';
 
 interface Props {
   /** 초안 생성 API (POST). body = { ...extraBody, keywords }. */
@@ -37,7 +40,7 @@ export function AiDraftAssist({
   draftKey = 'draft',
   onInject,
   label = 'AI로 초안 잡기',
-  placeholder = '상황을 한두 줄로 적어주세요. 언제·어디서·무엇이·어떻게 발견됐는지. (사실 위주, 모르는 건 비워도 됩니다)',
+  placeholder = '상황을 한두 줄로 적어주십시오. 언제·어디서·무엇이·어떻게 발견됐는지. (사실 위주, 모르는 건 비워도 됩니다)',
 }: Props) {
   const [open, setOpen] = useState(false);
   const [keywords, setKeywords] = useState('');
@@ -84,32 +87,13 @@ export function AiDraftAssist({
   }
 
   // ── 트리거 (필드 라벨 옆 작은 버튼) ─────────────────────────────────
+  // 칸 옆 보조 동작이라 상자가 아니라 글귀(화면 검토 A11 · A35 · 2026-09-28)
   if (!open) {
     return (
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        title="AI 가 사실을 6하원칙 초안으로 정리해 줍니다 (편집 가능)"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 5,
-          padding: '4px 10px',
-          background: 'transparent',
-          border: `1px solid ${alpha(T.champagne, 0.5)}`,
-          borderRadius: RADIUS.pill,
-          color: T.champagne,
-          fontSize: FS[12],
-          fontFamily: F.mono,
-          letterSpacing: '0.04em',
-          cursor: 'pointer',
-          lineHeight: LH.none,
-          transition: `background ${MOTION.fast}, border-color ${MOTION.fast}`,
-        }}
-      >
-        <Sparkles size={12} strokeWidth={ICON.strokeWidth} aria-hidden="true" />
+      <TextAction onClick={() => setOpen(true)} title="AI 가 사실을 6하원칙 초안으로 정리해 줍니다 (편집 가능)">
+        <Sparkles size={12} strokeWidth={ICON.strokeWidth} aria-hidden="true" style={{ marginRight: S[1] }} />
         {label}
-      </button>
+      </TextAction>
     );
   }
 
@@ -117,9 +101,9 @@ export function AiDraftAssist({
   return (
     <div
       style={{
-        border: `1px solid ${alpha(T.champagne, 0.35)}`,
+        border: `1px solid ${T.border}`,
         borderRadius: RADIUS.md,
-        background: alpha(T.champagne, 0.04),
+        background: T.surface,
         padding: S[3.5],
         marginBottom: S[2.5],
         display: 'flex',
@@ -145,8 +129,8 @@ export function AiDraftAssist({
           <X size={15} aria-hidden="true" />
         </button>
       </div>
-      <div style={{ fontFamily: F.mono, fontSize: FS[12], color: T.subtle, letterSpacing: '0.03em', lineHeight: LH.normal }}>
-        ▸ AI 는 적어주신 사실을 정리만 합니다. 없는 내용은 지어내지 않아요. <strong style={{ color: T.champagne }}>초안을 받은 뒤 반드시 사실을 확인하고 수정</strong>하세요.
+      <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
+        ▸ AI 는 적어주신 사실을 정리만 합니다. 없는 내용은 지어내지 않습니다. <strong style={{ color: T.champagne }}>초안을 받은 뒤 반드시 사실을 확인하고 수정</strong>하십시오.
       </div>
 
       {/* 키워드 입력 */}
@@ -158,26 +142,16 @@ export function AiDraftAssist({
       />
 
       {error && (
-        <div
-          style={{
-            padding: S[2],
-            background: alpha(T.red, 0.08),
-            border: `1px solid ${alpha(T.red, 0.4)}`,
-            borderRadius: RADIUS.sm,
-            color: T.red,
-            fontSize: FS[12],
-            fontFamily: F.mono,
-            lineHeight: LH.normal,
-          }}
-        >
+        // 옅은 빨강 상자 → 공용 알림(위아래 괘선 · 화면 검토 A35 · 2026-09-28)
+        <Alert kind="error" style={{ marginBottom: 0 }}>
           {error}
-        </div>
+        </Alert>
       )}
 
       {/* 생성 초안 미리보기: 주입 전 사용자 확인 */}
       {draft && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
-          <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.12em', textTransform: 'uppercase', color: T.muted }}>
+          <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.muted }}>
             생성된 초안 (미리보기)
           </div>
           <div
@@ -204,15 +178,12 @@ export function AiDraftAssist({
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: S[2] }}>
         {draft ? (
           <>
-            <Btn p={false} sm onClick={generate} disabled={busy}>
+            <TextAction onClick={generate} disabled={busy}>
               <RefreshCw size={12} strokeWidth={ICON.strokeWidth} aria-hidden="true" style={{ marginRight: S[1] }} />
               {busy ? '생성 중...' : '다시 생성'}
-            </Btn>
-            <Btn
-              sm
-              onClick={inject}
-              style={{ background: T.champagne, color: T.bg, borderColor: T.champagne, borderRadius: RADIUS.md, fontWeight: 600 }}
-            >
+            </TextAction>
+            {/* 주 단추 면은 공용 Btn 한 가지(먹색): 덮어 칠한 금빛을 걷었다 (화면 검토 A11 · 2026-09-28) */}
+            <Btn sm onClick={inject}>
               이 초안 넣기
             </Btn>
           </>

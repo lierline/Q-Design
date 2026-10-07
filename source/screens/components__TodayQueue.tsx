@@ -7,38 +7,37 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { useNoviceMode } from '@/lib/novice-mode';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import {
-  ChevronRight,
-  RefreshCw,
-  Eye,
-  CheckCircle,
-  GitPullRequest,
-  PenLine,
-  Hourglass,
-  Reply,
-  MessageSquare,
-  ShieldAlert,
-  ShieldCheck,
-  AlertTriangle,
-  MessageSquareWarning,
-  Info,
-  Bell,
-  FileText,
-  Wrench,
-  FlaskConical,
-  type LucideIcon,
-} from 'lucide-react';
-import { Bx, SectionTitle, Tag, infoPopoverStyle } from '@/lib/design/components';
-import { F, FS, ICON, LH, MOTION, RADIUS, S, SHADOW, STATE, T, TYPE, alpha, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
+import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
+import { RefreshCw } from '@/components/q-design-icons/RefreshCw';
+import { Eye } from '@/components/q-design-icons/Eye';
+import { CheckCircle } from '@/components/q-design-icons/CheckCircle';
+import { GitPullRequest } from '@/components/q-design-icons/GitPullRequest';
+import { PenLine } from '@/components/q-design-icons/PenLine';
+import { Reply } from '@/components/q-design-icons/Reply';
+import { MessageSquare } from '@/components/q-design-icons/MessageSquare';
+import { ShieldAlert } from '@/components/q-design-icons/ShieldAlert';
+import { ShieldCheck } from '@/components/q-design-icons/ShieldCheck';
+import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
+import { MessageSquareWarning } from '@/components/q-design-icons/MessageSquareWarning';
+import { Info } from '@/components/q-design-icons/Info';
+import { Bell } from '@/components/q-design-icons/Bell';
+import { FileText } from '@/components/q-design-icons/FileText';
+import { Wrench } from '@/components/q-design-icons/Wrench';
+import { FlaskConical } from '@/components/q-design-icons/FlaskConical';
+import type { LucideIcon } from '@/components/q-design-icons/_icon';
+import { Bx, SectionTitle, Tag, infoPopoverStyle, Alert } from '@/lib/design/components';
+import { TextAction } from '@/components/TextAction';
+import { F, FS, ICON, LH, MOTION, RADIUS, S, STATE, T, TYPE, alpha, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
 import { httpStatusMessage } from '@/lib/api/client-error';
 import { captureBestEffort } from '@/lib/observability';
 import type { TodayQueueItem, TodayQueueKind } from '@/lib/today-queue/score';
 import type { TodayQueueEntry } from '@/lib/today-queue/sign';
+import { rolesOfDepts } from '@/lib/rules/who';
+import { rolesOf } from '@/lib/rules/actions';
 
 const KIND_ICON: Record<TodayQueueKind, LucideIcon> = {
   research_doc_review: Eye,
@@ -96,7 +95,7 @@ const ROLE_INFO = [
   {
     role: 'RA / QA 담당자',
     color: STATE.copper,
-    matchRoles: ['ra', 'ra_lead', 'qa', 'qa_lead'],
+    matchRoles: [...rolesOfDepts(['ra', 'qa'])],
     items: [
       'R&D 문서 1차 검토 대기',
       'R&D 문서 최종 승인 대기',
@@ -119,7 +118,7 @@ const ROLE_INFO = [
   {
     role: '소유자 / 경영진',
     color: T.green,
-    matchRoles: ['exec', 'admin'],
+    matchRoles: [...rolesOf('sheet.approve')], // 경영 · 관리자: 동작 규칙(sheet.approve)의 풀과 같은 자리
     items: [
       'R&D 문서 최종 승인 대기',
       '변경 의뢰 결재 대기',
@@ -157,7 +156,7 @@ const ROLE_INFO = [
     items: [
       '본인이 이의를 보낸 변경평가에 발안자 응답 도착',
       '외부 자문 회신 도착 (요청자 후속 액션 필요)',
-      'CAPA 효과성 확인 단계 폐쇄 대기',
+      'CAPA 효과성 확인 단계 종결 대기',
     ],
   },
 ];
@@ -174,7 +173,6 @@ export function TodayQueue({
   all?: boolean;
 }) {
   const router = useRouter();
-  const { novice } = useNoviceMode();
   const [data, setData] = useState<TodayQueueResponse | null>(initial);
   const [loading, setLoading] = useState(initial === null);
   const [error, setError] = useState<string | null>(null);
@@ -207,7 +205,7 @@ export function TodayQueue({
       lastLoadedAt.current = Date.now();
     } catch (e) {
       console.error('[TodayQueue] load exception:', e);
-      setError('일시적 오류예요. 잠시 후 다시 시도해 주세요.');
+      setError('일시적 오류입니다. 잠시 후 다시 시도해 주십시오.');
       setLoading(false);
     }
   }
@@ -303,14 +301,13 @@ export function TodayQueue({
         <SectionTitle noMargin>오늘 처리할 것</SectionTitle>
         {/* 당신 차례 총 건수: 상위 5건만 리스트되지만 헤더엔 전체(totalScanned) 노출(첫눈에 "내 차례 N건") */}
         <Tag size="sm">{data?.totalScanned ?? items.length}건</Tag>
-        {/* ⓘ info 버튼 + 팝업 */}
-        {/* 초보자 모드 OFF 면 기준 설명(ⓘ)도 숨긴다 (설정의 약속 · 2026-09-14 전수 검수) */}
-        {novice && (
+        {/* ⓘ info 버튼 + 팝업. 2026-10-08: 초보자 모드와 상관없이 늘 보인다(오너 결정) */}
         <div style={{ position: 'relative' }} ref={infoRef}>
           <button
             ref={infoBtnRef}
             type="button"
             aria-label="오늘 처리할 것 기준 설명"
+            className="qa-touch-44sq"
             aria-expanded={infoOpen}
             onClick={() => {
               if (!infoOpen && infoBtnRef.current) {
@@ -387,28 +384,11 @@ export function TodayQueue({
             document.body
           )}
         </div>
-        )}
-        <button
-          type="button"
-          onClick={() => void load()}
-          aria-label="새로고침"
-          style={{
-            marginLeft: 'auto',
-            background: 'transparent',
-            border: 'none',
-            color: T.subtle,
-            cursor: 'pointer',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            // WCAG 2.5.5: 44x44 touch target
-            minWidth: 44,
-            minHeight: 44,
-            padding: S[1],
-          }}
-        >
-          <RefreshCw size={16} className={loading ? 'qa-spin' : ''} aria-hidden="true" />
-        </button>
+        <span style={{ marginLeft: 'auto' }}>
+          <TextAction onClick={() => void load()} label="새로고침">
+            <RefreshCw size={16} className={loading ? 'qa-spin' : ''} aria-hidden="true" />
+          </TextAction>
+        </span>
       </div>
 
       <style>{`
@@ -439,7 +419,6 @@ export function TodayQueue({
             textDecoration: 'none',
             color: T.text,
             minHeight: 68,
-            boxShadow: SHADOW.hairline,
           }}
         >
           <span
@@ -468,12 +447,10 @@ export function TodayQueue({
             className="qa-today-cta"
             aria-hidden="true"
             style={{
+              // 줄 전체가 링크라 상자 모양 가짜 단추 대신 글귀 (화면 검토 A11 · 2026-09-28)
               fontSize: FS[12],
               fontWeight: 500,
               color: T.champagne,
-              padding: '6px 12px',
-              border: `1px solid ${alpha(T.champagne, 0.35)}`,
-              borderRadius: RADIUS.md,
               flexShrink: 0,
               whiteSpace: 'nowrap',
             }}
@@ -485,15 +462,14 @@ export function TodayQueue({
       )}
 
       {loading && !data && (
-        <Bx style={{ padding: S[6], background: alpha(T.champagne, 0.02) }}>
+        <Bx style={{ padding: S[6] }}>
           <div style={{ fontSize: FS[13], color: T.subtle }}>오늘 처리할 것을 정리 중...</div>
         </Bx>
       )}
 
       {error && (
-        <Bx style={{ padding: S[6], borderColor: T.red, background: alpha(T.red, 0.04) }}>
-          <div style={{ fontSize: FS[13], color: T.red }}>{error}</div>
-        </Bx>
+        // 옅은 빨강 상자 → 공용 알림(위아래 괘선 · 화면 검토 A35 · 2026-09-28)
+        <Alert kind="error">{error}</Alert>
       )}
 
       {!loading && !error && items.length === 0 && (
@@ -504,29 +480,9 @@ export function TodayQueue({
             borderColor: T.border,
             borderRadius: RADIUS.md,
             textAlign: 'center',
-            boxShadow: SHADOW.hairline,
           }}
         >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 56,
-              height: 56,
-              borderRadius: RADIUS.pill,
-              border: `1px solid ${alpha(T.champagne, 0.25)}`,
-              background: alpha(T.champagne, 0.04),
-              marginBottom: S[3.5],
-            }}
-          >
-            <Hourglass
-              size={ICON.sizeLg}
-              strokeWidth={ICON.strokeWidthThin}
-              aria-hidden="true"
-              color={T.champagne}
-            />
-          </div>
+          {/* 빈 화면의 장식 아이콘 원은 걷었다: 공용 EmptyState 와 같이 글만 (화면 검토 A38 · A66 · 2026-09-28) */}
           <div
             style={{
               ...TYPE.h3,
@@ -568,17 +524,14 @@ export function TodayQueue({
               transition: `background ${MOTION.fast}, border-color ${MOTION.fast}, transform ${MOTION.fast}`,
               minHeight: 68,
               overflow: 'hidden',
-              boxShadow: SHADOW.hairline,
             };
             const onEnter = (e: { currentTarget: HTMLElement }) => {
               e.currentTarget.style.background = alpha(T.champagne, 0.04);
               e.currentTarget.style.borderColor = alpha(T.champagne, 0.35);
-              e.currentTarget.style.boxShadow = SHADOW.surface;
             };
             const onLeave = (e: { currentTarget: HTMLElement }) => {
               e.currentTarget.style.background = T.surface;
               e.currentTarget.style.borderColor = T.border;
-              e.currentTarget.style.boxShadow = SHADOW.hairline;
             };
             const inner = (
               <>
@@ -635,17 +588,12 @@ export function TodayQueue({
                 <div
                   className="qa-today-cta"
                   style={{
-                    fontFamily: F.mono,
+                    // 줄마다 되풀이되던 상자 · 대문자 · 고정폭 자간을 걷고 글귀로 (화면 검토 A11 · A66 · 2026-09-28)
+                    fontFamily: F.ui,
                     fontSize: FS[12],
                     fontWeight: 500,
-                    letterSpacing: labelTracking(item.cta, '0.12em'),
-                    wordSpacing: labelWordSpacing(item.cta),
                     color: T.champagne,
-                    padding: '6px 12px',
-                    border: `1px solid ${alpha(T.champagne, 0.35)}`,
-                    borderRadius: RADIUS.md,
                     flexShrink: 0,
-                    textTransform: 'uppercase',
                     whiteSpace: 'nowrap',
                   }}
                   aria-hidden="true"

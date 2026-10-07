@@ -16,13 +16,14 @@
 //    두 값(밴드 높이 56 · 컨테이너 padding)을 베끼면 어느 한 층에서 반드시 어긋난다.
 
 import { useRef } from 'react';
-import { Search } from 'lucide-react';
+import { Search } from '@/components/q-design-icons/Search';
 import { ListPager } from '@/components/ListPager';
+import { Btn } from '@/lib/design/components';
 import { TOP_BAND_HEIGHT } from '@/components/TopHeaderBand';
 import { PAGE_SIZE, pageWindow, type SortOption } from '@/lib/api/list-page';
 import { useBreakpoints } from '@/lib/hooks/useBreakpoints';
 import { stickyTopInset, useScrollHostPadding } from '@/lib/design/sticky-inset';
-import { F, FS, LH, RADIUS, S, T, Z, labelTracking, labelCase } from '@/lib/design/tokens';
+import { F, FS, LH, RADIUS, S, T, Z, labelTracking, hasHangul } from '@/lib/design/tokens';
 
 /*
  * 찾기 단추의 글. 네 제품이 「찾기」 · 「검색」 · 「조회하기」 로 갈려 있던 것을 오너가
@@ -90,8 +91,9 @@ export function ListToolbar({
   );
 
   /* 한글이 섞인 글(「검색 지우기」 · 「총 57건」)은 자간 0 (오너 규칙 「한글이면 자간 0」) */
+  // 한글이 섞이면 본문 글꼴 · 숫자 자리 맞춤(고정폭 어절 공백이 벌어졌다 · 화면 검토 A44 · 2026-09-28)
   const 라벨 = (text: string): React.CSSProperties => ({
-    fontFamily: F.mono,
+    fontFamily: hasHangul(text) ? F.ui : F.mono,
     fontSize: FS[12],
     color: T.muted,
     lineHeight: LH.none,
@@ -179,27 +181,9 @@ export function ListToolbar({
           </select>
         )}
 
-        <button
-          type="submit"
-          className="qa-touch-44"
-          style={{
-            height: 36,
-            padding: `0 ${S[4]}px`,
-            borderRadius: RADIUS.md,
-            border: `1px solid ${T.border}`,
-            background: 'transparent',
-            color: T.text,
-            fontFamily: F.ui,
-            fontSize: FS[12],
-            lineHeight: LH.none,
-            letterSpacing: labelTracking(검색글, 1.2),
-            textTransform: labelCase(검색글),
-            cursor: 'pointer',
-            flex: '0 0 auto',
-          }}
-        >
+        <Btn p={false} sm type="submit" style={{ flex: '0 0 auto' }}>
           {검색글}
-        </button>
+        </Btn>
 
         {/*
           🔑 좁혀 놓은 것을 «푸는 길» 이 화면에 있어야 한다. 주소를 손으로 고치게

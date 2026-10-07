@@ -14,9 +14,19 @@
 //
 // 디자인: 평소엔 위젯만 깔끔히. 편집 모드에서만 컨트롤 바 노출.
 
+import { Eye as QdEye } from '@/components/q-design-icons/Eye';
 import { useEffect, useState, type ReactNode } from 'react';
-import { GripVertical, ChevronUp, ChevronDown, Eye, EyeOff, Lock, SlidersHorizontal, RotateCcw, Check } from 'lucide-react';
+import { GripVertical } from '@/components/q-design-icons/GripVertical';
+import { ChevronUp } from '@/components/q-design-icons/ChevronUp';
+import { ChevronDown } from '@/components/q-design-icons/ChevronDown';
+import { Eye } from '@/components/q-design-icons/Eye';
+import { EyeOff } from '@/components/q-design-icons/EyeOff';
+import { Lock } from '@/components/q-design-icons/Lock';
+import { SlidersHorizontal } from '@/components/q-design-icons/SlidersHorizontal';
+import { RotateCcw } from '@/components/q-design-icons/RotateCcw';
 import { S, FS, F, T, alpha, RADIUS, MOTION, ICON, LH } from '@/lib/design/tokens';
+import { Btn, IconBtn } from '@/lib/design/components';
+import { ChoiceChip } from '@/lib/design/segmented-choice';
 
 export interface BoardItem {
   /** 고정 위젯 id (widget.* / dash.* 태그와 정렬). localStorage 키로 사용. */
@@ -177,36 +187,16 @@ export function CustomizableWidgetBoard({
       }}
     >
       {leftSlot ? <div style={{ display: 'flex', alignItems: 'center' }}>{leftSlot}</div> : null}
-      <button
-        type="button"
-        onClick={() => setEditing((v) => !v)}
-        // 터치 화면에서 모양은 두고 누르는 자리만 넓힌다(globals.css · 알약 높이 28)
-        className="qa-touch-hit"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: S[1.5],
-          padding: '6px 12px',
-          background: editing ? T.champagne : 'transparent',
-          color: editing ? T.bg : T.subtle,
-          border: `1px solid ${editing ? T.champagne : T.border}`,
-          borderRadius: RADIUS.md,
-          fontFamily: F.mono,
-          fontSize: FS[12],
-          cursor: 'pointer',
-          transition: `background ${MOTION.fast}, color ${MOTION.fast}, border-color ${MOTION.fast}`,
-        }}
-      >
+      {/* 편집 모드 켜고 끄기: 공용 선택 칩(켜진 칸은 짙은 테두리 + 체크 표시 · 체크는 칩이 그리므로 따로 아이콘을 두지 않는다) */}
+      <ChoiceChip on={editing} onClick={() => setEditing((v) => !v)}>
         {editing ? (
-          <>
-            <Check size={ICON.sizeXs} strokeWidth={ICON.strokeWidth} aria-hidden="true" /> 완료
-          </>
+          '완료'
         ) : (
           <>
-            <SlidersHorizontal size={ICON.sizeXs} strokeWidth={ICON.strokeWidth} aria-hidden="true" /> 위젯 편집
+            <SlidersHorizontal size={ICON.sizeXs} strokeWidth={ICON.strokeWidth} aria-hidden="true" style={{ marginRight: S[1.5] }} /> 위젯 편집
           </>
         )}
-      </button>
+      </ChoiceChip>
     </div>
   );
 
@@ -221,8 +211,7 @@ export function CustomizableWidgetBoard({
           style={{
             padding: '10px 14px',
             marginBottom: S[3],
-            background: alpha(T.champagne, 0.05),
-            border: `1px dashed ${alpha(T.champagne, 0.4)}`,
+            border: `1px dashed ${T.border}`,
             borderRadius: RADIUS.md,
             fontFamily: F.mono,
             fontSize: FS[12],
@@ -236,27 +225,10 @@ export function CustomizableWidgetBoard({
             flexWrap: 'wrap',
           }}
         >
-          <span>위젯을 드래그해 위치 변경 · 👁 로 표시/숨김 · 변경은 이 기기에 저장됩니다.</span>
-          <button
-            type="button"
-            onClick={resetLayout}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 5,
-              padding: '5px 10px',
-              background: 'transparent',
-              color: T.muted,
-              border: `1px solid ${T.border}`,
-              borderRadius: RADIUS.md,
-              fontFamily: F.mono,
-              fontSize: FS[12],
-              cursor: 'pointer',
-              flexShrink: 0,
-            }}
-          >
+          <span>위젯을 드래그해 위치 변경 · <QdEye size={16} /> 로 표시/숨김 · 변경은 이 기기에 저장됩니다.</span>
+          <Btn p={false} sm onClick={resetLayout} style={{ flexShrink: 0 }}>
             <RotateCcw size={12} strokeWidth={ICON.strokeWidth} aria-hidden="true" /> 기본값
-          </button>
+          </Btn>
         </div>
 
         {/* jiggle 키프레임. 위젯마다 미세하게 다른 위상으로 흔들어 '편집 중' 표현.
@@ -461,28 +433,11 @@ export function CustomizableWidgetBoard({
   );
 }
 
+/** 위젯 순서 · 숨기기의 작은 아이콘 정사각(30). 공용 IconBtn(2026-10-07 · 이 파일의 사본을 걷음) */
 function CtrlBtn({ label, onClick, children }: { label: string; onClick: () => void; children: ReactNode }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      title={label}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 30,
-        height: 30,
-        background: 'transparent',
-        border: `1px solid ${T.border}`,
-        borderRadius: RADIUS.sm,
-        color: T.subtle,
-        cursor: 'pointer',
-        flexShrink: 0,
-      }}
-    >
+    <IconBtn size={30} title={label} onClick={onClick} style={{ color: T.subtle }}>
       {children}
-    </button>
+    </IconBtn>
   );
 }

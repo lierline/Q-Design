@@ -16,9 +16,8 @@ import {
   SectionTitle,
 } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
-import { F, FS, LH, S, T, labelTracking, RADIUS } from '@/lib/design/tokens';
+import { F, FS, LH, S, T, alpha, RADIUS } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
-import { hasAnyRole, ROLE_SELECT } from '@/lib/permissions/has-role';
 import { ListPager } from '@/components/ListPager';
 import { parsePage, pageRange, clampPage } from '@/lib/api/list-page';
 import {
@@ -31,6 +30,7 @@ import {
 import { actionLabel, humanizeAuditSummary } from '@/lib/audit-labels';
 import { AuditFilterBar } from './filter-bar';
 import { AuditExportButton } from './export-button';
+import { loadMenuAccess, menuAllowed } from '@/lib/permissions/route-access';
 
 interface AuditLog {
   id: number;
@@ -77,35 +77,17 @@ export default async function AuditPage({ searchParams }: PageProps) {
   } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  const { data: membership } = await supabase
-    .from('org_members')
-    .select('role')
-    .eq('user_id', user.id)
-    .limit(1)
-    .maybeSingle();
-  // 직책(job_grade)까지 읽어 공용 판정(hasAnyRole)으로 본다. 목록에 rd 없이 rd_lead 만 있어, 저장값만 보면 직책으로 정한
-  //   R&D 팀장이 막혔다(DB 의 audit_logs 읽기 정책은 has_job_role 로 이미 직책을 본다 · 화면 검토 A73 후속 · 2026-09-27).
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select(ROLE_SELECT)
-    .eq('id', user.id)
-    .maybeSingle();
-
-  const role = membership?.role ?? 'member';
-  // 감사 추적: owner/admin 외에 RA/QA(및 Lead)·R&D 팀장도 접근: R&D 문서
-  // 작성·검토·승인 이력 추적(ISO 13485 §8.2.4 / 규제·품질 가시성).
-  // org-role 'admin' 은 0172 에서 제거(owner 단일). job_role 'admin'(MedQraft 운영)은
-  // is_admin RLS 로 전체 접근하므로 여기 별도 분기 불요.
-  const canViewAudit =
-    role === 'owner' ||
-    hasAnyRole(profile, ['ra', 'qa', 'rd_lead']);
+  // 감사 추적(ISO 13485 §8.2.4): 메뉴 권한 그대로 본다(번들 exec · lead · qa · ra + 소유자 · MedQraft 운영).
+  // 정본 값(오너 추천 2026-10-07). 종전엔 화면이 RA · QA · R&D 팀장만 따로 적어, 메뉴는 보이는데 화면이 막는 짝이었다.
+  // 직책(job_grade)이 투영한 팀장도 메뉴 권한 계산이 이미 본다(화면 검토 A73 후속 · 2026-09-27).
+  const canViewAudit = menuAllowed(await loadMenuAccess(supabase, user.id), 'audit');
 
   if (!canViewAudit) {
     return (
       <div>
         <PageHd title="감사 로그" />
         <Alert kind="warning" title="권한 부족">
-          감사 로그는 owner / RA / QA / R&D 팀장 만 조회할 수 있습니다.
+          감사 로그는 소유자 · 대표 · 팀장 · RA · QA 만 조회할 수 있습니다.
         </Alert>
       </div>
     );
@@ -229,7 +211,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
           title={filterActive ? '필터 결과 없음' : '아직 활동 로그가 없습니다'}
           description={
             filterActive
-              ? '선택한 조건에 해당하는 활동이 없습니다. 필터를 일부 해제해보세요.'
+              ? '선택한 조건에 해당하는 활동이 없습니다. 필터를 일부 해제해보십시오.'
               : '평가 생성, 로그인, 검토 요청 등의 이벤트가 여기에 기록됩니다.'
           }
         />
@@ -249,12 +231,11 @@ export default async function AuditPage({ searchParams }: PageProps) {
             {['시간', '활동', '사용자', '요약'].map((l) => (
               <div
                 key={l}
+                // 머리 칸 이름이 한글이라 본문 글꼴(고정폭 · 자간 1.5 · 대문자 걷기 · 화면 검토 A44 · 2026-09-28)
                 style={{
                   fontSize: FS[12],
                   color: T.muted,
-                  letterSpacing: 1.5,
-                  fontFamily: F.mono,
-                  textTransform: 'uppercase',
+                  fontFamily: F.ui,
                 }}
               >
                 {l}
@@ -283,18 +264,11 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 <span
                   title={l.action}
                   style={{
-                    borderRadius: RADIUS.sm,
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: '4px 10px',
-                    border: `1px solid ${T.border}`,
-                    background: T.surface,
+                    // 줄마다 테두리 칩(한 화면 수십 개)이던 것을 보통 글로: 표 칸이 이미 경계다 (화면 검토 A35 · 2026-09-28)
                     color: T.text,
-                    fontSize: FS[12],
+                    fontSize: FS[13],
                     fontFamily: F.ui,
-                    letterSpacing: labelTracking(actionLabel(l.action), 0.3),
                     fontWeight: 500,
-                    width: 'fit-content',
                   }}
                 >
                   {actionLabel(l.action)}
@@ -340,14 +314,13 @@ export default async function AuditPage({ searchParams }: PageProps) {
                             borderRadius: RADIUS.sm,
                             fontSize: FS[12],
                             padding: '2px 6px',
-                            border: `1px solid ${T.champagne}`,
+                            border: `1px solid ${alpha(T.champagne, 0.5)}`,
                             color: T.champagne,
-                            fontFamily: F.mono,
-                            letterSpacing: 0.8,
-                            textTransform: 'uppercase',
+                            fontFamily: F.ui,
                           }}
                         >
-                          solo mode
+                          {/* 영어 대문자 «SOLO MODE» → 설정 화면과 같은 이름(«1인 결재 허용») · 화면 검토 A66 · 2026-09-28 */}
+                          1인 결재
                         </span>
                       )}
                     </div>
@@ -369,45 +342,26 @@ export default async function AuditPage({ searchParams }: PageProps) {
           <summary style={{ cursor: 'pointer', fontSize: FS[13], color: T.subtle, fontFamily: F.ui }}>
             종류별 보기 (이 쪽의 기록 {logList.length}건 기준 · {Object.keys(byAction).length}종)
           </summary>
-          <Bx style={{ padding: S[4.5], marginTop: S[2.5] }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
+          {/* 이름 · 건수 두 칸 목록(가는 구분선). 상자 무리는 금지 장치였다(화면 검토 A35 · 2026-09-28) */}
+          <Bx style={{ padding: `${S[1]}px ${S[4.5]}px`, marginTop: S[2.5] }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', columnGap: S[6] }}>
               {Object.entries(byAction)
                 .sort(([, a], [, b]) => b - a)
                 .map(([action, count]) => (
                   <div
                     key={action}
-                    style={{
-                      borderRadius: RADIUS.md,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: S[2],
-                      padding: '5px 12px',
-                      border: `1px solid ${T.border}`,
-                      background: T.surface,
-                    }}
                     title={action}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'baseline',
+                      gap: S[3],
+                      padding: `${S[2]}px 0`,
+                      borderBottom: `1px solid ${T.border}`,
+                    }}
                   >
-                    <span
-                      style={{
-                        fontSize: FS[12],
-                        color: T.text,
-                        fontFamily: F.ui,
-                        letterSpacing: labelTracking(actionLabel(action), 0.3),
-                        fontWeight: 500,
-                      }}
-                    >
-                      {actionLabel(action)}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: FS[12],
-                        color: T.champagne,
-                        fontFamily: F.mono,
-                        fontWeight: 600,
-                      }}
-                    >
-                      {count}
-                    </span>
+                    <span style={{ fontSize: FS[13], color: T.text, fontFamily: F.ui }}>{actionLabel(action)}</span>
+                    <span style={{ fontSize: FS[13], color: T.subtle, fontFamily: F.mono, fontVariantNumeric: 'tabular-nums' }}>{count}건</span>
                   </div>
                 ))}
             </div>

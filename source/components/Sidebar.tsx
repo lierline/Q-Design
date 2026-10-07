@@ -1,33 +1,37 @@
 'use client';
 
+import { Monitor } from '@/components/q-design-icons/Monitor';
+import { Moon } from '@/components/q-design-icons/Moon';
+import { Sun } from '@/components/q-design-icons/Sun';
 import Link from 'next/link';
+import { ChevronLeft } from '@/components/q-design-icons/ChevronLeft';
+import { Menu } from '@/components/q-design-icons/Menu';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type ComponentType, type CSSProperties } from 'react';
-import {
-  LayoutDashboard,
-  ClipboardList,
-  Package,
-  Mail,
-  MessageSquare,
-  Users,
-  ScrollText,
-  ShieldCheck,
-  UserCheck,
-  Building2,
-  Sparkles,
-  Lightbulb,
-  Calendar as CalendarIcon,
-  ClipboardCheck,
-  HardHat,
-  BookOpen,
-  BookText,
-  Settings as SettingsIcon,
-  User as UserIcon,
-  Gauge as GaugeIcon,
-} from 'lucide-react';
+import { LayoutDashboard } from '@/components/q-design-icons/LayoutDashboard';
+import { ClipboardList } from '@/components/q-design-icons/ClipboardList';
+import { Package } from '@/components/q-design-icons/Package';
+import { Mail } from '@/components/q-design-icons/Mail';
+import { MessageSquare } from '@/components/q-design-icons/MessageSquare';
+import { Users } from '@/components/q-design-icons/Users';
+import { ScrollText } from '@/components/q-design-icons/ScrollText';
+import { ShieldCheck } from '@/components/q-design-icons/ShieldCheck';
+import { UserCheck } from '@/components/q-design-icons/UserCheck';
+import { Building2 } from '@/components/q-design-icons/Building2';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
+import { Lightbulb } from '@/components/q-design-icons/Lightbulb';
+import { Calendar as CalendarIcon } from '@/components/q-design-icons/Calendar';
+import { ClipboardCheck } from '@/components/q-design-icons/ClipboardCheck';
+import { HardHat } from '@/components/q-design-icons/HardHat';
+import { BookOpen } from '@/components/q-design-icons/BookOpen';
+import { BookText } from '@/components/q-design-icons/BookText';
+import { Settings as SettingsIcon } from '@/components/q-design-icons/Settings';
+import { User as UserIcon } from '@/components/q-design-icons/User';
+import { Gauge as GaugeIcon } from '@/components/q-design-icons/Gauge';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
 import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, labelCase, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
+import { IconBtn } from '@/lib/design/components';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
 import { NAV_ITEMS, FLOW_DOCUMENT_MENUS, NAV_SUBGROUP_LABEL, NAV_SUBGROUP_ORDER, type NavGroup, type NavSubGroup } from '@/lib/nav/nav-items';
@@ -40,6 +44,7 @@ import { PasskeyDrawerLink } from './PasskeyDrawerLink';
 import { detectAdminGroup } from './AdminHubTabs';
 import { RuleEngineBadge } from './RuleEngineBadge';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
+import { isOrgOwner } from '@/lib/rules/who';
 
 type IconType = ComponentType<{ size?: number; strokeWidth?: number }>;
 
@@ -47,6 +52,8 @@ interface SidebarProps {
   orgName: string;
   userEmail: string;
   userName?: string;
+  /** 프로필 사진 판 번호(없으면 첫 글자 동그라미) */
+  avatarVersion?: string | null;
   role: string;
   plan: string;
   canSeeAudit: boolean;
@@ -289,7 +296,12 @@ export function Sidebar(props: SidebarProps) {
               zIndex: Z.drawerBackdrop,
             }}
           />
+          {/* 창 표시(role · aria-modal): 폰 앱(2.7.0)의 뒤로가 이 서랍만 닫는다(Esc 와 같은 길 · 앱 bridge.js __qatelierBack).
+              표시가 없으면 뒤로가 서랍 뒤의 이전 화면으로 넘어갔다(2026-09-28 가상 폰 실측). 당겨서 새로 고침도 이 표시를 보고 멈춘다 */}
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="메뉴"
             style={{
               position: 'fixed',
               top: 0,
@@ -339,6 +351,8 @@ function SidebarBody({
   orgName,
   userEmail,
   userName,
+  avatarVersion,
+  userId,
   role,
   plan,
   canSeeAudit,
@@ -595,7 +609,10 @@ function SidebarBody({
           minHeight: 0,
           overflowY: isMobile ? 'visible' : 'auto',
           overflowX: 'hidden',
-          overscrollBehavior: 'contain',
+          // 🔴 폰 서랍에서는 contain 을 걸지 않는다. overflowX 가 hidden 이면 브라우저가 overflowY 의 visible 을
+          // auto 로 바꿔 nav 가 «스크롤할 게 없는 스크롤 칸» 이 되고, contain 이 손가락 스크롤을 aside 로 넘기지 않아
+          // 서랍이 한 칸도 안 움직였다(2026-09-28 오너 보고 «앱에서 메뉴 터치 스크롤이 안 된다» · 터치 끌기로 재현)
+          overscrollBehavior: isMobile ? 'auto' : 'contain',
           display: 'flex',
           flexDirection: 'column',
           gap: collapsed && !isMobile ? 0 : 3,
@@ -661,7 +678,7 @@ function SidebarBody({
               {/* 🔴 조건이 canSeeAudit 이었다. /experts 페이지는 owner 만 통과시키므로
                   RA·QA 에게 «메뉴는 보이는데 눌렀더니 튕김» 이 나고 있었다(2026-08-21 감사).
                   단일롤 사이드바는 이미 owner 조건이었다. 두 경로가 갈려 있던 것. */}
-              {role === 'owner' && (
+              {isOrgOwner(role) && (
                 <NavLink href="/experts" label="외부 전문가" icon={Users} collapsed={collapsedNav} />
               )}
               {canSeeAudit && (
@@ -705,7 +722,7 @@ function SidebarBody({
 
             {/* 설정 그룹: 온보딩 중 기본 접힘 */}
             <CollapsibleNavGroup label="설정" groupKey="multi-settings" collapsed={collapsedNav} defaultOpen={!isOnboarding} activeHrefs={['/settings']}>
-              {role === 'owner' && (
+              {isOrgOwner(role) && (
                 <NavLink href="/settings/members" label="멤버 관리" icon={Users} collapsed={collapsedNav} />
               )}
               <NavLink href="/settings" label="설정" icon={SettingsIcon} collapsed={collapsedNav} />
@@ -835,7 +852,7 @@ function SidebarBody({
                 {/* 외부 전문가 풀 = owner 전용 통계 화면(/experts 가 owner 아니면 튕긴다).
                     페이지 권한과 메뉴 노출을 일치시켜 빈 화면을 막는다. (R&D/RA/QA·Lead 의
                     자문 '의뢰'는 서류·평가 상세의 "외부 자문 요청" 버튼으로 한다) */}
-                {!isOwnerExec && role === 'owner' && (
+                {!isOwnerExec && isOrgOwner(role) && (
                   <NavLink href="/experts" label="외부 전문가" icon={Users} collapsed={collapsedNav} />
                 )}
                 {canSeeAudit && (
@@ -943,7 +960,7 @@ function SidebarBody({
                 {isOwnerExec && (
                   <NavLink href="/settings/usage" label="사용량 · 결제" icon={GaugeIcon} collapsed={collapsedNav} />
                 )}
-                {role === 'owner' && (
+                {isOrgOwner(role) && (
                   <NavLink href="/settings/members" label="멤버 관리" icon={Users} collapsed={collapsedNav} />
                 )}
                 <NavLink href="/settings" label="설정" icon={SettingsIcon} collapsed={collapsedNav} />
@@ -1006,12 +1023,13 @@ function SidebarBody({
           <IconBtn
             onClick={toggleTheme}
             title={`Theme: ${mode === 'system' ? `System (${theme})` : mode === 'dark' ? 'Dark' : 'Light'}: 클릭하여 순환`}
+            style={RAIL_ICON_BTN}
           >
             <span style={{ color: T.champagne, fontFamily: F.serif, fontWeight: 600, fontSize: FS[16], lineHeight: LH.none }}>
-              {mode === 'system' ? '◑' : mode === 'dark' ? '●' : '○'}
+              {mode === 'system' ? <Monitor size={16} /> : mode === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
             </span>
           </IconBtn>
-          <IconBtn onClick={onToggle} title="사이드바 펼치기">
+          <IconBtn onClick={onToggle} title="사이드바 펼치기" style={RAIL_ICON_BTN}>
             <ChevronIcon dir="right" />
           </IconBtn>
         </div>
@@ -1042,10 +1060,11 @@ function SidebarBody({
           >
             <span style={{ whiteSpace: 'nowrap' }}>Theme</span>
             <span style={{ color: T.champagne, fontWeight: 500, whiteSpace: 'nowrap' }}>
-              {mode === 'system' ? `◑ System` : mode === 'dark' ? '● Dark' : '○ Light'}
+              {mode === 'system' ? <Monitor size={16} /> : mode === 'dark' ? <Moon size={16} /> : <Sun size={16} />}{' '}
+              {mode === 'system' ? 'System' : mode === 'dark' ? 'Dark' : 'Light'}
             </span>
           </button>
-          <IconBtn onClick={onToggle} title={isMobile ? '사이드바 닫기' : '사이드바 접기'}>
+          <IconBtn onClick={onToggle} title={isMobile ? '사이드바 닫기' : '사이드바 접기'} style={RAIL_ICON_BTN}>
             <ChevronIcon dir="left" />
           </IconBtn>
         </div>
@@ -1055,13 +1074,13 @@ function SidebarBody({
       <div style={{ paddingTop: S[3], borderTop: `1px solid ${T.border}`, flexShrink: 0 }}>
         {collapsed && !isMobile ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: S[2.5] }}>
-            <Avatar name={userName} email={userEmail} size={34} />
+            <Avatar name={userName} email={userEmail} size={34} userId={userId} avatarVersion={avatarVersion} />
             <LogoutButton compact />
           </div>
         ) : (
           <>
             <div style={{ display: 'flex', alignItems: 'center', gap: S[2.5], marginBottom: S[3] }}>
-              <Avatar name={userName} email={userEmail} size={32} />
+              <Avatar name={userName} email={userEmail} size={32} userId={userId} avatarVersion={avatarVersion} />
               <div style={{ minWidth: 0, flex: 1 }}>
                 <p
                   style={{
@@ -1328,50 +1347,9 @@ function NavLink({
 
 /* ─── Subcomponents ──────────────────────────────────────────── */
 
-function IconBtn({
-  children,
-  onClick,
-  title,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-  title: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      title={title}
-      aria-label={title}
-      style={{
-        // M6: 44×44 for HIG/Material touch target (collapsed 60px sidebar 도 fit).
-        width: 44,
-        height: 44,
-        flexShrink: 0,
-        background: 'transparent',
-        border: `1px solid ${T.border}`,
-        borderRadius: RADIUS.md, // 옆의 THEME 상자와 같은 줄 · 같은 높이라 같은 값
-        color: T.muted,
-        cursor: 'pointer',
-        padding: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.color = T.text;
-        e.currentTarget.style.borderColor = T.borderHi;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.color = T.muted;
-        e.currentTarget.style.borderColor = T.border;
-      }}
-    >
-      {children}
-    </button>
-  );
-}
+// 차림표의 아이콘 정사각(테마 · 접기 · 펼치기)은 공용 IconBtn(lib/design/components)이다(2026-10-07 · 이 파일의 사본을 걷음).
+// 옆의 THEME 상자와 같은 줄 · 같은 높이라 모서리만 RADIUS.md 로 맞춘다.
+const RAIL_ICON_BTN = { borderRadius: RADIUS.md } as const;
 
 /** Clean chevron SVG (Apple-style hairline). dir: left(<) right(>) up(^) down(v) */
 function ChevronIcon({ dir, size = 14 }: { dir: 'left' | 'right' | 'up' | 'down'; size?: number }) {
@@ -1384,22 +1362,7 @@ function ChevronIcon({ dir, size = 14 }: { dir: 'left' | 'right' | 'up' | 'down'
     : dir === 'down' ? 'rotate(-90deg)'
     : undefined;
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ transform: rotation }}
-    >
-      <path
-        d="M 10 3 L 5 8 L 10 13"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <ChevronLeft size={size} style={{ transform: rotation }} />
   );
 }
 
@@ -1717,10 +1680,6 @@ function WorkspaceNavGroup({
 /** Hamburger-style 3-line icon for mobile FAB */
 function MenuIcon({ size = 18 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 18 18" fill="none">
-      <line x1="3" y1="5" x2="15" y2="5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <line x1="3" y1="13" x2="15" y2="13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
+    <Menu size={size} />
   );
 }

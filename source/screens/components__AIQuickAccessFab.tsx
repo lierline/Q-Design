@@ -22,14 +22,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import {
-  Sparkles,
-  X,
-  Check,
-  MessageCircle,
-  ScanSearch,
-  type LucideIcon,
-} from 'lucide-react';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
+import { X } from '@/components/q-design-icons/X';
+import { Check } from '@/components/q-design-icons/Check';
+import { MessageCircle } from '@/components/q-design-icons/MessageCircle';
+import { ScanSearch } from '@/components/q-design-icons/ScanSearch';
+import type { LucideIcon } from '@/components/q-design-icons/_icon';
 import dynamic from 'next/dynamic';
 import { F, FS, ICON, MOTION, RADIUS, S, SHADOW, T, Z, alpha } from '@/lib/design/tokens';
 
@@ -302,13 +300,11 @@ export function AIQuickAccessFab() {
               borderTop: `1px solid ${T.border}`,
               marginTop: S[1],
               padding: '12px 16px',
-              fontFamily: F.mono,
+              fontFamily: F.ui,
               fontSize: FS[12],
               fontWeight: 500,
-              letterSpacing: '0.14em',
               color: T.muted,
               textAlign: 'center',
-              textTransform: 'uppercase',
             }}
           >
             Q-Atelier 도우미 · Beta

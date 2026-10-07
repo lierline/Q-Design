@@ -53,6 +53,7 @@ function bodyOf(text: string, lang: 'css' | 'ts'): string {
  * (Q-Design tools/sync-parts.mjs · 받아 두기만 하는 사본은 보내지 않는다)
  */
 const COPIES: Array<{ name: string; path: string; lang: 'css' | 'ts' }> = [
+  { name: '업무 화면', path: 'app/q-design.workspace.css', lang: 'css' },
   { name: '문서 토큰', path: 'lib/design/q-design.doc.ts', lang: 'ts' },
   // 2026-09-25: 패밀리 자료 교환 형식(Q-Design source/exchange). 세 제품이 같은 뜻으로 읽어야 한다.
   { name: '자료 교환', path: 'lib/exchange/family-exchange.ts', lang: 'ts' },

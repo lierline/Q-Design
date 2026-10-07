@@ -1,11 +1,14 @@
 'use client';
 
-import { Children, Fragment, useEffect, useId, useRef, useState } from 'react';
-import { useNoviceMode } from '@/lib/novice-mode';
-import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import { Children, Fragment, cloneElement, isValidElement, useEffect, useId, useRef, useState } from 'react';
+import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { AlertCircle, AlertTriangle, CheckCircle2, Circle, Info } from 'lucide-react';
+import { AlertCircle } from '@/components/q-design-icons/AlertCircle';
+import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
+import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
+import { Circle } from '@/components/q-design-icons/Circle';
+import { Info } from '@/components/q-design-icons/Info';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
 import { ruleBand, tintBorder } from './grain';
 import { TAG_DIMS } from './tag-metrics';
@@ -120,6 +123,20 @@ interface InProps {
   name?: string;
   id?: string;
   invalid?: boolean;
+  /** 보이는 칸 이름(label)이 없을 때의 화면 낭독 이름 */
+  ariaLabel?: string;
+  // 2026-10-07 날것 <input> 34곳을 이 부품으로 걷으며 더한 것(손으로 테두리를 그리던 칸들이 쓰던 속성)
+  disabled?: boolean;
+  maxLength?: number;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  inputMode?: 'text' | 'numeric' | 'decimal' | 'search' | 'email' | 'tel' | 'url' | 'none';
+  /** <datalist id> 연결 */
+  list?: string;
+  title?: string;
+  /** 배치만(flex · width · maxWidth). 색 · 테두리 · 글꼴은 여기서 바꾸지 않는다 */
+  style?: CSSProperties;
+  /** 오류 · 도움말 글귀의 id. 보통 Field 가 끼워 넣는다(2026-10-08) · 직접 줄 수도 있다 */
+  'aria-describedby'?: string;
 }
 export function In({
   value,
@@ -136,6 +153,15 @@ export function In({
   name,
   id,
   invalid,
+  ariaLabel,
+  disabled,
+  maxLength,
+  onKeyDown,
+  inputMode,
+  list,
+  title,
+  style,
+  'aria-describedby': ariaDescribedBy,
 }: InProps) {
   return (
     <input
@@ -144,20 +170,30 @@ export function In({
       onChange={onChange}
       onBlur={onBlur}
       onFocus={onFocus}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
       readOnly={ro}
+      disabled={disabled}
       required={required}
       minLength={minLength}
+      maxLength={maxLength}
+      inputMode={inputMode}
+      list={list}
+      title={title}
       autoComplete={autoComplete}
       autoFocus={autoFocus}
       name={name}
       id={id}
+      aria-label={ariaLabel}
       aria-invalid={invalid || undefined}
+      aria-describedby={ariaDescribedBy}
       className="qa-input"
       style={{
         ...inputStyle,
         ...(ro ? { color: T.muted, cursor: 'default' } : {}),
+        ...(disabled ? { color: T.muted, cursor: 'not-allowed', opacity: 0.6 } : {}),
         ...(invalid ? { borderColor: T.red } : {}),
+        ...style,
       }}
     />
   );
@@ -178,8 +214,10 @@ interface SelProps {
   name?: string;
   required?: boolean;
   invalid?: boolean;
+  /** 오류 · 도움말 글귀의 id. 보통 Field 가 끼워 넣는다(In 과 같은 계약) */
+  'aria-describedby'?: string;
 }
-export function Sel({ value, onChange, opts, ro, id, name, required, invalid }: SelProps) {
+export function Sel({ value, onChange, opts, ro, id, name, required, invalid, 'aria-describedby': ariaDescribedBy }: SelProps) {
   return (
     <select
       value={value}
@@ -189,6 +227,7 @@ export function Sel({ value, onChange, opts, ro, id, name, required, invalid }: 
       name={name}
       required={required}
       aria-invalid={invalid || undefined}
+      aria-describedby={ariaDescribedBy}
       className="qa-input"
       style={{ ...inputStyle, ...(ro ? { color: T.muted } : {}) }}
     >
@@ -217,8 +256,10 @@ interface TxtProps {
   name?: string;
   required?: boolean;
   invalid?: boolean;
+  /** 오류 · 도움말 글귀의 id. 보통 Field 가 끼워 넣는다(In 과 같은 계약) */
+  'aria-describedby'?: string;
 }
-export function Txt({ value, onChange, rows = 3, ro, placeholder, id, name, required, invalid }: TxtProps) {
+export function Txt({ value, onChange, rows = 3, ro, placeholder, id, name, required, invalid, 'aria-describedby': ariaDescribedBy }: TxtProps) {
   return (
     <textarea
       value={value}
@@ -230,6 +271,7 @@ export function Txt({ value, onChange, rows = 3, ro, placeholder, id, name, requ
       name={name}
       required={required}
       aria-invalid={invalid || undefined}
+      aria-describedby={ariaDescribedBy}
       className="qa-input"
       style={{ ...inputStyle, resize: 'vertical', ...(ro ? { color: T.muted } : {}) }}
     />
@@ -249,6 +291,18 @@ interface BtnProps {
   style?: CSSProperties;
   /** 호버 툴팁 (disabled 사유 안내 등). */
   title?: string;
+  // 2026-10-07 날것 <button> 99곳을 이 부품으로 걷으며 더한 것
+  /** 낭독기가 읽을 이름(보이는 글귀만으로 대상을 알 수 없을 때 · 「서명 내려받기」) */
+  ariaLabel?: string;
+  /** 접고 펴는 단추면 지금 펼쳐져 있는가 */
+  ariaExpanded?: boolean;
+  id?: string;
+  /**
+   * 처리 중(서버를 기다리는 저장 · 제출). disabled + aria-busy + 회전 표시가 함께 켜진다 (2026-10-08).
+   * 글자는 지우지 않고 visibility 로 자리만 남겨 폭이 흔들리지 않는다. 종전에는 화면마다
+   * `disabled={saving}` 을 손으로 걸었고(474곳 중 236곳), 안 건 곳은 두 번 누르면 두 번 저장됐다.
+   */
+  pending?: boolean;
 }
 export function Btn({
   children,
@@ -260,10 +314,15 @@ export function Btn({
   danger,
   style,
   title,
+  ariaLabel,
+  ariaExpanded,
+  id,
+  pending,
 }: BtnProps) {
   // 터치 타겟: `sm` 은 보조 액션용으로 36px 유지, 기본은 44px (WCAG 2.2).
   // 터치 디바이스에서 sm 도 44px 로 끌어올리는 룰은 globals.css 에 있음.
   const minHeight = sm ? 36 : TOUCH.min;
+  const inert = Boolean(disabled || pending);
 
   // ★ 완성도: primary(filled) 와 secondary(outline) 버튼 사이즈 통일:
   //   - primary 는 border:none, secondary 는 border:1px solid 라서 box-sizing
@@ -276,11 +335,16 @@ export function Btn({
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={inert}
+      aria-busy={pending || undefined}
       title={title}
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
+      id={id}
       className={p ? 'qa-btn' : 'qa-btn-secondary'}
       style={{
         boxSizing: 'border-box',
+        position: pending ? 'relative' : undefined,
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -296,7 +360,7 @@ export function Btn({
         letterSpacing: labelTracking(children, 1.2),
         textTransform: labelCase(children),
         whiteSpace: 'nowrap',
-        cursor: disabled ? 'not-allowed' : 'pointer',
+        cursor: pending ? 'progress' : disabled ? 'not-allowed' : 'pointer',
         // border 는 항상 1px: primary 는 transparent (시각 효과 없음, 사이즈만 통일)
         // danger=빨강 톤(채움/외곽선), 그 외 기본(cream 채움/중립 외곽선)
         border: danger
@@ -306,13 +370,43 @@ export function Btn({
             : `1px solid ${T.border}`,
         background: danger ? (p ? T.red : 'transparent') : p ? T.text : 'transparent',
         color: danger ? (p ? T.bg : T.red) : p ? T.bg : T.subtle,
+        // pending 은 «바쁨» 이지 «못 누름» 이 아니다: 흐리게 하지 않는다
         opacity: disabled ? 0.4 : 1,
         fontFamily: F.ui,
         fontWeight: 500,
         ...style,
       }}
     >
-      {children}
+      {pending ? (
+        <>
+          {/* 글자는 자리만 남긴다(폭 보존). 낭독기에는 aria-busy 가 상태를 전한다 */}
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], visibility: 'hidden' }}>{children}</span>
+          <span
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <span
+              style={{
+                width: 14,
+                height: 14,
+                borderRadius: RADIUS.pill,
+                border: '2px solid currentColor',
+                borderRightColor: 'transparent',
+                // 동작 줄이기 설정은 globals.css 의 전역 규칙이 멈춘다
+                animation: 'qa-spin 0.8s linear infinite',
+              }}
+            />
+          </span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 }
@@ -326,6 +420,15 @@ interface IconBtnProps {
   disabled?: boolean;
   size?: number; // 기본 44
   style?: CSSProperties;
+  // 2026-10-07 화면마다 따로 짠 아이콘 정사각(종 · 구독 칩 · 로그아웃 · 첨부 · 위젯 순서)을 이 부품으로 걷으며 더한 것
+  /** 터치 화면 이름표(qa-touch-44sq 등). 보이는 틀은 size 그대로, 누르는 자리만 44 로 넓힌다 */
+  className?: string;
+  /** 낭독기가 읽을 이름이 title 과 다를 때(「알림 (3개 새 알림)」) */
+  ariaLabel?: string;
+  ariaExpanded?: boolean;
+  ariaHasPopup?: 'menu' | 'dialog';
+  /** 되돌릴 수 없는 동작(로그아웃): 올리면 빨강 */
+  danger?: boolean;
 }
 export function IconBtn({
   children,
@@ -334,14 +437,26 @@ export function IconBtn({
   disabled,
   size = TOUCH.min,
   style,
+  className,
+  ariaLabel,
+  ariaExpanded,
+  ariaHasPopup,
+  danger,
 }: IconBtnProps) {
+  // 호출부가 색이나 테두리 색을 정했으면(구독 칩의 신호등 테두리 · 종의 흐린 글자) 올렸다 내릴 때 그 값으로 돌아간다.
+  // 테두리 색이 뜻을 들고 있으면 올려도 바꾸지 않는다(신호등이 잠깐 사라지면 안 된다).
+  const baseColor = (style?.color as string | undefined) ?? T.muted;
+  const ownBorder = style?.borderColor as string | undefined;
   return (
     <button
       type="button"
       onClick={onClick}
       title={title}
-      aria-label={title}
+      aria-label={ariaLabel ?? title}
+      aria-expanded={ariaExpanded}
+      aria-haspopup={ariaHasPopup}
       disabled={disabled}
+      className={className}
       style={{
         width: size,
         height: size,
@@ -361,13 +476,13 @@ export function IconBtn({
       }}
       onMouseEnter={(e) => {
         if (disabled) return;
-        e.currentTarget.style.color = T.text;
-        e.currentTarget.style.borderColor = T.borderHi;
+        e.currentTarget.style.color = danger ? T.red : T.text;
+        if (!ownBorder) e.currentTarget.style.borderColor = danger ? T.red : T.borderHi;
       }}
       onMouseLeave={(e) => {
         if (disabled) return;
-        e.currentTarget.style.color = T.muted;
-        e.currentTarget.style.borderColor = T.border;
+        e.currentTarget.style.color = baseColor;
+        if (!ownBorder) e.currentTarget.style.borderColor = T.border;
       }}
     >
       {children}
@@ -513,6 +628,9 @@ export function Collapse({
   return (
     <div
       aria-hidden={!open}
+      // aria-hidden 만으로는 닫힌 안쪽의 단추 · 링크가 tab 으로 계속 잡힌다(낭독기에는 안 보이는데 초점만 들어가는 상태).
+      // inert 는 초점 · 클릭 · 낭독을 한꺼번에 끈다. 닫는 애니메이션 중에도 바로 꺼진다.
+      inert={!open}
       style={{
         display: 'grid',
         gridTemplateRows: open ? '1fr' : '0fr',
@@ -732,11 +850,14 @@ export function Checkbox({
   variant = 'plain',
   align = 'center',
   size = 16,
+  className,
 }: {
   checked: boolean;
   onChange: (next: boolean) => void;
   disabled?: boolean;
   children: ReactNode;
+  /** 예: «qa-touch-44»(터치 화면에서 줄 높이 44 · 체크 목록이 칩을 대신할 때 · 화면 검토 A35) */
+  className?: string;
   /** 의미별 색(기본 champagne). 미지정 raw 파랑 제거 */
   accent?: string;
   /** plain=인라인 / card=checked 컨테이너 강조 / consent=상단정렬(긴 동의문) */
@@ -748,6 +869,7 @@ export function Checkbox({
   const startAlign = align === 'start' || variant === 'consent';
   return (
     <label
+      className={className}
       style={{
         display: 'flex',
         alignItems: startAlign ? 'flex-start' : 'center',
@@ -777,18 +899,24 @@ export function Checkbox({
   );
 }
 
-// ─── FILTERCHIP: 토글 가능한 필터/상태 칩 (목록 상단 필터바 공용) ──────────────
-// CR 인박스·변경평가 등에서 쓰던 인라인 필터 버튼을 단일 컴포넌트로 통일.
-// active = color fill + bg 글씨 / inactive = 연한 color outline.
+// ─── FILTERCHIP: 걸러보기 한 칸 (목록 위 상태 걸러보기 공용) ────────────────────
+// 🔑 화면 검토 A35 · A66(2026-09-28): 칩마다 테두리 색이 달라(승인 초록 · 반려 빨강 …) «누르는 것 · 표시만 하는 것 ·
+//    고른 것» 이 구분되지 않았다. 이제 탭 줄(PageTabs)과 같은 모양: 테두리 · 채움 없이 글자만, 고른 칸은 진한 글자 +
+//    금색 밑줄. 줄 전체의 아래 테두리는 부르는 쪽이 둔다(FILTER_TAB_ROW). 색은 받지만 모양에 쓰지 않는다.
+export const FILTER_TAB_ROW: CSSProperties = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  borderBottom: `1px solid ${T.border}`,
+};
+
 export function FilterChip({
   label,
   active,
-  color = T.muted,
   onClick,
 }: {
   label: string;
   active: boolean;
-  /** 상태 고유색 (예: 승인=green, 반려=red). 미지정 시 muted(중립). */
+  /** 예전 칩의 상태 색. 🔑 모양에 쓰지 않는다(화면 검토 A35 · 색이 저마다 달라 신호가 되지 못했다) */
   color?: string;
   onClick: () => void;
 }) {
@@ -800,20 +928,19 @@ export function FilterChip({
       // 터치 화면에서는 높이 44(globals.css · 2026-09-27 패드 UX 감사: 거르기 칩 22). PC 는 그대로
       className="qa-touch-44"
       style={{
-        borderRadius: RADIUS.md,
-        padding: '5px 12px',
-        background: active ? color : 'transparent',
-        color: active ? T.bg : color,
-        border: `1px solid ${active ? color : alpha(color, 0.45)}`,
-        fontSize: FS[12],
-        fontFamily: F.mono,
-        letterSpacing: labelTracking(label, 0.5),
-        wordSpacing: labelWordSpacing(label),
+        padding: '10px 14px',
+        marginBottom: -1,
+        background: 'transparent',
+        border: 'none',
+        borderBottom: `2px solid ${active ? T.champagne : 'transparent'}`,
+        color: active ? T.text : T.muted,
+        fontSize: FS[13],
+        fontFamily: F.ui,
+        fontWeight: active ? 600 : 400,
         cursor: 'pointer',
-        textTransform: labelCase(label),
         lineHeight: LH.none,
         whiteSpace: 'nowrap',
-        transition: 'background 0.12s ease, border-color 0.12s ease',
+        transition: `color ${MOTION.fast}, border-color ${MOTION.fast}`,
       }}
     >
       {label}
@@ -852,6 +979,7 @@ export function FldRow({
   required,
   optional,
   hint,
+  info,
   error,
   htmlFor,
   children,
@@ -864,8 +992,10 @@ export function FldRow({
    * 음성에도 전달된다. hint 로 대신하면 label 바깥 형제가 되어 그 정보가 사라진다.
    */
   optional?: boolean;
-  /** 라벨 우측 11px 도움말 (form fill 안내). */
+  /** 라벨 우측 11px 도움말 (form fill 안내). 짧은 형식 안내(«YYYY-MM-DD» · «최대 10MB»)에만. 설명 문장은 info 로. */
   hint?: ReactNode;
+  /** 칸 ⓘ: 이 칸에 무엇을 넣는지 · 고르면 무엇이 달라지는지(2026-10-08 «설명 글귀는 ⓘ 안으로»). 이름표 옆 InfoDot. */
+  info?: ReactNode;
   /** inline 검증 오류. 비면 정상, 있으면 input 아래 빨강 메시지 표시. */
   error?: string | null;
   /** label htmlFor 연결: 접근성(WCAG 2.1) + 라벨 클릭 시 input 포커스. */
@@ -879,6 +1009,13 @@ export function FldRow({
   // 크기·색·자간이 다르고 컨트롤이 7px 내려앉았다. SSOT 컴포넌트가 «입력에 따라
   // 모습을 바꾸는» 패턴: Tag 가 색으로 tier 를 바꾸던 것과 같은 결함이다.
   // 이제 둘 다 lblStyleFor 를 쓴다. (독립 <Lbl> 사용처는 그대로 유효하다.)
+  //
+  // 오류 · 도움말 글귀의 id: htmlFor(칸 id)가 있을 때만 만들고, 칸에 aria-describedby 로 잇는다
+  // (linkFieldChildren 참조). 도움말 → 오류 순서. htmlFor 가 없으면 이름표도 못 잇는 옛 호출이라
+  // 연결도 하지 않는다.
+  const hintId = htmlFor && hint ? `${htmlFor}-hint` : undefined;
+  const errorId = htmlFor && error ? `${htmlFor}-error` : undefined;
+  const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined;
   const labelNode = (
     <>
       {label}
@@ -888,7 +1025,8 @@ export function FldRow({
         <span
           style={{
             color: T.muted, opacity: 0.6, fontSize: FS[12],
-            letterSpacing: 0.8, textTransform: 'none', marginLeft: S[1],
+            // 고정폭 이름표 안의 한글: 자간 0 · 어절 공백 되돌림을 스스로 건다(이름표가 영어여도) · 화면 검토 A44 · 2026-09-28
+            letterSpacing: 0, wordSpacing: labelWordSpacing('필수 아님'), textTransform: 'none', marginLeft: S[1],
           }}
         >
           필수 아님
@@ -904,16 +1042,58 @@ export function FldRow({
         ) : (
           <span style={lblStyleFor(label)}>{labelNode}</span>
         )}
+        {info && (
+          <InfoDot label={typeof label === 'string' ? `${label} 설명 보기` : '칸 설명 보기'}>{info}</InfoDot>
+        )}
         {hint && (
-          <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
+          <span id={hintId} style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
             {hint}
           </span>
         )}
       </div>
-      {children}
-      {error && <FldError>{error}</FldError>}
+      {linkFieldChildren(children, htmlFor, describedBy, Boolean(error))}
+      {error && <FldError id={errorId}>{error}</FldError>}
     </div>
   );
+}
+
+/**
+ * 오류 · 도움말 글귀를 칸에 «연결» 한다 (WCAG 3.3.1 · 1.3.1 · 2026-10-08).
+ *
+ * 오류 글귀에 role="alert" 만 있으면 글귀가 «나타날 때» 한 번 읽히고 끝이다. 낭독기로 칸에
+ * 초점을 다시 줄 때 오류를 들으려면 칸 쪽에 aria-describedby 가 있어야 하는데, 호출부 556곳
+ * 어디에도 없었다. Field 는 칸의 id(htmlFor)를 이미 아니, 자식 가운데 id 가 같은 칸을 찾아
+ * 속성을 끼워 넣는다. 호출부는 손댈 것이 없다.
+ *
+ * · 끼워 넣는 대상: 날것 요소(input · select · textarea …)와 공용 In · Sel · Txt 뿐.
+ *   다른 부품(DatePicker 류)은 그 안으로 더 내려가 보기만 하고, 부품 자체에는 붙이지 않는다
+ *   (알 수 없는 속성이 그 부품의 DOM 에 닿는다는 보장이 없다).
+ * · 세 겹까지만 내려간다. 칸이 더 깊이 숨어 있는 호출은 직접 'aria-describedby' 를 주면 된다.
+ * · 호출부가 이미 준 aria-describedby 는 앞에 그대로 두고 뒤에 잇는다.
+ * · 오류도 도움말도 없으면 아무것도 하지 않는다(결과 markup 이 종전과 같다).
+ */
+function linkFieldChildren(children: ReactNode, id: string | undefined, describedBy: string | undefined, invalid: boolean): ReactNode {
+  if (!id || !describedBy) return children;
+  const visit = (node: ReactNode, depth: number): ReactNode => {
+    if (depth > 3 || !isValidElement(node)) return node;
+    const el = node as ReactElement<Record<string, unknown>>;
+    const props = el.props;
+    const isField = props.id === id && (typeof el.type === 'string' || el.type === In || el.type === Sel || el.type === Txt);
+    if (isField) {
+      const prev = typeof props['aria-describedby'] === 'string' ? (props['aria-describedby'] as string) : '';
+      const merged = prev ? `${prev} ${describedBy}` : describedBy;
+      const extra: Record<string, unknown> = { 'aria-describedby': merged };
+      if (invalid) {
+        if (typeof el.type === 'string') extra['aria-invalid'] = true;
+        else extra.invalid = true;
+      }
+      return cloneElement(el, extra);
+    }
+    if (props.children === undefined || props.children === null) return node;
+    const next = Children.map(props.children as ReactNode, (c) => visit(c, depth + 1));
+    return cloneElement(el, undefined, ...(Array.isArray(next) ? next : [next]));
+  };
+  return Children.map(children, (c) => visit(c, 0));
 }
 
 /**
@@ -927,6 +1107,7 @@ export function Field({
   required,
   optional,
   hint,
+  info,
   error,
   children,
 }: {
@@ -937,11 +1118,13 @@ export function Field({
   /** 「선택」 표시: label 안에 렌더돼 스크린리더가 함께 읽는다. FldRow 참조. */
   optional?: boolean;
   hint?: ReactNode;
+  /** 칸 ⓘ. FldRow 참조. */
+  info?: ReactNode;
   error?: string | null;
   children: ReactNode;
 }) {
   return (
-    <FldRow label={label} required={required} optional={optional} hint={hint} error={error} htmlFor={id}>
+    <FldRow label={label} required={required} optional={optional} hint={hint} info={info} error={error} htmlFor={id}>
       {children}
     </FldRow>
   );
@@ -1160,9 +1343,10 @@ function lblStyleFor(label: ReactNode): CSSProperties {
  * Inline 검증 오류 메시지: slide-down + fade-in. luxury 톤 (작은 폰트 + red).
  * FldRow 에 error prop 주거나, 독립 사용 가능.
  */
-export function FldError({ children }: { children: ReactNode }) {
+export function FldError({ children, id }: { children: ReactNode; id?: string }) {
   return (
     <div
+      id={id}
       role="alert"
       style={{
         // L3: 10.5 는 너무 작음. 11.5 로 올려 모바일에서도 가독성 확보.
@@ -1498,8 +1682,10 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
       </div>
       {onClose && (
         <button
-          // 🔴 type 이 없으면 <form> 안에서 «제출» 단추가 된다. 로그인 양식의 오류를 닫으려고 누르면
-          //    로그인을 다시 보냈다(빈 칸이면 브라우저의 «입력란을 작성하세요» 가 떴다 · 2026-09-28).
+          // type 이 없으면 <form> 안에서 «제출» 단추다(로그인 양식의 오류 알림이 그 자리). 지금은 누르는 순간
+          // 알림이 먼저 지워져 단추가 양식을 벗어나므로 제출까지 가지 않는다(2026-09-28 운영 옛 판에서 마우스 ·
+          // Enter · Space · 칸을 채운 채로 재어 제출 시도 0). 닫기가 늦게 지워지는 방식으로 바뀌면 로그인을
+          // 다시 보내게 되므로 미리 못 박아 둔다.
           type="button"
           onClick={onClose}
           aria-label="닫기"
@@ -1741,20 +1927,16 @@ function Spinner() {
 }
 
 // ─── EMPTY STATE ─────────────────────────────────────────────────────────────
-// 럭셔리 톤: 넉넉한 여백 (96px) + 큰 thin 아이콘 (48px, champagne alpha 0.4) + 절제된 타이포.
-// compact 모드는 사이드 패널 등 좁은 영역용 (32px 패딩, 16px 타이틀 유지).
-//
-// 2026-05 폴리시: 배경에 ribbon 글로우 + 절제된 grid 패턴 → 편집 톤 강화.
+// 넉넉한 여백(96px) + 제목 · 설명 · 다음 할 일. compact 모드는 사이드 패널 등 좁은 영역용(32px 패딩).
+// 큰 장식 글리프(✦ 등)와 배경 번짐 빛은 걷었다: 장식보다 읽힘 (화면 검토 A38 · A76 · 2026-09-28).
 // hints: 사용자가 다음에 할 행동 1-3개 chip: 신규/빈 화면에서 navigation hint.
 export function EmptyState({
-  icon,
   title,
   description,
   action,
   hints,
   compact,
 }: {
-  icon?: string;
   title: string;
   description?: string;
   action?: ReactNode;
@@ -1771,36 +1953,7 @@ export function EmptyState({
         overflow: 'hidden',
       }}
     >
-      {/* 배경 ribbon glow: 좌상 → 우하 champagne gradient. compact 시 생략. */}
-      {!compact && (
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `radial-gradient(ellipse 60% 50% at 50% 0%, ${alpha(T.champagne, 0.04)} 0%, transparent 70%)`,
-            pointerEvents: 'none',
-          }}
-        />
-      )}
-
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {icon && (
-          <div
-            style={{
-              // 럭셔리 디스플레이: 더 큰 글리프 + 옅은 champagne (보석 톤).
-              fontSize: compact ? 32 : 56,
-              color: alpha(T.champagne, 0.45),
-              marginBottom: compact ? 16 : 20,
-              fontFamily: F.serif,
-              fontWeight: 300,
-              lineHeight: LH.none,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            {icon}
-          </div>
-        )}
         <div
           style={{
             fontFamily: F.serif, fontWeight: 700,
@@ -2017,14 +2170,14 @@ export function KPI({
   tooltip?: ReactNode;
 }) {
   const [hover, setHover] = useState(false);
-  const { novice } = useNoviceMode(); // 초보자 모드 OFF 면 지표 옆 ⓘ 와 설명 팝업을 숨긴다
   const [tapOpen, setTapOpen] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
   const [tooltipRect, setTooltipRect] = useState<DOMRect | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const tooltipId = useId();
   const accent = color ?? T.subtle;
-  const interactive = Boolean(tooltip) && novice;
+  // 2026-10-08: 지표 옆 ⓘ 도 초보자 모드와 상관없이 늘 보인다(오너 결정)
+  const interactive = Boolean(tooltip);
   const isOpen = interactive && (hover || tapOpen);
 
   // 팝업 열릴 때 카드 위치 계산: portal 렌더 좌표 기준
@@ -2145,7 +2298,7 @@ export function KPI({
           }}
         >
           {label}
-          {tooltip && novice && (
+          {tooltip && (
             <span
               aria-hidden="true"
               style={{ fontSize: FS[12], color: T.muted, opacity: 0.6 }}
@@ -2195,7 +2348,7 @@ export function KPI({
         </div>
       </Bx>
       {/* 팝업: portal로 body에 직접 렌더해 위젯 stacking context 겹침 방지 */}
-      {tooltip && novice && isOpen && tooltipRect && typeof document !== 'undefined' && createPortal(
+      {tooltip && isOpen && tooltipRect && typeof document !== 'undefined' && createPortal(
         <div
           id={tooltipId}
           role="tooltip"
@@ -2392,6 +2545,192 @@ export function infoPopoverStyle(opts?: {
   };
 }
 
+// ─── INFO DOT: 칸 · 구역 · 지표 옆 ⓘ ───────────────────────────────────────────
+/*
+ * 2026-10-08 오너 결정 «설명 글귀는 ⓘ 안으로»: 화면에 깔려 있던 사용법 문장(«~하십시오» · «~됩니다»)을 세 층의 ⓘ 로
+ * 옮긴다. 화면 머리 ⓘ(PageGuide) · 구역 제목 ⓘ(SectionTitleInfo) · 칸 ⓘ(FldRow info=). 셋 다 이 손잡이 하나와
+ * infoPopoverStyle 팝업 하나를 쓴다. 화면에 그대로 남는 글은 네 가지뿐이다: 오류 · 경고(Alert) · 빈 화면 한 줄
+ * (EmptyState) · 다음 할 일 한 줄(NextStep) · 법규 문구(LegalNote). 가드는 lib/design/explanation-text-contract.test.ts.
+ *
+ * 🔑 ⓘ 는 초보자 모드와 상관없이 늘 보인다(같은 날 결정 3). 초보자 모드는 화면 머리 안내가 처음부터 펼쳐져 있는지만 정한다.
+ *   · 마우스를 올리면 열리고(hover 가 되는 기기에서만) 내리면 닫힌다. 누르면 고정되고, 다시 누르거나 바깥을 누르거나
+ *     Esc 로 풀린다. 폰은 올릴 수 없으므로 누르는 것이 전부다.
+ *   · label 은 낭독기용 이름(«대상 제품 설명 보기»). 팝업은 role=tooltip · aria-controls 로 묶는다.
+ *   · <label> 안에 두지 않는다(단추는 label 의 자식이 될 수 없다). FldRow 는 이름표 옆 형제로 둔다.
+ */
+export function InfoDot({
+  label,
+  children,
+  align = 'left',
+  width,
+}: {
+  /** 낭독기용 이름. 예: «대상 제품 설명 보기» */
+  label: string;
+  /** 팝업 안에 보일 설명 */
+  children: ReactNode;
+  /** 오른쪽 끝 칸이면 right: 팝업이 화면 밖으로 나가지 않게 */
+  align?: 'left' | 'right';
+  width?: number | string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [pinned, setPinned] = useState(false);
+  const rootRef = useRef<HTMLSpanElement | null>(null);
+  const leaveTimer = useRef<number | null>(null);
+  const popId = useId();
+
+  useEffect(() => {
+    if (!pinned) return;
+    const onOutside = (e: PointerEvent) => {
+      if (rootRef.current && e.target instanceof Node && !rootRef.current.contains(e.target)) {
+        setPinned(false);
+        setOpen(false);
+      }
+    };
+    const onKey = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setPinned(false);
+        setOpen(false);
+      }
+    };
+    document.addEventListener('pointerdown', onOutside);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onOutside);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [pinned]);
+
+  const canHover = () => typeof window !== 'undefined' && !!window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+  // 폰처럼 좁은 화면에서 팝업이 오른쪽 밖으로 나가지 않게: 열릴 때 ⓘ 의 자리를 재어 폭과 왼쪽 밀림을 정한다
+  // (2026-10-08 폰 412px 촬영에서 360px 팝업이 잘려 나갔다). 여백은 양쪽 16px.
+  const [fit, setFit] = useState<{ width: number | string; shift: number }>({ width: width ?? 360, shift: 0 });
+  useEffect(() => {
+    if (!open || !rootRef.current || typeof window === 'undefined') return;
+    const gutter = 16;
+    const vw = window.innerWidth;
+    const want = typeof width === 'number' ? width : 360;
+    const w = Math.min(want, vw - gutter * 2);
+    const rect = rootRef.current.getBoundingClientRect();
+    let shift = 0;
+    if (align === 'left') {
+      const overflow = rect.left + w - (vw - gutter);
+      if (overflow > 0) shift = -overflow;
+    } else {
+      // right 정렬은 왼쪽으로 삐져나올 수 있다. right 값을 음수로 주면 팝업이 오른쪽으로 밀린다
+      const overflow = gutter - (rect.right - w);
+      if (overflow > 0) shift = -overflow;
+    }
+    setFit({ width: typeof width === 'string' ? width : w, shift });
+  }, [open, width, align]);
+
+  return (
+    <span
+      ref={rootRef}
+      style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', verticalAlign: 'middle' }}
+      onMouseEnter={() => {
+        if (!canHover()) return;
+        if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
+        setOpen(true);
+      }}
+      onMouseLeave={() => {
+        if (!canHover() || pinned) return;
+        leaveTimer.current = window.setTimeout(() => setOpen(false), 120);
+      }}
+    >
+      <button
+        type="button"
+        aria-label={label}
+        aria-expanded={open}
+        aria-controls={open ? popId : undefined}
+        className="qa-touch-hit"
+        onClick={(e) => {
+          e.stopPropagation();
+          if (pinned) {
+            setPinned(false);
+            setOpen(false);
+          } else {
+            setPinned(true);
+            setOpen(true);
+          }
+        }}
+        onFocus={() => setOpen(true)}
+        onBlur={() => {
+          if (!pinned) setOpen(false);
+        }}
+        style={{
+          display: 'inline-grid',
+          placeItems: 'center',
+          width: 22,
+          height: 22,
+          margin: -3,
+          padding: 0,
+          borderRadius: '50%',
+          border: 'none',
+          background: 'transparent',
+          color: open ? T.champagne : T.muted,
+          fontFamily: F.ui,
+          fontSize: FS[13],
+          fontWeight: 400,
+          lineHeight: 1,
+          letterSpacing: 0,
+          cursor: 'help',
+          transition: 'color 150ms ease',
+        }}
+      >
+        ⓘ
+      </button>
+      {open && (
+        <span
+          id={popId}
+          role="tooltip"
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            ...infoPopoverStyle({ width: fit.width }),
+            position: 'absolute',
+            top: '100%',
+            ...(align === 'right' ? { right: fit.shift } : { left: fit.shift }),
+            marginTop: S[1.5],
+            zIndex: 50,
+            display: 'block',
+            fontFamily: F.ui,
+            fontSize: FS[12],
+            fontWeight: 400,
+            color: T.subtle,
+            lineHeight: LH.loose,
+            letterSpacing: 0,
+            wordSpacing: 0,
+            textAlign: 'left',
+            whiteSpace: 'normal',
+            cursor: 'auto',
+          }}
+        >
+          {children}
+        </span>
+      )}
+    </span>
+  );
+}
+
+/** 화면에 남는 글 ②: «다음 할 일 한 줄». 앞에 → 를 붙여 안내임을 드러낸다(2026-10-08 오너 결정 2). */
+export function NextStep({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+  return (
+    <p style={{ margin: 0, fontFamily: F.ui, fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, ...style }}>
+      <span aria-hidden style={{ color: T.champagne, marginRight: S[1] }}>→</span>
+      {children}
+    </p>
+  );
+}
+
+/** 화면에 남는 글 ④: 법규 문구(서명 동의문 · 고지). 글자 그대로 보여야 하는 것이라 ⓘ 로 접지 않는다. */
+export function LegalNote({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+  return (
+    <p style={{ margin: 0, fontFamily: F.ui, fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, ...style }}>
+      {children}
+    </p>
+  );
+}
+
 // ─── SECTION TITLE ───────────────────────────────────────────────────────────
 export function SectionTitle({
   children,
@@ -2434,24 +2773,26 @@ export function SectionTitle({
 // (FinalJudgmentPanel·OpinionForm·PageGuide 의 Section 은 고유 UI: 별개 유지.)
 
 /** 라벨형 섹션: mono uppercase 헤더 + 본문(카드 없이 그룹 구분). [id] 폼 표준. */
-export function Section({ title, children }: { title: ReactNode; children: ReactNode }) {
+export function Section({ title, info, children }: { title: ReactNode; /** 구역 제목 ⓘ(2026-10-08) */ info?: ReactNode; children: ReactNode }) {
   // qa-section-body: 칸과 칸 사이를 띄운다(globals.css). 화면 검토 A81 · 2026-09-27: 간격이 0 이라
   //   이름표가 위 칸과 아래 칸 사이 가운데 떠서 어느 칸의 이름인지 헷갈렸다(공급자 상세 등 [id] 양식).
   return (
     <div className="qa-section-body" style={{ marginBottom: S[6] }}>
-      <div
-        style={{
-          fontFamily: F.mono,
-          fontSize: FS[12],
-          fontWeight: 500,
-          letterSpacing: labelTracking(title, '0.14em'),
-          wordSpacing: labelWordSpacing(title),
-          color: T.champagne,
-          textTransform: labelCase(title),
-          marginBottom: S[3],
-        }}
-      >
-        {title}
+      <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5], marginBottom: S[3] }}>
+        <div
+          style={{
+            fontFamily: F.mono,
+            fontSize: FS[12],
+            fontWeight: 500,
+            letterSpacing: labelTracking(title, '0.14em'),
+            wordSpacing: labelWordSpacing(title),
+            color: T.champagne,
+            textTransform: labelCase(title),
+          }}
+        >
+          {title}
+        </div>
+        {info && <InfoDot label={typeof title === 'string' ? `${title}: 설명 보기` : '구역 설명 보기'}>{info}</InfoDot>}
       </div>
       {children}
     </div>
@@ -2503,30 +2844,10 @@ export function SectionTitleInfo({
   /** 호버 시 팝업으로 보일 설명. 없으면 일반 SectionTitle 과 동일. */
   info?: ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
-  // 초보자 모드 OFF 면 ⓘ 와 팝업 없이 제목만 (설정의 약속 「각 화면·항목 옆에 설명(ⓘ)」 · 2026-09-14 전수 검수)
-  const { novice } = useNoviceMode();
-  if (!info || !novice) return <SectionTitle>{children}</SectionTitle>;
+  // 2026-10-08: ⓘ 는 초보자 모드와 상관없이 늘 보인다(오너 결정). 손잡이 · 팝업은 InfoDot 하나.
+  if (!info) return <SectionTitle>{children}</SectionTitle>;
   return (
-    <div
-      style={{
-        position: 'relative',
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: S[1.5],
-        marginBottom: S[3.5],
-        cursor: 'help',
-      }}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      onClick={() => setOpen((v) => !v)}
-      tabIndex={0}
-      onFocus={() => setOpen(true)}
-      onBlur={() => setOpen(false)}
-      role="button"
-      aria-expanded={open}
-      aria-label={typeof children === 'string' ? `${children}: 설명 보기` : '섹션 설명 보기'}
-    >
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], marginBottom: S[3.5] }}>
       <span
         style={{
           fontSize: FS[12],
@@ -2540,30 +2861,7 @@ export function SectionTitleInfo({
       >
         {children}
       </span>
-      <span aria-hidden style={{ fontSize: FS[12], color: T.muted, opacity: 0.7 }}>
-        ⓘ
-      </span>
-      {open && (
-        <div
-          role="tooltip"
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            ...infoPopoverStyle({ width: 360 }),
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            marginTop: S[1.5],
-            zIndex: 50,
-            fontFamily: F.serif,
-            fontSize: FS[12],
-            color: T.subtle,
-            lineHeight: LH.loose,
-            letterSpacing: 0.2,
-          }}
-        >
-          {info}
-        </div>
-      )}
+      <InfoDot label={typeof children === 'string' ? `${children}: 설명 보기` : '구역 설명 보기'}>{info}</InfoDot>
     </div>
   );
 }
@@ -2845,7 +3143,8 @@ export function DataTable<T>({
     rows.length === 0 ? (
       <div role="row" style={{ padding: '20px 12px' }}>
         {empty ?? (
-          <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
+          // 한글 문장이라 본문 글꼴 (화면 검토 A44 · 2026-09-28)
+          <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
             표시할 항목이 없습니다.
           </span>
         )}

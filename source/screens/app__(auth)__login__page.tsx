@@ -14,11 +14,17 @@ import { translateAuthError } from '@/lib/auth/translate-error';
 import { markPasskeyOffered, passkeyErrorMessage, passkeyOfferedHere, passkeyUsableHere } from '@/lib/auth/passkey';
 import { hasPasskeyForThisDevice } from '@/lib/auth/passkey-register';
 import { PasskeyOffer } from '@/components/PasskeyOffer';
-import { Fingerprint } from 'lucide-react';
+import { detectPhoneApp } from '@/lib/nav/use-phone-app';
+import { PHONE_ADMIN_HOME, PHONE_HOME } from '@/lib/nav/phone-mode';
+import { appLoginNext } from '@/lib/auth/safe-next';
+import { hasRole, ROLE_SELECT } from '@/lib/permissions/has-role';
+import { Globe } from '@/components/q-design-icons/Globe';
+import { Fingerprint } from '@/components/q-design-icons/Fingerprint';
 import { validatePassword, PASSWORD_POLICY_HINT } from '@/lib/auth/password-policy';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
 import { useCoreVersion } from '@/lib/hooks/useCoreVersion';
 import { RibbonBackground } from '@/components/RibbonBackground';
+import { EntranceRibbon } from '@/components/EntranceRibbon';
 
 export default function LoginPage() {
   return (
@@ -69,7 +75,7 @@ function LoginForm() {
 
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState(false);
-  // 'Step inside' 후 골드 입장 트랜지션 오버레이 표시 여부.
+  // 'Step inside' 후 입장 연출(Q 로고가 떠오르며 밝아졌다가 어두워질 때 넘김 · 1.2초) 덮개 표시 여부.
   const [entering, setEntering] = useState(false);
   // 지문 · 얼굴 로그인(패스키 · 오너 결정 2026-09-27): 브라우저 · 주소(qatelier.co.kr) · 운영 인증 서버 설정이
   // 셋 다 맞을 때만 단추를 보인다(lib/auth/passkey.ts). 누르면 실패하는 단추는 두지 않는다.
@@ -85,22 +91,11 @@ function LoginForm() {
       alive = false;
     };
   }, []);
-  // 입장 트랜지션 골드 입자: 위치·크기·속도·드리프트 무작위(마운트 시 1회 고정).
-  // entering 시에만 렌더되므로(초기 SSR 은 false) hydration mismatch 없음.
-  const embers = useMemo(
-    () =>
-      Array.from({ length: 80 }, () => ({
-        left: Math.round(Math.random() * 100),
-        bottom: Math.round(Math.random() * 38),
-        delay: Math.round(Math.random() * 20) / 100,
-        dur: Math.round((1.1 + Math.random() * 0.3) * 100) / 100,
-        size: Math.round((2.5 + Math.random() * 2.5) * 10) / 10,
-        drift: Math.round(Math.random() * 44 - 22),
-      })),
-    [],
-  );
   const [error, setError] = useState<string | null>(initialMessage);
   const [message, setMessage] = useState<string | null>(null);
+  // 무반응 15분 자동 로그아웃으로 왔을 때의 안내(components/SessionIdleMonitor.tsx 가 ?reason=idle 로 보낸다).
+  // 안내 없이 로그인 화면만 뜨면 «왜 튕겼지» 가 된다. 로그인을 시도하면 지운다.
+  const [idleNotice, setIdleNotice] = useState(searchParams.get('reason') === 'idle');
 
   // 조직 매칭 미리보기
   const [orgMatches, setOrgMatches] = useState<OrgMatch[]>([]);
@@ -189,25 +184,47 @@ function LoginForm() {
       consented);
 
   // 로그인 뒤 대시보드로(비밀번호 · 지문 로그인이 함께 쓴다).
-  // 골드 입장 트랜지션: 'Step inside' 후 화면이 샤라랑하며 대시보드로.
+  // 입장 연출: Q 로고가 떠오르며 밝아졌다가, 다시 어두워질 때 대시보드로(1.2초 · 오너 결정 2026-09-30).
   // prefers-reduced-motion 이면 연출 없이 즉시 전환(접근성).
+  // 폰 앱의 첫 화면: 결재함, 운영진이면 운영 홈(오너 2026-09-28 «결재화면이 먼저 뜨고 그 다음에 운영홈으로 넘어가는데
+  // 처음부터 운영홈을»). 방금 로그인한 사람의 직무를 한 번 읽는다. 못 읽으면 결재함으로 가고, 운영진이면 앱 틀의
+  // AdminPhoneLanding 이 옮긴다(그때만 전처럼 결재함이 잠깐 보인다).
+  async function phoneLanding(): Promise<string> {
+    try {
+      const supabase = createClient();
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) return PHONE_HOME;
+      const { data: profile } = await supabase.from('profiles').select(ROLE_SELECT).eq('id', u.user.id).maybeSingle();
+      return hasRole(profile, 'admin') ? PHONE_ADMIN_HOME : PHONE_HOME;
+    } catch {
+      return PHONE_HOME;
+    }
+  }
+
   function enterDashboard() {
+    // 폰 앱은 결재함(운영진은 운영 홈)이 첫 화면이다(앱을 켤 때와 같게 · 2026-09-28). 대시보드를 거치지 않으니
+    // 무거운 대시보드를 그렸다가 넘기는 일이 없다. 직무를 읽는 동안 입장 연출은 그대로 돈다.
+    // 앱이 알림 · 링크로 켜져 로그인부터 열었으면(앱 2.8.0 «닫으면 로그아웃») 가려던 화면으로 간다(앱 안에서만).
+    const appNext = appLoginNext(navigator.userAgent, searchParams.get('next'));
+    const dest = appNext ? Promise.resolve(appNext) : detectPhoneApp() ? phoneLanding() : Promise.resolve(redirectTo);
     const reduceMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) {
-      router.push(redirectTo);
-      router.refresh();
+      void dest.then((to) => {
+        router.push(to);
+        router.refresh();
+      });
       return;
     }
-    // 세션이 생긴 직후 대시보드를 백그라운드 prefetch: 애니메이션이 도는 ~1.15초
-    // 동안 미리 로드되어, push 시 딜레이 없이 즉시 전환된다(애니 끝→홈 사이 빈 시간 제거).
+    // 세션이 생긴 직후 대시보드를 백그라운드 prefetch: 연출이 도는 1.2초 동안 미리 불러 두어
+    // push 뒤의 빈 시간을 줄인다.
     // (refresh 중복 호출 제거: 새 라우트 push 가 이미 인증 쿠키로 서버 렌더한다.)
-    router.prefetch(redirectTo);
+    void dest.then((to) => router.prefetch(to));
     setEntering(true);
     window.setTimeout(() => {
-      router.push(redirectTo);
-    }, 1150);
+      void dest.then((to) => router.push(to));
+    }, 1200);
   }
 
   // 지문 · 얼굴 로그인. 브라우저가 이 기기의 패스키를 고르게 하고(이메일을 먼저 묻지 않는다) 세션을 만든다.
@@ -215,6 +232,7 @@ function LoginForm() {
     setLoading(true);
     setError(null);
     setMessage(null);
+    setIdleNotice(false);
     const supabase = createClient();
     try {
       const { error: passkeyError } = await supabase.auth.signInWithPasskey();
@@ -238,6 +256,7 @@ function LoginForm() {
     setLoading(true);
     setError(null);
     setMessage(null);
+    setIdleNotice(false);
 
     const supabase = createClient();
 
@@ -399,29 +418,24 @@ function LoginForm() {
         overflow: 'clip',
       }}
     >
-      {/* 골드 입장 트랜지션: 로그인 성공 시 화면을 덮으며 대시보드로 전환 (①셔머+③입자 하이브리드) */}
+      {/* 입장 연출: 로그인 성공 시 화면을 덮고, Q 로고가 은은하게 떠올라 한 번 밝아졌다가 대시보드로.
+          2026-09-30 오너 결정: 6월의 금빛 빛줄기 · 금가루 80개 · 큰 광채(1.15초)를 걷었다. «현혹보다 깔끔하게»
+          (09-27) 결에 안 맞고, 라이트에선 광채가 갈색 얼룩처럼 보였다. 같은 날 한 번 «로고 76 · 0.5초» 로
+          줄였다가 «로고가 작고 너무 빨리 스쳐 인상이 안 남는다 · 은은하게 떠서 한 번 은은하게 밝아졌다가
+          넘어가는 형태» (오너)로 다시 잡았다. 이어 «빛은 은색 · 로고가 뜰 때부터 밝아지다가 다시 어두워질 때
+          다음 화면으로 · 밝기 폭은 더 넓게» (오너)로 한 호흡이 되었다: 뜨면서 밝아짐 → 가장 밝음(0.7초) →
+          어두워지는 도중(1.2초)에 넘김. 빛은 앱 아이콘의 은색(Q-Design tools/app-icons.mjs silver).
+          같은 날 둥근 빛무리를 «물결에 빛이 맺히는» 번짐으로 바꿨다(오너 «은빛 번짐이 무작위처럼 · 우리 물결에
+          빛번짐이 발생하는 것처럼» · 시안 둘 중 «나» · «잘 안 보인다» 로 세게). 이어 «로고보다 눈에 띄니 은은하게 ·
+          반짝이 말고 물결이 흘러가게» (오너)로 흐르게 했으나 «곧은 곡선이 인위적» 이라, 코덱스 시안 셋 · 방식 둘을
+          움직여 비교한 뒤 «비단 리본 · 모양이 출렁» 으로 정했다(components/EntranceRibbon.tsx). */}
       {entering && (
         <div className="qa-entrance" aria-hidden>
-          <div className="qa-entrance-glow" />
-          <div className="qa-entrance-sweep" />
-          {embers.map((e, i) => (
-            <span
-              key={i}
-              className="qa-entrance-ember"
-              style={{
-                left: `${e.left}%`,
-                bottom: `${e.bottom}%`,
-                width: `${e.size}px`,
-                height: `${e.size}px`,
-                animationDelay: `${e.delay}s`,
-                animationDuration: `${e.dur}s`,
-                '--drift': `${e.drift}px`,
-              } as React.CSSProperties}
-            />
-          ))}
+          <EntranceRibbon className="qa-entrance-ribbon" />
           <div className="qa-entrance-mark">
-            <span className="qa-entrance-halo" />
-            <Logo size={76} />
+            <span className="qa-entrance-shine">
+              <Logo size={120} />
+            </span>
           </div>
         </div>
       )}
@@ -732,6 +746,13 @@ function LoginForm() {
                   <div style={{ marginTop: S[4.5] }}>
                     <Alert kind="error" onClose={() => setError(null)}>
                       {error}
+                    </Alert>
+                  </div>
+                )}
+                {idleNotice && !error && (
+                  <div style={{ marginTop: S[4.5] }}>
+                    <Alert kind="info" onClose={() => setIdleNotice(false)}>
+                      15분 동안 사용하지 않아 자동으로 로그아웃되었습니다. 다시 로그인해 주십시오.
                     </Alert>
                   </div>
                 )}
@@ -1204,140 +1225,144 @@ const layoutCss = `
   margin-top: 3px;
 }
 
-/* ── 골드 입장 트랜지션 (로그인 성공 → 대시보드 입장) ──────── */
+/* ── 입장 연출 (로그인 성공 → 대시보드) ──────── */
+/* 한 호흡(오너 2026-09-30): 로고가 뜨는 순간부터 밝아지기 시작해 가장 밝은 때(약 0.7초)를 지나
+   다시 어두워지고, 어두워지는 도중(1.2초 · enterDashboard)에 다음 화면으로 넘어간다.
+   빛은 은색이다(앱 아이콘 금속 색 · Q-Design tools/app-icons.mjs 의 silver #f4f4f4 · #b9b9b9 · #6d6d6d).
+   밝기 폭은 넓게: 로고 밝기 0.5 → 1.7 → 0.7, 은빛 번짐은 가장 밝을 때만.
+   라이트 바탕(검은 Q)은 오너 결정(2026-09-30 «검은 Q 에 검은 빛 · 로고 색과 같은 느낌으로 주변 번짐»):
+   빛 대신 먹빛 번짐이 같은 박자로 한 번 짙어졌다 걷힌다. 로고 밝기도 거꾸로(옅게 → 가장 진하게 → 옅게).
+   은빛을 짙은 은회색으로 깔았던 판은 빛이 아니라 회색 그림자로 읽혔다(오너 «빛이 검은색인가»). */
 .qa-entrance {
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  overflow: hidden;
   background: var(--qa-bg);
-  animation: qa-entrance-veil 1400ms ease forwards;
+  animation: qa-entrance-veil 1700ms ease forwards;
+  --qa-entrance-silver: #f4f4f4;
 }
-/* 전체 오버레이: 등장 후 콘텐츠 유지, 마지막에 은은하게 fade out 하며 홈으로 진입 */
+html[data-theme='light'] .qa-entrance {
+  --qa-entrance-silver: #111111;
+}
+html[data-theme='light'] .qa-entrance-shine {
+  animation-name: qa-entrance-shine-ink;
+}
 @keyframes qa-entrance-veil {
   0% { opacity: 0; }
-  11% { opacity: 1; }
-  82% { opacity: 1; }
+  6% { opacity: 1; }
+  72% { opacity: 1; }
   100% { opacity: 0; }
 }
 
-/* 중앙 골드 광채: 더 진하게·빠르게 부풀어 오름 */
-.qa-entrance-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 64% 54% at 50% 50%, color-mix(in oklab, var(--qa-champagne) 44%, transparent), transparent 70%);
-  opacity: 0;
-  animation: qa-glow-pulse 1150ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-@keyframes qa-glow-pulse {
-  0% { opacity: 0; transform: scale(0.84); }
-  45% { opacity: 1; }
-  100% { opacity: 0.72; transform: scale(1.14); }
-}
-
-/* ① 골드 빛줄기: 화면을 한 번 빠르게 쓸고 지나감 (더 진하게) */
-.qa-entrance-sweep {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 46%;
-  background: linear-gradient(100deg, transparent, color-mix(in oklab, var(--qa-champagne) 82%, white), transparent);
-  opacity: 0;
-  transform: translateX(-150%) skewX(-14deg);
-  animation: qa-entrance-sweep 1100ms ease 0.08s both;
-}
-@keyframes qa-entrance-sweep {
-  0% { transform: translateX(-150%) skewX(-14deg); opacity: 0; }
-  18% { opacity: 0.95; }
-  100% { transform: translateX(330%) skewX(-14deg); opacity: 0; }
-}
-
-/* ③ 골드 입자: 무작위 위치·속도로 떠오르며 깜빡깜빡 반짝(twinkle).
-   크기·bottom·delay·duration·drift 는 각 입자 inline 무작위값. */
-.qa-entrance-ember {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--qa-champagne);
-  box-shadow: 0 0 5px color-mix(in oklab, var(--qa-champagne) 45%, transparent);
-  opacity: 0;
-  animation-name: qa-entrance-ember;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
-}
-@keyframes qa-entrance-ember {
-  0% { opacity: 0; transform: translate(0, 16px) scale(0.5); }
-  12% { opacity: 0.66; }
-  26% { opacity: 0.18; }
-  40% { opacity: 0.7; }
-  56% { opacity: 0.26; }
-  72% { opacity: 0.6; }
-  88% { opacity: 0.26; }
-  100% { opacity: 0; transform: translate(var(--drift, 0px), -210px) scale(1.1); }
-}
-
-/* 중앙 로고: glow halo 와 함께 또렷하게 등장해 끝까지 유지 */
 .qa-entrance-mark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  animation: qa-entrance-mark 1150ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  filter:
-    drop-shadow(0 0 30px color-mix(in oklab, var(--qa-champagne) 60%, transparent))
-    drop-shadow(0 0 64px color-mix(in oklab, var(--qa-champagne) 32%, transparent));
+  animation: qa-entrance-mark 600ms cubic-bezier(0.22, 1, 0.36, 1) 60ms both;
 }
 @keyframes qa-entrance-mark {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  40% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0% { opacity: 0; transform: translate(-50%, calc(-50% + 10px)); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
 }
 
-/* 로고 뒤 골드 빛무리: 로고를 감싸는 큰 halo */
-.qa-entrance-halo {
+/* 밝아짐 → 가장 밝음 → 어두워짐. 넘김(1.2초)은 어두워지는 도중이다 */
+.qa-entrance-shine {
+  position: relative;
+  display: block;
+  animation: qa-entrance-shine 1500ms ease-in-out 60ms both;
+}
+@keyframes qa-entrance-shine {
+  0%   { filter: brightness(0.5) drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent); }
+  45%  { filter: brightness(1.7)
+                 drop-shadow(0 0 18px color-mix(in oklab, var(--qa-entrance-silver) 85%, transparent))
+                 drop-shadow(0 0 62px color-mix(in oklab, var(--qa-entrance-silver) 45%, transparent)); }
+  100% { filter: brightness(0.7) drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent); }
+}
+
+/* 라이트: 먹빛. 밝기를 거꾸로 써서 가장 진할 때 번짐이 함께 깔린다 */
+@keyframes qa-entrance-shine-ink {
+  0%   { filter: brightness(1.8) drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent); }
+  45%  { filter: brightness(0.75)
+                 drop-shadow(0 0 16px color-mix(in oklab, var(--qa-entrance-silver) 45%, transparent))
+                 drop-shadow(0 0 54px color-mix(in oklab, var(--qa-entrance-silver) 22%, transparent)); }
+  100% { filter: brightness(1.4) drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent); }
+}
+
+/* 비단 리본(components/EntranceRibbon.tsx): 스며들어 보이는 동안 리본 모양이 출렁이며 흐른다(SMIL 1.7초).
+   세기는 로고보다 한 단 아래(오너 09-30 «로고보다 눈에 띈다 · 은은하게»). 밝은 화면은 먹빛을 아주 옅게. */
+.qa-entrance {
+  --qa-rb-face: #b9b9b9; --qa-rb-fold: #f4f4f4;
+  --qa-rb-body: 0.34; --qa-rb-fold-a: 0.17; --qa-rb-bloom: 0.08;
+}
+html[data-theme='light'] .qa-entrance {
+  --qa-rb-face: #111111; --qa-rb-fold: #111111;
+  --qa-rb-body: 0.12; --qa-rb-fold-a: 0.07; --qa-rb-bloom: 0.04;
+}
+.qa-entrance-ribbon {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in oklab, var(--qa-champagne) 40%, transparent), transparent 64%);
-  pointer-events: none;
-  z-index: -1;
+  inset: 0;
+  animation: qa-entrance-ribbon 1700ms linear both;
+}
+.qa-entrance-ribbon svg { display: block; width: 100%; height: 100%; }
+/* 세로 화면(폰 · 아이패드 세로): 가로 그대로면 리본이 작아 로고 뒤에 끼어 보였다(375×812 실측).
+   오너 선택(09-30 · 세 가지 중 «비스듬히 세움»): 왼쪽 아래에서 오른쪽 위로 세워 긴 화면을 채운다. */
+@media (orientation: portrait) {
+  .qa-entrance-ribbon svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 118vh;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    transform: translate(-50%, -50%) rotate(-62deg);
+  }
+}
+@keyframes qa-entrance-ribbon {
+  0% { opacity: 0; }
+  16% { opacity: 0.75; }
+  35%, 100% { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .qa-entrance,
-  .qa-entrance-glow,
-  .qa-entrance-sweep,
-  .qa-entrance-ember,
-  .qa-entrance-mark { animation: none !important; }
+  .qa-entrance-mark,
+  .qa-entrance-shine,
+  .qa-entrance-ribbon { animation: none !important; }
+  /* SMIL 은 CSS 로 안 멈춘다. 리본은 통째로 숨긴다 */
+  .qa-entrance-ribbon { display: none; }
 }
 `;
 
 // ─── KST Clock (좌상단, 갱신: 1분 간격) ───────────────────────────────────
 function KstClock() {
-  const [now, setNow] = useState<Date>(() => new Date());
+  // 서버가 그린 시각과 브라우저가 처음 그리는 시각이 분 경계에서 어긋나 하이드레이션
+  // 오류가 났다. 첫 렌더는 자리표시로 맞추고, 마운트된 뒤에 시각을 채운다.
+  const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
+    setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(id);
   }, []);
-  const datePart = now.toLocaleDateString('ko-KR', {
-    timeZone: 'Asia/Seoul',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    weekday: 'short',
-  });
-  const timePart = now.toLocaleTimeString('ko-KR', {
-    timeZone: 'Asia/Seoul',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  });
+  const datePart = now
+    ? now.toLocaleDateString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'short',
+      })
+    : '----. --. --.';
+  const timePart = now
+    ? now.toLocaleTimeString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      })
+    : '--:--';
   return (
     <div
       style={{
@@ -1399,10 +1424,7 @@ function SocialLinks() {
       href: 'https://www.medqraft.co.kr',
       label: 'MedQraft 공식 홈페이지',
       icon: (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" />
-        </svg>
+        <Globe size={16} />
       ),
     },
   ];
@@ -1677,6 +1699,7 @@ function TabBtn({
   return (
     <button
       type="button"
+      className="qa-touch-44"
       onClick={onClick}
       style={{
         flex: 1,

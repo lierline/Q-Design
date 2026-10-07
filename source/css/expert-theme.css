@@ -579,70 +579,69 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
 /* =============================================================================
    Buttons
    ============================================================================= */
+/* 주 단추는 앱과 같은 한 모양: 글자 색 면 + 바탕색 글자 (오너 결정 · 화면 검토 A11 · 2026-09-28).
+   `--cream` 이 글자 색, `--ink` 가 바탕색이라 밝은 판에서는 먹색 면, 어두운 판에서는 상아 면이 된다.
+   이름(btn-gold)은 쓰는 곳이 많아 그대로 둔다. 금색 면 · 넓은 자간 · 대문자는 걷었다. */
 .expert-portal-root .btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 16px 32px;
-  background: var(--champagne);
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--sans);
   font-size: var(--fs-ui);
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
   transition: background 240ms var(--ease), transform 100ms var(--ease);
   min-height: 48px;
 }
-.expert-portal-root .btn-gold:hover { background: var(--champagne-bright); }
+.expert-portal-root .btn-gold:hover { background: var(--cream-muted); }
 .expert-portal-root .btn-gold:active { transform: translateY(1px); }
 .expert-portal-root .btn-gold:focus-visible {
-  /* WCAG 2.4.7: 키보드 포커스 가시화. champagne 자체가 배경이라
-     이중 outline (ink offset + champagne ring) 으로 dark theme 에서도 또렷이 보임. */
-  outline: 2px solid var(--champagne-bright);
+  /* WCAG 2.4.7: 면 색과 같은 테 한 줄을 바탕색 틈을 두고 두른다. */
+  outline: 2px solid var(--cream);
   outline-offset: 3px;
-  box-shadow: 0 0 0 1px var(--ink), 0 0 0 4px var(--champagne-bright);
 }
 .expert-portal-root .btn-gold:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  background: var(--champagne);
+  background: var(--cream);
   transform: none;
 }
 
+/* 보조 동작은 상자가 아니라 글귀 (화면 검토 A11 · 2026-09-28) */
 .expert-portal-root .btn-ghost:focus-visible {
-  outline: 2px solid var(--champagne);
+  outline: 2px solid var(--cream);
   outline-offset: 2px;
-  border-color: var(--champagne);
-  color: var(--champagne);
+  color: var(--cream);
 }
 
 .expert-portal-root .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background: transparent;
-  color: var(--cream);
+  padding: 14px 4px;
+  background: none;
+  color: var(--mist);
   font-family: var(--sans);
   font-size: var(--fs-ui);
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius);
+  letter-spacing: 0.02em;
+  border: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline-strong);
+  text-underline-offset: 4px;
   cursor: pointer;
-  transition: border-color 240ms var(--ease), color 240ms var(--ease);
+  transition: color 240ms var(--ease);
   min-height: 48px;
 }
 .expert-portal-root .btn-ghost:hover {
-  border-color: var(--champagne);
-  color: var(--champagne);
+  color: var(--cream);
 }
 
 .expert-portal-root .link-gold {
@@ -1511,21 +1510,21 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   outline: none;
 }
 
-/* Luxe submit: 박스 없이 가로 full + champagne hairline border + 호버 fill */
+/* Luxe submit: 가로 full. 면은 포털 주 단추(btn-gold)와 같은 한 모양
+   (글자 색 면 + 바탕색 글자 · 오너 결정 · 화면 검토 A11 · 2026-09-28). 테두리만인 단추 · 모노 · 넓은 자간은 걷었다. */
 .expert-portal-root .luxe-submit {
   width: 100%;
-  padding: 22px 32px;
-  background: transparent;
-  border: 1px solid var(--champagne);
-  color: var(--champagne);
-  font-family: var(--mono);
-  font-size: var(--fs-label);
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  padding: 20px 32px;
+  background: var(--cream);
+  border: 1px solid var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
   border-radius: var(--radius);
-  transition: background 320ms var(--ease), color 320ms var(--ease), letter-spacing 320ms var(--ease);
+  transition: background 320ms var(--ease), border-color 320ms var(--ease);
   opacity: 0;
   transform: translateY(8px);
   animation: qa-luxe-fadeup 1s var(--ease) 1.2s forwards;
@@ -1534,20 +1533,18 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   margin-top: 16px;
 }
 .expert-portal-root .luxe-submit:hover {
-  background: var(--champagne);
-  color: var(--ink);
-  letter-spacing: 0.36em;
+  background: var(--cream-muted);
+  border-color: var(--cream-muted);
 }
 .expert-portal-root .luxe-submit:focus-visible {
-  outline: 2px solid var(--champagne-bright);
+  outline: 2px solid var(--cream);
   outline-offset: 4px;
 }
 .expert-portal-root .luxe-submit:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  background: transparent;
-  color: var(--champagne);
-  letter-spacing: 0.32em;
+  background: var(--cream);
+  color: var(--ink);
 }
 .expert-portal-root .luxe-submit .luxe-submit-spinner {
   display: inline-block;

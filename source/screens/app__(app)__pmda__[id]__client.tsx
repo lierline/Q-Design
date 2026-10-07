@@ -8,6 +8,7 @@ import { useToast } from '@/components/Toast';
 import { Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard, Tag } from '@/lib/design/components';
 import { DocumentArtifactPanel } from '@/components/DocumentArtifactPanel';
 import { S, FS, F, T, alpha, RADIUS, LAYOUT } from '@/lib/design/tokens';
+import { SubmissionSectionChecklist } from '@/components/SubmissionSectionChecklist';
 import {
   PMDA_CLASS_LABEL,
   PMDA_CLASS_HINT,
@@ -17,7 +18,6 @@ import {
   MAH_TYPE_LABEL,
   PMDA_STATUS_LABEL,
   PMDA_STATUS_FLOW,
-  SECTION_STATUS_META,
   SECTION_STATUS_CYCLE,
   pmdaSectionProgress,
   type PmdaClass,
@@ -30,6 +30,8 @@ import { ListBackLink } from '@/components/ListBackLink';
 import { ChoiceCheck, choiceLook } from '@/lib/design/segmented-choice';
 import { ProductLinkField } from '@/components/ProductPickField';
 import { EMPTY_ORG_PRODUCTS, type OrgProductList } from '@/lib/products/org-products';
+import { StatusChangeSection } from '@/components/StatusChangeSection';
+import { LOCKED_STATUSES } from '@/lib/api/locked-statuses';
 
 export interface PmdaFull {
   id: string;
@@ -85,7 +87,9 @@ export function PmdaDetailClient({
   const [saving, setSaving] = useState(false);
 
   // 철회(withdrawn)된 건만 편집 잠금. 인증·승인(approved) 후엔 認証番号 등 사후 기록 유지.
-  const readOnly = status === 'withdrawn';
+  // 🔴 잠금은 «저장된» 상태로 본다. 고른 상태로 보면 «철회» 를 고르는 순간 저장 단추 · 까닭 칸이 사라져
+  //    철회를 저장할 수 없었다(화면 검토 A17 · 2026-09-28 발견)
+  const readOnly = initial.status === 'withdrawn';
   const progress = pmdaSectionProgress(sections);
   const pathway = pathwayFor(deviceClass, certStatus);
 
@@ -181,7 +185,7 @@ export function PmdaDetailClient({
       <PageHd
         title={`${initial.code} · ${initial.device_name}`}
         sub={`${PMDA_CLASS_LABEL[deviceClass]} · ${PATHWAY_LABEL[pathway]}`}
-        actions={<Tag size="md" dot color={T.blue}>{PMDA_STATUS_LABEL[status]}</Tag>}
+        actions={<Tag size="md" dot color={T.blue}>{PMDA_STATUS_LABEL[initial.status]}</Tag>}
       />
 
       <div style={{ marginBottom: S[5] }}>
@@ -196,47 +200,34 @@ export function PmdaDetailClient({
       </div>
 
       {readOnly && (
-        <div style={{ marginBottom: S[5], padding: '12px 16px', borderRadius: RADIUS.md, border: `1px solid ${alpha(T.champagne, 0.3)}`, background: alpha(T.champagne, 0.05), fontFamily: F.serif, fontSize: FS[13], color: T.text }}>
+        <div style={{ marginBottom: S[5], padding: '12px 16px', borderRadius: RADIUS.md, border: `1px solid ${T.border}`, background: T.surface, fontFamily: F.serif, fontSize: FS[13], color: T.text }}>
           철회(withdrawn)된 건입니다. 기록 보존을 위해 편집할 수 없습니다.
         </div>
       )}
 
       <SectionProgressCard label="STED 완료율 (적용 섹션 기준)" value={progress} />
 
-      <Section title="등급 · 인증기준 · 경로">
+      {/* 등급별 경로 설명은 구역 제목 ⓘ 로(2026-10-08 «설명 글귀는 ⓘ 안으로»). 고른 등급에 맞는 설명이 뜬다 */}
+      <Section title="등급 · 인증기준 · 경로" info={PMDA_CLASS_HINT[deviceClass]}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginBottom: S[2.5] }}>
           {CLASSES.map((c) => (
-            <button className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], ...choiceLook(deviceClass === c), cursor: readOnly ? 'default' : 'pointer' }}><ChoiceCheck on={deviceClass === c} />{PMDA_CLASS_LABEL[c]}</button>
+            <button aria-pressed={deviceClass === c} className="qa-touch-44" key={c} type="button" onClick={() => !readOnly && setDeviceClass(c)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.ui, fontSize: FS[12], ...choiceLook(deviceClass === c), cursor: readOnly ? 'default' : 'pointer' }}><ChoiceCheck on={deviceClass === c} />{PMDA_CLASS_LABEL[c]}</button>
           ))}
         </div>
-        <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.subtle, marginBottom: S[2.5] }}>{PMDA_CLASS_HINT[deviceClass]}</div>
         <div className="qa-pmda-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3], alignItems: 'end' }}>
           <Field id="pmda-cert" label="인증기준(認証基準) 유무">
             <Sel id="pmda-cert" value={certStatus} onChange={(e) => setCertStatus(e.target.value as CertStatus)} ro={readOnly} opts={CERTS.map((c) => ({ v: c, l: CERT_STATUS_LABEL[c] }))} />
           </Field>
           <div style={{ padding: '8px 12px', borderRadius: RADIUS.sm, border: `1px solid ${pathway === 'verify' ? alpha(T.warning, 0.4) : alpha(T.champagne, 0.3)}`, background: alpha(pathway === 'verify' ? T.warning : T.champagne, 0.05) }}>
-            <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.08em', color: T.subtle, textTransform: 'uppercase' }}>도출 경로</span>
+            <span style={{ fontFamily: F.ui, fontSize: FS[12], color: T.subtle }}>도출 경로</span>
             <div style={{ fontFamily: F.serif, fontSize: FS[13], fontWeight: 600, color: pathway === 'verify' ? T.warning : T.text }}>{PATHWAY_LABEL[pathway]}</div>
           </div>
         </div>
       </Section>
 
-      <Section title="STED 섹션 (상태 클릭 / 적용 토글)">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
-          {sections.map((s) => {
-            const meta = SECTION_STATUS_META[s.status];
-            const dim = !s.applicable;
-            return (
-              <div key={s.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: S[3], padding: '10px 14px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, opacity: dim ? 0.5 : 1 }}>
-                <button className="qa-touch-44" type="button" onClick={() => toggleApplicable(s.key)} disabled={readOnly} style={{ display: 'flex', alignItems: 'center', gap: S[2], background: 'transparent', border: 'none', cursor: readOnly ? 'default' : 'pointer', textAlign: 'left', minWidth: 0 }}>
-                  <span style={{ fontFamily: F.mono, fontSize: FS[12], color: s.applicable ? T.champagne : T.muted, flexShrink: 0 }}>{s.applicable ? '☑' : '☐'}</span>
-                  <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text }}>{s.label}</span>
-                </button>
-                <button className="qa-touch-44" type="button" onClick={() => cycleSection(s.key)} disabled={dim || readOnly} style={{ fontFamily: F.mono, fontSize: FS[12], fontWeight: 500, letterSpacing: '0.1em', color: meta.color, textTransform: 'uppercase', padding: '3px 10px', border: `1px solid ${alpha(meta.color, 0.4)}`, borderRadius: RADIUS.md, background: 'transparent', cursor: dim || readOnly ? 'default' : 'pointer', flexShrink: 0 }}>{meta.label}</button>
-              </div>
-            );
-          })}
-        </div>
+      <Section title="STED 섹션">
+        {/* 네 시장이 같은 목록 한 벌 · 사용법은 목록 위 안내 글 (화면 검토 A44 · 2026-09-28) */}
+        <SubmissionSectionChecklist sections={sections} readOnly={readOnly} onToggle={toggleApplicable} onCycle={cycleSection} />
       </Section>
 
       <Section title="행위자 · 인증 정보 (MAH/D-MAH · FMR · 인증 번호)">
@@ -269,16 +260,18 @@ export function PmdaDetailClient({
       </Section>
 
       <Section title="상태">
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
-          {STATUS_OPTIONS.map((s) => (
-            <button className="qa-touch-44" key={s} type="button" onClick={() => !readOnly && setStatus(s)} disabled={readOnly} style={{ padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.06em', ...choiceLook(status === s), cursor: readOnly ? 'default' : 'pointer' }}>
-              {PMDA_STATUS_LABEL[s]}
-            </button>
-          ))}
-        </div>
-        <div style={{ marginTop: S[2], fontFamily: F.mono, fontSize: FS[12], color: T.subtle, letterSpacing: '0.06em' }}>
-          흐름: {PMDA_STATUS_FLOW.map((s) => PMDA_STATUS_LABEL[s]).join(' → ')}
-        </div>
+        <StatusChangeSection
+          id="pmda-status"
+          lockedStatuses={LOCKED_STATUSES.pmda_submissions}
+          trackLabel="PMDA 진행 단계"
+          flow={PMDA_STATUS_FLOW}
+          options={STATUS_OPTIONS}
+          labels={PMDA_STATUS_LABEL}
+          saved={initial.status}
+          value={status}
+          onChange={setStatus}
+          locked={readOnly}
+        />
       </Section>
 
       {!readOnly && (

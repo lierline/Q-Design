@@ -10,7 +10,7 @@
 // TextLinkAction 은 같은 모양의 «링크» 다(화면 검토 A11 · A63 · 2026-09-27). 양식 바닥의 «취소» 가
 // `<Link><Btn p={false}>취소</Btn></Link>` 상자로 여러 화면에 있었다. 가는 곳이 주소면 이것을 쓴다.
 
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode, type Ref } from 'react';
 import Link from 'next/link';
 import { F, FS, S, T } from '@/lib/design/tokens';
 
@@ -19,20 +19,46 @@ export function TextAction({
   onClick,
   disabled,
   title,
+  danger,
+  expanded,
+  hasPopup,
+  label,
+  ref,
 }: {
   children: ReactNode;
   onClick: () => void;
   disabled?: boolean;
   /** 올리면 보이는 설명(잠긴 이유 등) */
   title?: string;
+  /** 누르면 메뉴 · 창이 열리는 글귀(낭독기에 aria-haspopup 으로 알린다) */
+  hasPopup?: 'menu' | 'dialog';
+  /** 메뉴 자리를 잡거나 초점을 되돌릴 때 글귀 상자가 필요하면(React 19: ref 는 보통 prop) */
+  ref?: Ref<HTMLButtonElement>;
+  /**
+   * 되돌릴 수 없는 동작(삭제 등): 빨간 글귀. 테두리 · 바탕은 없고 올리면 밑줄이 선다
+   * (빨간 테 상자 단추를 걷었다 · 화면 검토 A11 · 2026-09-28)
+   */
+  danger?: boolean;
+  /** 접고 펴는 단추면 지금 펼쳐져 있는가(낭독기에 aria-expanded 로 알린다) */
+  expanded?: boolean;
+  /**
+   * 낭독기가 읽을 이름. 같은 글귀(「내려받기」 「미리 보기」)가 한 화면에 수십 줄 반복되면 낭독기 목록에서
+   * 단추를 구별할 수 없다. 대상까지 적어 준다(예: 「품질매뉴얼 내려받기」). 보이는 글귀가 앞에 와야 한다
+   * (음성 조종이 «내려받기» 라고 말해도 이어지게).
+   */
+  label?: string;
 }) {
   const [hover, setHover] = useState(false);
   return (
     <button
+      ref={ref}
       type="button"
       onClick={onClick}
       disabled={disabled}
       title={title}
+      aria-label={label}
+      aria-expanded={expanded}
+      aria-haspopup={hasPopup}
       // 터치 화면에서는 높이 44(globals.css). 테두리 · 바탕이 없는 글자라 모양은 그대로다
       className="qa-touch-44"
       onMouseEnter={() => setHover(true)}
@@ -45,7 +71,10 @@ export function TextAction({
         cursor: disabled ? 'default' : 'pointer',
         fontFamily: F.ui,
         fontSize: FS[14],
-        color: hover && !disabled ? T.text : T.muted,
+        color: danger ? T.red : hover && !disabled ? T.text : T.muted,
+        textDecoration: danger && hover && !disabled ? 'underline' : 'none',
+        textUnderlineOffset: 3,
+        opacity: danger && disabled ? 0.5 : 1,
         transition: 'color 150ms ease',
         display: 'inline-flex',
         alignItems: 'center',

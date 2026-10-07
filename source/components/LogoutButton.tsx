@@ -3,7 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { signOutAndClear } from '@/lib/auth/sign-out';
 import { TextAction } from '@/components/TextAction';
-import { FS, F, T, RADIUS } from '@/lib/design/tokens';
+import { IconBtn } from '@/lib/design/components';
+import { FS, F } from '@/lib/design/tokens';
 
 export function LogoutButton({
   compact = false,
@@ -27,36 +28,11 @@ export function LogoutButton({
   }
 
   if (compact) {
+    // 접힌 차림표의 아이콘 정사각은 공용 IconBtn(2026-10-07). 올리면 빨강(danger)은 그대로
     return (
-      <button
-        type="button"
-        onClick={handleLogout}
-        title="로그아웃"
-        aria-label="로그아웃"
-        style={{
-          borderRadius: RADIUS.sm,
-          width: 34,
-          height: 34,
-          background: 'transparent',
-          border: `1px solid ${T.border}`,
-          color: T.muted,
-          fontSize: FS[14],
-          cursor: 'pointer',
-          padding: 0,
-          fontFamily: F.serif, fontWeight: 600,
-          transition: 'color 0.15s ease, border-color 0.15s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = T.red;
-          e.currentTarget.style.borderColor = T.red;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = T.muted;
-          e.currentTarget.style.borderColor = T.border;
-        }}
-      >
-        ⎋
-      </button>
+      <IconBtn size={34} title="로그아웃" danger onClick={() => void handleLogout()}>
+        <span style={{ fontFamily: F.serif, fontWeight: 600, fontSize: FS[14], lineHeight: 1 }}>⎋</span>
+      </IconBtn>
     );
   }
 

@@ -34,6 +34,13 @@ const LOGOUT_HINT = 'LogoutButton → TextAction (글귀 · 오너 결정 2026-0
 
 const sidebar = readFileSync(SIDEBAR, 'utf8');
 const globals = readFileSync(GLOBALS, 'utf8');
+// 2026-10-07 원본 묶음 5(2e56225a)가 차림표 안의 IconBtn 사본을 걷고 공용 IconBtn(components.tsx)을
+// 쓰게 했다. 치수(기본 44 = TOUCH.min)는 공용 부품에서, 모서리는 차림표가 넘기는 RAIL_ICON_BTN 에서 읽는다.
+const components = readFileSync(join(ROOT, 'source', 'components', 'components.tsx'), 'utf8');
+const tokensTs = readFileSync(join(ROOT, 'source', 'tokens', 'tokens.ts'), 'utf8');
+const touch = Object.fromEntries(
+  [...slice(tokensTs, 'export const TOUCH = {', '} as const', 'touch').matchAll(/^\s+(\w+):\s*(\d+)/gm)].map(([, k, v]) => [k, Number(v)]),
+);
 const tokens = JSON.parse(readFileSync(join(OUT, 'q-design.tokens.json'), 'utf8'));
 
 // ── 구역 자르기 ──────────────────────────────────────────────────────────────
@@ -68,7 +75,10 @@ const Z = {
   version: slice(sidebar, '{/* Rule Engine 버전', '{/* Theme + Collapse 행', 'version'),
   theme: slice(sidebar, "              flex: 1,\n              background: 'transparent',", '<span style={{ whiteSpace:', 'theme'),
   foot: slice(sidebar, '{/* Footer (avatar + logout)', '</aside>', 'foot'),
-  iconBtn: slice(sidebar, 'function IconBtn(', 'function ChevronIcon(', 'iconBtn'),
+  // 공용 IconBtn 의 시그니처 구역(기본 size). 호버 핸들러 앞에서 끊는다.
+  iconBtn: slice(components, 'export function IconBtn(', 'onMouseEnter', 'iconBtn'),
+  // 차림표가 공용 IconBtn 에 넘기는 모서리(테마 상자와 같은 값).
+  railIconBtn: slice(sidebar, 'const RAIL_ICON_BTN', 'function ChevronIcon(', 'railIconBtn'),
 };
 
 // ── 탐침 ─────────────────────────────────────────────────────────────────────
@@ -125,13 +135,14 @@ const PROBES = [
   ['theme.padding',         Z.theme,  /padding: '([^']+)',/, String],
   ['theme.fontSize',        Z.theme,  /fontSize: FS\[(\d+)\],/, Number],
   ['theme.tracking',        Z.theme,  /letterSpacing: ([\d.]+),/, Number],
-  ['theme.btnSize',         Z.iconBtn, /width: (\d+),\n        height: \d+,/, Number],
+  ['theme.btnSize',         Z.iconBtn, /size = TOUCH\.(\w+),/, (k) => touch[k]],
   // 2026-09-14 오빠 결정 「전체를 다 굴린다」: 발치 상자·아이콘 단추의 모서리를 원본에서 읽는다 (RADIUS.<키> → px).
   ['theme.radius',          Z.theme,  /borderRadius: RADIUS\.(\w+),/, (k) => tokens.radius[k]],
-  ['iconBtn.radius',        Z.iconBtn, /borderRadius: RADIUS\.(\w+),/, (k) => tokens.radius[k]],
+  ['iconBtn.radius',        Z.railIconBtn, /borderRadius: RADIUS\.(\w+) \}/, (k) => tokens.radius[k]],
 
   // 바닥 계정 블록
-  ['foot.avatarSize',       Z.foot,   /<Avatar name=\{userName\} email=\{userEmail\} size=\{(\d+)\} \/>\n              <div/, Number],
+  // 2026-10-06 프로필 사진(da7c60f5)이 userId · avatarVersion 을 뒤에 더했다. 펼친 발치(뒤에 <div>)만 잡는다.
+  ['foot.avatarSize',       Z.foot,   /<Avatar name=\{userName\} email=\{userEmail\} size=\{(\d+)\}[^\n]*\/>\n              <div/, Number],
   ['foot.nameFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.text,/, Number],
   ['foot.metaFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.muted,/, Number],
   ['foot.metaTracking',     Z.foot,   /letterSpacing: labelTracking\([^,]+, ([\d.]+)\),/, Number],

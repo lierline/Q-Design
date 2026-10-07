@@ -172,10 +172,11 @@ md  26px · 11.5px    강조
 
 목록이 «통째로» 비었을 때 목록 자리를 대신합니다. 판 하나 · 여백 96 · 가운데 · 조용한 제목(22 · subtle).
 다음에 할 일은 단추(`.qd-btn`)나 금색 테두리 표지(`.qd-empty-hint`)로 둡니다. 좁은 자리는 `--compact`.
+판 위의 빛무리와 제목 위 장식 글리프(`.qd-empty-icon`)는 원본이 2026-09-28 에 걷었고(금지 목록),
+정본도 2026-10-08 추출부터 없습니다.
 
 ```html
 <div class="qd-empty">
-  <div class="qd-empty-icon" aria-hidden="true">◇</div>
   <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
   <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다.</p>
   <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="…">부적합 등록</a></div>

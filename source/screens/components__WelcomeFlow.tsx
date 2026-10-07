@@ -16,9 +16,12 @@
 
 import { useEffect, useState } from 'react';
 import { F, FS, LH, S, T, Z, alpha, goldTextStyle, RADIUS } from '@/lib/design/tokens';
+import { Btn } from '@/lib/design/components';
 import { useFocusTrap } from '@/lib/hooks/useFocusTrap';
 import { useRef } from 'react';
-import { Lightbulb, ShieldCheck, Sparkles } from 'lucide-react';
+import { Lightbulb } from '@/components/q-design-icons/Lightbulb';
+import { ShieldCheck } from '@/components/q-design-icons/ShieldCheck';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
 import { WELCOME_STEPS, type GsRole } from '@/lib/onboarding/getting-started';
 
 /** 스텝 아이콘: 문구는 SSOT 가, 그림은 화면이 갖는다(순서 고정). */
@@ -132,7 +135,6 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
           <div
             style={{
               padding: '36px 40px 28px',
-              background: `linear-gradient(135deg, ${alpha(T.champagne, 0.08)} 0%, transparent 70%)`,
               borderBottom: `1px solid ${T.border}`,
             }}
           >
@@ -191,7 +193,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
             >
               아이디어부터 인허가 신청까지: Q-Atelier 가 매 단계를 함께 합니다.
               <br />
-              먼저 짧게 둘러보세요.
+              먼저 짧게 둘러보십시오.
             </p>
           </div>
 
@@ -231,32 +233,14 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
               style={{
                 fontSize: FS[12],
                 color: T.muted,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
               }}
             >
               언제든 좌측 사이드바 ‘설정 · 사용법’ 에서 다시 확인할 수 있습니다.
             </span>
-            <button
-              type="button"
-              onClick={() => void close()}
-              disabled={busy}
-              style={{
-                padding: '11px 24px',
-                background: T.champagne,
-                color: T.bg,
-                border: 'none',
-                fontFamily: F.mono,
-                fontSize: FS[12],
-                letterSpacing: 1.4,
-                textTransform: 'uppercase',
-                cursor: busy ? 'not-allowed' : 'pointer',
-                fontWeight: 600,
-                transition: 'filter 0.15s ease',
-                opacity: busy ? 0.6 : 1,
-              }}
-            >
+            <Btn onClick={() => void close()} disabled={busy}>
               {busy ? '...' : '시작하기 →'}
-            </button>
+            </Btn>
           </div>
         </div>
       </div>

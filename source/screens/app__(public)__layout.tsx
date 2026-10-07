@@ -168,7 +168,8 @@ const legalCss = `
 }
 
 .qa-legal-doc .qa-legal-meta {
-  font-family: ${F.mono};
+  font-family: ${F.ui};
+  font-variant-numeric: tabular-nums;
   font-size: ${FS[12]}px;
   color: ${T.muted};
   line-height: ${LH.relaxed};

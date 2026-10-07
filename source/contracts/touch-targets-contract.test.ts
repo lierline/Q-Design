@@ -37,6 +37,14 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
     expect(block).toMatch(/\.qa-touch-44sq\s*\{\s*min-width:\s*44px\s*!important;\s*min-height:\s*44px\s*!important;/);
   });
 
+  it('운영진 화면 안전망: /admin 아래 개별 단추 · 입력 칸도 44, 스위치 · 체크 · 라디오 · 파일 칸 · 작은 알약은 뺀다', () => {
+    expect(block).toMatch(/\.qa-admin-touch button:not\(\.qa-touch-hit\):not\(\[role='switch'\]\):not\(\[role='checkbox'\]\):not\(\[role='radio'\]\)/);
+    expect(block).toMatch(/\.qa-admin-touch input:not\(\[type='checkbox'\]\):not\(\[type='radio'\]\):not\(\[type='range'\]\):not\(\[type='hidden'\]\):not\(\[type='file'\]\)/);
+    expect(block).toMatch(/\.qa-admin-touch textarea\s*\{\s*min-height:\s*44px\s*!important;/);
+    // 이름표를 다는 곳이 사라지면 규칙이 있어도 아무것도 안 키운다
+    expect(readSource('components/AdminLayoutShell.tsx')).toMatch(/className="qa-admin-touch"/);
+  });
+
   it('qa-touch-hit 은 모양을 두고 누르는 자리만 넓힌다(보이지 않는 ::after)', () => {
     expect(block).toMatch(/\.qa-touch-hit\s*\{\s*position:\s*relative;/);
     expect(block).toMatch(/\.qa-touch-hit::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*-10px -6px;/);
@@ -45,16 +53,26 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
 
 describe('공용 부품이 이름표를 단다', () => {
   it.each([
-    ['components/ListToolbar.tsx', /className="qa-touch-44"/g, 3, '검색 칸 · 정렬 · 검색 단추'],
+    // 2026-10-07: 검색 단추는 공용 Btn 이 됐다(이름표는 Btn 이 스스로 단다). 남은 것은 검색 칸 · 정렬 둘
+    ['components/ListToolbar.tsx', /className="qa-touch-44"/g, 2, '검색 칸 · 정렬'],
     ['components/NotificationBell.tsx', /className="qa-touch-44sq"/g, 1, '알림 종'],
     ['components/SubscriptionIndicator.tsx', /className="qa-touch-44"/g, 1, '구독 칩'],
     ['components/MyActionsViews.tsx', /className="qa-touch-44"/g, 1, '할 일 탭'],
     // 2026-09-27: 켜고 끄는 선택 칩(ChoiceChip)이 같은 파일에 더해졌다 (화면 검토 A11 · A62)
     ['lib/design/segmented-choice.tsx', /className="qa-touch-44"/g, 2, '둘 중 고르기 · 선택 칩'],
     ['components/PageGuide.tsx', /className="qa-touch-hit"/g, 1, '이 페이지 사용법'],
-    ['components/dashboard/CustomizableWidgetBoard.tsx', /className="qa-touch-hit"/g, 1, '위젯 편집'],
+    // 2026-10-07: «위젯 편집» 토글이 공용 선택 칩(ChoiceChip · qa-touch-44)이 되어 이 파일에는 qa-touch-hit 가 남지 않는다
+    ['components/dashboard/CustomizableWidgetBoard.tsx', /className="qa-touch-hit"/g, 0, '위젯 편집(이제 ChoiceChip 이 이름표를 든다)'],
     ['lib/design/components.tsx', /className="qa-touch-44"/g, 1, '거르기 칩(FilterChip)'],
-    ['app/(app)/assessments/new/page.tsx', /className="qa-touch-44"/g, 3, '세부 유형 칩 · 영향 없음 · 영향 가능성 있음'],
+    // 2026-09-28: 세부 유형 · 변경 사유 알약이 체크 목록이 됐다(화면 검토 A35). 체크 줄도 터치 화면 44
+    ['app/(app)/assessments/new/page.tsx', /className="qa-touch-44"/g, 4, '세부 유형 · 변경 사유 체크 줄 · 영향 없음 · 영향 가능성 있음'],
+    // 2026-10-04 폰 화면 재측정(터치 기기로 재야 한다. 마우스 폭만 줄여 재면 이 규칙이 안 걸려 틀린 숫자가 나온다)
+    ['components/ListBackLink.tsx', /className="qa-touch-44sq"/g, 1, '목록 위 「← 홈」 글귀(짧은 이름은 폭도 44)'],
+    ['components/TodayQueue.tsx', /className="qa-touch-44sq"/g, 1, '오늘 처리할 것 기준 설명 ⓘ'],
+    ['components/PendingResearchDocs.tsx', /className="qa-touch-44"/g, 2, '프로젝트 열기 · 미완료 문서 줄'],
+    ['components/RegulatoryDeadlinesWidget.tsx', /className="qa-touch-44"/g, 1, '규제 일정 전체 보기'],
+    ['app/(app)/admin/page.tsx', /className="qa-touch-44sq"/g, 2, '운영 홈의 이동 글귀(비어 있는 줄 · 허브 탭)'],
+    ['app/(app)/admin/page.tsx', /className="qa-touch-44"/g, 1, '운영 홈의 허브 제목 링크'],
   ])('%s', (file, re, count, what) => {
     expect((readSource(file).match(re) ?? []).length, what).toBe(count);
   });

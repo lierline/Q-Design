@@ -11,8 +11,8 @@
 // 분리 이전엔 app/(app)/dashboard/page.tsx (2,765줄) 안에 모두 들어 있었음.
 // 같은 위젯 (KpiItemList tooltip 등) 이 6개 View 에서 호출되므로 한 곳에서 관리.
 
-import Link from 'next/link';
-import { Bx, Btn, Card, CardTitle, DataTable, Tag, type DataTableColumn } from '@/lib/design/components';
+import { TextLinkAction } from '@/components/TextAction';
+import { Bx, Card, CardTitle, DataTable, Tag, type DataTableColumn } from '@/lib/design/components';
 import { F, FS, LH, S, T, alpha, labelTracking, labelWordSpacing, riskColor } from '@/lib/design/tokens';
 import { isoDateTime } from '@/lib/date';
 import { computeResearchProgress } from '@/lib/research/progress';
@@ -93,7 +93,7 @@ export function OrgBreakdownList({
           </div>
         ))}
         {rows.length > 12 && (
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
             ... 외 {rows.length - 12}개 조직
           </div>
         )}
@@ -219,7 +219,7 @@ export function KpiItemList({
             style={{
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.mono,
+              fontFamily: F.ui,
               marginTop: S[0.5],
             }}
           >
@@ -273,11 +273,8 @@ export function AdminToolCard({
             marginTop: S[3.5],
           }}
         >
-          <Link href={href}>
-            <Btn p={false} sm>
-              {buttonLabel}
-            </Btn>
-          </Link>
+          {/* 카드 안의 들어가기는 글귀 (화면 검토 A11 · 2026-09-28) */}
+          <TextLinkAction href={href}>{buttonLabel}</TextLinkAction>
         </div>
       </div>
     </Card>

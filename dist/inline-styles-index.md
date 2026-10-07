@@ -16,14 +16,14 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 
 ## 인라인에만 있는 키프레임
 
-`qa-assist-rise` · `qa-auth-rise` · `qa-drawer-slide-b` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-ember` · `qa-entrance-mark` · `qa-entrance-sweep` · `qa-entrance-veil` · `qa-fab-rise` · `qa-glow-pulse` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-spin-fj` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
+`qa-assist-rise` · `qa-auth-rise` · `qa-drawer-slide-b` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-mark` · `qa-entrance-ribbon` · `qa-entrance-shine` · `qa-entrance-shine-ink` · `qa-entrance-veil` · `qa-fab-rise` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-spin-fj` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
 
 ## 파일별
 
 | 파일 | 키프레임 | 클래스 | @media |
 |---|---|---|---:|
 | `app/experts/farewell/page.tsx` | `qa-hairline-appear` `qa-hairline-draw` `qa-headline-drop` `qa-rise-soft` `qa-wash-in` `qa-wm-breathe` `qa-wm-fadein` | `.farewell-root` | 1 |
-| `app/(auth)/login/page.tsx` | `qa-auth-rise` `qa-entrance-ember` `qa-entrance-mark` `qa-entrance-sweep` `qa-entrance-veil` `qa-glow-pulse` | `.qa-auth-brand` `.qa-auth-card` `.qa-auth-desktop-brand` `.qa-auth-desktop-brand-sub` `.qa-auth-desktop-brand-title` `.qa-auth-eyebrow` 외 17 | 2 |
+| `app/(auth)/login/page.tsx` | `qa-auth-rise` `qa-entrance-mark` `qa-entrance-ribbon` `qa-entrance-shine` `qa-entrance-shine-ink` `qa-entrance-veil` | `.qa-auth-brand` `.qa-auth-card` `.qa-auth-desktop-brand` `.qa-auth-desktop-brand-sub` `.qa-auth-desktop-brand-title` `.qa-auth-eyebrow` 외 15 | 3 |
 | `lib/design/components.tsx` | `qa-drawer-slide-b` `qa-drawer-slide-l` `qa-drawer-slide-r` | 없음 | 11 |
 | `components/RibbonBackground.tsx` | `qa-ribbon-drift-1` `qa-ribbon-drift-2` | `.qa-ribbon-layer-1` `.qa-ribbon-layer-2` | 1 |
 | `components/WelcomeFlow.tsx` | `qa-welcome-backdrop` `qa-welcome-in` | `.qa-welcome-backdrop` `.qa-welcome-card` | 1 |

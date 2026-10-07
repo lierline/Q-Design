@@ -10,19 +10,18 @@ import Link from 'next/link';
 import { Alert, Bx, Btn, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
 import { useConfirm } from '@/components/Confirm';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { ChoiceChip } from '@/lib/design/segmented-choice';
 import { ruleBand, tintBorder } from '@/lib/design/grain';
-import {
-  AlertTriangle,
-  CheckCircle2,
-  ChevronDown,
-  ChevronRight,
-  ClipboardCheck,
-  FileText,
-  HelpCircle,
-  Plus,
-  Trash2,
-  XCircle,
-} from 'lucide-react';
+import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
+import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
+import { ChevronDown } from '@/components/q-design-icons/ChevronDown';
+import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
+import { ClipboardCheck } from '@/components/q-design-icons/ClipboardCheck';
+import { FileText } from '@/components/q-design-icons/FileText';
+import { HelpCircle } from '@/components/q-design-icons/HelpCircle';
+import { Plus } from '@/components/q-design-icons/Plus';
+import { Trash2 } from '@/components/q-design-icons/Trash2';
+import { XCircle } from '@/components/q-design-icons/XCircle';
 import {
   CHECKLIST,
   CLAUSE_LABEL,
@@ -266,43 +265,19 @@ export function ComplianceManager({
           pill 을 Btn sm 과 동일한 minHeight/padding/lineHeight/boxSizing 으로
           맞춰 같은 row 의 모든 사각형 높이 통일. */}
       <div style={{ display: 'flex', gap: S[2], alignItems: 'center', marginBottom: S[3.5], flexWrap: 'wrap' }}>
-        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1, textTransform: 'uppercase' }}>
+        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
           점검 세션
         </span>
         {assessments.map((a) => {
           const active = a.id === activeId;
           return (
-            <button
-              key={a.id}
-              type="button"
-              onClick={() => setActiveId(a.id)}
-              style={{
-                borderRadius: RADIUS.md,
-                // Btn sm 과 정확히 동일한 box: 36px 높이, 7×14 padding,
-                // boxSizing:border-box, lineHeight:1.
-                boxSizing: 'border-box',
-                minHeight: 36,
-                padding: '7px 14px',
-                background: active ? alpha(T.champagne, 0.1) : 'transparent',
-                border: `1px solid ${active ? T.champagne : T.border}`,
-                color: active ? T.text : T.subtle,
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                letterSpacing: 0.3,
-                lineHeight: LH.none,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: S[1.5],
-                whiteSpace: 'nowrap',
-              }}
-            >
+            <ChoiceChip key={a.id} on={active} onClick={() => setActiveId(a.id)}>
               <span>{dateOnly(a.started_at)}</span>
               {a.overall_score !== null && (
                 <span style={{ color: T.champagne, fontWeight: 600 }}>{a.overall_score}%</span>
               )}
               {a.status === 'completed' && <Tag color={T.green}>완료</Tag>}
-            </button>
+            </ChoiceChip>
           );
         })}
         <Btn sm onClick={startNew} disabled={busy}>
@@ -316,8 +291,8 @@ export function ComplianceManager({
           <div style={{ fontSize: FS[13], color: T.subtle, fontFamily: F.serif, marginBottom: S[1.5] }}>
             아직 점검 기록이 없습니다.
           </div>
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, lineHeight: LH.relaxed }}>
-            새 점검 을 눌러 ISO 13485 §4~§8 약 45개 항목을 자가 점검하세요.
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, lineHeight: LH.relaxed }}>
+            새 점검 을 눌러 ISO 13485 §4~§8 약 45개 항목을 자가 점검하십시오.
             <br />외부 감사 대비 + Gap 우선순위 + 관련 양식 자동 연결.
           </div>
         </Bx>
@@ -423,7 +398,7 @@ function ComplianceDetail({
         <Tag color={assessment.status === 'completed' ? T.green : T.muted}>
           {assessment.status === 'completed' ? '완료됨' : '진행 중'}
         </Tag>
-        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
+        <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
           시작 {dateOnly(assessment.started_at)}
           {assessment.completed_at && ' · 완료 ' + dateOnly(assessment.completed_at)}
         </span>
@@ -433,28 +408,9 @@ function ComplianceDetail({
             <CheckCircle2 size={11} style={{ marginRight: S[1] }} />점검 완료로 표시
           </Btn>
         )}
-        <button
-          type="button"
-          onClick={onDelete}
-          disabled={busy}
-          style={{
-            borderRadius: RADIUS.md,
-            padding: '7px 14px',
-            background: 'transparent',
-            color: T.red,
-            border: `1px solid ${T.red}`,
-            fontSize: FS[12],
-            fontFamily: F.mono,
-            letterSpacing: 1.2,
-            textTransform: 'uppercase',
-            cursor: 'pointer',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: S[1],
-          }}
-        >
+        <Btn p={false} sm danger onClick={onDelete} disabled={busy}>
           <Trash2 size={11} /> 삭제
-        </button>
+        </Btn>
       </div>
     </>
   );
@@ -505,7 +461,7 @@ function ScoreOverview({
             style={{
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.mono,
+              fontFamily: F.ui,
               marginBottom: S[1],
             }}
           >
@@ -519,7 +475,7 @@ function ScoreOverview({
                 분모는 «가중 합» 이라, 「3점 / 6점: 가중」 옆에 머리 숫자가 100% 로 떴다.
                 올바른 값(`weighted_score`)이 이미 있는데 화면이 따로 계산한 탓이다
                 ([[duplicated-fact-drift]]). 이제 그 값을 그대로 읽는다. */}
-            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
+            <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
               ({round1(score.overall.weighted_score)}점 / {round1(score.overall.weighted_total)}점: 가중)
             </span>
           </div>
@@ -584,7 +540,7 @@ function ScoreOverview({
           style={{
             fontSize: FS[12],
             color: T.muted,
-            fontFamily: F.mono,
+            fontFamily: F.ui,
             marginBottom: S[2],
           }}
         >
@@ -658,7 +614,7 @@ function ClauseBar({ cl }: { cl: ScoreResult['by_clause'][number] }) {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: S[1] }}>
         <span style={{ fontSize: FS[12], color: T.text, fontFamily: F.serif }}>{cl.label}</span>
-        <span style={{ fontSize: FS[12], color: labelColor, fontFamily: F.mono, fontWeight: 600, letterSpacing: 0.3 }}>
+        <span style={{ fontSize: FS[12], color: labelColor, fontFamily: F.ui, fontWeight: 600 }}>
           {cl.answered > 0 ? `${cl.pct}%` : '미응답'}
           {cl.critical_gaps > 0 && (
             <span style={{ marginLeft: S[2], color: T.red, fontSize: FS[12] }}>● {cl.critical_gaps}</span>
@@ -762,7 +718,6 @@ function ClauseItems({
           style={{
             borderRadius: RADIUS.md,
             padding: '10px 14px',
-            background: alpha(T.warning, 0.08),
             border: `1px solid ${alpha(T.warning, 0.35)}`,
             borderColor: tintBorder(T.warning),
             fontSize: FS[12],
@@ -773,7 +728,7 @@ function ClauseItems({
         >
           <strong style={{ color: T.warning }}>이 절의 답변·평가 권한은 {responsibleLabel} 담당</strong>
           입니다. 본인 직무로는 진행 상황만 조회할 수 있습니다.
-          {' '}답변이 필요하면 {responsibleLabel} 담당자에게 요청해 주세요.
+          {' '}답변이 필요하면 {responsibleLabel} 담당자에게 요청해 주십시오.
         </div>
       )}
       {Array.from(grouped.entries()).map(([sub, list]) => (
@@ -781,7 +736,6 @@ function ClauseItems({
           <div
             style={{
               padding: '8px 14px',
-              background: alpha(T.champagne, 0.05),
               borderBottom: `1px solid ${T.border}`,
               fontSize: FS[12],
               color: T.champagne,
@@ -1010,12 +964,12 @@ function GapReport({
   if (gaps.length === 0) {
     return (
       <Bx style={{ padding: S[6], textAlign: 'center' }}>
-        <CheckCircle2 size={28} style={{ color: T.green, marginBottom: S[2] }} />
+        {/* 큰 초록 체크 원을 걷었다. 빈 상태는 글로 말한다 (화면 검토 A66 · 2026-09-28) */}
         <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
           식별된 부적합이 없습니다.
         </div>
-        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
-          미응답 항목이 있다면 절별 탭에서 답변하세요.
+        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
+          미응답 항목이 있다면 절별 탭에서 답변하십시오.
         </div>
       </Bx>
     );
@@ -1029,8 +983,7 @@ function GapReport({
           ...ruleBand(T.red),
           fontSize: FS[12],
           color: T.subtle,
-          fontFamily: F.mono,
-          letterSpacing: 0.3,
+          fontFamily: F.ui,
           lineHeight: LH.relaxed,
         }}
       >
@@ -1079,7 +1032,7 @@ function GapReport({
                 background: T.surface,
                 fontSize: FS[12],
                 color: T.subtle,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 lineHeight: LH.normal,
                 marginTop: S[1.5],
               }}
@@ -1105,8 +1058,7 @@ function GapReport({
                       border: `1px solid ${alpha(T.champagne, 0.4)}`,
                       color: T.champagne,
                       fontSize: FS[12],
-                      fontFamily: F.mono,
-                      letterSpacing: 0.3,
+                      fontFamily: F.ui,
                       textDecoration: 'none',
                     }}
                   >

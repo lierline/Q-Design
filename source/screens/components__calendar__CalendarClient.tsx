@@ -17,8 +17,8 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Bx, Btn, SectionTitle, SkeletonPanel } from '@/lib/design/components';
-import { S, FS, F, T, alpha, RADIUS } from '@/lib/design/tokens';
+import { Bx, Btn, SectionTitle, SkeletonPanel, Alert } from '@/lib/design/components';
+import { S, FS, F, T, alpha } from '@/lib/design/tokens';
 import { MeetingComposeDialog } from './MeetingComposeDialog';
 import { MeetingDetailPanel } from './MeetingDetailPanel';
 import { TextAction } from '@/components/TextAction';
@@ -152,20 +152,10 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
   return (
     <div>
       {error && (
-        <div
-          style={{
-            borderRadius: RADIUS.md,
-            padding: S[3],
-            background: alpha(T.red, 0.08),
-            border: `1px solid ${alpha(T.red, 0.25)}`,
-            color: T.red,
-            fontFamily: F.mono,
-            fontSize: FS[12],
-            marginBottom: S[3.5],
-          }}
-        >
+        // 옅은 빨강 상자 → 공용 알림(위아래 괘선 · 화면 검토 A35 · 2026-09-28)
+        <Alert kind="error" style={{ marginBottom: S[3.5] }}>
           {error}
-        </div>
+        </Alert>
       )}
 
       {/* 헤더: 월 네비게이션 + 새 회의 버튼 */}
@@ -241,9 +231,8 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                   textAlign: 'center',
                   fontSize: FS[12],
                   color: i === 5 ? T.blue : i === 6 ? T.red : T.muted,
-                  fontFamily: F.mono,
-                  letterSpacing: 1,
-                  textTransform: 'uppercase',
+                  // 요일이 한글이라 본문 글꼴 (화면 검토 A44 · 2026-09-28)
+                  fontFamily: F.ui,
                 }}
               >
                 {d}
@@ -394,7 +383,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
                           style={{
                             fontSize: FS[12],
                             color: T.muted,
-                            fontFamily: F.mono,
+                            fontFamily: F.ui,
                           }}
                         >
                           + {dayMeetings.length - 2}건
@@ -529,24 +518,24 @@ function MonthNavBtn({
       type="button"
       onClick={onClick}
       title={title}
+      // 달 넘기기(◀ · ▶ · 오늘)는 보조 동작이라 상자가 아니라 글귀 (화면 검토 A11 · 2026-09-28).
+      // 누르는 자리는 터치 화면에서 44 로 넓힌다(globals.css)
+      className="qa-touch-44"
       style={{
-        borderRadius: RADIUS.md,
-        padding: '6px 14px',
+        padding: '6px 10px',
+        minHeight: 36,
         background: 'transparent',
-        border: `1px solid ${T.border}`,
+        border: 'none',
         color: T.subtle,
-        fontSize: FS[12],
-        fontFamily: F.mono,
-        letterSpacing: 0.5,
+        fontSize: FS[13],
+        fontFamily: F.ui,
         cursor: 'pointer',
-        transition: 'border-color 150ms ease, color 150ms ease',
+        transition: 'color 150ms ease',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = T.champagne;
-        e.currentTarget.style.color = T.champagne;
+        e.currentTarget.style.color = T.text;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = T.border;
         e.currentTarget.style.color = T.subtle;
       }}
     >

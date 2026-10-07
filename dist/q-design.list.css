@@ -288,7 +288,6 @@ html[data-theme='light'] {
    🔴 대조에서 점선 반투명 · 다음 할 일 줄 · 실선 판(원본)으로 갈렸습니다.
 
      <div class="qd-empty">
-       <div class="qd-empty-icon" aria-hidden="true">◇</div>
        <div class="qd-empty-title">아직 등록된 부적합이 없습니다</div>
        <p class="qd-empty-desc">검사에서 벗어난 것이 나오면 여기에 쌓입니다.</p>
        <div class="qd-empty-actions"><a class="qd-btn qd-btn--primary" href="…">부적합 등록</a></div>
@@ -305,26 +304,12 @@ html[data-theme='light'] {
   padding: 96px 24px;
   text-align: center;
   background-color: var(--qd-surface);
-  background-image: radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--qd-accent) 4%, transparent) 0%, transparent 70%);
+  /* 빛무리(radial-gradient)와 장식 글리프(.qd-empty-icon)는 2026-09-28 원본에서 걷혔다. 판은 면 하나다 */
   border: 1px solid var(--qd-border);
   border-radius: var(--qd-radius-card, 10px);
 }
 .qd-empty--compact {
   padding: 32px 24px;
-  background-image: none;
-}
-.qd-empty-icon {
-  margin-bottom: 20px;
-  font-family: var(--qd-font-ui);
-  font-size: 56px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: color-mix(in srgb, var(--qd-accent) 45%, transparent);
-}
-.qd-empty--compact .qd-empty-icon {
-  margin-bottom: 16px;
-  font-size: 32px;
 }
 .qd-empty-title {
   font-family: var(--qd-font-ui);
@@ -425,9 +410,11 @@ html[data-theme='light'] {
   min-width: 64px;
   text-align: center;
 }
-/* 건수 글에 한글(총 · 건)이 들어가면 data-hangul 을 붙입니다. 숫자만이면 그대로 둡니다 */
+/* 건수 글에 한글(총 · 건)이 들어가면 data-hangul 을 붙입니다. 숫자만이면 그대로 둡니다.
+   원본(2026-09-28 고정폭 한글 걷기)은 한글이 섞이면 글꼴도 본문체로 바꿉니다 */
 .qd-pager-count[data-hangul],
 .qd-pager-page[data-hangul] {
+  font-family: var(--qd-font-ui);
   letter-spacing: 0;
   word-spacing: var(--qd-hangul-word-space);
 }
@@ -538,11 +525,12 @@ html[data-theme='light'] {
   box-sizing: border-box;
   flex: 0 0 auto;
   height: 36px;
-  padding: 0 16px;
+  padding: 0 14px;
   border: 1px solid var(--qd-border);
   border-radius: var(--qd-radius-control, 10px);
   background: transparent;
-  color: var(--qd-text);
+  /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 14px(전에는 text · 16) */
+  color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
   font-size: 12px;
   line-height: 1;
@@ -566,6 +554,7 @@ html[data-theme='light'] {
 .qd-filter-clear { text-decoration: underline; }
 .qd-filter-count[data-hangul],
 .qd-filter-clear[data-hangul] {
+  font-family: var(--qd-font-ui);
   letter-spacing: 0;
   word-spacing: var(--qd-hangul-word-space);
 }

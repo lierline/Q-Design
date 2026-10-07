@@ -1,10 +1,12 @@
 import { redirect } from 'next/navigation';
+import { countReviewQueues, reviewQueueRolesOf } from '@/lib/inbox/review-queue';
 import { cookies, headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
 import type { JobRole } from '@/lib/permissions';
-import { gateMenusByModules, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/lib/permissions/module-menus';
+import { gateMenusByModules, gateMenusByFeatures, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/lib/permissions/module-menus';
+import { isFamilyLinkEnabled } from '@/lib/family-link/gate';
 import { canAccessFieldSurface } from '@/lib/permissions/field-mode';
 import { loadEnabledModules } from '@/lib/subscription/module-gate';
 import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } from '@/lib/subscription/plan-policy';
@@ -12,6 +14,7 @@ import { menuForPath } from '@/lib/nav/menu-for-path';
 import { isPhoneAppRequest, PHONE_COOKIE } from '@/lib/nav/phone-mode';
 import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
 import { PhoneModeGate } from '@/components/PhoneModeGate';
+import { AdminPhoneLanding } from '@/components/AdminPhoneLanding';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
 import { AppPushSync } from '@/components/AppPushSync';
 import { RibbonBackground } from '@/components/RibbonBackground';
@@ -39,6 +42,8 @@ import { InstallAppPrompt } from '@/components/InstallAppPrompt';
 import { VaultProvider } from '@/lib/vault/vault-context';
 import { BreakpointsFirstGuess } from '@/lib/hooks/useBreakpoints';
 import { T } from '@/lib/design/tokens';
+import { isOrgOwner } from '@/lib/rules/who';
+import { canDo } from '@/lib/rules/actions';
 
 // 사이드바 배지 카운트(미읽음 알림, 검토 큐 등)가 매 요청 최신이어야 함
 export const dynamic = 'force-dynamic';
@@ -64,7 +69,7 @@ export default async function AppLayout({
   const [{ data: profile }, { data: membership }] = await Promise.all([
     supabase
       .from('profiles')
-      .select('job_role, job_roles, job_grade, full_name, account_status, welcome_completed_at, gs_dismissed_at')
+      .select('job_role, job_roles, job_grade, full_name, account_status, welcome_completed_at, gs_dismissed_at, avatar_updated_at')
       .eq('id', user.id)
       .maybeSingle(),
     supabase
@@ -127,7 +132,7 @@ export default async function AppLayout({
     orgName = org.name;
     role = membership.role as string;
     plan = org.plan;
-    canSeeAudit = !isExpert && role === 'owner';
+    canSeeAudit = !isExpert && isOrgOwner(role);
     vaultEnabled = org.vault_enabled ?? false;
     vaultKeyVersion = org.vault_key_version ?? 0;
   } else if (isExpert) {
@@ -150,7 +155,11 @@ export default async function AppLayout({
       : allowedModulesFor(ALL_MODULES);
   // gatedMenus = caps 메뉴에서 비활성 모듈 전속 메뉴를 제거한 단일 진실.
   // 사이드바 가시성(menus prop)·canSee* 플래그·멀티롤 그룹이 모두 이걸 사용(누수 0).
-  const gatedMenus = gateMenusByModules(caps.sidebarMenus, enabledModules);
+  // 조직별 켜짐 스위치 메뉴(제품 연동, 0436): 운영진이 켠 조직에서만 보인다. 못 읽으면 닫아 둔다(보이지 않는 쪽이 안전).
+  const familyLinkOn = membership
+    ? await isFamilyLinkEnabled(supabase as never, membership.org_id as string).catch(() => false)
+    : false;
+  const gatedMenus = gateMenusByFeatures(gateMenusByModules(caps.sidebarMenus, enabledModules), { familyLink: familyLinkOn });
 
   // 🔴 2026-09-18 (CTO 감사 3번): 꺼진 가지의 화면은 «주소를 쳐도» 열리지 않는다.
   //    화면 파일마다 assertMenuAccess 를 적는 방식은 50/164 에서 멈춰 있었고, /new · /m ·
@@ -185,7 +194,7 @@ export default async function AppLayout({
   // 임상평가는 RA Phase 3(2026-06-07) 흐름 일원화로 사이드바 진입점 철수
   // (clinical 직무 deprecate + 임상문서 category:'ra'). 목록은 읽기전용 코크핏 유지,
   // 작성=제품 흐름 「작업대 열기」, 감시=RA 워크스페이스(/ra)·대시보드 위젯.
-  const isOrgAdmin = role === 'owner';
+  const isOrgAdmin = isOrgOwner(role);
   // ISO 13485 자가 점검: bundle 의 menus 에 'compliance' 가 있거나 owner/admin.
   // ★ owner OR 분기도 모듈 게이팅: RA/QA 모듈 미구매 조직의 owner 에게 노출되는 누수 차단.
   const canSeeCompliance =
@@ -193,9 +202,8 @@ export default async function AppLayout({
   // 변경평가: bundle 의 menus 에 'assessments' 가 있거나 owner/admin (모듈 게이팅 동일).
   const canSeeAssessments =
     (gatedMenus.has('assessments') || isOrgAdmin) && moduleAllowsMenu('assessments', enabledModules);
-  // 대표/임원 간소화: exec capability 보유 OR org-role owner. admin 은 별도.
-  const isOwnerExec =
-    !isMedqraftAdmin && (hasRole(profile, 'exec') || role === 'owner');
+  // 대표/임원 간소화(결제 · 구독 메뉴): 동작 규칙 billing.manage(exec 직무 또는 조직 소유자). admin 은 별도.
+  const isOwnerExec = !isMedqraftAdmin && canDo({ profile, orgRole: role }, 'billing.manage');
 
   // Multi-role 사이드바 2계층 그룹: 다중 권한 사용자만 활성화.
   // expert / medqraft_admin 은 자체 메뉴 흐름이 있어 평탄 유지.
@@ -228,88 +236,14 @@ export default async function AppLayout({
         .is('read_at', null),
     ]);
 
-  // 내부 RA/QA/RD/Exec 큐 카운트 (역할별 정의는 InternalReviewQueue 와 동일)
-  // Codex audit 2026-05-27: primary job_role 단일 대신 job_roles 합집합 기준.
-  // Lead 역할 (ra_lead/qa_lead/rd_lead/clinical_lead) 은 base 역할로 정규화:
-  // 부서장도 부서의 검토 큐를 가져야 함.
-  const QUEUE_ROLES = ['ra', 'qa', 'rd', 'exec', 'clinical'] as const;
-  type QueueRole = (typeof QUEUE_ROLES)[number];
-  function normalizeQueueRole(r: string): string {
-    if (r === 'ra_lead') return 'ra';
-    if (r === 'qa_lead') return 'qa';
-    if (r === 'rd_lead') return 'rd';
-    if (r === 'clinical_lead') return 'clinical';
-    return r;
-  }
+  // 내부 검토 대기 수: 검토함 · 대시보드와 같은 한 곳(lib/inbox/review-queue.ts)에서 센다(알림 감사 6-5).
+  //   팀장 직무는 부서 큐로 정규화한다(ra_lead → ra …).
   const allRoles = profile?.job_roles ?? (profile?.job_role ? [profile.job_role] : []);
-  const queueRoles = new Set<QueueRole>(
-    (allRoles as string[])
-      .map(normalizeQueueRole)
-      .filter((r): r is QueueRole => (QUEUE_ROLES as readonly string[]).includes(r)),
-  );
-
-  let internalQueueCount = 0;
-  if (membership && queueRoles.size > 0) {
-    const orgId = membership.org_id as string;
-
-    // 성능: 역할별 큐 카운트 쿼리를 순차 for-loop → Promise.all 병렬 실행.
-    // 각 queueRole 은 독립 소스 → wall-clock ≈ max(단일 쿼리) instead of Σ.
-    const perRoleCounts = await Promise.all(
-      Array.from(queueRoles).map(async (queueRole): Promise<number> => {
-        if (queueRole === 'ra' || queueRole === 'qa') {
-          // count_unreviewed_for_role RPC: 2단계 쿼리(N+1) → 단일 DB 함수 (0073)
-          const { data: rpcResult, error: rpcErr } = await supabase
-            .rpc('count_unreviewed_for_role', {
-              p_user_id: user.id,
-              p_org_id: orgId,
-              p_role: queueRole,
-            });
-          if (!rpcErr && typeof rpcResult === 'number') {
-            return rpcResult;
-          }
-          // RPC 미적용 환경 fallback (마이그레이션 미실행 시)
-          const { data: pendingForMe } = await supabase
-            .from('assessments')
-            .select('id')
-            .eq('org_id', orgId)
-            .eq('workflow_state', 'under_review');
-          const ids = (pendingForMe ?? []).map((a: { id: string }) => a.id);
-          if (ids.length === 0) return 0;
-          const { data: myReviews } = await supabase
-            .from('assessment_reviews')
-            .select('assessment_id')
-            .in('assessment_id', ids)
-            .eq('reviewer_role', queueRole);
-          const reviewedSet = new Set(
-            ((myReviews ?? []) as Array<{ assessment_id: string }>).map(
-              (r) => r.assessment_id,
-            ),
-          );
-          return ids.filter((id: string) => !reviewedSet.has(id)).length;
-        } else if (queueRole === 'exec') {
-          const { count } = await supabase
-            .from('assessments')
-            .select('*', { count: 'exact', head: true })
-            .eq('org_id', orgId)
-            .eq('workflow_state', 'final_decision');
-          return count ?? 0;
-        } else if (queueRole === 'rd') {
-          // RD: 본인이 발안한 평가 중 진행 중인 것
-          const { count } = await supabase
-            .from('assessments')
-            .select('*', { count: 'exact', head: true })
-            .eq('org_id', orgId)
-            .eq('initiator_id', user.id)
-            .in('workflow_state', ['under_review', 'preview_review', 'final_decision']);
-          return count ?? 0;
-        }
-        // clinical: 변경평가 검토 제출 UI 가 아직 없어 검토 큐는 0 (열람만 가능).
-        //   향후 임상 영향 검토(assessment_reviews reviewer_role='clinical') 추가 시 여기 분기.
-        return 0;
-      }),
-    );
-    internalQueueCount = perRoleCounts.reduce((sum, c) => sum + c, 0);
-  }
+  const queueRoles = reviewQueueRolesOf(allRoles as string[]);
+  const internalQueueCount =
+    membership && queueRoles.length > 0
+      ? await countReviewQueues(supabase, user.id, membership.org_id as string, queueRoles)
+      : 0;
 
   const inboxBadge = (pendingCount ?? 0) + internalQueueCount;
 
@@ -378,6 +312,7 @@ export default async function AppLayout({
         userId={user.id}
         userEmail={user.email ?? ''}
         userName={profile?.full_name ?? undefined}
+        avatarVersion={(profile as { avatar_updated_at?: string | null } | null)?.avatar_updated_at ?? null}
         role={role}
         plan={plan}
         canSeeAudit={canSeeAudit}
@@ -457,6 +392,8 @@ export default async function AppLayout({
           <NotificationBell placement="static" userId={user.id} isRdLead={caps.sidebarMenus.has('rd-review')} />
         </TopHeaderBand>
         <PageTransition>
+          {/* 운영진의 폰 첫 화면 = 운영 홈(세션마다 한 번 · 오너 2026-09-28 «운영 홈이든 홈이든 한 곳으로 먼저») */}
+          {isMedqraftAdmin && <AdminPhoneLanding initialPhone={phoneApp} />}
           {/* 운영진(직무 admin)은 폰 앱에서도 모든 화면을 안내 없이 연다(오너 결정 2026-09-28 · 즉시 대응) */}
           <PhoneModeGate initialPhone={phoneApp} unrestricted={isMedqraftAdmin}>
           {lockedModule ? (
@@ -464,7 +401,7 @@ export default async function AppLayout({
               title={MODULE_LABEL_KR[lockedModule]}
               moduleId={lockedModule}
               offered={lockedIsOffered}
-              canActivate={lockedIsOffered && (role === 'owner' || hasRole(profile, 'exec'))}
+              canActivate={lockedIsOffered && canDo({ profile, orgRole: role }, 'modules.toggle')}
               /* 화면 검토 A72 · 2026-09-27: 「첫 판매 · 가지 · 세 기둥」 은 파는 쪽의 말이었다. 고객이 알아듣는 말로,
                  알려 달라면 알릴 길(도입 문의)을 함께 둔다(ModuleLockedNotice 의 offered=false 갈래). */
               headline={
@@ -513,10 +450,10 @@ export default async function AppLayout({
         delayMs={1200}
       />
       <GlobalSearch isMedqraftAdmin={isMedqraftAdmin} />
-      {/* 무반응 자동 로그아웃: **현재 꺼져 있다**(2026-08-20 오빠 지시).
+      {/* 무반응 15분 자동 로그아웃: 켜짐(2026-09-30 오너 결정 · 8-20 에 껐던 것을 다시 켬).
           스위치는 SessionIdleMonitor 의 IDLE_LOGOUT_ENABLED 하나뿐이라, 마운트는
-          그대로 두고 거기서 끈다. 여기서 지우면 되돌릴 때 두 곳을 고쳐야 한다.
-          창/탭 닫기 로그아웃은 sessionStorage 세션으로 계속 동작한다(client.ts). */}
+          늘 두고 거기서 켜고 끈다. 여기서 지우면 되돌릴 때 두 곳을 고쳐야 한다.
+          창 닫기 로그아웃은 인증 쿠키를 세션 쿠키로 심는 것이 맡는다(lib/supabase/session-policy.ts). */}
       <SessionIdleMonitor />
       {/* AI 도우미는 AIQuickAccessFab 안으로 통합됨 (메뉴 "💬 AI 도우미").
           별도 floating button mount 안 함. 우하단 FAB 단일 진입점. */}

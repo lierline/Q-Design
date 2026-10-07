@@ -18,6 +18,7 @@ import {
 import { MfdsRegisteredProducts } from './item-classification/MfdsRegisteredProducts';
 import { sanitizeKeywords, countKeywords, type AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import { shouldAutoFill } from '@/lib/medical-items/auto-fill';
+import { TextAction } from '@/components/TextAction';
 import {
   describeConfidence,
   describeVerdictAxis,
@@ -297,7 +298,6 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       style={{
         marginTop: S[5],
         padding: '20px 22px',
-        background: alpha(T.blue, 0.05),
         ...ruleBand(T.blue),
       }}
     >
@@ -316,9 +316,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
             style={{
               fontSize: FS[12],
               color: T.blue,
-              fontFamily: F.mono,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
+              fontFamily: F.ui,
               marginBottom: S[1],
             }}
           >
@@ -338,20 +336,14 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
           </div>
         </div>
         <div style={{ display: 'flex', gap: S[2], alignItems: 'center', flexWrap: 'wrap' }}>
-          <Btn
-            p={false}
-            sm
-            onClick={() => classify()}
-            disabled={!enabled || loading}
-            style={enabled ? { borderColor: T.blue, color: T.blue } : undefined}
-          >
+          <TextAction onClick={() => classify()} disabled={!enabled || loading}>
             {loading && <Spinner color={T.blue} />}
             {loading
               ? '분석 중... (보통 10~30초)'
               : result
                 ? '다시 분석'
                 : `품목 미리보기 (${Q_MATCH_ENGINE_SHORT})`}
-          </Btn>
+          </TextAction>
         </div>
       </div>
 
@@ -360,7 +352,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
           style={{
             fontSize: FS[12],
             color: T.muted,
-            fontFamily: F.mono,
+            fontFamily: F.ui,
             marginTop: S[1.5],
           }}
         >
@@ -397,7 +389,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
           }}
         >
           {result.message ??
-            '매칭되는 품목을 찾지 못했습니다. 더 구체적인 키워드 (재료, 사용 부위, 작동 원리) 를 추가해 주세요.'}
+            '매칭되는 품목을 찾지 못했습니다. 더 구체적인 키워드 (재료, 사용 부위, 작동 원리) 를 추가해 주십시오.'}
         </div>
       )}
 
@@ -462,7 +454,6 @@ function ResultBody({
         <div
           style={{
             padding: '14px 18px',
-            background: alpha(T.champagne, 0.05),
             ...ruleBand(T.champagne),
           }}
         >
@@ -470,11 +461,11 @@ function ResultBody({
             style={{
               fontSize: FS[12],
               color: T.champagne,
-              fontFamily: F.mono,
+              fontFamily: F.ui,
               marginBottom: S[2],
             }}
           >
-            ✦ 정밀 분석 근거
+            정밀 분석 근거
           </div>
           {/* 기기 정체 축: AI 가 '무엇인지'를 판단한 근거(작용원리·목적·에너지·부위)를
               칩으로 투명 노출. novice 에겐 '왜 이 품목?' 설명(선생님 역할), 숙련자에겐 표면
@@ -485,7 +476,7 @@ function ResultBody({
                 style={{
                   fontSize: FS[12],
                   color: T.muted,
-                  fontFamily: F.mono,
+                  fontFamily: F.ui,
                   marginBottom: S[1.5],
                 }}
               >
@@ -509,9 +500,9 @@ function ResultBody({
                         alignItems: 'baseline',
                         gap: S[1],
                         padding: '4px 10px',
-                        background: alpha(T.champagne, 0.08),
-                        border: `1px solid ${alpha(T.champagne, 0.2)}`,
-                        borderRadius: RADIUS.pill,
+                        border: `1px solid ${T.border}`,
+                        // 알약 대신 모서리 sm (화면 검토 A35 · A66 · 2026-09-28)
+                        borderRadius: RADIUS.sm,
                       }}
                     >
                       <span style={{ fontSize: FS[12], color: T.champagne, fontFamily: F.mono, letterSpacing: 0.5 }}>
@@ -561,7 +552,7 @@ function ResultBody({
                 style={{
                   fontSize: FS[12],
                   color: T.champagne,
-                  fontFamily: F.mono,
+                  fontFamily: F.ui,
                   marginRight: S[1.5],
                 }}
               >
@@ -665,7 +656,7 @@ function ResultBody({
               style={{
                 fontSize: FS[12],
                 color: T.muted,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 marginBottom: S[1.5],
               }}
             >
@@ -685,7 +676,7 @@ function ResultBody({
               style={{
                 fontSize: FS[12],
                 color: T.muted,
-                fontFamily: F.mono,
+                fontFamily: F.ui,
                 marginTop: S[1.5],
                 lineHeight: LH.normal,
               }}
@@ -704,7 +695,7 @@ function ResultBody({
               >
                 식약처 의료기기 정보 포털
               </a>
-              에서 코드 <strong style={{ color: T.text }}>{top.code}</strong> 로 조회하세요.
+              에서 코드 <strong style={{ color: T.text }}>{top.code}</strong> 로 조회하십시오.
             </div>
           </div>
         )}
@@ -764,18 +755,17 @@ function ResultBody({
                   alignItems: 'center',
                   gap: S[1.5],
                   padding: '6px 12px',
-                  border: `1px solid ${T.green}`,
-                  background: alpha(T.green, 0.08),
+                  border: `1px solid ${tintBorder(T.green)}`,
                   color: T.green,
                   fontSize: FS[12],
-                  fontFamily: F.mono,
+                  fontFamily: F.ui,
                 }}
               >
                 ✓ 이 품목으로 확정됨
               </span>
             ) : (
-              <button
-                type="button"
+              <Btn
+                sm
                 disabled={confirming}
                 onClick={async () => {
                   setConfirming(true);
@@ -792,30 +782,16 @@ function ResultBody({
                     setConfirming(false);
                   }
                 }}
-                style={{
-                  borderRadius: RADIUS.md,
-                  padding: '8px 16px',
-                  background: T.champagne,
-                  color: T.bg,
-                  border: `1px solid ${T.champagne}`,
-                  fontSize: FS[12],
-                  fontFamily: F.mono,
-                  letterSpacing: 0.8,
-                  textTransform: 'uppercase',
-                  cursor: confirming ? 'not-allowed' : 'pointer',
-                  opacity: confirming ? 0.6 : 1,
-                }}
               >
                 {confirming ? '확정 중...' : `이 품목으로 확정: ${top.code}`}
-              </button>
+              </Btn>
             )}
             {confirmedCode && confirmedCode !== top.code && (
               <span
                 style={{
                   fontSize: FS[12],
                   color: T.muted,
-                  fontFamily: F.mono,
-                  letterSpacing: 0.3,
+                  fontFamily: F.ui,
                 }}
               >
                 현재 확정: {confirmedCode}
@@ -837,9 +813,7 @@ function ResultBody({
             style={{
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.mono,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
+              fontFamily: F.ui,
               marginBottom: S[2],
             }}
           >
@@ -874,11 +848,11 @@ function ResultBody({
         style={{
           fontSize: FS[12],
           color: T.muted,
-          fontFamily: F.mono,
+          fontFamily: F.ui,
           lineHeight: LH.relaxed,
         }}
       >
-        ※ 1차 추정 결과입니다. 실제 등록 시 식약처 분류 기준 / 제품 특성 / 임상 사용 환경 확인 후 확정해 주세요.
+        ※ 1차 추정 결과입니다. 실제 등록 시 식약처 분류 기준 / 제품 특성 / 임상 사용 환경 확인 후 확정해 주십시오.
       </div>
     </div>
   );
@@ -977,13 +951,13 @@ function InputHintPanel({
         marginBottom: S[2.5],
       }}
     >
-      <div style={{ fontSize: FS[12], fontFamily: F.mono, color: STATE.copper, letterSpacing: 0.4 }}>
+      <div style={{ fontSize: FS[12], fontFamily: F.ui, color: STATE.copper }}>
         더 적으시면 좁혀집니다
       </div>
       {hints.map((h) => (
         <div key={h.axis} style={{ display: 'flex', flexDirection: 'column', gap: S[0.5] }}>
           <div style={{ fontSize: FS[12], color: T.text, lineHeight: LH.notice }}>{h.message}</div>
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>예: {h.examples}</div>
+          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>예: {h.examples}</div>
         </div>
       ))}
     </div>
@@ -1003,20 +977,20 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
   if (result.refined && result.refinement) {
     if (result.refinement.fallback) {
       reasons.push(
-        'Q-Atelier 정밀 분석이 시간 초과 등으로 실패해 키워드 결과만 사용했습니다. 그래서 신뢰도가 낮게 잡혔습니다.',
+        '코어 정밀 분석이 시간 초과 등으로 실패해 키워드 결과만 사용했습니다. 그래서 신뢰도가 낮게 잡혔습니다.',
       );
     } else if (result.refinement.alternative_note) {
       reasons.push(
-        'Q-Atelier 정밀 분석에서 「후보 목록에 더 적합한 코드가 없을 수 있다」 고 판단함. 아래 "정밀 분석 근거" 박스의 메모를 확인하세요.',
+        '코어 정밀 분석에서 「후보 목록에 더 적합한 코드가 없을 수 있다」 고 판단함. 아래 "정밀 분석 근거" 박스의 메모를 확인하십시오.',
       );
     } else {
       reasons.push(
-        'Q-Atelier 분석 엔진이 후보 중 가장 적합한 코드를 한 개로 좁혀 판정한 결과. 키워드 점수와 의미 검토를 종합한 값.',
+        '코어 분석이 후보 중 가장 적합한 코드를 한 개로 좁혀 판정한 결과. 키워드 점수와 의미 검토를 종합한 값.',
       );
     }
   } else {
     reasons.push(
-      `${Q_MATCH_ENGINE_SHORT} 룰 매칭 결과만 사용 (Q-Atelier 정밀 분석 미실행). 정밀 분석을 같이 돌리면 더 정확합니다.`,
+      `${Q_MATCH_ENGINE_SHORT} 룰 매칭 결과만 사용 (정밀 분석 미실행). 정밀 분석을 같이 돌리면 더 정확합니다.`,
     );
   }
 
@@ -1061,9 +1035,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
           borderRadius: RADIUS.sm,
           fontSize: FS[12],
           color: cfg.color,
-          fontFamily: F.mono,
-          letterSpacing: 1.2,
-          textTransform: 'uppercase',
+          fontFamily: F.ui,
           padding: '2px 8px',
           border: `1px solid ${cfg.color}`,
           cursor: 'help',
@@ -1090,9 +1062,7 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
             style={{
               fontSize: FS[12],
               color: cfg.color,
-              letterSpacing: 1.5,
-              fontFamily: F.mono,
-              textTransform: 'uppercase',
+              fontFamily: F.ui,
               fontWeight: 600,
               marginBottom: S[2],
             }}
@@ -1396,39 +1366,20 @@ function ManualEntryForm({
   return (
     <div
       style={{
-        borderRadius: RADIUS.md,
+        // 점선 판 안의 판을 걷고 괘선 아래로(화면 검토 A35 · 2026-09-28)
         marginTop: S[3.5],
-        padding: '12px 14px',
-        border: `1px dashed ${T.border}`,
-        background: alpha(T.surface, 0.4),
+        paddingTop: S[3],
+        borderTop: `1px solid ${T.border}`,
       }}
     >
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        style={{
-          display: 'flex',
-          width: '100%',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          background: 'transparent',
-          border: 'none',
-          color: T.subtle,
-          fontSize: FS[12],
-          fontFamily: F.mono,
-          letterSpacing: 0.8,
-          textTransform: 'uppercase',
-          cursor: 'pointer',
-          padding: 0,
-        }}
-      >
+      <TextAction onClick={() => setOpen((v) => !v)} expanded={open}>
         <span>
           {open ? '▲' : '▼'} 직접 입력: 후보 중 적합한 품목이 없을 때
         </span>
-        <span style={{ fontSize: FS[12], color: T.muted, letterSpacing: 0.3 }}>
+        <span style={{ marginLeft: S[2], fontSize: FS[12], color: T.muted }}>
           MFDS 코드 / 품목명 / 등급 수동 등록
         </span>
-      </button>
+      </TextAction>
 
       {open && (
         <div style={{ marginTop: S[3] }}>
@@ -1495,17 +1446,14 @@ function ManualEntryForm({
                 borderRadius: RADIUS.md,
                 marginTop: S[2.5],
                 padding: '8px 10px',
-                background: alpha(T.blue, 0.04),
-                border: `1px dashed ${alpha(T.blue, 0.35)}`,
+                border: `1px dashed ${tintBorder(T.blue)}`,
               }}
             >
               <div
                 style={{
                   fontSize: FS[12],
                   color: T.muted,
-                  fontFamily: F.mono,
-                  letterSpacing: 1.2,
-                  textTransform: 'uppercase',
+                  fontFamily: F.ui,
                   marginBottom: S[1.5],
                   display: 'flex',
                   alignItems: 'center',
@@ -1554,7 +1502,7 @@ function ManualEntryForm({
                         <span
                           style={{
                             color: GRADE_COLOR[s.grade],
-                            fontFamily: F.mono,
+                            fontFamily: F.ui,
                             fontSize: FS[12],
                             textAlign: 'right',
                           }}
@@ -1571,11 +1519,11 @@ function ManualEntryForm({
                   style={{
                     fontSize: FS[12],
                     color: T.muted,
-                    fontFamily: F.mono,
+                    fontFamily: F.ui,
                     lineHeight: LH.relaxed,
                   }}
                 >
-                  카탈로그에서 매칭되는 품목이 없습니다. 코드·등급을 직접 입력해 주세요.
+                  카탈로그에서 매칭되는 품목이 없습니다. 코드·등급을 직접 입력해 주십시오.
                 </div>
               )}
             </div>
@@ -1590,29 +1538,12 @@ function ManualEntryForm({
               flexWrap: 'wrap',
             }}
           >
-            <button
-              type="button"
-              disabled={!canSubmit || submitting}
-              onClick={() => void submit()}
-              style={{
-                borderRadius: RADIUS.md,
-                padding: '8px 16px',
-                background: canSubmit ? T.champagne : 'transparent',
-                color: canSubmit ? T.bg : T.muted,
-                border: `1px solid ${canSubmit ? T.champagne : T.border}`,
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                letterSpacing: 0.8,
-                textTransform: 'uppercase',
-                cursor: canSubmit && !submitting ? 'pointer' : 'not-allowed',
-                opacity: submitting ? 0.6 : 1,
-              }}
-            >
+            <Btn sm disabled={!canSubmit || submitting} onClick={() => void submit()}>
               {submitting ? '확정 중...' : '이 품목으로 확정 (직접 입력)'}
-            </button>
+            </Btn>
             {!canSubmit && (code.length > 0 || nameKr.length > 0) && (
-              <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
-                코드(영문/숫자/. -_/ 2~20자) · 품목명 · 등급을 모두 입력해 주세요.
+              <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
+                코드(영문/숫자/. -_/ 2~20자) · 품목명 · 등급을 모두 입력해 주십시오.
               </span>
             )}
             {confirmedCode && (
@@ -1620,8 +1551,7 @@ function ManualEntryForm({
                 style={{
                   fontSize: FS[12],
                   color: T.muted,
-                  fontFamily: F.mono,
-                  letterSpacing: 0.3,
+                  fontFamily: F.ui,
                 }}
               >
                 현재 확정: {confirmedCode}
@@ -1707,7 +1637,7 @@ function AlternativeRow({
               border: `1px solid ${T.border}`,
               color: T.muted,
               fontSize: FS[12],
-              fontFamily: F.mono,
+              fontFamily: F.ui,
               whiteSpace: 'nowrap',
             }}
           >
@@ -1720,10 +1650,10 @@ function AlternativeRow({
           </span>
         )}
       </span>
-      <span style={{ color: GRADE_COLOR[a.grade], fontFamily: F.mono, fontSize: FS[12] }}>
+      <span style={{ color: GRADE_COLOR[a.grade], fontFamily: F.ui, fontSize: FS[12] }}>
         {a.grade}등급
       </span>
-      <span style={{ color: T.muted, fontFamily: F.mono, fontSize: FS[12], textAlign: 'right' }}>
+      <span style={{ color: T.muted, fontFamily: F.ui, fontSize: FS[12], textAlign: 'right' }}>
         {/* 원값(1.1587980380015848)이 그대로 찍히던 것 · 2026-09-14 오빠 지적. 둘째 자리까지만 */}
         {a.score.toFixed(2)}점
       </span>
@@ -1739,14 +1669,15 @@ function AlternativeRow({
                 background: alpha(T.green, 0.1),
                 color: T.green,
                 fontSize: FS[12],
-                fontFamily: F.mono,
+                fontFamily: F.ui,
               }}
             >
               ✓ 확정됨
             </span>
           ) : (
-            <button
-              type="button"
+            <Btn
+              p={false}
+              sm
               disabled={confirming}
               onClick={async () => {
                 setConfirming(true);
@@ -1759,22 +1690,9 @@ function AlternativeRow({
                   setConfirming(false);
                 }
               }}
-              style={{
-                borderRadius: RADIUS.md,
-                padding: '4px 10px',
-                background: 'transparent',
-                border: `1px solid ${T.champagne}`,
-                color: T.champagne,
-                fontSize: FS[12],
-                fontFamily: F.mono,
-                letterSpacing: 0.5,
-                textTransform: 'uppercase',
-                cursor: confirming ? 'not-allowed' : 'pointer',
-                opacity: confirming ? 0.6 : 1,
-              }}
             >
               {confirming ? '확정 중...' : excluded ? '그래도 확정' : '이 품목 확정'}
-            </button>
+            </Btn>
           )}
         </span>
       )}
@@ -1790,7 +1708,7 @@ function AlternativeRow({
           fontFamily: F.ui,
         }}
       >
-        <span style={{ color: T.red, fontFamily: F.mono, letterSpacing: 0.5 }}>⚠ 정밀 분석이 배제</span>
+        <span style={{ color: T.red, fontFamily: F.ui }}>⚠ 정밀 분석이 배제</span>
         {' · '}
         {a.excluded_reason}
       </div>
@@ -1830,9 +1748,8 @@ function ExtendedCandidates({
           background: 'none',
           border: `1px dashed ${T.border}`,
           color: T.subtle,
-          fontFamily: F.mono,
+          fontFamily: F.ui,
           fontSize: FS[12],
-          letterSpacing: 0.3,
           padding: `${S[2]}px ${S[3]}px`,
           width: '100%',
           textAlign: 'left',

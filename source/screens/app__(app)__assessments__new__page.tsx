@@ -7,18 +7,22 @@ import { translateDbError } from '@/lib/db/translate-error';
 import {
   Alert,
   Btn,
+  Checkbox,
   Div,
+  EmptyState,
   FldRow,
   Grid,
   In,
   InfoBox,
+  InfoDot,
   Lbl,
   LoadingState,
+  NextStep,
   PageHd,
   Sel,
   Txt,
 } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH, LAYOUT, RADIUS } from '@/lib/design/tokens';
+import { S, FS, F, T, LH, LAYOUT, RADIUS } from '@/lib/design/tokens';
 import {
   CHANGE_REASONS,
   CHANGE_STAGES_UI,
@@ -37,7 +41,8 @@ import type { ChangeTarget } from '@/lib/engine/types';
 import { AssessmentPreviewPanel } from '@/components/AssessmentPreviewPanel';
 import { startRouteProgress } from '@/components/TopProgressBar';
 import { ListBackLink } from '@/components/ListBackLink';
-import { TextLinkAction } from '@/components/TextAction';
+import { TextAction, TextLinkAction } from '@/components/TextAction';
+import { ChoiceCheck, choiceLook } from '@/lib/design/segmented-choice';
 
 interface ProductRow {
   id: string;
@@ -89,11 +94,10 @@ function SectionHead({ n, title, hint, done }: SectionHeadProps) {
       >
         {done ? '✓' : n}
       </div>
-      <div>
+      {/* 2026-10-08 «설명 글귀는 ⓘ 안으로»: 단계 설명은 제목 옆 ⓘ 팝업으로. 제목 아래 한 줄 글은 걷었다 */}
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5] }}>
         <div style={{ fontSize: FS[14], color: T.text, fontWeight: 500 }}>{title}</div>
-        {hint && (
-          <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1] }}>{hint}</div>
-        )}
+        {hint && <InfoDot label={`${title} 설명 보기`}>{hint}</InfoDot>}
       </div>
     </div>
   );
@@ -236,7 +240,7 @@ export default function NewAssessmentPage() {
       const data = await res.json();
       if (!res.ok) {
         // 카피(감사 #12): 에러 코드 원문 대신 API 한글 메시지 우선, 없으면 일반 안내.
-        setError(data.message ?? '평가 생성에 실패했습니다. 입력 내용을 확인한 뒤 다시 시도해주세요.');
+        setError(data.message ?? '평가 생성에 실패했습니다. 입력 내용을 확인한 뒤 다시 시도해주십시오.');
         setSubmitting(false);
         return;
       }
@@ -262,9 +266,8 @@ export default function NewAssessmentPage() {
     return (
       <div>
         <PageHd title="새 변경평가" />
-        <InfoBox color={T.warning}>
-          등록된 제품이 없습니다. 먼저 <a href="/products" style={{ color: T.champagne, textDecoration: 'underline' }}>제품</a>을 등록해주세요.
-        </InfoBox>
+        {/* 빈 화면 한 줄 + 다음 단추(2026-10-08 «설명 글귀는 ⓘ 안으로»: 남는 글 네 가지 중 «빈 화면») */}
+        <EmptyState compact title="등록된 제품이 없습니다" description="변경평가는 제품에 붙습니다. 먼저 제품을 등록하십시오." hints={[{ label: '제품 등록', href: '/products' }]} />
       </div>
     );
   }
@@ -300,8 +303,8 @@ export default function NewAssessmentPage() {
             }
           >
             {treeRationale ?? ''}
-            <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
-              ▸ 이 평가서의 <strong>비고/근거</strong> 란에 진단 결과를 자동 기록할 수 있게 위 정보를 활용하세요.
+            <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1.5], fontFamily: F.ui }}>
+              ▸ 이 평가서의 <strong>비고/근거</strong> 란에 진단 결과를 자동 기록할 수 있게 위 정보를 활용하십시오.
             </div>
           </Alert>
         </div>
@@ -329,7 +332,7 @@ export default function NewAssessmentPage() {
             style={{
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.mono,
+              fontFamily: F.ui,
             }}
           >
             입력 진행도
@@ -365,7 +368,7 @@ export default function NewAssessmentPage() {
         <div>
           <SectionHead n="1" title="기본 정보" done={steps[0]} />
           <Grid cols={3} minCol={200} gap={14}>
-            <FldRow label="대상 제품" required>
+            <FldRow label="대상 제품" required info="제품을 고르면 환자접촉 · 소프트웨어 · 멸균 정보가 아래에 따라옵니다. 이 정보가 «영향 영역» 진단에 쓰입니다.">
               <Sel
                 value={pid}
                 onChange={(e) => setPid(e.target.value)}
@@ -375,10 +378,10 @@ export default function NewAssessmentPage() {
                 }))}
               />
             </FldRow>
-            <FldRow label="변경 단계" required>
+            <FldRow label="변경 단계" required info="출시 전이면 설계 변경 절차를, 출시 후면 허가 변경 · 신고 여부까지 함께 봅니다.">
               <Sel value={stage} onChange={(e) => setStage(e.target.value)} opts={[...CHANGE_STAGES_UI]} />
             </FldRow>
-            <FldRow label="관할국" required>
+            <FldRow label="관할국" required info="진단에 쓰는 규제 기준이 달라집니다. 한국은 MFDS 변경허가 · 변경신고 기준, EU 는 MDR, 미국은 FDA 기준을 따릅니다. 구독에 없는 시장은 목록에 나오지 않습니다.">
               <Sel
                 value={jur}
                 onChange={(e) => setJur(e.target.value)}
@@ -401,7 +404,7 @@ export default function NewAssessmentPage() {
                 lineHeight: LH.normal,
               }}
             >
-              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono }}>
+              <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
                 {selectedProduct.local_id} · 환자접촉:{' '}
                 {selectedProduct.patient_contact
                   ? `있음${selectedProduct.contact_type ? ` (${selectedProduct.contact_type})` : ''}`
@@ -433,7 +436,7 @@ export default function NewAssessmentPage() {
           <SectionHead
             n="2"
             title="변경 유형"
-            hint="변경 대상을 고른 뒤 해당하는 세부 유형을 모두 선택하세요 (복수 선택 가능)"
+            hint="변경 대상(원재료 · 공급처 · 소프트웨어 · 라벨 등)을 먼저 고르면 그 대상에 맞는 세부 유형이 나옵니다. 세부 유형은 해당하는 것을 모두 고를 수 있습니다."
             done={steps[1]}
           />
           <FldRow label="변경 대상" required>
@@ -466,48 +469,26 @@ export default function NewAssessmentPage() {
             <Lbl>
               세부 유형 <span style={{ color: T.red }}>*</span>
             </Lbl>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2], marginTop: S[2] }}>
-              {!target && (
-                <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>변경 대상을 먼저 고르십시오.</span>
-              )}
-              {subTypeOptions.map((st) => {
-                const on = subTypes.includes(st.id);
-                return (
-                  <button
+            {/* 여러 개 고르기는 체크 목록(화면 검토 A35 · 2026-09-28): 알약 16개가 «누르는 것 · 고른 것» 을 가르지 못했다.
+                체크가 고른 것을 보이므로 아래 «선택됨: …» 줄은 걷었다. 터치 화면에서는 줄 높이 44 */}
+            {!target ? (
+              <NextStep style={{ marginTop: S[2] }}>변경 대상을 먼저 고르십시오.</NextStep>
+            ) : (
+              <div
+                role="group"
+                aria-label="세부 유형"
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: `${S[1]}px ${S[4]}px`, marginTop: S[2] }}
+              >
+                {subTypeOptions.map((st) => (
+                  <Checkbox
                     key={st.id}
-                    type="button"
-                    onClick={() => toggleArr(setSubTypes, subTypes, st.id)}
-                    // 터치 화면에서는 높이 44(globals.css · 세부 유형 칩 29). PC 는 그대로
+                    checked={subTypes.includes(st.id)}
+                    onChange={() => toggleArr(setSubTypes, subTypes, st.id)}
                     className="qa-touch-44"
-                    style={{
-                      borderRadius: RADIUS.md,
-                      padding: '7px 14px',
-                      fontSize: FS[12],
-                      cursor: 'pointer',
-                      border: `1px solid ${on ? T.text : T.border}`,
-                      background: on ? T.text : 'transparent',
-                      color: on ? T.bg : T.subtle,
-                      fontFamily: F.ui,
-                      transition: 'all 0.12s',
-                    }}
                   >
                     {st.label}
-                  </button>
-                );
-              })}
-            </div>
-            {subTypes.length > 0 && (
-              <div
-                style={{
-                  fontSize: FS[12],
-                  color: T.muted,
-                  marginTop: S[2],
-                  fontFamily: F.mono,
-                }}
-              >
-                선택됨: {subTypes
-                  .map((id) => subTypeOptions.find((s) => s.id === id)?.label)
-                  .join(' · ')}
+                  </Checkbox>
+                ))}
               </div>
             )}
           </div>
@@ -520,7 +501,7 @@ export default function NewAssessmentPage() {
           <SectionHead
             n="3"
             title="변경 내용"
-            hint="간단한 명칭·버전·사양을 입력하세요."
+            hint="명칭 · 버전 · 사양을 짧게 적습니다. 예: 실리콘 A사 · 펌웨어 v1.2 · ISO 10993-5:2009 → 실리콘 B사 · 펌웨어 v2.0 · ISO 10993-5:2021"
             done={steps[2]}
           />
           <Grid cols={2} minCol={240} gap={14}>
@@ -579,33 +560,25 @@ export default function NewAssessmentPage() {
           <SectionHead
             n="4"
             title="변경 사유"
-            hint="해당하는 항목을 모두 선택하세요 (복수 선택 가능)"
+            hint="이번 변경을 하게 된 이유입니다. 해당하는 것을 모두 고를 수 있습니다. 사유는 변경 통제 기록에 남고, 규제 대응 · 고객 요청처럼 외부 요인이면 근거 문서를 함께 첨부하는 것이 좋습니다."
             done={steps[3]}
           />
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
-            {CHANGE_REASONS.map((r) => {
-              const on = reasons.includes(r.id);
-              return (
-                <button
-                  key={r.id}
-                  type="button"
-                  onClick={() => toggleArr(setReasons, reasons, r.id)}
-                  style={{
-                    borderRadius: RADIUS.md,
-                    padding: '7px 16px',
-                    fontSize: FS[12],
-                    cursor: 'pointer',
-                    fontFamily: F.ui,
-                    border: `1px solid ${on ? T.champagne : T.border}`,
-                    background: on ? alpha(T.champagne, 0.1) : 'transparent',
-                    color: on ? T.champagne : T.subtle,
-                    transition: 'all 0.12s',
-                  }}
-                >
-                  {r.label}
-                </button>
-              );
-            })}
+          {/* 여러 개 고르기는 체크 목록(화면 검토 A35 · 2026-09-28 · 세부 유형과 같은 모양) */}
+          <div
+            role="group"
+            aria-label="변경 사유"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: `${S[1]}px ${S[4]}px` }}
+          >
+            {CHANGE_REASONS.map((r) => (
+              <Checkbox
+                key={r.id}
+                checked={reasons.includes(r.id)}
+                onChange={() => toggleArr(setReasons, reasons, r.id)}
+                className="qa-touch-44"
+              >
+                {r.label}
+              </Checkbox>
+            ))}
           </div>
         </div>
 
@@ -616,12 +589,12 @@ export default function NewAssessmentPage() {
           <SectionHead
             n="5"
             title="R&D 사전 영향 평가"
-            hint="각 영역별로 변경의 영향 가능성을 평가하세요."
+            hint="영역마다 변경이 영향을 줄 가능성이 있는지 R&D 가 먼저 표시합니다. MedQraft Core 는 «영향 가능성 있음» 영역을 우선 분석하고, 둘의 결과가 일치하는지 보여 줍니다."
             done={steps[4]}
           />
-          <div style={{ display: 'flex', gap: S[2], marginBottom: S[4] }}>
-            <button
-              type="button"
+          {/* 한꺼번에 고르기 · 초기화는 보조 동작이라 글귀 (화면 검토 A11 · 2026-09-28) */}
+          <div style={{ display: 'flex', gap: S[2], marginBottom: S[4], alignItems: 'center' }}>
+            <TextAction
               onClick={() => {
                 const all: Record<string, 'none' | 'has'> = {};
                 IMPACT_CHECKS.forEach((ic) => {
@@ -629,35 +602,10 @@ export default function NewAssessmentPage() {
                 });
                 setImpactChecks(all);
               }}
-              style={{
-                borderRadius: RADIUS.md,
-                padding: '7px 16px',
-                fontSize: FS[12],
-                cursor: 'pointer',
-                fontFamily: F.ui,
-                border: `1px solid ${T.border}`,
-                background: 'transparent',
-                color: T.subtle,
-              }}
             >
-              전체 &quot;영향 없음&quot; 선택
-            </button>
-            <button
-              type="button"
-              onClick={() => setImpactChecks({})}
-              style={{
-                borderRadius: RADIUS.md,
-                padding: '7px 16px',
-                fontSize: FS[12],
-                cursor: 'pointer',
-                fontFamily: F.ui,
-                border: `1px solid ${T.border}`,
-                background: 'transparent',
-                color: T.muted,
-              }}
-            >
-              초기화
-            </button>
+              전체 «영향 없음» 고르기
+            </TextAction>
+            <TextAction onClick={() => setImpactChecks({})}>초기화</TextAction>
           </div>
           {/* 모바일(≤767px): 1열 stack: 라벨 / 버튼 그룹 / 상태 표시 줄바꿈 */}
           <style dangerouslySetInnerHTML={{ __html: `
@@ -681,11 +629,8 @@ export default function NewAssessmentPage() {
                     padding: '14px 16px',
                     borderBottom: !isLast ? `1px solid ${T.border}` : 'none',
                     alignItems: 'center',
-                    background: val
-                      ? val === 'has'
-                        ? alpha(T.warning, 0.05)
-                        : alpha(T.green, 0.04)
-                      : T.surface,
+                    // 고른 줄을 옅은 초록 · 주황 바탕으로 칠하지 않는다. 고름은 칸의 짙은 테두리 + 체크가 말한다 (문서 결)
+                    background: T.surface,
                   }}
                 >
                   <div>
@@ -696,47 +641,45 @@ export default function NewAssessmentPage() {
                       {ic.hint}
                     </div>
                   </div>
-                  <div style={{ display: 'flex', gap: S[1.5] }}>
+                  {/* 둘 중 하나 고르기: 공용 선택 모양(짙은 테두리 + 체크 · 뜻 색은 체크에만) + aria-pressed.
+                      옅은 초록 · 주황으로 채운 칸이 주 단추 · 상태 색처럼 읽혔다 (화면 검토 A11 · A38 · 2026-09-28) */}
+                  <div style={{ display: 'flex', gap: S[1.5] }} role="group" aria-label={`${ic.label} 영향`}>
                     <button
                       type="button"
+                      aria-pressed={val === 'none'}
                       onClick={() =>
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'none' }))
                       }
                       className="qa-touch-44"
                       style={{
-                        borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
                         fontSize: FS[12],
                         cursor: 'pointer',
                         fontFamily: F.ui,
-                        border: `1px solid ${val === 'none' ? T.green : T.border}`,
-                        background:
-                          val === 'none' ? alpha(T.green, 0.15) : 'transparent',
-                        color: val === 'none' ? T.green : T.subtle,
+                        ...choiceLook(val === 'none'),
                       }}
                     >
+                      <ChoiceCheck on={val === 'none'} color={T.green} />
                       영향 없음
                     </button>
                     <button
                       type="button"
+                      aria-pressed={val === 'has'}
                       onClick={() =>
                         setImpactChecks((prev) => ({ ...prev, [ic.id]: 'has' }))
                       }
                       className="qa-touch-44"
                       style={{
-                        borderRadius: RADIUS.md,
                         flex: 1,
                         padding: '8px 12px',
                         fontSize: FS[12],
                         cursor: 'pointer',
                         fontFamily: F.ui,
-                        border: `1px solid ${val === 'has' ? T.warning : T.border}`,
-                        background:
-                          val === 'has' ? alpha(T.warning, 0.15) : 'transparent',
-                        color: val === 'has' ? T.warning : T.subtle,
+                        ...choiceLook(val === 'has'),
                       }}
                     >
+                      <ChoiceCheck on={val === 'has'} color={T.warning} />
                       영향 가능성 있음
                     </button>
                   </div>
@@ -744,12 +687,13 @@ export default function NewAssessmentPage() {
                     style={{
                       textAlign: 'right',
                       fontSize: FS[12],
-                      fontFamily: F.mono,
-                      color: T.muted,
+                      // 한글 상태 글이라 본문 글꼴. «플래그» 는 개발 말이라 «검토 대상» 으로 (화면 검토 A44 · A77 · 2026-09-28)
+                      fontFamily: F.ui,
+                      color: val === 'has' ? T.warning : T.muted,
                     }}
                   >
                     {val === 'none' && '안전'}
-                    {val === 'has' && '플래그'}
+                    {val === 'has' && '검토 대상'}
                   </div>
                 </div>
               );
@@ -764,21 +708,12 @@ export default function NewAssessmentPage() {
                 </InfoBox>
               </div>
             )}
+          {/* 결과 안내는 «다음 할 일 한 줄» 로(2026-10-08 «설명 글귀는 ⓘ 안으로») */}
           {readyToEval && hasImpact && (
-            <div style={{ marginTop: S[3] }}>
-              <InfoBox color={T.warning}>
-                영향 가능성이 있는 영역이 표시되었습니다. MedQraft Core가 해당 영역을 우선
-                분석합니다.
-              </InfoBox>
-            </div>
+            <NextStep style={{ marginTop: S[3] }}>영향 가능성이 있는 영역을 MedQraft Core 가 우선 분석합니다. 아래에서 평가를 실행하십시오.</NextStep>
           )}
           {readyToEval && !hasImpact && (
-            <div style={{ marginTop: S[3] }}>
-              <InfoBox color={T.green}>
-                전 영역에 영향 없음으로 평가되었습니다. MedQraft Core 결과와 비교하여 일치
-                여부를 확인합니다.
-              </InfoBox>
-            </div>
+            <NextStep style={{ marginTop: S[3] }}>전 영역 영향 없음. MedQraft Core 결과와 일치하는지 평가 실행으로 확인합니다.</NextStep>
           )}
         </div>
 

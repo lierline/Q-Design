@@ -8,16 +8,15 @@
 // =============================================================================
 
 import { useEffect, useState } from 'react';
-import { Bx, Collapse } from '@/lib/design/components';
-import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
-import {
-  Sparkles,
-  TriangleAlert,
-  ListChecks,
-  Loader2,
-  ChevronDown,
-  ChevronUp,
-} from 'lucide-react';
+import { Btn, Bx, Collapse } from '@/lib/design/components';
+import { S, FS, F, T, LH, RADIUS } from '@/lib/design/tokens';
+import { ruleBand } from '@/lib/design/grain';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
+import { TriangleAlert } from '@/components/q-design-icons/TriangleAlert';
+import { ListChecks } from '@/components/q-design-icons/ListChecks';
+import { Loader2 } from '@/components/q-design-icons/Loader2';
+import { ChevronDown } from '@/components/q-design-icons/ChevronDown';
+import { ChevronUp } from '@/components/q-design-icons/ChevronUp';
 
 interface FinalJudgment {
   assessment_id: string;
@@ -97,7 +96,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
             gap: S[2.5],
             color: T.muted,
             fontSize: FS[12],
-            fontFamily: F.mono,
+            fontFamily: F.ui,
           }}
         >
           <Loader2 size={14} className="animate-spin" />
@@ -128,9 +127,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
           style={{
             fontSize: FS[12],
             color: CONF_COLOR[judgment.confidence],
-            fontFamily: F.mono,
-            letterSpacing: 1.5,
-            textTransform: 'uppercase',
+            fontFamily: F.ui,
             padding: '2px 8px',
             border: `1px solid ${CONF_COLOR[judgment.confidence]}`,
             borderRadius: RADIUS.sm,
@@ -143,7 +140,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
             style={{
               fontSize: FS[12],
               color: T.muted,
-              fontFamily: F.mono,
+              fontFamily: F.ui,
             }}
           >
             · 외부 전문가 {judgment.expert_count}명 검토 반영
@@ -169,9 +166,9 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
       {judgment.final_overridden && (
         <div
           style={{
-            padding: '10px 14px',
+            padding: '10px 2px',
             marginBottom: S[3.5],
-            background: `${alpha(T.champagne, 0.06)}`,
+            ...ruleBand(T.champagne),
             fontSize: FS[12],
             lineHeight: LH.relaxed,
             color: T.text,
@@ -241,9 +238,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
               border: 'none',
               color: T.muted,
               fontSize: FS[12],
-              fontFamily: F.mono,
-              letterSpacing: 1,
-              textTransform: 'uppercase',
+              fontFamily: F.ui,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -285,25 +280,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
                 {judgment.final_risk_level} · {judgment.final_regulatory}
               </div>
               <div style={{ gridColumn: 'span 2', marginTop: S[1.5] }}>
-                <button
-                  onClick={() => load(true)}
-                  disabled={loading}
-                  style={{
-                    borderRadius: RADIUS.md,
-                    background: 'transparent',
-                    border: `1px solid ${T.border}`,
-                    color: T.muted,
-                    padding: '4px 10px',
-                    fontSize: FS[12],
-                    fontFamily: F.mono,
-                    letterSpacing: 1,
-                    textTransform: 'uppercase',
-                    cursor: loading ? 'not-allowed' : 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: S[1.5],
-                  }}
-                >
+                <Btn p={false} sm onClick={() => load(true)} disabled={loading}>
                   {loading && (
                     <span
                       aria-hidden
@@ -319,7 +296,7 @@ export function FinalJudgmentPanel({ assessmentCode }: { assessmentCode: string 
                     />
                   )}
                   {loading ? '재분석 중...' : '강제 재분석'}
-                </button>
+                </Btn>
                 <style>{`@keyframes qa-spin-fj { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
               </div>
             </div>
@@ -425,8 +402,7 @@ function WeightsBar({
             marginTop: S[2],
             fontSize: FS[12],
             color: T.muted,
-            fontFamily: F.mono,
-            letterSpacing: 0.5,
+            fontFamily: F.ui,
           }}
         >
           {weights.num_experts >= 4

@@ -2,18 +2,21 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ScanBarcode } from 'lucide-react';
+import { ScanBarcode } from '@/components/q-design-icons/ScanBarcode';
 import { useToast } from '@/components/Toast';
 import { Btn, Bx, PageHd, Lbl, Field, In, FormActions } from '@/lib/design/components';
 import { SegmentedChoice } from '@/lib/design/segmented-choice';
-import { S, FS, F, T, alpha, RADIUS, SHADOW, MOTION, LAYOUT, LH } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha, RADIUS, MOTION, LAYOUT, LH, labelCase } from '@/lib/design/tokens';
+import { tintBorder } from '@/lib/design/grain';
+import { codeOrTextFont } from '@/lib/design/hangul-text';
 import { ISSUING_AGENCY_LABEL, ISSUING_AGENCY_DESC, PI_COMPONENT_META, suggestPi, type IssuingAgency, type PiComponents, type PiSuggestion } from '@/lib/udi';
 import type { MfdsProduct } from '@/lib/mfds-api/products';
 import { HelpNote } from '@/components/HelpNote';
 import { ListBackLink } from '@/components/ListBackLink';
-import { TextLinkAction } from '@/components/TextAction';
+import { TextLinkAction, TextAction } from '@/components/TextAction';
 import { ProductPickField, useProductPick } from '@/components/ProductPickField';
 import type { OrgProductList } from '@/lib/products/org-products';
+import { FormNote } from '@/components/FormNote';
 
 const PI_LABEL: Record<string, string> = Object.fromEntries(PI_COMPONENT_META.map((m) => [m.key, m.label]));
 
@@ -163,8 +166,9 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
       <div className="qa-udi-layout">
         {/* ── 좌: 입력 폼 ── */}
-        <Bx style={{ padding: S[7], background: T.surface, borderColor: T.border, borderRadius: RADIUS.md, boxShadow: SHADOW.hairline, display: 'flex', flexDirection: 'column', gap: S[6] }}>
-          <HelpNote>
+        <Bx style={{ padding: S[7], background: T.surface, borderColor: T.border, borderRadius: RADIUS.md, display: 'flex', flexDirection: 'column', gap: S[6] }}>
+          {/* 양식 판 안이라 상자 없는 짧은 안내로(화면 검토 A35 · A76 · 2026-09-28) */}
+          <HelpNote compact>
             <strong style={{ color: T.text }}>UDI</strong> = 정적 식별자 <strong>UDI-DI</strong>(제품/모델 고유) + 동적 <strong>UDI-PI</strong>(로트·시리얼·유효기간 등 생산 정보). 발행기관에서 DI 를 발급받아 입력하십시오.
           </HelpNote>
 
@@ -188,9 +192,10 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
               value={agency}
               onChange={setAgency}
             />
-            <div style={{ marginTop: S[2], padding: '8px 12px', background: alpha(T.champagne, 0.05), border: `1px solid ${alpha(T.champagne, 0.2)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.notice }}>
-              <strong style={{ color: T.champagne }}>{ISSUING_AGENCY_LABEL[agency]}</strong>: {ISSUING_AGENCY_DESC[agency]}
-            </div>
+            {/* 판 안의 상자 대신 칸 아래 글(화면 검토 A35 · 2026-09-28) */}
+            <FormNote style={{ marginTop: S[2] }}>
+              <strong style={{ color: T.text }}>{ISSUING_AGENCY_LABEL[agency]}</strong>: {ISSUING_AGENCY_DESC[agency]}
+            </FormNote>
           </div>
 
           {/* UDI-DI: mono 입력 + MFDS 조회 버튼 복합 컨트롤 (공통 In 미적용: inputStyle 유지) */}
@@ -198,39 +203,32 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
             <Lbl htmlFor="udi-di">UDI-DI (기기 식별자) <span style={{ color: T.red }}>*</span></Lbl>
             <div style={{ display: 'flex', gap: S[2], alignItems: 'stretch' }}>
               <input id="udi-di" type="text" value={udiDi} onChange={(e) => { setUdiDi(e.target.value); setLookupInfo(null); setLookupMsg(null); }} placeholder={agency === 'gs1' ? '예: 08806311234567 (GTIN-14)' : '발행기관 DI'} style={{ ...inputStyle(), fontFamily: F.mono, flex: 1, minWidth: 0 }} />
-              <button
-                type="button"
+              <Btn
+                p={false}
                 onClick={doLookup}
                 disabled={!canLookup}
                 title="MFDS 통합정보시스템에서 이 UDI-DI 의 제품 정보를 불러옵니다"
-                style={{
-                  flexShrink: 0, padding: '0 14px', minHeight: 44, whiteSpace: 'nowrap',
-                  fontFamily: F.mono, fontSize: FS[12], letterSpacing: 0.5, fontWeight: 600,
-                  background: canLookup ? alpha(T.champagne, 0.1) : 'transparent',
-                  color: canLookup ? T.champagne : T.muted,
-                  border: `1px solid ${canLookup ? alpha(T.champagne, 0.5) : T.border}`,
-                  borderRadius: RADIUS.md, cursor: canLookup ? 'pointer' : 'not-allowed',
-                }}
+                style={{ flexShrink: 0 }}
               >
                 {looking ? '조회 중…' : 'MFDS 불러오기'}
-              </button>
+              </Btn>
             </div>
             <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
               제품/모델당 고유하며 조직 안에서 중복 등록할 수 없습니다. DI 를 넣고 <strong style={{ color: T.subtle }}>「MFDS 불러오기」</strong>를 누르면 아래 제품명 · 품목 코드 칸의 빈 곳을 허가 정보로 채웁니다.
             </div>
             {diHasEmbeddedAi && (
-              <div style={{ marginTop: S[2], padding: '8px 12px', background: alpha(T.warning, 0.06), border: `1px solid ${alpha(T.warning, 0.3)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
+              <div style={{ marginTop: S[2], padding: '8px 12px', border: `1px solid ${tintBorder(T.warning)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
                 여기엔 <strong style={{ color: T.text }}>DI 만</strong> 넣어 주십시오. 입력하신 값에 <span style={{ fontFamily: F.mono }}>(10)</span> 같은 <strong>PI(생산정보) AI</strong>가 섞여 있습니다. PI 는 아래에서 따로 구성합니다.
               </div>
             )}
             {lookupMsg && (
-              <div style={{ marginTop: S[2], padding: '8px 12px', background: alpha(T.warning, 0.06), border: `1px solid ${alpha(T.warning, 0.3)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle }}>
+              <div style={{ marginTop: S[2], padding: '8px 12px', border: `1px solid ${tintBorder(T.warning)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle }}>
                 {lookupMsg}
               </div>
             )}
             {lookupInfo && (
-              <div style={{ marginTop: S[2], padding: '10px 12px', background: alpha(T.green, 0.05), border: `1px solid ${alpha(T.green, 0.35)}`, borderRadius: RADIUS.sm }}>
-                <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.green, marginBottom: S[1.5] }}>MFDS 조회 결과</div>
+              <div style={{ marginTop: S[2], padding: '10px 12px', border: `1px solid ${tintBorder(T.green)}`, borderRadius: RADIUS.sm }}>
+                <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.green, marginBottom: S[1.5] }}>MFDS 조회 결과</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {([
                     ['제품명', lookupInfo.product_name],
@@ -296,18 +294,14 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
           {/* UDI-PI: 권장 배지 포함 체크박스 카드 (공통 In/Sel 아님: 의도적 UI) */}
           <div>
-            <Lbl>생산 식별자 (UDI-PI): 라벨에 포함할 항목</Lbl>
+            <Lbl>라벨에 넣을 생산 식별자 (UDI-PI)</Lbl>
             {suggestion && (
-              <div style={{ marginBottom: S[2.5], padding: '10px 13px', background: alpha(T.champagne, 0.05), border: `1px solid ${alpha(T.champagne, 0.3)}`, borderRadius: RADIUS.sm }}>
+              <div style={{ marginBottom: S[2.5], padding: '10px 13px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.sm }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: S[2], flexWrap: 'wrap', marginBottom: S[1.5] }}>
-                  <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.champagne, fontWeight: 600 }}>제품 특성 기반 권장 PI</span>
-                  <button
-                    type="button"
-                    onClick={() => setPi((p) => ({ ...p, ...suggestion.recommended }))}
-                    style={{ marginLeft: 'auto', padding: '3px 10px', fontFamily: F.mono, fontSize: FS[12], fontWeight: 600, background: T.champagne, color: T.bg, border: 'none', borderRadius: RADIUS.md, cursor: 'pointer' }}
-                  >
-                    권장값 적용
-                  </button>
+                  <span style={{ fontFamily: F.ui, fontSize: FS[12], color: T.champagne, fontWeight: 600 }}>제품 특성 기반 권장 PI</span>
+                  <span style={{ marginLeft: 'auto' }}>
+                    <TextAction onClick={() => setPi((p) => ({ ...p, ...suggestion.recommended }))}>권장값 적용</TextAction>
+                  </span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {suggestion.reasons.map((r) => (
@@ -340,7 +334,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                     <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text, fontWeight: 600 }}>
                       {m.label}
                       {isRec && (
-                        <span style={{ marginLeft: S[1.5], fontFamily: F.mono, fontSize: FS[12], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: RADIUS.sm, padding: '1px 5px', letterSpacing: 0.5, verticalAlign: 'middle' }}>권장</span>
+                        <span style={{ marginLeft: S[1.5], fontFamily: F.ui, fontSize: FS[12], color: T.champagne, background: alpha(T.champagne, 0.12), border: `1px solid ${alpha(T.champagne, 0.4)}`, borderRadius: RADIUS.sm, padding: '1px 5px', verticalAlign: 'middle' }}>권장</span>
                       )}
                     </span>
                     <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[12], color: T.subtle, marginTop: S[0.5], lineHeight: LH.normal }}>{m.help}</span>
@@ -368,14 +362,14 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
           <Bx style={{ padding: 0, overflow: 'hidden', borderRadius: RADIUS.md, borderColor: T.border }}>
             <div style={{ padding: '11px 16px', borderBottom: `1px solid ${T.border}`, display: 'flex', alignItems: 'center', gap: S[2] }}>
               <ScanBarcode size={15} aria-hidden="true" style={{ color: T.champagne }} />
-              <span style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1.4, textTransform: 'uppercase', color: T.subtle, fontWeight: 600 }}>
+              <span style={{ fontFamily: F.ui, fontSize: FS[12], color: T.subtle, fontWeight: 600 }}>
                 UDI 캐리어 미리보기
               </span>
             </div>
             <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: S[3.5] }}>
               {/* DI */}
               <div>
-                <CarrierLabel>DI · 정적 식별자 ({ISSUING_AGENCY_LABEL[agency]})</CarrierLabel>
+                <CarrierLabel>DI · 정적 식별자 · {ISSUING_AGENCY_LABEL[agency]}</CarrierLabel>
                 <CarrierLine ai={isGs1 ? GS1_AI.di : undefined} value={udiDi.trim() || '────────────'} dim={!udiDi.trim()} />
               </div>
               {/* PI */}
@@ -406,7 +400,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
             </div>
           </Bx>
 
-          <div style={{ padding: '13px 15px', background: alpha(T.champagne, 0.04), border: `1px solid ${alpha(T.champagne, 0.18)}`, borderRadius: RADIUS.md, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: 1.65 }}>
+          <div style={{ padding: '13px 15px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.md, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: 1.65 }}>
             <strong style={{ color: T.text }}>DI</strong> 는 제품/모델당 한 번 발급받아 고정되고, <strong style={{ color: T.text }}>PI</strong> 는 생산 로트마다 바뀌는 정보입니다. 등록 후 FDA GUDID·EU EUDAMED·MFDS 제출 상태를 상세 화면에서 추적합니다.
           </div>
         </aside>
@@ -417,7 +411,8 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
 function CarrierLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: F.mono, fontSize: FS[12], letterSpacing: 1, textTransform: 'uppercase', color: T.muted, marginBottom: S[1.5] }}>
+    // 한글 머리글이면 본문 글꼴 · 자간 0 · 대문자 처리 없음 (화면 검토 A44 · 2026-09-28)
+    <div style={{ ...codeOrTextFont(children, 1), fontSize: FS[12], textTransform: labelCase(children), color: T.muted, marginBottom: S[1.5] }}>
       {children}
     </div>
   );
@@ -425,17 +420,17 @@ function CarrierLabel({ children }: { children: React.ReactNode }) {
 
 function CarrierLine({ ai, value, dim, example }: { ai?: string; value: string; dim?: boolean; example?: string }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: S[2], padding: '7px 10px', background: alpha(T.champagne, 0.04), border: `1px solid ${T.border}`, borderRadius: RADIUS.sm }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: S[2], padding: '7px 10px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.sm }}>
       {ai && (
         <span style={{ fontFamily: F.mono, fontSize: FS[12], color: T.champagne, background: alpha(T.champagne, 0.1), border: `1px solid ${alpha(T.champagne, 0.35)}`, borderRadius: RADIUS.sm, padding: '1px 5px', flexShrink: 0 }}>
           ({ai})
         </span>
       )}
-      <span style={{ fontFamily: F.mono, fontSize: FS[12], color: dim ? T.muted : T.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      <span style={{ ...codeOrTextFont(value), fontSize: FS[12], color: dim ? T.muted : T.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {value}
       </span>
       {example && (
-        <span style={{ marginLeft: 'auto', fontFamily: F.mono, fontSize: FS[12], color: T.muted, flexShrink: 0 }}>
+        <span style={{ marginLeft: 'auto', fontFamily: F.ui, fontSize: FS[12], color: T.muted, flexShrink: 0 }}>
           예: {example}
         </span>
       )}
@@ -445,5 +440,5 @@ function CarrierLine({ ai, value, dim, example }: { ai?: string; value: string; 
 
 // UDI-DI mono 복합 입력 전용: 공통 In 은 style override 미지원이라 유지.
 function inputStyle(): React.CSSProperties {
-  return { width: '100%', padding: '12px 14px', fontFamily: F.serif, fontSize: FS[14], background: alpha(T.champagne, 0.02), border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 44, transition: `border-color ${MOTION.fast}` };
+  return { width: '100%', padding: '12px 14px', fontFamily: F.serif, fontSize: FS[14], background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 44, transition: `border-color ${MOTION.fast}` };
 }

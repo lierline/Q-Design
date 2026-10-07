@@ -22,7 +22,7 @@
 
 import { useEffect, useId, useMemo, useState } from 'react';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
-import { Field, Modal } from '@/lib/design/components';
+import { Btn, Field, Modal } from '@/lib/design/components';
 import { useTheme } from '@/lib/design/theme-provider';
 import { MemberPicker } from '@/components/MemberPicker';
 import { createClient } from '@/lib/supabase/client';
@@ -239,43 +239,12 @@ export function MeetingComposeDialog({
               {err}
             </span>
           )}
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={busy}
-            style={{
-              borderRadius: RADIUS.md,
-              padding: '10px 18px',
-              background: 'transparent',
-              color: T.muted,
-              border: `1px solid ${T.border}`,
-              fontFamily: F.mono,
-              fontSize: FS[12],
-              cursor: busy ? 'not-allowed' : 'pointer',
-            }}
-          >
+          <Btn p={false} onClick={onClose} disabled={busy}>
             취소
-          </button>
-          <button
-            type="button"
-            onClick={handleSubmit}
-            disabled={busy || !title.trim() || !date || !startTime || !endTime}
-            style={{
-              padding: '10px 22px',
-              background: T.text,
-              color: T.bg,
-              border: 'none',
-              fontFamily: F.mono,
-              fontSize: FS[12],
-              letterSpacing: 1.2,
-              textTransform: 'uppercase',
-              cursor: busy ? 'not-allowed' : 'pointer',
-              fontWeight: 600,
-              opacity: busy || !title.trim() ? 0.5 : 1,
-            }}
-          >
+          </Btn>
+          <Btn onClick={handleSubmit} disabled={busy || !title.trim() || !date || !startTime || !endTime}>
             {busy ? '전송 중…' : '회의 제안 · 참석자 통지'}
-          </button>
+          </Btn>
         </>
       }
     >
@@ -412,7 +381,7 @@ export function MeetingComposeDialog({
           onToggle={toggleAttendee}
           label="참석자"
           disabled={busy}
-          emptyHint="아직 같이 일할 멤버가 없습니다. 설정에서 동료를 초대해 주세요."
+          emptyHint="아직 같이 일할 멤버가 없습니다. 설정에서 동료를 초대해 주십시오."
           maxHeight={180}
         />
       </div>

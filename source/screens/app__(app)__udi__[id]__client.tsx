@@ -6,9 +6,10 @@ import { ChangeReasonPanel, type LastChangeView, type PendingChange } from '@/co
 import { missingChangeReason } from '@/lib/api/change-reason';
 import Link from 'next/link';
 import { useToast } from '@/components/Toast';
-import { Btn, Bx, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';
-import { S, FS, F, T, alpha, RADIUS, SHADOW, LAYOUT, LH } from '@/lib/design/tokens';
-import { Plus, Trash2 } from 'lucide-react';
+import { Btn, Bx, Checkbox, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';
+import { S, FS, F, T, RADIUS, LAYOUT } from '@/lib/design/tokens';
+import { Plus } from '@/components/q-design-icons/Plus';
+import { Trash2 } from '@/components/q-design-icons/Trash2';
 import { HelpNote } from '@/components/HelpNote';
 import {
   ISSUING_AGENCY_LABEL,
@@ -26,7 +27,8 @@ import {
 import { ListBackLink } from '@/components/ListBackLink';
 import { choiceLook } from '@/lib/design/segmented-choice';
 import { ProductLinkField } from '@/components/ProductPickField';
-import { TextLinkAction } from '@/components/TextAction';
+import { TextAction, TextLinkAction } from '@/components/TextAction';
+import { FormNote } from '@/components/FormNote';
 import { EMPTY_ORG_PRODUCTS, type OrgProductList } from '@/lib/products/org-products';
 import { LOCKED_STATUSES } from '@/lib/api/locked-statuses';
 
@@ -168,7 +170,7 @@ export function UdiDetailClient({
   function removePkg(i: number) {
     setPkgs((p) => p.filter((_, idx) => idx !== i));
   }
-  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: alpha(T.champagne, 0.02), border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 40 };
+  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 40 };
 
   return (
     <div style={{ maxWidth: LAYOUT.wide, margin: '0 auto' }}>
@@ -194,7 +196,7 @@ export function UdiDetailClient({
         <div>
       {/* DI 정보 (read-only) */}
       <Section title="식별자 정보">
-        <Bx style={{ padding: S[4], borderRadius: RADIUS.md, borderColor: T.border, boxShadow: SHADOW.hairline }}>
+        <Bx style={{ padding: S[4], borderRadius: RADIUS.md, borderColor: T.border }}>
           <DetailRow label="UDI-DI" value={<span style={{ fontFamily: F.mono }}>{initial.udi_di}</span>} />
           <DetailRow label="발행기관" value={ISSUING_AGENCY_LABEL[initial.issuing_agency]} />
           {initial.gmdn_code && <DetailRow label="GMDN" value={initial.gmdn_code} />}
@@ -216,27 +218,13 @@ export function UdiDetailClient({
         <HelpNote compact>
           PI 는 생산 로트마다 바뀌는 정보입니다. 여기선 이 제품 <strong style={{ color: T.text }}>라벨에 어떤 PI 를 넣을지</strong> 구성만 정합니다(실제 값은 생산 때 채워짐).
         </HelpNote>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[2] }}>
-          {PI_COMPONENT_META.map((m) => {
-            const on = !!pi[m.key];
-            return (
-              <button
-                className="qa-touch-44"
-                key={m.key}
-                type="button"
-                onClick={() => setPi((p) => ({ ...p, [m.key]: !p[m.key] }))}
-                style={{
-                  padding: '8px 14px', fontFamily: F.serif, fontSize: FS[12],
-                  background: on ? alpha(T.green, 0.1) : 'transparent',
-                  color: on ? T.green : T.text,
-                  border: `1px solid ${on ? alpha(T.green, 0.5) : T.border}`,
-                  borderRadius: RADIUS.pill, cursor: 'pointer',
-                }}
-              >
-                {on ? '✓ ' : ''}{m.label}
-              </button>
-            );
-          })}
+        {/* 여러 개 고르기는 체크 목록(화면 검토 A35 · A66 · 2026-09-28). 초록 알약이 «누르는 것 · 고른 것» 을 가르지 못했다 */}
+        <div role="group" aria-label="라벨에 넣을 생산 식별자" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: `${S[1]}px ${S[4]}px` }}>
+          {PI_COMPONENT_META.map((m) => (
+            <Checkbox key={m.key} checked={!!pi[m.key]} onChange={(next) => setPi((p) => ({ ...p, [m.key]: next }))} className="qa-touch-44">
+              {m.label}
+            </Checkbox>
+          ))}
         </div>
       </Section>
 
@@ -257,16 +245,17 @@ export function UdiDetailClient({
                 </select>
                 <input value={row.udi_di} onChange={(e) => updatePkg(i, { udi_di: e.target.value })} placeholder="이 포장의 UDI-DI" style={{ ...fieldStyle, fontFamily: F.mono, flex: 1, minWidth: 150 }} />
                 <input type="number" min={1} value={row.quantity} onChange={(e) => updatePkg(i, { quantity: Math.max(1, Number(e.target.value) || 1) })} title="하위 단계 포함 수량" style={{ ...fieldStyle, width: 88 }} />
-                <button className="qa-touch-44" type="button" onClick={() => removePkg(i)} aria-label="삭제" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 38, height: 40, background: 'transparent', border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, color: T.subtle, cursor: 'pointer', flexShrink: 0 }}>
+                <TextAction onClick={() => removePkg(i)} label={`포장 단계 ${i + 1} 삭제`}>
                   <Trash2 size={14} aria-hidden="true" />
-                </button>
+                </TextAction>
               </div>
             ))}
           </div>
         )}
-        <button className="qa-touch-44" type="button" onClick={addPkg} style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], padding: '8px 14px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.04em', background: 'transparent', border: `1px dashed ${alpha(T.champagne, 0.5)}`, borderRadius: RADIUS.md, color: T.champagne, cursor: 'pointer' }}>
-          <Plus size={13} aria-hidden="true" /> 포장 단계 추가
-        </button>
+        {/* 줄 더하기는 보조 동작이라 글귀로(화면 검토 A11 · 2026-09-28). 점선 상자가 주 단추처럼 보였다 */}
+        <TextAction onClick={addPkg}>
+          <Plus size={13} aria-hidden="true" style={{ marginRight: S[1] }} />포장 단계 추가
+        </TextAction>
       </Section>
         </div>
 
@@ -278,14 +267,15 @@ export function UdiDetailClient({
         <HelpNote compact>
           각 시장의 <strong style={{ color: T.text }}>UDI 데이터베이스</strong>(미국 GUDID·EU EUDAMED·한국 MFDS)에 등록했는지 추적합니다. 해당 시장에 판매하려면 제출이 의무입니다. 미제출이면 서둘러 처리하십시오.
         </HelpNote>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: S[2] }}>
+        {/* 시장 줄은 상자 · 초록 칠 없이 괘선 장부로(화면 검토 A35 · A76 · 2026-09-28). 제출 여부는 고른 칸이 말한다 */}
+        <div style={{ display: 'flex', flexDirection: 'column', borderTop: `1px solid ${T.border}` }}>
           {SUBMISSION_TARGETS.map((t) => {
             const on = subs[t.key as keyof typeof subs];
             const d = subDates[t.dateKey] ?? {};
             const due = d.due ?? '';
             const dueDays = due ? Math.ceil((new Date(due).getTime() - Date.now()) / 86_400_000) : null;
             return (
-              <div key={t.key} style={{ padding: '10px 12px', border: `1px solid ${on ? alpha(T.green, 0.4) : T.border}`, borderRadius: RADIUS.sm, background: on ? alpha(T.green, 0.04) : 'transparent' }}>
+              <div key={t.key} style={{ padding: `${S[3]}px 0`, borderBottom: `1px solid ${T.border}` }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: S[2], flexWrap: 'wrap' }}>
                   <span style={{ fontFamily: F.ui, fontSize: FS[13], fontWeight: 600, color: T.text, minWidth: 96 }}>{t.label}</span>
                   {/*
@@ -316,7 +306,7 @@ export function UdiDetailClient({
                     </span>
                   )}
                   {dueDays !== null && (
-                    <span style={{ fontFamily: F.mono, fontSize: FS[12], color: dueDays <= 90 ? T.red : T.subtle }}>
+                    <span style={{ fontFamily: F.ui, fontSize: FS[12], color: dueDays <= 90 ? T.red : T.subtle }}>
                       갱신 {dueDays < 0 ? `만료 ${-dueDays}일` : `D-${dueDays}`}
                     </span>
                   )}
@@ -339,20 +329,21 @@ export function UdiDetailClient({
 
       {linkedProduct && (
         <Section title="변경 ↔ UDI 재신고">
-          <div style={{ padding: '11px 14px', background: alpha(T.warning, 0.05), border: `1px solid ${alpha(T.warning, 0.25)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, marginBottom: productChanges.length ? 10 : 0 }}>
+          {/* 판 안의 노란 안내 상자를 칸 옆 글로(화면 검토 A76 · 2026-09-28) */}
+          <FormNote style={{ marginBottom: productChanges.length ? S[2.5] : 0 }}>
             <strong style={{ color: T.text }}>{linkedProduct.name}</strong> 의 변경(포장·멸균·사용목적·등급 등)이 발생하면 <strong style={{ color: T.text }}>UDI 통합정보 재신고</strong>가 필요할 수 있습니다. 변경평가를 검토할 때 함께 확인하십시오.
-          </div>
+          </FormNote>
           {productChanges.length > 0 ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5] }}>
+            <div style={{ display: 'flex', flexDirection: 'column', borderTop: `1px solid ${T.border}` }}>
               {productChanges.map((c) => (
-                <Link key={c.id} href={`/assessments/${encodeURIComponent(c.code)}`} style={{ display: 'flex', alignItems: 'center', gap: S[2.5], padding: '8px 12px', border: `1px solid ${T.border}`, borderRadius: RADIUS.sm, textDecoration: 'none' }}>
+                <Link key={c.id} href={`/assessments/${encodeURIComponent(c.code)}`} style={{ display: 'flex', alignItems: 'center', gap: S[2.5], padding: `${S[2]}px 2px`, borderBottom: `1px solid ${T.border}`, textDecoration: 'none' }}>
                   <span style={{ fontFamily: F.mono, fontSize: FS[12], color: T.champagne, flexShrink: 0 }}>{c.code}</span>
                   <span style={{ fontFamily: F.serif, fontSize: FS[13], color: T.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.title}</span>
                 </Link>
               ))}
             </div>
           ) : (
-            <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.muted, fontStyle: 'italic' }}>진행 중인 변경평가가 없습니다.</div>
+            <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.muted }}>진행 중인 변경평가가 없습니다.</div>
           )}
         </Section>
       )}
@@ -365,12 +356,14 @@ export function UdiDetailClient({
         <div style={{ display: 'flex', gap: S[2] }}>
           {STATUS_OPTIONS.map((s) => (
             <button
+              aria-pressed={status === s}
               className="qa-touch-44"
               key={s}
               type="button"
               onClick={() => setStatus(s)}
               style={{
-                padding: '8px 16px', fontFamily: F.mono, fontSize: FS[12], letterSpacing: '0.06em',
+                // 한글 상태 이름이라 본문 글꼴 (화면 검토 A44 · 2026-09-28)
+                padding: '8px 16px', fontFamily: F.ui, fontSize: FS[12],
                 ...choiceLook(status === s),
                 borderRadius: RADIUS.md, cursor: 'pointer',
               }}

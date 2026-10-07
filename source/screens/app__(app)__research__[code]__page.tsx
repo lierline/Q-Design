@@ -19,19 +19,20 @@ import Link from 'next/link';
 import { Alert, Bx, En, LoadingState, PageHd, SectionTitle, SectionTitleInfo, SkeletonPanel, Tag } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
 import { HelpNote } from '@/components/HelpNote';
-import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
+import { TextLinkAction } from '@/components/TextAction';
+import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
 import { tintBorder } from '@/lib/design/grain';
 import { shortDate } from '@/lib/date';
-import {
-  AlertTriangle,
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  FileText,
-  Lightbulb,
-  Sparkles,
-  Target,
-} from 'lucide-react';
+import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
+import { AssigneeDialog, fetchAssignees, type AssigneeInfo } from '@/components/AssigneeDialog';
+import { TextAction } from '@/components/TextAction';
+import { ArrowRight } from '@/components/q-design-icons/ArrowRight';
+import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
+import { Clock } from '@/components/q-design-icons/Clock';
+import { FileText } from '@/components/q-design-icons/FileText';
+import { Lightbulb } from '@/components/q-design-icons/Lightbulb';
+import { Sparkles } from '@/components/q-design-icons/Sparkles';
+import { Target } from '@/components/q-design-icons/Target';
 import { computeResearchProgress } from '@/lib/research/progress';
 import { buildDocClassMap, type DocClass } from '@/lib/research/stage-doc-set';
 import { latestDecisionByStage, STAGE_IDS } from '@/lib/research/stage-config';
@@ -40,6 +41,7 @@ import { STAGE_LABEL, STAGE_COLOR } from '@/lib/research/stage-labels';
 import { type StageFilter } from '@/components/RegulatoryRoadmap';
 import { RaProgressPanel } from '@/components/RaProgressPanel';
 import { useVault } from '@/lib/vault/vault-context';
+import { canDo } from '@/lib/rules/actions';
 
 // =============================================================================
 // 흐름 컴포넌트 (북극성: 제품을 열면 = 인허가 로드맵 흐름)
@@ -166,6 +168,9 @@ export default function ResearchHomePage() {
   const [planNextDeadline, setPlanNextDeadline] = useState<{ label: string; date: string; days: number } | null>(null);
   // ── 흐름 패널 공유 state (timeline 에서 이관) ──
   const [myUserId, setMyUserId] = useState<string | null>(null);
+  // 담당 실무자(RA · QA) 상태: 개발 단계 이후에 비었거나 사라졌으면 상단 알림 + 재지정 창(오너 결정 2026-10-07)
+  const [assignInfo, setAssignInfo] = useState<AssigneeInfo | null>(null);
+  const [assignOpen, setAssignOpen] = useState(false);
   const [myJobRole, setMyJobRole] = useState<string | null>(null);
   const [myJobRoles, setMyJobRoles] = useState<string[]>([]);
   const [myOrgRole, setMyOrgRole] = useState<string | null>(null);
@@ -233,6 +238,9 @@ export default function ResearchHomePage() {
         return;
       }
       setProject(projData.project as ProjectLite);
+      if ((projData.project as ProjectLite).stage !== 'idea') {
+        void fetchAssignees({ project: code }).then((i) => setAssignInfo(i));
+      }
       // me: 흐름 패널 권한/Solo Mode 판정 (timeline 과 동일 규약)
       const me = projData.me as
         | { id?: string; job_role?: string; job_roles?: string[]; org_role?: string; org_is_solo_mode?: boolean; has_ra_or_qa?: boolean; org_has_other_approver?: boolean }
@@ -382,11 +390,33 @@ export default function ResearchHomePage() {
       />
       <PageGuide pageId="research-home" />
 
+      {assignInfo && assignInfo.needs.length > 0 && (
+        <div style={{ marginBottom: S[4] }}>
+          <Alert kind="warning">
+            이 프로젝트의 {assignInfo.needs.map((d) => (d === 'ra' ? 'RA' : 'QA')).join(' · ')} 담당 실무자가
+            {assignInfo.needs.some((d) => assignInfo.status[d] === 'inactive') ? ' 더 이상 활성 멤버가 아닙니다' : ' 지정되어 있지 않습니다'}.
+            결재 검토가 담당자에게 먼저 가려면 다시 지정하십시오.{' '}
+            <TextAction onClick={() => setAssignOpen(true)}>담당 실무자 지정</TextAction>
+          </Alert>
+        </div>
+      )}
+      {assignOpen && (
+        <AssigneeDialog
+          open
+          target={{ project: code }}
+          info={assignInfo}
+          onClose={() => setAssignOpen(false)}
+          onSaved={() => {
+            setAssignOpen(false);
+            void fetchAssignees({ project: code }).then((i) => setAssignInfo(i));
+          }}
+        />
+      )}
       {project.archived && (
         <div style={{ marginBottom: S[4] }}>
           <Alert kind="warning">
             이 프로젝트는 <b>보관</b>되어 목록(신규 개발·허가 후)에서 숨겨져 있습니다. 데이터는
-            모두 보존돼요. 복원하려면 위 <b>설정</b> 탭의 Danger Zone 에서 「프로젝트 복원」을 누르세요.
+            모두 보존됩니다. 복원하려면 위 <b>설정</b> 탭의 Danger Zone 에서 「프로젝트 복원」을 누르십시오.
           </Alert>
         </div>
       )}
@@ -401,16 +431,12 @@ export default function ResearchHomePage() {
       {/* AI 분석 진행 중 안내: ai_analyzed_at null 이면 백그라운드 trigger 중 */}
       {!project.ai_analyzed_at && (
         <div
+          // 안내 상자 세 겹(사용법 · 분석 중 · 현재 단계)을 줄였다(화면 검토 A76 · 2026-09-28). 분석 중은 상자 없는 한 줄
           style={{
-            borderRadius: RADIUS.md,
-            padding: '10px 14px',
             marginBottom: S[4],
-            border: `1px solid ${alpha(T.champagne, 0.33)}`,
-            borderColor: tintBorder(T.champagne),
-            background: `${alpha(T.champagne, 0.05)}`,
             fontSize: FS[12],
             color: T.subtle,
-            fontFamily: F.serif,
+            fontFamily: F.ui,
             lineHeight: LH.relaxed,
             display: 'flex',
             alignItems: 'center',
@@ -428,21 +454,20 @@ export default function ResearchHomePage() {
             }}
           />
           <span>
-            <strong style={{ color: T.champagne }}>Q-Atelier 분석 엔진 가동 중</strong>{' '}
-           : 약 1분 후 페이지를 새로고침하시면 등급·predicate·규제 경로 등이
+            <strong style={{ color: T.champagne }}>코어 분석 진행 중</strong>: 약 1분 후 페이지를 새로고침하시면 등급·predicate·규제 경로 등이
             채워집니다. 그동안 제품 정보·문서 작업은 이어가실 수 있습니다.
           </span>
           <style>{`@keyframes qa-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
         </div>
       )}
 
-      {/* 한 줄 상태 배너 */}
-      <Bx
+      {/* 한 줄 상태: 판이 아니라 위아래 괘선 사이의 줄(화면 검토 A76 · 2026-09-28) */}
+      <div
         style={{
-          padding: S[3.5],
+          padding: `${S[2.5]}px 2px`,
           marginBottom: S[5],
-          borderColor: tintBorder(isApproved ? T.green : T.champagne),
-          background: alpha(isApproved ? T.green : T.champagne, 0.04),
+          borderTop: `1px solid ${T.border}`,
+          borderBottom: `1px solid ${T.border}`,
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: S[3.5], flexWrap: 'wrap', fontSize: FS[12] }}>
@@ -450,7 +475,7 @@ export default function ResearchHomePage() {
             현재 단계 <strong style={{ color: T.champagne }}>{STAGE_LABEL[project.stage]}</strong>
           </span>
           <span style={{ color: T.muted }}>·</span>
-          <span style={{ color: T.subtle, fontFamily: F.mono }}>
+          <span style={{ color: T.subtle, fontFamily: F.ui }}>
             R&D 진행률 <strong style={{ color: T.text }}>{rdPct}%</strong>
             {rdTotal > 0 && (
               <span style={{ color: T.muted }}> (필수 {rdDone}/{rdTotal})</span>
@@ -459,7 +484,7 @@ export default function ResearchHomePage() {
           {complianceScore !== null && (
             <>
               <span style={{ color: T.muted }}>·</span>
-              <span style={{ color: T.subtle, fontFamily: F.mono }}>
+              <span style={{ color: T.subtle, fontFamily: F.ui }}>
                 §7.3 점수 <strong style={{ color: T.text }}>{complianceScore}%</strong>
               </span>
             </>
@@ -467,7 +492,7 @@ export default function ResearchHomePage() {
           {planNextDeadline && (
             <>
               <span style={{ color: T.muted }}>·</span>
-              <span style={{ color: T.subtle, fontFamily: F.mono }}>
+              <span style={{ color: T.subtle, fontFamily: F.ui }}>
                 다음 deadline <strong style={{ color: planNextDeadline.days < 30 ? T.warning : T.text }}>
                   {planNextDeadline.label} ({planNextDeadline.days}일 후)
                 </strong>
@@ -481,23 +506,17 @@ export default function ResearchHomePage() {
             </>
           )}
         </div>
-      </Bx>
+      </div>
 
       {/* [D] 결재 데드락 경고: 최종 승인자 부재(본인 외 0명·solo OFF·reviewed 문서 존재) */}
       {/* 검토 «중» 인 문서가 생긴 순간부터 알린다. 종전엔 reviewed 가 생긴 뒤에야 떠서 이미 막힌 뒤에 알았다(R&D 흐름 감사 C-11). */}
       {!orgHasOtherApprover && !orgIsSoloMode && Array.from(docStatusByCode.values()).some((s) => s === 'review' || s === 'reviewed') && (
-        <div style={{ marginBottom: S[5] }}>
-          <Bx style={{ padding: S[4], borderColor: tintBorder(T.warning), background: alpha(T.warning, 0.06) }}>
-            <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, lineHeight: LH.relaxed }}>
-              <strong>최종 승인자가 없어 결재가 멈출 수 있어요.</strong>
-              <br />
-              1차 검토를 통과한 문서를 최종 승인하려면 경영진 · R&D 팀장 · 소유자 권한이 필요한데, 본인 외에 승인 가능한 멤버가 없습니다. 설정에서 <strong>1인 조직 모드</strong>를 켜거나 <strong>경영진 · R&D 팀장</strong> 직무 멤버를 추가하세요.
-            </div>
-            <Link href="/settings/members" style={{ display: 'inline-block', marginTop: S[2], fontSize: FS[12], color: T.champagne, fontFamily: F.mono, textDecoration: 'none' }}>
-              멤버 · 직무 설정으로 →
-            </Link>
-          </Bx>
-        </div>
+        <Alert kind="warning" title="최종 승인자가 없어 결재가 멈출 수 있습니다" style={{ marginBottom: S[5] }}>
+              1차 검토를 통과한 문서를 최종 승인하려면 경영진 · R&D 팀장 · 소유자 권한이 필요한데, 본인 외에 승인 가능한 멤버가 없습니다. 설정에서 <strong>1인 조직 모드</strong>를 켜거나 <strong>경영진 · R&D 팀장</strong> 직무 멤버를 추가하십시오.
+          <div style={{ marginTop: S[1] }}>
+            <TextLinkAction href="/settings/members">멤버 · 직무 설정으로</TextLinkAction>
+          </div>
+        </Alert>
       )}
 
       {/* Hero Next Action */}
@@ -540,7 +559,7 @@ export default function ResearchHomePage() {
               >
                 <nextAction.Icon size={32} style={{ color: nextAction.color, flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: S[1] }}>
+                  <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, marginBottom: S[1] }}>
                     {nextAction.category}
                   </div>
                   <div style={{ fontSize: FS[18], color: T.text, fontFamily: F.serif, fontWeight: 600, marginBottom: S[1] }}>
@@ -573,10 +592,7 @@ export default function ResearchHomePage() {
         <SectionTitle>일정 / 단계</SectionTitle>
       </div>
 
-      <HelpNote compact>
-        로드맵의 각 노드가 인허가 단계입니다. <strong>노드를 클릭하면 그 단계가 선택</strong>되고,
-        아래 문서·작업 패널이 모두 그 단계로 필터됩니다. 현재 진행 중인 단계는 강조 표시됩니다.
-      </HelpNote>
+      {/* 로드맵 누르는 법은 화면 머리 안내에서 한 번 말한다(화면 검토 A76 · 두 상자가 같은 말을 했다) */}
 
       {/* Backwards Planner: 목표 출시일 기반 역산 */}
       <BackwardsPlanner code={code} refreshKey={refreshKey} currentStage={project.stage} />
@@ -645,10 +661,7 @@ export default function ResearchHomePage() {
                 hasRaOrQa={hasRaOrQa}
                 // SA-4a: 졸업풀(owner OR ra/qa/rd_lead/exec/admin) 미충족이면 버튼 대신 안내
                 //   → 일반 rd 가 누른 뒤 서버 403 막다른 길 방지.
-                canGraduate={
-                  myOrgRole === 'owner' ||
-                  myJobRoles.some((r) => ['ra', 'qa', 'rd_lead', 'exec', 'admin'].includes(r))
-                }
+                canGraduate={canDo({ profile: { job_roles: myJobRoles }, orgRole: myOrgRole }, 'project.graduate')}
                 onGraduated={() => {
                   bump();
                   void load();
@@ -670,7 +683,7 @@ export default function ResearchHomePage() {
         <SectionTitleInfo
           info={
             <>
-              제안서·계획서·입력서 등 R&D 단계별 핵심 양식이에요. 양식 다운로드 → 작성 →
+              제안서·계획서·입력서 등 R&D 단계별 핵심 양식입니다. 양식 다운로드 → 작성 →
               업로드 후 검토를 요청하면 RA/QA 로 넘어갑니다.
             </>
           }
@@ -707,7 +720,7 @@ export default function ResearchHomePage() {
           info={
             <>
               위 로드맵에서 단계를 클릭하면 해당 단계 문서로 자동 필터됩니다. 양식
-              다운로드 / 진행 상태 변경 / 질문은 카드 내부에서 진행하세요.
+              다운로드 / 진행 상태 변경 / 질문은 카드 내부에서 진행하십시오.
             </>
           }
         >
@@ -758,7 +771,7 @@ function computeNextAction(
   if (!project.profile_completed_at) {
     return {
       category: '시작 단계',
-      title: '제품 프로파일을 먼저 작성하세요',
+      title: '제품 프로파일을 먼저 작성하십시오',
       detail: '약 2분: 9문항. 이걸 완성해야 시스템이 「내 제품에 맞춤」 안내 가능.',
       href: `/research/${encodeURIComponent(project.code)}/profile`,
       color: T.champagne,
@@ -769,8 +782,8 @@ function computeNextAction(
   if (project.stage === 'approved' || project.stage === 'post_market') {
     return {
       category: '인허가 진행 (RA)',
-      title: '이제 인허가를 시작하세요',
-      detail: '제품 개발이 완료(졸업)됐습니다. 인허가 트래커에서 시장별 인허가 신청을 진행하세요.',
+      title: '이제 인허가를 시작하십시오',
+      detail: '제품 개발이 완료(졸업)됐습니다. 인허가 트래커에서 시장별 인허가 신청을 진행하십시오.',
       href: '/device-licenses',
       color: T.champagne,
       Icon: Target,
@@ -782,7 +795,7 @@ function computeNextAction(
     return {
       category: '블로킹: 다음 단계 진입 막음',
       title: `${b.name_kr} 작성·완료 처리`,
-      detail: `${b.iso_clause ?? ''} · ${b.blocks_stage} 단계 진행을 막고 있음. 아래 문서 작업에서 진행하세요.`,
+      detail: `${b.iso_clause ?? ''} · ${b.blocks_stage} 단계 진행을 막고 있음. 아래 문서 작업에서 진행하십시오.`,
       href: `/research/${encodeURIComponent(project.code)}#flow`,
       color: T.red,
       Icon: AlertTriangle,
@@ -838,7 +851,7 @@ function computeNextAction(
   return {
     category: '진행 중',
     title: '특별한 블로킹 없음. 진행 계속',
-    detail: '오늘 큰 이슈는 없습니다. 아래 로드맵에서 단계 진행 가능성을 확인하세요.',
+    detail: '오늘 큰 이슈는 없습니다. 아래 로드맵에서 단계 진행 가능성을 확인하십시오.',
     href: `/research/${encodeURIComponent(project.code)}#flow`,
     color: T.green,
     Icon: CheckCircle2,

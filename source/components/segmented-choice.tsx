@@ -24,6 +24,7 @@
 
 import { useRef, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
 import { S, FS, F, T, RADIUS, MOTION, alpha } from '@/lib/design/tokens';
+import { codeOrTextFont } from '@/lib/design/hangul-text';
 
 /**
  * 선택 칸의 모양 한 벌 (화면 검토 A11 · A38 · A62 · 2026-09-27).
@@ -74,6 +75,7 @@ export function ChoiceChip({
   sm = true,
   style,
   title,
+  ariaLabel,
 }: {
   on: boolean;
   onClick: () => void;
@@ -84,12 +86,15 @@ export function ChoiceChip({
   sm?: boolean;
   style?: CSSProperties;
   title?: string;
+  /** 아이콘만 있는 칩의 낭독기 이름(2026-10-07 · 설계 추적 상태 칩이 날것에서 옮겨 오며 필요해졌다) */
+  ariaLabel?: string;
 }) {
   const look = choiceLook(on);
   return (
     <button
       type="button"
       aria-pressed={on}
+      aria-label={ariaLabel}
       onClick={onClick}
       disabled={disabled}
       title={title}
@@ -317,7 +322,8 @@ export function SegmentedChoice<V extends string>({
               </>
             )}
             {o.sub && (
-              <span style={{ fontSize: FS[12], opacity: 0.8, fontFamily: F.mono, fontWeight: 500 }}>{o.sub}</span>
+              // 보조 글이 한글이면 본문 글꼴(화면 검토 A44 · 2026-09-28). 날짜 · 코드만 고정폭
+              <span style={{ fontSize: FS[12], opacity: 0.8, ...codeOrTextFont(o.sub), fontWeight: 500 }}>{o.sub}</span>
             )}
           </button>
         );

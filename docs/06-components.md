@@ -38,6 +38,15 @@ data URI 는 `var()` 를 못 받으므로 **테마별로 두 벌**이 있습니�
 모바일(≤1023px)에서 입력 글자는 14px 로 커집니다.
 iOS 는 16px 미만 입력에 포커스하면 자동 확대하는데, **디자인 통일을 우선해 14px 를 택한 결정**입니다.
 
+#### `Field` 가 오류 · 도움말을 칸에 «연결» 합니다 (2026-10-08)
+
+`<Field id="x" error="…" hint="…"><In id="x" … /></Field>` 로 쓰면 Field 가 자식 가운데
+**id 가 같은 칸**을 찾아 `aria-describedby="x-hint x-error"` 와 `aria-invalid` 를 끼워 넣습니다.
+오류 글귀는 `id="x-error"` 와 `role="alert"` 를, 도움말은 `id="x-hint"` 를 갖습니다.
+호출부 556곳은 손댈 것이 없고, 호출부가 이미 준 `aria-describedby` 는 앞에 그대로 남습니다.
+`FldRow` 를 `htmlFor` 없이 쓰면(이름표도 못 잇는 옛 호출) 연결도 하지 않습니다.
+계약: `field-error-link.test.tsx`. ui-ux-pro-max 지침 119개 대조에서 남은 빈칸이었습니다.
+
 ### `Btn`
 
 | | 기본 | `sm` |
@@ -64,6 +73,12 @@ border: 항상 1px  (primary 는 transparent)
 | danger secondary | transparent | `red` | `red` |
 
 **주 버튼이 금색이 아니라 크림색입니다.** 금은 액센트로 아껴 두고, 행동은 밝기로 부릅니다.
+
+**`pending` (2026-10-08):** 저장 · 제출처럼 서버를 기다리는 단추는 `pending={saving}` 하나로
+`disabled` + `aria-busy` + 회전 표시(`qa-spin`)가 함께 켜집니다. 글자는 지우지 않고 `visibility: hidden`
+으로 자리만 남겨 **폭이 흔들리지 않습니다.** 화면마다 `disabled={saving}` 을 손으로 걸던 것
+(474곳 중 236곳만 걸려 있었음)을 대신합니다. 동작 줄이기 설정에서는 전역 규칙이 회전을 멈춥니다.
+계약: `field-error-link.test.tsx` ②.
 
 ### `IconBtn`
 
