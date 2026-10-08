@@ -218,7 +218,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(7, 1fr)',
+              gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
               borderBottom: `1px solid ${T.border}`,
               background: T.surface,
             }}
@@ -286,7 +286,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
             }}
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(7, 1fr)',
+              gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
               gridAutoRows: '1fr',
               minHeight: 380,
             }}

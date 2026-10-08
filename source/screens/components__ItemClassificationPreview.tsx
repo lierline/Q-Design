@@ -1548,6 +1548,7 @@ function AlternativeRow({
       }}
     >
     <div
+      className="qa-icp-row"
       style={{
         display: 'grid',
         gridTemplateColumns: onConfirm ? '88px 1fr 60px 50px 130px' : '90px 1fr 70px 50px',

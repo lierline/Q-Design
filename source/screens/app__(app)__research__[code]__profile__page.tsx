@@ -9,7 +9,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
-import { Alert, Bx, Btn, LoadingState, NextStep, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
+import { Alert, Bx, Btn, LoadingState, NextStep, PageHd, SectionTitle, SkeletonPanel, Tag, foldGrid } from '@/lib/design/components';
 import { S, FS, F, T, LH } from '@/lib/design/tokens';
 import { longDateTime } from '@/lib/date';
 import { Download } from '@/components/q-design-icons/Download';
@@ -583,7 +583,7 @@ export default function ProfilePage() {
         <>
           <SectionTitle>코어 분석 결과</SectionTitle>
           <Bx style={{ padding: S[4.5], marginBottom: S[4] }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3.5] }}>
+            <div style={foldGrid(2, S[3.5], { min: 180 })}>
               <MetaField label="추정 등급">
                 {a.device_class_estimate}
                 <div style={{ fontSize: FS[12], color: T.subtle, marginTop: S[1], lineHeight: LH.normal }}>

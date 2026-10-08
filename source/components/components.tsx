@@ -2300,6 +2300,33 @@ export function Grid({
   );
 }
 
+/**
+ * 최대 n 열로 놓되, 칸이 `min` px 보다 좁아지면 스스로 열을 줄이는 격자 style (2026-10-08).
+ *
+ * 손으로 `gridTemplateColumns: '1fr 1fr'` 를 쓰면 한 열이 글자 · 날짜 칸의 최소 폭보다 좁아져도 열이 안 줄어
+ * 확대 400%(폭 320)에서 오른쪽이 잘렸다(WCAG 1.4.10 · reflow.cjs 가 8화면에서 잡음). 이 격자는
+ * auto-fit + 한 열의 최소 폭 = max(min, 균등 1/n 폭)이라 «열은 n 개를 넘지 않고, 들어가지 않으면 줄어든다».
+ * 뷰포트가 아니라 «칸이 놓인 상자의 폭» 으로 정해지므로 모달 · 좁은 카드 안에서도 맞는다.
+ *
+ * 쓰기: `<div style={foldGrid(2, S[3])}>` · 다른 style 은 `style={{ ...foldGrid(2, S[3]), marginBottom: S[3] }}`.
+ * 행 간격이 열 간격과 다르면 `{ rowGap }`. 숫자판 · 등급 단추처럼 «열 수가 뜻» 인 곳은 쓰지 말고
+ * `repeat(n, minmax(0, 1fr))` 로 두면 된다. 규칙 검증은 lib/design/fold-grid.test.tsx.
+ */
+export function foldGrid(
+  n: number,
+  gap: number,
+  opts: { min?: number; rowGap?: number } = {},
+): CSSProperties {
+  const min = opts.min ?? 150;
+  // 1px 는 소수점 반올림으로 n 열이 «한 칸 모자라게» 접히는 것을 막는 여유
+  const track = `max(${min}px, calc((100% - ${(n - 1) * gap}px) / ${n} - 1px))`;
+  return {
+    display: 'grid',
+    gridTemplateColumns: `repeat(auto-fit, minmax(${track}, 1fr))`,
+    gap: opts.rowGap === undefined ? gap : `${opts.rowGap}px ${gap}px`,
+  };
+}
+
 // ─── KPI ─────────────────────────────────────────────────────────────────────
 // 데스크탑: hover 로 tooltip 표시. 모바일 (touch device): tap 으로 toggle.
 // - role="button" + tabIndex=0 + aria-expanded + Enter/Space 키보드 지원

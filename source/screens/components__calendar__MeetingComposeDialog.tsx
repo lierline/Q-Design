@@ -22,7 +22,7 @@
 
 import { useEffect, useId, useMemo, useState } from 'react';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
-import { Btn, Field, Modal } from '@/lib/design/components';
+import { Btn, Field, Modal, foldGrid } from '@/lib/design/components';
 import { useTheme } from '@/lib/design/theme-provider';
 import { MemberPicker } from '@/components/MemberPicker';
 import { createClient } from '@/lib/supabase/client';
@@ -279,7 +279,7 @@ export function MeetingComposeDialog({
         </Field>
 
         {/* 시작 + 종료: 2분할 (각 칸 충분한 너비로 시간 안 잘림) */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: S[3] }}>
+        <div style={foldGrid(2, S[3])}>
           <Field id={startId} label="시작 시간" required>
             <input
               id={startId}
