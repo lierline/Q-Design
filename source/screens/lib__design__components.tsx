@@ -1,6 +1,6 @@
 'use client';
 
-import { Children, Fragment, cloneElement, isValidElement, useEffect, useId, useRef, useState } from 'react';
+import { Children, Fragment, cloneElement, isValidElement, useCallback, useEffect, useId, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
 import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
 import { Circle } from '@/components/q-design-icons/Circle';
 import { Info } from '@/components/q-design-icons/Info';
+import { TextAction } from '@/components/TextAction';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
 // ⓘ 여는 방법(올리면 · 눌러야)은 설정 › 표시(이 기기)에서 고른다(2026-10-08 오너 지시). 기본은 «눌러야».
 import { useInfoTrigger } from '@/lib/novice-mode';
@@ -1720,6 +1721,138 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
           ×
         </button>
       )}
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * 제출 실패 요약 · 초점 이동 (2026-10-08 · UX 지침 119 대조에서 남은 빈칸)
+ *
+ * 긴 폼이 실패하면 토스트 한 줄이 떴다 사라졌다. 사용자는 어느 칸이 문제인지 찾아야 했고, 낭독기 ·
+ * 키보드 사용자는 초점이 단추에 남아 아무 데도 못 갔다. 이제 실패는 제출 단추 바로 위에 «남는» 요약으로
+ * 나타나고(Alert · role=alert), 초점이 거기로 옮겨 가며, 칸마다 «이름표 글귀» 를 눌러 그 칸으로 간다.
+ * 서버가 invalidInput(lib/api/error-response.ts)으로 준 issues.fieldErrors 는 칸 아래 inline 오류로도 이어진다.
+ *
+ * 쓰는 법(새 기록 폼 아홉이 본이다 · 2026-10-08):
+ *   const sf = useSubmitFailure({ title: 'qo-title', period_end: 'qo-end' });   // API 칸 이름 → 화면 칸 id
+ *   async function submit() { sf.clear(); …; if (!res.ok) { sf.fail(failureFromResponse(json, '저장하지 못했습니다.')); return; } }
+ *   <Field id="qo-end" error={sf.fieldError('period_end')}>…</Field>
+ *   <SubmitFailureSummary failure={sf.failure} nonce={sf.nonce} fieldIds={sf.fieldIds} onClose={sf.clear} />
+ *   <FormActions>…</FormActions>
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+/** 제출이 실패한 까닭. message 는 한 줄 요약, fields 는 «API 칸 이름 → 그 칸의 오류». */
+export type SubmitFailure = { message: string; fields?: Record<string, string> };
+
+/**
+ * API 실패 응답(json)에서 SubmitFailure 를 만든다. message 가 없으면 fallback.
+ * error 는 보통 'invalid_input' 같은 기계 문자열이라 쓰지 않되, 한글 문장이면(옛 API) 그대로 쓴다.
+ * zod 의 fieldErrors(칸마다 문장 배열)는 첫 문장만 든다.
+ */
+export function failureFromResponse(json: unknown, fallback: string): SubmitFailure {
+  const j = (json && typeof json === 'object' ? json : {}) as {
+    message?: unknown;
+    error?: unknown;
+    issues?: { fieldErrors?: Record<string, unknown> } | null;
+  };
+  const message =
+    typeof j.message === 'string' && j.message
+      ? j.message
+      : typeof j.error === 'string' && /[가-힣]/.test(j.error)
+        ? j.error
+        : fallback;
+  const fields: Record<string, string> = {};
+  const fe = j.issues?.fieldErrors;
+  if (fe && typeof fe === 'object') {
+    for (const [k, v] of Object.entries(fe)) {
+      const first = Array.isArray(v) ? v.find((x): x is string => typeof x === 'string') : typeof v === 'string' ? v : undefined;
+      if (first) fields[k] = first;
+    }
+  }
+  return Object.keys(fields).length ? { message, fields } : { message };
+}
+
+/**
+ * 폼 하나의 «마지막 제출 실패» 를 쥔다. fail() 할 때마다 nonce 가 올라, 같은 실패가 반복돼도 요약이 다시 초점을 받는다.
+ * fieldIds: API 칸 이름 → 화면 칸 id. 요약의 칸 글귀(눌러서 그 칸으로)와 Field 의 inline 오류(fieldError)가 이것으로 이어진다.
+ */
+export function useSubmitFailure(fieldIds: Record<string, string> = {}) {
+  const [failure, setFailure] = useState<SubmitFailure | null>(null);
+  const [nonce, setNonce] = useState(0);
+  const fail = useCallback((f: SubmitFailure | string) => {
+    setFailure(typeof f === 'string' ? { message: f } : f);
+    setNonce((n) => n + 1);
+  }, []);
+  const clear = useCallback(() => setFailure(null), []);
+  const fieldError = useCallback((name: string) => failure?.fields?.[name] ?? null, [failure]);
+  return { failure, nonce, fieldIds, fail, clear, fieldError };
+}
+
+/** 칸으로 초점을 옮긴다(보이게 굴린 뒤). 요약의 칸 글귀가 부른다. */
+export function focusField(id: string) {
+  if (typeof document === 'undefined') return;
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ block: 'center' });
+  el.focus();
+}
+
+/** 칸의 이름표 글귀(label[for]). 별표 · «필수 아님» 은 뺀다. 없으면 null. */
+function fieldLabelText(id: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const l = document.querySelector(`label[for="${CSS.escape(id)}"]`);
+  const t = l?.textContent?.replace(/\*|필수 아님/g, '').trim();
+  return t || null;
+}
+
+/**
+ * 제출 실패 요약. 실패가 생기면(또는 같은 실패가 다시 오면) 자기에게 초점을 준다.
+ * 제출 단추 바로 위(FormActions 앞)에 둔다: 사용자의 눈과 초점이 거기 있다.
+ */
+export function SubmitFailureSummary({
+  failure,
+  nonce = 0,
+  fieldIds = {},
+  onClose,
+}: {
+  failure: SubmitFailure | null;
+  nonce?: number;
+  fieldIds?: Record<string, string>;
+  onClose?: () => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!failure || !ref.current) return;
+    ref.current.focus({ preventScroll: true });
+    ref.current.scrollIntoView({ block: 'nearest' });
+  }, [failure, nonce]);
+  if (!failure) return null;
+  const entries = Object.entries(failure.fields ?? {});
+  return (
+    // tabIndex -1: 프로그램만 초점을 준다(Tab 순서에는 안 들어감). 초점 고리는 전역 :focus-visible 규칙에 맡긴다(계약 ⑳ · 인라인 outline 금지).
+    <div ref={ref} tabIndex={-1} data-submit-failure="">
+      <Alert kind="error" onClose={onClose}>
+        {failure.message}
+        {entries.length > 0 && (
+          <ul style={{ margin: `${S[1]}px 0 0`, paddingLeft: S[4] }}>
+            {entries.map(([name, msg]) => {
+              const id = fieldIds[name];
+              const label = id ? fieldLabelText(id) : null;
+              return (
+                <li key={name}>
+                  {id && label ? (
+                    <>
+                      <TextAction onClick={() => focusField(id)}>{label}</TextAction>
+                      {' · '}
+                    </>
+                  ) : null}
+                  {msg}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </Alert>
     </div>
   );
 }
