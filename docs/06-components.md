@@ -47,6 +47,30 @@ iOS 는 16px 미만 입력에 포커스하면 자동 확대하는데, **디자�
 `FldRow` 를 `htmlFor` 없이 쓰면(이름표도 못 잇는 옛 호출) 연결도 하지 않습니다.
 계약: `field-error-link.test.tsx`. ui-ux-pro-max 지침 119개 대조에서 남은 빈칸이었습니다.
 
+#### 제출 실패는 단추 위에 «남는» 요약으로, 초점도 거기로 (2026-10-08)
+
+긴 폼이 실패하면 토스트 한 줄이 떴다 사라졌습니다. 어느 칸이 문제인지 찾아야 했고, 낭독기 · 키보드
+사용자는 초점이 단추에 남아 아무 데도 못 갔습니다. 이제 실패는 제출 단추 바로 위에 남는 `Alert`(오류 ·
+`role="alert"`)로 나타나고, **초점이 거기로 옮겨 가며**, 칸마다 이름표 글귀를 눌러 그 칸으로 갑니다.
+서버가 `invalidInput` 으로 준 `issues.fieldErrors` 는 `Field` 의 inline 오류로도 이어집니다(위 연결 규칙 그대로).
+
+```tsx
+const sf = useSubmitFailure({ title: 'qo-title', period_end: 'qo-end' });   // API 칸 이름 → 화면 칸 id
+async function submit() {
+  sf.clear();
+  …
+  if (!res.ok) { sf.fail(failureFromResponse(json, '저장하지 못했습니다.')); return; }
+}
+<Field id="qo-end" error={sf.fieldError('period_end')}>…</Field>
+<SubmitFailureSummary failure={sf.failure} nonce={sf.nonce} fieldIds={sf.fieldIds} onClose={sf.clear} />
+<FormActions>…</FormActions>
+```
+
+- 화면 쪽 검증(비어 있는 필수 칸)도 `sf.fail({ message, fields: { name: … } })` 로 같은 길을 씁니다.
+- 요약은 `FormActions` 바로 앞에 둡니다. 누른 뒤 사용자의 눈과 초점이 거기 있습니다(원칙 «다음 단계는 화면에 보여야 한다»).
+- 같은 실패가 반복돼도 `nonce` 가 올라 요약이 다시 초점을 받습니다. 초점 고리는 전역 `:focus-visible` 에 맡기고 인라인 `outline` 은 쓰지 않습니다(계약 ⑳).
+- 본은 새 기록 폼 아홉(품질목표 · 리콜 · 피드백 · 장비 · 대리인 · 로트 · 허가 · 생산 설비 · 공정 검증). 계약: `submit-failure.test.tsx`.
+
 ### `Btn`
 
 | | 기본 | `sm` |
