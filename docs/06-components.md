@@ -79,6 +79,7 @@ border: 항상 1px  (primary 는 transparent)
 으로 자리만 남겨 **폭이 흔들리지 않습니다.** 화면마다 `disabled={saving}` 을 손으로 걸던 것
 (474곳 중 236곳만 걸려 있었음)을 대신합니다. 동작 줄이기 설정에서는 전역 규칙이 회전을 멈춥니다.
 계약: `field-error-link.test.tsx` ②.
+호출부 규칙(2026-10-08 · Q-Atelier 183곳 전환): 검증 조건은 `disabled` 에 남긴다(`pending={saving} disabled={!ok}`). 행마다 다른 깃발이면 `pending={busy === 'sync'} disabled={busy !== null}` 처럼 «이 단추가 도는 중» 과 «다른 동작 중 잠금» 을 가른다. 글귀에 «…중» 삼항을 두지 않는다(스피너가 대신하고 글자 폭이 흔들리지 않게). 한 깃발을 여러 단추가 나눠 쓰면 어느 단추가 눌렸는지 알 수 없으니 깃발을 `null | '동작이름'` 으로 가른 뒤에 쓴다. 처리 중에는 숨은 글귀 «처리 중» 이 단추 이름을 잇는다(visibility:hidden 은 접근성 트리에서도 빠지므로).
 
 ### `IconBtn`
 

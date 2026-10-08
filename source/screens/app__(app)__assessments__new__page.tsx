@@ -748,8 +748,8 @@ export default function NewAssessmentPage() {
         >
           {/* 보조 동작 «취소» 는 글귀 (화면 검토 A11 · 2026-09-27) */}
           <TextLinkAction href="/assessments">취소</TextLinkAction>
-          <Btn onClick={handleEvaluate} disabled={!readyToEval || submitting}>
-            {submitting ? '평가 중...' : 'MedQraft Core 평가 실행 →'}
+          <Btn onClick={handleEvaluate} pending={submitting} disabled={!readyToEval}>
+            MedQraft Core 평가 실행 →
           </Btn>
         </div>
       </div>

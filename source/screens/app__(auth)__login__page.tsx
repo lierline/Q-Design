@@ -767,10 +767,10 @@ function LoginForm() {
                 <div style={{ marginTop: S[6] }}>
                   <Btn
                     type="submit"
-                    disabled={loading || oauthLoading || !signupReady}
+                    pending={loading} disabled={oauthLoading || !signupReady}
                     style={{ width: '100%', padding: '13px 24px', fontSize: FS[12] }}
                   >
-                    {loading ? '처리 중...' : mode === 'login' ? 'Step inside →' : 'Sign up →'}
+                    {mode === 'login' ? 'Step inside →' : 'Sign up →'}
                   </Btn>
                 </div>
                 {/* 지문 · 얼굴 로그인: 보조 단추(주 동작은 위의 비밀번호 로그인). 쓸 수 있는 주소 · 설정일 때만 */}

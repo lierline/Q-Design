@@ -7,16 +7,16 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 
 | | 개수 |
 |---|---:|
-| 키프레임 전체 | **47종** |
+| 키프레임 전체 | **46종** |
 | CSS 파일에 있는 것 | 20종 |
-| 인라인에만 있는 것 | **27종** |
-| `<style>` 을 가진 파일 | 25개 |
+| 인라인에만 있는 것 | **26종** |
+| `<style>` 을 가진 파일 | 24개 |
 
 원본은 `source/screens/` 에 있습니다 (경로의 `/` 를 `__` 로 바꾼 이름).
 
 ## 인라인에만 있는 키프레임
 
-`qa-assist-rise` · `qa-auth-rise` · `qa-drawer-slide-b` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-mark` · `qa-entrance-ribbon` · `qa-entrance-shine` · `qa-entrance-shine-ink` · `qa-entrance-veil` · `qa-fab-rise` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-spin-fj` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
+`qa-assist-rise` · `qa-auth-rise` · `qa-drawer-slide-b` · `qa-drawer-slide-in` · `qa-drawer-slide-l` · `qa-drawer-slide-r` · `qa-entrance-mark` · `qa-entrance-ribbon` · `qa-entrance-shine` · `qa-entrance-shine-ink` · `qa-entrance-veil` · `qa-fab-rise` · `qa-hairline-appear` · `qa-hairline-draw` · `qa-headline-drop` · `qa-item-spin` · `qa-pulse` · `qa-ribbon-drift-1` · `qa-ribbon-drift-2` · `qa-rise-soft` · `qa-wash-in` · `qa-welcome-backdrop` · `qa-welcome-in` · `qa-widget-jiggle` · `qa-wm-breathe` · `qa-wm-fadein`
 
 ## 파일별
 
@@ -32,7 +32,6 @@ Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·�
 | `components/AiDraftAssist.tsx` | `qa-assist-rise` | 없음 | 0 |
 | `components/AIQuickAccessFab.tsx` | `qa-fab-rise` | `.qa-ai-fab` | 1 |
 | `components/dashboard/CustomizableWidgetBoard.tsx` | `qa-widget-jiggle` | `.qa-edit-item` | 1 |
-| `components/FinalJudgmentPanel.tsx` | `qa-spin-fj` | 없음 | 0 |
 | `components/ItemClassificationPreview.tsx` | `qa-item-spin` | 없음 | 0 |
 | `components/Sidebar.tsx` | `qa-drawer-slide-in` | 없음 | 0 |
 | `components/TodayQueue.tsx` | `qa-spin` | `.qa-spin` `.qa-today-cta` | 1 |

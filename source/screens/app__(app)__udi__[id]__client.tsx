@@ -376,8 +376,8 @@ export function UdiDetailClient({
       </Section>
 
       <FormActions>
-        <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} disabled={saving || !!reasonMissing} title={reasonMissing ?? undefined} style={{ minWidth: 140 }}>
-          {saving ? '저장 중...' : '저장'}
+        <Btn sm onClick={() => save(status !== initial.status ? status : undefined)} pending={saving} disabled={!!reasonMissing} title={reasonMissing ?? undefined} style={{ minWidth: 140 }}>
+          저장
         </Btn>
       </FormActions>
         </div>

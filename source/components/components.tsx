@@ -10,6 +10,8 @@ import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
 import { Circle } from '@/components/q-design-icons/Circle';
 import { Info } from '@/components/q-design-icons/Info';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
+// ⓘ 여는 방법(올리면 · 눌러야)은 설정 › 표시(이 기기)에서 고른다(2026-10-08 오너 지시). 기본은 «눌러야».
+import { useInfoTrigger } from '@/lib/novice-mode';
 import { ruleBand, tintBorder } from './grain';
 import { TAG_DIMS } from './tag-metrics';
 import { riskLabelKo } from '@/lib/labels/risk';
@@ -304,6 +306,19 @@ interface BtnProps {
    */
   pending?: boolean;
 }
+// 화면에서는 안 보이고 낭독기만 읽는 글귀(WCAG 시각 숨김 관용구)
+const SR_ONLY: CSSProperties = {
+  position: 'absolute',
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: 'hidden',
+  clip: 'rect(0 0 0 0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+};
+
 export function Btn({
   children,
   onClick,
@@ -379,8 +394,10 @@ export function Btn({
     >
       {pending ? (
         <>
-          {/* 글자는 자리만 남긴다(폭 보존). 낭독기에는 aria-busy 가 상태를 전한다 */}
+          {/* 글자는 자리만 남긴다(폭 보존). visibility:hidden 은 접근성 트리에서도 빠지므로
+              낭독기용 이름은 아래 숨은 글귀가 잇는다(aria-busy 와 함께) */}
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], visibility: 'hidden' }}>{children}</span>
+          <span style={SR_ONLY}>처리 중</span>
           <span
             aria-hidden="true"
             style={{
@@ -2178,7 +2195,9 @@ export function KPI({
   const accent = color ?? T.subtle;
   // 2026-10-08: 지표 옆 ⓘ 도 초보자 모드와 상관없이 늘 보인다(오너 결정)
   const interactive = Boolean(tooltip);
-  const isOpen = interactive && (hover || tapOpen);
+  // 올려서 여는 것은 설정이 «올리면 열림» 일 때만. 기본(«눌러야»)은 누르거나 Enter 로만 연다
+  const hoverOpens = useInfoTrigger() === 'hover';
+  const isOpen = interactive && ((hoverOpens && hover) || tapOpen);
 
   // 팝업 열릴 때 카드 위치 계산: portal 렌더 좌표 기준
   useEffect(() => {
@@ -2277,7 +2296,7 @@ export function KPI({
           height: '100%',
           minHeight: 124,
           boxSizing: 'border-box',
-          cursor: interactive ? (isTouch ? 'pointer' : 'help') : 'default',
+          cursor: interactive ? (isTouch || !hoverOpens ? 'pointer' : 'help') : 'default',
           boxShadow: isOpen ? `0 0 0 1px ${alpha(accent, 0.4)}` : 'none',
           transition: 'box-shadow 0.15s ease',
         }}
@@ -2600,7 +2619,10 @@ export function InfoDot({
     };
   }, [pinned]);
 
-  const canHover = () => typeof window !== 'undefined' && !!window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  // 설정이 «올리면 열림» 이고 기기가 마우스를 쓸 때만 올려서 연다. «눌러야 열림»(기본)이면 누르거나 초점을 줘야 열린다.
+  const trigger = useInfoTrigger();
+  const canHover = () =>
+    trigger === 'hover' && typeof window !== 'undefined' && !!window.matchMedia && window.matchMedia('(hover: hover)').matches;
 
   // 폰처럼 좁은 화면에서 팝업이 오른쪽 밖으로 나가지 않게: 열릴 때 ⓘ 의 자리를 재어 폭과 왼쪽 밀림을 정한다
   // (2026-10-08 폰 412px 촬영에서 360px 팝업이 잘려 나갔다). 여백은 양쪽 16px.

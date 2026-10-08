@@ -238,8 +238,8 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
             >
               언제든 좌측 사이드바 ‘설정 · 사용법’ 에서 다시 확인할 수 있습니다.
             </span>
-            <Btn onClick={() => void close()} disabled={busy}>
-              {busy ? '...' : '시작하기 →'}
+            <Btn onClick={() => void close()} pending={busy}>
+              시작하기 →
             </Btn>
           </div>
         </div>

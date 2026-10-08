@@ -242,8 +242,8 @@ export function MeetingComposeDialog({
           <Btn p={false} onClick={onClose} disabled={busy}>
             취소
           </Btn>
-          <Btn onClick={handleSubmit} disabled={busy || !title.trim() || !date || !startTime || !endTime}>
-            {busy ? '전송 중…' : '회의 제안 · 참석자 통지'}
+          <Btn onClick={handleSubmit} pending={busy} disabled={!title.trim() || !date || !startTime || !endTime}>
+            회의 제안 · 참석자 통지
           </Btn>
         </>
       }

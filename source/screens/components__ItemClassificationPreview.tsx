@@ -766,7 +766,7 @@ function ResultBody({
             ) : (
               <Btn
                 sm
-                disabled={confirming}
+                pending={confirming}
                 onClick={async () => {
                   setConfirming(true);
                   setConfirmErr(null);
@@ -783,7 +783,7 @@ function ResultBody({
                   }
                 }}
               >
-                {confirming ? '확정 중...' : `이 품목으로 확정: ${top.code}`}
+                {`이 품목으로 확정: ${top.code}`}
               </Btn>
             )}
             {confirmedCode && confirmedCode !== top.code && (
@@ -1538,8 +1538,8 @@ function ManualEntryForm({
               flexWrap: 'wrap',
             }}
           >
-            <Btn sm disabled={!canSubmit || submitting} onClick={() => void submit()}>
-              {submitting ? '확정 중...' : '이 품목으로 확정 (직접 입력)'}
+            <Btn sm pending={submitting} disabled={!canSubmit} onClick={() => void submit()}>
+              이 품목으로 확정 (직접 입력)
             </Btn>
             {!canSubmit && (code.length > 0 || nameKr.length > 0) && (
               <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
@@ -1678,7 +1678,7 @@ function AlternativeRow({
             <Btn
               p={false}
               sm
-              disabled={confirming}
+              pending={confirming}
               onClick={async () => {
                 setConfirming(true);
                 setErr(null);
@@ -1691,7 +1691,7 @@ function AlternativeRow({
                 }
               }}
             >
-              {confirming ? '확정 중...' : excluded ? '그래도 확정' : '이 품목 확정'}
+              {excluded ? '그래도 확정' : '이 품목 확정'}
             </Btn>
           )}
         </span>
