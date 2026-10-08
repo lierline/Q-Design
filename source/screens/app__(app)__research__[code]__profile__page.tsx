@@ -9,7 +9,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { AxisKeywords } from '@/lib/medical-items/idea-keywords';
 import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
-import { Alert, Bx, Btn, LoadingState, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
+import { Alert, Bx, Btn, LoadingState, NextStep, PageHd, SectionTitle, SkeletonPanel, Tag } from '@/lib/design/components';
 import { S, FS, F, T, LH } from '@/lib/design/tokens';
 import { longDateTime } from '@/lib/date';
 import { Download } from '@/components/q-design-icons/Download';
@@ -17,7 +17,6 @@ import { Loader2 } from '@/components/q-design-icons/Loader2';
 import { RefreshCw } from '@/components/q-design-icons/RefreshCw';
 import { Sparkles } from '@/components/q-design-icons/Sparkles';
 import { PageGuide } from '@/components/PageGuide';
-import { HelpNote } from '@/components/HelpNote';
 import { Q_MATCH_ENGINE_NAME } from '@/lib/branding';
 import type { ProductProfile } from '@/lib/requirements/engine';
 
@@ -313,12 +312,6 @@ export default function ProfilePage() {
       <PageGuide pageId="research-profile" />
       <style>{`@keyframes qa-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
 
-      <HelpNote>
-        제품 프로파일 문항입니다. 의료기기 <strong>등급 · 위험도 · 신체 접촉 · 멸균 · 소프트웨어</strong>
-        등을 입력하면, 시스템이 이 답을 근거로 「내 제품에 필요한 인허가 경로 · 문서 · 시험」을
-        자동으로 짚어줍니다. <strong>정확히 답할수록 맞춤 안내가 정교</strong>해집니다.
-      </HelpNote>
-
       {/* [RR-5] RA 등급 제안: R&D 가 검토·반영(자동 덮어쓰기 금지). */}
       {project.suggested_device_class != null &&
         project.suggested_device_class !== project.profile_device_class && (
@@ -332,11 +325,11 @@ export default function ProfilePage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: S[3], flexWrap: 'wrap' }}>
               <Tag color={T.champagne}>RA 제안</Tag>
               <span style={{ flex: 1, minWidth: 240, fontSize: FS[13], fontFamily: F.serif, color: T.text, lineHeight: LH.notice }}>
-                RA 가 인허가에서 <strong>{project.suggested_device_class}등급</strong>으로 확정했습니다
+                RA 가 인허가에서 <strong>{project.suggested_device_class}등급</strong>으로 확정
                 {project.profile_device_class != null && (
                   <> (현재 프로파일 {project.profile_device_class}등급)</>
                 )}
-                . 반영하면 필요문서·인허가 경로가 재산정됩니다.
+                {' '}· 반영하면 필요문서 · 인허가 경로 재산정
               </span>
               <Btn sm onClick={() => void applySuggestedClass()}>
                 {project.suggested_device_class}등급으로 반영
@@ -419,7 +412,7 @@ export default function ProfilePage() {
                 minWidth: 200,
               }}
             >
-              등급과 품목이 이 단계에서 결정되어 카탈로그·문서·인허가 경로 산출에 사용됩니다.
+              이 단계의 등급 · 품목이 카탈로그 · 문서 · 인허가 경로 산출의 기준
             </span>
             {/* 확정 후 분석 카드 펼치기/접기 토글 */}
             <span style={{ marginLeft: 'auto' }}>
@@ -452,8 +445,7 @@ export default function ProfilePage() {
               보류됨
             </span>
             <span style={{ flex: 1, minWidth: 240 }}>
-              코어 분석 후보 중 적합한 품목이 없어 보류 상태입니다. 아이디어를 보완하거나
-              새 후보를 확인하려면 <strong>확정 재개</strong> 를 누르십시오.
+              코어 분석 후보 중 적합한 품목이 없어 보류 · 아이디어 보완이나 새 후보 확인은 <strong>확정 재개</strong>
             </span>
             <TextAction onClick={() => void deferItem(true)}>확정 재개</TextAction>
           </div>
@@ -585,9 +577,7 @@ export default function ProfilePage() {
       {!a ? (
         <Bx style={{ padding: S[4.5], marginBottom: S[7], textAlign: 'center' }}>
           <Loader2 size={16} className="animate-spin" style={{ color: T.muted, marginBottom: S[2] }} />
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
-            코어 분석이 아직 끝나지 않았습니다. 위 「분석 다시 실행」 을 누르십시오.
-          </div>
+          <NextStep style={{ color: T.muted }}>코어 분석이 아직 끝나지 않았습니다. 위 「분석 다시 실행」 을 누르십시오.</NextStep>
         </Bx>
       ) : (
         <>

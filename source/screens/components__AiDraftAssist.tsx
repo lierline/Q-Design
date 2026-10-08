@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { Sparkles } from '@/components/q-design-icons/Sparkles';
 import { X } from '@/components/q-design-icons/X';
 import { RefreshCw } from '@/components/q-design-icons/RefreshCw';
-import { Btn, Txt, Alert } from '@/lib/design/components';
+import { Btn, Txt, Alert, NextStep } from '@/lib/design/components';
 import { S, FS, F, T, RADIUS, MOTION, ICON, LH } from '@/lib/design/tokens';
 import { TextAction } from '@/components/TextAction';
 
@@ -129,9 +129,9 @@ export function AiDraftAssist({
           <X size={15} aria-hidden="true" />
         </button>
       </div>
-      <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-        ▸ AI 는 적어주신 사실을 정리만 합니다. 없는 내용은 지어내지 않습니다. <strong style={{ color: T.champagne }}>초안을 받은 뒤 반드시 사실을 확인하고 수정</strong>하십시오.
-      </div>
+      <NextStep>
+        AI 는 적어주신 사실을 정리만 하고 없는 내용은 지어내지 않습니다. <strong style={{ color: T.champagne }}>초안을 받은 뒤 반드시 사실을 확인하고 수정</strong>하십시오.
+      </NextStep>
 
       {/* 키워드 입력 */}
       <Txt

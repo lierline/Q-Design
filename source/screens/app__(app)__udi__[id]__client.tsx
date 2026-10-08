@@ -10,7 +10,7 @@ import { Btn, Bx, Checkbox, PageHd, Field, In, Txt, FormActions, Section, Detail
 import { S, FS, F, T, RADIUS, LAYOUT } from '@/lib/design/tokens';
 import { Plus } from '@/components/q-design-icons/Plus';
 import { Trash2 } from '@/components/q-design-icons/Trash2';
-import { HelpNote } from '@/components/HelpNote';
+import { PageGuide } from '@/components/PageGuide';
 import {
   ISSUING_AGENCY_LABEL,
   UDI_STATUS_LABEL,
@@ -187,9 +187,8 @@ export function UdiDetailClient({
         actions={<Tag size="md" dot color={T.blue}>{UDI_STATUS_LABEL[status]}</Tag>}
       />
 
-      <HelpNote>
-        <strong style={{ color: T.text }}>UDI 관리</strong>는 우리 제품의 <strong style={{ color: T.text }}>고유 식별 코드(UDI) 등록 대장</strong>입니다. 코드 자체는 발행기관·정부 시스템에서 발급·등록하고, 이 화면은 <strong style={{ color: T.text }}>어떤 제품에 어떤 UDI 가 부여됐는지</strong> + <strong style={{ color: T.text }}>각 시장(미국·EU·한국)의 제출·갱신·변경 재신고</strong>를 추적하는 곳입니다.
-      </HelpNote>
+      {/* 화면 설명은 화면 머리 ⓘ 로, 구역 설명은 Section info= 로(묶음 6 · 2026-10-08). 옛 도움말 상자 넷을 걷었다 */}
+      <PageGuide pageId="udi" />
 
       <div className="qa-udi-detail">
         {/* ── 좌: 식별·구성 (이 UDI 는 무엇인가) ── */}
@@ -214,10 +213,10 @@ export function UdiDetailClient({
       </Section>
 
       {/* PI 구성 */}
-      <Section title="생산 식별자 (UDI-PI): 라벨 포함 항목">
-        <HelpNote compact>
-          PI 는 생산 로트마다 바뀌는 정보입니다. 여기선 이 제품 <strong style={{ color: T.text }}>라벨에 어떤 PI 를 넣을지</strong> 구성만 정합니다(실제 값은 생산 때 채워짐).
-        </HelpNote>
+      <Section
+        title="생산 식별자 (UDI-PI): 라벨 포함 항목"
+        info="PI 는 생산 로트마다 바뀌는 정보입니다. 여기서는 이 제품 라벨에 어떤 PI 를 넣을지 구성만 정합니다. 실제 값은 생산 때 채워집니다."
+      >
         {/* 여러 개 고르기는 체크 목록(화면 검토 A35 · A66 · 2026-09-28). 초록 알약이 «누르는 것 · 고른 것» 을 가르지 못했다 */}
         <div role="group" aria-label="라벨에 넣을 생산 식별자" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: `${S[1]}px ${S[4]}px` }}>
           {PI_COMPONENT_META.map((m) => (
@@ -229,10 +228,10 @@ export function UdiDetailClient({
       </Section>
 
       {/* 포장 단계 UDI */}
-      <Section title="포장 단계 UDI">
-        <HelpNote compact>
-          기본 단위(each)는 위 <span style={{ fontFamily: F.mono }}>{initial.udi_di}</span> 입니다. 박스·케이스 등 <strong style={{ color: T.text }}>상위 포장마다 별도 UDI-DI</strong>가 필요합니다 (FDA 21 CFR 830.50 / EU MDR Annex VI).
-        </HelpNote>
+      <Section
+        title="포장 단계 UDI"
+        info={<>기본 단위(each)는 위 <span style={{ fontFamily: F.mono }}>{initial.udi_di}</span> 입니다. 박스 · 케이스 등 상위 포장마다 별도 UDI-DI 가 필요합니다 (FDA 21 CFR 830.50 · EU MDR Annex VI).</>}
+      >
         {/* 인라인 행 편집기: raw 유지: Sel/In 은 width 100% 고정이라 행 레이아웃(가변폭·88px 수량·mono)·number min·title 을 공통 props 로 보존 불가 */}
         {pkgs.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: S[2], marginBottom: S[2.5] }}>
@@ -263,10 +262,10 @@ export function UdiDetailClient({
         <div style={{ display: 'flex', flexDirection: 'column' }}>
 
       {/* 규제기관 제출 상태 + 제출일/갱신기한 */}
-      <Section title="규제기관 제출 상태">
-        <HelpNote compact>
-          각 시장의 <strong style={{ color: T.text }}>UDI 데이터베이스</strong>(미국 GUDID·EU EUDAMED·한국 MFDS)에 등록했는지 추적합니다. 해당 시장에 판매하려면 제출이 의무입니다. 미제출이면 서둘러 처리하십시오.
-        </HelpNote>
+      <Section
+        title="규제기관 제출 상태"
+        info="각 시장의 UDI 데이터베이스(미국 GUDID · EU EUDAMED · 한국 MFDS)에 등록했는지 추적합니다. 해당 시장에 판매하려면 제출이 의무입니다."
+      >
         {/* 시장 줄은 상자 · 초록 칠 없이 괘선 장부로(화면 검토 A35 · A76 · 2026-09-28). 제출 여부는 고른 칸이 말한다 */}
         <div style={{ display: 'flex', flexDirection: 'column', borderTop: `1px solid ${T.border}` }}>
           {SUBMISSION_TARGETS.map((t) => {
@@ -343,7 +342,7 @@ export function UdiDetailClient({
               ))}
             </div>
           ) : (
-            <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.muted }}>진행 중인 변경평가가 없습니다.</div>
+            <div style={{ fontFamily: F.ui, fontSize: FS[12], color: T.muted }}>진행 중인 변경평가 없음</div>
           )}
         </Section>
       )}

@@ -9,7 +9,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { S, FS, F, T, alpha, STATE, RADIUS, LH } from '@/lib/design/tokens';
 import { ruleBand, tintBorder } from '@/lib/design/grain';
-import { Btn, Field, infoPopoverStyle } from '@/lib/design/components';
+import { Btn, Field, InfoDot, LegalNote, NextStep } from '@/lib/design/components';
 import {
   Q_MATCH_ENGINE_NAME,
   Q_MATCH_ENGINE_SHORT,
@@ -318,9 +318,17 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
               color: T.blue,
               fontFamily: F.ui,
               marginBottom: S[1],
+              display: 'flex',
+              alignItems: 'center',
+              gap: S[1.5],
             }}
           >
             {Q_MATCH_ENGINE_NAME} · MFDS 품목 분류
+            {/* 구역 설명은 제목 옆 ⓘ 로(2026-10-08 ⓘ 묶음 2) */}
+            <InfoDot label={`${Q_MATCH_ENGINE_NAME} 설명 보기`}>
+              {Q_MATCH_ENGINE_TAGLINE}. 식약처 별표 1 의료기기 품목코드(2,224개)에서 후보와 등급을 한 번에 추정합니다. 아이디어 설명을
+              10자 이상 적으면 미리보기를 누를 수 있습니다.
+            </InfoDot>
           </div>
           <div
             style={{
@@ -331,8 +339,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
               maxWidth: 600,
             }}
           >
-            {Q_MATCH_ENGINE_TAGLINE}. 별표 1 의료기기 품목코드 (2,224개) 후보·등급을 한 번에
-            추정합니다.
+            {Q_MATCH_ENGINE_TAGLINE}
           </div>
         </div>
         <div style={{ display: 'flex', gap: S[2], alignItems: 'center', flexWrap: 'wrap' }}>
@@ -348,16 +355,7 @@ export function ItemClassificationPreview({ payload, enabled, onConfirm, confirm
       </div>
 
       {!enabled && (
-        <div
-          style={{
-            fontSize: FS[12],
-            color: T.muted,
-            fontFamily: F.ui,
-            marginTop: S[1.5],
-          }}
-        >
-          아이디어 설명을 10자 이상 입력하면 호출할 수 있습니다.
-        </div>
+        <NextStep style={{ marginTop: S[1.5] }}>아이디어 설명을 10자 이상 적으면 품목 미리보기를 누를 수 있습니다.</NextStep>
       )}
 
       {error && (
@@ -844,16 +842,10 @@ function ResultBody({
         />
       )}
 
-      <div
-        style={{
-          fontSize: FS[12],
-          color: T.muted,
-          fontFamily: F.ui,
-          lineHeight: LH.relaxed,
-        }}
-      >
-        ※ 1차 추정 결과입니다. 실제 등록 시 식약처 분류 기준 / 제품 특성 / 임상 사용 환경 확인 후 확정해 주십시오.
-      </div>
+      {/* 규제 판단 책임 고지(화면에 남는 글 ④) */}
+      <LegalNote style={{ color: T.muted }}>
+        ※ 1차 추정 결과입니다. 실제 등록 시 식약처 분류 기준 · 제품 특성 · 임상 사용 환경을 확인한 뒤 확정해 주십시오.
+      </LegalNote>
     </div>
   );
 }
@@ -964,8 +956,35 @@ function InputHintPanel({
   );
 }
 
+// 신뢰도 표시와 판정 근거 팝업의 모양(색은 신뢰도마다 달라 호출부에서 덧씌움)
+const confidenceChipStyle: React.CSSProperties = {
+  fontSize: FS[12],
+  fontFamily: F.ui,
+  padding: '2px 8px',
+  display: 'inline-flex',
+  alignItems: 'center',
+};
+const reasonHeadStyle: React.CSSProperties = { fontSize: FS[12], fontFamily: F.ui, fontWeight: 600, marginBottom: S[2] };
+const reasonListStyle: React.CSSProperties = {
+  margin: 0,
+  padding: '0 0 0 14px',
+  fontSize: FS[12],
+  color: T.subtle,
+  fontFamily: F.serif,
+  lineHeight: LH.loose,
+};
+const reasonFootStyle: React.CSSProperties = {
+  marginTop: S[2.5],
+  paddingTop: S[2.5],
+  borderTop: `1px dashed ${T.border}`,
+  fontSize: FS[12],
+  color: T.muted,
+  fontFamily: F.mono,
+  lineHeight: LH.relaxed,
+  letterSpacing: 0.3,
+};
+
 function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
-  const [hover, setHover] = useState(false);
   const cfg = confidenceCfg(result.confidence, !!result.refined);
   const top = result.top;
   const topScore = top?.score ?? 0;
@@ -1024,121 +1043,57 @@ function ConfidenceBadge({ result }: { result: ClassifyResponse }) {
     );
   }
 
-  return (
-    <span
-      style={{ position: 'relative', display: 'inline-flex' }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <span
-        style={{
-          borderRadius: RADIUS.sm,
-          fontSize: FS[12],
-          color: cfg.color,
-          fontFamily: F.ui,
-          padding: '2px 8px',
-          border: `1px solid ${cfg.color}`,
-          cursor: 'help',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: S[1],
-        }}
-      >
-        신뢰도 {cfg.label}
-        <span style={{ opacity: 0.7 }}>ⓘ</span>
+  // 🔴 2026-08-24: 여기 있던 범례는 점수 임계값을 설명했다. 그 규칙은 폐기됐다. 점수는 «입력이 카탈로그 문장과
+  // 겹치는 정도» 라 실제 제품 설명문에서 조용히 거짓말을 했다(high 표기 중 40.4% 만 정답). 지금 판정은
+  // 「입력이 이 품목의 정의와 닮았는가」 + 「두 채널이 같은 답을 내는가」다. 실측 정확도를 함께 적는다.
+  const levels = ['high', 'medium', 'low'] as MatchConfidence[];
+  const measuredRows = levels.map((k) => {
+    const m = result.refined ? MEASURED_TOP1.refined[k] : MEASURED_TOP1.rule[k];
+    return (
+      <span key={k}>
+        {CONFIDENCE_META[k].label} → {m ? `1위 적중 약 ${m}` : '표본이 적어 수치 미제공'}
+        <br />
       </span>
-      {hover && (
-        <div
-          role="tooltip"
-          style={{
-            ...infoPopoverStyle({ width: 360, maxWidth: 'calc(100vw - 40px)' }),
-            position: 'absolute',
-            top: 'calc(100% + 6px)',
-            left: 0,
-            zIndex: 50,
-          }}
-        >
-          <div
-            style={{
-              fontSize: FS[12],
-              color: cfg.color,
-              fontFamily: F.ui,
-              fontWeight: 600,
-              marginBottom: S[2],
-            }}
-          >
-            신뢰도 {cfg.label}: 판정 근거
-          </div>
-          <ul
-            style={{
-              margin: 0,
-              padding: '0 0 0 14px',
-              fontSize: FS[12],
-              color: T.subtle,
-              fontFamily: F.serif,
-              lineHeight: LH.loose,
-            }}
-          >
+    );
+  });
+
+  // 판정 근거 팝업은 공용 InfoDot 으로(2026-10-08 ⓘ 묶음 2): 여는 방법이 설정(눌러야 · 올리면)을 따르고 좁은 화면에서 자리를 잰다.
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: S[1] }}>
+      <span style={{ ...confidenceChipStyle, borderRadius: RADIUS.sm, color: cfg.color, border: `1px solid ${cfg.color}` }}>
+        신뢰도 {cfg.label}
+      </span>
+      <InfoDot label={`신뢰도 ${cfg.label}: 판정 근거 보기`} width={360}>
+        <div>
+          <div style={{ ...reasonHeadStyle, color: cfg.color }}>신뢰도 {cfg.label}: 판정 근거</div>
+          <ul style={reasonListStyle}>
             {reasons.map((r, i) => (
               <li key={i} style={{ marginBottom: S[1] }}>
                 {r}
               </li>
             ))}
           </ul>
-          <div
-            style={{
-              marginTop: S[2.5],
-              paddingTop: S[2.5],
-              borderTop: `1px dashed ${T.border}`,
-              fontSize: FS[12],
-              color: T.muted,
-              fontFamily: F.mono,
-              lineHeight: LH.relaxed,
-              letterSpacing: 0.3,
-            }}
-          >
-            {/* 🔴 2026-08-24: 여기 있던 범례는 점수 임계값을 설명했다. 그 규칙은
-                폐기됐다. 점수는 «입력이 카탈로그 문장과 겹치는 정도» 라 실제
-                제품 설명문에서 조용히 거짓말을 했다(high 표기 중 40.4% 만 정답).
-                지금 판정은 「입력이 이 품목의 정의와 닮았는가」 + 「두 채널이
-                같은 답을 내는가」다. 실측 정확도를 함께 적는다. */}
+          <div style={reasonFootStyle}>
             <strong style={{ color: T.text }}>{Q_MATCH_ENGINE_SHORT} 판정 기준</strong>
             <br />
             {result.refined ? (
               <>
                 정밀 분석이 후보를 검토해 하나를 고른 결과입니다.
                 <br />
-                {(['high', 'medium', 'low'] as MatchConfidence[]).map((k) => {
-                  const m = MEASURED_TOP1.refined[k];
-                  return (
-                    <span key={k}>
-                      {CONFIDENCE_META[k].label} → {m ? `1위 적중 약 ${m}` : '표본이 적어 수치 미제공'}
-                      <br />
-                    </span>
-                  );
-                })}
-                <span style={{ opacity: 0.85 }}>
-                  R&amp;D 발안 문장 50건 실측(2026-08-24). 표본이 작아 참고치입니다.
-                </span>
+                {measuredRows}
+                <span style={{ opacity: 0.85 }}>R&amp;D 발안 문장 50건 실측(2026-08-24). 표본이 작아 참고치입니다.</span>
               </>
             ) : (
               <>
                 입력 문장이 <strong>그 품목의 정의</strong>와 얼마나 닮았는지로 판정합니다.
                 <br />
-                {(['high', 'medium', 'low'] as MatchConfidence[]).map((k) => (
-                  <span key={k}>
-                    {CONFIDENCE_META[k].label} → 1위 적중 약 {MEASURED_TOP1.rule[k]}
-                    <br />
-                  </span>
-                ))}
-                <span style={{ opacity: 0.85 }}>
-                  내부 정답셋 3,244건 실측. 룰 매칭 «점수» 는 판정에 쓰지 않습니다.
-                </span>
+                {measuredRows}
+                <span style={{ opacity: 0.85 }}>내부 정답셋 3,244건 실측. 룰 매칭 «점수» 는 판정에 쓰지 않습니다.</span>
               </>
             )}
           </div>
         </div>
-      )}
+      </InfoDot>
     </span>
   );
 }
@@ -1372,30 +1327,24 @@ function ManualEntryForm({
         borderTop: `1px solid ${T.border}`,
       }}
     >
-      <TextAction onClick={() => setOpen((v) => !v)} expanded={open}>
-        <span>
-          {open ? '▲' : '▼'} 직접 입력: 후보 중 적합한 품목이 없을 때
-        </span>
-        <span style={{ marginLeft: S[2], fontSize: FS[12], color: T.muted }}>
-          MFDS 코드 / 품목명 / 등급 수동 등록
-        </span>
-      </TextAction>
+      <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5], flexWrap: 'wrap' }}>
+        <TextAction onClick={() => setOpen((v) => !v)} expanded={open}>
+          <span>
+            {open ? '▲' : '▼'} 직접 입력: 후보 중 적합한 품목이 없을 때
+          </span>
+          <span style={{ marginLeft: S[2], fontSize: FS[12], color: T.muted }}>
+            MFDS 코드 / 품목명 / 등급 수동 등록
+          </span>
+        </TextAction>
+        {/* 사용법은 제목 옆 ⓘ 로(2026-10-08 ⓘ 묶음 2) */}
+        <InfoDot label="직접 입력 설명 보기">
+          품목명 또는 품목 코드(예: A35025.03) 어디든 적으면 카탈로그에서 자동으로 매칭 후보를 찾아 다른 칸을 채웁니다. 식약처
+          별표 1 의 정식 명칭 · 코드로 적으면 가장 정확합니다.
+        </InfoDot>
+      </div>
 
       {open && (
         <div style={{ marginTop: S[3] }}>
-          <div
-            style={{
-              fontSize: FS[12],
-              color: T.muted,
-              fontFamily: F.serif,
-              lineHeight: LH.loose,
-              marginBottom: S[2.5],
-            }}
-          >
-            품목명 또는 품목 코드(예: A35025.03) 어디든 입력하면 카탈로그
-            에서 자동으로 매칭 후보를 찾아 다른 칸을 채워 드립니다.
-            식약처 별표 1 의 정식 명칭/코드로 입력하시면 가장 정확합니다.
-          </div>
           <div
             style={{
               display: 'grid',
@@ -1515,16 +1464,7 @@ function ManualEntryForm({
                 </div>
               )}
               {!lookingUp && suggestions.length === 0 && nameKr.trim().length >= 2 && (
-                <div
-                  style={{
-                    fontSize: FS[12],
-                    color: T.muted,
-                    fontFamily: F.ui,
-                    lineHeight: LH.relaxed,
-                  }}
-                >
-                  카탈로그에서 매칭되는 품목이 없습니다. 코드·등급을 직접 입력해 주십시오.
-                </div>
+                <NextStep>카탈로그에 맞는 품목이 없습니다. 코드 · 등급을 직접 입력해 주십시오.</NextStep>
               )}
             </div>
           )}
@@ -1542,9 +1482,7 @@ function ManualEntryForm({
               이 품목으로 확정 (직접 입력)
             </Btn>
             {!canSubmit && (code.length > 0 || nameKr.length > 0) && (
-              <span style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
-                코드(영문/숫자/. -_/ 2~20자) · 품목명 · 등급을 모두 입력해 주십시오.
-              </span>
+              <NextStep>코드(영문/숫자/. -_/ 2~20자) · 품목명 · 등급을 모두 입력해 주십시오.</NextStep>
             )}
             {confirmedCode && (
               <span
@@ -1739,30 +1677,35 @@ function ExtendedCandidates({
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        style={{
-          borderRadius: RADIUS.md,
-          background: 'none',
-          border: `1px dashed ${T.border}`,
-          color: T.subtle,
-          fontFamily: F.ui,
-          fontSize: FS[12],
-          padding: `${S[2]}px ${S[3]}px`,
-          width: '100%',
-          textAlign: 'left',
-          cursor: 'pointer',
-          lineHeight: LH.relaxed,
-        }}
-      >
-        {open ? '▾' : '▸'} 후보 {items.length}개 더 보기
-        <span style={{ opacity: 0.75 }}>
-          {' '}
-          · 신뢰도가 낮을 때는 1위가 정답일 확률이 약 35% 입니다. 여기까지 넓혀 보면 약 78% 안에 들어옵니다.
-        </span>
-      </button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5] }}>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          style={{
+            borderRadius: RADIUS.md,
+            background: 'none',
+            border: `1px dashed ${T.border}`,
+            color: T.subtle,
+            fontFamily: F.ui,
+            fontSize: FS[12],
+            padding: `${S[2]}px ${S[3]}px`,
+            flex: 1,
+            minWidth: 0,
+            textAlign: 'left',
+            cursor: 'pointer',
+            lineHeight: LH.relaxed,
+          }}
+        >
+          {open ? '▾' : '▸'} 후보 {items.length}개 더 보기
+          <span style={{ opacity: 0.75 }}> · 신뢰도 낮음 · 1위 적중 약 35% → 15위까지 약 78%</span>
+        </button>
+        {/* 왜 더 보는지는 ⓘ 안으로(2026-10-08 ⓘ 묶음 2) */}
+        <InfoDot label="후보 더 보기 설명 보기" align="right">
+          신뢰도가 낮을 때는 1위가 정답일 확률이 약 35% 입니다. 후보를 15위까지 넓혀 보면 정답이 그 안에 들 확률이 약 78% 로
+          올라갑니다(정답셋 3,244건 중 「낮음」 판정 1,100건 실측).
+        </InfoDot>
+      </div>
       {open && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[1.5], marginTop: S[2] }}>
           {items.map((a) => (

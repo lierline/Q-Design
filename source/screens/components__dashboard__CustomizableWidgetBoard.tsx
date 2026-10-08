@@ -225,7 +225,7 @@ export function CustomizableWidgetBoard({
             flexWrap: 'wrap',
           }}
         >
-          <span>위젯을 드래그해 위치 변경 · <QdEye size={16} /> 로 표시/숨김 · 변경은 이 기기에 저장됩니다.</span>
+          <span>위젯을 드래그해 위치 변경 · <QdEye size={16} /> 로 표시/숨김 · 변경은 이 기기에 저장</span>
           <Btn p={false} sm onClick={resetLayout} style={{ flexShrink: 0 }}>
             <RotateCcw size={12} strokeWidth={ICON.strokeWidth} aria-hidden="true" /> 기본값
           </Btn>

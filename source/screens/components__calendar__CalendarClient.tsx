@@ -407,7 +407,7 @@ export function CalendarClient({ currentUserId, members, projects = [] }: Props)
             <SkeletonPanel height={90} lines={2} />
           ) : selectedDayMeetings.length === 0 ? (
             <Bx style={{ padding: '44px 24px', color: T.muted, fontSize: FS[13], textAlign: 'center' }}>
-              이 날에 잡힌 회의가 없습니다.
+              이 날에 잡힌 회의 없음
               <br />
               {/* 위 «새 회의 제안» 과 같은 채운 단추가 둘이었다. 이쪽은 글귀 (화면 검토 A46 · A11 · 2026-09-27) */}
               <span style={{ display: 'inline-block', marginTop: S[4] }}>

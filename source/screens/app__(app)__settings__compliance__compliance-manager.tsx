@@ -7,7 +7,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Alert, Bx, Btn, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
+import { Alert, Bx, Btn, EmptyState, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
 import { useConfirm } from '@/components/Confirm';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { ChoiceChip } from '@/lib/design/segmented-choice';
@@ -16,7 +16,6 @@ import { AlertTriangle } from '@/components/q-design-icons/AlertTriangle';
 import { CheckCircle2 } from '@/components/q-design-icons/CheckCircle2';
 import { ChevronDown } from '@/components/q-design-icons/ChevronDown';
 import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
-import { ClipboardCheck } from '@/components/q-design-icons/ClipboardCheck';
 import { FileText } from '@/components/q-design-icons/FileText';
 import { HelpCircle } from '@/components/q-design-icons/HelpCircle';
 import { Plus } from '@/components/q-design-icons/Plus';
@@ -89,6 +88,9 @@ const SEVERITY_COLOR: Record<Severity, string> = {
   minor: T.subtle,
 };
 
+/** 어느 동작이 서버를 기다리는지(단추마다 자기 것만 돈다) */
+type ComplianceBusy = null | 'new' | 'delete' | 'complete';
+
 export function ComplianceManager({
   orgId: _orgId,
   myJobRole,
@@ -102,7 +104,7 @@ export function ComplianceManager({
   const [activeId, setActiveId] = useState<string | null>(null);
   const [detail, setDetail] = useState<AssessmentDetail | null>(null);
   const [loading, setLoading] = useState(true);
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState<ComplianceBusy>(null);
   const [error, setError] = useState<string | null>(null);
   const { confirm } = useConfirm();
 
@@ -156,7 +158,7 @@ export function ComplianceManager({
   }, [activeId, loadDetail]);
 
   async function startNew() {
-    setBusy(true);
+    setBusy('new');
     setError(null);
     try {
       const res = await fetch('/api/compliance/assessments', {
@@ -172,7 +174,7 @@ export function ComplianceManager({
       setActiveId(data.assessment.id);
       await loadList();
     } finally {
-      setBusy(false);
+      setBusy(null);
     }
   }
 
@@ -186,7 +188,7 @@ export function ComplianceManager({
       }))
     )
       return;
-    setBusy(true);
+    setBusy('delete');
     try {
       const res = await fetch(`/api/compliance/assessments/${encodeURIComponent(id)}`, {
         method: 'DELETE',
@@ -202,7 +204,7 @@ export function ComplianceManager({
       }
       await loadList();
     } finally {
-      setBusy(false);
+      setBusy(null);
     }
   }
 
@@ -216,7 +218,7 @@ export function ComplianceManager({
       }))
     )
       return;
-    setBusy(true);
+    setBusy('complete');
     try {
       await fetch(`/api/compliance/assessments/${encodeURIComponent(activeId)}`, {
         method: 'PATCH',
@@ -226,7 +228,7 @@ export function ComplianceManager({
       await loadList();
       await loadDetail(activeId);
     } finally {
-      setBusy(false);
+      setBusy(null);
     }
   }
 
@@ -280,22 +282,16 @@ export function ComplianceManager({
             </ChoiceChip>
           );
         })}
-        <Btn sm onClick={startNew} disabled={busy}>
+        <Btn sm onClick={startNew} pending={busy === 'new'} disabled={busy !== null}>
           <Plus size={11} style={{ marginRight: S[1] }} />새 점검
         </Btn>
       </div>
 
       {!detail ? (
-        <Bx style={{ padding: S[8], textAlign: 'center' }}>
-          <ClipboardCheck size={28} style={{ color: T.muted, marginBottom: S[2.5] }} />
-          <div style={{ fontSize: FS[13], color: T.subtle, fontFamily: F.serif, marginBottom: S[1.5] }}>
-            아직 점검 기록이 없습니다.
-          </div>
-          <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui, lineHeight: LH.relaxed }}>
-            새 점검 을 눌러 ISO 13485 §4~§8 약 45개 항목을 자가 점검하십시오.
-            <br />외부 감사 대비 + Gap 우선순위 + 관련 양식 자동 연결.
-          </div>
-        </Bx>
+        <EmptyState
+          title="아직 점검 기록이 없습니다"
+          description="위 「새 점검」 을 눌러 ISO 13485 §4~§8 약 45개 항목을 자가 점검하십시오 · 외부 감사 대비 · 미흡 항목 우선순위 · 관련 양식 자동 연결."
+        />
       ) : (
         <ComplianceDetail
           detail={detail}
@@ -322,7 +318,7 @@ function ComplianceDetail({
   myOrgRole,
 }: {
   detail: AssessmentDetail;
-  busy: boolean;
+  busy: ComplianceBusy;
   onUpdateItem: (code: string, patch: Partial<ItemRow>) => Promise<void>;
   onComplete: () => void;
   onDelete: () => void;
@@ -404,11 +400,11 @@ function ComplianceDetail({
         </span>
         <div style={{ flex: 1 }} />
         {assessment.status !== 'completed' && (
-          <Btn sm onClick={onComplete} disabled={busy}>
+          <Btn sm onClick={onComplete} pending={busy === 'complete'} disabled={busy !== null}>
             <CheckCircle2 size={11} style={{ marginRight: S[1] }} />점검 완료로 표시
           </Btn>
         )}
-        <Btn p={false} sm danger onClick={onDelete} disabled={busy}>
+        <Btn p={false} sm danger onClick={onDelete} pending={busy === 'delete'} disabled={busy !== null}>
           <Trash2 size={11} /> 삭제
         </Btn>
       </div>
@@ -951,28 +947,16 @@ function GapReport({
      0/49 에서 초록 체크가 떠 «점검했더니 깨끗하다» 로 읽혔다 */
   if (gaps.length === 0 && unanswered > 0) {
     return (
-      <Bx style={{ padding: S[6], textAlign: 'center' }}>
-        <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
-          아직 답하지 않은 항목이 {unanswered}개 있어 미흡 항목을 셀 수 없습니다.
-        </div>
-        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif }}>
-          절별 탭에서 답하면 부적합이 여기 모입니다.
-        </div>
-      </Bx>
+      <EmptyState
+        compact
+        title={`아직 답하지 않은 항목이 ${unanswered}개 있어 미흡 항목을 셀 수 없습니다`}
+        description="절별 탭에서 답하면 부적합이 여기 모입니다."
+      />
     );
   }
   if (gaps.length === 0) {
-    return (
-      <Bx style={{ padding: S[6], textAlign: 'center' }}>
-        {/* 큰 초록 체크 원을 걷었다. 빈 상태는 글로 말한다 (화면 검토 A66 · 2026-09-28) */}
-        <div style={{ fontSize: FS[13], color: T.text, fontFamily: F.serif, marginBottom: S[1] }}>
-          식별된 부적합이 없습니다.
-        </div>
-        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.ui }}>
-          미응답 항목이 있다면 절별 탭에서 답변하십시오.
-        </div>
-      </Bx>
-    );
+    // 큰 초록 체크 원을 걷었다. 빈 상태는 글로 말한다 (화면 검토 A66 · 2026-09-28)
+    return <EmptyState compact title="식별된 부적합이 없습니다" description="미응답 항목이 있다면 절별 탭에서 답변하십시오." />;
   }
 
   return (

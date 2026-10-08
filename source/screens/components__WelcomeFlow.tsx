@@ -16,7 +16,7 @@
 
 import { useEffect, useState } from 'react';
 import { F, FS, LH, S, T, Z, alpha, goldTextStyle, RADIUS } from '@/lib/design/tokens';
-import { Btn } from '@/lib/design/components';
+import { Btn, NextStep } from '@/lib/design/components';
 import { useFocusTrap } from '@/lib/hooks/useFocusTrap';
 import { useRef } from 'react';
 import { Lightbulb } from '@/components/q-design-icons/Lightbulb';
@@ -180,7 +180,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
               <span style={{ fontWeight: 600, ...goldTextStyle() }}>
                 당신의 공방
               </span>
-              에 오신 것을 환영합니다.
+              에 오신 것을 환영합니다
             </h2>
             <p
               style={{
@@ -191,10 +191,9 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 color: T.subtle,
               }}
             >
-              아이디어부터 인허가 신청까지: Q-Atelier 가 매 단계를 함께 합니다.
-              <br />
-              먼저 짧게 둘러보십시오.
+              아이디어부터 인허가 신청까지 · Q-Atelier 가 매 단계를 함께
             </p>
+            <NextStep style={{ marginTop: S[2], fontFamily: F.serif, fontSize: FS[13], color: T.subtle }}>먼저 짧게 둘러보십시오.</NextStep>
           </div>
 
           {/* Body: 3단계 안내 */}
@@ -236,7 +235,7 @@ export function WelcomeFlow({ show, userName, gsRole }: Props) {
                 fontFamily: F.ui,
               }}
             >
-              언제든 좌측 사이드바 ‘설정 · 사용법’ 에서 다시 확인할 수 있습니다.
+              언제든 왼쪽 메뉴 ‘설정 · 사용법’ 에서 다시 볼 수 있음
             </span>
             <Btn onClick={() => void close()} pending={busy}>
               시작하기 →

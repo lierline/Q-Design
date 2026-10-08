@@ -10,7 +10,7 @@
  * 이 계약은 «JSX 글 노드에 날것으로 놓인 설명 문장» 을 파일별로 세어 기준선과 같은지 본다.
  *   · 설명 문장: 한글로 시작해 입니다 · 십시오 · 됩니다 · 합니다 · 있습니다 · 없습니다 · 주세요 · 하세요 + 마침표로 끝나는 것.
  *   · 날것: 가장 가까운 여는 부품이 아래 WRAPPERS 가 아닌 것. 부품 안(ⓘ 팝업 · Alert · 남겨도 되는 네 가지)은 세지 않는다.
- *     HelpNote 는 «옮기는 중» 이라 아직 부품으로 친다(옮기면 HelpNote 호출 자체가 줄어든다).
+ *     (옛 HelpNote 상자는 묶음 6 · 2026-10-08 에 70곳 전부 ⓘ 로 옮기고 부품 자체를 지웠다.)
  *   · 문자열 속성(title= · placeholder=)과 데이터 파일(page-guides.ts)은 보지 않는다. 공개 약관 · 개인정보 · 오픈소스
  *     고지 화면과 현장 모드 · 전문가 포털은 뺀다.
  * 기준선은 «남아 있는 것» 의 목록이다. 줄어들면 기준선도 줄여야 하고, 늘면 빨강이다. 어긋나면 붙여 넣을 리터럴을 찍어 준다.
@@ -24,192 +24,28 @@ import { codeOnly, REPO_ROOT } from '@/lib/test-utils/contract-source';
 /** 남아 있는 날것 설명 문장. 파일 → 개수. 0 이 되면 줄을 지운다. */
 const REMAINING: ReadonlyArray<[string, number]> = [
   // 2026-10-08 시작 기준선: 180 파일 · 574 문장. 묶음마다 줄인다. 묶음 1(시안 두 화면): 178 파일 · 568 문장. 설정 카드 ⓘ 뒤 567.
-  ['app/(app)/admin/activity/page.tsx', 10],
-  ['app/(app)/admin/ai-control/_tabs/Overview.tsx', 1],
-  ['app/(app)/admin/core-accuracy/page.tsx', 1],
-  ['app/(app)/admin/default-templates/page.tsx', 1],
-  ['app/(app)/admin/eval-sets/[id]/review/page.tsx', 6],
-  ['app/(app)/admin/eval-sets/page.tsx', 1],
-  ['app/(app)/admin/expert-invites/invite-manager.tsx', 2],
-  ['app/(app)/admin/expert-invites/page.tsx', 3],
-  ['app/(app)/admin/experts/page.tsx', 2],
-  ['app/(app)/admin/knowledge/page.tsx', 2],
-  ['app/(app)/admin/multi-view/page.tsx', 1],
-  ['app/(app)/admin/page.tsx', 1],
-  ['app/(app)/admin/permissions-matrix/page.tsx', 2],
-  ['app/(app)/admin/q-match-training/page.tsx', 4],
-  ['app/(app)/admin/qmatch-quiz/page.tsx', 2],
-  ['app/(app)/admin/rule-table/page.tsx', 4],
-  ['app/(app)/admin/screening/page.tsx', 2],
-  ['app/(app)/admin/validation-evidence/page.tsx', 2],
-  ['app/(app)/admin/vigilance/page.tsx', 1],
-  ['app/(app)/assessments/[code]/page.tsx', 6],
-  ['app/(app)/assessments/page.tsx', 1],
-  ['app/(app)/audit-readiness/page.tsx', 3],
-  ['app/(app)/audit/filter-bar.tsx', 3],
-  ['app/(app)/audits/[id]/client.tsx', 2],
-  ['app/(app)/authorized-reps/[id]/client.tsx', 1],
-  ['app/(app)/capa/[id]/client.tsx', 7],
-  ['app/(app)/cleanroom/[id]/client.tsx', 1],
-  ['app/(app)/clinical-evaluations/[id]/client.tsx', 2],
-  ['app/(app)/clinical-evaluations/new/client.tsx', 2],
-  ['app/(app)/complaints/[id]/client.tsx', 3],
-  ['app/(app)/complaints/new/client.tsx', 6],
-  ['app/(app)/contracts/[id]/page.tsx', 1],
-  ['app/(app)/design-trace/client.tsx', 7],
-  ['app/(app)/device-licenses/[id]/client.tsx', 13],
-  ['app/(app)/device-licenses/new/client.tsx', 5],
-  ['app/(app)/eu-mdr/[id]/client.tsx', 3],
-  ['app/(app)/eu-mdr/new/client.tsx', 1],
-  ['app/(app)/experts/page.tsx', 1],
-  ['app/(app)/fda-510k/[id]/client.tsx', 1],
-  ['app/(app)/feedback/[id]/client.tsx', 2],
-  ['app/(app)/inbox/[id]/page.tsx', 2],
-  ['app/(app)/lots/[id]/client.tsx', 4],
-  ['app/(app)/management-reviews/[id]/client.tsx', 6],
-  ['app/(app)/messages/page.tsx', 8],
-  ['app/(app)/nmpa/[id]/client.tsx', 2],
-  ['app/(app)/nonconformances/[id]/dispositions-section.tsx', 1],
-  ['app/(app)/pmda/[id]/client.tsx', 2],
-  ['app/(app)/pmda/new/client.tsx', 1],
-  ['app/(app)/pms/[id]/client.tsx', 3],
-  ['app/(app)/pms/new/client.tsx', 1],
-  ['app/(app)/products/client.tsx', 1],
-  ['app/(app)/products/page.tsx', 1],
-  ['app/(app)/qa/qa-workspace-client.tsx', 3],
-  ['app/(app)/qms-documents/client.tsx', 4],
-  ['app/(app)/quality-objectives/[id]/client.tsx', 7],
-  ['app/(app)/ra/ra-workspace-client.tsx', 5],
-  ['app/(app)/recalls/[id]/client.tsx', 2],
-  ['app/(app)/recalls/new/client.tsx', 3],
-  ['app/(app)/reimbursement/client.tsx', 1],
-  ['app/(app)/research/[code]/design-requirements/page.tsx', 2],
-  ['app/(app)/research/[code]/page.tsx', 1],
-  ['app/(app)/research/[code]/profile/page.tsx', 3],
-  ['app/(app)/research/[code]/reviews/page.tsx', 6],
-  ['app/(app)/research/[code]/settings/page.tsx', 6],
-  ['app/(app)/research/new/page.tsx', 3],
-  ['app/(app)/research/review/page.tsx', 3],
-  ['app/(app)/settings/compliance/compliance-manager.tsx', 5],
-  ['app/(app)/settings/compliance/page.tsx', 1],
-  ['app/(app)/settings/export/ExportPanel.tsx', 2],
-  ['app/(app)/settings/members/member-admin-client.tsx', 2],
-  ['app/(app)/settings/members/role-assignee-select.tsx', 1],
-  ['app/(app)/settings/members/solo-mode-toggle.tsx', 1],
-  ['app/(app)/settings/page.tsx', 10],
-  ['app/(app)/settings/templates/page.tsx', 2],
-  ['app/(app)/settings/templates/template-manager.tsx', 1],
-  ['app/(app)/settings/usage/page.tsx', 5],
-  ['app/(app)/settings/usage/PlanMarketCheckout.tsx', 2],
-  ['app/(app)/suppliers/[id]/client.tsx', 3],
-  ['app/(app)/training/courses/new/client.tsx', 2],
-  ['app/(app)/udi/[id]/client.tsx', 1],
-  ['app/(app)/udi/new/client.tsx', 5],
-  ['app/(app)/vigilance/[id]/client.tsx', 2],
-  ['app/(app)/vigilance/new/client.tsx', 4],
-  ['app/(auth)/login/page.tsx', 10],
-  ['app/(public)/(drafts)/business-info/page.tsx', 3],
-  ['app/(public)/(drafts)/privacy/page.tsx', 25],
-  ['app/(public)/(drafts)/terms/page.tsx', 34],
-  ['app/(public)/open-source/page.tsx', 6],
-  ['app/not-found.tsx', 2],
-  ['app/onboarding/page.tsx', 5],
-  ['app/onboarding/qms-setup/client.tsx', 4],
-  ['app/pending-approval/page.tsx', 3],
-  ['components/admin/ConditionRulesPanel.tsx', 3],
-  ['components/admin/CspReportsPanel.tsx', 2],
-  ['components/admin/DocsetActivateSheet.tsx', 1],
-  ['components/admin/DocsetEditionsPanel.tsx', 5],
-  ['components/admin/DocsetStructurePanel.tsx', 2],
-  ['components/admin/DocsetStructureParts.tsx', 4],
-  ['components/admin/MemberHandoverDialog.tsx', 1],
-  ['components/admin/MfdsPermitDossierPanel.tsx', 3],
-  ['components/admin/OrgEditPanel.tsx', 2],
-  ['components/admin/TransferMemberDialog.tsx', 3],
-  ['components/AiDraftAssist.tsx', 1],
-  ['components/AssessmentDocApprovalPanel.tsx', 1],
-  ['components/AvatarUploader.tsx', 1],
-  ['components/BackwardsPlanner.tsx', 3],
-  ['components/calendar/CalendarClient.tsx', 1],
-  ['components/CancelAssessmentButton.tsx', 2],
-  ['components/capa/CapaSheetsPanel.tsx', 2],
-  ['components/ChangeRequestInbox.tsx', 1],
-  ['components/DangerZone.tsx', 1],
-  ['components/dashboard/ClinicalDashboardView.tsx', 9],
-  ['components/dashboard/CustomizableWidgetBoard.tsx', 1],
-  ['components/dashboard/GettingStartedChecklist.tsx', 4],
-  ['components/dashboard/MedQraftAdminView.tsx', 4],
-  ['components/DeleteAssessmentButton.tsx', 2],
-  ['components/DesignChangeRequestButton.tsx', 1],
-  ['components/DesignReviewPanel.tsx', 3],
-  ['components/device-licenses/LicenseSubmissionDocsPanel.tsx', 6],
-  ['components/DocChecklistPanel.tsx', 6],
-  ['components/DocCommentThread.tsx', 1],
-  ['components/DocContentViewer.tsx', 2],
-  ['components/DocumentApprovalPanel.tsx', 3],
-  ['components/DocumentArtifactPanel.tsx', 4],
-  ['components/equipment/EquipmentEventsPanel.tsx', 1],
-  ['components/exchange/ExchangePanel.tsx', 2],
-  ['components/exchange/LinkPanel.tsx', 5],
-  ['components/ExecutionCompletePanel.tsx', 3],
-  ['components/ExpertScorePanel.tsx', 1],
-  ['components/FieldPhotoGallery.tsx', 1],
-  ['components/FinalDecisionPanel.tsx', 3],
-  ['components/GlobalSearch.tsx', 2],
-  ['components/GraduateProjectAction.tsx', 1],
-  ['components/IfuClassifyDrawer.tsx', 2],
-  ['components/InquiryButton.tsx', 2],
-  ['components/item-classification/MfdsRegisteredProducts.tsx', 2],
-  ['components/ItemClassificationPreview.tsx', 9],
-  ['components/KeywordReviewModal.tsx', 2],
-  ['components/MedqraftTemplateSummary.tsx', 2],
-  ['components/ModuleLockedNotice.tsx', 4],
-  ['components/OpinionForm.tsx', 1],
-  ['components/OwnerProductWorkflow.tsx', 1],
-  ['components/OwnerResearchPipeline.tsx', 2],
-  ['components/PasskeyCard.tsx', 2],
-  ['components/PasskeyOffer.tsx', 1],
-  ['components/PendingResearchDocs.tsx', 4],
-  ['components/PhoneModeGate.tsx', 1],
-  ['components/ProductionYieldPanel.tsx', 2],
-  ['components/ProductPickField.tsx', 4],
-  ['components/ProductProfileWizard.tsx', 6],
-  ['components/PushSubscribeButton.tsx', 2],
-  ['components/qms/DefaultDocsPanel.tsx', 2],
-  ['components/qms/SheetEditor.tsx', 3],
-  ['components/QmsLinkedProcedureModal.tsx', 2],
-  ['components/RaProgressPanel.tsx', 3],
-  ['components/RaStatusNotice.tsx', 1],
-  ['components/RdDocumentFlowPanel.tsx', 3],
-  ['components/recalls/RecallConsigneesPanel.tsx', 1],
-  ['components/RegulatoryChangesPanel.tsx', 1],
-  ['components/ReleaseSignPanel.tsx', 2],
-  ['components/RequestReviewButton.tsx', 1],
-  ['components/RequirementsDashboard.tsx', 10],
-  ['components/research/DesignTransferPanel.tsx', 2],
-  ['components/research/DhfIndexPanel.tsx', 2],
-  ['components/ResearchChangeRequestsPanel.tsx', 6],
-  ['components/SessionExpiryGate.tsx', 2],
-  ['components/SessionIdleMonitor.tsx', 1],
-  ['components/SignOutEverywhere.tsx', 2],
-  ['components/StageProgressionAction.tsx', 2],
-  ['components/StageRevertAction.tsx', 1],
-  ['components/SubmissionTrackingPanel.tsx', 2],
-  ['components/SuggestionDetailModal.tsx', 11],
-  ['components/suppliers/SupplierEvalPanel.tsx', 1],
-  ['components/suppliers/SupplierItemsPanel.tsx', 1],
-  ['components/suppliers/SupplierShipmentsPanel.tsx', 1],
-  ['components/TodayQueue.tsx', 2],
-  ['components/VaultUnlockGate.tsx', 4],
-  ['components/WelcomeFlow.tsx', 4],
+  // 묶음 2(여덟 화면 → 0 · tooltip= 팝업 제외): 170 파일 · 497 문장. 같은 날 «/> 로 닫힌 부품 뒤의 글» 을 날것으로 바로 세게 고쳐 아홉 파일 +11 과 calibration 3 이 드러났다(전부터 있던 날것이지 새로 쓴 글이 아님).
+  // 묶음 3(CAPA · 품질목표 · 설계 추적 · 변경평가 상세 · RA 작업대 · 경영검토 · 불만 접수 일곱 → 0 · TooltipBody/Note 제외 · 공개 법규 페이지 68 은 SKIP · 오너 결정 2026-10-08): 158 파일 · 381 문장.
+  // 묶음 4(평가셋 검토 · 허가 제출 서류 · 문서 점검 · 제품 프로파일 · 연구 변경 요청 · 코어 학습 · 연구 설정 · 연구 검토 여덟 → 0 · 2026-10-08): 150 파일 · 333 문장.
+  // 묶음 5(설정 · 적합성 점검 · 내보내기 · 멤버 관리 · 양식 · 사용량 열한 파일 → 0 · 2026-10-08): 139 파일 · 301 문장.
+  // 묶음 6(옛 도움말 상자 HelpNote 70곳 → 화면 머리 · 구역 · 칸 ⓘ, 부품 삭제 · WRAPPERS 에서 뺌 · 2026-10-08): 139 파일 · 301 문장 그대로(상자 안 글은 날것으로 세지 않았으므로 수는 안 바뀐다).
+  // 묶음 7(QMS 기록 상세 · 신규 열일곱 파일 → 0: 심사 · 대리인 · 클린룸 · 임상평가 · 불만 · 계약 · 피드백 · 로트 · 처분 · PMS · 회수 · 공급자 · 부작용 보고 · 2026-10-08): 122 파일 · 264 문장.
+  // 묶음 8(인허가 상세 · 신규와 목록 스무 파일 → 0: 인허가 등록 · EU MDR · 510(k) · NMPA · PMDA · UDI · 제품 · 통제문서 · 치료재료 · 변경평가 문 · 심사 준비도 · 감사 필터 · 보정 · 외부 전문가 · 검토함 · 교육 과정 · 2026-10-08): 102 파일 · 219 문장.
+  // 묶음 9(연구 · 온보딩 · 기타 아홉 파일 → 0: 설계 요구사항 · 프로젝트 홈 · 제품 정보 · 새 아이디어 · 팀장 검토 · 404 · 조직 온보딩 · QMS 세우기 · 가입 승인 대기 · 2026-10-08): 93 파일 · 193 문장.
+  // 묶음 10(공용 부품 앞쪽 A~F 스물다섯 파일 → 0: AI 초안 · 결재 판 둘 · 사진 · 역산 계획 · 달력 · 평가 중단 · 삭제 · CAPA 서류 · CR 함 · 계정 삭제 · 위젯 판 · 시작 안내 · 설계검토 · 문서 논의 · 본문 보기 · 서류 판 · 장비 이력 · 자료 교환 · 연동 · 종결 · 전문가 평가 · 현장 사진 · 최종 결정 · 2026-10-08): 68 파일 · 143 문장.
+  // 묶음 11(공용 부품 뒤쪽 G~Z 마흔두 파일 → 0: 전역 검색 · 허가 인계 · IFU 분류 · 문의 · 식약처 등재 · 키워드 검토 · 양식 요약 · 업무 잠김 · 전문가 의견 · 소유자 제품 · R&D 파이프라인 · 패스키 둘 · 검토 대기 서류 · 폰 안내 · 수율 · 제품 고르기 · 푸시 둘 · 기본 문서 · 서류 편집 · 절차서 연결 · RA 진척 · RA 안내 · R&D 서류 판 · 회수 거래처 · 규제 변화 · 출하 서명 · 전문가 요청 · 설계 이관 · DHF 목차 · 세션 둘 · 전체 로그아웃 · 단계 진행 · 되돌리기 · 제출 추적 · 공급자 셋 · 오늘 할 일 · 금고 · 환영 · 2026-10-08): 26 파일 · 59 문장. 남은 것은 전부 admin(데모 계정으로 촬영 불가).
+  // 묶음 12(운영진 화면 admin 스물여섯 파일 → 0: AI 총괄 한도 · 코어 정확도 · 기본 양식함 · 평가셋 · 전문가 초대 둘 · 전문가 · 지식 베이스 · 조직 한눈에 · 운영 홈 · 권한표 · 라벨 퀴즈 · 룰 표 · 심사 · 검증 기록 · 부작용 사례 · 조건 규칙 · CSP · 문서세트 넷 · 멤버 보관 · 이관 · 식약처 서류 · 조직 편집 · 2026-10-08): 0 파일 · 0 문장. 기준선이 비었다. 새 설명 문장이 생기면 이 가드가 바로 잡는다.
 ];
 
 const SENT = /[가-힣][^<>{}]{8,}?(입니다|십시오|됩니다|합니다|있습니다|없습니다|주세요|하세요)\./g;
 /** 이 부품 안의 문장은 날것이 아니다 */
-const WRAPPERS = ['HelpNote', 'SectionTitleInfo', 'InfoDot', 'Alert', 'FldError', 'EmptyState', 'NextStep', 'LegalNote', 'Modal', 'Confirm', 'Toast', 'PageGuide', 'FormNote', 'TruncatedNote'];
+// TooltipBody 는 KPI 팝업의 본문(tooltip: ( … ) 로 배열에 담길 때는 tooltip={ 로 못 잡는다 · 묶음 3 에서 추가).
+const WRAPPERS = ['SectionTitleInfo', 'InfoDot', 'Alert', 'FldError', 'EmptyState', 'NextStep', 'LegalNote', 'Modal', 'Confirm', 'Toast', 'PageGuide', 'FormNote', 'TruncatedNote', 'TooltipBody', 'TooltipNote'];
 const SKIP = (rel: string) =>
   rel.startsWith('app/(app)/m/') || rel.startsWith('app/experts/') || rel.startsWith('app/global-error') ||
-  /^app\/(terms|privacy|open-source|legal)/.test(rel);
+  /^app\/(terms|privacy|open-source|legal)/.test(rel) ||
+  // 공개 법규 페이지(이용약관 · 개인정보처리방침 · 오픈소스 고지 · 사업자정보)는 법규 문구라 ⓘ 로 옮길 글이 아니다(오너 결정 2026-10-08 · 68 문장).
+  /^app\/\(public\)\/(\(drafts\)\/)?(terms|privacy|open-source|business-info)\//.test(rel);
 
 function walk(dir: string, out: string[]) {
   for (const name of readdirSync(dir)) {
@@ -221,6 +57,18 @@ function walk(dir: string, out: string[]) {
 }
 
 /** 글 노드 앞 1200자 안에서 가장 가까운 «열려 있는» 부품 이름(닫힌 것은 뺌). info={ … } 프롭 안이면 SectionTitleInfo 로 친다. */
+/** `<W …` 가 `/>` 로 끝났는가. 여는 태그 안의 `{ … }` 는 건너뛰며 깊이 0 의 첫 `>` 를 찾는다. 태그가 창 밖에서 닫히면 열린 것으로 본다. */
+function selfClosed(src: string, open: number): boolean {
+  let depth = 0;
+  for (let i = open + 1; i < src.length; i++) {
+    const c = src[i];
+    if (c === '{') depth++;
+    else if (c === '}') depth--;
+    else if (c === '>' && depth === 0) return src[i - 1] === '/';
+  }
+  return false;
+}
+
 export function wrapperOf(before: string): string | null {
   let best: { name: string; at: number } | null = null;
   for (const w of WRAPPERS) {
@@ -230,19 +78,21 @@ export function wrapperOf(before: string): string | null {
     if (nextChar && /[A-Za-z0-9]/.test(nextChar)) continue; // <AlertCircle 같은 다른 이름
     const close = before.lastIndexOf('</' + w);
     if (close > open) continue;
+    if (selfClosed(before, open)) continue; // <EmptyState … /> 뒤의 글은 그 부품 안이 아니다(묶음 2 에서 추가)
     if (!best || open > best.at) best = { name: w, at: open };
   }
   if (best) return best.name;
-  // info={<>…</>} · info={ … } 프롭 안
-  const infoAt = before.lastIndexOf('info={');
-  if (infoAt >= 0) {
-    const tail = before.slice(infoAt);
+  // info={<>…</>} · info={ … } 프롭 안, 그리고 tooltip={ … } 프롭 안(KPI · MetricCard 의 ⓘ 팝업 · 묶음 2 에서 추가).
+  // 둘 다 다른 요소 위로 뜨는 팝업이라 화면에 깔린 글이 아니다.
+  for (const [prop, name] of [['info={', 'SectionTitleInfo'], ['tooltip={', 'KPI']] as const) {
+    const at = before.lastIndexOf(prop);
+    if (at < 0) continue;
     let depth = 0;
-    for (const c of tail) {
+    for (const c of before.slice(at)) {
       if (c === '{') depth++;
       else if (c === '}') depth--;
     }
-    if (depth > 0) return 'SectionTitleInfo';
+    if (depth > 0) return name;
   }
   return null;
 }
@@ -311,10 +161,13 @@ describe('설명 글귀는 ⓘ 안으로(날것 설명 문장은 기준선 이�
     expect(countBare(`<div>① 빈 양식 다운로드. 시스템에서 직접 작성하지 않아도 됩니다.</div>`)).toBe(1);
     expect(countBare(`<InfoDot label="x">제품을 고르면 정보가 따라옵니다.</InfoDot>`)).toBe(0);
     expect(countBare(`<SectionTitleInfo info={<>순서대로 하십시오.</>}>제목</SectionTitleInfo>`)).toBe(0);
+    expect(countBare(`<KPI label="x" tooltip={<KpiNote>가입한 모든 계정을 셉니다.</KpiNote>} /><p>팝업 밖 날것은 따로 세어야 합니다.</p>`)).toBe(1);
     expect(countBare(`<Alert kind="error">파일만 올릴 수 있습니다.</Alert>`)).toBe(0);
     expect(countBare(`<NextStep>변경 대상을 먼저 고르십시오.</NextStep>`)).toBe(0);
     expect(countBare(`<Alert kind="info">안내입니다.</Alert><p>그 뒤의 날것 문장은 따로 세어야 합니다.</p>`)).toBe(1);
     expect(countBare(`<AlertCircle /><p>다른 이름에 속지 않아야 합니다.</p>`)).toBe(1);
+    expect(countBare(`<EmptyState compact title="없음" action={<a onClick={() => go()}>x</a>} /><p>닫힌 부품 뒤의 날것은 세어야 합니다.</p>`)).toBe(1);
+    expect(countBare(`{ tooltip: (<TooltipBody title="x"><TooltipNote>팝업 본문은 세지 않습니다.</TooltipNote></TooltipBody>) }`)).toBe(0);
     expect(countBare(`<span>짧음.</span><span>예: 실리콘 A사</span>`)).toBe(0);
   });
 });

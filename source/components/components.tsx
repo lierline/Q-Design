@@ -2825,10 +2825,13 @@ export function Section({ title, info, children }: { title: ReactNode; /** 구�
 export function SectionCard({
   title,
   subtitle,
+  info,
   children,
 }: {
   title: ReactNode;
   subtitle?: ReactNode;
+  /** 구역 제목 옆 ⓘ 팝업(2026-10-08 ⓘ 묶음 3): 설명 문장은 본문에 깔지 않고 여기로 */
+  info?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -2846,7 +2849,10 @@ export function SectionCard({
       }}
     >
       <div>
-        <div style={{ ...TYPE.h3, color: T.text, marginBottom: subtitle ? 4 : 0 }}>{title}</div>
+        <div style={{ ...TYPE.h3, color: T.text, marginBottom: subtitle ? 4 : 0, display: 'flex', alignItems: 'center', gap: S[1.5] }}>
+          {title}
+          {info && <InfoDot label={`${typeof title === 'string' ? title : '구역'}: 설명 보기`}>{info}</InfoDot>}
+        </div>
         {subtitle && <div style={{ ...TYPE.caption, fontSize: FS[12], color: T.subtle }}>{subtitle}</div>}
       </div>
       {children}

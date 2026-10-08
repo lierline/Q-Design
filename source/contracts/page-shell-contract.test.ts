@@ -43,16 +43,8 @@ const CENTERED = /margin[A-Za-z]*:\s*[`'"][^`'"]*\bauto\b/;
  * ⚠️ 면제에는 이유를 적을 것. 그리고 그 줄이 아직 있는지도 아래에서 검사한다.
  */
 const EXEMPT: Array<{ file: string; match: string; why: string }> = [
-  {
-    file: 'app/(app)/assessments/page.tsx',
-    match: 'maxWidth: 640',
-    why: '본문이 아니라 «모듈 미사용» 안내 카드. 화면 한가운데 띄우는 좁은 박스라 본문 폭 눈금과 다른 축이다.',
-  },
-  {
-    file: 'app/(app)/settings/compliance/page.tsx',
-    match: 'maxWidth: 640',
-    why: '본문이 아니라 «권한 없음» 안내 카드. 위와 같은 이유.',
-  },
+  // 2026-10-08: settings/compliance/page.tsx 의 «권한 없음» 안내 카드(maxWidth: 640)는 EmptyState 로 바꿔 면제가 필요 없어졌다.
+  // 2026-10-08(ⓘ 묶음 8): assessments/page.tsx 의 «RA · QA 전용» 안내 카드(maxWidth: 640)도 EmptyState 로 바꿔 면제를 걷었다.
 ];
 
 function tsxFiles(dir: string): string[] {

@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ScanBarcode } from '@/components/q-design-icons/ScanBarcode';
 import { useToast } from '@/components/Toast';
-import { Btn, Bx, PageHd, Lbl, Field, In, FormActions } from '@/lib/design/components';
+import { Alert, Btn, Bx, PageHd, Lbl, Field, In, FormActions, InfoDot } from '@/lib/design/components';
 import { SegmentedChoice } from '@/lib/design/segmented-choice';
 import { S, FS, F, T, alpha, RADIUS, MOTION, LAYOUT, LH, labelCase } from '@/lib/design/tokens';
 import { tintBorder } from '@/lib/design/grain';
 import { codeOrTextFont } from '@/lib/design/hangul-text';
 import { ISSUING_AGENCY_LABEL, ISSUING_AGENCY_DESC, PI_COMPONENT_META, suggestPi, type IssuingAgency, type PiComponents, type PiSuggestion } from '@/lib/udi';
 import type { MfdsProduct } from '@/lib/mfds-api/products';
-import { HelpNote } from '@/components/HelpNote';
+import { PageGuide } from '@/components/PageGuide';
 import { ListBackLink } from '@/components/ListBackLink';
 import { TextLinkAction, TextAction } from '@/components/TextAction';
 import { ProductPickField, useProductPick } from '@/components/ProductPickField';
@@ -163,24 +163,26 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
       {/* «← UDI 목록» 한 형식 (화면 검토 A32 · A74 · 2026-09-27) */}
       <ListBackLink href="/udi" label="UDI 목록" />
       <PageHd title="새 UDI 등록" desc="UDI-DI + 발행기관 + 생산 식별자(PI) 구성" />
+      {/* UDI = DI + PI 설명은 화면 머리 ⓘ(udi 안내의 팁)로, 발행기관 설명은 칸 옆 ⓘ 로(묶음 6 · 2026-10-08) */}
+      <PageGuide pageId="udi" />
 
       <div className="qa-udi-layout">
         {/* ── 좌: 입력 폼 ── */}
         <Bx style={{ padding: S[7], background: T.surface, borderColor: T.border, borderRadius: RADIUS.md, display: 'flex', flexDirection: 'column', gap: S[6] }}>
-          {/* 양식 판 안이라 상자 없는 짧은 안내로(화면 검토 A35 · A76 · 2026-09-28) */}
-          <HelpNote compact>
-            <strong style={{ color: T.text }}>UDI</strong> = 정적 식별자 <strong>UDI-DI</strong>(제품/모델 고유) + 동적 <strong>UDI-PI</strong>(로트·시리얼·유효기간 등 생산 정보). 발행기관에서 DI 를 발급받아 입력하십시오.
-          </HelpNote>
-
           {/* 화면 검토 A83 · 2026-09-27: 「UDI-DI 입력 → MFDS 불러오기 → 채워진 값 확인」 순서로 칸을 올렸다.
               종전엔 제품명 · 브랜드명을 손으로 먼저 적게 한 뒤 한참 아래에서 불러오기를 해, 같은 칸을 두 번 채우고
               손으로 적은 이름과 허가 이름이 갈릴 수 있었다. 불러오기는 빈 칸만 채운다. */}
           {/* 발행기관: 세그먼트 버튼 그리드 (라디오 의미 · M-08) */}
           <div>
-            <Lbl>발행기관</Lbl>
-            <HelpNote compact>
-              <strong style={{ color: T.text }}>UDI-DI 코드를 부여하는 국제 표준화 기구</strong>입니다. FDA·EU·MFDS 가 공인한 기관에서 코드를 발급받아야 UDI 로 인정됩니다. 대부분의 의료기기는 <strong style={{ color: T.text }}>GS1</strong> 을 씁니다.
-            </HelpNote>
+            <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5] }}>
+              <Lbl>발행기관</Lbl>
+              {/* Lbl 의 아래 여백(7)과 같은 높이로 맞춘다 */}
+              <span style={{ marginBottom: 7, display: 'inline-flex' }}>
+                <InfoDot label="발행기관 설명 보기">
+                  UDI-DI 코드를 부여하는 국제 표준화 기구입니다. FDA · EU · MFDS 가 공인한 기관에서 코드를 발급받아야 UDI 로 인정됩니다. 대부분의 의료기기는 GS1 을 씁니다.
+                </InfoDot>
+              </span>
+            </div>
             <SegmentedChoice
               ariaLabel="발행기관"
               layout="grid"
@@ -200,7 +202,15 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
           {/* UDI-DI: mono 입력 + MFDS 조회 버튼 복합 컨트롤 (공통 In 미적용: inputStyle 유지) */}
           <div>
-            <Lbl htmlFor="udi-di">UDI-DI (기기 식별자) <span style={{ color: T.red }}>*</span></Lbl>
+            {/* 칸 아래 설명은 이름표 옆 ⓘ 로 (ⓘ 묶음 8 · 2026-10-08) */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5] }}>
+              <Lbl htmlFor="udi-di">UDI-DI (기기 식별자) <span style={{ color: T.red }}>*</span></Lbl>
+              <span style={{ marginBottom: 7, display: 'inline-flex' }}>
+                <InfoDot label="UDI-DI 설명 보기">
+                  제품/모델당 고유하며 조직 안에서 중복 등록할 수 없습니다. DI 를 넣고 「MFDS 불러오기」 를 누르면 아래 제품명 · 품목 코드 칸의 빈 곳을 허가 정보로 채웁니다.
+                </InfoDot>
+              </span>
+            </div>
             <div style={{ display: 'flex', gap: S[2], alignItems: 'stretch' }}>
               <input id="udi-di" type="text" value={udiDi} onChange={(e) => { setUdiDi(e.target.value); setLookupInfo(null); setLookupMsg(null); }} placeholder={agency === 'gs1' ? '예: 08806311234567 (GTIN-14)' : '발행기관 DI'} style={{ ...inputStyle(), fontFamily: F.mono, flex: 1, minWidth: 0 }} />
               <Btn
@@ -213,18 +223,16 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                 {looking ? '조회 중…' : 'MFDS 불러오기'}
               </Btn>
             </div>
-            <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-              제품/모델당 고유하며 조직 안에서 중복 등록할 수 없습니다. DI 를 넣고 <strong style={{ color: T.subtle }}>「MFDS 불러오기」</strong>를 누르면 아래 제품명 · 품목 코드 칸의 빈 곳을 허가 정보로 채웁니다.
-            </div>
+            {/* 손수 짠 경고 상자는 공용 Alert 로 (ⓘ 묶음 8 · 2026-10-08) */}
             {diHasEmbeddedAi && (
-              <div style={{ marginTop: S[2], padding: '8px 12px', border: `1px solid ${tintBorder(T.warning)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-                여기엔 <strong style={{ color: T.text }}>DI 만</strong> 넣어 주십시오. 입력하신 값에 <span style={{ fontFamily: F.mono }}>(10)</span> 같은 <strong>PI(생산정보) AI</strong>가 섞여 있습니다. PI 는 아래에서 따로 구성합니다.
-              </div>
+              <Alert kind="warning" style={{ marginTop: S[2] }}>
+                여기엔 <strong>DI 만</strong> 넣어 주십시오. 입력하신 값에 <span style={{ fontFamily: F.mono }}>(10)</span> 같은 <strong>PI(생산정보) AI</strong>가 섞여 있습니다. PI 는 아래에서 따로 구성합니다.
+              </Alert>
             )}
             {lookupMsg && (
-              <div style={{ marginTop: S[2], padding: '8px 12px', border: `1px solid ${tintBorder(T.warning)}`, borderRadius: RADIUS.sm, fontFamily: F.serif, fontSize: FS[12], color: T.subtle }}>
+              <Alert kind="warning" style={{ marginTop: S[2] }}>
                 {lookupMsg}
-              </div>
+              </Alert>
             )}
             {lookupInfo && (
               <div style={{ marginTop: S[2], padding: '10px 12px', border: `1px solid ${tintBorder(T.green)}`, borderRadius: RADIUS.sm }}>
@@ -272,8 +280,8 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
               hint={
                 pick.picked
                   ? nameTouched
-                    ? '고른 제품 이름과 다르게 적었습니다. 제품을 바꿔도 이 이름은 그대로입니다.'
-                    : '고른 제품 이름으로 채웠습니다. 허가 · 등록 이름이 다르면 고치십시오.'
+                    ? '고른 제품 이름과 다르게 적음 · 제품을 바꿔도 이 이름은 그대로'
+                    : '고른 제품 이름으로 채움 · 허가 · 등록 이름이 다르면 고치기'
                   : undefined
               }
             >
@@ -359,12 +367,17 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
 
         {/* ── 우: 캐리어 미리보기 + 안내 (sticky) ── */}
         <aside className="qa-udi-aside" style={{ position: 'sticky', top: 16, display: 'flex', flexDirection: 'column', gap: S[3.5] }}>
-          <Bx style={{ padding: 0, overflow: 'hidden', borderRadius: RADIUS.md, borderColor: T.border }}>
+          {/* overflow: hidden 을 걷음: 머리의 ⓘ 팝업이 상자 밖으로 떠야 한다(안에는 바탕색 있는 요소가 없어 모서리 밖으로 새는 것도 없다) */}
+          <Bx style={{ padding: 0, borderRadius: RADIUS.md, borderColor: T.border }}>
             <div style={{ padding: '11px 16px', borderBottom: `1px solid ${T.border}`, display: 'flex', alignItems: 'center', gap: S[2] }}>
               <ScanBarcode size={15} aria-hidden="true" style={{ color: T.champagne }} />
               <span style={{ fontFamily: F.ui, fontSize: FS[12], color: T.subtle, fontWeight: 600 }}>
                 UDI 캐리어 미리보기
               </span>
+              {/* 아래 있던 DI · PI 설명 상자는 머리 옆 ⓘ 로 (ⓘ 묶음 8 · 2026-10-08) */}
+              <InfoDot label="UDI 캐리어 설명 보기" align="right">
+                DI 는 제품/모델당 한 번 발급받아 고정되고, PI 는 생산 로트마다 바뀌는 정보입니다. 등록 후 FDA GUDID · EU EUDAMED · MFDS 제출 상태를 상세 화면에서 추적합니다.
+              </InfoDot>
             </div>
             <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: S[3.5] }}>
               {/* DI */}
@@ -377,7 +390,7 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                 <CarrierLabel>PI · 동적 (생산 때 채워짐)</CarrierLabel>
                 {selectedPi.length === 0 ? (
                   <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.muted, fontStyle: 'italic', padding: '4px 0' }}>
-                    선택한 생산 식별자가 없습니다.
+                    선택한 생산 식별자 없음
                   </div>
                 ) : (
                   <>
@@ -387,22 +400,18 @@ export function NewUdiClient({ products, initialProductId }: { products: OrgProd
                       ))}
                     </div>
                     <div style={{ marginTop: S[1.5], fontFamily: F.serif, fontSize: FS[12], color: T.muted, lineHeight: LH.normal }}>
-                      ↳ 회색 값은 <strong>예시</strong>입니다. PI 는 등록이 아니라 <strong>생산 로트마다</strong> 라벨에 찍히는 정보: 여기선 어떤 항목을 쓸지 <strong>구성</strong>만 정합니다.
+                      ↳ 회색 값은 <strong>예시</strong> · PI 는 등록이 아니라 <strong>생산 로트마다</strong> 라벨에 찍히는 정보 · 여기선 어떤 항목을 쓸지 <strong>구성</strong>만 정함
                     </div>
                   </>
                 )}
               </div>
               {!isGs1 && (
                 <div style={{ fontFamily: F.serif, fontSize: FS[12], color: T.muted, lineHeight: LH.normal }}>
-                  {ISSUING_AGENCY_LABEL[agency]} 는 GS1 의 (AI) 대신 자체 데이터 구조를 사용합니다. 위 번호는 GS1 기준 참고용입니다.
+                  {ISSUING_AGENCY_LABEL[agency]} 는 GS1 의 (AI) 대신 자체 데이터 구조 사용 · 위 번호는 GS1 기준 참고용
                 </div>
               )}
             </div>
           </Bx>
-
-          <div style={{ padding: '13px 15px', background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.md, fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: 1.65 }}>
-            <strong style={{ color: T.text }}>DI</strong> 는 제품/모델당 한 번 발급받아 고정되고, <strong style={{ color: T.text }}>PI</strong> 는 생산 로트마다 바뀌는 정보입니다. 등록 후 FDA GUDID·EU EUDAMED·MFDS 제출 상태를 상세 화면에서 추적합니다.
-          </div>
         </aside>
       </div>
     </div>

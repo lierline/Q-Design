@@ -18,7 +18,6 @@ import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Alert, Bx, En, LoadingState, PageHd, SectionTitle, SectionTitleInfo, SkeletonPanel, Tag } from '@/lib/design/components';
 import { PageGuide } from '@/components/PageGuide';
-import { HelpNote } from '@/components/HelpNote';
 import { TextLinkAction } from '@/components/TextAction';
 import { S, FS, F, T, alpha, LH } from '@/lib/design/tokens';
 import { tintBorder } from '@/lib/design/grain';
@@ -421,13 +420,6 @@ export default function ResearchHomePage() {
         </div>
       )}
 
-      <HelpNote>
-        이 화면은 이 제품의 <strong>인허가 로드맵 흐름</strong>입니다. 아래 「일정 / 단계」의
-        로드맵에서 단계를 클릭하면 단계 진행 · R&D 양식 · 문서 작업이 모두 그 단계로 함께
-        맞춰집니다. 위에서부터 <strong>「지금 가장 중요한 작업」 → 로드맵 → 문서 작업</strong>
-        순서로 따라가면 흐름을 놓치지 않습니다.
-      </HelpNote>
-
       {/* AI 분석 진행 중 안내: ai_analyzed_at null 이면 백그라운드 trigger 중 */}
       {!project.ai_analyzed_at && (
         <div
@@ -454,8 +446,8 @@ export default function ResearchHomePage() {
             }}
           />
           <span>
-            <strong style={{ color: T.champagne }}>코어 분석 진행 중</strong>: 약 1분 후 페이지를 새로고침하시면 등급·predicate·규제 경로 등이
-            채워집니다. 그동안 제품 정보·문서 작업은 이어가실 수 있습니다.
+            <strong style={{ color: T.champagne }}>코어 분석 진행 중</strong> · 약 1분 뒤 새로고침하면 등급 · predicate · 규제 경로가 채워짐 ·
+            제품 정보 · 문서 작업은 계속 가능
           </span>
           <style>{`@keyframes qa-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
         </div>

@@ -349,8 +349,7 @@ export function TodayQueue({
                 </div>
               </div>
               <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.relaxed, marginBottom: S[3], fontFamily: F.serif }}>
-                우선순위 점수 = 경과 시간(60%) + 항목 중요도(25%) + 제품 등급(15%) 로 자동 계산.
-                상위 5건만 표시됩니다.
+                우선순위 점수 = 경과 시간(60%) + 항목 중요도(25%) + 제품 등급(15%) 로 자동 계산 · 상위 5건만 표시
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: S[2.5] }}>
                 {filteredRoleInfo.map((group) => (
@@ -440,7 +439,7 @@ export function TodayQueue({
               결재할 안건 {approvalCount}건
             </span>
             <span style={{ display: 'block', fontFamily: F.serif, fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-              결재는 결재함에서 처리합니다. 폰에서도 됩니다.
+              결재는 결재함에서 · 폰에서도 가능
             </span>
           </span>
           <span

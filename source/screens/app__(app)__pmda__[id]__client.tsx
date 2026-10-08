@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ChangeReasonPanel, type LastChangeView, type PendingChange } from '@/components/ChangeReasonPanel';
 import { missingChangeReason } from '@/lib/api/change-reason';
 import { useToast } from '@/components/Toast';
-import { Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard, Tag } from '@/lib/design/components';
+import { Alert, Btn, PageHd, Field, In, Sel, Txt, FormActions, Section, SectionProgressCard, Tag } from '@/lib/design/components';
 import { DocumentArtifactPanel } from '@/components/DocumentArtifactPanel';
 import { S, FS, F, T, alpha, RADIUS, LAYOUT } from '@/lib/design/tokens';
 import { SubmissionSectionChecklist } from '@/components/SubmissionSectionChecklist';
@@ -200,9 +200,10 @@ export function PmdaDetailClient({
       </div>
 
       {readOnly && (
-        <div style={{ marginBottom: S[5], padding: '12px 16px', borderRadius: RADIUS.md, border: `1px solid ${T.border}`, background: T.surface, fontFamily: F.serif, fontSize: FS[13], color: T.text }}>
+        // 손수 짠 안내 상자는 공용 Alert 로 (ⓘ 묶음 8 · 2026-10-08)
+        <Alert kind="info" style={{ marginBottom: S[5] }}>
           철회(withdrawn)된 건입니다. 기록 보존을 위해 편집할 수 없습니다.
-        </div>
+        </Alert>
       )}
 
       <SectionProgressCard label="STED 완료율 (적용 섹션 기준)" value={progress} />

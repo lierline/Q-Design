@@ -5,7 +5,7 @@
 import { Suspense, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { Alert, Btn, In, Lbl, Sel } from '@/lib/design/components';
+import { Alert, Btn, FldError, In, InfoDot, Lbl, LegalNote, NextStep, Sel } from '@/lib/design/components';
 import { AuthThemeToggle } from '@/components/AuthThemeToggle';
 import { Logo } from '@/components/Logo';
 import { S, FS, BRAND, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
@@ -73,7 +73,7 @@ function LoginForm() {
   //    실제로 마케팅 발송을 하지 않는데 체크박스만 만들면 지키지 못할 약속이 된다.
   const [consented, setConsented] = useState(false);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<null | 'passkey' | 'submit'>(null);
   const [oauthLoading, setOauthLoading] = useState(false);
   // 'Step inside' 후 입장 연출(Q 로고가 떠오르며 밝아졌다가 어두워질 때 넘김 · 1.2초) 덮개 표시 여부.
   const [entering, setEntering] = useState(false);
@@ -229,7 +229,7 @@ function LoginForm() {
 
   // 지문 · 얼굴 로그인. 브라우저가 이 기기의 패스키를 고르게 하고(이메일을 먼저 묻지 않는다) 세션을 만든다.
   async function handlePasskeyLogin() {
-    setLoading(true);
+    setLoading('passkey');
     setError(null);
     setMessage(null);
     setIdleNotice(false);
@@ -239,13 +239,13 @@ function LoginForm() {
       if (passkeyError) {
         console.warn('[passkey] 로그인 실패', passkeyError);
         setError(passkeyErrorMessage(passkeyError, 'login'));
-        setLoading(false);
+        setLoading(null);
         return;
       }
     } catch (err) {
       console.warn('[passkey] 로그인 실패', err);
       setError(passkeyErrorMessage(err, 'login'));
-      setLoading(false);
+      setLoading(null);
       return;
     }
     enterDashboard();
@@ -253,7 +253,7 @@ function LoginForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true);
+    setLoading('submit');
     setError(null);
     setMessage(null);
     setIdleNotice(false);
@@ -264,7 +264,7 @@ function LoginForm() {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setError(translateAuthError(error.message));
-        setLoading(false);
+        setLoading(null);
         return;
       }
       // 이 기기에서 지문 로그인을 쓸 수 있고 아직 이 기기로 등록한 것이 없으면 한 번 묻는다(기기마다 한 번).
@@ -272,7 +272,7 @@ function LoginForm() {
       if (passkeyReady && !passkeyOfferedHere() && !(await hasPasskeyForThisDevice())) {
         markPasskeyOffered();
         setOfferPasskey(true);
-        setLoading(false);
+        setLoading(null);
         return;
       }
       enterDashboard();
@@ -281,7 +281,7 @@ function LoginForm() {
 
     if (password !== passwordConfirm) {
       setError('비밀번호가 일치하지 않습니다. 다시 확인해주세요.');
-      setLoading(false);
+      setLoading(null);
       return;
     }
     // 🔴 2026-08-25: 같은 규칙이 세 곳에 손으로 적혀 있었고 강도가 달랐다.
@@ -289,13 +289,13 @@ function LoginForm() {
     const pwErr = validatePassword(password);
     if (pwErr) {
       setError(pwErr);
-      setLoading(false);
+      setLoading(null);
       return;
     }
     // 버튼 disabled 는 «화면» 게이트일 뿐이다. 제출 경로에서 한 번 더 본다.
     if (!consented) {
       setError('이용약관과 개인정보처리방침에 동의해야 가입할 수 있습니다.');
-      setLoading(false);
+      setLoading(null);
       return;
     }
 
@@ -327,7 +327,7 @@ function LoginForm() {
     });
     if (error) {
       setError(translateAuthError(error.message));
-      setLoading(false);
+      setLoading(null);
       return;
     }
     if (data.session) {
@@ -340,7 +340,7 @@ function LoginForm() {
       });
       if (rpcError) {
         setError(`조직 생성 실패: ${rpcError.message}`);
-        setLoading(false);
+        setLoading(null);
         return;
       }
       // 운영자에게 신규 가입 알림: auto-confirm 모드면 /auth/callback 을 거치지
@@ -358,7 +358,7 @@ function LoginForm() {
       router.refresh();
     } else {
       setMessage('가입 확인 이메일을 보냈습니다. 받은 메일함을 확인해주세요.');
-      setLoading(false);
+      setLoading(null);
     }
   }
 
@@ -368,7 +368,7 @@ function LoginForm() {
   const githubOAuthEnabled = process.env.NEXT_PUBLIC_GITHUB_OAUTH_ENABLED === 'true';
   // 비활성 조건을 한 곳에 둔다. disabled·cursor·opacity 세 군데에 같은 식을 손으로
   // 적으면 조건이 하나 늘 때 «눌리지는 않는데 눌릴 것처럼 보이는» 버튼이 된다.
-  const githubDisabled = loading || oauthLoading || (mode === 'signup' && !consented);
+  const githubDisabled = loading !== null || oauthLoading || (mode === 'signup' && !consented);
 
   // GitHub OAuth: provider 가 토큰 교환을 끝내면 /auth/callback 으로 돌아오고,
   // 거기서 신규 OAuth 가입자는 /onboarding 으로 보낸다 (audience/job_role/org 미보유).
@@ -530,8 +530,9 @@ function LoginForm() {
                       autoComplete="name"
                       autoFocus
                     />
+                    {/* 칸 오류는 공용 FldError 로(화면에 남는 글 ① · 2026-10-08 ⓘ 묶음 2) */}
                     {touched.name && name.trim().length < 2 && (
-                      <FieldHint kind="error">이름을 2자 이상 입력해주세요.</FieldHint>
+                      <FldError>이름을 2자 이상 입력해 주십시오.</FldError>
                     )}
                   </div>
                 )}
@@ -550,7 +551,7 @@ function LoginForm() {
                     autoFocus={mode === 'login'}
                   />
                   {touched.email && !emailValid && (
-                    <FieldHint kind="error">올바른 이메일 형식이 아닙니다.</FieldHint>
+                    <FldError>올바른 이메일 형식이 아닙니다.</FldError>
                   )}
                 </div>
 
@@ -568,7 +569,7 @@ function LoginForm() {
                     autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
                   />
                   {mode === 'signup' && passwordTooShort && (
-                    <FieldHint kind="error">비밀번호는 8자 이상이어야 합니다.</FieldHint>
+                    <FldError>비밀번호는 8자 이상이어야 합니다.</FldError>
                   )}
                   {mode === 'signup' && !passwordTooShort && password.length > 0 && (
                     <PasswordStrengthBar strength={passwordStrength} />
@@ -594,7 +595,7 @@ function LoginForm() {
                       placeholder="동일한 비밀번호를 다시 입력해 주세요"
                     />
                     {touched.passwordConfirm && !passwordsMatch && (
-                      <FieldHint kind="error">비밀번호가 일치하지 않습니다.</FieldHint>
+                      <FldError>비밀번호가 일치하지 않습니다.</FldError>
                     )}
                     {passwordConfirm.length > 0 && passwordsMatch && (
                       <FieldHint kind="muted">✓ 비밀번호가 일치합니다.</FieldHint>
@@ -627,7 +628,16 @@ function LoginForm() {
                       />
                     </div>
                     <div style={{ marginBottom: S[4] }}>
-                      <Lbl htmlFor="auth-job-role">직무역할</Lbl>
+                      {/* 칸 설명은 이름 옆 ⓘ 로(2026-10-08 ⓘ 묶음 2). Lbl 의 아래 여백(7px)에 맞춰 ⓘ 도 올린다 */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5] }}>
+                        <Lbl htmlFor="auth-job-role">직무역할</Lbl>
+                        <span style={{ display: 'inline-flex', marginBottom: 7 }}>
+                          <InfoDot label="직무역할 설명 보기" width={300}>
+                            대시보드 화면 구성에 쓰입니다. 가입 뒤 설정에서 바꿀 수 있습니다. 경영진(Executive) 권한은 계약 시
+                            당사가 회사 대표 한정으로 직접 부여합니다.
+                          </InfoDot>
+                        </span>
+                      </div>
                       <Sel
                         id="auth-job-role"
                         value={jobRole}
@@ -638,18 +648,6 @@ function LoginForm() {
                           { v: 'rd', l: 'R&D: Research & Development' },
                         ]}
                       />
-                      <p
-                        style={{
-                          fontSize: FS[12],
-                          color: T.muted,
-                          margin: '6px 0 0',
-                          fontFamily: F.mono,
-                          letterSpacing: 0.5,
-                        }}
-                      >
-                        Dashboard 화면 구성에 사용됩니다. 가입 후 설정에서 변경 가능.
-                        경영진(Executive) 권한은 계약 시 당사가 회사 대표 한정으로 직접 부여합니다.
-                      </p>
                     </div>
 
                     {/* ── 필수 동의 + 수집 항목 고지 ────────────────────────
@@ -704,7 +702,7 @@ function LoginForm() {
                           >
                             개인정보처리방침
                           </a>
-                          을 확인했으며 이에 동의합니다.
+                          에 동의합니다.
                         </span>
                       </label>
 
@@ -734,9 +732,10 @@ function LoginForm() {
                           기록은 해당 기간 동안 보관하며, 개인 식별정보는 가명처리합니다
                           (자세한 내용은 개인정보처리방침).
                         </div>
-                        <div style={{ marginTop: S[1] }}>
+                        {/* 법규 문구(화면에 남는 글 ④) */}
+                        <LegalNote style={{ marginTop: S[1], color: T.muted }}>
                           동의를 거부할 수 있으나, 거부하면 서비스 가입이 제한됩니다.
-                        </div>
+                        </LegalNote>
                       </div>
                     </div>
                   </>
@@ -767,7 +766,7 @@ function LoginForm() {
                 <div style={{ marginTop: S[6] }}>
                   <Btn
                     type="submit"
-                    pending={loading} disabled={oauthLoading || !signupReady}
+                    pending={loading === 'submit'} disabled={loading !== null || oauthLoading || !signupReady}
                     style={{ width: '100%', padding: '13px 24px', fontSize: FS[12] }}
                   >
                     {mode === 'login' ? 'Step inside →' : 'Sign up →'}
@@ -780,7 +779,7 @@ function LoginForm() {
                       p={false}
                       type="button"
                       onClick={handlePasskeyLogin}
-                      disabled={loading || oauthLoading}
+                      pending={loading === 'passkey'} disabled={loading !== null || oauthLoading}
                       style={{
                         width: '100%',
                         padding: '12px 24px',
@@ -900,10 +899,11 @@ function LoginForm() {
                 marginTop: S[5.5],
               }}
             >
+              {/* 탭 안내는 «다음 할 일» 한 줄(2026-10-08 ⓘ 묶음 2) */}
               {mode === 'login' ? (
-                <>처음이신가요? 회원가입 탭에서 계정을 만드세요.</>
+                <NextStep style={{ fontFamily: F.mono, letterSpacing: 1, color: T.muted }}>처음이신가요? 회원가입 탭에서 계정을 만드십시오.</NextStep>
               ) : (
-                <>이미 계정이 있나요? 로그인 탭으로 이동하세요.</>
+                <NextStep style={{ fontFamily: F.mono, letterSpacing: 1, color: T.muted }}>이미 계정이 있나요? 로그인 탭으로 이동하십시오.</NextStep>
               )}
             </div>
 
@@ -1565,7 +1565,7 @@ function OrgPreviewBanner({
     return (
       <BannerBox color={T.green}>
         <div style={{ fontWeight: 600, marginBottom: S[0.5] }}>
-          ✓ 이미 등록된 조직입니다. 가입 처리됩니다
+          ✓ 이미 등록된 조직 · 기존 조직으로 가입
         </div>
         <div style={{ fontSize: FS[12], color: T.subtle }}>
           {m.org_name} · @{m.domain} · {m.member_count}명 가입
@@ -1609,22 +1609,17 @@ function OrgPreviewBanner({
             </button>
           ))}
         </div>
-        <div style={{ fontSize: FS[12], color: T.muted, marginTop: S[1.5], fontFamily: F.mono }}>
-          또는 위 입력란에 새 이름을 직접 적으면 신규 조직으로 생성됩니다.
-        </div>
+        <NextStep style={{ marginTop: S[1.5], color: T.muted }}>또는 위 입력란에 새 이름을 직접 적으면 신규 조직으로 생성됩니다.</NextStep>
       </BannerBox>
     );
   }
 
   if (intent === 'domain_match_diff_name') {
     return (
-      <BannerBox color={T.warning}>
-        <div style={{ fontWeight: 600, marginBottom: S[0.5] }}>
-          ⚠ 같은 도메인에 다른 이름의 조직이 이미 있어요
-        </div>
+      // 경고는 공용 Alert 로(화면에 남는 글 ① · 2026-10-08 ⓘ 묶음 2)
+      <Alert kind="warning" title="같은 도메인에 다른 이름의 조직이 이미 있습니다" style={{ marginTop: S[2], marginBottom: 0 }}>
         <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-          입력한 이름이 기존 조직 이름과 달라 <strong>새 조직</strong> 으로 생성됩니다. 같은
-          조직이라면 위 박스에서 정확한 이름을 선택해 주세요.
+          입력한 이름이 기존 조직 이름과 달라 새 조직으로 생성됩니다. 같은 조직이라면 아래에서 정확한 이름을 고르십시오.
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: S[1], marginTop: S[1.5] }}>
           {matches.slice(0, 3).map((m) => (
@@ -1648,7 +1643,7 @@ function OrgPreviewBanner({
             </button>
           ))}
         </div>
-      </BannerBox>
+      </Alert>
     );
   }
 
