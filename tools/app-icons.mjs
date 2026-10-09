@@ -54,6 +54,12 @@
 //   이 색만은 곧바로 반영했습니다(같은 날 오너 결정 · 동결의 유일한 예외). --check 가 각 제품의 titleBarIn 파일에서
 //   상단 바 색 자리를 모두 찾아 원본과 같은지 봅니다.
 //
+// 오너 지시 (2026-10-09): 「PWA 아이콘 변경 요청: 큐 아뜰리에 · 큐 카르넷 · 큐 메종 순으로」 + 그림 세 장.
+//   세 제품은 이제 오빠가 준 완성 그림(금속 Q 조형 · 은 = 서류 뭉치 + 펜촉 · 구리 = 수첩 띠 + 펜촉 · 금 = 결속 띠
+//   + 펜촉)을 그대로 씁니다. 붓 Q 에 색을 입히고 틀을 그리던 길은 그림이 없는 제품(Q-Sonar)에만 남습니다.
+//   원본은 source/brand/app-icon-<제품>.webp(투명 바탕 1254px · PRODUCTS 의 art). 그림의 알파 상자를 잘라
+//   먹색 판 가운데 ART_BOX 크기로 앉힙니다(작은 판은 조금 키움). 판 번호 v=3.
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
@@ -104,7 +110,7 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  */
 const PRODUCTS = [
   {
-    key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', root: 'D:/Claude/Q-Atelier', badge: true,
+    key: 'atelier', name: 'Q-Atelier', metal: 'silver', frame: 'ring', art: 'app-icon-atelier.webp', root: 'D:/Claude/Q-Atelier', badge: true,
     refs: ['public/manifest.json', 'app/layout.tsx', 'public/sw.js', 'public/offline.html', 'components/InstallAppPrompt.tsx'],
     tagline: '의료기기 개발 · 인허가 시스템', taglineIn: ['public/manifest.json', 'public/offline.html'],
     marksIn: ['components/Logo.tsx', 'components/expert/BrandLogo.tsx'],
@@ -112,13 +118,13 @@ const PRODUCTS = [
     titleBarIn: ['public/manifest.json', 'app/layout.tsx', 'app/experts/layout.tsx'],
   },
   {
-    key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
+    key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', art: 'app-icon-maison.webp', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: [], native: [],
     titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
   },
   {
-    key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
+    key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', art: 'app-icon-carnet.webp', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: ['components/q-mark.tsx'], native: [],
     titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
@@ -156,7 +162,7 @@ const OLD_MARK_PNGS = ['logo-dark.png', 'logo-light.png', 'logo-mark.png', 'logo
  *    이 도구가 멈춥니다(dist/app-icons/version.json 과 대조). 그림이 그대로인데 이 값만 올리면 설치 앱에
  *    쓸데없는 갱신 안내가 뜨므로 알립니다.
  */
-const ICON_VERSION = '2';
+const ICON_VERSION = '3';
 const ICON_NAMES = ['icon-192', 'icon-512', 'icon-192-maskable', 'icon-512-maskable', 'apple-icon', 'badge-96'];
 
 // ── 금속 계단: 명도 L(0..1) → 색. 은은 원본 그대로 ─────────────────────────────
@@ -256,6 +262,37 @@ function qBox(Q) {
   const x = Q_AT.x - Q.gx * s;
   const y = Q_AT.y - Q.gy * s;
   return `x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${(Q.w * s).toFixed(2)}" height="${Q_H}"`;
+}
+
+// ── 제품 그림 (2026-10-09 오너 지시): 완성 그림을 그대로 쓰는 제품 ──────────────
+/*
+ * 그림의 알파 상자를 잘라 긴 변이 ART_BOX 가 되게 줄이고, 상자의 가운데를 판 가운데(256, 256)에 둡니다.
+ * 붓 Q 처럼 무게중심으로 맞추지 않습니다. 세 그림이 같은 틀(Q 고리 + 꼬리 + 펜촉)이라 상자 가운데가 서로
+ * 같은 자리이고, 꼬리와 서류가 한쪽으로 나가 무게중심을 쓰면 오히려 고리가 어긋납니다.
+ */
+const ART_BOX = 392;
+async function artworks() {
+  const out = {};
+  for (const p of PRODUCTS.filter((x) => x.art)) {
+    const src = join(ROOT, 'source', 'brand', p.art);
+    const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    const { width: W, height: H } = info;
+    let x0 = W, y0 = H, x1 = -1, y1 = -1;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      if (data[(y * W + x) * 4 + 3] > 8) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    }
+    const w = x1 - x0 + 1;
+    const h = y1 - y0 + 1;
+    const png = await sharp(src).extract({ left: x0, top: y0, width: w, height: h }).png().toBuffer();
+    out[p.key] = { png, w, h };
+  }
+  return out;
+}
+function artBox(art, k = 1) {
+  const s = (ART_BOX * k) / Math.max(art.w, art.h);
+  const w = art.w * s;
+  const h = art.h * s;
+  return `x="${(256 - w / 2).toFixed(2)}" y="${(256 - h / 2).toFixed(2)}" width="${w.toFixed(2)}" height="${h.toFixed(2)}"`;
 }
 
 // ── 틀 기하 (512 단위). 모두 중심 256,256 둘레에 비슷한 부피로 ────────────────
@@ -388,6 +425,22 @@ const SMALL = {
 
 function iconSvg(product, Q, variant, px) {
   const small = variant === 'small' ? SMALL[px] : null;
+  if (product.art) {
+    /*
+     * 완성 그림 제품(2026-10-09): 틀 없이 그림만. 작은 판은 그림을 조금 키워(1.12) 고리가 살아남게 합니다.
+     * 부풀리기(dilate)는 쓰지 않습니다. 서류 · 펜촉의 밝은 면이 번져 흰 덩어리가 됩니다.
+     */
+    const art = Q.art[product.key];
+    const href = 'data:image/png;base64,' + art.png.toString('base64');
+    const img = (k) => `<image href="${href}" ${artBox(art, k)}/>`;
+    let body;
+    if (variant === 'any') body = `<rect width="512" height="512" rx="112" fill="${BG}"/>${img(1)}`;
+    else if (variant === 'apple') body = `<rect width="512" height="512" fill="${BG}"/>${img(1)}`;
+    else if (variant === 'maskable') body = `<rect width="512" height="512" fill="${BG}"/>${img(0.84)}`;
+    else if (variant === 'small') body = `<rect width="512" height="512" rx="96" fill="${BG}"/>${img(1.12)}`;
+    else throw new Error(variant);
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512">${body}</svg>`;
+  }
   const [a, b, c] = STROKE[product.metal];
   const href = 'data:image/png;base64,' + Q.png[product.metal].toString('base64');
   const box = qBox(Q);
@@ -425,6 +478,15 @@ function iconSvg(product, Q, variant, px) {
  * 반투명 조각이 흐려지므로, 틀과 Q 를 흰색 한 가지로 그립니다.
  */
 function badgeSvg(product, Q) {
+  if (product.art) {
+    // 완성 그림 제품: 그림의 알파를 흰색 한 가지로(안드로이드는 알파만 씀). 가는 펜촉이 사라지지 않게 조금 부풀립니다.
+    const art = Q.art[product.key];
+    const href = 'data:image/png;base64,' + art.png.toString('base64');
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512"><defs>` +
+      `<filter id="white" x="-25%" y="-25%" width="150%" height="150%"><feMorphology operator="dilate" radius="5"/>` +
+      `<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.6 0"/></filter></defs>` +
+      `<image href="${href}" ${artBox(art, 1.1)} filter="url(#white)"/></svg>`;
+  }
   const href = 'data:image/png;base64,' + Q.png.silver.toString('base64');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512"><defs>` +
     `<filter id="white" x="-25%" y="-25%" width="150%" height="150%"><feMorphology operator="dilate" radius="4"/>` +
@@ -600,6 +662,7 @@ const sha = (b) => createHash('sha256').update(b).digest('hex');
 
 async function main() {
   const Q = await metalQs();
+  Q.art = await artworks();
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1024, height: 1024 }, deviceScaleFactor: 1 });
   const render = async (svg) => {
