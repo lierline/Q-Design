@@ -85,6 +85,15 @@ for (const fam of FAMILIES) {
     }
     faces.push({ family: fam.name, weight, subset, file, range, size: statSync(dest).size });
   }
+
+  // 한 가족이라도 비면 중단합니다. 총합만 보면 한 가족이 통째로 빠진 묶음이
+  // «생성 완료» 로 나와 dist 를 조용히 줄입니다(2026-10-09 Cormorant 65줄 사고).
+  if (!faces.some((f) => f.family === fam.name)) {
+    const seen = blocks.map((b) => b.slice(0, b.indexOf('*/')).trim()).join(',');
+    console.error('받은 글꼴이 없습니다: ' + fam.name + ' (응답 ' + css.length + '자 · 서브셋 ' + (seen || '없음') + ')');
+    console.error('  서브셋 이름이나 응답 형식이 바뀌었거나 응답이 일시적으로 달랐을 수 있습니다. dist 는 건드리지 않았습니다.');
+    process.exit(1);
+  }
 }
 
 if (!faces.length) {
