@@ -1162,7 +1162,7 @@ export function FormSection({
   children,
 }: {
   title: string;
-  /** 섹션 제목 아래 한 줄 보조 설명 (선택). */
+  /** 구역 제목 옆 ⓘ 안에 들어갈 설명 (선택). 화면에는 깔리지 않는다. */
   description?: ReactNode;
   children: ReactNode;
 }) {
@@ -1170,25 +1170,30 @@ export function FormSection({
     <section style={{ marginTop: S[5] }}>
       <div
         style={{
-          fontSize: FS[12],
-          color: T.champagne,
-          fontFamily: F.mono,
-          letterSpacing: labelTracking(title, 1.8),
-          wordSpacing: labelWordSpacing(title),
-          textTransform: labelCase(title),
-          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          gap: S[1.5],
           marginBottom: S[2],
           paddingBottom: S[1],
           borderBottom: `1px solid ${T.border}`,
         }}
       >
-        {title}
-      </div>
-      {description && (
-        <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.serif, marginBottom: S[2.5], lineHeight: LH.normal }}>
-          {description}
+        <div
+          style={{
+            fontSize: FS[12],
+            color: T.champagne,
+            fontFamily: F.mono,
+            letterSpacing: labelTracking(title, 1.8),
+            wordSpacing: labelWordSpacing(title),
+            textTransform: labelCase(title),
+            fontWeight: 600,
+          }}
+        >
+          {title}
         </div>
-      )}
+        {/* 구역 제목 ⓘ(2026-10-08): 설명은 화면에 깔지 않고 팝업으로 */}
+        {description && <InfoDot label={`${title}: 설명 보기`}>{description}</InfoDot>}
+      </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: S[3] }}>
         {children}
       </div>
@@ -1402,6 +1407,8 @@ interface PageHdProps {
    * 한글 문장을 이름표 자리에 두면 고정폭으로 벌어졌다(화면 검토 A44). 글 · 인라인 요소만 넣는다(<p> 안).
    */
   desc?: ReactNode;
+  /** 화면 머리 ⓘ(2026-10-08): desc 줄 끝의 ⓘ 팝업. 설명 문장은 desc 가 아니라 여기로. desc 는 짧은 이름표로 둔다. */
+  info?: ReactNode;
   actions?: ReactNode;
   /** title 위에 1.5px × 32px champagne 가로선 accent. 기본 true. */
   accent?: boolean;
@@ -1412,7 +1419,7 @@ interface PageHdProps {
    */
   display?: boolean;
 }
-export function PageHd({ title, sub, desc, actions, accent = true }: PageHdProps) {
+export function PageHd({ title, sub, desc, info, actions, accent = true }: PageHdProps) {
   // 안전망: 이름표가 제목과 같은 글자(공백 무시)면 그리지 않는다(화면 검토 A35 · A66 · 2026-09-27).
   // 🔴 걸러낸 값을 새 이름에 담지 않고 매개변수를 다시 대입한다. Q-Design 추출기
   //    (tools/extract-screen.mjs)가 아래 JSX 의 이름표 조각을 글자 그대로 찾아 값을 뽑는다.
@@ -1481,10 +1488,18 @@ export function PageHd({ title, sub, desc, actions, accent = true }: PageHdProps
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               margin: 0,
+              // ⓘ 가 제목 줄에 붙을 때만 줄 안 상자로(없으면 종전 그대로 블록)
+              display: info ? 'inline-block' : undefined,
             }}
           >
             {title}
           </h1>
+          {/* 화면 머리 ⓘ(2026-10-08): 설명 문장은 제목 바로 옆 ⓘ 팝업으로(제목은 info 가 있을 때만 줄 안에 놓는다) */}
+          {info && (
+            <span style={{ display: 'inline-flex', verticalAlign: 'middle', marginLeft: S[2] }}>
+              <InfoDot label={`${title}: 설명 보기`}>{info}</InfoDot>
+            </span>
+          )}
           {desc && (
             <p
               style={{

@@ -35,7 +35,7 @@ export function OrgBreakdownList({
       <div>
         <strong>{title}</strong>
         <br />
-        해당 조직이 없습니다.
+        해당 조직 없음
       </div>
     );
   }
@@ -535,7 +535,7 @@ export function RecentList({ items }: { items: AssessmentRow[] }) {
   if (items.length === 0) {
     return (
       <Bx style={{ padding: '32px 24px', textAlign: 'center' }}>
-        <div style={{ fontSize: FS[12], color: T.muted }}>표시할 평가가 없습니다.</div>
+        <div style={{ fontSize: FS[12], color: T.muted }}>표시할 평가 없음</div>
       </Bx>
     );
   }

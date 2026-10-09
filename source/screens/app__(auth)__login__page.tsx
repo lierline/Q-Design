@@ -598,7 +598,7 @@ function LoginForm() {
                       <FldError>비밀번호가 일치하지 않습니다.</FldError>
                     )}
                     {passwordConfirm.length > 0 && passwordsMatch && (
-                      <FieldHint kind="muted">✓ 비밀번호가 일치합니다.</FieldHint>
+                      <FieldHint kind="muted">✓ 비밀번호 일치</FieldHint>
                     )}
                     {passwordConfirm.length === 0 && (
                       <FieldHint kind="muted">위 비밀번호와 동일하게 입력</FieldHint>
@@ -962,9 +962,11 @@ function LoginForm() {
                   letterSpacing: 0.5,
                 }}
               >
-                이 서비스는 의료기기 R&amp;D · 인허가 · QMS 운영을 지원하는 도구이며,
-                <br />
-                식약처/FDA/EU 등 규제기관의 공식 판정을 대체하지 않습니다.
+                <LegalNote style={{ color: 'inherit', fontSize: 'inherit', fontFamily: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>
+                  이 서비스는 의료기기 R&amp;D · 인허가 · QMS 운영을 지원하는 도구이며,
+                  <br />
+                  식약처/FDA/EU 등 규제기관의 공식 판정을 대체하지 않습니다.
+                </LegalNote>
               </div>
             </footer>
           </div>
@@ -1653,8 +1655,7 @@ function OrgPreviewBanner({
         + 새 조직으로 생성됩니다
       </div>
       <div style={{ fontSize: FS[12], color: T.subtle, lineHeight: LH.normal }}>
-        이 이메일 도메인과 일치하는 기존 조직이 없어 본인이 owner 가 되는 새
-        조직이 만들어집니다.
+        이 이메일 도메인과 일치하는 기존 조직이 없어 본인이 소유자가 되는 새 조직이 만들어짐
       </div>
     </BannerBox>
   );

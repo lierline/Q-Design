@@ -18,6 +18,7 @@
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import ts from 'typescript';
 import { describe, expect, it } from 'vitest';
 import { codeOnly, REPO_ROOT } from '@/lib/test-utils/contract-source';
 
@@ -35,15 +36,20 @@ const REMAINING: ReadonlyArray<[string, number]> = [
   // 묶음 10(공용 부품 앞쪽 A~F 스물다섯 파일 → 0: AI 초안 · 결재 판 둘 · 사진 · 역산 계획 · 달력 · 평가 중단 · 삭제 · CAPA 서류 · CR 함 · 계정 삭제 · 위젯 판 · 시작 안내 · 설계검토 · 문서 논의 · 본문 보기 · 서류 판 · 장비 이력 · 자료 교환 · 연동 · 종결 · 전문가 평가 · 현장 사진 · 최종 결정 · 2026-10-08): 68 파일 · 143 문장.
   // 묶음 11(공용 부품 뒤쪽 G~Z 마흔두 파일 → 0: 전역 검색 · 허가 인계 · IFU 분류 · 문의 · 식약처 등재 · 키워드 검토 · 양식 요약 · 업무 잠김 · 전문가 의견 · 소유자 제품 · R&D 파이프라인 · 패스키 둘 · 검토 대기 서류 · 폰 안내 · 수율 · 제품 고르기 · 푸시 둘 · 기본 문서 · 서류 편집 · 절차서 연결 · RA 진척 · RA 안내 · R&D 서류 판 · 회수 거래처 · 규제 변화 · 출하 서명 · 전문가 요청 · 설계 이관 · DHF 목차 · 세션 둘 · 전체 로그아웃 · 단계 진행 · 되돌리기 · 제출 추적 · 공급자 셋 · 오늘 할 일 · 금고 · 환영 · 2026-10-08): 26 파일 · 59 문장. 남은 것은 전부 admin(데모 계정으로 촬영 불가).
   // 묶음 12(운영진 화면 admin 스물여섯 파일 → 0: AI 총괄 한도 · 코어 정확도 · 기본 양식함 · 평가셋 · 전문가 초대 둘 · 전문가 · 지식 베이스 · 조직 한눈에 · 운영 홈 · 권한표 · 라벨 퀴즈 · 룰 표 · 심사 · 검증 기록 · 부작용 사례 · 조건 규칙 · CSP · 문서세트 넷 · 멤버 보관 · 이관 · 식약처 서류 · 조직 편집 · 2026-10-08): 0 파일 · 0 문장. 기준선이 비었다. 새 설명 문장이 생기면 이 가드가 바로 잡는다.
+  // 묶음 13(끝맺음을 «니다·세요·십시오» 로 넓힘 · 2026-10-08): 넓힌 뒤 61 파일 · 99 문장이 드러났고(전부 «했습니다»·«않았습니다»·빈 화면 한 줄·상태 한 줄) 한 묶음으로 0 으로 되돌렸다. 공개 레이아웃의 법적 고지 한 줄은 SKIP.
+  // 묶음 14(2부 · 속성 · 삼항 · 변수 안의 문장: Register intro · Field hint · FormSection description · SectionCard subtitle · PageHd desc · Question sub 를 공용 부품에서 ⓘ 로, 설정 · 폼 상태 한 줄은 명사형으로 · 2026-10-08): 글 노드 기준선은 그대로 0. 속성 값은 아래 «보이는 속성» 가드가 따로 0 으로 본다.
 ];
 
-const SENT = /[가-힣][^<>{}]{8,}?(입니다|십시오|됩니다|합니다|있습니다|없습니다|주세요|하세요)\./g;
+// 묶음 13(2026-10-08): 끝맺음을 넓혔다. 종전 여덟 끝(입니다·십시오·됩니다·합니다·있습니다·없습니다·주세요·하세요)은 «했습니다»·«않았습니다»·«나옵니다»·«보세요» 류를 놓쳤다.
+const SENT = /[가-힣][^<>{}]{8,}?(니다|세요|십시오)\./g;
 /** 이 부품 안의 문장은 날것이 아니다 */
 // TooltipBody 는 KPI 팝업의 본문(tooltip: ( … ) 로 배열에 담길 때는 tooltip={ 로 못 잡는다 · 묶음 3 에서 추가).
 const WRAPPERS = ['SectionTitleInfo', 'InfoDot', 'Alert', 'FldError', 'EmptyState', 'NextStep', 'LegalNote', 'Modal', 'Confirm', 'Toast', 'PageGuide', 'FormNote', 'TruncatedNote', 'TooltipBody', 'TooltipNote'];
 const SKIP = (rel: string) =>
   rel.startsWith('app/(app)/m/') || rel.startsWith('app/experts/') || rel.startsWith('app/global-error') ||
   /^app\/(terms|privacy|open-source|legal)/.test(rel) ||
+  // 공개 레이아웃의 법적 고지 한 줄(규제기관 판정 비대체 문구)도 법규 문구다(묶음 13).
+  rel === 'app/(public)/layout.tsx' ||
   // 공개 법규 페이지(이용약관 · 개인정보처리방침 · 오픈소스 고지 · 사업자정보)는 법규 문구라 ⓘ 로 옮길 글이 아니다(오너 결정 2026-10-08 · 68 문장).
   /^app\/\(public\)\/(\(drafts\)\/)?(terms|privacy|open-source|business-info)\//.test(rel);
 
@@ -128,6 +134,73 @@ export function scan(): Map<string, number> {
 function literal(found: Map<string, number>): string {
   return [...found.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([f, n]) => `  ['${f}', ${n}],`).join('\n');
 }
+
+// ── 2부(2026-10-08 묶음 14): 중괄호 · 삼항 · 속성값 안의 설명 문장 ─────────────────────────────────
+// 위 글 노드 세기는 `>글<` 만 본다. 그래서 `hint="…합니다."` · `desc={cond ? '…' : '…'}` 처럼 속성 값으로 들어간
+// 설명 문장은 놓쳤다. 보이는 줄을 그리는 속성 몇 개만 AST 로 따로 본다(기준선 0).
+//   · Field · FldRow 의 hint= 는 «짧은 형식 안내» 만. 설명 문장은 info= (칸 ⓘ).
+//   · SectionCard 의 subtitle= 는 info= (구역 ⓘ). PageHd 의 desc= 는 짧은 이름표만, 설명 문장은 info= (화면 머리 ⓘ).
+// 뺀 것: 알림 · 확인창 · 검증 오류 · 빈 화면 · 상태 한 줄(문장이 «지금 상태» 를 말하는 것)은 남겨도 되는 네 가지에 든다.
+const VISIBLE_PROPS: ReadonlyArray<[string, string]> = [
+  ['Field', 'hint'],
+  ['FldRow', 'hint'],
+  ['SectionCard', 'subtitle'],
+  ['PageHd', 'desc'],
+];
+
+/** SENT 의 g 깃발 없는 짝(.test() 가 lastIndex 를 남기지 않게). */
+const SENT_ONE = new RegExp(SENT.source);
+
+export function hiddenPropSentences(src: string): string[] {
+  const sf = ts.createSourceFile('x.tsx', src, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const out: string[] = [];
+  const strings = (n: ts.Node): string[] => {
+    if (ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n)) return [n.text];
+    if (ts.isTemplateExpression(n)) return [n.head.text + n.templateSpans.map((s) => '${}' + s.literal.text).join('')];
+    if (ts.isConditionalExpression(n)) return [...strings(n.whenTrue), ...strings(n.whenFalse)];
+    if (ts.isBinaryExpression(n)) return [...strings(n.left), ...strings(n.right)];
+    if (ts.isParenthesizedExpression(n)) return strings(n.expression);
+    if (ts.isJsxExpression(n) && n.expression) return strings(n.expression);
+    return [];
+  };
+  const visit = (n: ts.Node) => {
+    if (ts.isJsxOpeningElement(n) || ts.isJsxSelfClosingElement(n)) {
+      const tag = n.tagName.getText(sf);
+      for (const a of n.attributes.properties) {
+        if (!ts.isJsxAttribute(a) || !a.initializer) continue;
+        const name = a.name.getText(sf);
+        if (!VISIBLE_PROPS.some(([t, p]) => t === tag && p === name)) continue;
+        const init = ts.isStringLiteral(a.initializer) ? [a.initializer.text] : strings(a.initializer);
+        for (const s of init) if (SENT_ONE.test(s)) out.push(`${tag} ${name}: ${s.slice(0, 40)}`);
+      }
+    }
+    ts.forEachChild(n, visit);
+  };
+  visit(sf);
+  return out;
+}
+
+describe('보이는 속성 안의 설명 문장(2부 · 기준선 0)', () => {
+  it('Field hint · SectionCard subtitle · PageHd desc 에 설명 문장이 없다', () => {
+    const files: string[] = [];
+    for (const d of ['components', 'app']) walk(join(REPO_ROOT, d), files);
+    const bad: string[] = [];
+    for (const f of files) {
+      const rel = relative(REPO_ROOT, f).replace(/\\/g, '/');
+      if (SKIP(rel)) continue;
+      for (const s of hiddenPropSentences(readFileSync(f, 'utf8'))) bad.push(`${rel} ${s}`);
+    }
+    expect(bad, '설명 문장은 info= (칸 · 구역 · 화면 머리 ⓘ)로. hint · subtitle · desc 는 짧은 이름표만').toEqual([]);
+  });
+
+  it('세는 법은 속성 값의 문장을 잡는다(일부러 깨뜨려 본 것)', () => {
+    expect(hiddenPropSentences(`<Field id="a" hint="어떤 사실을 적습니다." />`)).toHaveLength(1);
+    expect(hiddenPropSentences(`<Field id="a" hint={x ? '보입니다 이런 문장입니다.' : undefined} />`)).toHaveLength(1);
+    expect(hiddenPropSentences(`<Field id="a" info="설명 문장입니다 여기는 괜찮습니다." />`)).toHaveLength(0);
+    expect(hiddenPropSentences(`<Field id="a" hint="YYYY-MM-DD" />`)).toHaveLength(0);
+    expect(hiddenPropSentences(`<PageHd title="x" desc="이 화면의 긴 설명을 적습니다." />`)).toHaveLength(1);
+  });
+});
 
 describe('설명 글귀는 ⓘ 안으로(날것 설명 문장은 기준선 이하)', () => {
   const found = scan();

@@ -7,7 +7,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Alert, Bx, Btn, EmptyState, Field, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
+import { Alert, Btn, Bx, EmptyState, Field, InfoDot, LoadingState, SectionTitle, Tag } from '@/lib/design/components';
 import { useConfirm } from '@/components/Confirm';
 import { S, FS, F, T, alpha, LH, RADIUS } from '@/lib/design/tokens';
 import { ChoiceChip } from '@/lib/design/segmented-choice';
@@ -969,11 +969,15 @@ function GapReport({
           color: T.subtle,
           fontFamily: F.ui,
           lineHeight: LH.relaxed,
+          display: 'flex',
+          alignItems: 'center',
+          gap: S[1.5],
         }}
       >
-        ▸ 지적 등급 순으로 정렬되었습니다. 치명적 부적합은 외부 감사 시 Major NCR 발급 가능성이 높습니다.
-        등급은 «조항의 중요도» 와 «이행 정도» 를 함께 봅니다. 절차가 아예 없으면 조항 등급 그대로,
-        있는데 이행이 덜 됐으면 한 단계 낮게 잡습니다.
+        ▸ 지적 등급 순으로 정렬됨
+        <InfoDot label="지적 등급: 설명 보기" width={320}>
+          치명적 부적합은 외부 감사 시 Major NCR 발급 가능성이 높습니다. 등급은 «조항의 중요도» 와 «이행 정도» 를 함께 봅니다. 절차가 아예 없으면 조항 등급 그대로, 있는데 이행이 덜 됐으면 한 단계 낮게 잡습니다.
+        </InfoDot>
       </div>
 
       {gaps.map((g) => (
