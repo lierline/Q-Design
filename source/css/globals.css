@@ -19,6 +19,8 @@ html[data-theme='dark'] {
   --qa-surface2: #1b1b1b;
   --qa-border: #242424;
   --qa-borderHi: #333333;
+  /* 조작 윤곽(입력 칸 · 보조 단추 · 아이콘 단추): 인접 면과 3:1 이상(WCAG 1.4.11). border · borderHi 는 행 · 구역 구분선이라 장식으로 둔다. 2026-10-10 */
+  --qa-ctl: #7a7364;
   --qa-text: #f0ebe0;
   --qa-subtle: #b7b0a5;        /* WCAG AA on #0c0c0c */
   --qa-muted: #898271;          /* AA 4.5:1 on bg·surface·surface2 모두 (5.12/4.82/4.50). 2026-08-20 재보정: 종전 #7e7868 은 bg 기준으로만 맞춰 카드 위에서 3.92 였다 */
@@ -70,6 +72,7 @@ html[data-theme='light'] {
   --qa-surface2: #f3f1ec;
   --qa-border: #e2dfd8;
   --qa-borderHi: #c8c4ba;
+  --qa-ctl: #8c8575;
   --qa-text: #1c1a16;
   --qa-subtle: #4a4540;          /* darker for contrast */
   --qa-muted: #726b5e;            /* 2026-06-30: #7a7468(4.41:1, 작은 텍스트 미달)→5.01:1 보정 */
@@ -273,7 +276,7 @@ a {
     box-shadow 0.15s ease;
 }
 .qa-input:hover:not(:focus):not(:disabled):not([readonly]) {
-  border-color: var(--qa-borderHi) !important;
+  border-color: var(--qa-muted) !important;
 }
 .qa-input:focus,
 .qa-input:focus-visible {
@@ -306,7 +309,7 @@ a {
     color 0.15s ease;
 }
 .qa-btn-secondary:hover:not(:disabled) {
-  border-color: var(--qa-borderHi);
+  border-color: var(--qa-muted);
   color: var(--qa-text);
 }
 
@@ -1250,6 +1253,7 @@ select.qa-input::-ms-expand {
     --qa-surface2: #f5f3ee !important;
     --qa-border: #d4d0c8 !important;
     --qa-borderHi: #999488 !important;
+    --qa-ctl: #7a7568 !important;
     --qa-text: #1a1814 !important;
     --qa-subtle: #4a4540 !important;
     --qa-muted: #746e62 !important; /* 2026-08-20: #7a7468 은 인쇄 surface2 위 4.18 미달 */

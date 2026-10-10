@@ -37,6 +37,7 @@
   --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #1b1b1b));
   --qd-border: var(--qd-border-src, var(--qa-border, #242424));
   --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #333333));
+  --qd-ctl: var(--qd-ctl-src, var(--qa-ctl, #7a7364));
   --qd-text: var(--qd-text-src, var(--qa-text, #f0ebe0));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #b7b0a5));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #898271));
@@ -54,6 +55,7 @@ html[data-theme='light'] {
   --qd-surface2: var(--qd-surface2-src, var(--qa-surface2, #f3f1ec));
   --qd-border: var(--qd-border-src, var(--qa-border, #e2dfd8));
   --qd-borderHi: var(--qd-borderHi-src, var(--qa-borderHi, #c8c4ba));
+  --qd-ctl: var(--qd-ctl-src, var(--qa-ctl, #8c8575));
   --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
@@ -430,7 +432,7 @@ html[data-theme='light'] {
   box-sizing: border-box;
   min-height: 36px;
   padding: 7px 12px;
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, 10px);
   background: transparent;
   color: var(--qd-text);
@@ -509,7 +511,7 @@ html[data-theme='light'] {
   height: 36px;
   min-width: 0;
   padding: 0 12px;
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, 10px);
   background: var(--qd-surface);
   color: var(--qd-text);
@@ -526,7 +528,7 @@ html[data-theme='light'] {
   flex: 0 0 auto;
   height: 36px;
   padding: 0 14px;
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, 10px);
   background: transparent;
   /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 14px(전에는 text · 16) */

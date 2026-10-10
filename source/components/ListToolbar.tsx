@@ -24,6 +24,7 @@ import { PAGE_SIZE, pageWindow, type SortOption } from '@/lib/api/list-page';
 import { useBreakpoints } from '@/lib/hooks/useBreakpoints';
 import { stickyTopInset, useScrollHostPadding } from '@/lib/design/sticky-inset';
 import { F, FS, LH, RADIUS, S, T, Z, labelTracking, hasHangul } from '@/lib/design/tokens';
+import { CTL } from '@/lib/design/grain';
 
 /*
  * 찾기 단추의 글. 네 제품이 「찾기」 · 「검색」 · 「조회하기」 로 갈려 있던 것을 오너가
@@ -106,7 +107,7 @@ export function ListToolbar({
     minWidth: 0,
     padding: `0 ${S[3]}px 0 32px`,
     borderRadius: RADIUS.md,
-    border: `1px solid ${T.border}`,
+    border: `1px solid ${CTL}`,
     background: T.surface,
     color: T.text,
     fontFamily: F.ui,

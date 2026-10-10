@@ -2,7 +2,7 @@
   "$meta": {
     "name": "Q-Design",
     "source": "Q-Atelier · lib/design/tokens.ts + app/globals.css + app/experts/expert-theme.css",
-    "generatedAt": "2026-10-09",
+    "generatedAt": "2026-10-10",
     "note": "손으로 고치지 마세요. tools/extract-tokens.mjs 를 다시 돌리세요.",
     "rootFontSizeWarning": "rem 기준은 16px 이 아니라 14px 입니다. TYPE 의 rem 값을 16 으로 환산하면 전부 틀립니다."
   },
@@ -13,6 +13,7 @@
       "--qa-surface2": "#1b1b1b",
       "--qa-border": "#242424",
       "--qa-borderHi": "#333333",
+      "--qa-ctl": "#7a7364",
       "--qa-text": "#f0ebe0",
       "--qa-subtle": "#b7b0a5",
       "--qa-muted": "#898271",
@@ -43,6 +44,7 @@
       "--qa-surface2": "#f3f1ec",
       "--qa-border": "#e2dfd8",
       "--qa-borderHi": "#c8c4ba",
+      "--qa-ctl": "#8c8575",
       "--qa-text": "#1c1a16",
       "--qa-subtle": "#4a4540",
       "--qa-muted": "#726b5e",
@@ -73,6 +75,7 @@
       "--qa-surface2": "#f5f3ee !important",
       "--qa-border": "#d4d0c8 !important",
       "--qa-borderHi": "#999488 !important",
+      "--qa-ctl": "#7a7568 !important",
       "--qa-text": "#1a1814 !important",
       "--qa-subtle": "#4a4540 !important",
       "--qa-muted": "#746e62 !important",

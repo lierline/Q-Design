@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko" data-theme="dark"><head><meta charset="utf-8"><title>폰 폭 시안 v3 · Q-Design</title><style>/* =============================================================================
+   Q-Design 토큰 · 생성물 (tools/extract-tokens.mjs)
+   출처: Q-Atelier · lib/design/tokens.ts + app/globals.css
+   손으로 고치지 마세요. 원본을 고치고 스크립트를 다시 돌리세요.
+   ============================================================================= */
+
+/* ── 색: 다크(기본) ─────────────────────────────────────────────────────── */
+:root,
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --qa-bg: #0c0c0c;
+  --qa-surface: #141414;
+  --qa-surface2: #1b1b1b;
+  --qa-border: #242424;
+  --qa-borderHi: #333333;
+  --qa-text: #f0ebe0;
+  --qa-subtle: #b7b0a5;
+  --qa-muted: #898271;
+  --qa-champagne: #b8935a;
+  --qa-green: #7ab87a;
+  --qa-red: #c97a7a;
+  --qa-warning: #c9a87a;
+  --qa-blue: #7a9ac9;
+  --qa-on-accent: #0a0908;
+  --qa-backdrop: rgba(0, 0, 0, 0.65);
+  --qa-backdrop-strong: rgba(0, 0, 0, 0.75);
+  --qa-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --qa-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --qa-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --qa-shadow-xl: 0 30px 90px rgba(0, 0, 0, 0.6);
+  --qa-state-gray: #928c86;
+  --qa-state-cobalt: #6b8fc4;
+  --qa-state-copper: #d49850;
+  --qa-state-gold: #c9a878;
+  --qa-state-violet: #a27dca;
+  --qa-state-green: #7ab87a;
+  --qa-state-red: #c97a7a;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
+}
+
+/* ── 색: 라이트 ─────────────────────────────────────────────────────────── */
+html[data-theme='light'] {
+  color-scheme: light;
+  --qa-bg: #faf9f6;
+  --qa-surface: #ffffff;
+  --qa-surface2: #f3f1ec;
+  --qa-border: #e2dfd8;
+  --qa-borderHi: #c8c4ba;
+  --qa-text: #1c1a16;
+  --qa-subtle: #4a4540;
+  --qa-muted: #726b5e;
+  --qa-champagne: #8a6838;
+  --qa-green: #3d7a3d;
+  --qa-red: #a83838;
+  --qa-warning: #97621f;
+  --qa-blue: #2d5fa8;
+  --qa-on-accent: #ffffff;
+  --qa-backdrop: rgba(40, 30, 18, 0.32);
+  --qa-backdrop-strong: rgba(40, 30, 18, 0.45);
+  --qa-shadow-sm: 0 2px 8px rgba(80, 65, 40, 0.10);
+  --qa-shadow-md: 0 6px 18px rgba(80, 65, 40, 0.14);
+  --qa-shadow-lg: 0 20px 50px rgba(80, 65, 40, 0.18);
+  --qa-shadow-xl: 0 30px 70px rgba(80, 65, 40, 0.22);
+  --qa-state-gray: #676562;
+  --qa-state-cobalt: #3864a0;
+  --qa-state-copper: #8a5820;
+  --qa-state-gold: #7a5828;
+  --qa-state-violet: #8049ba;
+  --qa-state-green: #367236;
+  --qa-state-red: #b23b3b;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
+}
+
+/* ── 줄간격 사다리: 색과 달리 테마 축이 아니라 자기 :root 에 둡니다 ─────── */
+:root {
+  --qa-lh-none: 1;
+  --qa-lh-tight: 1.2;
+  --qa-lh-heading: 1.3;
+  --qa-lh-snug: 1.4;
+  --qa-lh-normal: 1.5;
+  --qa-lh-notice: 1.55;
+  --qa-lh-relaxed: 1.6;
+  --qa-lh-loose: 1.7;
+}
+
+/* ── 스케일: 원본에선 TS 상수. CSS 만 쓰는 곳을 위해 변수로도 냅니다 ────── */
+:root {
+  /* 간격: 4px 기준 + 2px 하프스텝. 키의 점은 밑줄로 (--qa-space-3_5 = 14px) */
+  --qa-space-0: 0px;
+  --qa-space-0_5: 2px;
+  --qa-space-1: 4px;
+  --qa-space-1_5: 6px;
+  --qa-space-2: 8px;
+  --qa-space-2_5: 10px;
+  --qa-space-3: 12px;
+  --qa-space-3_5: 14px;
+  --qa-space-4: 16px;
+  --qa-space-4_5: 18px;
+  --qa-space-5: 20px;
+  --qa-space-5_5: 22px;
+  --qa-space-6: 24px;
+  --qa-space-6_5: 26px;
+  --qa-space-7: 28px;
+  --qa-space-7_5: 30px;
+  --qa-space-8: 32px;
+  --qa-space-9: 36px;
+  --qa-space-10: 40px;
+  --qa-space-11: 44px;
+  --qa-space-12: 48px;
+  --qa-space-14: 56px;
+  --qa-space-16: 64px;
+  --qa-space-18: 72px;
+  --qa-space-20: 80px;
+  --qa-space-24: 96px;
+
+  /* 글자 크기: 값보존 사다리. 의미가 하나로 수렴하면 TYPE 을 쓰세요 */
+  --qa-fs-8: 8px;
+  --qa-fs-9: 9px;
+  --qa-fs-10: 10px;
+  --qa-fs-11: 11px;
+  --qa-fs-12: 12px;
+  --qa-fs-13: 13px;
+  --qa-fs-14: 14px;
+  --qa-fs-15: 15px;
+  --qa-fs-16: 16px;
+  --qa-fs-17: 17px;
+  --qa-fs-18: 18px;
+  --qa-fs-19: 19px;
+  --qa-fs-20: 20px;
+  --qa-fs-22: 22px;
+  --qa-fs-24: 24px;
+  --qa-fs-26: 26px;
+  --qa-fs-28: 28px;
+  --qa-fs-30: 30px;
+  --qa-fs-32: 32px;
+  --qa-fs-36: 36px;
+  --qa-fs-38: 38px;
+  --qa-fs-40: 40px;
+  --qa-fs-48: 48px;
+  --qa-fs-80: 80px;
+
+  /* 모서리: md(10px) 이 카드·버튼·입력의 표준 */
+  --qa-radius-sm: 6px;
+  --qa-radius-md: 10px;
+  --qa-radius-lg: 14px;
+  --qa-radius-xl: 20px;
+  --qa-radius-pill: 9999px;
+
+  /* 모션: 회전 금지 · scale 금지 */
+  --qa-motion-instant: 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-normal: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-slow: 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* 레이어 */
+  --qa-z-base: 1;
+  --qa-z-dropdown: 50;
+  --qa-z-sticky: 100;
+  --qa-z-header: 200;
+  --qa-z-fab: 300;
+  --qa-z-bottom-nav: 400;
+  --qa-z-drawer-fab: 500;
+  --qa-z-drawer-backdrop: 600;
+  --qa-z-drawer: 700;
+  --qa-z-overlay: 1000;
+  --qa-z-modal: 1100;
+  --qa-z-popover: 1200;
+  --qa-z-tooltip: 9999;
+  --qa-z-toast: 10000;
+  --qa-z-blocking: 10001;
+  --qa-z-session-gate: 10002;
+
+  /* 셸 폭 */
+  --qa-layout-mobile: 520px;
+  --qa-layout-form: 720px;
+  --qa-layout-detail: 820px;
+  --qa-layout-wide: 1140px;
+
+  /* 터치 타겟 */
+  --qa-touch-min: 44px;
+  --qa-touch-comfortable: 48px;
+
+  /* 아이콘 */
+  --qa-icon-strokeWidth: 1.5;
+  --qa-icon-strokeWidthThin: 1.25;
+  --qa-icon-sizeXs: 14px;
+  --qa-icon-sizeSm: 16px;
+  --qa-icon-sizeMd: 20px;
+  --qa-icon-sizeLg: 24px;
+  --qa-icon-sizeXl: 32px;
+  --qa-icon-size2xl: 48px;
+
+  /* 그림자: 다크 고정값. 테마 인지가 필요하면 위의 --qa-shadow-* 를 쓰세요 */
+  --qa-shadow-fixed-hairline: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.2);
+  --qa-shadow-fixed-surface: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px -4px rgba(0, 0, 0, 0.35);
+  --qa-shadow-fixed-float: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+  --qa-shadow-fixed-anchor: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.55);
+
+  /* 브랜드 */
+  --qa-gold-gradient: linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%);
+}
+</style><style>*{box-sizing:border-box}body{margin:0;background:#060606;color:var(--qa-text);font-family:'Malgun Gothic','Noto Sans KR',sans-serif;line-height:1.5}
+:root{--ctl:#7a7364}html[data-theme=light]{--ctl:#8c8575}
+html[data-theme=light] body{background:#e9e6df}
+.mono{font-family:Consolas,monospace}.mu{color:var(--qa-muted)}.sb{color:var(--qa-subtle)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+.btn{background:var(--qa-champagne);color:#0a0908;border-radius:10px;padding:8px 16px;font-size:14px;font-weight:600;display:inline-block}
+.btn2{border:1px solid var(--ctl);border-radius:10px;padding:8px 14px;font-size:14px;display:inline-block}
+html[data-theme=light] .btn{color:#fff}
+.in{border:1px solid var(--ctl);border-radius:10px;padding:9px 12px;font-size:14px;margin-top:5px;color:var(--qa-muted);min-height:40px}
+.fld{margin-bottom:14px}.fld label{font-size:13.5px;font-weight:600}.fld label small{font-weight:400;color:var(--qa-muted);margin-left:8px;font-size:12.5px}
+.stg{display:grid;grid-template-columns:repeat(5,1fr);margin:12px 0 4px;font-size:13px}.stg div{padding:8px 0;border-top:2px solid var(--qa-border);color:var(--qa-muted)}.stg div.dn{border-top-color:var(--qa-subtle);color:var(--qa-subtle)}.stg div.cur{border-top-color:var(--qa-champagne);color:var(--qa-text);font-weight:700}
+.sec{border-top:1px solid var(--qa-borderHi);margin-top:28px;padding-top:14px}.sec h4{margin:0 0 8px;font-size:17px;font-weight:700}
+.dr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--qa-border);font-size:14px}.dr span:first-child{color:var(--qa-muted)}
+.foc{outline:2px solid var(--qa-champagne);outline-offset:2px}.sv{font-size:12.5px;display:inline-flex;align-items:center;gap:6px}.sv.un{color:var(--qa-state-gold)}.sv.ok{color:var(--qa-state-green)}.sv.er{color:var(--qa-state-copper)}
+.ta{color:var(--qa-champagne);font-size:13.5px;font-weight:600}
+.cap{font-size:12.5px;color:var(--qa-muted);margin-top:6px;max-width:70ch}.wrap{padding:24px;display:flex;gap:26px;justify-content:center}
+.col{width:375px}.pc{font-size:14px;font-weight:700;margin:0 0 8px}.pc span{color:var(--qa-champagne);font-weight:400;font-size:12.5px;margin-left:6px}
+.pn{width:375px;height:780px;border:1px solid var(--qa-border);border-radius:30px;overflow:hidden;background:var(--qa-bg);position:relative}
+.sbar{height:44px;position:relative;font-size:12.5px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 26px 6px;font-weight:600}.sbar:before{content:'';position:absolute;left:50%;top:10px;width:96px;height:26px;margin-left:-48px;border-radius:14px;background:#000;border:1px solid var(--qa-border)}
+.top{height:52px;display:flex;align-items:center;gap:2px;padding:0 6px;border-bottom:1px solid var(--qa-borderHi)}
+.ham{width:44px;height:44px;display:grid;place-items:center}.ham i{display:block;width:18px;height:2px;background:var(--qa-text);box-shadow:0 6px 0 var(--qa-text),0 -6px 0 var(--qa-text)}
+.top b{font-size:16px}.top .r{margin-left:auto;font-size:14px;color:var(--qa-champagne);padding:0 10px}
+.tn{display:flex;flex-direction:column;line-height:1.25}.tn small{font-size:11.5px;color:var(--qa-muted);font-weight:400}
+.body{padding:14px 16px;overflow:hidden}
+h1{margin:0 0 10px;font-size:20px}.sub{font-size:12.5px;color:var(--qa-muted)}
+.kp{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--qa-borderHi);margin-bottom:12px}.kp>div{padding:10px 12px 10px 0;border-bottom:1px solid var(--qa-border)}.kp>div:nth-child(even){padding-left:14px;border-left:1px solid var(--qa-border)}.kp .k{font-size:12.5px;color:var(--qa-muted)}.kp .v{font-size:22px;font-weight:700;font-family:Consolas,monospace}.kp .urgent .v{color:var(--qa-state-copper)}
+.lst a{display:flex;justify-content:space-between;align-items:center;min-height:48px;border-bottom:1px solid var(--qa-border);font-size:15px}.lst a b{font-weight:600}
+.h{font-size:12.5px;color:var(--qa-muted);margin:6px 0 2px}
+.chips{display:flex;gap:8px;margin:0 0 6px;overflow:hidden;white-space:nowrap}.chip{border:1px solid var(--ctl);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--qa-subtle);min-height:44px;display:flex;align-items:center}.chip.on{border-color:var(--qa-champagne);color:var(--qa-text)}
+.item{padding:12px 0;border-bottom:1px solid var(--qa-border);min-height:64px}.item .t{font-size:15px;font-weight:600}.item .m{display:flex;gap:10px;font-size:12.5px;color:var(--qa-muted);margin-top:3px;align-items:center}
+.dr2{padding:11px 0;border-bottom:1px solid var(--qa-border);display:flex;justify-content:space-between;font-size:14.5px;min-height:46px}.dr2 span:first-child{color:var(--qa-muted)}
+.sec{border-top:1px solid var(--qa-borderHi);margin-top:14px;padding-top:10px}.sec h4{margin:0 0 2px;font-size:15px}
+.btnf{display:block;text-align:center;background:var(--qa-champagne);color:#0a0908;border-radius:10px;padding:13px;font-size:15px;font-weight:600;min-height:46px}
+html[data-theme=light] .btnf{color:#fff}.btnl{display:block;text-align:center;border:1px solid var(--ctl);border-radius:10px;padding:13px;font-size:15px;min-height:46px}
+.bar{position:absolute;left:0;right:0;bottom:0;background:var(--qa-bg);border-top:1px solid var(--qa-borderHi);padding:10px 16px 22px;display:flex;gap:8px}.bar .btnf,.bar .btnl{flex:1}
+.chk{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--qa-border);font-size:14.5px;min-height:48px}.chk i{flex:none;width:22px;height:22px;border:1px solid var(--ctl);border-radius:6px}.chk i.y{background:var(--qa-champagne);border-color:var(--qa-champagne)}
+.in{border:1px solid var(--ctl);border-radius:10px;padding:11px 12px;font-size:15px;margin-top:6px;color:var(--qa-muted);min-height:46px}</style></head><body><div class="wrap"><div class="col"><p class="pc">허브<span>떠 있는 메뉴 단추 없이 머리줄에 붙임</span></p><div class="pn"><div class="sbar"><span>9:41</span><span>5G</span></div><div class="top"><span class="ham"><i></i></span><b>인허가</b></div><div class="body"><div class="sub">ISO 13485 §7.3</div><h1>인허가 워크스페이스</h1><div class="kp"><div class="urgent"><div class="k">기한 임박</div><div class="v">1</div></div><div><div class="k">보완 요청</div><div class="v">2</div></div><div><div class="k">진행 중</div><div class="v">6</div></div><div><div class="k">이번 달 완료</div><div class="v">3</div></div></div><div class="h">오늘 처리할 것</div><div class="lst"><a><b>보완 자료 회신</b><span style="color:var(--qa-state-copper)" class="mono">10-12</span></a><a><b>시험 성적서 검토</b><span class="mu mono">10-14</span></a></div><div class="h" style="margin-top:10px">모듈</div><div class="lst"><a><b>허가 준비</b><span class="mu mono">2</span></a><a><b>허가 후 변경</b><span class="mu mono">1</span></a><a><b>임상 및 시험</b><span class="mu mono">3</span></a></div></div></div></div><div class="col"><p class="pc">상세<span>탭 없이 쌓음 · 번호는 고정 머리에</span></p><div class="pn"><div class="sbar"><span>9:41</span><span>5G</span></div><div class="top"><span class="ham"><i></i></span><b><span class="tn">불만 처리<small class="mono">CPL-2026-001 · 접수</small></span></b><span class="r">목록</span></div><div class="body"><div class="sec" style="margin-top:0;border-top:0;padding-top:0"><h4>기본 정보</h4><div class="dr2"><span>접수일</span><span class="mono">2026-10-08</span></div><div class="dr2"><span>제품</span><span>혈관 접합용 소모품</span></div><div class="dr2"><span>유입 채널</span><span>전화</span></div></div><div class="sec"><h4>관련 기록</h4><div class="dr2"><span>로트</span><span class="mono">LOT-2026-0412</span></div><div class="dr2"><span>위험관리 보고서</span><span class="mono">RM-2026-002</span></div></div><div class="sec"><h4>이력</h4><div class="dr2"><span>10-08 접수</span><span class="mu">김담당</span></div><div class="dr2" style="color:var(--qa-champagne)"><span style="color:var(--qa-champagne)">전체 이력 보기</span><span>3건</span></div></div></div><div class="bar"><span class="btnf">조사 시작</span></div></div></div><div class="col"><p class="pc">연속 검토<span>한 화면에 문서 하나 · 이전 / 다음</span></p><div class="pn"><div class="sbar"><span>9:41</span><span>5G</span></div><div class="top"><span class="ham"><i></i></span><b><span class="tn">설계 입력 검토서<small class="mono">DEV-2026-001 · 2 / 7</small></span></b><span class="r">목록</span></div><div class="body"><div class="dr2"><span>개정</span><span>Rev.03 · 변경 2건</span></div><div class="dr2"><span>관련 기록</span><span style="color:var(--qa-champagne)">RM-2026-002 ›</span></div><div class="chk"><i class="y"></i><span>요구사항이 사용 목적과 일치함</span></div><div class="chk"><i class="y"></i><span>위험관리 입력과 연결됨</span></div><div class="chk"><i></i><span>규격 인용이 최신 판임</span></div><div class="sec"><h4>검토 메모</h4><div class="in" style="min-height:90px">작성 중인 메모는 다른 문서로 가도 남습니다</div><div style="margin-top:8px;font-size:12.5px;color:var(--qa-state-gold)"><i class="dot" style="background:var(--qa-state-gold)"></i>저장되지 않음 · 이 화면에서만 보관 중</div></div></div><div class="bar"><span class="btnl" style="flex:.7">이전</span><span class="btnl" style="flex:1">메모 저장</span><span class="btnf" style="flex:1.5">완료 후 다음</span></div></div></div><div class="col"><p class="pc">생성 폼<span>입력 칸 윤곽 대비 3:1 이상</span></p><div class="pn"><div class="sbar"><span>9:41</span><span>5G</span></div><div class="top"><span class="ham"><i></i></span><b>불만 접수</b><span class="r">목록</span></div><div class="body"><div class="in" style="display:none"></div><div style="margin-bottom:12px"><b style="font-size:14px">유입 채널</b> <span class="mu" style="font-size:12px">전화, 이메일, 포털</span><div class="in">선택</div></div><div style="margin-bottom:12px"><b style="font-size:14px">접수일</b> <span style="font-size:12px;color:var(--qa-champagne)">필수</span><div class="in mono">2026-10-10</div></div><div style="margin-bottom:12px"><b style="font-size:14px">제품</b><div class="in">제품 검색</div></div><div style="margin-bottom:12px"><b style="font-size:14px">요약</b><div class="in">예: 포장 파손으로 무균 상태 의심</div></div><div><b style="font-size:14px">상세 내용</b><div class="in" style="min-height:90px"></div></div></div><div class="bar"><span class="btnl">취소</span><span class="btnf">접수</span></div></div></div></div></body></html>

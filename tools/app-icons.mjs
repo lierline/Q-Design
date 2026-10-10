@@ -55,10 +55,11 @@
 //   상단 바 색 자리를 모두 찾아 원본과 같은지 봅니다.
 //
 // 오너 지시 (2026-10-09): 「PWA 아이콘 변경 요청: 큐 아뜰리에 · 큐 카르넷 · 큐 메종 순으로」 + 그림 세 장.
-//   세 제품은 이제 오빠가 준 완성 그림(금속 Q 조형 · 은 = 서류 뭉치 + 펜촉 · 구리 = 수첩 띠 + 펜촉 · 금 = 결속 띠
-//   + 펜촉)을 그대로 씁니다. 붓 Q 에 색을 입히고 틀을 그리던 길은 그림이 없는 제품(Q-Sonar)에만 남습니다.
+//   네 제품은 이제 완성 그림(금속 Q 조형 · 은 = 서류 뭉치 + 펜촉 · 구리 = 수첩 띠 + 펜촉 · 금 = 결속 띠
+//   + 펜촉 · 강철 청 = 왼쪽 신호 호 두 겹 + 펜촉, 2026-10-10 코덱스 시안 A 를 오너가 고름)을 그대로 씁니다.
+//   붓 Q 에 색을 입히고 틀을 그리던 길은 그림이 없는 제품이 생길 때를 위해 남아 있습니다.
 //   원본은 source/brand/app-icon-<제품>.webp(투명 바탕 1254px · PRODUCTS 의 art). 그림의 알파 상자를 잘라
-//   먹색 판 가운데 ART_BOX 크기로 앉힙니다(작은 판은 조금 키움). 판 번호 v=3.
+//   먹색 판 가운데 ART_BOX 크기로 앉힙니다(작은 판은 조금 키움). 판 번호 v=4.
 //
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
@@ -130,7 +131,7 @@ const PRODUCTS = [
     titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
   },
   {
-    key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
+    key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', art: 'app-icon-sonar.webp', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
     tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
     marksIn: ['src/components/QMark.tsx'], native: [],
     titleBarIn: ['src/app/manifest.ts', 'src/app/layout.tsx'],
@@ -162,7 +163,7 @@ const OLD_MARK_PNGS = ['logo-dark.png', 'logo-light.png', 'logo-mark.png', 'logo
  *    이 도구가 멈춥니다(dist/app-icons/version.json 과 대조). 그림이 그대로인데 이 값만 올리면 설치 앱에
  *    쓸데없는 갱신 안내가 뜨므로 알립니다.
  */
-const ICON_VERSION = '3';
+const ICON_VERSION = '4';
 const ICON_NAMES = ['icon-192', 'icon-512', 'icon-192-maskable', 'icon-512-maskable', 'apple-icon', 'badge-96'];
 
 // ── 금속 계단: 명도 L(0..1) → 색. 은은 원본 그대로 ─────────────────────────────

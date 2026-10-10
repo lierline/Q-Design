@@ -173,11 +173,11 @@ Object.assign(spec, probeAll([
 for (const [what, zone, re] of [
   ['주 단추 면 = 글자색', H.btn, /: p \? T\.text : 'transparent',/],
   ['주 단추 글자 = 바탕색', H.btn, /: p \? T\.bg : T\.subtle,/],
-  ['보조 단추 테두리 = border', H.btn, /: `1px solid \$\{T\.border\}`,/],
+  ['보조 단추 테두리 = 조작 윤곽(CTL)', H.btn, /: `1px solid \$\{CTL\}`,/],
   ['입력칸 바탕 = surface', H.input, /background: T\.surface,/],
-  ['입력칸 테두리 = border', H.input, /border: `1px solid \$\{T\.border\}`,/],
+  ['입력칸 테두리 = 조작 윤곽(CTL)', H.input, /border: `1px solid \$\{CTL\}`,/],
   ['입력칸 초점 = champagne 테두리 · surface2 바탕', H.qaInputFocus, /border-color: var\(--qa-champagne\)[^;]*;\s*background-color: var\(--qa-surface2\);/],
-  ['보조 단추 올림 = borderHi', gcss, /\.qa-btn-secondary:hover:not\(:disabled\) \{\s*border-color: var\(--qa-borderHi\);/],
+  ['보조 단추 올림 = muted', gcss, /\.qa-btn-secondary:hover:not\(:disabled\) \{\s*border-color: var\(--qa-muted\);/],
 ]) {
   if (!re.test(zone)) throw new Error(`원본의 색 뜻이 바뀌었습니다: ${what}`);
 }
@@ -321,6 +321,7 @@ const BINDINGS = [
   ['surface2', 'surface2'],
   ['border', 'border'],
   ['borderHi', 'borderHi'],
+  ['ctl', 'ctl'],
   ['text', 'text'],
   ['subtle', 'subtle'],
   ['muted', 'muted'],
@@ -693,8 +694,8 @@ ${bind('light')}
 .qd-btn--primary { background: var(--qd-text); color: var(--qd-bg); }
 .qd-btn--primary:hover:not(:disabled) { opacity: ${spec.btn.hoverOpacity}; }
 .qd-btn--primary:active:not(:disabled) { transform: translateY(1px); }
-.qd-btn--secondary { background: transparent; border-color: var(--qd-border); color: var(--qd-subtle); }
-.qd-btn--secondary:hover:not(:disabled) { border-color: var(--qd-borderHi); color: var(--qd-text); }
+.qd-btn--secondary { background: transparent; border-color: var(--qd-ctl); color: var(--qd-subtle); }
+.qd-btn--secondary:hover:not(:disabled) { border-color: var(--qd-muted); color: var(--qd-text); }
 .qd-btn--danger { background: var(--qd-danger); border-color: var(--qd-danger); color: var(--qd-bg); }
 .qd-btn--secondary.qd-btn--danger { background: transparent; color: var(--qd-danger); }
 .qd-btn:disabled,
@@ -717,7 +718,7 @@ ${bind('light')}
   width: 100%;
   padding: ${spec.input.padding};
   background: var(--qd-surface);
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(spec.input.radius)});
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
@@ -727,7 +728,7 @@ ${bind('light')}
   line-height: normal;
   transition: border-color ${tokens.motion.fast}, background-color ${tokens.motion.fast}, box-shadow ${tokens.motion.fast};
 }
-.qd-input:hover:not(:focus):not(:disabled):not([readonly]) { border-color: var(--qd-borderHi); }
+.qd-input:hover:not(:focus):not(:disabled):not([readonly]) { border-color: var(--qd-muted); }
 .qd-input:focus {
   border-color: var(--qd-accent);
   background-color: var(--qd-surface2);

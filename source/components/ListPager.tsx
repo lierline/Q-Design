@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { ChevronLeft } from '@/components/q-design-icons/ChevronLeft';
 import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
 import { S, FS, T, F, LH, RADIUS, ICON, labelTracking, labelCase, hasHangul } from '@/lib/design/tokens';
+import { CTL } from '@/lib/design/grain';
 import { pageCount, pageWindow, PAGE_SIZE } from '@/lib/api/list-page';
 
 interface ListPagerProps {
@@ -88,7 +89,7 @@ export function ListPager({
     padding: '7px 12px',
     minHeight: 36,
     borderRadius: RADIUS.md,
-    border: `1px solid ${T.border}`,
+    border: `1px solid ${CTL}`,
     background: 'transparent',
     color: enabled ? T.text : T.muted,
     fontFamily: F.ui,

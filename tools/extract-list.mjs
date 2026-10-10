@@ -314,11 +314,11 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['쪽 이동 줄 윗선 = border', Q.pagerNav, /borderTop: 위 \? undefined : `1px solid \$\{T\.border\}`,/],
     /* 2026-09-28(41d8b2eb) 고정폭 한글 걷기: 한글이 섞인 건수 글은 본문체, 숫자만이면 모노 */
     ['건수 글 = 한글은 본문체 · 숫자는 모노 · muted', Q.pagerLabel, /fontFamily: hasHangul\(text\) \? F\.ui : F\.mono,[\s\S]*color: T\.muted,/],
-    ['이동 단추 = border 테두리 · 투명 · text', Q.pagerBtn, /border: `1px solid \$\{T\.border\}`,\s*background: 'transparent',\s*color: enabled \? T\.text : T\.muted,/],
+    ['이동 단추 = 조작 윤곽(CTL) 테두리 · 투명 · text', Q.pagerBtn, /border: `1px solid \$\{CTL\}`,\s*background: 'transparent',\s*color: enabled \? T\.text : T\.muted,/],
     ['이동 단추 모서리 = RADIUS.md', Q.pagerBtn, /borderRadius: RADIUS\.md,/],
     ['거르개 띠 바탕 = bg', Q.barOuter, /background: T\.bg,/],
-    ['거르개 칸 = surface 바탕 · border 테두리 · RADIUS.md', Q.barField, /borderRadius: RADIUS\.md,\s*border: `1px solid \$\{T\.border\}`,\s*background: T\.surface,/],
-    ['거르개 단추 = 공용 Btn 보조(투명 · border · subtle)', Q.barSubmit, /: `1px solid \$\{T\.border\}`,[\s\S]*?p \? T\.text : 'transparent',[\s\S]*?p \? T\.bg : T\.subtle,/],
+    ['거르개 칸 = surface 바탕 · 조작 윤곽(CTL) 테두리 · RADIUS.md', Q.barField, /borderRadius: RADIUS\.md,\s*border: `1px solid \$\{CTL\}`,\s*background: T\.surface,/],
+    ['거르개 단추 = 공용 Btn 보조(투명 · 조작 윤곽(CTL) · subtle)', Q.barSubmit, /: `1px solid \$\{CTL\}`,[\s\S]*?p \? T\.text : 'transparent',[\s\S]*?p \? T\.bg : T\.subtle,/],
     ['건수 글(도구줄) = 한글은 본문체 · 숫자는 모노 · muted', Q.barLabel, /fontFamily: hasHangul\(text\) \? F\.ui : F\.mono,[\s\S]*color: T\.muted,/],
     ['빈 목록 제목 = subtle', Q.emptyTitle, /color: T\.subtle,/],
     ['빈 목록 설명 = muted · LH.loose', Q.emptyDesc, /color: T\.muted,\s*lineHeight: LH\.loose,/],
@@ -365,6 +365,7 @@ const BINDINGS = [
   ['surface2', 'surface2'],
   ['border', 'border'],
   ['borderHi', 'borderHi'],
+  ['ctl', 'ctl'],
   ['text', 'text'],
   ['subtle', 'subtle'],
   ['muted', 'muted'],
@@ -798,7 +799,7 @@ ${bind('light')}
   box-sizing: border-box;
   min-height: ${px(spec.pager.btnMinHeight)};
   padding: ${spec.pager.btnPadding};
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
   background: transparent;
   color: var(--qd-text);
@@ -877,7 +878,7 @@ ${bind('light')}
   height: ${px(spec.bar.fieldHeight)};
   min-width: 0;
   padding: 0 ${px(spec.bar.selectPadX)};
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
   background: var(--qd-surface);
   color: var(--qd-text);
@@ -894,7 +895,7 @@ ${bind('light')}
   flex: 0 0 auto;
   height: ${px(spec.bar.submitHeight)};
   padding: 0 ${px(spec.bar.submitPadX)};
-  border: 1px solid var(--qd-border);
+  border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
   background: transparent;
   /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 ${px(spec.bar.submitPadX)}(전에는 text · 16) */

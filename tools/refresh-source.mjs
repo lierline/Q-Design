@@ -275,6 +275,9 @@ for (const entry of MAP) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) continue;
     if (여기가원본.has(`${entry.dest}/${name}`)) continue;
+    /* 제품 앱 아이콘 원본 그림(app-icon-<제품>.webp)은 Q-Design 이 원본입니다(2026-10-09 오너가 준 그림 · 10-10 Q-Sonar).
+       Q-Atelier public 에는 없으니 지도가 설명하지 못해 «고아» 로 잡혀 sync 가 지웠습니다(2026-10-10 실측). 지우지 않습니다. */
+    if (entry.dest === 'brand' && /^app-icon-[a-z]+\.webp$/.test(name)) continue;
     if (!claimed.has(key(p))) orphan.push(p);
   }
 }

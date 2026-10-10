@@ -22,3 +22,7 @@ export const ruleBand = (color: string): { borderTop: string; borderBottom: stri
   borderTop: `1px solid ${tintBorder(color)}`,
   borderBottom: `1px solid ${tintBorder(color)}`,
 });
+
+/** 조작 윤곽 색(입력 칸 · 보조 단추 · 아이콘 단추): 인접 면과 3:1 이상. 행 · 구역 구분선(T.border · T.borderHi)과 다른 층이다(2026-10-10).
+ *  🔴 tokens.ts 에 두지 않은 까닭은 위와 같다(엔진 검증 근거). 값은 globals.css 의 --qa-ctl. */
+export const CTL = 'var(--qa-ctl)';

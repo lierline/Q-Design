@@ -13,7 +13,7 @@ import { TextAction } from '@/components/TextAction';
 import { BP, F, FS, LH, MOTION, RADIUS, S, SHADOW, T, TOUCH, TYPE, Z, alpha, labelCase, labelTracking, labelWordSpacing } from './tokens';
 // ⓘ 여는 방법(올리면 · 눌러야)은 설정 › 표시(이 기기)에서 고른다(2026-10-08 오너 지시). 기본은 «눌러야».
 import { useInfoTrigger } from '@/lib/novice-mode';
-import { ruleBand, tintBorder } from './grain';
+import { CTL, ruleBand, tintBorder } from './grain';
 import { TAG_DIMS } from './tag-metrics';
 import { riskLabelKo } from '@/lib/labels/risk';
 import { printZoom } from './print';
@@ -105,7 +105,7 @@ const inputStyle: CSSProperties = {
   width: '100%',
   padding: '10px 14px',
   background: T.surface,
-  border: `1px solid ${T.border}`,
+  border: `1px solid ${CTL}`,
   color: T.text,
   fontSize: FS[13],
   fontFamily: F.ui,
@@ -383,7 +383,7 @@ export function Btn({
           ? `1px solid ${T.red}`
           : p
             ? `1px solid transparent`
-            : `1px solid ${T.border}`,
+            : `1px solid ${CTL}`,
         background: danger ? (p ? T.red : 'transparent') : p ? T.text : 'transparent',
         color: danger ? (p ? T.bg : T.red) : p ? T.bg : T.subtle,
         // pending 은 «바쁨» 이지 «못 누름» 이 아니다: 흐리게 하지 않는다
@@ -480,7 +480,7 @@ export function IconBtn({
         height: size,
         flexShrink: 0,
         background: 'transparent',
-        border: `1px solid ${T.border}`,
+        border: `1px solid ${CTL}`,
         borderRadius: RADIUS.sm, // 럭셔리 표준: 아이콘 버튼 6px 라운드
         color: T.muted,
         cursor: disabled ? 'not-allowed' : 'pointer',
@@ -495,12 +495,12 @@ export function IconBtn({
       onMouseEnter={(e) => {
         if (disabled) return;
         e.currentTarget.style.color = danger ? T.red : T.text;
-        if (!ownBorder) e.currentTarget.style.borderColor = danger ? T.red : T.borderHi;
+        if (!ownBorder) e.currentTarget.style.borderColor = danger ? T.red : T.muted;
       }}
       onMouseLeave={(e) => {
         if (disabled) return;
         e.currentTarget.style.color = baseColor;
-        if (!ownBorder) e.currentTarget.style.borderColor = T.border;
+        if (!ownBorder) e.currentTarget.style.borderColor = CTL;
       }}
     >
       {children}
