@@ -8,7 +8,7 @@
 
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { S, FS, F, T, alpha, STATE, RADIUS, LH } from '@/lib/design/tokens';
-import { ruleBand, tintBorder } from '@/lib/design/grain';
+import { ruleBand, tintBorder, CTL } from '@/lib/design/grain';
 import { Btn, Field, InfoDot, LegalNote, NextStep } from '@/lib/design/components';
 import {
   Q_MATCH_ENGINE_NAME,
@@ -1513,7 +1513,7 @@ const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '6px 10px',
   background: T.bg,
-  border: `1px solid ${T.border}`,
+  border: `1px solid ${CTL}`,
   color: T.text,
   fontSize: FS[12],
   fontFamily: F.mono,

@@ -847,7 +847,9 @@ export function Switch({
         position: 'relative', width: dims.w, height: dims.h, flexShrink: 0, borderRadius: RADIUS.pill,
         cursor: disabled ? 'default' : 'pointer',
         background: checked ? color : T.border,
-        border: 'none', transition: 'background 160ms ease', opacity: disabled ? 0.5 : 1,
+        // 꺼진 상태 윤곽: 트랙 색(--qa-border)만으로는 면과 1.2:1 이라 보이지 않았다(조작 윤곽 3:1)
+        boxShadow: checked ? 'none' : `inset 0 0 0 1px ${CTL}`,
+        border: 'none', transition: 'background 160ms ease, box-shadow 160ms ease', opacity: disabled ? 0.5 : 1,
       }}
     >
       <span style={{ position: 'absolute', top: 3, left: checked ? onLeft : 3, width: dims.knob, height: dims.knob, borderRadius: '50%', background: checked ? T.bg : T.surface, transition: 'left 160ms ease' }} />
@@ -1178,17 +1180,7 @@ export function FormSection({
           borderBottom: `1px solid ${T.border}`,
         }}
       >
-        <div
-          style={{
-            fontSize: FS[12],
-            color: T.champagne,
-            fontFamily: F.mono,
-            letterSpacing: labelTracking(title, 1.8),
-            wordSpacing: labelWordSpacing(title),
-            textTransform: labelCase(title),
-            fontWeight: 600,
-          }}
-        >
+        <div className="qa-sec-t" style={SECTION_TITLE}>
           {title}
         </div>
         {/* 구역 제목 ⓘ(2026-10-08): 설명은 화면에 깔지 않고 팝업으로 */}
@@ -2929,6 +2921,18 @@ export function LegalNote({ children, style }: { children: ReactNode; style?: CS
 }
 
 // ─── SECTION TITLE ───────────────────────────────────────────────────────────
+// 2026-10-10 글자 단계 C안(오너 결정): 구역 제목은 16px 굵게 본문색, 금색은 앞의 모노 번호에만 남긴다.
+//   번호는 CSS 카운터(globals.css .qa-sec-t::before)가 붙인다. 예전 12px 금색 모노 자간 넓힘은 구역이 데이터 줄에 묻혔다.
+//   구역 제목 4곳(SectionTitle · SectionTitleInfo · Section · FormSection)이 이 한 벌을 쓴다.
+export const SECTION_TITLE = {
+  margin: 0,
+  fontSize: FS[16],
+  fontWeight: 700,
+  color: T.text,
+  fontFamily: F.ui,
+  lineHeight: 1.35,
+} as const;
+
 export function SectionTitle({
   children,
   noMargin,
@@ -2945,19 +2949,10 @@ export function SectionTitle({
 }) {
   return (
     <Comp
+      className="qa-sec-t"
       style={{
-        margin: 0,
-        fontSize: FS[12],
-        color: T.champagne,
-        // 🔴 2026-08-21: 한글이면 자간 0. 이 컴포넌트는 **전 페이지 섹션 헤더**라,
-        //    2.2px 트래킹이 「오늘  처리할  것」처럼 낱글자로 흩어져 보였다(오빠 지적).
-        //    라틴 대문자는 벌려야 읽히지만 한글은 반대다. 규칙은 tokens 의 labelTracking.
-        letterSpacing: labelTracking(children, 2.2),
-        wordSpacing: labelWordSpacing(children),
-        fontFamily: F.mono,
-        textTransform: labelCase(children),
+        ...SECTION_TITLE,
         marginBottom: noMargin ? 0 : 14,
-        fontWeight: 500,
       }}
     >
       {children}
@@ -2976,17 +2971,7 @@ export function Section({ title, info, children }: { title: ReactNode; /** 구�
   return (
     <div className="qa-section-body" style={{ marginBottom: S[6] }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: S[1.5], marginBottom: S[3] }}>
-        <div
-          style={{
-            fontFamily: F.mono,
-            fontSize: FS[12],
-            fontWeight: 500,
-            letterSpacing: labelTracking(title, '0.14em'),
-            wordSpacing: labelWordSpacing(title),
-            color: T.champagne,
-            textTransform: labelCase(title),
-          }}
-        >
+        <div className="qa-sec-t" style={SECTION_TITLE}>
           {title}
         </div>
         {info && <InfoDot label={typeof title === 'string' ? `${title}: 설명 보기` : '구역 설명 보기'}>{info}</InfoDot>}
@@ -3051,17 +3036,7 @@ export function SectionTitleInfo({
   if (!info) return <SectionTitle>{children}</SectionTitle>;
   return (
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: S[1.5], marginBottom: S[3.5] }}>
-      <span
-        style={{
-          fontSize: FS[12],
-          color: T.champagne,
-          letterSpacing: labelTracking(children, 2.2),
-          wordSpacing: labelWordSpacing(children),
-          fontFamily: F.mono,
-          textTransform: labelCase(children),
-          fontWeight: 500,
-        }}
-      >
+      <span className="qa-sec-t" style={SECTION_TITLE}>
         {children}
       </span>
       <InfoDot label={typeof children === 'string' ? `${children}: 설명 보기` : '구역 설명 보기'}>{info}</InfoDot>

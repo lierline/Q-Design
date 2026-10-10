@@ -249,6 +249,24 @@ a {
 .qa-section-body > * + * {
   margin-top: 12px;
 }
+/* 구역 제목 번호(2026-10-10 글자 단계 C안): 제목은 본문색 16/700, 금색은 앞의 모노 번호에만 남긴다.
+   번호는 화면(main) 또는 창(dialog) 안에서 구역 제목이 나오는 차례대로 01 · 02 … 로 센다. */
+main,
+[role='dialog'] {
+  counter-reset: qa-sec;
+}
+.qa-sec-t::before {
+  counter-increment: qa-sec;
+  content: counter(qa-sec, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--qa-champagne);
+  margin-right: 10px;
+  vertical-align: 1px;
+}
+
 
 ::selection {
   background: color-mix(in srgb, var(--qa-champagne) 30%, transparent);

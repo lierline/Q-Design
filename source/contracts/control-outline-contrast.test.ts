@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { readSource } from '@/lib/test-utils/contract-source';
 
 // =============================================================================
 // 디자인 가드: 조작 윤곽(--qa-ctl)은 인접 면과 3:1 이상 (2026-10-10)
@@ -11,7 +12,7 @@ import { join } from 'node:path';
 //
 // 값은 globals.css 의 `--qa-ctl` 한 곳에서 읽는다(손으로 옮겨 적지 않는다).
 
-const css = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+const css = readSource('app/globals.css', 'raw'); // 색 값은 CSS 원문에서 읽는다(codeOnly 는 TS 주석 규칙이라 CSS 를 망가뜨릴 수 있음);
 
 function lum(hex: string): number {
   const h = hex.replace('#', '');
@@ -52,15 +53,44 @@ describe('조작 윤곽 --qa-ctl 은 인접 면과 3:1 이상', () => {
   }
 
   it('입력 칸 · 보조 단추 · 아이콘 단추가 구분선 색이 아니라 CTL 을 쓴다', () => {
-    const comp = readFileSync(join(process.cwd(), 'lib/design/components.tsx'), 'utf8');
+    const comp = readSource('lib/design/components.tsx', 'code');
     const input = /const inputStyle[\s\S]*?\n\};/.exec(comp)?.[0] ?? '';
     expect(input).toContain('${CTL}');
     expect(input).not.toMatch(/border: `1px solid \$\{T\.border/);
   });
 
+  it('손으로 만든 입력 칸 스타일(inputStyle · selectStyle · fieldStyle · inp)이 구분선 색을 테두리로 쓰지 않는다', () => {
+    const walk = (dir: string, out: string[] = []): string[] => {
+      for (const n of readdirSync(dir)) {
+        const p = join(dir, n);
+        if (n === 'node_modules' || n.startsWith('.')) continue;
+        if (statSync(p).isDirectory()) walk(p, out);
+        else if (p.endsWith('.tsx') && !p.endsWith('.test.tsx')) out.push(p);
+      }
+      return out;
+    };
+    const decl = /const (inputStyle|inputCss|selectStyle|fieldStyle|inp)\b[^\n=]*=\s*(?:\([^)]*\)\s*=>\s*)?\(?\{/g;
+    const bad: string[] = [];
+    for (const f of [...walk(join(process.cwd(), 'app')), ...walk(join(process.cwd(), 'components'))]) {
+      const src = readFileSync(f, 'utf8');
+      for (const m of src.matchAll(decl)) {
+        let depth = 0;
+        let i = m.index! + m[0].length - 1;
+        const start = i;
+        for (; i < src.length; i++) {
+          if (src[i] === '{') depth++;
+          else if (src[i] === '}' && --depth === 0) break;
+        }
+        const body = src.slice(start, i + 1);
+        if (/border:\s*`1px solid \$\{T\.border(?:Hi)?\}`/.test(body)) bad.push(`${f.replace(process.cwd(), '')} · ${m[1]}`);
+      }
+    }
+    expect(bad, '입력 칸 테두리는 CTL(--qa-ctl)을 쓸 것').toEqual([]);
+  });
+
   it('목록 쪽 이동 단추 · 거르개 칸도 CTL 을 쓴다', () => {
     for (const f of ['components/ListPager.tsx', 'components/ListToolbar.tsx']) {
-      const src = readFileSync(join(process.cwd(), f), 'utf8');
+      const src = readSource(f, 'code');
       expect(src, f).toContain('border: `1px solid ${CTL}`');
     }
   });

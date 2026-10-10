@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useToast } from '@/components/Toast';
 import { Btn, Bx, Checkbox, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';
 import { S, FS, F, T, RADIUS, LAYOUT } from '@/lib/design/tokens';
+import { CTL } from '@/lib/design/grain';
 import { Plus } from '@/components/q-design-icons/Plus';
 import { Trash2 } from '@/components/q-design-icons/Trash2';
 import { PageGuide } from '@/components/PageGuide';
@@ -170,7 +171,7 @@ export function UdiDetailClient({
   function removePkg(i: number) {
     setPkgs((p) => p.filter((_, idx) => idx !== i));
   }
-  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: T.surface, border: `1px solid ${T.border}`, borderRadius: RADIUS.md, color: T.text, minHeight: 40 };
+  const fieldStyle: React.CSSProperties = { padding: '9px 11px', fontFamily: F.serif, fontSize: FS[13], background: T.surface, border: `1px solid ${CTL}`, borderRadius: RADIUS.md, color: T.text, minHeight: 40 };
 
   return (
     <div style={{ maxWidth: LAYOUT.wide, margin: '0 auto' }}>

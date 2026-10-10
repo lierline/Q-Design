@@ -15,7 +15,7 @@
 //   .qd-page-head 화면 머리. 금색 막대 · 부제 · 제목 · 하단선 (2026-09-24)
 //   .qd-btn       단추. 주는 글자색 면(다크 상아 · 라이트 먹) · 보조는 테두리 (2026-09-24)
 //   .qd-input     입력칸. 글 · 고르개 · 여러 줄 한 상자 · 모서리 10 (2026-09-24)
-//   .qd-section-title 판 밖의 구역 이름. 금색 · 모노 (2026-09-24 · docs/22 10절)
+//   .qd-section-title 판 밖의 구역 이름. 본문색 16/700 + 금색 모노 번호 (2026-10-10 글자 단계 C안 · 이전: 금색 모노 12px)
 //   .qd-field-label   입력칸 위 이름표. 모노 · subtle (같은 날)
 //   .qd-tabs          화면 안을 가르는 탭 줄. 금색 밑줄 (같은 날)
 //   .qd-shell-*   읽는 화면 820 · 쓰는 화면 720 으로 좁히고 가운데
@@ -250,7 +250,7 @@ put(spec, 'panel.radius', tokens.radius.md);
   const Q = {
     tabsRow: slice(tabsSrc, '<div role="tablist"', '>', 'PageTabs.row'),
     tab: slice(tabsSrc, 'role="tab" aria-selected={on}', '}}>', 'PageTabs.tab'),
-    section: slice(comp, 'export function SectionTitle({', '// ─── SECTION (', 'SectionTitle'),
+    section: slice(comp, '// ─── SECTION TITLE ──', '// ─── SECTION (', 'SectionTitle'),
     field: slice(comp, 'export function Lbl({', '// ─── INPUT', 'Lbl'),
   };
   const got = probeAll([
@@ -261,7 +261,6 @@ put(spec, 'panel.radius', tokens.radius.md);
     ['tabs.weightOn',   Q.tab,     /fontWeight: on \? (\d+) : \d+,/, Number],
     ['tabs.weightOff',  Q.tab,     /fontWeight: on \? \d+ : (\d+),/, Number],
     ['section.fontSize', Q.section, /fontSize: FS\[(\d+)\],/, Number],
-    ['section.tracking', Q.section, /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
     ['section.gapBelow', Q.section, /marginBottom: noMargin \? 0 : (\d+),/, Number],
     ['section.weight',   Q.section, /fontWeight: (\d+),/, Number],
     ['field.fontSize',  Q.field,   /fontSize: FS\[(\d+)\],/, Number],
@@ -299,7 +298,7 @@ put(spec, 'panel.radius', tokens.radius.md);
     ['탭 줄 밑선 = border', Q.tabsRow, /borderBottom: `1px solid \$\{T\.border\}`/],
     ['탭 글자 = 고르면 text · 아니면 muted', Q.tab, /color: on \? T\.text : T\.muted,/],
     ['탭 글꼴 = serif(= Pretendard, ui 와 같음)', Q.tab, /fontFamily: F\.serif,/],
-    ['구역 이름 = champagne · 모노', Q.section, /color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
+    ['구역 이름 = 본문색 · ui (금색은 번호에만)', Q.section, /color: T\.text,[\s\S]*fontFamily: F\.ui,/],
     ['칸 이름표 = subtle · 모노', Q.field, /color: T\.subtle,[\s\S]*fontFamily: F\.mono,/],
   ]) {
     if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
@@ -347,7 +346,7 @@ const css = `/* ================================================================
      .qd-page-head  화면 머리. 막대 · 부제 · 제목 · 하단선
      .qd-btn        단추. 주(글자색 면) · 보조(테두리) · 위험 · 작은 것
      .qd-input      입력칸. 글 · 고르개 · 여러 줄
-     .qd-section-title  판 밖의 구역 이름(금색 · 모노)
+     .qd-section-title  판 밖의 구역 이름(본문색 16/700 · 금색 모노 번호)
      .qd-field-label    입력칸 위 이름표(모노 · subtle)
      .qd-tabs · .qd-tab 화면 안을 가르는 탭 줄(금색 밑줄)
      .qd-shell-*    폭을 좁히고 가운데 두는 규칙
@@ -491,7 +490,7 @@ ${bind('light')}
 }
 
 /* ── 구역 이름 ─────────────────────────────────────────────────────────────
-   판 «밖» 에서 덩어리의 이름을 말하는 한 줄입니다(원본 SectionTitle). 금색 · 모노 · 작게.
+   판 «밖» 에서 덩어리의 이름을 말하는 한 줄입니다(원본 SectionTitle). 본문색 16/700 · 앞에 금색 모노 번호(2026-10-10 C안).
    .qd-label 과 다릅니다. 그쪽은 카드 «안» 의 조용한 이름표(muted)이고, 이쪽은 화면을
    구역으로 나누는 표지(강조색)입니다.
    🔴 네 제품 대조에서 판 안 제목 + 구분선 · 14px 굵은 제목 · 금색 모노(원본)로 갈렸습니다.
@@ -502,19 +501,24 @@ ${bind('light')}
    제목 옆에 배지 · 단추가 함께 서는 머리 줄에서는 --flush 로 아래 여백을 뺍니다. */
 .qd-section-title {
   margin: 0 0 ${px(spec.section.gapBelow)};
-  font-family: var(--qd-font-mono);
+  font-family: var(--qd-font-ui);
   font-size: ${px(spec.section.fontSize)};
   font-weight: ${spec.section.weight};
-  /* 원본은 본문 줄간격(${spec.body.lineHeight})을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
-  line-height: ${spec.body.lineHeight};
-  letter-spacing: ${px(spec.section.tracking)};
-  text-transform: uppercase;
-  color: var(--qd-accent);
+  line-height: 1.35;
+  color: var(--qd-text);
 }
-.qd-section-title[data-hangul] {
-  letter-spacing: 0;
-  text-transform: none;
-  word-spacing: var(--qd-hangul-word-space);
+/* 번호: 화면(main) 안에서 구역 제목이 나오는 차례대로 01 · 02 … (원본 globals.css .qa-sec-t::before) */
+main, [role='dialog'] { counter-reset: qd-sec; }
+.qd-section-title::before {
+  counter-increment: qd-sec;
+  content: counter(qd-sec, decimal-leading-zero);
+  font-family: var(--qd-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--qd-accent);
+  margin-right: 10px;
+  vertical-align: 1px;
 }
 .qd-section-title--flush { margin-bottom: 0; }
 
