@@ -1,0 +1,222 @@
+{
+  "scope": "Exact retained argument reviews after seven central control-height substitutions and two named role recipes. Complete source transformation is separately verified. Only source/evidence hashes and relocated lexical positions changed; all other review content is preserved.",
+  "beforeReportHash": "e12ba97f94ab85647ea42966cbbcc323abdd7f5d3af60536070787126e7ed6b1",
+  "afterReportHash": "674000ceb70b4fcd4edf6ee1cfd2f9601fbcc12c17c173fc93db6689261b086d",
+  "records": [
+    {
+      "index": 165,
+      "before": {
+        "argumentHash": "9b4dab0aa1353d34e89bfae9559d48668007c54e2dc7d6bffbdcc00c7fa4b5a9",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 130,
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "reviewed-skeleton-finite-variant",
+        "reason": "This named default selects CARD_HEIGHT or CARD_COLUMNS in the same component. Those finite h-28/h-40/h-56 and responsive grid utilities are supplied by the central Tailwind preset. This proves delegation, not an exemption for future map values. Consumer: {`${CARD_HEIGHT[height]} qd-skeleton border`}",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 130,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 139,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ],
+        "reviewedExpression": "\"md\"",
+        "consumerContext": [
+          {
+            "line": 139,
+            "text": "{`${CARD_HEIGHT[height]} qd-skeleton border`}"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "ee2e62238a4487f143c1f95868510638211638e9b1a7baaa0cdb61e6d30c333e",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 133,
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "reviewed-skeleton-finite-variant",
+        "reason": "This named default selects CARD_HEIGHT or CARD_COLUMNS in the same component. Those finite h-28/h-40/h-56 and responsive grid utilities are supplied by the central Tailwind preset. This proves delegation, not an exemption for future map values. Consumer: {`${CARD_HEIGHT[height]} qd-skeleton border`}",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 133,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 142,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ],
+        "reviewedExpression": "\"md\"",
+        "consumerContext": [
+          {
+            "line": 142,
+            "text": "{`${CARD_HEIGHT[height]} qd-skeleton border`}"
+          }
+        ]
+      }
+    },
+    {
+      "index": 166,
+      "before": {
+        "argumentHash": "320b2e6bfc0b19c514cb64b922f3726951e1ca1c04eee24e0f842fd49d01cbaf",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 131,
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "reviewed-skeleton-finite-variant",
+        "reason": "This named default selects CARD_HEIGHT or CARD_COLUMNS in the same component. Those finite h-28/h-40/h-56 and responsive grid utilities are supplied by the central Tailwind preset. This proves delegation, not an exemption for future map values. Consumer: {`grid gap-4 ${CARD_COLUMNS[columns]}`}",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 131,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 137,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ],
+        "reviewedExpression": "3",
+        "consumerContext": [
+          {
+            "line": 137,
+            "text": "{`grid gap-4 ${CARD_COLUMNS[columns]}`}"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "bfa990b966fbbc9ca1b8fe653fcc63ca2e2b40985fea7b1ad04a2fbb89a46052",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 134,
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "reviewed-skeleton-finite-variant",
+        "reason": "This named default selects CARD_HEIGHT or CARD_COLUMNS in the same component. Those finite h-28/h-40/h-56 and responsive grid utilities are supplied by the central Tailwind preset. This proves delegation, not an exemption for future map values. Consumer: {`grid gap-4 ${CARD_COLUMNS[columns]}`}",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 134,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 140,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ],
+        "reviewedExpression": "3",
+        "consumerContext": [
+          {
+            "line": 140,
+            "text": "{`grid gap-4 ${CARD_COLUMNS[columns]}`}"
+          }
+        ]
+      }
+    },
+    {
+      "index": 167,
+      "before": {
+        "argumentHash": "bed7a264a5a02665738798ac1afb8694cd160e2c5b3fb1bedfe9b9a0ce1f4457",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 136,
+        "decision": "structural-behavior",
+        "ruleId": "reviewed-reused-jsx-structure",
+        "reason": "This variable stores the rendered skeleton section and chooses its optional wrapper. Its class and height/column members have separate exact records. Consumer: return grid; | return ( <div role=\"status\" aria-label=\"불러오는 중\" className=\"flex flex-col gap-5\"> <SkeletonHead actions={actions} /> {filters ? <Filters /> : null} {grid} </div> );",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 136,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 144,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 150,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ],
+        "reviewedExpression": "(\r\n    <section className={`grid gap-4 ${CARD_COLUMNS[columns]}`}>\r\n      {Array.from({ length: count }).map((_, i) => (\r\n        <div key={i} className={`${CARD_HEIGHT[height]} qd-skeleton border`} />\r\n      ))}\r\n    </section>\r\n  )",
+        "consumerContext": [
+          {
+            "line": 144,
+            "text": "return grid;"
+          },
+          {
+            "line": 150,
+            "text": "return ( <div role=\"status\" aria-label=\"불러오는 중\" className=\"flex flex-col gap-5\"> <SkeletonHead actions={actions} /> {filters ? <Filters /> : null} {grid} </div> );"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "ab2eff100c3b4d9e4a8b7f9cc69da4a29f601752fc0a4f8c76581ecd1fbcb5db",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 139,
+        "decision": "structural-behavior",
+        "ruleId": "reviewed-reused-jsx-structure",
+        "reason": "This variable stores the rendered skeleton section and chooses its optional wrapper. Its class and height/column members have separate exact records. Consumer: return grid; | return ( <div role=\"status\" aria-label=\"불러오는 중\" className=\"flex flex-col gap-5\"> <SkeletonHead actions={actions} /> {filters ? <Filters /> : null} {grid} </div> );",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 139,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 147,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 153,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ],
+        "reviewedExpression": "(\r\n    <section className={`grid gap-4 ${CARD_COLUMNS[columns]}`}>\r\n      {Array.from({ length: count }).map((_, i) => (\r\n        <div key={i} className={`${CARD_HEIGHT[height]} qd-skeleton border`} />\r\n      ))}\r\n    </section>\r\n  )",
+        "consumerContext": [
+          {
+            "line": 147,
+            "text": "return grid;"
+          },
+          {
+            "line": 153,
+            "text": "return ( <div role=\"status\" aria-label=\"불러오는 중\" className=\"flex flex-col gap-5\"> <SkeletonHead actions={actions} /> {filters ? <Filters /> : null} {grid} </div> );"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "manifest": "patterns/component-implementations.json",
-  "manifestHash": "cc5febca3f76e4c4c34d2dda62eaa0d1a90ec750b119136522f2aef7085cf67b",
+  "manifestHash": "2c8377f6a37caccb72514991ca77525909684cea8e79738dc9103cf7343b4026",
   "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
   "records": [
     {
@@ -818,6 +818,44 @@
       "exports": [
         {
           "name": "Textarea",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/shared/page-skeleton.tsx",
+      "target": "Q-Works/components/shared/page-skeleton.tsx",
+      "canonical": "patterns/component-implementations/maison/components/shared/page-skeleton.tsx",
+      "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+      "exports": [
+        {
+          "name": "SkeletonHead",
+          "kind": "value"
+        },
+        {
+          "name": "ListSkeleton",
+          "kind": "value"
+        },
+        {
+          "name": "CardGridSkeleton",
+          "kind": "value"
+        },
+        {
+          "name": "DetailSkeleton",
+          "kind": "value"
+        },
+        {
+          "name": "FormSkeleton",
+          "kind": "value"
+        },
+        {
+          "name": "TreeSkeleton",
+          "kind": "value"
+        },
+        {
+          "name": "BoardSkeleton",
           "kind": "value"
         }
       ]

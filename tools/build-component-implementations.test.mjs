@@ -23,6 +23,14 @@ function fixture(){
  return {workspace,root:fixtureRoot,write,dispose(){for(const file of new Set(files))if(fs.existsSync(file))fs.unlinkSync(file);for(const dir of [...dirs].sort((a,b)=>b.length-a.length))if(fs.existsSync(dir))fs.rmdirSync(dir);}};
 }
 const toastTargets=[['atelier','Q-Atelier','components/Toast.tsx'],['maison','Q-Works','components/ui/sonner.tsx'],['carnet','DHR','components/toast.tsx']];
+test('changed implementations preserve product line endings without altering canonical ownership',()=>{
+ const f=fixture();try{
+  const actual=f.workspace+'/Q-Works/components/shared/page-skeleton.tsx',canonical=f.root+'/patterns/component-implementations/maison/components/shared/page-skeleton.tsx',before=fs.readFileSync(actual,'utf8');
+  f.write(actual,before.replaceAll('\n','\r\n'));
+  const after=before.replace('var(--qd-control-height)','calc(var(--qd-control-height) + 1px)');assert.notEqual(before,after);f.write(canonical,after);
+  buildComponentImplementations(f.root,{write:true});assert.equal(fs.readFileSync(actual,'utf8'),after.replaceAll('\n','\r\n'));buildComponentImplementations(f.root,{check:true});
+ }finally{f.dispose();}
+});
 test('all five attached Skeleton renderers are explicit and changes cannot escape the public API review',()=>{
  const f=fixture();try{
   const file=f.root+'/patterns/component-implementations/atelier/components/Skeleton.tsx',before=fs.readFileSync(file,'utf8');
@@ -75,9 +83,9 @@ test('actual Skeleton variants render their central defaults and preserve explic
  assert.match(render(current.Card,{height:121}),/height:121px/);assert.equal(count(render(current.Table,{rows:3,cols:4})),12);
 });
 test('all reviewed actual primitive bodies and export catalogs match, including partial selection',()=>{
- const report=buildComponentImplementations(root,{check:true});assert.equal(report.records.length,28);assert.equal(new Set(report.records.map(r=>r.product)).size,3);
- assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Atelier'])}).records.length,28);
- assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Sonar'])}).records.length,28);
+ const report=buildComponentImplementations(root,{check:true});assert.equal(report.records.length,29);assert.equal(new Set(report.records.map(r=>r.product)).size,3);
+ assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Atelier'])}).records.length,29);
+ assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Sonar'])}).records.length,29);
  for(const invalid of ['../outside.tsx','components/../outside.tsx','C:/outside.tsx','components\\wrong.tsx'])assert.throws(()=>checkedImplementationPath(invalid));
  assert.throws(()=>buildComponentImplementations(root,{check:true,only:new Set(['unknown'])}));
 });

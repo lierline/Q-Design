@@ -6,6 +6,7 @@ import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {retainToastLayoutEvidence} from './toast-layout-proof.mjs';
+import {retainLoadingControlEvidence} from './maison-loading-control-proof.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),repo=path.resolve(root,'../Q-Works');
 const ref='260975db2ca1548c442876f6ce2243807bb3b361',file='components/ui/sonner.tsx';
@@ -48,7 +49,7 @@ export function retainedMaisonToastReview(before,after){
   if(a.property==='content')evidence.push({path:'patterns/foundation.css',line:1,hash:hash(foundation)});
   review.records.push({path:file,line:a.line,sourceHash:hash(after),argumentHash:hash(JSON.stringify([file,a.line,a.kind,a.property,a.value])),kind:a.kind,property:a.property,value:a.value,decision:width?'structural-behavior':'token-reference-verified',ruleId:'exact-sonner-toast-adapter',reason:width?'The exact toast width is 100% of the centrally sized Sonner stack. This relative fill is not an independent visual dimension.':'Exact pinned Sonner adapter and installed property types. Offset members read the four declared safe-area tokens; the content class supplies the central zero flex minimum. Other caller props and states remain separately inventoried.',evidence});
  }
- return retainToastLayoutEvidence(review);
+ return retainLoadingControlEvidence(retainToastLayoutEvidence(review));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const before=execFileSync('git',['show',ref+':'+file],{cwd:repo,encoding:'utf8'}),after=fs.readFileSync(repo+'/'+file,'utf8');verifyMaisonToastCopy(before,after);

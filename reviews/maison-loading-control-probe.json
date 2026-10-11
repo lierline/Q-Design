@@ -1,0 +1,972 @@
+{
+  "scope": "Actual current product text Input, default/compact Button and Head/List/Form loading renderers. Current local stylesheets and installed Tailwind are compiled together. Twenty viewport/theme/pointer combinations plus central height mutations, reduced motion, no credentials, business data, date-control invocation or network requests. Fixed control geometry only, not typography or business-screen visual certification.",
+  "renderer": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "lib/utils/cn.ts",
+      "sourceHash": "53f3d3d070f0a9082934da25b875f9499855c2b0693868dd28be8c23d8730f68"
+    },
+    {
+      "path": "lib/ui/has-hangul.ts",
+      "sourceHash": "b50e4e1b9b4a09f83edb467787043c3ab77ab65261ea5cadd704104581edf1ae"
+    },
+    {
+      "path": "components/ui/label.tsx",
+      "sourceHash": "3764a28c33e7f04bb2a983d18741d24d19386acd7e9acb792770c9d81b02a7dd"
+    },
+    {
+      "path": "components/ui/field.tsx",
+      "sourceHash": "c7dcd46530a27cbaf26c4967f209b00b96316fdf2dd48ae6cac6870e39e30e82"
+    },
+    {
+      "path": "components/ui/input.tsx",
+      "sourceHash": "aeeae2a0c9fa8152bea69db5da19e681fbd32f8ce11be8242caeb2a2f43886be"
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "sourceHash": "a737bbd7e498fa6d8fc667bfb33fa0a8a363b46cd4c4079d777843873435c03f"
+    },
+    {
+      "path": "components/shared/page-skeleton.tsx",
+      "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+    },
+    {
+      "path": "app/globals.css",
+      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+    },
+    {
+      "path": "app/q-design.nav.css",
+      "sourceHash": "3172a61589eed90a190321b447fa5dc886ec8f5af5116d2a4779a8ba1aef2b70"
+    },
+    {
+      "path": "app/q-design.list.css",
+      "sourceHash": "ca3f120ca48d76bcfc8e10623318351c4465ad1068551b9754babd963688b87b"
+    },
+    {
+      "path": "app/q-design.screen.css",
+      "sourceHash": "8e933713fed4935b1d34ce470c97c9e51d566e8177c27611c21314a02efa5298"
+    },
+    {
+      "path": "app/q-design.workspace.css",
+      "sourceHash": "96b8d383d039c1c5ed098fafdfa955ca462d5db6f0e48d9f3977e751252e7e04"
+    },
+    {
+      "path": "app/q-design.print.css",
+      "sourceHash": "9fdc5f213a7c507707b234d761f32b9c80d6e1f7facd65c726c436fcf27e8b48"
+    },
+    {
+      "path": "app/q-design.components.css",
+      "sourceHash": "360ab098767fd4687aea6d3e80598b4a41dedb8854d98391b779624e3d8ed8b0"
+    },
+    {
+      "path": "app/q-design.foundation.css",
+      "sourceHash": "8845b37b1512fce4474d88b29e05568a862420e7a745fd62783248371ff05126"
+    },
+    {
+      "path": "app/q-design.palette.css",
+      "sourceHash": "ef1b1cdb8c33a05d98ceba6bdbbfe1f6ca2e6ccb6bb6e523267914ef112471b6"
+    }
+  ],
+  "records": [
+    {
+      "theme": "dark",
+      "width": 1280,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "36px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "36px",
+          "36px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "40px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "40px",
+          "40px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 640,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 640,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 641,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "36px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "36px",
+          "36px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "40px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "40px",
+          "40px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 641,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "36px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "36px",
+          "36px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "40px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "40px",
+          "40px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 640,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 640,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 641,
+      "hasTouch": false,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "36px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "36px",
+          "36px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "40px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "40px",
+          "40px"
+        ],
+        "title": "36px"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 641,
+      "hasTouch": true,
+      "before": {
+        "regularToken": "44px",
+        "compactToken": "36px",
+        "input": "44px",
+        "button": "44px",
+        "compactButton": "44px",
+        "regularLoading": [
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px",
+          "44px"
+        ],
+        "compactLoading": [
+          "44px",
+          "44px"
+        ],
+        "title": "36px"
+      },
+      "mutation": {
+        "regularToken": "48px",
+        "compactToken": "40px",
+        "input": "48px",
+        "button": "48px",
+        "compactButton": "48px",
+        "regularLoading": [
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px",
+          "48px"
+        ],
+        "compactLoading": [
+          "48px",
+          "48px"
+        ],
+        "title": "36px"
+      }
+    }
+  ]
+}

@@ -1,0 +1,945 @@
+{
+  "scope": "Exact retained argument reviews after seven central control-height substitutions and two named role recipes. Complete source transformation is separately verified. Only source/evidence hashes and relocated lexical positions changed; all other review content is preserved.",
+  "beforeReportHash": "515462e7e540d5bcce6796c2340a98f88a3f5e283349c256318f82faf6422b4a",
+  "afterReportHash": "bcfa7fa8147d645622c9cdb3bc32711a604595ad87ca57f42f9edd3d88796102",
+  "records": [
+    {
+      "index": 142,
+      "before": {
+        "argumentHash": "c14931350cb2361761c511ceaeabbafd9ebdfac1506f87c57c96404f9ebe002a",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 47,
+        "kind": "object-property",
+        "property": "length",
+        "value": "count",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 47,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "f1366548983306910ff6348c80be41ceca7659a72970cc16d514b0c9d9945cfa",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 50,
+        "kind": "object-property",
+        "property": "length",
+        "value": "count",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 50,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 143,
+      "before": {
+        "argumentHash": "21e0c07fc91112eac4fcdaaba24d2f79b35c037b9fb46f6fcb684c47fa2d6b78",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 100,
+        "kind": "object-property",
+        "property": "length",
+        "value": "rows",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 100,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "d748fd64aad926f296009d923c5c5b8f2f4ad37942c23e1c817e1913a147fec9",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 103,
+        "kind": "object-property",
+        "property": "length",
+        "value": "rows",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 103,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 144,
+      "before": {
+        "argumentHash": "9cf79bbf617c46e4157cdc12bcc7b4d02be831dcd5b0e496fe28e7f53ffd9c08",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 138,
+        "kind": "object-property",
+        "property": "length",
+        "value": "count",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 138,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "769307b87336d69d75aaf667c989da686c305e35c09ea4a112c436b2103d1caa",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 141,
+        "kind": "object-property",
+        "property": "length",
+        "value": "count",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 141,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 145,
+      "before": {
+        "argumentHash": "fc3487691639e513639cfb41d2e50a5a0f4772141f761a8e83914f71e734d735",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 175,
+        "kind": "object-property",
+        "property": "length",
+        "value": "blocks",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 175,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "82098c33a86c00de5725df9855cbb7cca19754f6f7ac3028e94114988a1ad6e4",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 178,
+        "kind": "object-property",
+        "property": "length",
+        "value": "blocks",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 178,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 146,
+      "before": {
+        "argumentHash": "efd62a0a015757783388a895c529ea5dcfb1e7084f39d22975daff2c8a417768",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 209,
+        "kind": "object-property",
+        "property": "length",
+        "value": "fields",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 209,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "5692992c6782b502b4841da3f566d55cf351a2f4b84c59e7ad1635a863208bc8",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 212,
+        "kind": "object-property",
+        "property": "length",
+        "value": "fields",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 212,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 147,
+      "before": {
+        "argumentHash": "8111485d60cff9644df8d4d514628c495d3f7a0978aec90473b9839d923b0f81",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 237,
+        "kind": "object-property",
+        "property": "length",
+        "value": "branches",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 237,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "70ee60c2fea73e5582d52b9213e0aad19730f7a355ce62a8c376a82be50b55d3",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 240,
+        "kind": "object-property",
+        "property": "length",
+        "value": "branches",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 240,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 148,
+      "before": {
+        "argumentHash": "6fb59be0e15d469968af2e7b937be0d2501ec66aa717066fa993dd2d18d94dcc",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 269,
+        "kind": "object-property",
+        "property": "length",
+        "value": "BOARD_COLUMNS",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 269,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "7e8c48de72370373178872e95c55db9293f9385be21c32a3bcc1a106db6d2c2f",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 272,
+        "kind": "object-property",
+        "property": "length",
+        "value": "BOARD_COLUMNS",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 272,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 149,
+      "before": {
+        "argumentHash": "1b930fe0f0381598126f8322f79c8cb73948efebaaf23ae0c727fa01b0bcf1c9",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 273,
+        "kind": "object-property",
+        "property": "length",
+        "value": "cards",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 273,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "c97dfdaafcaf2dcb628fb3a6585e945029f02fa9bb691398b4ad91da204d5381",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 276,
+        "kind": "object-property",
+        "property": "length",
+        "value": "cards",
+        "decision": "structural-behavior",
+        "ruleId": "array-cardinality",
+        "reason": "The length property belongs to Array.from or row/cell padding and expresses calendar hours/days, sample counts, schema columns, PIN digits, or requested skeleton items. The surrounding grid/table layout and visible appearance have separate records.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 276,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          }
+        ]
+      }
+    },
+    {
+      "index": 153,
+      "before": {
+        "argumentHash": "966e8df9b299c29a62b69c084d370a957a88926d499cd742812c6db0e6985e09",
+        "sourceHash": "c16930ebcae7f2ebd7d8590595848a909c5b2c8db25db01bdbc8530c694ad4f3",
+        "path": "app/(app)/ai-chat/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/ai-chat/loading.tsx",
+            "line": 4,
+            "hash": "c16930ebcae7f2ebd7d8590595848a909c5b2c8db25db01bdbc8530c694ad4f3"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "966e8df9b299c29a62b69c084d370a957a88926d499cd742812c6db0e6985e09",
+        "sourceHash": "c16930ebcae7f2ebd7d8590595848a909c5b2c8db25db01bdbc8530c694ad4f3",
+        "path": "app/(app)/ai-chat/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/ai-chat/loading.tsx",
+            "line": 4,
+            "hash": "c16930ebcae7f2ebd7d8590595848a909c5b2c8db25db01bdbc8530c694ad4f3"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 154,
+      "before": {
+        "argumentHash": "af9b55ed0ac7d7fd7ebe9596afda54e604223f11fc675d790128793fb4b677e5",
+        "sourceHash": "5c676b8d4bfb7b2a189c8ac3cbb9df7f3b35ab6d9876ec4b759e249eaa5a9607",
+        "path": "app/(app)/audit-simulation/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/audit-simulation/loading.tsx",
+            "line": 4,
+            "hash": "5c676b8d4bfb7b2a189c8ac3cbb9df7f3b35ab6d9876ec4b759e249eaa5a9607"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "af9b55ed0ac7d7fd7ebe9596afda54e604223f11fc675d790128793fb4b677e5",
+        "sourceHash": "5c676b8d4bfb7b2a189c8ac3cbb9df7f3b35ab6d9876ec4b759e249eaa5a9607",
+        "path": "app/(app)/audit-simulation/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/audit-simulation/loading.tsx",
+            "line": 4,
+            "hash": "5c676b8d4bfb7b2a189c8ac3cbb9df7f3b35ab6d9876ec4b759e249eaa5a9607"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 155,
+      "before": {
+        "argumentHash": "dbbbdddb0928b532eab90a2e163ee52131069c6e43dac1c69112e5d7611cb043",
+        "sourceHash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173",
+        "path": "app/(app)/dashboard/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/dashboard/loading.tsx",
+            "line": 4,
+            "hash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "dbbbdddb0928b532eab90a2e163ee52131069c6e43dac1c69112e5d7611cb043",
+        "sourceHash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173",
+        "path": "app/(app)/dashboard/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/dashboard/loading.tsx",
+            "line": 4,
+            "hash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 156,
+      "before": {
+        "argumentHash": "a6b644d5e7b635bf6137bd60970c4dfb5d6464642304307431012d3bb0c3ed44",
+        "sourceHash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173",
+        "path": "app/(app)/dashboard/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"md\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/dashboard/loading.tsx",
+            "line": 4,
+            "hash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "a6b644d5e7b635bf6137bd60970c4dfb5d6464642304307431012d3bb0c3ed44",
+        "sourceHash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173",
+        "path": "app/(app)/dashboard/loading.tsx",
+        "line": 4,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"md\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/dashboard/loading.tsx",
+            "line": 4,
+            "hash": "836a612223e5272b93039468d8693d0d253f6ed1c5fcd3bc81c371563d306173"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 157,
+      "before": {
+        "argumentHash": "7d5437d95b520d81d6ff2d504e59240d1b7329d9638a9b2b6835fbafa17fdb39",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 10,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 10,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "7d5437d95b520d81d6ff2d504e59240d1b7329d9638a9b2b6835fbafa17fdb39",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 10,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 10,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 158,
+      "before": {
+        "argumentHash": "21fdbd82217d695ebeb205bd2252d81549e59b9bf4de3bb5500147de478ed297",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 10,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"sm\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 10,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "21fdbd82217d695ebeb205bd2252d81549e59b9bf4de3bb5500147de478ed297",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 10,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"sm\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 10,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 159,
+      "before": {
+        "argumentHash": "7be2b9ceaece6ba0763bee2e79bbd92a2fcefd32b02ef81b0acaa77d0e6c3b88",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 11,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{3}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 11,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "7be2b9ceaece6ba0763bee2e79bbd92a2fcefd32b02ef81b0acaa77d0e6c3b88",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 11,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{3}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 11,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 160,
+      "before": {
+        "argumentHash": "757b0a00959843749d650934d5631c6cf99e4a48b1c6f214a344a4266d9d673d",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 11,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 11,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "757b0a00959843749d650934d5631c6cf99e4a48b1c6f214a344a4266d9d673d",
+        "sourceHash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e",
+        "path": "app/(app)/factory/loading.tsx",
+        "line": 11,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"lg\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "app/(app)/factory/loading.tsx",
+            "line": 11,
+            "hash": "6fc88c2504baaece55d3bc57b2ef48c2166a534aaa80f5138fb2e3a64ee0388e"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 161,
+      "before": {
+        "argumentHash": "2d5d9d6849dac601d11ef7764540b67b78295a105d739d61ecc1ad298a29fc63",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 96,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 96,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "b528658953e04554e6e641a6f7222af6a29f23ae9583ffdb8d176d8286885cf3",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 99,
+        "kind": "presentation-attribute",
+        "property": "columns",
+        "value": "{4}",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 99,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    },
+    {
+      "index": 162,
+      "before": {
+        "argumentHash": "23534cf53d69787d500372f6484a752ac1b3048da464b9dbc6e424e97c9b134e",
+        "sourceHash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 96,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"sm\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 96,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      },
+      "after": {
+        "argumentHash": "168573110577c9020fc576e8e58a1971b1b6f16ed0c84c0159cedc6e4cf91a10",
+        "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+        "path": "components/shared/page-skeleton.tsx",
+        "line": 99,
+        "kind": "presentation-attribute",
+        "property": "height",
+        "value": "\"sm\"",
+        "decision": "delegated-renderer-parameter",
+        "ruleId": "skeleton-named-layout",
+        "reason": "The exact CardGridSkeleton props select finite CARD_HEIGHT/CARD_COLUMNS utility maps. These renderer maps use central Tailwind dimensions and column rules; this records delegation, not a browser pass.",
+        "evidence": [
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 99,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "components/shared/page-skeleton.tsx",
+            "line": 1,
+            "hash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7"
+          },
+          {
+            "path": "patterns/foundation/maison-tailwind.ts",
+            "line": 1,
+            "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          }
+        ]
+      }
+    }
+  ]
+}

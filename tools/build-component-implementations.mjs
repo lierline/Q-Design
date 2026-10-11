@@ -91,13 +91,16 @@ export function buildComponentImplementations(root=ROOT,{check=false,write=false
   }
   if((check||write)&&selected&&config.product==='maison'){
    const actualFiles=fs.readdirSync(path.resolve(root,'..',config.repo,'components/ui')).filter(f=>f.endsWith('.tsx')).map(f=>'components/ui/'+f).sort();
-   assert.deepEqual(actualFiles,config.files.slice().sort(),'New UI primitive file needs ownership and role review before adoption');
+   assert.deepEqual(actualFiles,config.files.filter(file=>file.startsWith('components/ui/')).sort(),'New UI primitive file needs ownership and role review before adoption');
   }
   for(const raw of config.files){
    const file=checkedImplementationPath(raw);assert(!unique.has(file));unique.add(file);
    const canonical=`patterns/component-implementations/${config.product}/${file}`,source=norm(fs.readFileSync(path.join(root,canonical),'utf8')),actual=path.resolve(root,'..',config.repo,file);
    const target=`${config.repo}/${file}`,api=exportsFor(file,source,ownedPaths,defaultExports,attachedRenderers[file]??[]);
-   if(selected&&(check||write))prepared.push({actual,target,source,before:norm(fs.readFileSync(actual,'utf8'))});
+   if(selected&&(check||write)){
+    const rawBefore=fs.readFileSync(actual,'utf8');
+    prepared.push({actual,target,source,before:norm(rawBefore),newline:rawBefore.includes('\r\n')?'\r\n':'\n'});
+   }
    records.push({product:config.product,key:config.key,path:file,target,canonical,sourceHash:hash(source),...api});
   }
  }
@@ -105,7 +108,7 @@ export function buildComponentImplementations(root=ROOT,{check=false,write=false
  assert.deepEqual(authored,records.map(r=>r.canonical).sort(),'Every canonical UI implementation needs an explicit ownership entry');
  // Parse every template and inspect all selected targets before changing any app.
  for(const item of prepared){
-  if(write&&item.before!==item.source)fs.writeFileSync(item.actual,item.source);
+  if(write&&item.before!==item.source)fs.writeFileSync(item.actual,item.source.replaceAll('\n',item.newline));
   assert.equal(norm(fs.readFileSync(item.actual,'utf8')),item.source,'Product implementation differs from canonical: '+item.target);
  }
  const report={version:1,manifest:manifestPath,manifestHash:hash(manifestText),scope:'Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.',records};

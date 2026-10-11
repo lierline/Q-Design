@@ -10,7 +10,7 @@
 
 ### 기본 UI 구현 정본 (2026-10-12)
 
-검토한 기본 UI 구현 28개 파일은 `patterns/component-implementations/`가 정본이다. 아뜰리에의 기본 부품·선택·한글 표시·알림·로딩 묶음 5개 파일, 메종 `components/ui`의 18개 파일, 카르넷 기본 UI·표·대화상자·알림·행 링크 5개 파일이 해당한다. 범위는 `patterns/component-implementations.json`, 실제 공개 내보내기와 제품 연결은 `dist/q-design.component-implementations.json`에서 확인한다. 154개 값 내보내기와 11개 타입 내보내기는 부품뿐 아니라 보조 함수·타입을 포함한다. Skeleton의 다섯 부속 렌더러는 별도 항목으로 기록한다.
+검토한 기본 UI 구현 29개 파일은 `patterns/component-implementations/`가 정본이다. 아뜰리에의 기본 부품·선택·한글 표시·알림·로딩 묶음 5개 파일, 메종 `components/ui`의 18개 파일과 공용 화면 로딩 묶음 1개 파일, 카르넷 기본 UI·표·대화상자·알림·행 링크 5개 파일이 해당한다. 범위는 `patterns/component-implementations.json`, 실제 공개 내보내기와 제품 연결은 `dist/q-design.component-implementations.json`에서 확인한다. 161개 값 내보내기와 11개 타입 내보내기는 부품뿐 아니라 보조 함수·타입을 포함한다. Skeleton의 다섯 부속 렌더러는 별도 항목으로 기록한다.
 
 제품 사본의 전체 본문을 정본과 대조하며 새 메종 UI 파일, 목록 밖 정본 파일과 검토되지 않은 재내보내기를 거부한다. 생성 전에 모든 정본 구문과 선택된 대상 경로를 확인해 앞 제품만 먼저 고치는 것을 막는다. 문구 교정도 이 범위에서는 정본을 수정한 뒤 생성으로 제품에 전달한다. 기존 `lib/design` 제외를 풀 때는 명시된 세 UI 파일만 추가하고 검증 엔진·토큰 원문은 제외한다.
 
@@ -19,6 +19,8 @@
 ### 로딩 묶음의 현재 규칙 (2026-10-12)
 
 아뜰리에 `components/Skeleton.tsx`의 기본형과 `Row`, `Card`, `KPIGrid`, `PageHd`, `Table`은 같은 정본 파일에서 생성한다. 면은 `--qd-surface2`, 모서리는 `--qd-radius`, 반복 시간은 `--qd-skeleton-duration`을 읽는다. 현재 공통 효과는 투명도를 바꾸는 pulse이며, 움직임 줄이기 설정에서는 애니메이션을 멈춘다. 아래 초기 실측 표의 champagne shimmer는 현재 구현 규칙이 아니다.
+
+메종 `components/shared/page-skeleton.tsx`도 구현 정본에서 생성한다. 필터 입력·선택, 양식 입력과 제출 자리의 높이는 `--qd-control-height`를 읽는다. 머리의 작은 동작 자리는 `--qd-control-height-sm`을 사용하되 화면 폭 640px 이하 또는 터치 포인터에서는 일반 제어 높이를 최소 높이로 적용한다. 현재 기본값은 일반 44px, 데스크톱 작은 동작 36px다. 제목 자리의 높이와 콘텐츠 반복 개수는 별도 규칙이다. 실제 Input·Button과 로딩을 현재 제품 CSS로 렌더링하는 `tools/verify-maison-loading-controls.mjs`가 두 테마, 다섯 화면 폭과 두 포인터 조건에서 중앙 높이 변경까지 대조한다. 전체 업무 화면과 날짜 입력의 시각 인증은 별도 검사다.
 
 기본 높이·간격·반복 개수는 중앙 `QDPresentation`에서 전달한다. 명시한 폭·높이·행·열 개수와 호출부 스타일은 별도 입력이다. 다섯 부속 렌더러의 공개 이름과 실제 함수 이름을 명시적으로 등록했고, 이름 변경·누락·추가·계산된 속성·중첩 대입을 생성 전에 거부한다. React `displayName` 문자열은 표시용 메타데이터이므로 부품으로 세지 않는다.
 
