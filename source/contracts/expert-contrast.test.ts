@@ -1,3 +1,4 @@
+import { readDesignFile, rootPalette } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -19,7 +20,7 @@ import { join } from 'node:path';
 //    **계약이 있다 ≠ 전수를 본다.** 새 팔레트를 만들면 계약도 따라와야 한다.
 // 🔑 기준 표면을 배경 하나로 잡으면 안 된다. 카드 표면이 더 밝아 대비가 «더 나쁘다».
 
-const CSS = readFileSync(join(process.cwd(), 'app', 'experts', 'expert-theme.css'), 'utf8');
+const CSS = readDesignFile(join(process.cwd(), 'app', 'experts', 'expert-theme.css'), 'utf8');
 
 /** 주석 안의 예시 값을 변수 정의로 오해하지 않도록 먼저 지운다. */
 const BODY = CSS.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -54,8 +55,8 @@ function vars(selector: string): Record<string, string> {
   throw new Error(selector + ' 에서 --ink 를 가진 블록을 못 찾았다. 계약이 아무것도 안 보고 있다.');
 }
 
-const DARK = vars('.expert-portal-root');
-const LIGHT = { ...DARK, ...vars("html[data-theme='light'] .expert-portal-root") };
+const DARK = { ...rootPalette('dark'), ...vars('.expert-portal-root') };
+const LIGHT = { ...vars('.expert-portal-root'), ...rootPalette('light'), ...vars("html[data-theme='light'] .expert-portal-root") };
 
 /** `var(--x)` 사슬을 끝까지 따라간다. 라이트 값들이 서로를 가리키기 때문에 필요하다. */
 function resolve(name: string, table: Record<string, string>, depth = 0): string {
@@ -159,14 +160,12 @@ describe('텍스트 아님으로 면제한 색', () => {
     expect(used, '텍스트로 쓰이고 있다. TEXT_TOKENS 로 옮기고 AA 를 맞출 것: ' + used.join(' | ')).toEqual([]);
   });
 
-  it('--champagne-rgb 는 --champagne 과 같은 색이다', () => {
-    // ⚠️ CSS 로는 hex 를 rgb 성분으로 쪼갤 수 없어 이 사본은 지울 수가 없다.
-    //    지우지 못하는 사본은 «계약이 지킨다». 한쪽만 고치면 여기서 걸린다.
-    for (const [label, table] of [['다크', DARK] as const, ['라이트', LIGHT] as const]) {
-      const hex = resolve('--champagne', table);
-      const rgb = table['--champagne-rgb'].split(',').map((x) => Number(x.trim()));
-      const fromHex = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
-      expect(rgb, label + ': --champagne-rgb 가 ' + hex + ' 와 어긋났다').toEqual(fromHex);
+  it('accent tint consumes the live color instead of duplicated RGB channels', () => {
+    expect(BODY).not.toMatch(/--champagne-rgb\s*:|var\(--champagne-rgb\)/);
+    expect(BODY).toContain('color-mix(in srgb, var(--champagne)');
+    for (const file of ['app/experts/settings/danger-zone.tsx', 'app/experts/inbox/user-menu.tsx']) {
+      const source = readFileSync(join(process.cwd(), file), 'utf8');
+      expect(source).not.toMatch(/rgba\(var\(--(?:champagne|ink|velvet|raise)-rgb\)/);
     }
   });
 });

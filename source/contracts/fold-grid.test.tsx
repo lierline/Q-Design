@@ -1,3 +1,4 @@
+import { readDesignFile, resolveStyleValues } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -34,6 +35,19 @@ describe('foldGrid: 최대 n 열 · 칸이 좁으면 줄어드는 격자 style',
 
   it('행 간격이 열 간격과 다르면 «행 열» 순서의 두 값', () => {
     expect(foldGrid(2, 24, { rowGap: 16 }).gap).toBe('16px 24px');
+  });
+
+  it('중앙 CSS 간격은 열 너비 계산에도 같은 변수로 남는다', () => {
+    const gap = 'var(--qd-space-3, 12px)';
+    const s = foldGrid(3, gap);
+    expect(s.gap).toBe(gap);
+    expect(s.gridTemplateColumns).toBe('repeat(auto-fit, minmax(max(150px, calc((100% - (2 * var(--qd-space-3, 12px))) / 3 - 1px)), 1fr))');
+    expect(foldGrid(1, gap).gridTemplateColumns).toContain('(0 * var(--qd-space-3, 12px))');
+  });
+
+  it('CSS 행 간격과 숫자 열 간격을 섞어도 단위를 중복하지 않는다', () => {
+    expect(foldGrid(2, 24, { rowGap: 'var(--qd-space-4, 16px)' }).gap).toBe('var(--qd-space-4, 16px) 24px');
+    expect(foldGrid(2, 'var(--qd-space-6, 24px)', { rowGap: 16 }).gap).toBe('16px var(--qd-space-6, 24px)');
   });
 });
 
@@ -72,7 +86,8 @@ describe('날것 «등분 고정 열» 격자가 없다', () => {
     walk(join(REPO_ROOT, root), files);
     for (const f of files) {
       const rel = relative(REPO_ROOT, f).split('\\').join('/');
-      const n = (codeOnly(readFileSync(f, 'utf8')).match(RAW) ?? []).length;
+      // Central grid parameters must satisfy the same reflow rules as former inline tracks.
+      const n = (resolveStyleValues(codeOnly(readDesignFile(f, 'utf8'))).match(RAW) ?? []).length;
       if (n > 0) found.set(rel, n);
     }
   }
@@ -86,7 +101,7 @@ describe('날것 «등분 고정 열» 격자가 없다', () => {
   for (const a of ALLOWED) {
     it(`허용 근거가 살아 있다: ${a.file} (${a.why})`, () => {
       expect(found.get(a.file)).toBe(a.count);
-      expect(readFileSync(join(REPO_ROOT, a.proof.file), 'utf8')).toContain(a.proof.text);
+      expect(readDesignFile(join(REPO_ROOT, a.proof.file), 'utf8')).toContain(a.proof.text);
     });
   }
 });

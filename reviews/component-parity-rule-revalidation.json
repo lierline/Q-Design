@@ -1,0 +1,36 @@
+{
+  "scope": "Exact inverse proofs, unchanged binding consumers and unchanged evidence lines. Intentional visual changes separately exercised by component-parity-results.json.",
+  "verifiedEvidenceCounts": {
+    "reviews/atelier-style-bindings-review.json": 9,
+    "reviews/maison-style-manual-review.json": 16,
+    "reviews/maison-style-spread-review.json": 0,
+    "reviews/maison-style-bindings-review.json": 0,
+    "reviews/maison-accent-review.json": 1
+  },
+  "proofs": [
+    {
+      "path": "patterns/components.css",
+      "priorHash": "e1721f21e1246a06467fade271b785f13f7cdc118976806dc5e8d5a12e90bf89",
+      "currentHash": "5bc9c868aeb514b61fca0d81bc73c81ffae7ad4169a2bbb8b79e66b42c423f16",
+      "scope": "Three field tokens, field/select/textarea/table recipes, and disabled inline precedence. All other CSS retained byte for byte."
+    },
+    {
+      "path": "patterns/foundation.css",
+      "priorHash": "45a0a14de33a58f06dd176a1a81808de3d4b4a778860f44dcb94b3a85005009b",
+      "currentHash": "ccdeb1afd0fc9af1a5209257644d7c5e10018082fc2ffb5a8a035827f013371d",
+      "scope": "Register the reset layer before component layers. All token declarations retained."
+    },
+    {
+      "path": "patterns/foundation/atelier.css",
+      "priorHash": "b6098f9ec9dcc79b4d38f7f11353e228dfd594a607a7833b75dac309c8ece764",
+      "currentHash": "2bf49b82c993bbc4401c8b26cf9d5c651b170cd16c2ad1535db17968ab0785a6",
+      "scope": "Move only global margin/padding reset into the lowest layer. Other product rules retained."
+    },
+    {
+      "path": "components/shared/badge.tsx",
+      "priorHash": "587bd07ffb191bd9aaa6f12108dc7171ea6af3f0e07c1b412b39ac64372d5d6e",
+      "currentHash": "f518dcbf004d44782c677e7e3aaa9d7f51358503a58797e0a20f5758a13a097c",
+      "scope": "Default size changed from xs to sm. Tone combination, Hangul detection, attributes and every other byte retained."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
-   원본: Q-Atelier components/Sidebar.tsx (2026-10-10)
+   원본: Q-Atelier components/Sidebar.tsx (2026-10-11)
    =============================================================================
 
    ── 쓰는 법 ────────────────────────────────────────────────────────────────
@@ -62,11 +62,11 @@
   --qd-accent: var(--qd-accent-src, var(--qa-champagne, #b8935a));
   --qd-on-accent: var(--qd-on-accent-src, var(--qa-on-accent, #0a0908));
   --qd-danger: var(--qd-danger-src, var(--qa-red, #c97a7a));
-  --qd-font-ui: var(--qd-font-ui-src, inherit);
+  --qd-font-ui: var(--qd-font-ui-src, var(--qd-font-family-ui, inherit));
   /* 모노 사슬도 손으로 안 적습니다. tokens.json 의 값을 그대로 씁니다 ·
      세 제품이 «같은 얼굴» 을 쓰는 것이 이 파일의 목적 중 하나이고, 그 얼굴
      이름을 여기 따로 적으면 그것부터 갈립니다. */
-  --qd-font-mono: var(--qd-font-mono-src, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace);
+  --qd-font-mono: var(--qd-font-mono-src, var(--qd-font-family-mono, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace));
   /* 한글 이름표의 어절 공백을 본문 폭으로 되돌리는 값입니다.
      JetBrains Mono 의 공백은 0.6em, Pretendard 는 0.251em 입니다(실측 · 10px 에서
      6px 대 2.51px). 0.6 - 0.35 = 0.25em 이라 본문과 맞습니다.
@@ -491,13 +491,13 @@ html[data-theme='light'] {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
+  min-height: var(--qd-control-height-sm, 36px);
   padding: 0 4px;
   background: transparent;
   border: 0;
   color: var(--qd-muted);
   font-family: var(--qd-font-ui);
-  font-size: 14px;
+  font-size: var(--qd-control-size, 13px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;

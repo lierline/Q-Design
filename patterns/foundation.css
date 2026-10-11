@@ -1,0 +1,298 @@
+/* Q family foundations. This file owns shared screen parameters.
+   Product recipes own selectors and functional variants. Print and machine
+   readable geometry remain explicitly scoped in the product recipes. */
+@layer q-design-reset;
+
+:root {
+  --qd-backdrop-filter: none;
+  --qd-surface-filter: none;
+  --qd-root-size: 16px;
+  --qd-date-control-min-width: 150px;
+  --qd-font-family-ui: var(--qa-font-pretendard, 'Pretendard Variable'), 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+  --qd-font-family-mono: 'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace;
+  --qd-font-family-display: var(--qa-font-cormorant, var(--font-cormorant, 'Cormorant Garamond')), 'Cormorant Garamond', var(--qa-font-pretendard, 'Pretendard Variable'), 'Pretendard Variable', Pretendard, Georgia, serif;
+  --qd-font-family-brand: Cinzel, Georgia, serif;
+  --qd-font-ui-stack: var(--qd-font-family-ui);
+  --qd-font-mono-stack: var(--qd-font-family-mono);
+  --qd-font-display-stack: var(--qd-font-family-display);
+  --qd-brand-font: var(--qd-font-family-brand);
+  --qd-spacing-unit: 0.25rem;
+  --qd-font-weight-thin: 100;
+  --qd-font-weight-extralight: 200;
+  --qd-font-weight-light: 300;
+  --qd-font-weight-normal: 400;
+  --qd-font-weight-medium: 500;
+  --qd-font-weight-semibold: 600;
+  --qd-font-weight-bold: 700;
+  --qd-font-weight-extrabold: 800;
+  --qd-font-weight-black: 900;
+  --qd-tracking-tighter: -.05em;
+  --qd-tracking-tight: -.025em;
+  --qd-tracking-normal: 0em;
+  --qd-tracking-wide: .025em;
+  --qd-tracking-wider: .05em;
+  --qd-tracking-widest: .1em;
+  --qd-space-unit: 4px;
+  --qd-line-height-none: 1;
+  --qd-leading-none: 1;
+  --qd-leading-heading: 1.3;
+  --qd-leading-notice: 1.55;
+  --qd-line-height-tight: 1.25;
+  --qd-line-height-snug: 1.375;
+  --qd-line-height-normal: 1.5;
+  --qd-line-height-relaxed: 1.625;
+  --qd-line-height-loose: 2;
+  /* Rectangular surfaces share one radius, regardless of utility size name. */
+  --qd-radius-sm: var(--qd-radius);
+  --qd-radius-md: var(--qd-radius);
+  --qd-radius-lg: var(--qd-radius);
+  --qd-radius-xl: var(--qd-radius);
+  --qd-radius-2xl: var(--qd-radius);
+  --qd-radius-3xl: var(--qd-radius);
+  --qd-radius-full: 9999px;
+  --qd-progress-height: 6px;
+  --qd-border-width: 1px;
+  --qd-border-width-2: 2px;
+  --qd-ring-width-1: 1px;
+  --qd-ring-width-2: 2px;
+  --qd-ring-width-4: 4px;
+  --qd-hairline-width: 1px;
+  --qd-underline-offset: 4px;
+  --qd-focus-outline-width: 2px;
+  --qd-auth-form-width: 440px;
+  --qd-auth-columns: 1.15fr 1fr;
+  --qd-auth-brand-padding: 56px 64px;
+  --qd-auth-form-padding: 56px;
+  --qd-auth-mobile-padding: 40px 24px 32px;
+  --qd-auth-card-padding: 28px 30px;
+  --qd-auth-title-size: clamp(36px, 4.4vw, 56px);
+  --qd-auth-control-size: var(--qd-control-size);
+  --qd-auth-shadow: none;
+  --qd-auth-surface: var(--qd-surface);
+  --qd-auth-background: var(--qd-bg);
+  --qd-work-max: 1400px;
+  --qd-chart-stroke-width: 2;
+  --qd-chart-target-width: 1.2;
+  --qd-chart-fill-opacity: .08;
+  --qd-chart-area-opacity: .15;
+  --qd-chart-grid: var(--qd-border);
+  --qd-chart-label: var(--qd-muted);
+  --qd-chart-target: var(--qd-accent);
+  --qd-space-0: calc(var(--qd-space-unit) * 0);
+  --qd-space-1: calc(var(--qd-space-unit) * 1);
+  --qd-space-2: calc(var(--qd-space-unit) * 2);
+  --qd-space-3: calc(var(--qd-space-unit) * 3);
+  --qd-space-4: calc(var(--qd-space-unit) * 4);
+  --qd-space-5: calc(var(--qd-space-unit) * 5);
+  --qd-space-6: calc(var(--qd-space-unit) * 6);
+  --qd-space-7: calc(var(--qd-space-unit) * 7);
+  --qd-space-8: calc(var(--qd-space-unit) * 8);
+  --qd-space-9: calc(var(--qd-space-unit) * 9);
+  --qd-space-10: calc(var(--qd-space-unit) * 10);
+  --qd-space-11: calc(var(--qd-space-unit) * 11);
+  --qd-space-12: calc(var(--qd-space-unit) * 12);
+  --qd-space-14: calc(var(--qd-space-unit) * 14);
+  --qd-space-16: calc(var(--qd-space-unit) * 16);
+  --qd-space-18: calc(var(--qd-space-unit) * 18);
+  --qd-space-20: calc(var(--qd-space-unit) * 20);
+  --qd-space-24: calc(var(--qd-space-unit) * 24);
+  --qd-space-0-5: calc(var(--qd-space-unit) * 0.5);
+  --qd-space-0-75: calc(var(--qd-space-unit) * 0.75);
+  --qd-space-1-5: calc(var(--qd-space-unit) * 1.5);
+  --qd-space-2-5: calc(var(--qd-space-unit) * 2.5);
+  --qd-space-3-5: calc(var(--qd-space-unit) * 3.5);
+  --qd-space-4-5: calc(var(--qd-space-unit) * 4.5);
+  --qd-space-5-5: calc(var(--qd-space-unit) * 5.5);
+  --qd-space-6-5: calc(var(--qd-space-unit) * 6.5);
+  --qd-space-7-5: calc(var(--qd-space-unit) * 7.5);
+  --qd-font-size-8: 8px;
+  --qd-font-size-9: 9px;
+  --qd-font-size-10: 10px;
+  --qd-font-size-11: 11px;
+  --qd-font-size-12: 12px;
+  --qd-font-size-13: 13px;
+  --qd-font-size-14: 14px;
+  --qd-font-size-15: 15px;
+  --qd-font-size-16: 16px;
+  --qd-font-size-17: 17px;
+  --qd-font-size-18: 18px;
+  --qd-font-size-19: 19px;
+  --qd-font-size-20: 20px;
+  --qd-font-size-22: 22px;
+  --qd-font-size-24: 24px;
+  --qd-font-size-26: 26px;
+  --qd-font-size-28: 28px;
+  --qd-font-size-30: 30px;
+  --qd-font-size-32: 32px;
+  --qd-font-size-36: 36px;
+  --qd-font-size-38: 38px;
+  --qd-font-size-40: 40px;
+  --qd-font-size-48: 48px;
+  --qd-font-size-80: 80px;
+  --qd-ribbon-full-opacity-1: var(--qd-background-ribbon-primary-opacity);
+  --qd-ribbon-full-opacity-2: var(--qd-background-ribbon-secondary-opacity);
+  --qd-ribbon-ambient-opacity-1: calc(var(--qd-background-ribbon-primary-opacity) * .5);
+  --qd-ribbon-ambient-opacity-2: calc(var(--qd-background-ribbon-secondary-opacity) * .5);
+  --qd-ribbon-duration-1: var(--qd-background-ribbon-primary-duration);
+  --qd-ribbon-duration-2: var(--qd-background-ribbon-secondary-duration);
+  --qd-entrance-duration: 1700ms;
+  --qd-auth-mobile-form-width: 460px;
+  --qd-status-width: 480px;
+  --qd-status-code-size: 80px;
+  --qd-auth-theme-inset: 24px;
+  --qd-auth-theme-layer: 50;
+  --qd-leading-tight: 1.2;
+  --qd-leading-snug: 1.4;
+  --qd-leading-normal: 1.5;
+  --qd-leading-relaxed: 1.6;
+  --qd-leading-loose: 1.7;
+  --qd-scrollbar-size: 10px;
+  --qd-scrollbar-inset: 3px;
+  --qd-main-band-height: 68px;
+  --qd-main-band-height-desktop: 56px;
+  --qd-page-head-line-gap: 18px;
+  --qd-ribbon-opacity-1: var(--qd-background-ribbon-primary-opacity);
+  --qd-ribbon-opacity-2: var(--qd-background-ribbon-secondary-opacity);
+  --qd-ribbon-width-1: 200;
+  --qd-ribbon-width-2: 120;
+  --qd-reading-width: 820px;
+  --qd-reading-line-height: 1.85;
+  --qd-document-title-size: 28px;
+  --qd-radius-mark: 6px;
+  --qd-radius-circle: 9999px;
+  --qd-leading-xs: 1.333333;
+  --qd-leading-sm: 1.428571;
+  --qd-leading-lg: 1.555556;
+  --qd-leading-xl: 1.4;
+  --qd-leading-2xl: 1.333333;
+  --qd-leading-3xl: 1.2;
+  --qd-leading-4xl: 1.111111;
+  --qd-leading-display: 1;
+  --qd-main-pad-mobile-x: 16px;
+  --qd-main-pad-mobile-y: 24px;
+  --qd-main-band-z: 20;
+  --qd-command-list-height: 352px;
+  --qd-brand-tracking: .22em;
+  --qd-brand-tracking-wide: .32em;
+  --qd-shadow-sm: none;
+  --qd-shadow-md: none;
+  --qd-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / .05);
+  --qd-chart-grid-opacity: .08;
+  --qd-chart-axis-opacity: .15;
+  --qd-chart-point-radius: 3.5px;
+  --qd-chart-point-radius-active: 5.5px;
+  --qd-chart-label-size: 12px;
+  --qd-font-size-34: 34px;
+  --qd-font-size-60: 60px;
+  --qd-font-size-72: 72px;
+  --qd-font-size-96: 96px;
+  --qd-font-size-128: 128px;
+  --qd-detail-max: 1160px;
+  --qd-field-control-height: 56px;
+  --qd-field-value-size: 24px;
+  --qd-field-key-size: 24px;
+  --qd-auth-eyebrow-tracking: 2.5px;
+  --qd-auth-clock-tracking: 1.5px;
+  --qd-auth-footer-line-height: 1.9;
+  --qd-auth-subhead-size: 14px;
+  --qd-auth-subhead-line-height: 1.7;
+  --qd-auth-field-height: var(--qd-field-control-height);
+  --qd-auth-card-shadow: none;
+  --qd-auth-card-corner-display: none;
+  --qd-background-ambient-opacity: 0.055;
+  --qd-background-ribbon-primary-opacity: 0.14;
+  --qd-background-ribbon-secondary-opacity: 0.08;
+  --qd-background-ribbon-primary-duration: 32s;
+  --qd-background-ribbon-secondary-duration: 38s;
+  --qd-background-ambient-blur: 110px;
+  --qd-watermark-tile-width: 620px;
+  --qd-watermark-tile-height: 360px;
+  --qd-watermark-opacity: 0.04;
+  --qd-watermark-font-size: 13px;
+  --qd-watermark-font-weight: 600;
+  --qd-watermark-tracking: 0.06em;
+  --qd-watermark-angle: -24deg;
+  --qd-floating-action-size: 44px;
+  --qd-install-transition: 320ms;
+  --qd-focus-ring-width: 3px;
+  --qd-focus-ring-alpha: 34%;
+  --qd-line-height-12: 16px;
+  --qd-line-height-14: 20px;
+  --qd-line-height-16: 24px;
+  --qd-line-height-18: 28px;
+  --qd-line-height-20: 28px;
+  --qd-line-height-24: 32px;
+  --qd-line-height-30: 36px;
+  --qd-line-height-36: 40px;
+  --qd-line-height-48: 1;
+  --qd-line-height-60: 1;
+  --qd-line-height-72: 1;
+  --qd-line-height-96: 1;
+  --qd-line-height-128: 1;
+}
+
+/* Common role weights must outrank product resets and generated literal weights.
+   This unlayered bridge keeps the component owner effective in Tailwind and
+   non-Tailwind apps. Product inline adapters already use these same variables. */
+html .qd-btn, html .qd-field-label, html .qd-control-label { font-weight: var(--qd-font-weight-medium); }
+html .qd-card-title, html .qd-dialog-title, html .qd-drawer-title { font-weight: var(--qd-font-weight-semibold); }
+
+/* Equivalent secondary roles share live parameters across all product adapters. */
+:root {
+  --qd-choice-padding-y: 7px;
+  --qd-choice-padding-x: 14px;
+  --qd-choice-line-height: normal;
+  --qd-tab-padding-y: 12px;
+  --qd-tab-padding-x: 18px;
+  --qd-empty-padding-y: 96px;
+  --qd-empty-padding-y-compact: 32px;
+  --qd-empty-padding-x: 24px;
+  --qd-empty-title-size: 22px;
+  --qd-empty-title-size-compact: 16px;
+  --qd-empty-description-size: var(--qd-control-size);
+  --qd-empty-description-leading: 1.7;
+  --qd-empty-description-max-width: 460px;
+  --qd-empty-description-gap: 10px;
+  --qd-empty-action-gap: 18px;
+  --qd-empty-description-action-gap: 22px;
+  --qd-empty-hint-gap: 26px;
+  --qd-empty-description-hint-gap: 30px;
+  --qd-empty-action-hint-gap: 18px;
+  --qd-skeleton-duration: 1.6s;
+}
+html .qd-choice {
+  font-family: var(--qd-font-family-ui);
+  font-weight: var(--qd-font-weight-medium);
+  line-height: var(--qd-choice-line-height);
+  padding: var(--qd-choice-padding-y) var(--qd-choice-padding-x);
+}
+html .qd-choice[aria-pressed='true'], html .qd-choice[data-state='checked'], html .qd-choice--selected {
+  font-weight: var(--qd-font-weight-semibold);
+}
+html .qd-tab { padding: var(--qd-tab-padding-y) var(--qd-tab-padding-x) !important; }
+/* Existing dense tabs declare their local spacing through this role variable. */
+html .qd-tab.px-2\.5 { padding-left: calc(var(--qd-tab-padding-x) * 5 / 9) !important; padding-right: calc(var(--qd-tab-padding-x) * 5 / 9) !important; }
+html .qd-tab[aria-selected='true'], html .qd-tab[aria-current='page'], html .qd-tab--active { font-weight: var(--qd-font-weight-semibold); }
+html .qd-empty { padding: var(--qd-empty-padding-y) var(--qd-empty-padding-x) !important; }
+html .qd-empty--compact { padding-top: var(--qd-empty-padding-y-compact) !important; padding-bottom: var(--qd-empty-padding-y-compact) !important; }
+html .qd-empty-title { font-family: var(--qd-font-family-ui) !important; font-size: var(--qd-empty-title-size) !important; font-weight: var(--qd-font-weight-bold) !important; margin: 0 !important; }
+html .qd-empty--compact .qd-empty-title { font-size: var(--qd-empty-title-size-compact) !important; }
+html .qd-empty-desc { font-size: var(--qd-empty-description-size) !important; line-height: var(--qd-empty-description-leading) !important; max-width: var(--qd-empty-description-max-width) !important; margin: var(--qd-empty-description-gap) auto 0 !important; }
+html .qd-empty-actions { margin-bottom: 0 !important; }
+html .qd-empty-title + .qd-empty-actions { margin-top: var(--qd-empty-action-gap) !important; }
+html .qd-empty-desc + .qd-empty-actions { margin-top: var(--qd-empty-description-action-gap) !important; }
+html .qd-empty-title + .qd-empty-hints { margin-top: var(--qd-empty-hint-gap) !important; }
+html .qd-empty-desc + .qd-empty-hints { margin-top: var(--qd-empty-description-hint-gap) !important; }
+html .qd-empty-actions + .qd-empty-hints { margin-top: var(--qd-empty-action-hint-gap) !important; }
+html .qd-skeleton, html .qa-skeleton { animation-duration: var(--qd-skeleton-duration) !important; }
+@media (prefers-reduced-motion: reduce) {
+  html .qd-skeleton, html .qa-skeleton { animation: none !important; }
+}
+/* Narrow windows keep usable targets even when the browser reports a fine pointer. */
+@media (max-width: 640px) {
+  html :is(.qd-btn, .qa-btn, .qa-btn-secondary, .qd-input, .qa-input, .qd-choice, .qd-tab, .qd-text-action, .qd-combobox-option, .qd-filter-input, .qd-filter-select, .qd-filter-submit, .qd-filter-clear, .qd-pager-btn, .qa-touch-44) { min-height: var(--qd-control-height) !important; }
+  html :is(.qd-control-icon, .qd-dialog-close, .qd-mobile-menu, .qa-touch-44sq) { min-width: var(--qd-control-height) !important; min-height: var(--qd-control-height) !important; }
+}
+/* Contiguous selection rows inherit the enclosing panel's shape. */
+:root { --qd-selection-row-height: var(--qd-control-height); --qd-selection-row-padding-y: var(--qd-space-2); --qd-selection-row-padding-x: var(--qd-space-3); }
+html .qd-selection-row { min-height: var(--qd-selection-row-height) !important; padding: var(--qd-selection-row-padding-y) var(--qd-selection-row-padding-x) !important; font-family: var(--qd-font-family-ui); font-size: var(--qd-control-size); }

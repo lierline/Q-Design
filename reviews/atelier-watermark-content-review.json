@@ -1,0 +1,638 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-10T10:30:39.269Z",
+  "method": "Read the actual escaped HTML and encoded SVG assembly, canonical module and download consumer. Exact normalized source/AST identities; repeated same-line coordinate slots retain all AST contexts. No CSS selector or arbitrary HTML exemption.",
+  "records": [
+    {
+      "argumentHash": "6f6876dc3c8041657475aaa04cf8b9d6cd6a08c29e23f2b18db5acde7a5b955c",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 40,
+      "reviewedKind": "asset",
+      "reviewedProperty": "height",
+      "reviewedExpression": "/*QD_DYNAMIC*/",
+      "consumerContext": {
+        "slots": [],
+        "exactConsumer": "SVG root dimension attribute assembled by tileDataUri"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 40,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "86c041d61c7386fb0dd115c6c80ed9daa9258b9db7c263b2d467fd8a2d52fefb",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 40,
+      "reviewedKind": "asset",
+      "reviewedProperty": "width",
+      "reviewedExpression": "/*QD_DYNAMIC*/",
+      "consumerContext": {
+        "slots": [],
+        "exactConsumer": "SVG root dimension attribute assembled by tileDataUri"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 40,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "c7ca9ed274b2ebeff0fd70fbfde786e270437075224cdbe0b97f8367b27449d7",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 40,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tile.width",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 40,
+            "value": "tile.width",
+            "start": 1319,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "width-attribute",
+            "before": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"",
+            "after": "\" height=\""
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 40,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "6f982c03a9cec51705aa647f38e205ac779d38321aaf2913aa97932d39218496",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 40,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tile.height",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 40,
+            "value": "tile.height",
+            "start": 1342,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "height-attribute",
+            "before": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"__DYNAMIC_VALUE__\" height=\"",
+            "after": "\">"
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 40,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "006051a0f34d78c11894d19ac78d3251f35c0ae9dbc579a667f06515a5a479fe",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 41,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tile.textX",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 41,
+            "value": "tile.textX",
+            "start": 1376,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "x-attribute",
+            "before": "<text x=\"",
+            "after": "\" y=\""
+          },
+          {
+            "line": 41,
+            "value": "tile.textX",
+            "start": 1451,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "transform-attribute",
+            "before": "<text x=\"__DYNAMIC_VALUE__\" y=\"__DYNAMIC_VALUE__\" transform=\"rotate(__DYNAMIC_VALUE__ ",
+            "after": " "
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 41,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "a0265cac5784d7bd94a38b110d28943c35510ef2cbbb73e302260dc203a45458",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 41,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tile.textY",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 41,
+            "value": "tile.textY",
+            "start": 1394,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "y-attribute",
+            "before": "<text x=\"__DYNAMIC_VALUE__\" y=\"",
+            "after": "\" transform=\"rotate("
+          },
+          {
+            "line": 41,
+            "value": "tile.textY",
+            "start": 1465,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "transform-attribute",
+            "before": "<text x=\"__DYNAMIC_VALUE__\" y=\"__DYNAMIC_VALUE__\" transform=\"rotate(__DYNAMIC_VALUE__ __DYNAMIC_VALUE__ ",
+            "after": ")\" "
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 41,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "2a805e66fdc4c85b357feb502b1e5373f7ddb8c5a0213c55497e041cfb1f1d11",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 41,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tile.rotationDegrees",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 41,
+            "value": "tile.rotationDegrees",
+            "start": 1427,
+            "owner": "tileDataUri",
+            "ownerLine": 36,
+            "slot": "transform-attribute",
+            "before": "<text x=\"__DYNAMIC_VALUE__\" y=\"__DYNAMIC_VALUE__\" transform=\"rotate(",
+            "after": " "
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 41,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 37,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        }
+      ],
+      "decision": "token-reference-verified",
+      "ruleId": "manual-watermark-canonical-svg-parameter",
+      "reason": "tile is the actual QDOutput.manualWatermark object imported from the generated canonical module. Width, height, text coordinates and rotation are forwarded directly into SVG attributes with no local visual default. These are presentation parameters, not exempt business data."
+    },
+    {
+      "argumentHash": "0141dbb89ff6aad730a24fb66ff5bed5d920d45771f2dacf203eb0fdc113798b",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 63,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "name",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 63,
+            "value": "name",
+            "start": 2219,
+            "owner": "buildWatermark",
+            "ownerLine": 53,
+            "slot": "text-or-markup",
+            "before": "<div class=\"wm-bar\">이 사본은 <b>",
+            "after": "</b> ("
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 63,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 26,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 52,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 60,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        }
+      ],
+      "decision": "business-content",
+      "ruleId": "manual-watermark-escaped-identification-text",
+      "reason": "This exact slot renders recipient identity or issue time in the visible watermark notice. name, email and at are initialized through escapeMarkup; orgPart joins fixed punctuation with the already escaped organization name. These strings never determine a CSS declaration.",
+      "escaping": "escapeMarkup replaces ampersand, angle brackets and both quote characters before visible HTML text insertion"
+    },
+    {
+      "argumentHash": "e17e47a4dc50c3fe4596bdca8ba895a6940486e3cdf1b79ec87cfee78ae2eae7",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 63,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "email",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 63,
+            "value": "email",
+            "start": 2232,
+            "owner": "buildWatermark",
+            "ownerLine": 53,
+            "slot": "text-or-markup",
+            "before": "<div class=\"wm-bar\">이 사본은 <b>__DYNAMIC_VALUE__</b> (",
+            "after": ""
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 63,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 26,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 52,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 60,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        }
+      ],
+      "decision": "business-content",
+      "ruleId": "manual-watermark-escaped-identification-text",
+      "reason": "This exact slot renders recipient identity or issue time in the visible watermark notice. name, email and at are initialized through escapeMarkup; orgPart joins fixed punctuation with the already escaped organization name. These strings never determine a CSS declaration.",
+      "escaping": "escapeMarkup replaces ampersand, angle brackets and both quote characters before visible HTML text insertion"
+    },
+    {
+      "argumentHash": "ccdb1651897569f0a36c043bec37eb52a2038cf449b95ce3aae2a4ce23733052",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 63,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "orgPart",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 63,
+            "value": "orgPart",
+            "start": 2240,
+            "owner": "buildWatermark",
+            "ownerLine": 53,
+            "slot": "text-or-markup",
+            "before": "<div class=\"wm-bar\">이 사본은 <b>__DYNAMIC_VALUE__</b> (__DYNAMIC_VALUE__",
+            "after": ") 님에게 "
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 63,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 26,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 52,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 60,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        }
+      ],
+      "decision": "business-content",
+      "ruleId": "manual-watermark-escaped-identification-text",
+      "reason": "This exact slot renders recipient identity or issue time in the visible watermark notice. name, email and at are initialized through escapeMarkup; orgPart joins fixed punctuation with the already escaped organization name. These strings never determine a CSS declaration.",
+      "escaping": "escapeMarkup replaces ampersand, angle brackets and both quote characters before visible HTML text insertion"
+    },
+    {
+      "argumentHash": "b749e7eaf0b6db47b63f323fbab6d1a959107e1b0e92e493bd69fcc1c0681be0",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 64,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "at",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 64,
+            "value": "at",
+            "start": 2265,
+            "owner": "buildWatermark",
+            "ownerLine": 53,
+            "slot": "unproven-fragment",
+            "before": "",
+            "after": " 에 발급되었습니다. 사외 배포를 삼가 주십시오.</div>"
+          }
+        ],
+        "exactConsumer": "Template span consumed by tileDataUri or buildWatermark"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 64,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 26,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 52,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 60,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        }
+      ],
+      "decision": "business-content",
+      "ruleId": "manual-watermark-escaped-identification-text",
+      "reason": "This exact slot renders recipient identity or issue time in the visible watermark notice. name, email and at are initialized through escapeMarkup; orgPart joins fixed punctuation with the already escaped organization name. These strings never determine a CSS declaration.",
+      "escaping": "escapeMarkup replaces ampersand, angle brackets and both quote characters before visible HTML text insertion"
+    },
+    {
+      "argumentHash": "05b82c4ebbb9170ea86b0076133ad750d611b2a1fe4607a6bb96db4c7387fb1a",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 66,
+      "reviewedKind": "dynamic-style",
+      "reviewedProperty": "embedded-interpolation",
+      "reviewedExpression": "tileDataUri(tileLine)",
+      "consumerContext": {
+        "slots": [
+          {
+            "line": 66,
+            "value": "tileDataUri(tileLine)",
+            "start": 2395,
+            "owner": "buildWatermark",
+            "ownerLine": 53,
+            "slot": "unproven-fragment",
+            "before": "",
+            "after": "&quot;)\"></div>"
+          }
+        ],
+        "exactConsumer": "CSS background-image URL assembled from escaped inline SVG"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 66,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 26,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 35,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        },
+        {
+          "path": "source/design/atelier-output.ts",
+          "line": 19,
+          "hash": "e85f3c732fa1272b50076616fc3444a8782af9883ff202dc216d36de164649ca"
+        },
+        {
+          "path": "lib/design/q-design-output.ts",
+          "line": 1,
+          "hash": "5a517d2df19633ec891767877c35db4aa53b9d9dfd72e3d08a4efddadabaa770"
+        },
+        {
+          "path": "app/api/manual/download/route.ts",
+          "line": 128,
+          "hash": "f08236dcc18c29523b686ef37d37cf9f1d26da889f9712e3e66571bc9b589749"
+        }
+      ],
+      "decision": "confirmed-style-composition",
+      "ruleId": "manual-watermark-encoded-svg-background",
+      "reason": "This is a CSS background-image URL, not a content-text slot. tileDataUri XML-escapes the email/time text, takes every SVG dimension/font/color from QDOutput.manualWatermark, then encodeURIComponent encodes the entire SVG under a fixed data:image/svg+xml prefix. The outer quoted CSS URL uses &quot;. User text cannot introduce SVG markup or terminate the URL; the external wm-tile placement recipe remains a separate candidate.",
+      "escaping": "XML text and string attributes are escaped, then the full SVG is URI encoded"
+    }
+  ],
+  "reported": [
+    {
+      "argumentHash": "a0fd0b130ea922358849beee780db73d86a1957db99e0c196508a186d1e92bf1",
+      "sourceHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "path": "lib/manual/watermark.ts",
+      "line": 63,
+      "reviewedKind": "class-utility",
+      "reviewedProperty": "className",
+      "reviewedExpression": "wm-bar",
+      "consumerContext": {
+        "slots": [],
+        "exactConsumer": "Watermark notice class rendered into manual HTML"
+      },
+      "evidence": [
+        {
+          "path": "lib/manual/watermark.ts",
+          "line": 63,
+          "hash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f"
+        }
+      ],
+      "decision": "unknown",
+      "ruleId": "watermark-selector-requires-owned-recipe",
+      "reason": "The class selects manual-document CSS. Content and SVG review does not prove ownership of its separate wm-bar/wm-tile recipe."
+    }
+  ],
+  "summary": {
+    "candidateOccurrences": 15,
+    "acceptedUnique": 12,
+    "reportedUnique": 1
+  }
+}

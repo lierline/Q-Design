@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-10T07:32:10.840Z",
+  "browser": "Codex In-app Browser",
+  "viewportOverride": {
+    "requested": [
+      375,
+      812
+    ],
+    "actual": [
+      1280,
+      720
+    ],
+    "result": "unsupported-in-current-runtime-no-layout-resize"
+  },
+  "chromeFallback": "Browser is not available: chrome",
+  "sameOriginIframe": {
+    "atelier": {
+      "verifiedWidths": [
+        375,
+        412
+      ],
+      "height": 640,
+      "normalAuth": true,
+      "securityHeadersUnchanged": true
+    },
+    "maison": {
+      "result": "blocked-by-existing-frame-security"
+    },
+    "carnet": {
+      "result": "blocked-by-existing-frame-security"
+    }
+  },
+  "notMobileEvidence": "Role labels containing mobile375 used before diagnosis retain actual viewport1280 metadata and cannot establish responsive conformance.",
+  "scope": "Iframe CSS viewport verification is not a physical mobile-device or touch-input test."
+}

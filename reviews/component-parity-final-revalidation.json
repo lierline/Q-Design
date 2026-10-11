@@ -1,0 +1,72 @@
+{
+  "scope": "Exact four adapter edits and three CSS declarations. Existing named expressions and consumer text retained; each CSS evidence line remains unchanged.",
+  "adapter": {
+    "path": "lib/design/components.tsx",
+    "beforeHash": "d8634f81cc33c26ae02ede27b15cf0716b7cc865a32e3ae255ff39ac5f7144cd",
+    "afterHash": "86a95b425e10b8a9e879175572c9eb3a722c4b2506858e41cc5577a95ad65ebb",
+    "edits": [
+      {
+        "start": 3955,
+        "before": "className=\"qd-control-label\"",
+        "after": "className=\"qd-control-label qd-field-label\""
+      },
+      {
+        "start": 4402,
+        "before": "marginBottom: \"var(--qd-atelier-margin-bottom-e0390d63f4)\"",
+        "after": "marginBottom: \"var(--qd-field-gap)\""
+      },
+      {
+        "start": 38404,
+        "before": "<div style={{ display: 'flex', alignItems: 'baseline', gap: QDScale.space[2], marginBottom: QDScale.space[1] }}>",
+        "after": "<div style={{ display: 'flex', alignItems: 'baseline', gap: QDScale.space[2], marginBottom: 'var(--qd-field-gap)' }}>"
+      },
+      {
+        "start": 48175,
+        "before": "      <span style={{ marginRight: QDScale.space[1], fontFamily: QDScale.family.mono }}>⚠</span>\n",
+        "after": ""
+      }
+    ]
+  },
+  "css": {
+    "priorHash": "5bc9c868aeb514b61fca0d81bc73c81ffae7ad4169a2bbb8b79e66b42c423f16",
+    "currentHash": "7102387b30df395b46e32fa0b1974b1752f17c5e3c8de9b9435f9ebb1008b5dc"
+  },
+  "counts": {
+    "atelier-style-bindings-review.json": {
+      "bindings": 17,
+      "evidence": 62
+    },
+    "maison-style-manual-review.json": {
+      "bindings": 0,
+      "evidence": 16
+    },
+    "maison-style-spread-review.json": {
+      "bindings": 0,
+      "evidence": 0
+    },
+    "maison-style-bindings-review.json": {
+      "bindings": 0,
+      "evidence": 0
+    },
+    "maison-accent-review.json": {
+      "bindings": 0,
+      "evidence": 0
+    }
+  },
+  "finalErrorRefinement": {
+    "priorHash": "7102387b30df395b46e32fa0b1974b1752f17c5e3c8de9b9435f9ebb1008b5dc",
+    "currentHash": "dfb376748505e65b188e5c2ce0bc873fe56928a620761bdb743d14673e9a7d0a",
+    "evidenceCount": 17,
+    "scope": "Shared error tracking and reduced-motion rule. Every other byte and each referenced evidence line retained."
+  },
+  "retainedConsumerEvidence": {
+    "atelier-style-prop-flow-review": 0,
+    "atelier-data-ratio-review": 0,
+    "atelier-measured-coordinate-review": 0,
+    "atelier-final-presentation-boundaries": 0,
+    "atelier-style-spread-review": 0,
+    "atelier-api-output-consumer-review": 0,
+    "atelier-watermark-content-review": 0,
+    "atelier-html-content-review": 0
+  }
+}

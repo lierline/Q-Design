@@ -1,7 +1,30 @@
 # Q-Design
 
-Q-Atelier 의 디자인 시스템을 통째로 뽑아 둔 참고용 저장소입니다.
-다른 사이트에서 이 언어를 다시 말하게 하려고 만들었습니다.
+## 세 제품 컴포넌트 통일 · 2026-10-10
+
+[실제 제품 부품 비교](preview/components.html), [역할별 등록부](docs/29-component-registry.md),
+[공통 규칙과 변경 절차](docs/30-component-governance.md), [전체 코드 목록](docs/31-component-inventory.md),
+[첫 감사](docs/32-unification-audit.md), [확장 감사 결과](docs/36-foundation-audit.md).
+공통 외형은 `patterns/components.css`, 공통 화면 색상은 `patterns/palette-overrides.json`, 업무 동작은 제품 어댑터가 소유합니다.
+[팔레트 규칙](docs/33-palette-canon.md)에서 세 제품의 변수 연결과 제조사·인쇄 예외를 확인합니다.
+[배경부터 출력까지의 규칙](docs/35-foundation-rules.md)은 서체·간격·로그인·셸·상태·인쇄·오프라인의 원본과 변경 경로를 정합니다.
+[공식 디자인 참고 사례](docs/34-foundation-reference-study.md)에 15개 사례의 적용 판단을 기록했습니다.
+`patterns/foundation.css`와 제품별 `patterns/foundation/`가 기반 원본입니다.
+비교 화면의 공통 인자 조정에서 실제 세 제품 부품으로 변경 전파를 확인할 수 있습니다.
+`node tools/check-components.mjs`로 등록 누락·사본·연결·규칙을 검사하고,
+`--browser`를 붙이면 실제 부품을 빌드해 두 테마와 세 화면 폭에서 검증합니다.
+미리보기는 `node tools/build-component-workbench.mjs` 후 `node tools/serve-component-workbench.mjs`로 엽니다.
+
+## 맥락 유지형 문서 검토 시안 · 2026-10-10
+
+[시안 열기](preview/context-review.html): 목록과 상세를 함께 두고 문서 검토를 이어가는 화면입니다.
+문서별 메모와 확인 항목, 집중 보기와 복귀, 검색·상태·정렬 유지, 저장 실패와 재시도를 체험합니다.
+상단 시안 설정에서 모션을 3배 느리게 보거나 끌 수 있습니다.
+설명과 확인 범위: [시안 안내](docs/27-context-review-prototype.md).
+로컬 예시 데이터만 사용하며 운영 제품 배포나 공통 생성물 변경은 포함하지 않습니다.
+
+Q 제품군의 공통 디자인 규칙과 제품 연결을 관리하는 저장소입니다.
+기존 규칙은 커밋된 Q-Atelier 원본에서 추출하고, 새로운 공용 컴포넌트 규칙과 팔레트 변경은 Q-Design에서 관리합니다.
 
 ## 업무 화면 다듬기 · 2026-10-03
 

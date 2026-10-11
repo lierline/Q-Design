@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { createElement, type ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Btn, Field, FldRow, In, Sel, Txt } from './components';
+import { resolveStyleValues } from '@/lib/test-utils/design-source';
 
 // =============================================================================
 // 오류 글귀는 칸에 «연결» 되어야 한다 (WCAG 3.3.1 · 1.3.1) · 저장 단추는 «처리 중» 을 안다
@@ -133,7 +134,9 @@ describe('② Btn 의 처리 중(pending) 상태', () => {
     expect(attr(out, 'button', 'aria-busy')).toBe('true');
     expect(out).toContain('저장');
     expect(out).toMatch(/visibility:\s*hidden/);
-    expect(out).toMatch(/qa-spin/);
+    const animation = out.match(/animation:([^";]+)/)?.[1];
+    expect(animation).toBeDefined();
+    expect(resolveStyleValues(`animation: '${animation}'`)).toMatch(/qa-spin/);
     expect(out).toMatch(/aria-hidden="true"/);
   });
 

@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
@@ -26,7 +27,7 @@ const ROOT = process.cwd();
 const 부품 = 'lib/design/components.tsx';
 const 전역 = 'app/globals.css';
 
-const read = (rel: string) => readFileSync(join(ROOT, rel), 'utf8');
+const read = (rel: string) => readDesignFile(join(ROOT, rel), 'utf8');
 
 /** 주석을 걷어 낸 코드. 「이렇게 하면 안 된다」고 적은 주석이 걸리면 안 된다 */
 function bare(rel: string): string {
@@ -72,11 +73,10 @@ describe('따라오는 머리글', () => {
 
   /*
    * 부품이 생겼으니 화면이 같은 것을 손으로 적으면 안 된다.
-   * 지금 한 곳(permissions-matrix)이 자기 격자를 직접 그려 여기 남아 있다 ·
-   * DataTable 로 옮길 때 이 면제를 지운다.
+   * permissions-matrix도 중앙 규칙으로 옮겨 면제가 더는 필요하지 않다.
    */
   it('화면이 머리글 고정을 손으로 적지 않는다', () => {
-    const 면제 = ['app/(app)/admin/permissions-matrix/page.tsx'];
+    const 면제: string[] = [];
     const 화면들: string[] = [];
     const walk = (dir: string) => {
       for (const e of readdirSync(dir)) {
@@ -93,7 +93,7 @@ describe('따라오는 머리글', () => {
     for (const f of 화면들) {
       const rel = relative(ROOT, f).split(sep).join('/');
       if (rel === 부품 || 면제.includes(rel)) continue;
-      const src = readFileSync(f, 'utf8');
+      const src = readDesignFile(f, 'utf8');
       /* 인라인 style 로 머리글을 고정한 자리 */
       if (src.includes("position: 'sticky'") && src.includes('columnheader')) 나쁜곳.push(rel);
     }
@@ -106,7 +106,7 @@ describe('따라오는 머리글', () => {
 
     /* 면제가 헐거워지지 않았는지 · 지우지 않으면 다시 늘어도 안 걸린다 */
     for (const f of 면제) {
-      const src = readFileSync(join(ROOT, f), 'utf8');
+      const src = readDesignFile(join(ROOT, f), 'utf8');
       expect(src.includes("position: 'sticky'"), `면제 '${f}' 는 이제 걸리는 것이 없습니다. 면제를 지우십시오`).toBe(true);
     }
   });
@@ -119,7 +119,7 @@ describe('따라오는 머리글', () => {
         const p = join(dir, e);
         if (statSync(p).isDirectory()) walk(p);
         else if (p.endsWith('.tsx') && !p.includes('components.tsx')) {
-          if (readFileSync(p, 'utf8').includes('stickyHeader')) {
+          if (readDesignFile(p, 'utf8').includes('stickyHeader')) {
             쓰는곳.push(relative(ROOT, p).split(sep).join('/'));
           }
         }

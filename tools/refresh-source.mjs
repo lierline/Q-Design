@@ -67,7 +67,7 @@ const MAP = [
     dest: 'tokens',
     repo: 'qa',
     /* grain.ts: «문서 결» 의 상태 색 비율(2026-09-27). tokens.ts 는 엔진 검증 근거가 지문을 들어 따로 뒀다 */
-    files: ['lib/design/tokens.ts', 'lib/design/grain.ts', 'lib/design/tag-metrics.ts', 'lib/design/sticky-inset.ts', 'lib/design/main-padding.ts'],
+    files: ['lib/design/tokens.ts', 'lib/design/grain.ts', 'lib/design/tag-metrics.ts', 'lib/design/sticky-inset.ts', 'lib/design/main-padding.ts', 'lib/design/print.ts', 'lib/design/q-design-contract.ts', 'lib/design/q-design-scale.ts'],
   },
   {
     dest: 'components',
@@ -75,6 +75,7 @@ const MAP = [
     files: [
       'lib/design/components.tsx',
       'lib/design/segmented-choice.tsx',
+      'lib/design/hangul-text.tsx',
       'components/Logo.tsx',
       'components/PageTransition.tsx',
       'components/RibbonBackground.tsx',
@@ -106,8 +107,8 @@ const MAP = [
       { from: 'app/(app)/layout.tsx', as: 'app-shell-layout.tsx' },
     ],
   },
-  { dest: 'css', repo: 'qa', files: ['app/globals.css', 'app/experts/expert-theme.css'] },
-  { dest: 'provider', repo: 'qa', files: ['lib/design/theme-provider.tsx'] },
+  { dest: 'css', repo: 'qa', files: ['app/globals.css', 'app/experts/expert-theme.css', 'components/qms/sheet-paper.css'] },
+  { dest: 'provider', repo: 'qa', files: ['lib/design/theme-provider.tsx', 'lib/design/modal-focus.ts'] },
   {
     /* 화면: style 블록을 «가진» tsx 전부. 목록을 손으로 적으면 새 화면이 빠집니다. */
     dest: 'screens',
@@ -243,12 +244,18 @@ const changed = [];
 const orphan = [];
 const same = [];
 
-for (const item of plan) {
-  const fresh = readFromHead(item.repo, item.path);
-  if (!fresh) {
-    console.error(`원본에 없습니다: ${item.repo}:${item.path}`);
-    process.exit(2);
-  }
+// Verify every committed input before writing any snapshot. New runtime adapters may
+// exist only in the product worktree until the product change has been committed.
+const prepared = plan.map(item => ({ ...item, fresh: readFromHead(item.repo, item.path) }));
+const missingCommitted = prepared.filter(item => item.fresh === null);
+if (missingCommitted.length) {
+  for (const item of missingCommitted) console.error(`커밋된 원본에 없습니다: ${item.repo}:${item.path}`);
+  console.error('제품 변경을 커밋한 뒤 다시 실행하십시오. source/에는 쓰지 않았습니다.');
+  process.exit(2);
+}
+
+for (const item of prepared) {
+  const fresh = item.fresh;
   if (!existsSync(item.dest)) {
     added.push(item);
     if (WRITE) {

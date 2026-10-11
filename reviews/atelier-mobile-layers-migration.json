@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "beforeHash": "32588b6d14aa56b366827b2d0014d245f171f7daa846e1d72249445b40402c33",
+      "afterHash": "e350b52d121318faafd61c223fa20d83a4c2f15972c8fa29b2d58ae487f9e395",
+      "edits": [
+        {
+          "before": "style={{ zIndex: Z.header }} />",
+          "after": "style={{ zIndex: 'var(--qd-atelier-mobile-header-layer)' }} />",
+          "start": 1501
+        }
+      ]
+    },
+    {
+      "path": "components/BackButton.tsx",
+      "beforeHash": "1241fc11796fb9f15a90da6f376bb89f5635ca2e324782ee3ec9c423b9f74984",
+      "afterHash": "3a4297adb1227588247d6308a5c9c61c089b47d839e413c8b4f4088deff4ed75",
+      "edits": [
+        {
+          "before": "zIndex: Z.drawerFab,",
+          "after": "zIndex: 'var(--qd-atelier-mobile-control-layer)',",
+          "start": 4244
+        }
+      ]
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeHash": "f5abdde213babbf8695e883bbf5156f3467263a78dadb49fe7b0d8a0a2a35490",
+      "afterHash": "8e299e2b44c9aef3eda1cadba2256fc0643d1ccc10761ec5c78f91045b631856",
+      "edits": [
+        {
+          "before": "zIndex: Z.drawerFab,",
+          "after": "zIndex: 'var(--qd-atelier-mobile-control-layer)',",
+          "start": 5169
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "beforeHash": "64226d766a021f242cf20d8dc6b46e6364056fd1a4a6b95eedcd365db3cf28c4",
+      "afterHash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5",
+      "edits": [
+        {
+          "before": "zIndex: \"var(--qd-atelier-z-index-306989e67e)\"",
+          "after": "zIndex: isMobile ? \"var(--qd-atelier-mobile-control-layer)\" : \"var(--qd-atelier-z-index-306989e67e)\"",
+          "start": 6655
+        }
+      ]
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "beforeHash": "29a1875198cfd05aa8899789c6c9c83646e209e45a89016aad19b7bf460980b0",
+      "afterHash": "2338fb7b739e05a4a5c5b78d2f08e7ceb184afa6ca490e455f1468036436643f",
+      "edits": [
+        {
+          "before": "zIndex: \"var(--qd-atelier-z-index-8783aba325)\"",
+          "after": "zIndex: isMobile ? \"var(--qd-atelier-mobile-control-layer)\" : \"var(--qd-atelier-z-index-8783aba325)\"",
+          "start": 18579
+        },
+        {
+          "before": "zIndex: \"var(--qd-atelier-z-index-8783aba325)\"",
+          "after": "zIndex: isMobile ? \"var(--qd-atelier-mobile-control-layer)\" : \"var(--qd-atelier-z-index-8783aba325)\"",
+          "start": 14776
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "scope": "Observed raw visual candidates adjacent to reviewed spreads. These are findings for owner review, not automatic migration instructions or compliance assertions.",
+  "records": [
+    {
+      "path": "app/(app)/process-templates/form.tsx",
+      "line": 235,
+      "sourceHash": "c90f75eb07ed6ad6c50e25b2140a4eb1337068e7d9f4986839e6aee7668f3dd5",
+      "finding": "Grid minimum width 110 in foldGrid options is a finite authored visual parameter.",
+      "consumer": "style={{ ...foldGrid(3, QDScale.space[2], { min: 110 }), marginTop: QDScale.space[2] }}"
+    },
+    {
+      "path": "app/onboarding/qms-setup/client.tsx",
+      "line": 79,
+      "sourceHash": "454ac249141b5500a4b338b31bcf6cb0bbd841345de3185c785992def7e582f9",
+      "finding": "Grid minimum width 160 in foldGrid options is a finite authored visual parameter.",
+      "consumer": "style={{ ...foldGrid(3, QDScale.space[2.5], { min: 160 }), marginBottom: QDScale.space[5] }}"
+    },
+    {
+      "path": "components/MatchedRulesList.tsx",
+      "line": 194,
+      "sourceHash": "bae6b1cdcfd956dcbaa436fa62318f54917f4479cd7747c4553c41282995427e",
+      "finding": "Grid minimum width 200 in foldGrid options is a finite authored visual parameter.",
+      "consumer": "style={{\r\n                      ...foldGrid(2, QDScale.space[3.5], { min: 200 }),\r\n                      paddingTop: QDScale.space[1],\r\n                    }}"
+    },
+    {
+      "path": "components/RoleReviewPanel.tsx",
+      "line": 209,
+      "sourceHash": "6b89d237c79371f9df4d51e20197efc7ffe89cdba83a5d9ddad1f4e74c057f1a",
+      "finding": "Grid minimum width 200 in foldGrid options is a finite authored visual parameter.",
+      "consumer": "className=\"qa-rolereview-2\"\r\n          style={{\r\n            ...foldGrid(2, QDScale.space[6], { min: 200, rowGap: QDScale.space[4] }),\r\n            borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,\r\n            paddingTop: QDScale.space[3.5],\r\n          }}"
+    },
+    {
+      "path": "components/ApprovalChainEditor.tsx",
+      "line": 270,
+      "sourceHash": "069c099b212216c247da24e73563f779f175b959d80f1305ead896d91cf59721",
+      "finding": "Approval connector local style has top11, height1, 15px offset inside half-width calculation. Keep percentage anchoring structural; centrally own the finite visual offsets and stroke thickness.",
+      "consumer": "line = (side: 'l' | 'r') => ({\n    position: 'absolute' as const, top: 11, height: 1, background: T.border,\n    ...(side === 'l' ? { left: 0, right: 'calc(50% + 15px)' } : { left: 'calc(50% + 15px)', right: 0 }),\n  })"
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "line": 872,
+      "sourceHash": "094e2f9d4d35d5e5097489879edce4569dbbb7dd645028364fd9886e197dad8f",
+      "finding": "Document panel borderStyle dashed and outline2px solid appear as raw branch values. Inspect these independently of the already central outline color and offset.",
+      "consumer": "style={{\n        padding: QDScale.space[4.5],\n        position: 'relative',\n        // 왼쪽 3px 상태 색 띠를 걷는다(문서 결 · 2026-09-28). 상태는 머리의 상태 표시가, 앞 단계 진행 중은 바깥 붉은\n        //   테두리가 알린다. 지켜보기만 하는 문서는 테두리를 점선으로.\n        ...(observeOnly ? { borderStyle: 'dashed' } : {}),\n        outline: isFocused\n          ? `2px solid ${T.champagne}`\n          : effectiveHighlight\n            ? `2px solid ${alpha(T.champagne, QDRuntime.alpha.tint0_6)}`\n            : isPrevStageInProgress\n              ? `2px solid ${alpha(T.red, QDRuntime.alpha.tint0_45)}`\n              : 'none',\n        outlineOffset: isFocused || effectiveHighlight || isPrevStageInProgress ? \"var(--qd-atelier-outline-offset-de44b94b65)\" : \"var(--qd-atelier-outline-offset-add1a4a27f)\",\n        opacity: observeOnly ? \"var(--qd-atelier-opacity-64201e50d3)\" : isRecommended && !isPrevStageInProgress ? \"var(--qd-atelier-opacity-5a494e69a6)\" : \"var(--qd-atelier-opacity-dc43f5a623)\",\n        filter: observeOnly ? 'grayscale(0.4)' : 'none',\n        transition: \"var(--qd-atelier-transition-f0cacadcb9)\",\n      }}"
+    },
+    {
+      "path": "components/RegulatoryChangesPanel.tsx",
+      "line": 146,
+      "sourceHash": "cc496e313ea43e3cc899e8207651e2f89fe2e624415f1bcb8156b69a32a93e4a",
+      "finding": "Padding template retains raw horizontal2px after central vertical spacing.",
+      "consumer": "style={{ marginTop: QDScale.space[2], fontFamily: QDScale.family.serif, fontSize: QDScale.font[12], color: T.subtle, lineHeight: QDScale.leading.relaxed, ...ruleBand(T.blue), padding: `${QDScale.space[2]} 2px` }}"
+    },
+    {
+      "path": "components/StageRevertAction.tsx",
+      "line": 111,
+      "sourceHash": "422307d36c9f260c97388b5545d4e932f43eecf7d1539441757b40b168ddb066",
+      "finding": "Padding template retains raw horizontal2px after central vertical spacing.",
+      "consumer": "style={{\n        // 옅은 노란 상자 대신 위아래 가는 선(공용 알림과 같은 결 · 문서 결 2026-09-27)\n        padding: `${QDScale.space[3]} 2px`,\n        ...ruleBand(T.warning),\n        display: 'grid',\n        gap: QDScale.space[2.5],\n      }}"
+    },
+    {
+      "path": "components/TodayQueue.tsx",
+      "line": 343,
+      "sourceHash": "20ec5d2da99cf2a0453a45556f7cdaf985593c721ed9ebe0cf14a657d06618dd",
+      "finding": "Tooltip position adds raw6 to measured bottom. Measurement is geometry, but the visual gap is a finite design default.",
+      "consumer": "role=\"tooltip\"\n              style={{\n                ...infoPopoverStyle(),\n                position: 'fixed',\n                top: infoRect.bottom + 6,\n                left: infoRect.left,\n                width: \"var(--qd-atelier-width-76925ca1cf)\",\n                zIndex: \"var(--qd-atelier-z-index-e3cdca8318)\",\n              }}"
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 3345,
+      "sourceHash": "3f26d67943f4b5ae7d94e50dc50ce425b63d6bd21a785ebd1549459ed507f6f1",
+      "finding": "DataTable row border retains raw1px thickness in the border template. getRowStyle callback delegation also requires actual callers, not data exemption.",
+      "consumer": "const rowStyle: CSSProperties = {\n          display: 'grid',\n          gridTemplateColumns: template,\n          borderBottom: isLast || dividers === 'none' ? 'none' : `1px ${dividers} ${T.border}`,\n          transition: `background ${QD.motionFast}`,\n          textDecoration: QDText.textDecoration.v30a0924a33,\n          color: 'inherit',\n          ...(getRowStyle?.(row, i) ?? {}),\n        };"
+    },
+    {
+      "path": "lib/export/docx-builder/utils.ts",
+      "line": 28,
+      "sourceHash": "b87787c2b3c6574ae6489ef705c22ee76834633e0a23a29662fbe7f86f8ba32f",
+      "finding": "DOCX TextRun defaults size20 and FONT/BRAND references require document appearance ownership separately from text content.",
+      "consumer": "return new TextRun({\r\n    font: FONT.sans,\r\n    size: 20,\r\n    color: BRAND.ink,\r\n    ...opts,\r\n    text: safe,\r\n  });"
+    },
+    {
+      "path": "lib/export/docx-builder/utils.ts",
+      "line": 46,
+      "sourceHash": "b87787c2b3c6574ae6489ef705c22ee76834633e0a23a29662fbe7f86f8ba32f",
+      "finding": "DOCX spacer TextRun size8 is a visible document spacing/font default. Preserve exact output while centralizing.",
+      "consumer": "return new Paragraph({\r\n    ...opts,\r\n    children: [\r\n      new TextRun({ font: FONT.sans, size: 8, text: SAFE_SPACE }),\r\n    ],\r\n  });"
+    },
+    {
+      "path": "lib/design/hangul-text.tsx",
+      "line": 29,
+      "sourceHash": "3da27bcc06034e858a2b595e654aba6924c655037945c1683b69a038f1721a9c",
+      "finding": "RowMeta passes literal0.06em into codeOrTextFont; verify the helper centralizes the full finite tracking scale.",
+      "consumer": "style={{ fontSize: QDScale.font[12], color: color ?? T.subtle, ...codeOrTextFont(children, '0.06em') }}"
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "line": 426,
+      "sourceHash": "ea706c337ac38b73ca8e6f7f967086c8dac7a1f0f2f01ce4fe76f052e4c1c22f",
+      "finding": "codeOrTextFont numeric tracking1 needs a central scale mapping, not a data exemption.",
+      "consumer": "style={{ ...codeOrTextFont(children, 1), fontSize: QDScale.font[12], textTransform: labelCase(children), color: T.muted, marginBottom: QDScale.space[1.5] }}"
+    },
+    {
+      "path": "components/DocChecklistPanel.tsx",
+      "line": 488,
+      "sourceHash": "b16434267a950d076c6b2fcdc927a3c930bdd57b0eefd33cd4386ce97f5cd43c",
+      "finding": "codeOrTextFont numeric tracking0.5 needs a central scale mapping, not a data exemption.",
+      "consumer": "style={{\r\n                            fontSize: QDScale.font[12],\r\n                            color: T.muted,\r\n                            ...codeOrTextFont(meta.clause, 0.5),\r\n                          }}"
+    },
+    {
+      "path": "components/GlossaryPanel.tsx",
+      "line": 59,
+      "sourceHash": "8ed976afdada66d3a84ce01900111ece877fd79606baa433b2e931c27a18a15c",
+      "finding": "codeOrTextFont numeric tracking0.3 needs a central scale mapping, not a data exemption.",
+      "consumer": "style={{\r\n            fontSize: QDScale.font[12],\r\n            color: T.champagne,\r\n            ...codeOrTextFont(entry.term, 0.3),\r\n            fontWeight: \"var(--qd-font-weight-semibold)\",\r\n          }}"
+    }
+  ]
+}

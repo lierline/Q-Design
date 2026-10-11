@@ -1,3 +1,4 @@
+import { readDesignRecipe } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -74,7 +75,7 @@ function 로그인틀_어긋남(src: string): string[] {
     문제.push('스크롤 막대 자리를 비워 두지 않는다: 막대가 생길 때 두 판이 옆으로 흔들린다');
   }
   // sticky 는 가장 가까운 스크롤 상자에 붙는다. 바깥 상자가 overflow hidden 이면 스크롤하지 않는 그 상자에 붙어 먹지 않는다.
-  if (!/overflow:\s*'clip'/.test(src) || /overflow:\s*'hidden'/.test(src)) {
+  if (!/overflow:\s*clip/.test(src) || /overflow:\s*hidden/.test(src)) {
     문제.push("바깥 상자가 overflow: 'clip' 이 아니다: hidden 이면 왼쪽 판의 sticky 가 먹지 않는다");
   }
   const 바탕 = 덩어리(src, '.qa-auth-split {') ?? '';
@@ -86,7 +87,7 @@ function 로그인틀_어긋남(src: string): string[] {
 
 describe('로그인 화면: 오류 · 지문 단추 · 가입 탭으로 오른쪽이 길어져도 왼쪽 판은 제자리', () => {
   // 주석을 걷은 원문(CSS 주석도 걷힌다: 설명 글이 검사를 통과시키지 못하게)
-  const 원문 = readSource('app/(auth)/login/page.tsx', 'code');
+  const 원문 = (readDesignRecipe('app/(auth)/login/page.tsx') + readDesignRecipe('auth-status-adapters')).replace(/\/\*[\s\S]*?\*\//g, '');
 
   it('지금 원문은 어긋남이 없다', () => {
     expect(로그인틀_어긋남(원문)).toEqual([]);
@@ -96,7 +97,7 @@ describe('로그인 화면: 오류 · 지문 단추 · 가입 탭으로 오른�
     ['왼쪽 판 sticky 를 relative 로', (s: string) => s.replace('position: sticky', 'position: relative')],
     ['두 칸 격자의 align-items: start 를 지움', (s: string) => s.replace('align-items: start;', '')],
     ['스크롤 막대 자리를 안 비움', (s: string) => s.replace('scrollbar-gutter: stable', 'scrollbar-gutter: auto')],
-    ["바깥 상자를 overflow: 'hidden' 으로", (s: string) => s.replace("overflow: 'clip'", "overflow: 'hidden'")],
+    ["바깥 상자를 overflow: 'hidden' 으로", (s: string) => s.replace('overflow: clip', 'overflow: hidden')],
     ['한글 낱말 줄바꿈을 지움', (s: string) => s.replace('word-break: keep-all;', '')],
   ])('검사가 실제로 본다: %s → 잡힌다', (_이름, 되돌리기) => {
     const 되돌린것 = 되돌리기(원문);

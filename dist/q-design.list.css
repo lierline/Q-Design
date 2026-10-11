@@ -46,7 +46,7 @@
   /* 모서리는 테마 축이 «아니라» 사다리입니다. 그래서 light 블록에는 안 넣습니다.
      값은 Q-Atelier lib/design/tokens.ts 의 RADIUS 에서 옵니다.
      각진 모서리를 브랜드로 쓰는 쪽은 `--qd-radius-control-src: 0` 한 줄이면 됩니다. */
-  --qd-radius-control: var(--qd-radius-control-src, 10px);
+  --qd-radius-control: var(--qd-radius-control-src, var(--qd-radius, 10px));
 }
 
 html[data-theme='light'] {
@@ -73,7 +73,7 @@ html[data-theme='light'] {
   box-sizing: border-box;
   background: var(--qd-surface);
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, 10px);
+  border-radius: var(--qd-radius-card, var(--qd-radius, 10px));
 }
 /* 상태 판 · 강조 판. 2026-09-27 «문서 결»(오너 결정 · docs/24): 왼쪽 3px 세로줄을 걷고
    **테두리 전체를 옅은 상태 색**으로 칠합니다(원본 Bx 의 accent 와 같은 규칙 · 55%).
@@ -126,7 +126,7 @@ html[data-theme='light'] {
       붙으므로 --tall 을 걸지 않습니다.
 --------------------------------------------------------------------------- */
 .qd-table-scroll--tall {
-  max-height: 70vh;
+  max-height: var(--qd-table-scroll-max-height, 70vh);
   overflow-y: auto;
 }
 .qd-table--sticky thead th,
@@ -149,7 +149,7 @@ html[data-theme='light'] {
 }
 .qd-table th,
 .qd-table .qd-th {
-  padding: 12px 12px;
+  padding: calc(var(--qd-table-pad-y, 11px) + 1px) var(--qd-table-pad-x, 12px);
   font-family: var(--qd-font-mono);
   font-size: 12px;
   font-weight: 500;
@@ -212,8 +212,8 @@ html[data-theme='light'] {
 
 .qd-table td,
 .qd-table .qd-td {
-  padding: 11px 12px;
-  font-size: 13px;
+  padding: var(--qd-table-pad-y, 11px) var(--qd-table-pad-x, 12px);
+  font-size: var(--qd-table-size, 13px);
   color: var(--qd-text);
   vertical-align: middle;
 }
@@ -231,9 +231,9 @@ html[data-theme='light'] {
 .qd-table .qd-accent { color: var(--qd-accent); }
 
 .qd-table--dense th,
-.qd-table--dense .qd-th { padding: 9px 12px; }
+.qd-table--dense .qd-th { padding: calc(var(--qd-table-pad-y-dense) + var(--qd-border-width, 1px)) var(--qd-table-pad-x, 12px); }
 .qd-table--dense td,
-.qd-table--dense .qd-td { padding: 8px 12px; }
+.qd-table--dense .qd-td { padding: var(--qd-table-pad-y-dense) var(--qd-table-pad-x, 12px); }
 
 /* 빈 목록. 「없음」 을 조용히 말합니다 */
 .qd-table-empty {
@@ -263,17 +263,18 @@ html[data-theme='light'] {
  *
  * 원인 문자열은 code 로 함께 답니다. 원인을 버리면 고칠 수가 없습니다.
  */
-/* 2026-09-27 «문서 결»: 왼쪽 색 선 대신 위아래 가는 가로선(원본 Alert 와 같은 규칙).
-   붉은 글과 붉은 가로선 두 겹이 「없음」(흐린 모노 한 줄)과 가릅니다. */
+/* The error block receives the current canonical notice surface. Its code stays below the message. */
 .qd-state-error {
-  padding: 14px 12px;
-  border-top: 1px solid color-mix(in srgb, var(--qd-danger) 55%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--qd-danger) 55%, transparent);
-  background: transparent;
-  font-family: var(--qd-font-mono);
-  font-size: 12px;
+  --qd-status: var(--qd-danger);
+  box-sizing: border-box;
+  padding: var(--qd-space-3) var(--qd-space-4);
+  border: 1px solid color-mix(in srgb, var(--qd-status) 45%, var(--qd-border));
+  border-radius: var(--qd-radius);
+  background: var(--qd-surface);
+  color: var(--qd-text);
+  font-size: var(--qd-control-size);
   line-height: 1.6;
-  color: var(--qd-danger);
+  font-family: var(--qd-font-ui);
 }
 .qd-state-error code {
   display: block;
@@ -430,14 +431,14 @@ html[data-theme='light'] {
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  min-height: 36px;
+  min-height: var(--qd-control-height-sm, 36px);
   padding: 7px 12px;
   border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, 10px);
   background: transparent;
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: 12px;
+  font-size: var(--qd-control-size, 13px);
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -508,7 +509,7 @@ html[data-theme='light'] {
 .qd-filter-input,
 .qd-filter-select {
   box-sizing: border-box;
-  height: 36px;
+  height: var(--qd-control-height-sm, 36px);
   min-width: 0;
   padding: 0 12px;
   border: 1px solid var(--qd-ctl);
@@ -516,25 +517,25 @@ html[data-theme='light'] {
   background: var(--qd-surface);
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: 12px;
+  font-size: var(--qd-control-size, 13px);
 }
 .qd-filter-input {
   flex: 1;
-  padding: 0 12px 0 32px;
+  padding: 0 12px 0 var(--qd-space-8);
 }
 .qd-filter-select { flex: 0 0 auto; }
 .qd-filter-submit {
   box-sizing: border-box;
   flex: 0 0 auto;
-  height: 36px;
-  padding: 0 14px;
+  min-height: var(--qd-control-height-sm, 36px);
+  padding: var(--qd-control-pad-sm-y, 7px) var(--qd-control-pad-sm-x, 14px);
   border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, 10px);
   background: transparent;
   /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 14px(전에는 text · 16) */
   color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
-  font-size: 12px;
+  font-size: var(--qd-control-size, 13px);
   line-height: 1;
   cursor: pointer;
 }
@@ -675,7 +676,7 @@ a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2) !impo
   color: var(--_c);
   background: transparent;
   border: 1px solid color-mix(in srgb, var(--_c) 33%, transparent);
-  border-radius: 6px;
+  border-radius: var(--qd-radius, 10px);
 }
 .qd-tag[data-hangul] {
   letter-spacing: 0;
@@ -683,28 +684,28 @@ a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2) !impo
 }
 
 .qd-tag--xs {
-  min-height: 20px;
-  font-size: 12px;
-  padding: 0px 6px;
-  gap: 4px;
+  min-height: var(--qd-tag-xs-min-height, 20px);
+  font-size: var(--qd-tag-xs-size, 12px);
+  padding: var(--qd-tag-xs-padding-y, 0px) var(--qd-tag-xs-padding-x, 6px);
+  gap: var(--qd-tag-xs-gap, 4px);
 }
-.qd-tag--xs .qd-tag-dot { width: 5px; height: 5px; }
+.qd-tag--xs .qd-tag-dot { width: var(--qd-tag-xs-dot-size, 5px); height: var(--qd-tag-xs-dot-size, 5px); }
 
 .qd-tag--sm {
-  min-height: 24px;
-  font-size: 12px;
-  padding: 2px 8px;
-  gap: 4px;
+  min-height: var(--qd-tag-sm-min-height, 24px);
+  font-size: var(--qd-tag-sm-size, 12px);
+  padding: var(--qd-tag-sm-padding-y, 2px) var(--qd-tag-sm-padding-x, 8px);
+  gap: var(--qd-tag-sm-gap, 4px);
 }
-.qd-tag--sm .qd-tag-dot { width: 6px; height: 6px; }
+.qd-tag--sm .qd-tag-dot { width: var(--qd-tag-sm-dot-size, 6px); height: var(--qd-tag-sm-dot-size, 6px); }
 
 .qd-tag--md {
-  min-height: 28px;
-  font-size: 13px;
-  padding: 4px 10px;
-  gap: 5px;
+  min-height: var(--qd-tag-md-min-height, 28px);
+  font-size: var(--qd-tag-md-size, 13px);
+  padding: var(--qd-tag-md-padding-y, 4px) var(--qd-tag-md-padding-x, 10px);
+  gap: var(--qd-tag-md-gap, 5px);
 }
-.qd-tag--md .qd-tag-dot { width: 7px; height: 7px; }
+.qd-tag--md .qd-tag-dot { width: var(--qd-tag-md-dot-size, 7px); height: var(--qd-tag-md-dot-size, 7px); }
 .qd-tag--primary {
   background: color-mix(in srgb, var(--_c) 10%, transparent);
   border-color: color-mix(in srgb, var(--_c) 55%, transparent);

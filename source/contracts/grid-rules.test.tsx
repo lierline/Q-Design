@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Grid } from './components';
-import { BP } from './tokens';
+import { BP } from './q-design-runtime';
 
 // =============================================================================
 // Grid 배선 잠금: 클래스 룰이 인라인을 이깁니다 (2026-09-03 · M-06)
@@ -29,6 +29,12 @@ function styleTag(html: string): string {
 }
 
 describe('Grid: 룰이 인라인을 이깁니다', () => {
+  it('CSS 간격 값을 숫자로 바꾸거나 px 를 덧붙이지 않는다', () => {
+    expect(gridDivStyle(renderToStaticMarkup(<Grid gap="var(--qd-space-3, 12px)">x</Grid>)))
+      .toContain('gap:var(--qd-space-3, 12px)');
+    expect(gridDivStyle(renderToStaticMarkup(<Grid gap={12}>x</Grid>))).toContain('gap:12px');
+  });
+
   it('cols={4}: @media (min-width:1024px) 룰이 있고 인라인 grid-template-columns 가 없습니다', () => {
     const html = renderToStaticMarkup(
       <Grid cols={4}>

@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {hash} from './style-arguments-core.mjs';
+const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier';
+const html=fs.readFileSync(product+'/docs/manual/download-base.html','utf8');
+const styles=[...html.matchAll(/<style>([\s\S]*?)<\/style>/g)];if(styles.length!==1)throw Error('Expected exactly one manual stylesheet');
+const css=styles[0][1];if(css.includes('`')||css.includes('${'))throw Error('Unsafe raw template');
+const target=root+'/patterns/foundation/atelier-manual.ts';if(fs.existsSync(target))throw Error('Already exists');
+const module='// Canonical, self-contained manual output recipe. Content and screenshots remain product-owned.\nexport const MANUAL_CSS = String.raw`'+css+'`;\n\nexport function applyManualStyles(html: string): string {\n  const blocks = html.match(/<style>[\\s\\S]*?<\\/style>/g);\n  if (blocks?.length !== 1) throw new Error("Expected one manual stylesheet");\n  return html.replace(/<style>[\\s\\S]*?<\\/style>/, () => `<style>${MANUAL_CSS}</style>`);\n}\n';
+fs.writeFileSync(target,module);
+fs.writeFileSync(root+'/reviews/atelier-manual-style-migration.json',JSON.stringify({version:1,canonical:'patterns/foundation/atelier-manual.ts',baselineHtmlHash:hash(html),baselineCssHash:hash(css),edits:[]},null,2)+'\n');

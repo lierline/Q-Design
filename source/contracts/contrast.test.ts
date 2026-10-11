@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -21,7 +22,7 @@ import { join } from 'node:path';
 // SSOT 는 app/globals.css 의 CSS 변수다. 런타임이 읽는 값이 거기이기 때문이다.
 // (lib/design/tokens.ts 의 팔레트 객체는 «사본» 이라 아래 두 번째 테스트가 대조한다.)
 
-const CSS = readFileSync(join(process.cwd(), 'app', 'globals.css'), 'utf8');
+const CSS = readDesignFile(join(process.cwd(), 'app', 'globals.css'), 'utf8');
 
 /**
  * 선택자에 해당하는 블록에서 --qa-* 색을 캔다.
@@ -194,7 +195,7 @@ describe('디자인 가드: 팔레트 사본 동기화', () => {
   // 파일 주석이 「색 수정 시 양쪽 모두 변경」이라 적어 두었지만, 규칙을 적어 두는 것만으로는
   // 어긋남을 막지 못한다(2026-08-20 감사에서 라이트 4색이 실제로 갈려 있었다).
   // 값을 맞추라고 말하는 대신 **어긋나면 실패**하게 한다.
-  const TOKENS = readFileSync(join(process.cwd(), 'lib', 'design', 'tokens.ts'), 'utf8');
+  const TOKENS = readDesignFile(join(process.cwd(), 'lib', 'design', 'tokens.ts'), 'utf8');
 
   function paletteOf(constName: string): Record<string, string> {
     const i = TOKENS.indexOf(`const ${constName}`);

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { readSource } from '@/lib/test-utils/contract-source';
+import { QD } from './q-design-contract';
 
 /** 주석을 지우되 줄 수는 지킨다(실패 메시지의 줄 번호가 맞도록). 주석 속 `border:` 가 상자로 잡히지 않게. */
 function stripCommentsKeepLines(src: string): string {
@@ -16,13 +17,13 @@ function stripCommentsKeepLines(src: string): string {
 // 오빠 지적: 「제품 카드는 모서리가 둥근데 일부 항목(R&D 파이프라인 카드 등)은 각져 있다」.
 // 실측: 네 변 테두리(border: '1px solid …')를 그리면서 borderRadius 를 안 적은 인라인
 // 스타일이 390곳(114파일)이었고, 공용 부품 Tag·FilterChip·Alert·툴팁도 각져 있었다.
-// 정본(Q-Design docs/05): 카드·버튼·입력 = RADIUS.md(10) · 배지·아이콘 단추 = RADIUS.sm(6).
+// 정본(Q-Design 2026-10-10 공통 계약): 카드·버튼·입력·배지·아이콘 단추 = --qd-radius(10px).
 //
 // 이 계약이 잠그는 것 세 가지:
 //  ① style={{ }} 블록에 네 변 테두리가 있으면 borderRadius 를 «적어야» 한다.
 //     각진 것이 의도라면 `borderRadius: 0` 을 적어 의도를 드러낸다(채팅 말풍선이 그렇다).
 //  ② borderRadius 숫자 리터럴 금지 → RADIUS.* 토큰. (진행 막대 트랙 height ≤ 6 은 제외)
-//  ③ 공용 부품 Tag 는 RADIUS.sm 을 가진다 (정본 CSS .qd-tag 6px 와 일치).
+//  ③ 공용 부품 Tag 는 QD.radius 를 가진다 (정본 CSS 의 --qd-radius 와 연결).
 //
 // 제외(이유가 있는 각진 것):
 //  · app/experts/**  전문가 포털은 각진 모서리가 브랜드 (--qa-radius-card: 0)
@@ -160,11 +161,12 @@ describe('모서리 라운드 계약', () => {
     expect(offenders, `숫자 리터럴 모서리 (RADIUS.sm/md/lg/pill 로)\n${offenders.join('\n')}`).toEqual([]);
   });
 
-  it('공용 Tag 배지는 RADIUS.sm (정본 .qd-tag 6px 와 같다)', () => {
+  it('공용 Tag 배지는 Q-Design 모서리를 읽고 10px 로 폴백한다', () => {
     const src = readSource('lib/design/components.tsx', 'code'); // 주석은 지우고 본다 (이름이 주석에만 남아도 통과하지 않게)
     const at = src.indexOf('export function Tag(');
     expect(at).toBeGreaterThan(0);
     const fn = src.slice(at, src.indexOf('\n}\n', at));
-    expect(fn).toMatch(/borderRadius:\s*RADIUS\.sm/);
+    expect(fn).toMatch(/borderRadius:\s*QD\.radius/);
+    expect(QD.radius).toBe('var(--qd-radius, 10px)');
   });
 });

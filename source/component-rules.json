@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "families": [
+    {
+      "id": "icon",
+      "label": "업무 아이콘",
+      "match": "(?:^|/)q-design-icons/|#(?:QDesignIcon|[A-Za-z0-9_]*Icon)$",
+      "ownership": "shared-rule",
+      "rules": [
+        "업무 아이콘은 Q-Design의 Phosphor Regular 원본과 의미 매핑을 사용한다. 제품에 필요한 모듈만 생성해 가져온다.",
+        "기본 크기는 20px, 큰 표시는 24px로 두며 16px는 글자가 함께 있는 좁은 조작부에서만 사용한다.",
+        "색은 currentColor로 주변 글자색을 따른다. 상태의 의미는 색과 함께 글자로 표시한다.",
+        "글자와 함께 있는 장식 아이콘은 aria-hidden으로 숨기고, 아이콘만 있는 행동에는 접근 가능한 이름을 준다.",
+        "아이콘 그림의 크기와 누르는 영역을 구분한다. 터치 행동의 누르는 영역은 최소 44px를 확보한다.",
+        "공식 CI, 제품 마크, 바코드, 데이터 차트와 인쇄 도형을 업무 아이콘으로 대체하지 않는다."
+      ],
+      "evidence": [
+        "docs/26-interface-icons.md",
+        "patterns/react-icons.json",
+        "source/contracts/touch-targets-contract.test.ts"
+      ]
+    },
+    {
+      "id": "provider",
+      "label": "테마·초점·상태 제공자",
+      "match": "#(?:[A-Za-z0-9_]*(?:Provider|Guard|Boundary|Gate)|PrintLight|AppWindowTitle|BreakpointsFirstGuess)$|/(?:theme-provider|sticky-focus-guard|print-light|app-window-title)\\.[jt]sx?",
+      "ownership": "product-adapter",
+      "rules": [
+        "테마, 초점, 인쇄와 앱 창 상태의 공통 규칙을 제공하고 제품의 인증·권한·데이터 처리는 해당 제품에 남긴다.",
+        "사본을 저장하는 것과 앱에서 실행하는 것을 구분한다. 제공자는 필요한 앱 진입점에서 실제로 불러야 한다.",
+        "서버가 보내는 첫 화면과 클라이언트가 이어받는 화면의 테마·반응형 기준이 일치하도록 초기값을 연결한다.",
+        "고정 머리와 거르개 띠가 키보드 초점을 가리지 않게 실제 높이와 스크롤 여백을 연결한다.",
+        "인쇄 중 테마 전환은 출력 후 복원한다. 제품별 기록서 예외는 적용 범위와 이유를 명시한다."
+      ],
+      "evidence": [
+        "tools/sync-parts.mjs",
+        "source/contracts/first-paint-contract.test.ts",
+        "source/contracts/sticky-header-contract.test.ts",
+        "docs/20-document-design.md"
+      ]
+    },
+    {
+      "id": "identity",
+      "label": "제품·회사 식별",
+      "match": "#(?:[A-Za-z0-9_]*(?:Logo|BrandMark|ProductMark|Wordmark)|BrandIdentity)$|/(?:brand-logo|app-logo|product-logo)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "회사 CI와 제품 마크는 보관된 공식 자산을 사용하고 비율과 여백을 유지한다. 일반 글자나 새로 그린 도형으로 대체하지 않는다.",
+        "제품 식별은 Q-Atelier 은색, Q-Maison 샴페인 골드, Q-Carnet 구리색으로 구분한다.",
+        "제품 금속색은 식별 자산과 지정한 식별 위치에 적용한다. 기존 업무 UI의 공통 따뜻한 강조색을 자동으로 바꾸지 않는다.",
+        "성공·주의·오류 같은 의미 색상은 제품 식별색과 별개로 유지한다.",
+        "밝은 바탕 위 식별 글자는 대비를 확보한 제품별 값을 사용하고, PWA 자산의 원래 금속색은 보존한다."
+      ],
+      "evidence": [
+        "docs/25-workspace-refinement.md",
+        "tools/app-icons.mjs",
+        "../marketing-operations/brand/BRAND_ASSETS.md"
+      ]
+    },
+    {
+      "id": "overlay",
+      "label": "모달·서랍·팝오버",
+      "match": "#(?:[A-Za-z0-9_]*(?:Dialog|DialogContent|DialogOverlay|DialogHeader|DialogFooter|DialogTitle|DialogDescription|DialogClose|DialogTrigger|DialogPortal|Modal|Drawer|Popover|Tooltip|SheetContent|SheetOverlay|SheetTitle|SheetDescription|SheetClose|SheetTrigger|SheetPortal)|Modal|Drawer|Sheet|Tip|Confirm|GlobalSearch)$|/(?:dialog|sheet|modal|drawer|popover|tooltip|global-search)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "배경막, 표면, 경계와 움직임은 공통 규칙의 승격 대상이다. 임의 z-index, 장식 그림자나 유리 효과를 새로 도입하지 않으며 현재 구현의 차이는 기록한다.",
+        "모달에는 접근 가능한 제목을 제공하고 열기 초점, Tab 순환, Escape 닫기와 닫은 뒤 호출 위치 복귀를 확인한다.",
+        "화면보다 긴 내용은 본문에서 스크롤할 수 있어야 하며 확인·저장·닫기 행동이 잘리지 않게 한다.",
+        "스크롤 영역의 최소 높이와 넘침 처리를 함께 정한다. 서랍 안에 중첩된 flex 영역도 본문을 밀어내지 않아야 한다.",
+        "작은 닫기 그림과 실제 누르는 영역을 구분하고 키보드 초점 표시를 유지한다.",
+        "긴 업무 본문은 화면이나 상세 영역에 둔다. 확인과 간단 입력을 위한 모달에 전체 업무를 중첩하지 않는다."
+      ],
+      "evidence": [
+        "docs/06-components.md",
+        "docs/12-composition-patterns.md",
+        "source/contracts/drawer-scroll-contract.test.ts",
+        "source/contracts/z-ladder-contract.test.ts",
+        "source/contracts/focus-visible-contract.test.ts"
+      ]
+    },
+    {
+      "id": "chart",
+      "label": "차트·시각 데이터",
+      "match": "#(?:[A-Za-z0-9_]*(?:Chart|Sparkline|Gauge|Histogram|Heatmap|Plot|TrendGraph)|Donut|Sparkline)$|/(?:charts|kpi)/(?:[^/]*(?:chart|gauge|trend|heatmap)[^/]*)\\.[jt]sx?",
+      "ownership": "product-adapter",
+      "rules": [
+        "시리즈 색과 글자색은 의미 토큰에서 선택하며 제품 금속색을 오류·정상 의미로 사용하지 않는다.",
+        "축, 단위, 기간과 범례를 표시하여 색만으로 값을 구분하지 않게 한다.",
+        "0, 자료 없음과 조회 실패를 서로 다른 상태로 표현한다. 실패를 0으로 바꾸어 그리지 않는다.",
+        "좁은 화면에서도 주요 값과 단위가 남도록 재배치하고 차트가 페이지 전체의 가로 넘침을 만들지 않게 한다.",
+        "공통 글꼴과 의미 색 규칙을 적용하되 계산식, 업무 기준선과 데이터 집계는 제품이 소유한다."
+      ],
+      "evidence": [
+        "docs/02-color.md",
+        "docs/04-space-layout.md",
+        "docs/12-composition-patterns.md",
+        "docs/17-screen-canon.md",
+        "docs/25-workspace-refinement.md"
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "메뉴·탭·목록 이동",
+      "match": "#(?:[A-Za-z0-9_]*(?:Nav|Navbar|NavLink|NavItem|Sidebar|Menu|Tabs|Tab|TabButton|Breadcrumb|Breadcrumbs|Pager|Pagination|Toolbar|SortHeader|SortableHead)|ViewTabs|TopProgressBar|RouteProgress)$|/(?:sidebar[^/]*|[^/]*-nav|view-tabs|page-tabs|list-toolbar|pagination|list-pager|sort-header(?:-button)?|sortable-head|top-progress)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "메뉴, 탭, 목록 거르개와 쪽 이동의 공통 클래스와 구조를 사용한다. 같은 역할의 여백·높이·밑줄을 호출 화면에서 다시 정의하지 않는다.",
+        "선택은 면 색과 굵은 제목으로 구분하며 왼쪽 강조선을 사용하지 않는다. 기존 정본의 메뉴 밑줄 등 현재 구현과 시안의 차이는 기록하고 이번 단계에서 자동 변경하지 않는다.",
+        "링크 이동, 탭 전환과 토글의 의미를 구분하여 aria-current, aria-selected 또는 aria-pressed를 역할에 맞게 제공한다.",
+        "검색·상태·정렬·페이지의 현재 조건이 보이게 하고 상세 화면에서 돌아왔을 때 필요한 목록 맥락을 유지한다.",
+        "고정 차림표와 모바일 서랍은 공통 분기 기준을 사용한다. 숨긴 메뉴에는 키보드 초점이 남지 않아야 한다.",
+        "한글 메뉴와 이름표에는 영문 대문자용 자간을 적용하지 않는다.",
+        "동일 역할 탭의 안쪽 여백은 --qd-tab-padding-*를 따르고 기존 좁은 탭은 공통 가로 여백의 비율로 파생한다. 선택 굵기는 --qd-font-weight-semibold을 따른다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/15-navigation-canon.md",
+        "docs/16-list-canon.md",
+        "docs/17-screen-canon.md",
+        "docs/24-document-grain.md",
+        "docs/27-context-review-prototype.md",
+        "source/contracts/collapse-inert-contract.test.tsx",
+        "patterns/foundation.css",
+        "tools/verify-extended-parity.mjs"
+      ]
+    },
+    {
+      "id": "choice",
+      "label": "체크·라디오·선택 전환",
+      "match": "#(?:[A-Za-z0-9_]*(?:Checkbox|CheckBox|Radio|RadioGroup|Switch|Toggle|ToggleGroup|SegmentedChoice|FilterChip|ChoiceChip)|SegmentedControl)$|/(?:checkbox|radio|switch|toggle|segmented-choice|filter-chip)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "미선택, 선택, 비활성과 부분 선택의 의미를 구분하고 색 외에 체크·라벨·상태 속성으로 알린다.",
+        "선택 면, 전경과 경계는 테마를 따르는 공통 의미 토큰을 사용한다. 다크 화면에 라이트용 먹색을 고정하지 않는다.",
+        "네이티브 입력의 이름, 라벨 연결, 폼 값과 키보드 동작을 보존한다. 사용자 정의 위젯은 해당 역할의 키보드 동작을 구현한다.",
+        "작은 체크 그림을 그대로 터치 영역으로 삼지 않는다. 연결된 라벨이나 행을 포함한 실제 누르는 영역을 확인한다.",
+        "조작부의 모서리는 확정된 10px 규칙을 따른다. 기존 구현의 다른 모양은 차이로 기록하며 기록부 작성 중 자동으로 바꾸지 않는다.",
+        "선택 칩의 기본 굵기·행간·안쪽 여백은 --qd-choice-* 공통 인자를 따른다. 좁은 화면은 터치 판정과 무관하게 최소 44px 조작 높이를 유지한다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/06-components.md",
+        "docs/22-audit-family-2026-09-24.md",
+        "source/contracts/touch-targets-contract.test.ts",
+        "../Q-Works/lib/ui/choice.ts",
+        "../Q-Works/components/ui/checkbox.tsx",
+        "patterns/foundation.css",
+        "tools/verify-extended-parity.mjs"
+      ]
+    },
+    {
+      "id": "field",
+      "label": "입력·선택·폼 필드",
+      "match": "#(?:In|Sel|Txt|Lbl|Field|FldRow|[A-Za-z0-9_]*(?:Input|Textarea|TextArea|Select|Combobox|ComboBox|Picker|Calendar|Field|FieldRow|Label|Editor|ListSearch))$|/(?:input|select|textarea|field|label|combobox|calendar|[^/]*-input|[^/]*-picker|list-search)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "입력 표면·글자·포커스는 공통 규칙에서 받는다. 조작 윤곽은 구분선과 별도인 --qa-ctl 또는 CTL을 사용하고 실제 인접 면과 3:1 대비를 확보한다.",
+        "이름표를 입력 id와 연결하고 도움말·오류를 aria-describedby로 잇는다. 검증 오류는 aria-invalid와 남는 글귀로 표시한다.",
+        "필수, 비활성, 읽기 전용과 오류 상태를 구분한다. 비활성 모양을 데이터 없음의 대체 표현으로 쓰지 않는다.",
+        "한글 이름표와 긴 설명은 읽기 가능한 글꼴과 자간을 사용한다. 업무 화면 조합의 모바일 입력은 16px 규칙을 따른다.",
+        "항목이 적은 네이티브 select와 검색이 필요한 combobox를 구분한다. 네이티브 선택기의 OS 동작은 허용된 구현 차이다.",
+        "여러 입력의 배치는 좁은 부모 영역에서 접혀야 한다. 7열 달력처럼 열 수 자체가 의미인 경우는 별도 규칙으로 유지한다.",
+        "사람 선택 목록의 추가 행은 qd-selection-row, 삭제 버튼은 qd-control-icon 규칙을 따른다. 행 높이와 여백은 --qd-selection-row-* 인자를 사용하고 각진 내부 행은 바깥 패널의 모서리를 이어받는다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/06-components.md",
+        "docs/17-screen-canon.md",
+        "docs/25-workspace-refinement.md",
+        "source/contracts/shared-controls-contract.test.ts",
+        "source/contracts/label-tracking-contract.test.ts",
+        "../Q-Works/components/ui/combobox.tsx",
+        "patterns/foundation.css",
+        "tools/verify-extended-parity.mjs"
+      ]
+    },
+    {
+      "id": "action",
+      "label": "버튼·행동",
+      "match": "#(?:Btn|IconBtn|[A-Za-z0-9_]*(?:Button|Action|Actions|ActionBar|SaveBar))$|/(?:button|text-action|[^/]*-button|[^/]*-actions|[^/]*-save-bar)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "주 행동은 공용 버튼으로, 뒤로·닫기·더 보기 같은 보조 행동은 공용 글자 행동으로 표현한다. 파괴적 행동은 공통 의미 색과 변형으로 구분한다.",
+        "시각적 크기와 터치 영역을 구분하며 터치 환경에서는 최소 44px를 확보한다.",
+        "키보드 초점 고리를 유지하고 아이콘만 있는 행동에는 읽을 수 있는 이름을 제공한다.",
+        "저장·제출 대기 중에는 중복 실행을 막고 aria-busy와 처리 상태를 제공한다. 대기 표시 때문에 버튼 폭이 흔들리지 않게 한다.",
+        "검증 때문에 불가능한 상태와 처리 중 상태를 분리한다. 여러 행동이 있으면 어떤 행동이 진행 중인지 구분한다.",
+        "버튼의 공통 색·글꼴·모서리·높이를 호출 화면의 임의 값으로 덮지 않는다. 필요한 예외에는 역할과 이유를 기록한다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/06-components.md",
+        "docs/17-screen-canon.md",
+        "source/contracts/shared-controls-contract.test.ts",
+        "source/contracts/touch-targets-contract.test.ts",
+        "source/contracts/focus-visible-contract.test.ts"
+      ]
+    },
+    {
+      "id": "feedback",
+      "label": "안내·오류·빈 상태·진행",
+      "match": "#(?:[A-Za-z0-9_]*(?:Alert|InfoBox|Notice|Banner|Toast|Toaster|EmptyState|Skeleton|Progress|ProgressBar|Loading|LoadFailed|Error|FailureSummary|MissingHint|HelpNote|Help)|Sonner)$|/(?:sonner|empty-state|list-load-failed|page-skeleton|missing-hint|access-denied-banner|unsaved-guard)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "로딩, 비어 있음, 실패와 성공을 서로 다른 상태로 표시한다. 조회 실패를 빈 목록이나 0으로 숨기지 않는다.",
+        "안내·주의·오류의 종류는 글자로 알리고 의미 색을 함께 쓴다. 제품 금속색만으로 종류를 구분하지 않는다.",
+        "안내와 경고는 절제된 라벨·문장·가로선으로 구성하고 왼쪽 굵은 색 선을 새로 붙이지 않는다.",
+        "오류는 사용자가 다음에 할 일을 보여준다. 폼 제출 실패는 사라지는 토스트만으로 끝내지 않고 남는 요약과 관련 필드 연결을 제공한다.",
+        "스켈레톤과 진행 표시의 움직임은 동작 줄이기 설정을 따르며 완료되지 않은 일을 완료로 표시하지 않는다.",
+        "일반 설명은 화면 머리·구역·필드의 정보 팝오버에 둔다. 조치가 필요한 오류·주의와 일반 설명을 구분하며 설명 때문에 본문을 밀어내지 않는다.",
+        "빈 상태의 기본·compact 제목, 설명, 안쪽 여백과 다음 동작·안내 간격은 --qd-empty-* 공통 인자를 따른다. 제품 어댑터는 qd-empty 계열 역할을 전달한다.",
+        "로딩 스켈레톤의 반복 시간은 --qd-skeleton-duration을 따르고 움직임 줄이기에서는 반복을 멈춘다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/06-components.md",
+        "docs/16-list-canon.md",
+        "docs/24-document-grain.md",
+        "docs/25-workspace-refinement.md",
+        "source/contracts/explanation-text-contract.test.ts",
+        "patterns/foundation.css",
+        "tools/verify-extended-parity.mjs"
+      ]
+    },
+    {
+      "id": "document",
+      "label": "문서·기록서·인쇄",
+      "match": "#(?:[A-Za-z0-9_]*(?:Print|PrintView|PrintSheet|PrintHeader|PrintFooter|DocumentBody|DocumentPreview|DocumentViewer|DocPreview|DocBody|RecordSheet|ReportSheet|SignatureBlock|SignatureTable|RichText)|QrCode|QRCode)$|/(?:print|printables)/|/(?:[^/]*-print|[^/]*-print-view|[^/]*-sheet|qr-code)\\.[jt]sx?",
+      "ownership": "product-adapter",
+      "rules": [
+        "제품이 출력하는 기록서와 회사의 대외 문서 양식을 구분한다. 화면의 장식을 종이에 그대로 강제하지 않는다.",
+        "인쇄는 흰 종이와 읽을 수 있는 짙은 글자를 기준으로 하며 음영 표 위에서도 대비를 확인한다.",
+        "제품 문서의 공통 색·글꼴·간격은 문서 토큰에서 받는다. 회사 문서는 회사 문서 양식 v8의 별도 규격을 따른다.",
+        "페이지 나눔, 표 머리, 서명칸과 필수 문서 구조를 보존한다. 업무 규정과 승인 이력의 의미는 제품이 소유한다.",
+        "바코드·QR·인쇄 도형의 크기와 선을 일반 UI 아이콘 규칙으로 치환하지 않는다.",
+        "인쇄 전용 서식은 화면 규칙의 명시적 예외로 기록하고 실제 출력물에서 잘림·줄바꿈·쪽 넘김을 확인한다."
+      ],
+      "evidence": [
+        "docs/20-document-design.md",
+        "docs/23-medqraft-paper-document-v8.md",
+        "docs/24-document-grain.md",
+        "tools/sync-parts.mjs"
+      ]
+    },
+    {
+      "id": "data-display",
+      "label": "표·행·배지·지표",
+      "match": "#(?:Tag|Stat|KPI|EntityRow|[A-Za-z0-9_]*(?:Table|Row|List|Badge|Badges|Tag|Stat|Stats|StatBlock|CountCard|Metric|Metrics|Summary|DetailField|KeyValue))$|/(?:badge|doc-badges|nc-capa-badges|stat-block|list-stats|count-card|detail-field|record-foot)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "표, 괘선 행, 배지와 지표는 역할에 맞는 공통 조합을 사용한다. 같은 목록을 화면마다 임의의 카드와 색 막대로 다시 만들지 않는다.",
+        "상태는 의미 색과 글자를 함께 표시한다. 배지의 상태 의미와 누르는 선택 칩의 동작을 구분한다.",
+        "지표의 0과 읽지 못한 값을 구분하고 숫자·단위·기간을 유지한다. 큰 값도 칸 밖으로 넘치지 않게 한다.",
+        "표는 열 머리와 읽는 순서를 유지한다. 좁은 화면에서는 정의한 카드 행이나 해당 표 영역의 스크롤로 정보를 보존한다.",
+        "로딩·빈 목록·조회 실패·다음 페이지의 상태가 실제 데이터 상태와 일치해야 한다.",
+        "상태와 이름은 12px 이상으로 읽히게 하고 실제 표면 위 대비 4.5:1을 확보한 텍스트 토큰을 사용한다. 업무 화면의 긴 보조 설명은 13px 이상이다."
+      ],
+      "evidence": [
+        "docs/16-list-canon.md",
+        "docs/17-screen-canon.md",
+        "docs/24-document-grain.md",
+        "docs/25-workspace-refinement.md",
+        "source/contracts/datatable-phone-contract.test.ts"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "컨테이너·구역·배치",
+      "match": "#(?:Bx|Grid|Stack|Panel|Card|CardHeader|CardContent|CardFooter|CardTitle|CardDescription|Section|SectionCard|SectionTitle|PageHd|PageHead|[A-Za-z0-9_]*(?:Shell|Container|Grid|Stack|Section|SectionTitle|PageHead|PageHeader|Layout))$|/(?:card|page-head|section-title|page-shell)\\.[jt]sx?",
+      "ownership": "shared-rule",
+      "rules": [
+        "화면의 역할에 따라 현장·폼·상세·넓은 배치의 공통 폭을 선택하고 제한한 본문 폭은 가운데로 정렬한다.",
+        "모서리는 확정된 10px를 유지한다. 구역 제목은 본문색 16px 굵은 글자와 금색 모노 번호인 C안을 따르며 예전의 작은 모노 제목으로 되돌리지 않는다.",
+        "반응형 열 규칙을 인라인 고정 열 값으로 덮지 않는다. 폼의 열은 부모 폭에 따라 접힐 수 있어야 한다.",
+        "고정 영역과 본문 스크롤을 함께 설계하여 내용과 초점이 머리 뒤에 숨지 않게 한다.",
+        "본문, 폼, 2단 화면과 표의 폭은 별개 역할이다. 값이 같다는 이유로 서로 다른 역할의 토큰을 합치지 않는다.",
+        "375px·412px 폰 폭과 640px·320px 확대 조건에서 읽는 순서와 주요 행동을 유지한다. 운영진 화면에서 구역이 셋 이상이면 확정된 구역 탭 규칙을 따른다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/04-space-layout.md",
+        "docs/11-screen-architecture.md",
+        "docs/17-screen-canon.md",
+        "docs/24-document-grain.md",
+        "source/contracts/page-shell-contract.test.ts"
+      ]
+    },
+    {
+      "id": "screen",
+      "label": "화면·라우트 조합",
+      "match": "#(?:[A-Za-z0-9_]*(?:Page|Screen)|Home|Dashboard)$|/(?:page|layout|loading|error|not-found)\\.[jt]sx?#default$",
+      "ownership": "product-adapter",
+      "rules": [
+        "화면은 공통 부품과 규칙을 조합한다. 제품별 라우트, 권한, 데이터와 업무 상태는 해당 제품의 어댑터가 연결한다.",
+        "화면의 제목, 짧은 설명과 주요 행동을 명확히 두고 읽기·입력·목록·현장 업무에 맞는 폭을 선택한다.",
+        "조회 중, 권한 없음, 빈 결과와 오류를 분리하여 실제 상황과 다음 행동이 드러나게 한다.",
+        "상세 보기와 복귀에서 검색·필터·정렬 등 사용자가 하던 일의 맥락을 보존한다.",
+        "다크·라이트 및 좁은 화면에서 확인한다. 정적 규칙 배정이나 CSS 파일 존재만으로 시각 검증을 완료했다고 표시하지 않는다.",
+        "설명용 시안은 운영 데이터·인증·저장 기능이 연결된 제품 화면과 구분한다."
+      ],
+      "evidence": [
+        "docs/28-handoff-to-codex-2026-10-10.md",
+        "docs/11-screen-architecture.md",
+        "docs/12-composition-patterns.md",
+        "docs/25-workspace-refinement.md",
+        "docs/27-context-review-prototype.md"
+      ]
+    },
+    {
+      "id": "composition",
+      "label": "제품 전용 조합·검토 대상",
+      "match": ".*",
+      "ownership": "product-local",
+      "rules": [
+        "다른 계열로 자동 분류되지 않은 부품이다. 제품 전용 조합으로 기록하되 공통 규칙 적용 완료로 간주하지 않는다.",
+        "업무 계산, 권한, 상태 전환과 데이터 저장은 제품에 유지한다. 반복되는 시각 규칙은 Q-Design으로 올릴 후보로 검토한다.",
+        "버튼·입력·표·안내 등 내부에서 사용하는 공통 부품과의 의존 관계를 남겨 직접 적용과 간접 적용을 구분한다.",
+        "제품 전용 스타일이 필요한 경우 적용 범위와 이유를 기록한다. 예외가 있다는 이유로 대비·초점·접근 가능한 이름을 생략하지 않는다.",
+        "새 부품과 이름 변경은 전수 목록에 반영한다. 임시 분류를 공통화가 끝났다는 지표로 사용하지 않는다."
+      ],
+      "evidence": [
+        "docs/09-rules-and-contracts.md",
+        "docs/11-screen-architecture.md",
+        "docs/12-composition-patterns.md",
+        "docs/30-component-governance.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "path": "app/(app)/assessments/loading.tsx",
+      "beforeHash": "d0d895aafda688c40bcef9ba79f6fafd5bfd50b05b7bec8923f46b18514a1d4a",
+      "afterHash": "7a0375ae68de16b097a477befd8a3495282befde17a700437f3f7ff542ad70e6",
+      "edits": [
+        {
+          "start": 317,
+          "before": "\"22%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-22)\"",
+          "argumentHash": "62a2b55a3c12349127accd6f8ee06249ceaa364d97aaddbdf77fe1cc2cbe71ef",
+          "role": "width",
+          "tag": "Skeleton"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/authorized-reps/new/client.tsx",
+      "beforeHash": "ae50a0ee6871d819c95025b406bd53a06d4eb1ca4c6acebe66921175f3f15dc6",
+      "afterHash": "b3f188cdce236d5b0ac7f5c6a55edb88b2792ed0e0b8bdc5ee29956ed6f25057",
+      "edits": [
+        {
+          "start": 5113,
+          "before": "\"10px 14px\"",
+          "after": "{`${QDScale.space[2.5]} ${QDScale.space[3.5]}`}",
+          "argumentHash": "513939666d2f22c8cc22675e1a93b22507c2f49d115e9fe440a24e68281bf39f",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/new/client.tsx",
+      "beforeHash": "ed1450ef32c1957614cf3994b1be5f709cafa40efefdf8a19137104392adeefc",
+      "afterHash": "04b06183439597afa49d06ac74130bcef4c183548694cced8cd728bebe6c42dc",
+      "edits": [
+        {
+          "start": 7189,
+          "before": "\"10px 8px\"",
+          "after": "{`${QDScale.space[2.5]} ${QDScale.space[2]}`}",
+          "argumentHash": "7b2de058f3525f163044ce583412d33907fef9b39f4a9d031c98df9d89d243ec",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/dashboard/loading.tsx",
+      "beforeHash": "c421287b2d0078d0220686834a731db0aeca6f7cf504a3f95a9fd38d503ef2a4",
+      "afterHash": "1e6393b194e11b4949e0f1b3979df512a6c8d2bad9e42994b165d27c57186bf3",
+      "edits": [
+        {
+          "start": 722,
+          "before": "\"20%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-20)\"",
+          "argumentHash": "085d2e88a2bbe7412d98b2c9ffbc0f84f0a713e5b3d354e40fa69feaa9d3bd06",
+          "role": "width",
+          "tag": "Skeleton"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/equipment/[id]/client.tsx",
+      "beforeHash": "493d0463996d4eed1c3c17b95f8cf401d52121fd823f354e308b019acabddc3c",
+      "afterHash": "e8b6ac12193d26727ba6343bdadb99262833cb367b3ac4e3619b61eb7cbf1322",
+      "edits": [
+        {
+          "start": 12960,
+          "before": "\"8px 14px\"",
+          "after": "{`${QDScale.space[2]} ${QDScale.space[3.5]}`}",
+          "argumentHash": "c4496da1868ecbba09e844d15d126652695deae1591f07506948588246d9dd42",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        },
+        {
+          "start": 9944,
+          "before": "\"8px 16px\"",
+          "after": "{`${QDScale.space[2]} ${QDScale.space[4]}`}",
+          "argumentHash": "23e4fb4705dd5069225046046100f8a887069fa628bb8de1e61bc8f0c3cd08d8",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/letter-to-file/[id]/client.tsx",
+      "beforeHash": "d36e03bd38f6d4ae9c1cf7bfea06a800dcccf026db7d49f5c6f29b1a4c632f7b",
+      "afterHash": "2f9720b2ff33b581680db2b636e3f7f66aa3214bf1ffc1011e1a30d230448ea0",
+      "edits": [
+        {
+          "start": 6958,
+          "before": "\"8px 18px\"",
+          "after": "{`${QDScale.space[2]} ${QDScale.space[4.5]}`}",
+          "argumentHash": "fc75164e02f10b5bc260b6e510324c2ed71f8ab844be880ed7562ee5cb84a054",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "beforeHash": "66c596ffeb1794d9a8503e71cb0698e387da12754bb60efb4bc9a0ea7ee9bc14",
+      "afterHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "edits": [
+        {
+          "start": 10986,
+          "before": "{1}",
+          "after": "{QDPresentation.fieldChoiceColumns[1]}",
+          "argumentHash": "56d9cd894b2678c7b6a51c5fe67ed85132b3b8fbba3e78cd520fa9c07498998c",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/nc/client.tsx",
+      "beforeHash": "0d28580b3d34bcb5334ee6b5dd5b565e5c51519b65c7ff3212e9e990944cdbb3",
+      "afterHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+      "edits": [
+        {
+          "start": 9109,
+          "before": "{3}",
+          "after": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHash": "79721543089f469e9b7db7fc3754c26d88b0ef930a0d21a4bfac341a1e83f0b7",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        },
+        {
+          "start": 6813,
+          "before": "{2}",
+          "after": "{QDPresentation.fieldChoiceColumns[2]}",
+          "argumentHash": "15f07d564f682a7ee804282546d84ecc270c75687b4e269a2125299a929decc4",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "beforeHash": "15173cfe5ffe3dc9f918c3fd83c42b154814c7aae44366a254f7dcd5ba010469",
+      "afterHash": "9ce1f53672cca59e669ec34fe8b62efb6dcc7458464b00b09bec7a2e8767c0e1",
+      "edits": [
+        {
+          "start": 27004,
+          "before": "{3}",
+          "after": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHash": "d3126e2a804824f74c7e9275d82267449ce0b2ce2332edf37d031d8de6d3efd2",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        },
+        {
+          "start": 26566,
+          "before": "{3}",
+          "after": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHash": "8cf139170cce3e8cc2c1a4eb3fefdd50e2ea57f6a22ee21621ba655f0e2e0f97",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        },
+        {
+          "start": 21280,
+          "before": "{3}",
+          "after": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHash": "31820b277e629ae8d06af525700b8cac76a0165320cf94e4a8aac4bc2cad32fb",
+          "role": "columns",
+          "tag": "ChoiceGroup"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/loading.tsx",
+      "beforeHash": "30eb43a1e6a50b81798d0927f701974e82e9c9c2b417d898ba66b8c73ef3fc3a",
+      "afterHash": "7f6b7835e9f0e1408e51c9bfc9fa27e5dcf63cddae16e9c0ede9871b3ac8d868",
+      "edits": [
+        {
+          "start": 314,
+          "before": "\"25%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-25)\"",
+          "argumentHash": "2fa45be909805aa638773d245e2183703a5de130d89e0ea51766009cc17d7a46",
+          "role": "width",
+          "tag": "Skeleton"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "beforeHash": "00880e306660a60eb235662f3f23638d839058d5dd2727371a3c9c2d5e9ec225",
+      "afterHash": "93d157626e52f6a8bf83070ae2ec869bf697ccf50dc6587b22a8744cf02d2309",
+      "edits": [
+        {
+          "start": 8838,
+          "before": "\"10px 6px\"",
+          "after": "{`${QDScale.space[2.5]} ${QDScale.space[1.5]}`}",
+          "argumentHash": "28b5cf22a3e9aef9b89f4cd4bd3682bf0f7324917850c914371089374a46197e",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/vigilance/new/client.tsx",
+      "beforeHash": "443571c3d9e5aea149b37312d73f411a79f6ae3d2b8cb31328b68e0b6d4dece1",
+      "afterHash": "bf5f42c569aa929fea55cff88cc49cb8590a4be00624a19009cc5a48b93df954",
+      "edits": [
+        {
+          "start": 8001,
+          "before": "\"10px 6px\"",
+          "after": "{`${QDScale.space[2.5]} ${QDScale.space[1.5]}`}",
+          "argumentHash": "de6e3fa74a122298e8aa791571a17f8a11e4acc43503a5947489dcc2f8a0f8c7",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        },
+        {
+          "start": 7192,
+          "before": "\"12px 8px\"",
+          "after": "{`${QDScale.space[3]} ${QDScale.space[2]}`}",
+          "argumentHash": "16ca4c87efe4ee9f0e2781ce8b1502c49519db112520f6d44e4904ac58a1e4ab",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "app/(auth)/login/page.tsx",
+      "beforeHash": "676d4542abfa9ed11f53948119a4285d31b946458c6b621b14c0ea9bae1dadc8",
+      "afterHash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c",
+      "edits": [
+        {
+          "start": 44283,
+          "before": "\"1.8\"",
+          "after": "{QDPresentation.iconStroke[1.8]}",
+          "argumentHash": "602ae32e6c3300de7eacccd21c584ab2ee72b8f2ea59bcae0d4c9356bc5505b4",
+          "role": "strokeWidth",
+          "tag": "svg"
+        },
+        {
+          "start": 44212,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "1f41e772f6fda1b8ec6d02bcc427112d50d7ae63fd753634031f59a2486fdd00",
+          "role": "height",
+          "tag": "svg"
+        },
+        {
+          "start": 44200,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "f7c484193f404bcdba8a6262eda534a717426ab0c34190b99af08f5771a35ea5",
+          "role": "width",
+          "tag": "svg"
+        },
+        {
+          "start": 43695,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "878323a45f7374b9765d16b000ba7ad218afc0656f8900f93d18c0b1c132a710",
+          "role": "height",
+          "tag": "svg"
+        },
+        {
+          "start": 43683,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "05bc6a376060cbd29933f6721f16b120b70d63c680eb219179cda67c700fc8bc",
+          "role": "width",
+          "tag": "svg"
+        },
+        {
+          "start": 35393,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "6805eadca07a9072fd3602d4f8132cfae72aa38e0e700ccac5a26d468c651a1d",
+          "role": "height",
+          "tag": "svg"
+        },
+        {
+          "start": 35363,
+          "before": "\"16\"",
+          "after": "{QDPresentation.iconSize[16]}",
+          "argumentHash": "f34c2e8587f286eba82daa608255ada9b4aa5c3bbc2bb16b9856197fe9b31291",
+          "role": "width",
+          "tag": "svg"
+        }
+      ]
+    },
+    {
+      "path": "components/BackwardsPlanner.tsx",
+      "beforeHash": "e3c0a20316bf9a7c6a8646a9ae9a410cffd0b2d0068f3ef8673fa060397caf63",
+      "afterHash": "9a5ed53e955231d6fe4ef59dcdb50da81b32e5383022d2b560452c9d7a4b545e",
+      "edits": [
+        {
+          "start": 8791,
+          "before": "\"10px 12px\"",
+          "after": "{`${QDScale.space[2.5]} ${QDScale.space[3]}`}",
+          "argumentHash": "688b93540b032ada1a3d612860faf422b2d4907dbbab513830b040abbb3c786a",
+          "role": "padding",
+          "tag": "SegmentedChoice"
+        }
+      ]
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "beforeHash": "d2088c9b820658e185e1830f993902978ec0a9150e6380121af343981e8b5b5c",
+      "afterHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "edits": [
+        {
+          "start": 5231,
+          "before": "c === 0 ? '85%' : '60%'",
+          "after": "c === 0 ? 'var(--qd-atelier-skeleton-width-85)' : 'var(--qd-atelier-skeleton-width-60)'",
+          "role": "skeleton-default"
+        },
+        {
+          "start": 5033,
+          "before": "'1px solid var(--qa-border)'",
+          "after": "'var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) var(--qa-border)'",
+          "role": "skeleton-default"
+        },
+        {
+          "start": 4864,
+          "before": "`2fr repeat(${cols - 1}, 1fr)`",
+          "after": "`var(--qd-atelier-skeleton-leading-track) repeat(${cols - 1}, var(--qd-atelier-skeleton-track))`",
+          "role": "skeleton-default"
+        },
+        {
+          "start": 4127,
+          "before": "\"28%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-28)\"",
+          "argumentHash": "d6cd517587d110fef880a6f4ac94aec94e832a7454627cc98e22c6ff2e3d6a07",
+          "role": "width",
+          "tag": "Skeleton"
+        },
+        {
+          "start": 4044,
+          "before": "\"42%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-42)\"",
+          "argumentHash": "d2bd3c8c4ffdcfeeeafc3b0aeb777ed1e264739771542f61b6243ce9c74aabd4",
+          "role": "width",
+          "tag": "Skeleton"
+        },
+        {
+          "start": 3282,
+          "before": "\"65%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-65)\"",
+          "argumentHash": "f5bd9475108a12405b2978937cfd700a8db15d50bb9f184b8b2660f4757b7327",
+          "role": "width",
+          "tag": "Skeleton"
+        },
+        {
+          "start": 3162,
+          "before": "\"55%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-55)\"",
+          "argumentHash": "80347a22a48d6cbd285c95236d9b6d8384fcb2f7e1655687eaff3cba2da32216",
+          "role": "width",
+          "tag": "Skeleton"
+        },
+        {
+          "start": 3084,
+          "before": "\"40%\"",
+          "after": "\"var(--qd-atelier-skeleton-width-40)\"",
+          "argumentHash": "6749d44aa880202baaa596eca8f8e54eed7cde4a62f80d65d5eacb4d9ab1ee5a",
+          "role": "width",
+          "tag": "Skeleton"
+        },
+        {
+          "start": 1648,
+          "before": "lastWidth : '100%'",
+          "after": "lastWidth : 'var(--qd-atelier-skeleton-width-100)'",
+          "role": "skeleton-default"
+        },
+        {
+          "start": 1236,
+          "before": "lastWidth = '70%'",
+          "after": "lastWidth = 'var(--qd-atelier-skeleton-width-70)'",
+          "role": "skeleton-default"
+        },
+        {
+          "start": 787,
+          "before": "width = '100%'",
+          "after": "width = 'var(--qd-atelier-skeleton-width-100)'",
+          "role": "skeleton-default"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/qms-documents/client.tsx",
+      "beforeHash": "1414405d236df3d7febf5016dd1dada4e0b193a2402cdc5b284e60e7e375d198",
+      "afterHash": "e0bdbe2c07655ad6094478ca04f26eb275b97da36471bf15073fa92c623f3e56",
+      "edits": [
+        {
+          "start": 9550,
+          "before": "`var(--qd-border-width) solid ${T.champagne}`",
+          "after": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.champagne}`",
+          "role": "imperative-outline"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "--qd-atelier-skeleton-width-20": "20%",
+    "--qd-atelier-skeleton-width-22": "22%",
+    "--qd-atelier-skeleton-width-25": "25%",
+    "--qd-atelier-skeleton-width-28": "28%",
+    "--qd-atelier-skeleton-width-40": "40%",
+    "--qd-atelier-skeleton-width-42": "42%",
+    "--qd-atelier-skeleton-width-55": "55%",
+    "--qd-atelier-skeleton-width-60": "60%",
+    "--qd-atelier-skeleton-width-65": "65%",
+    "--qd-atelier-skeleton-width-70": "70%",
+    "--qd-atelier-skeleton-width-85": "85%",
+    "--qd-atelier-skeleton-width-100": "100%",
+    "--qd-atelier-skeleton-leading-track": "2fr",
+    "--qd-atelier-skeleton-track": "1fr"
+  },
+  "summary": {
+    "candidates": 48,
+    "migrated": 30,
+    "boundaries": 18,
+    "extraDefaults": 7,
+    "files": 16
+  }
+}

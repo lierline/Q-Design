@@ -1,0 +1,291 @@
+{
+  "scope": "25 inspected native-button class literals only. Fixed dimensions, padding, border, radius and typography removed in favor of registered roles. Square controls use the existing 44px icon-control target; card choices retain text alignment. Handlers, conditions, labels, permissions and disabled states are byte-identical. Changed arguments never acquire approval from this evidence rebinding.",
+  "plan": [
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "line": 236,
+      "role": "choice",
+      "before": "rounded-md border px-2 py-1.5 text-xs transition-colors",
+      "after": "qd-choice transition-colors"
+    },
+    {
+      "path": "app/(app)/audits/checklist-form.tsx",
+      "line": 255,
+      "role": "choice",
+      "before": "rounded-md border px-2 py-1 text-xs font-medium transition-colors",
+      "after": "qd-choice transition-colors"
+    },
+    {
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "line": 462,
+      "role": "choice",
+      "before": "h-10 flex-1 rounded-md border text-sm font-medium transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
+      "line": 303,
+      "role": "choice",
+      "before": "mb-1.5 inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-semibold transition-colors ",
+      "after": "qd-choice mb-1.5 inline-flex items-center gap-1.5 transition-colors "
+    },
+    {
+      "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
+      "line": 324,
+      "role": "choice",
+      "before": "rounded-md border px-2.5 py-1 text-xs transition-colors ",
+      "after": "qd-choice transition-colors "
+    },
+    {
+      "path": "app/(app)/environmental/aspects/new/new-aspect-form.tsx",
+      "line": 152,
+      "role": "choice",
+      "before": "flex-1 rounded-md border px-3 py-2 text-sm transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/environmental/aspects/new/new-aspect-form.tsx",
+      "line": 231,
+      "role": "choice",
+      "before": "h-8 flex-1 rounded-md border text-xs font-medium transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/inbound/inbound-form.tsx",
+      "line": 346,
+      "role": "choice",
+      "before": "h-10 flex-1 rounded-md border text-sm font-medium transition-colors ",
+      "after": "qd-choice flex-1 transition-colors "
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+      "line": 398,
+      "role": "square-control",
+      "before": "h-7 w-7 rounded-md border text-xs font-semibold transition-colors",
+      "after": "qd-choice qd-control-icon transition-colors"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+      "line": 754,
+      "role": "choice",
+      "before": "h-7 rounded-md border px-2 text-xs font-semibold transition-colors",
+      "after": "qd-choice transition-colors"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+      "line": 783,
+      "role": "square-control",
+      "before": "h-7 w-7 rounded-md border text-xs font-semibold transition-colors",
+      "after": "qd-choice qd-control-icon transition-colors"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/sheet-header-fields.tsx",
+      "line": 132,
+      "role": "choice",
+      "before": "rounded-md border px-3 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-60",
+      "after": "qd-choice transition-colors disabled:cursor-not-allowed disabled:opacity-60"
+    },
+    {
+      "path": "app/(app)/kpi/new/new-kpi-form.tsx",
+      "line": 355,
+      "role": "choice-card",
+      "before": "rounded-md border p-3 text-left text-sm transition-colors",
+      "after": "qd-choice text-left transition-colors"
+    },
+    {
+      "path": "app/(app)/nc/new/new-nc-form.tsx",
+      "line": 191,
+      "role": "choice",
+      "before": "flex-1 rounded-md border px-2 py-1.5 text-xs transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/risks/new/new-risk-form.tsx",
+      "line": 172,
+      "role": "choice",
+      "before": "h-10 flex-1 rounded-md border text-sm font-medium transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/risks/new/new-risk-form.tsx",
+      "line": 194,
+      "role": "choice",
+      "before": "h-10 flex-1 rounded-md border text-sm font-medium transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-basic-info.tsx",
+      "line": 221,
+      "role": "choice",
+      "before": "h-8 flex-1 rounded-md border text-xs font-medium transition-colors",
+      "after": "qd-choice flex-1 transition-colors"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+      "line": 126,
+      "role": "choice-card",
+      "before": "rounded-md border p-2 text-left text-xs transition-colors disabled:opacity-60",
+      "after": "qd-choice text-left transition-colors disabled:opacity-60"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+      "line": 167,
+      "role": "choice",
+      "before": "h-8 flex-1 rounded-md border text-xs font-medium transition-colors disabled:opacity-60",
+      "after": "qd-choice flex-1 transition-colors disabled:opacity-60"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+      "line": 188,
+      "role": "choice",
+      "before": "h-8 flex-1 rounded-md border text-xs font-medium transition-colors disabled:opacity-60",
+      "after": "qd-choice flex-1 transition-colors disabled:opacity-60"
+    },
+    {
+      "path": "app/(app)/settings/clauses/guidance-editor.tsx",
+      "line": 348,
+      "role": "choice",
+      "before": "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors",
+      "after": "qd-choice inline-flex items-center gap-1.5 transition-colors"
+    },
+    {
+      "path": "app/(app)/settings/roles/users/assign-client.tsx",
+      "line": 225,
+      "role": "square-control",
+      "before": "inline-flex h-7 w-7 items-center justify-center rounded-md border transition-colors",
+      "after": "qd-choice qd-control-icon inline-flex items-center justify-center transition-colors"
+    },
+    {
+      "path": "app/(app)/training/record/record-form.tsx",
+      "line": 129,
+      "role": "choice",
+      "before": "rounded-md border px-3 py-2 text-sm font-medium transition-colors",
+      "after": "qd-choice transition-colors"
+    },
+    {
+      "path": "app/(app)/training/training-form.tsx",
+      "line": 120,
+      "role": "choice",
+      "before": "rounded-md border px-3 py-2 text-xs font-medium transition-colors",
+      "after": "qd-choice transition-colors"
+    },
+    {
+      "path": "components/documents/approval-chain-editor.tsx",
+      "line": 166,
+      "role": "choice",
+      "before": "rounded-md border px-2.5 py-1 text-xs font-medium transition-colors",
+      "after": "qd-choice transition-colors"
+    }
+  ],
+  "files": [
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "beforeHash": "c126ff018ebf43757d72389a6d49ec9b81cce016e326dd5030419f010c7d8582",
+      "afterHash": "781c146f07364aa4bc6a04a19f18d755615318ed986836654ecf7b481587ee69"
+    },
+    {
+      "path": "app/(app)/audits/checklist-form.tsx",
+      "beforeHash": "89faebc9bb4238ea68680976a5eebcc70e1c99e305df149fffa6d9c54d8e67d7",
+      "afterHash": "8f11b83d6448b7ddb93bae4e614279532ca0621efb0d835858ca1ede39a55e2c"
+    },
+    {
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "beforeHash": "33be8733130f0481fb8fcef13877bcc44a3c0a78d356351af1874dd28b12f2c3",
+      "afterHash": "06e509191baa93cf6e37e58ea7ab6260f5e7b6ef88384294e6a203d0dec8d4c4"
+    },
+    {
+      "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
+      "beforeHash": "a5b33f2d9dc90cf36f4dc1297c2d001b820c1e47061435f2bb73052291652ed3",
+      "afterHash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+    },
+    {
+      "path": "app/(app)/environmental/aspects/new/new-aspect-form.tsx",
+      "beforeHash": "97bb89b0ec65880946513c39c29af07654a59efda409134fb4fe6d2f74683a2c",
+      "afterHash": "d84f544000b44cbd9377f543630b34d7a7d505ebefbab3ba23631be54bbb4a84"
+    },
+    {
+      "path": "app/(app)/inbound/inbound-form.tsx",
+      "beforeHash": "8668d63f84012de9336053c5ef0d9ec94f7b9b63800e81159fbf595e5f7795c7",
+      "afterHash": "a310ef11300470b31f1289307bd87ec529db149f2fe9074b7984d3cf8ef6e69a"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+      "beforeHash": "e82430761f3f86e7ddc8852e219a754a82215a2cd68735b32315d18a8bdab09c",
+      "afterHash": "cc4fc7f7f7ef786c4731c21c61db7499d0b67094246193640724f6bc82dad385"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/sheet-header-fields.tsx",
+      "beforeHash": "9e5ffb8f0a169ba76a9ccfe2bb7b8b1ebb72f511f82e8a11ba668bab0fc2c3c7",
+      "afterHash": "93cb97305846931c9ff656b6fc8d9f64a83c3814d29787f63a53ad426b7628a0"
+    },
+    {
+      "path": "app/(app)/kpi/new/new-kpi-form.tsx",
+      "beforeHash": "0e9c600a5660853dde970b2baa5adc9338a16df675ceb3361f010fe158fd6147",
+      "afterHash": "f428a624a0e4d6897bcf477c4ad5e02d4c98c45495a6a0d0d42ae4fbcb88739c"
+    },
+    {
+      "path": "app/(app)/nc/new/new-nc-form.tsx",
+      "beforeHash": "a6f142d66d4e7b3288b7c525c4ca6c6ffeafafa2f833c5e6cc386405aaa98cbd",
+      "afterHash": "dd74844bf29cf036bd6638852b0d56076385d009bc138474f39fea25328c8f16"
+    },
+    {
+      "path": "app/(app)/risks/new/new-risk-form.tsx",
+      "beforeHash": "bc21ce87519cf93f985c8b65b02149d0d383e1b3fb219dd7b11c19df1f9543e0",
+      "afterHash": "cad24a9a40fcfd5f2bfec05a157457ebbe3206f7442c7f10b8034186c9d25f70"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-basic-info.tsx",
+      "beforeHash": "ad4bd70b40779105c31de6d8f2c4a6199e9625f17af8c8f22463c2a38125f8e1",
+      "afterHash": "3f18235299b77202cc151e76754f8257c4e91d4255bb18cd75b383f472fc2693"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+      "beforeHash": "7e72f3e1b9d09cebb04c1365481e2229e0f258cdbdf6f048ff0cf279db174f42",
+      "afterHash": "ec2a931a7e1a6e7a50ba01c3ebc626a9d3cd29f6a183eb3ace1d8b09342153ff"
+    },
+    {
+      "path": "app/(app)/settings/clauses/guidance-editor.tsx",
+      "beforeHash": "fe24fe8ec8f75851e2d0a5d93c5c6f37272b84e790e545a4aa005390aa56d4dd",
+      "afterHash": "b9264425453179f5f5fea1280562f820fa401e55b41c77bee495a2e25474bbcc"
+    },
+    {
+      "path": "app/(app)/settings/roles/users/assign-client.tsx",
+      "beforeHash": "1d2386ff84b68836122ef47ca53b9f0d2c462d03f522878f1c826a81c25de5a3",
+      "afterHash": "4e3de8ff7c007354a05642d700eb78de2cd4962d3167d98018c813dcdebb91b0"
+    },
+    {
+      "path": "app/(app)/training/record/record-form.tsx",
+      "beforeHash": "43265300fa2a5676d796557fc290b24c649aea4ece65077b0b6dbf02d2d2a02f",
+      "afterHash": "eb9edc813ddd29e27e59e87bc619f4ae9a6af70f8eb344a83255f9d097cf0795"
+    },
+    {
+      "path": "app/(app)/training/training-form.tsx",
+      "beforeHash": "d68045f460fdd20baa7c3bd69a461812a0f0f0250f6e980ffeaf50df75f6c3b0",
+      "afterHash": "d9ec1b0302e7c6bfba391ed930ea5ae9f44fd255027381127c0993b0b8831b8b"
+    },
+    {
+      "path": "components/documents/approval-chain-editor.tsx",
+      "beforeHash": "49c327022f74a63bee9d288e48300e4e1067d5d5a6a881941f8ac3561426695d",
+      "afterHash": "af7e94815afdb8f6e44c727aff56a4ab9349beecf1dfe54f3c06264136e1bef1"
+    }
+  ],
+  "changes": [
+    {
+      "catalog": "maison-style-manual-review.json",
+      "count": 0
+    },
+    {
+      "catalog": "maison-style-spread-review.json",
+      "count": 19
+    },
+    {
+      "catalog": "maison-style-bindings-review.json",
+      "count": 11
+    },
+    {
+      "catalog": "maison-accent-review.json",
+      "count": 0
+    }
+  ],
+  "held": []
+}

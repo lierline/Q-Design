@@ -1,0 +1,3156 @@
+{
+  "version": 1,
+  "scope": "Literal branches of confirmed React grid/width styles and typed or direct DataTable column widths. Dynamic expressions, measured geometry and business data stay unchanged.",
+  "files": [
+    {
+      "path": "app/(app)/admin/activity/page.tsx",
+      "beforeHash": "01ab50195de756eb1f5561a55d1b2630b146a09e3ca518ebca7087a2f7e2fdef",
+      "afterHash": "92b08d19ba4b9440de6be6dd1053530674f0ae4461c2267891e27fceec0ab4aa",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "40px 1fr 100px",
+          "token": "--qd-atelier-grid-template-columns-ca0d3585aa",
+          "context": "React style object",
+          "line": 239
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "40px 1fr 100px",
+          "token": "--qd-atelier-grid-template-columns-ca0d3585aa",
+          "context": "React style object",
+          "line": 270
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 110px 140px",
+          "token": "--qd-atelier-grid-template-columns-955c253345",
+          "context": "React style object",
+          "line": 294
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/EvalRuns.tsx",
+      "beforeHash": "72c780e3b67cc49441ac2c568a9bed5f9876b7cfb81dc7b78711d97137795d6a",
+      "afterHash": "38f305fb1957c63d3505721faf802726b3569c09cc9bb2f384954795c91d8a2d",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "minmax(100px, 0.9fr)",
+          "token": "--qd-atelier-width-cd80a789fc",
+          "context": "Typed DataTableColumn width",
+          "line": 19
+        },
+        {
+          "property": "width",
+          "value": "minmax(90px, 0.8fr)",
+          "token": "--qd-atelier-width-14a03b2410",
+          "context": "Typed DataTableColumn width",
+          "line": 20
+        },
+        {
+          "property": "width",
+          "value": "minmax(140px, 1fr)",
+          "token": "--qd-atelier-width-c1ca2330aa",
+          "context": "Typed DataTableColumn width",
+          "line": 21
+        },
+        {
+          "property": "width",
+          "value": "minmax(200px, 2fr)",
+          "token": "--qd-atelier-width-3454026bac",
+          "context": "Typed DataTableColumn width",
+          "line": 22
+        },
+        {
+          "property": "width",
+          "value": "minmax(80px, 0.7fr)",
+          "token": "--qd-atelier-width-66e8ecd016",
+          "context": "Typed DataTableColumn width",
+          "line": 23
+        },
+        {
+          "property": "width",
+          "value": "minmax(60px, 0.5fr)",
+          "token": "--qd-atelier-width-e1bd43b81b",
+          "context": "Typed DataTableColumn width",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/Failures.tsx",
+      "beforeHash": "da7c0c1027c8b25a026ad27c5d2bd9f3b019cbc1dbf4cb3d9b85a598d81bb300",
+      "afterHash": "2809201bbd94850cc2e865ced322f4ff157685e73c5b4bc25d3c50ddd956bbb5",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "minmax(100px, 0.9fr)",
+          "token": "--qd-atelier-width-cd80a789fc",
+          "context": "Typed DataTableColumn width",
+          "line": 21
+        },
+        {
+          "property": "width",
+          "value": "minmax(80px, 0.7fr)",
+          "token": "--qd-atelier-width-66e8ecd016",
+          "context": "Typed DataTableColumn width",
+          "line": 22
+        },
+        {
+          "property": "width",
+          "value": "minmax(96px, 0.8fr)",
+          "token": "--qd-atelier-width-2dfcf515a9",
+          "context": "Typed DataTableColumn width",
+          "line": 23
+        },
+        {
+          "property": "width",
+          "value": "minmax(90px, 0.8fr)",
+          "token": "--qd-atelier-width-14a03b2410",
+          "context": "Typed DataTableColumn width",
+          "line": 24
+        },
+        {
+          "property": "width",
+          "value": "minmax(110px, 1fr)",
+          "token": "--qd-atelier-width-62e292aab3",
+          "context": "Typed DataTableColumn width",
+          "line": 25
+        },
+        {
+          "property": "width",
+          "value": "minmax(160px, 2fr)",
+          "token": "--qd-atelier-width-c6c02c7619",
+          "context": "Typed DataTableColumn width",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/Models.tsx",
+      "beforeHash": "9a824fbb9ddb97611a124b1153fae33434074a3d5ab3ded6c82b4438028e6184",
+      "afterHash": "87384973c170834ec9ebd08bdf05d908fc64a210425cc6a20a3ff8de152860b0",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "minmax(220px, 1.6fr)",
+          "token": "--qd-atelier-width-fc89e844ea",
+          "context": "Typed DataTableColumn width",
+          "line": 142
+        },
+        {
+          "property": "width",
+          "value": "minmax(170px, 1fr)",
+          "token": "--qd-atelier-width-4a8e5e3bb8",
+          "context": "Typed DataTableColumn width",
+          "line": 153
+        },
+        {
+          "property": "width",
+          "value": "minmax(150px, 0.9fr)",
+          "token": "--qd-atelier-width-051abb7ab4",
+          "context": "Typed DataTableColumn width",
+          "line": 168
+        },
+        {
+          "property": "width",
+          "value": "80px",
+          "token": "--qd-atelier-width-91269935bd",
+          "context": "Typed DataTableColumn width",
+          "line": 175
+        },
+        {
+          "property": "width",
+          "value": "150px",
+          "token": "--qd-atelier-width-662c8e4334",
+          "context": "Typed DataTableColumn width",
+          "line": 182
+        },
+        {
+          "property": "width",
+          "value": "minmax(160px, 0.8fr)",
+          "token": "--qd-atelier-width-5d3d8abc80",
+          "context": "Typed DataTableColumn width",
+          "line": 183
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 2fr)",
+          "token": "--qd-atelier-width-5b306adf7f",
+          "context": "Typed DataTableColumn width",
+          "line": 184
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/Overview.tsx",
+      "beforeHash": "0c749b7c60e7220880092d5b5689a2224bc290e06477285c21012debe88506d9",
+      "afterHash": "4ace8fe6e6a3fffb09674b74527ffa9ff13c5f52edb57a90176390d9b4f9e547",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(7, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-fdd87b757a",
+          "context": "React style object",
+          "line": 110
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(7, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-fdd87b757a",
+          "context": "React style object",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+      "beforeHash": "9d01ad1f606929ff7e45578000224f4c39136ab9fce2f8e148514c05390177fa",
+      "afterHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "minmax(80px, 0.7fr)",
+          "token": "--qd-atelier-width-66e8ecd016",
+          "context": "Typed DataTableColumn width",
+          "line": 37
+        },
+        {
+          "property": "width",
+          "value": "minmax(190px, 1.6fr)",
+          "token": "--qd-atelier-width-c880d6ebcc",
+          "context": "Typed DataTableColumn width",
+          "line": 38
+        },
+        {
+          "property": "width",
+          "value": "minmax(60px, 0.6fr)",
+          "token": "--qd-atelier-width-8a12f78a68",
+          "context": "Typed DataTableColumn width",
+          "line": 39
+        },
+        {
+          "property": "width",
+          "value": "minmax(90px, 0.9fr)",
+          "token": "--qd-atelier-width-f20c98971e",
+          "context": "Typed DataTableColumn width",
+          "line": 40
+        },
+        {
+          "property": "width",
+          "value": "minmax(90px, 0.9fr)",
+          "token": "--qd-atelier-width-f20c98971e",
+          "context": "Typed DataTableColumn width",
+          "line": 41
+        },
+        {
+          "property": "width",
+          "value": "minmax(90px, 0.9fr)",
+          "token": "--qd-atelier-width-f20c98971e",
+          "context": "Typed DataTableColumn width",
+          "line": 42
+        },
+        {
+          "property": "width",
+          "value": "minmax(50px, 0.5fr)",
+          "token": "--qd-atelier-width-3ca2ae1977",
+          "context": "Typed DataTableColumn width",
+          "line": 43
+        },
+        {
+          "property": "width",
+          "value": "minmax(80px, 0.8fr)",
+          "token": "--qd-atelier-width-6fb572c7e7",
+          "context": "Typed DataTableColumn width",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/alias-queue/page.tsx",
+      "beforeHash": "a7c991142f66267473c929f849f50eb4d33cde5e3d754d1a9c9290fea58cd57e",
+      "afterHash": "8909133d029ac0fef07b24e9d20518f9eeba90686a8245885a53a2872126ab98",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1.4fr",
+          "token": "--qd-atelier-width-b66da02177",
+          "context": "Typed DataTableColumn width",
+          "line": 94
+        },
+        {
+          "property": "width",
+          "value": "1.8fr",
+          "token": "--qd-atelier-width-edb4cac963",
+          "context": "Typed DataTableColumn width",
+          "line": 100
+        },
+        {
+          "property": "width",
+          "value": "1.4fr",
+          "token": "--qd-atelier-width-b66da02177",
+          "context": "Typed DataTableColumn width",
+          "line": 113
+        },
+        {
+          "property": "width",
+          "value": "220px",
+          "token": "--qd-atelier-width-e104eb5fa2",
+          "context": "Typed DataTableColumn width",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/core-accuracy/page.tsx",
+      "beforeHash": "c71952c61221f5acc47e1c0c33d98a3c46501410352a1af316ee1ed825fd58ae",
+      "afterHash": "b3f45c04174e015f0fc88d99253babbbe0364c3a49a13aa221ce0e621e41bd0a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "minmax(0, 1.35fr) minmax(0, 1fr)",
+          "token": "--qd-atelier-grid-template-columns-ef2dc99299",
+          "context": "React style object",
+          "line": 135
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/default-templates/page.tsx",
+      "beforeHash": "7ce7a4747d6101ad100033d6c962117478d72c6b2a5b803a8734be692f3785a7",
+      "afterHash": "083cf1728b9e94d0acb6dbedf836bac4338cd9d7ad1bf49e8aae71522876498c",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "190px",
+          "token": "--qd-atelier-width-dc9eac3f89",
+          "context": "Typed DataTableColumn width",
+          "line": 462
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "Typed DataTableColumn width",
+          "line": 473
+        },
+        {
+          "property": "width",
+          "value": "92px",
+          "token": "--qd-atelier-width-433b187c26",
+          "context": "Typed DataTableColumn width",
+          "line": 476
+        },
+        {
+          "property": "width",
+          "value": "108px",
+          "token": "--qd-atelier-width-7080f70fb4",
+          "context": "Typed DataTableColumn width",
+          "line": 480
+        },
+        {
+          "property": "width",
+          "value": "240px",
+          "token": "--qd-atelier-width-aebc026e77",
+          "context": "Typed DataTableColumn width",
+          "line": 486
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/eval-sets/page.tsx",
+      "beforeHash": "135bf20d68667c10bc997a4afe9b627001393a52378173263463d860ffadd2d7",
+      "afterHash": "62cbb74de2dd778d7e741258f886a16902e1d7642de0706ae3ebf05dbc74eb37",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1.6fr",
+          "token": "--qd-atelier-width-20c5c66b47",
+          "context": "Typed DataTableColumn width",
+          "line": 233
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 239
+        },
+        {
+          "property": "width",
+          "value": "130px",
+          "token": "--qd-atelier-width-9db3c3232a",
+          "context": "Typed DataTableColumn width",
+          "line": 240
+        },
+        {
+          "property": "width",
+          "value": "1.8fr",
+          "token": "--qd-atelier-width-edb4cac963",
+          "context": "Typed DataTableColumn width",
+          "line": 241
+        },
+        {
+          "property": "width",
+          "value": "260px",
+          "token": "--qd-atelier-width-ad426e4154",
+          "context": "Typed DataTableColumn width",
+          "line": 247
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/expert-invites/invite-manager.tsx",
+      "beforeHash": "1e993eb8c9d6b354b26772f125370e124cf850dfcfa5a9cf420c1cf97b4cf03b",
+      "afterHash": "0cda4b6fe96210ff0e95106e2b39a8337884f2b89cfde9b3391925228788df90",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 331
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/mfds-diagnostics/page.tsx",
+      "beforeHash": "19262c9b8c2331f62e0e9c18dca8b18c62d6c0c2de8c3b3d1d1e9d062e86c1db",
+      "afterHash": "12e80ca1541aba682d972b9a23f6d0e797186a5f6afd317fe609b6409b073197",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 310
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/multi-view/page.tsx",
+      "beforeHash": "8ec7000b53a660338c4bf08768d7d26f834d57a5d2b3e663483968a46e3aa2de",
+      "afterHash": "c35adb63350a41409941671b9b85a030420a06f9447e242d5218ad38b446fa9f",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 100px 100px 100px",
+          "token": "--qd-atelier-grid-template-columns-7620e0c8da",
+          "context": "React style object",
+          "line": 354
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(280px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dd6eaa7210",
+          "context": "React style object",
+          "line": 388
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-f439f3a974",
+          "context": "React style object",
+          "line": 455
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "100px 1fr 90px 100px",
+          "token": "--qd-atelier-grid-template-columns-fd9649aec9",
+          "context": "React style object",
+          "line": 482
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 200px minmax(0, 1fr) 140px",
+          "token": "--qd-atelier-grid-template-columns-8e15a94a30",
+          "context": "React style object",
+          "line": 602
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/page.tsx",
+      "beforeHash": "1858b50b82dae6461b74447c7b50f17cb2366c669cdbb1bd40011cba7cf5b414",
+      "afterHash": "7ca8a61f9d6f2f9eb6745e41eeb71a00d8fc20fee174c1cc87881153b88c3f7d",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(280px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dd6eaa7210",
+          "context": "React style object",
+          "line": 230
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/permissions-matrix/page.tsx",
+      "beforeHash": "66c5fabd9d5dfed87e62fc135f3a0415cf10e3b350df399c9f092d973a1a553b",
+      "afterHash": "af88685ba0c6bc527239c1751ac73919c0e352aaa94ad93d8a370b8c6582b763",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 140px 1fr 80px 80px",
+          "token": "--qd-atelier-grid-template-columns-327e1005ec",
+          "context": "React style object",
+          "line": 227
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 140px 1fr 80px 80px",
+          "token": "--qd-atelier-grid-template-columns-327e1005ec",
+          "context": "React style object",
+          "line": 251
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 80px 1fr",
+          "token": "--qd-atelier-grid-template-columns-4e2a40a174",
+          "context": "React style object",
+          "line": 542
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 80px 1fr",
+          "token": "--qd-atelier-grid-template-columns-4e2a40a174",
+          "context": "React style object",
+          "line": 564
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/q-match-training/page.tsx",
+      "beforeHash": "8b13346a72de1e4dd29d7001b65a107734a60c52425de9c0b45ce7fb4895af37",
+      "afterHash": "943cc4645ed63fa36265fcfaca8dd85cc562cac1cf066ce170eebea93f9fb6e2",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1.2fr 1fr 2fr",
+          "token": "--qd-atelier-grid-template-columns-cf92951214",
+          "context": "React style object",
+          "line": 784
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1.2fr 1fr 2fr",
+          "token": "--qd-atelier-grid-template-columns-cf92951214",
+          "context": "React style object",
+          "line": 806
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "180px 1fr",
+          "token": "--qd-atelier-grid-template-columns-cf80ef62a2",
+          "context": "React style object",
+          "line": 991
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "100px 1fr 60px",
+          "token": "--qd-atelier-grid-template-columns-e86b78c889",
+          "context": "React style object",
+          "line": 1048
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 1fr 110px",
+          "token": "--qd-atelier-grid-template-columns-ce464e094a",
+          "context": "React style object",
+          "line": 1460
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/rule-table/page.tsx",
+      "beforeHash": "390aea66becdb77ec3ab4c6939f1abfce81dac91b99b9c2578ebaf5ea31f1222",
+      "afterHash": "cbdf0adbb51815f5e12c3575969e5641062bb3106c6f6b252382a749f9e59c5c",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1.4fr",
+          "token": "--qd-atelier-width-b66da02177",
+          "context": "Typed DataTableColumn width",
+          "line": 123
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 129
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 130
+        },
+        {
+          "property": "width",
+          "value": "1.6fr",
+          "token": "--qd-atelier-width-20c5c66b47",
+          "context": "Typed DataTableColumn width",
+          "line": 131
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 132
+        },
+        {
+          "property": "width",
+          "value": "170px",
+          "token": "--qd-atelier-width-55d8ffef28",
+          "context": "Typed DataTableColumn width",
+          "line": 138
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 140
+        },
+        {
+          "property": "width",
+          "value": "1.4fr",
+          "token": "--qd-atelier-width-b66da02177",
+          "context": "Typed DataTableColumn width",
+          "line": 141
+        },
+        {
+          "property": "width",
+          "value": "1.6fr",
+          "token": "--qd-atelier-width-20c5c66b47",
+          "context": "Typed DataTableColumn width",
+          "line": 142
+        },
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "Typed DataTableColumn width",
+          "line": 146
+        },
+        {
+          "property": "width",
+          "value": "1.2fr",
+          "token": "--qd-atelier-width-04665c2790",
+          "context": "Typed DataTableColumn width",
+          "line": 147
+        },
+        {
+          "property": "width",
+          "value": "1.6fr",
+          "token": "--qd-atelier-width-20c5c66b47",
+          "context": "Typed DataTableColumn width",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/screening/page.tsx",
+      "beforeHash": "1687fa1f9318ca40dc256922a9ed14a675b5a5d1af2207f90d6171109912806a",
+      "afterHash": "bbb29a5f21e595c9870cd23bb2d0942b8c19313daee288eae76deff4982ff409",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 64px 64px 72px 64px 104px 110px",
+          "token": "--qd-atelier-grid-template-columns-7286392c2b",
+          "context": "React style object",
+          "line": 351
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 64px 64px 72px 64px 104px 110px",
+          "token": "--qd-atelier-grid-template-columns-7286392c2b",
+          "context": "React style object",
+          "line": 387
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 1fr 100px 100px 130px 110px",
+          "token": "--qd-atelier-grid-template-columns-593a13ec38",
+          "context": "React style object",
+          "line": 842
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 1fr 100px 100px 130px 110px",
+          "token": "--qd-atelier-grid-template-columns-593a13ec38",
+          "context": "React style object",
+          "line": 868
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 1fr 130px",
+          "token": "--qd-atelier-grid-template-columns-96a18d90dd",
+          "context": "React style object",
+          "line": 961
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "140px 1fr 130px",
+          "token": "--qd-atelier-grid-template-columns-96a18d90dd",
+          "context": "React style object",
+          "line": 983
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 100px 140px 130px",
+          "token": "--qd-atelier-grid-template-columns-1139b02e10",
+          "context": "React style object",
+          "line": 1060
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 100px 140px 130px",
+          "token": "--qd-atelier-grid-template-columns-1139b02e10",
+          "context": "React style object",
+          "line": 1084
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/subscriptions/page.tsx",
+      "beforeHash": "abcb8b3c960c429bd5785021959151e727304d0ff1fbcaa813211c1028fff1f8",
+      "afterHash": "966a8c035ace6cb7a6f63e08927be00d8c0a46e8592a93f0a7b9a11269913201",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 140px auto",
+          "token": "--qd-atelier-grid-template-columns-82b5c85547",
+          "context": "React style object",
+          "line": 1341
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/validation-evidence/page.tsx",
+      "beforeHash": "0fb3d8527313e95073bc2ef037c165a0affbe94d86e727a3aeb72471b3b60d98",
+      "afterHash": "d8d626835bf00d67ad7c7518b989f2760974337c8e296dec32e0025b4d5f153b",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "2fr",
+          "token": "--qd-atelier-width-79fdd70a86",
+          "context": "Typed DataTableColumn width",
+          "line": 140
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 141
+        },
+        {
+          "property": "width",
+          "value": "1.2fr",
+          "token": "--qd-atelier-width-04665c2790",
+          "context": "Typed DataTableColumn width",
+          "line": 142
+        },
+        {
+          "property": "width",
+          "value": "170px",
+          "token": "--qd-atelier-width-55d8ffef28",
+          "context": "Typed DataTableColumn width",
+          "line": 143
+        },
+        {
+          "property": "width",
+          "value": "64px",
+          "token": "--qd-atelier-width-d3db975bed",
+          "context": "Typed DataTableColumn width",
+          "line": 144
+        },
+        {
+          "property": "width",
+          "value": "64px",
+          "token": "--qd-atelier-width-d3db975bed",
+          "context": "Typed DataTableColumn width",
+          "line": 145
+        },
+        {
+          "property": "width",
+          "value": "64px",
+          "token": "--qd-atelier-width-d3db975bed",
+          "context": "Typed DataTableColumn width",
+          "line": 146
+        },
+        {
+          "property": "width",
+          "value": "1.6fr",
+          "token": "--qd-atelier-width-20c5c66b47",
+          "context": "Typed DataTableColumn width",
+          "line": 147
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 151
+        },
+        {
+          "property": "width",
+          "value": "2fr",
+          "token": "--qd-atelier-width-79fdd70a86",
+          "context": "Typed DataTableColumn width",
+          "line": 152
+        },
+        {
+          "property": "width",
+          "value": "80px",
+          "token": "--qd-atelier-width-91269935bd",
+          "context": "Typed DataTableColumn width",
+          "line": 153
+        },
+        {
+          "property": "width",
+          "value": "2fr",
+          "token": "--qd-atelier-width-79fdd70a86",
+          "context": "Typed DataTableColumn width",
+          "line": 154
+        },
+        {
+          "property": "width",
+          "value": "150px",
+          "token": "--qd-atelier-width-662c8e4334",
+          "context": "Typed DataTableColumn width",
+          "line": 155
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 159
+        },
+        {
+          "property": "width",
+          "value": "2.4fr",
+          "token": "--qd-atelier-width-5f6a72ded8",
+          "context": "Typed DataTableColumn width",
+          "line": 160
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 161
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 162
+        },
+        {
+          "property": "width",
+          "value": "70px",
+          "token": "--qd-atelier-width-1ba51881f3",
+          "context": "Typed DataTableColumn width",
+          "line": 163
+        },
+        {
+          "property": "width",
+          "value": "64px",
+          "token": "--qd-atelier-width-d3db975bed",
+          "context": "Typed DataTableColumn width",
+          "line": 164
+        },
+        {
+          "property": "width",
+          "value": "70px",
+          "token": "--qd-atelier-width-1ba51881f3",
+          "context": "Typed DataTableColumn width",
+          "line": 165
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 335
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(160px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3bc7450f25",
+          "context": "React style object",
+          "line": 419
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/vigilance/page.tsx",
+      "beforeHash": "9de3f17138db90e595d0b7f69009b3dc44d683c468ab2512588689c0ba87bc7a",
+      "afterHash": "89d1a18e1644602ef3d4640cbb6817a4d9b55d22f2483ac0773adeaf9df261b0",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 1fr 120px",
+          "token": "--qd-atelier-grid-template-columns-219c84c5b3",
+          "context": "React style object",
+          "line": 240
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/[code]/page.tsx",
+      "beforeHash": "2d5098ed1bca621552eb689f956cd017da07b7b001a2ae1f6b5ff4b292ebc76a",
+      "afterHash": "96d325bd930847116276a171118e0bbb43053de195761b38a6dacbfd582263dc",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 120px 120px",
+          "token": "--qd-atelier-grid-template-columns-101a2cc416",
+          "context": "React style object",
+          "line": 785
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 1fr",
+          "token": "--qd-atelier-grid-template-columns-63a72b139a",
+          "context": "React style object",
+          "line": 1017
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr",
+          "token": "--qd-atelier-grid-template-columns-af2bd6fdc3",
+          "context": "React style object",
+          "line": 1121
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "220px 100px 1fr",
+          "token": "--qd-atelier-grid-template-columns-7b7c85ac14",
+          "context": "React style object",
+          "line": 1204
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/assessments-client.tsx",
+      "beforeHash": "a1e67fe74cf2575671ef7920d5bf017d52f3115d77d7c3fc9f846a799f2f4a9c",
+      "afterHash": "1760f6cead981941c582943af0d1f815fac40c4cccaa3f13ccf6afd8e8ab2372",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 278
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/new/page.tsx",
+      "beforeHash": "e84c1fe56d422df60cd48e0ec72a52050843bf15db12e3b10fee0120947e1d03",
+      "afterHash": "601fd3bdd35c123def072caeea56e3d92bf6642e9a0e1ec771033538c017865a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 482
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 572
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "200px 1fr 70px",
+          "token": "--qd-atelier-grid-template-columns-19076a0f87",
+          "context": "React style object",
+          "line": 624
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audit-readiness/page.tsx",
+      "beforeHash": "7110ff49449d308b024b6c6ff36231018c980faa8ec67218ed6099c8866feb50",
+      "afterHash": "404c9ec7a80164534f380cdb8ff6c332178e4cd599654cc45b41e70f2dc4db7c",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 197
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audit/page.tsx",
+      "beforeHash": "fc058df4055cc492cdd7c2568933b190386703e15402b2db9efba51d13283707",
+      "afterHash": "5413cdd6e958c83a478f8b1ee8902e091327f5c1f1e8c34edf8382d4cbb6d0f6",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 180px 220px 1fr",
+          "token": "--qd-atelier-grid-template-columns-425074bb1c",
+          "context": "React style object",
+          "line": 227
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 180px 220px 1fr",
+          "token": "--qd-atelier-grid-template-columns-425074bb1c",
+          "context": "React style object",
+          "line": 254
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(260px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-6a7670410f",
+          "context": "React style object",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audits/new/client.tsx",
+      "beforeHash": "b9451ee427bdf0b365438b8c1098243956935d055c8f99177a27e9678d9c1022",
+      "afterHash": "267b698d2bfa18bfdf738a7d54aeeefbddd8681f73892266dffa2a489b6735f8",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/[id]/page.tsx",
+      "beforeHash": "d494c522eab4ec3c13d6ad3ca634c80317d76eeb0fa0b0f8a6ce64aee857dbd5",
+      "afterHash": "3884587055cc6f95b3261f715f83f3a3e846304df75f81b439e3715d63fd4ecb",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 90px 90px 90px 110px 1.4fr",
+          "token": "--qd-atelier-grid-template-columns-dc01a03683",
+          "context": "React style object",
+          "line": 262
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 90px 90px 90px 110px 1.4fr",
+          "token": "--qd-atelier-grid-template-columns-dc01a03683",
+          "context": "React style object",
+          "line": 287
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/page.tsx",
+      "beforeHash": "e342f8f68c1bef1fab22cdc4a81dd13155d58df667dfd1ab900e56705e9019e5",
+      "afterHash": "e1ea9ffbec5855a1200cc36bd75ef85c38b41fec30e7bb8a3f10d2ee4916cf8d",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 90px 90px 90px 110px 1fr",
+          "token": "--qd-atelier-grid-template-columns-7e2c038896",
+          "context": "React style object",
+          "line": 780
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 90px 90px 90px 110px 1fr",
+          "token": "--qd-atelier-grid-template-columns-7e2c038896",
+          "context": "React style object",
+          "line": 806
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 1fr 90px 130px 130px 90px",
+          "token": "--qd-atelier-grid-template-columns-c80b77add1",
+          "context": "React style object",
+          "line": 902
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 1fr 90px 130px 130px 90px",
+          "token": "--qd-atelier-grid-template-columns-c80b77add1",
+          "context": "React style object",
+          "line": 931
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/suggestions/page.tsx",
+      "beforeHash": "f681a121deb50d44164530c58b486cc4ba8237490be98ac6dad0283582fc5faa",
+      "afterHash": "d97a8b3dd7bf31d4b91faf49cb38ad45bc2ffdba120d560238d970b9e7a9ea79",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 90px 70px 110px 1fr 130px 90px",
+          "token": "--qd-atelier-grid-template-columns-909ed3d6e0",
+          "context": "React style object",
+          "line": 230
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 90px 70px 110px 1fr 130px 90px",
+          "token": "--qd-atelier-grid-template-columns-909ed3d6e0",
+          "context": "React style object",
+          "line": 279
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 100px 90px 1fr 130px 80px",
+          "token": "--qd-atelier-grid-template-columns-a9d0167977",
+          "context": "React style object",
+          "line": 400
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 100px 90px 1fr 130px 80px",
+          "token": "--qd-atelier-grid-template-columns-a9d0167977",
+          "context": "React style object",
+          "line": 430
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/[id]/client.tsx",
+      "beforeHash": "c914d04e76f05ae3ecf4b42edde65bd02bba993d268adfa670f1b715d4fcc69e",
+      "afterHash": "05c1d7af36fde0f2b8967d6616f30294fadd7f8a9ad52ff36d90bb8cbefac977",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 290
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/cleanroom/[id]/client.tsx",
+      "beforeHash": "99907c82c8cccccff3295def269c5b7cf970a03165cf550284a0d47c316e9ca4",
+      "afterHash": "255146ca5e7fb0755f9105d9ecd4b7b608ae39eaaf9a2010714e9be871b9f170",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/[id]/client.tsx",
+      "beforeHash": "9df6c3e2f5910362a2fdc978ac1d7db02cd0f06732bd3f9fad67ab1c8705a59f",
+      "afterHash": "eaffada4cc360f61cf66ff8738a76324b05989ecb8d88059998332f1cc0afc2f",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 223
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/new/client.tsx",
+      "beforeHash": "b10be92da00d7851797c194fddf7fd470ad96c985d1359d2e003de5d774252f1",
+      "afterHash": "97bc6e59e156b3f7ed9183655e732eeccb7c927ad4255c6429f2dfe9f8d07014",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/[id]/client.tsx",
+      "beforeHash": "798690d6152aa621d986a9bf3e2d1725a0cee9466ca5f94c905d5febb0bfee37",
+      "afterHash": "d52694451bdf11c71c2831abbbd31e0aab062c184e286873debc0011da771416",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "max-content 1fr",
+          "token": "--qd-atelier-grid-template-columns-e7c72e3c1b",
+          "context": "React style object",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/new/client.tsx",
+      "beforeHash": "de81486cf2922d64a3fc0d0de7f036c642b763dc7fd013201af0872f06ad7f9c",
+      "afterHash": "f410d407ab82f913d772efb6d50763733a567a1aebf219678937f1e8375b6f59",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(100px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3f8d8a1a52",
+          "context": "React style object",
+          "line": 137
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 203
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 249
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/contracts/[id]/page.tsx",
+      "beforeHash": "0ab147fdf245dabc7739139f8a77361cf36a1a93f826bfd732ac282b63e9ce7f",
+      "afterHash": "48464e3aef8710c7eec2e973a15d45e0ad50ef26fc656087b220749c898af8b4",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/customer-property/[id]/page.tsx",
+      "beforeHash": "e17f1f82ad1f3734738a5d9bae9f2137a354eeeaa19e88d179f6d69ce9e2efd3",
+      "afterHash": "849b1d37e208b1dd49f6aacb0249f8204eb6e5be07c95621a5e4b829284ac2dc",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "beforeHash": "3adbfb147be554eef5900f42b9906d40faabc13564f6221f75151558bb4eddbf",
+      "afterHash": "7bf8326d9050db5afcb7fe8314a018afbb2039f813742bafd9005da7790f907a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(230px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-e0e6f7b1e2",
+          "context": "React style object",
+          "line": 328
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "DataTable columns JSX",
+          "line": 409
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "DataTable columns JSX",
+          "line": 423
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "DataTable columns JSX",
+          "line": 440
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "DataTable columns JSX",
+          "line": 456
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "DataTable columns JSX",
+          "line": 491
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1.2fr)",
+          "token": "--qd-atelier-width-d9bdf1127d",
+          "context": "DataTable columns JSX",
+          "line": 526
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 0.6fr)",
+          "token": "--qd-atelier-width-d68e58999b",
+          "context": "DataTable columns JSX",
+          "line": 531
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(240px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-879f5d17bf",
+          "context": "React style object",
+          "line": 579
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/new/client.tsx",
+      "beforeHash": "be18211b97764dc54782304d96d69eb380ec661a33ed977a779bf7571a51dd47",
+      "afterHash": "7f0179cf5a9d5391954f9fcc9dd30d6ea40468f712b053289e2e03cd2c694be5",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(120px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-7d1896c0d8",
+          "context": "React style object",
+          "line": 243
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 326
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/equipment/[id]/client.tsx",
+      "beforeHash": "38ac40a352891c2861a777f2c64a5b8de432e0e2f5bcb9226c8d4c077465cdd5",
+      "afterHash": "f1497b3bfe185982908400d20895c04fc9675108d025314746670ecdebbb2a72",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 243
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/experts/page.tsx",
+      "beforeHash": "6d1942fc4bb356555f3070e24e20ec27072e2a4e2149aab44dedae00ecb76392",
+      "afterHash": "05f016164f6145442fe150e53161feb0c54a78186b85fe1207c0565de8fb51c7",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 80px 90px 110px 130px 130px",
+          "token": "--qd-atelier-grid-template-columns-acab4d5989",
+          "context": "React style object",
+          "line": 185
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 80px 90px 110px 130px 130px",
+          "token": "--qd-atelier-grid-template-columns-acab4d5989",
+          "context": "React style object",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/feedback/[id]/client.tsx",
+      "beforeHash": "15f6716962b7b46deacee2f7d1e715c1cc902cd17fdbf88d4ba399034086b26b",
+      "afterHash": "39ea58315c9a06d58dbc0ac61a98960e096d62eb7df3070b71681f27513b5c8d",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 265
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/feedback/new/client.tsx",
+      "beforeHash": "797292eb93355ea99d41716010aee2cd80aa068967ab390c691cc2cbcfaf92a9",
+      "afterHash": "ab4ed88f8ae8c189536390b07f74d369d44997a936de5e1a11705ac53d21224e",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 185
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 197
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 207
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 236
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/inbox/[id]/page.tsx",
+      "beforeHash": "49ee91e9a14aea5420d02fdfab75c567afb09517a5ba5f815172d6a084bbc886",
+      "afterHash": "51fd9bb8b6562a0485d3a2610c3f69154d5fe1127c3ab7b3aba1638e8f3cedca",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 32px 1fr",
+          "token": "--qd-atelier-grid-template-columns-a7fb536c2c",
+          "context": "React style object",
+          "line": 170
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "160px 1fr",
+          "token": "--qd-atelier-grid-template-columns-63a72b139a",
+          "context": "React style object",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/lots/new/client.tsx",
+      "beforeHash": "224d67661c71b92443355b7238ef8670d5fbe4746850b0040342851a10e28062",
+      "afterHash": "31d0b099e876f8eb38131eaa958e8d17ed5b54a23b6147b76b7f1d3adbae59be",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-f439f3a974",
+          "context": "React style object",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "beforeHash": "4d3be50c228406108f8bb913c555f41cb7553b96115d464d226f47b41aa84d2b",
+      "afterHash": "c1baa07c4f30e50c56650e04aa85150237cf892f03be3b1da73fd5b16d6c2e1a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(3, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-30c39a4664",
+          "context": "React style object",
+          "line": 407
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "beforeHash": "1384c4c0983ce80c3e738733599b03ae9718d5186ab322e946b63dab555fb733",
+      "afterHash": "bc496ee9e818696076cc31ec9cbc5b2bfe5c304a2ed4c06d4b013d8e15ba74c9",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr auto",
+          "token": "--qd-atelier-grid-template-columns-bc7950908d",
+          "context": "React style object",
+          "line": 302
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "beforeHash": "ea17b7b3cd76fe0f6a2d0c3b1f407ba7478ffd295ab26f5566e343a82ec32be9",
+      "afterHash": "ba448287242e0ae6858d7a900c70c864192f0b1a51cda2ca6aa768f67b13e818",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "minmax(0, 1fr) auto",
+          "token": "--qd-atelier-grid-template-columns-e728a7afaf",
+          "context": "React style object",
+          "line": 332
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "beforeHash": "bc4cdc464ff73e14f5321255030001fc3d2da661dddd4110385a234d5bf45453",
+      "afterHash": "839355f4cac6eb332f523fd096b0bb063653ce9dde90942e54cf082e4eaa7f3f",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 382
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 516
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "beforeHash": "df1c3bb25c1765e4c7ea30bfd68f1124205ad3c1db86e723a9dd69e8771fc1de",
+      "afterHash": "3bd62dcb8bf0194335a85045b5b75c68d3306b290f340a428bcd4ef3fa76e79b",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 263
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 120px 130px 90px 36px",
+          "token": "--qd-atelier-grid-template-columns-731a2c25a9",
+          "context": "React style object",
+          "line": 381
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/messages/page.tsx",
+      "beforeHash": "700f61815deb941db625758f0fde197a122292689b524840071047212ae9019c",
+      "afterHash": "fc0ba47efe74c40650c9f2e4c1b977506bf98a97cec109386e31c4d9a238a94c",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr",
+          "token": "--qd-atelier-grid-template-columns-af2bd6fdc3",
+          "context": "React style object",
+          "line": 333
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "minmax(260px, 320px) 1fr",
+          "token": "--qd-atelier-grid-template-columns-6acf26927d",
+          "context": "React style object",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/[id]/client.tsx",
+      "beforeHash": "76eecad7539582dc233adecf4c1469a6d1e73294e80e155b98e5ecf62671b4ba",
+      "afterHash": "ea0710e04a818dcffcce9851f133396c2cd676301760293044c397e6b2b4b7ff",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 304
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
+      "beforeHash": "e7953be12f990610897a4b72e8c05d05b66b0cc74fdad0c022d8427b62b7462e",
+      "afterHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 212
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 316
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/new/client.tsx",
+      "beforeHash": "abe4f2ddcf93b7f2a1f0c6f719a6c4465846171d83e59f914fd6b5d654099e6b",
+      "afterHash": "b53fc894ffcce0f254b6f2541a5dd5713a0373fa4360f50e3932deade82c6650",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(100px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3f8d8a1a52",
+          "context": "React style object",
+          "line": 163
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/notifications/page.tsx",
+      "beforeHash": "e1fcb48df489098144891a46e94c1acd8e6a0142ea70e69af0e8d4b4e695dc72",
+      "afterHash": "8b535161713e26d50d93edaffb298cba7aef85dfe911d3acf69e293baf30bd96",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "minmax(0, 1fr) auto",
+          "token": "--qd-atelier-grid-template-columns-e728a7afaf",
+          "context": "React style object",
+          "line": 284
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/pmda/[id]/client.tsx",
+      "beforeHash": "3420d809be0ed6a1329afdb6d94862b8186d65dba966da11c3e1377c9e3d848d",
+      "afterHash": "bc537c41d95e4097ea60696d451e456fc5126c4cd5421cfb32f378a0b2bd5554",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-9bc36ed113",
+          "context": "React style object",
+          "line": 212
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-f439f3a974",
+          "context": "React style object",
+          "line": 232
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 1fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-224d4984a6",
+          "context": "React style object",
+          "line": 240
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/pmda/new/client.tsx",
+      "beforeHash": "9963bc5a228182796c203b0df04d95bf47fdbeabe7e7aa27342195bc2b1aabf3",
+      "afterHash": "2b7018434e37a360aeb8aeb8a30f8bba0f62a4e2dde6d504296e126f65a1a5c8",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-f439f3a974",
+          "context": "React style object",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/pms/[id]/client.tsx",
+      "beforeHash": "4818a8d86a9ff06e58ed2017331df62d61675c9a14eced4494bbea6d3ef1e43e",
+      "afterHash": "2fd879fbfb4b9eb1af8e13ca48abaacc0d360bd7f1bbaa64e0b8f25e6a1135be",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 144
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 192
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/pms/new/client.tsx",
+      "beforeHash": "ad37afc9500422f0d9cca8ed79a8c2ef002639ba7c4eb37e7ca0089990ba612d",
+      "afterHash": "649dc8546749364e928b82dac3fc8226d317ee1bbcbc6eb1783acac654685b9a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-templates/form.tsx",
+      "beforeHash": "f7181387c0194774df417717c76167fdb1866eca9eede3ad4046591c9c099854",
+      "afterHash": "08d2ea979d169d7162c4056fce40595b20484fcebb7b266bd1a685eaa7d2d3d4",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 90px 44px",
+          "token": "--qd-atelier-grid-template-columns-736564bd8d",
+          "context": "React style object",
+          "line": 222
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/quality-objectives/[id]/client.tsx",
+      "beforeHash": "bcfa9f6cb47e2bf38158da0f82b036e3fdde610320f6f078a68c2719cfb698b9",
+      "afterHash": "fcb5ee3af08806f689efb5876e9d64f3f2fcb9affaa01bfe91e24d099ae46420",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 405
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 494
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/quality-objectives/new/client.tsx",
+      "beforeHash": "2a037ac720b935168bb73a9cbaf02783cb0709836d953a2dbdeb1acaf5ea074b",
+      "afterHash": "45f3bd0400cf2d85ebf63ee127fa7ae86381e9a40f5da52ca08d9f8a502a8ae8",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 275
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 297
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/ra/ra-workspace-client.tsx",
+      "beforeHash": "06784082110489721faf66eb9f1d344df4fb5c44d6c179d768cec82738897b14",
+      "afterHash": "5be871401059ca1114f6e69421ab9839e3f68823323a5494e335f75a4e8deffb",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 110px 110px",
+          "token": "--qd-atelier-grid-template-columns-93cf941397",
+          "context": "React style object",
+          "line": 738
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "100px 1fr 110px 100px",
+          "token": "--qd-atelier-grid-template-columns-4a72ec4126",
+          "context": "React style object",
+          "line": 903
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/[id]/client.tsx",
+      "beforeHash": "105153a23d8300d6dafacb9b690e49e3703ade561151f5aa5635a47e7c100dd6",
+      "afterHash": "f62259fc7f30ad49c7e3706c2a3b367945609ad290f74d8a6911d10b08401cff",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 422
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(130px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-9062b70a05",
+          "context": "React style object",
+          "line": 507
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 551
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/new/client.tsx",
+      "beforeHash": "040f16871455c0a7a95a904f2fd26270bfcc8192bd76a3fa4744c8dcbe78f29f",
+      "afterHash": "5b5a148ca81e7e94838fe75e86262176acce2becc4e1714ec07d17a6723c9668",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 180
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/design-requirements/page.tsx",
+      "beforeHash": "da88e4684b5c7e79e5b7775893df45b96de29fdf100852b4683d2640bf052aa0",
+      "afterHash": "856f3d1e7d4c160096ad5cb9472e9240c078349ebe13086a76e5e5058e2e221b",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 375
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 517
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/profile/page.tsx",
+      "beforeHash": "8b05282cb870831d63aee743a9e0ffd7bdef10707879a16d33e15e4ca710b8f6",
+      "afterHash": "684f8f624c475d75373c7a452cad03f5de84c1bb507fdc0d25ec2e99dcf09ae9",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 1px 1fr",
+          "token": "--qd-atelier-grid-template-columns-cff7402eb4",
+          "context": "React style object",
+          "line": 357
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/risks/page.tsx",
+      "beforeHash": "c20ed8074381287c12790cb6b3f24386fe1a4ebcb68c6b503f89c120a2bde3da",
+      "afterHash": "8a17839a115b2b141f4bd75a791d182742bc2c4ae063a467c4f046ede18c5c00",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 259
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 289
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/page.tsx",
+      "beforeHash": "1db4e741a96ce8772e7cc42525e4997ccae16fe085cd72bbfbd6a7d838362e36",
+      "afterHash": "c04c033ad43894b3710c4f7ed4b003034b869fc027c284e58ae20dad18a111c2",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 311
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 659
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/usage/page.tsx",
+      "beforeHash": "bfa3e783876452ff2c9ecd215676319acd7fded1fc53a611ca0d50bf8b8920ca",
+      "afterHash": "d9ac73be35f0d53aac0638485c45791747d6ce7b67fe44f9026fc445a84fdd65",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 182
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 218
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/sterilization/[id]/client.tsx",
+      "beforeHash": "6993800ecd2d3f6599f833f44c39d41e4d606b47a45a4b635e381a1cd42e4ec4",
+      "afterHash": "8bf34014196eaf9bddf54c07ddd1eb7748e14804fea19ba2a2e858df94aa3240",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 160
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/suppliers/[id]/client.tsx",
+      "beforeHash": "54751992b216bd2ff4ceb671ac821a48b8a815504331f66808868946512588c8",
+      "afterHash": "9b747568f26aff35dbba80c462f0d5ea737ae14eded72f991326ac354dd3ea87",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 311
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 327
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/suppliers/client.tsx",
+      "beforeHash": "643ca27e2f9eaef13371142bbf7d2a5712e23530e0d1ad015a842c3f37ab7539",
+      "afterHash": "46020d5b9f2f047ac72365b5da7f5e1f85c3fa34d66303de2f548c3db925054d",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 200
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/training/courses/[id]/log/client.tsx",
+      "beforeHash": "dd9d56ebed917fe9eb107b7018323b4573d9a788534c378c54646ccfa10e731a",
+      "afterHash": "144b58fbb9b2418b8990836424bbe7fbed1e9881ff9220baf262adfbe4b591bb",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 374
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/training/courses/new/client.tsx",
+      "beforeHash": "dd1863b4fec0f3ead06b5d1ad66089cd524d0a4a0f998d299fbad190dff91294",
+      "afterHash": "c49e58848e173ee04068e923b109f029f8e2aef346cb3350053450b1762cd39c",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(110px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-2bd9086160",
+          "context": "React style object",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/[id]/client.tsx",
+      "beforeHash": "f49d0ac8f8c49f22eae4929101cca86efffdd49ebe9142d67c669a7e5fe46e24",
+      "afterHash": "08fd400440767f08f3733ee612a56338f7acc65ef082a7c5b6476bf35d7634d3",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 221
+        }
+      ]
+    },
+    {
+      "path": "app/experts/inbox/[id]/page.tsx",
+      "beforeHash": "057c320135b6404fc5fc35032ed60800d9490b68bd0f945e09f4ea192c9131ae",
+      "afterHash": "c6285eafa85f8ebdba267c5e5a975a247d24870f789ce86692fbfab094ecd410",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(160px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3bc7450f25",
+          "context": "React style object",
+          "line": 217
+        }
+      ]
+    },
+    {
+      "path": "components/AssessmentPreviewPanel.tsx",
+      "beforeHash": "90da82843fd4b53e0aa3c01de6d03ec39a9aa930d6acbd510b4b09c6ce71eda9",
+      "afterHash": "1394f94639f81a8d2a584a71c17511adc1f220c402006edc0875758425f79879",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, 1fr)",
+          "token": "--qd-atelier-grid-template-columns-dd1a19e633",
+          "context": "React style object",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "path": "components/AttachmentManager.tsx",
+      "beforeHash": "13457819381abc4062f4ba2799f1c03ba2fe103632308ec2f30afa461d991cec",
+      "afterHash": "b67dd867996dfca63e2257823a945d59722e818949f821612aaf4944e0823da5",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 100px 90px 140px 100px",
+          "token": "--qd-atelier-grid-template-columns-4b4c571294",
+          "context": "React style object",
+          "line": 438
+        }
+      ]
+    },
+    {
+      "path": "components/BackwardsPlanner.tsx",
+      "beforeHash": "2185d5134ebf1ef088cb0dfd0aec9fbf75d9994961d8a9b1678afa47add26979",
+      "afterHash": "417148e9bde01fb748c13bc30c2b1e63188f0b208077c89d2358e0bc0fe39eb1",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 312
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-c99b61dd4f",
+          "context": "React style object",
+          "line": 464
+        }
+      ]
+    },
+    {
+      "path": "components/ChangeImpactDecisionTree.tsx",
+      "beforeHash": "2917a853eb6c6b78ef10d0791e0ee45df7ed53a3785182a4d4eba3a850e7c552",
+      "afterHash": "6179dfd9dffcdf39f478cb11709bdd81435e4837d179b09016df111f1cec75f4",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(2, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-8797425e7c",
+          "context": "React style object",
+          "line": 320
+        }
+      ]
+    },
+    {
+      "path": "components/ChangeRequestInbox.tsx",
+      "beforeHash": "afa245ffab6dcb5bc8dc92e3f931721bf5bc28b5d390149f75b4dde9b5a3b3e8",
+      "afterHash": "ba9e06abf4c8e9a31978f6462b33682aead593400cb1b99e046dad21fdc8e08a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 156
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "DataTable columns JSX",
+          "line": 250
+        },
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "DataTable columns JSX",
+          "line": 261
+        },
+        {
+          "property": "width",
+          "value": "160px",
+          "token": "--qd-atelier-width-ffcb6e42ab",
+          "context": "DataTable columns JSX",
+          "line": 294
+        },
+        {
+          "property": "width",
+          "value": "130px",
+          "token": "--qd-atelier-width-9db3c3232a",
+          "context": "DataTable columns JSX",
+          "line": 324
+        },
+        {
+          "property": "width",
+          "value": "100px",
+          "token": "--qd-atelier-width-6d2a18baae",
+          "context": "DataTable columns JSX",
+          "line": 341
+        },
+        {
+          "property": "width",
+          "value": "100px",
+          "token": "--qd-atelier-width-6d2a18baae",
+          "context": "DataTable columns JSX",
+          "line": 347
+        }
+      ]
+    },
+    {
+      "path": "components/DesignReviewPanel.tsx",
+      "beforeHash": "2feca5f39e82a0a5f5650ef55b93423dc5723e5175c99a308bc7b25c86cc4170",
+      "afterHash": "976de6db73e97c425ec2c390c308cc4dc21999092513052cf2bab92f4125b06a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(140px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dcbf85a208",
+          "context": "React style object",
+          "line": 777
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertScorePanel.tsx",
+      "beforeHash": "a503e5b107ff70bfd0a1b120f23045e2280416ded83807fde1c510f44cc257fc",
+      "afterHash": "d853e4cafe8417d5f063eb0907ec3535a4a7584d26c48766063f03d45ce377c0",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "80px 1fr",
+          "token": "--qd-atelier-grid-template-columns-88230d6a68",
+          "context": "React style object",
+          "line": 259
+        }
+      ]
+    },
+    {
+      "path": "components/FinalJudgmentPanel.tsx",
+      "beforeHash": "f8e3a071abcda88788c2756ceba8f2e17a9fd37f4032d66c3c99ed188209905b",
+      "afterHash": "f62c93b5dcecdb8b9b784ad6e1e2307b667846defe83e9b94cb7a5708c74a3c1",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr",
+          "token": "--qd-atelier-grid-template-columns-760144ba86",
+          "context": "React style object",
+          "line": 263
+        }
+      ]
+    },
+    {
+      "path": "components/HubModuleGrid.tsx",
+      "beforeHash": "f9fd86c6314210ce11646eb3c3ef686d0d5eb1f2fecab0e5ef701eb4714ab51c",
+      "afterHash": "9ad7db0779d5996005cf7ec6fdb51a8cbf084264da9373e2db93f29b998b236b",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-f8f37adb28",
+          "context": "React style object",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "path": "components/IfuClassifyDrawer.tsx",
+      "beforeHash": "2314d16219beb9d2b3259cbe48a8f6e827f55af8d71949cda82d7b6533072757",
+      "afterHash": "c94b3cf7b095641c9c3369639f0a66190c14d1dd263ecac53d17ee4b91f93d75",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "auto auto",
+          "token": "--qd-atelier-grid-template-columns-a69448802c",
+          "context": "React style object",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "beforeHash": "cdb712c05f6a92fa9d79c24f355a668ff0c7fb24e01e23e72e83b4068b6b9c60",
+      "afterHash": "a5ee51bdd3169261ddc3d3701aba1f8bf3ba54d87fb549a7bd4953fdb516f9ac",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "auto auto minmax(0, 1fr)",
+          "token": "--qd-atelier-grid-template-columns-accd370ea1",
+          "context": "React style object",
+          "line": 884
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "120px 1fr 90px",
+          "token": "--qd-atelier-grid-template-columns-4ffa770a92",
+          "context": "React style object",
+          "line": 1353
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "90px 1fr 60px",
+          "token": "--qd-atelier-grid-template-columns-3eadb6e786",
+          "context": "React style object",
+          "line": 1434
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "88px 1fr 60px 50px 130px",
+          "token": "--qd-atelier-grid-template-columns-ac7bd9efa3",
+          "context": "React style object",
+          "line": 1556
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "90px 1fr 70px 50px",
+          "token": "--qd-atelier-grid-template-columns-b4e8abfa0c",
+          "context": "React style object",
+          "line": 1556
+        }
+      ]
+    },
+    {
+      "path": "components/MarketAccessWidget.tsx",
+      "beforeHash": "1d7661b73cf2b0ff9372ab5b3101f06dd7d635282455ee94e918c2e025a89b05",
+      "afterHash": "8853b78d86928225ecb993787e6c0aa7aad70e214078a1b8c76a8fcf159be572",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(110px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-2bd9086160",
+          "context": "React style object",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "components/MedqraftTemplateListClient.tsx",
+      "beforeHash": "a56b53b52c047fdcfc98b074afa9d54101a8f5244f8236fcfab6ee0dfc62fb86",
+      "afterHash": "55a0eac4c1254334cbdf9f3ce80aeb836ba3583d5a6f4a08d2f343f4af7f3790",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1.5fr",
+          "token": "--qd-atelier-width-6f807e8852",
+          "context": "Typed DataTableColumn width",
+          "line": 129
+        },
+        {
+          "property": "width",
+          "value": "1.2fr",
+          "token": "--qd-atelier-width-04665c2790",
+          "context": "Typed DataTableColumn width",
+          "line": 145
+        },
+        {
+          "property": "width",
+          "value": "60px",
+          "token": "--qd-atelier-width-8071f21693",
+          "context": "Typed DataTableColumn width",
+          "line": 157
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 175
+        },
+        {
+          "property": "width",
+          "value": "100px",
+          "token": "--qd-atelier-width-6d2a18baae",
+          "context": "Typed DataTableColumn width",
+          "line": 197
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 214
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 236
+        }
+      ]
+    },
+    {
+      "path": "components/MyActionItems.tsx",
+      "beforeHash": "7e8b9c070a81d14ad3ffe37b9137a8a515ff5340acb9b41c583e9e7f1eda2717",
+      "afterHash": "152a61ec9821ec00a9938aa67e38623a4cfdf409d923c3910fdd596955598529",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 100px 1fr auto",
+          "token": "--qd-atelier-grid-template-columns-906eead401",
+          "context": "React style object",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "path": "components/OpinionForm.tsx",
+      "beforeHash": "131ebb7ceae972598160f2385ace37b593a5c7a9caa14f6b6620831d03b96102",
+      "afterHash": "6ed13ea0464bb2deb990d12008482a86078a53780ecd235ed7f88f3c4540ae59",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 3fr auto",
+          "token": "--qd-atelier-grid-template-columns-48babb64f5",
+          "context": "React style object",
+          "line": 991
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerProductWorkflow.tsx",
+      "beforeHash": "1fadcfe65c5d86457821dfe9f420e6c578e5ea90d3849ae50f3d77b526bb3fe5",
+      "afterHash": "2f7beb85ebd1ad88b81875a8d5ccb06ffe21805b37ae5d07b57e2c3dff8cf346",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 1fr",
+          "token": "--qd-atelier-grid-template-columns-9bc36ed113",
+          "context": "React style object",
+          "line": 780
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr",
+          "token": "--qd-atelier-grid-template-columns-af2bd6fdc3",
+          "context": "React style object",
+          "line": 780
+        }
+      ]
+    },
+    {
+      "path": "components/ParentLotsEditor.tsx",
+      "beforeHash": "5ae395f767860dfbddfd9a78002e2c56758ea1753cbe1cabb46c23c1392d7e26",
+      "afterHash": "65edf0db85fa9b0ee16bef5b8d9acf5c7b9e6861149e562e35c62dd36a1e5430",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "2fr 1fr 36px",
+          "token": "--qd-atelier-grid-template-columns-9a086fb73b",
+          "context": "React style object",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "path": "components/QmsStatusWidget.tsx",
+      "beforeHash": "624a616084e56882f2054956250cb7e94a7907ee8eff1bb7799bb51f395974bf",
+      "afterHash": "cd91ae3f4e2f2d2d16b4a6d9cd1a274884c9ccffcfb1614e8a8d55011cc1aa52",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "path": "components/RegisterSection.tsx",
+      "beforeHash": "095103a2cd19ba12261e915b14bcd3804ce76a59c0d11cb4e8a030764d7a88b7",
+      "afterHash": "f973a001cbd0d203c8ba391b03a1825158455f936d9465bb2db5fbb96eecb249",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryPipelineWidget.tsx",
+      "beforeHash": "ee098640ee7118d9157d1d10d293af50e04d6cb7d7efe525a2b9d6884c6941a7",
+      "afterHash": "bbdc863a2bd9591c78f951343ef7d8a9a8fb7a0f66e1bbaef78f7db23b765525",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "path": "components/RequirementsDashboard.tsx",
+      "beforeHash": "69de1e680b77bffeb87a1a79cec78bb11996e2327844077c29547cea494db8ec",
+      "afterHash": "28bf8193c2af0dcec0183a198bcc4b1f2419b90feac1f85c13bc144de6f9371a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 671
+        }
+      ]
+    },
+    {
+      "path": "components/RevisionRowExpandable.tsx",
+      "beforeHash": "25587c33a06197006302d6506ca405d005460f86ba1d88d3213c0bf66f17fc3d",
+      "afterHash": "7195280343fb1858a32b403c10d0f3212f28fbae0379ce19833668454ccd57fb",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "44px 64px 100px 1fr 240px 24px",
+          "token": "--qd-atelier-grid-template-columns-c8242d978c",
+          "context": "React style object",
+          "line": 212
+        }
+      ]
+    },
+    {
+      "path": "components/RoleProjectCard.tsx",
+      "beforeHash": "922dd9ffa67fee0694366cc1d813bc69a9b34d934a2a8cd54044da6ef5dc213e",
+      "afterHash": "590c74d97bc10aabfeacdf47a16a3995d837e082fcb55f52982059c9544d4dae",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fill, minmax(280px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-4eb584f04b",
+          "context": "React style object",
+          "line": 213
+        }
+      ]
+    },
+    {
+      "path": "components/SuggestionDetailModal.tsx",
+      "beforeHash": "b3201910be2196f136a9b84620460b06f7c6ad6676299fed52d22693b61000cf",
+      "afterHash": "c2b80f06502d9d411f2259c49bae5d44b6dc540c9541d24076f72b4612ff734a",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr auto 1fr",
+          "token": "--qd-atelier-grid-template-columns-c29e4f0a73",
+          "context": "React style object",
+          "line": 276
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(4, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-754cd9cbe0",
+          "context": "React style object",
+          "line": 508
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 1fr",
+          "token": "--qd-atelier-grid-template-columns-12bde0f4ce",
+          "context": "React style object",
+          "line": 531
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "90px 1fr",
+          "token": "--qd-atelier-grid-template-columns-b667c33810",
+          "context": "React style object",
+          "line": 541
+        }
+      ]
+    },
+    {
+      "path": "components/VaultUnlockGate.tsx",
+      "beforeHash": "23e05c6f5dc4c80fabd205ea5e29b4408b03855cbd6950a52b02a66b4c212c07",
+      "afterHash": "7019037ae03df25acb5a0647e76189fecac7971bce463e863cb9dc9f18113c49",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(240px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-879f5d17bf",
+          "context": "React style object",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "path": "components/admin/ConditionRulesPanel.tsx",
+      "beforeHash": "3c8fb94702a7a670c6caceedbc3c8865aee94fcdab00ff85f3c56da2b649035e",
+      "afterHash": "23b6e8b899438077a9c7bee4acad51968eee21c573154f35804e0912716f55aa",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "Typed DataTableColumn width",
+          "line": 130
+        },
+        {
+          "property": "width",
+          "value": "1.8fr",
+          "token": "--qd-atelier-width-edb4cac963",
+          "context": "Typed DataTableColumn width",
+          "line": 131
+        },
+        {
+          "property": "width",
+          "value": "150px",
+          "token": "--qd-atelier-width-662c8e4334",
+          "context": "Typed DataTableColumn width",
+          "line": 132
+        },
+        {
+          "property": "width",
+          "value": "1.4fr",
+          "token": "--qd-atelier-width-b66da02177",
+          "context": "Typed DataTableColumn width",
+          "line": 135
+        },
+        {
+          "property": "width",
+          "value": "70px",
+          "token": "--qd-atelier-width-1ba51881f3",
+          "context": "Typed DataTableColumn width",
+          "line": 141
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 190
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "path": "components/admin/DocsetStructurePanel.tsx",
+      "beforeHash": "c8ccd07dabf316340cf773611787c70478f59d382ca57482af3be754b7033cef",
+      "afterHash": "28e501002eb525930064ed952bfd2bab025871cad861b6894614df4d4f8d3a33",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "56px",
+          "token": "--qd-atelier-width-8b145917e4",
+          "context": "Typed DataTableColumn width",
+          "line": 102
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "Typed DataTableColumn width",
+          "line": 106
+        },
+        {
+          "property": "width",
+          "value": "64px",
+          "token": "--qd-atelier-width-d3db975bed",
+          "context": "Typed DataTableColumn width",
+          "line": 126
+        }
+      ]
+    },
+    {
+      "path": "components/admin/MfdsPermitDossierPanel.tsx",
+      "beforeHash": "cd4c4029b63da3ebe2f933bf8a26ed1617daa819202443c5a398f8a356b83004",
+      "afterHash": "e300fb7eeb9a15ca15a29380794b902348aa4815a55b1f1d8df8a2a886ef6652",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(280px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-dd6eaa7210",
+          "context": "React style object",
+          "line": 146
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "110px 1fr",
+          "token": "--qd-atelier-grid-template-columns-12bde0f4ce",
+          "context": "React style object",
+          "line": 311
+        }
+      ]
+    },
+    {
+      "path": "components/admin/OrgEditPanel.tsx",
+      "beforeHash": "0c4bd6ba81f2878e1259212c2b4a690849a00ac11bd0a915575609bc2b1bb1ed",
+      "afterHash": "48590eafad8c0ccfd12ce6acc73eb790fdcf342ea435936e683a7a61b5a01e8b",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 200px 160px 200px",
+          "token": "--qd-atelier-grid-template-columns-effaff81d2",
+          "context": "React style object",
+          "line": 194
+        }
+      ]
+    },
+    {
+      "path": "components/admin/TransferMemberDialog.tsx",
+      "beforeHash": "7da9fbfe85336c1fcef9d00e5ed51ce2a815bccab60fd3b0fd1629ef13adfbf9",
+      "afterHash": "2a94f5d993cc59a368fe31774e4ac6d0a52994d5a124783e30a48a9229c6f2a4",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "1fr 160px",
+          "token": "--qd-atelier-grid-template-columns-814638854e",
+          "context": "React style object",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/CalendarClient.tsx",
+      "beforeHash": "32f5ec3930e77d51d689183b3155875a4bac3ece28b04652c6c927b13cdb734d",
+      "afterHash": "a483ffd172a09d0e72cd9dba85474600196902d472148acd31ab67b9f6f808c6",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(7, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-fdd87b757a",
+          "context": "React style object",
+          "line": 221
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(7, minmax(0, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-fdd87b757a",
+          "context": "React style object",
+          "line": 289
+        }
+      ]
+    },
+    {
+      "path": "components/capa/CapaSheetsPanel.tsx",
+      "beforeHash": "492407cb5e5276c2e201ed5ef7c4e81450ad7f77f82f33b33e4208d5069d3575",
+      "afterHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 189
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 219
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/widgets.tsx",
+      "beforeHash": "db61e71326bbee5d1f9ff4046fdc37ccbbd0de479e1362b30588f29529488ea9",
+      "afterHash": "e5eb5bf62fb3f4e53d59cbca24dfa26a72bb6cde82f3652667b4915dc22d8f7d",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "120px",
+          "token": "--qd-atelier-width-d334b57bfc",
+          "context": "Typed DataTableColumn width",
+          "line": 535
+        },
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "Typed DataTableColumn width",
+          "line": 551
+        },
+        {
+          "property": "width",
+          "value": "130px",
+          "token": "--qd-atelier-width-9db3c3232a",
+          "context": "Typed DataTableColumn width",
+          "line": 566
+        },
+        {
+          "property": "width",
+          "value": "110px",
+          "token": "--qd-atelier-width-5a5f7abe41",
+          "context": "Typed DataTableColumn width",
+          "line": 575
+        },
+        {
+          "property": "width",
+          "value": "140px",
+          "token": "--qd-atelier-width-cd2b97c43d",
+          "context": "Typed DataTableColumn width",
+          "line": 587
+        }
+      ]
+    },
+    {
+      "path": "components/equipment/EquipmentCalibrationsPanel.tsx",
+      "beforeHash": "5d5074907e192247580f9d937780235c126bd835ef2b78f41f9c55448f6850c4",
+      "afterHash": "95c63f3dc75eca01f7d2aa0a2e695a9051f985f5d5a6f6ed2b339c75276e7079",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(170px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-798c27432c",
+          "context": "React style object",
+          "line": 170
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(170px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-798c27432c",
+          "context": "React style object",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "path": "components/equipment/EquipmentEventsPanel.tsx",
+      "beforeHash": "73d179ac193ab5852b50416e6c8fa301f85190bf2465e0d78d94dbf5a85e9ca1",
+      "afterHash": "d4edfdfb8468e4770bd7e7366cb3c72bb73ed4a71ea3182ae9110eb67cfcf6a8",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(170px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-798c27432c",
+          "context": "React style object",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "path": "components/exchange/LinkPanel.tsx",
+      "beforeHash": "2d739fb0deb6b7ea7515faacecfa28ef931bf123d759fb3ca584b1496a8064c6",
+      "afterHash": "99a99def0564ea349efd0f58ac04584d1bd06f014ee105679f63aef9ba84023c",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(150px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-373f4e6d4a",
+          "context": "React style object",
+          "line": 262
+        },
+        {
+          "property": "width",
+          "value": "minmax(110px, 1fr)",
+          "token": "--qd-atelier-width-62e292aab3",
+          "context": "Typed DataTableColumn width",
+          "line": 383
+        },
+        {
+          "property": "width",
+          "value": "70px",
+          "token": "--qd-atelier-width-1ba51881f3",
+          "context": "Typed DataTableColumn width",
+          "line": 384
+        },
+        {
+          "property": "width",
+          "value": "minmax(120px, 1.4fr)",
+          "token": "--qd-atelier-width-5af2b479cf",
+          "context": "Typed DataTableColumn width",
+          "line": 385
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 386
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "Typed DataTableColumn width",
+          "line": 387
+        },
+        {
+          "property": "width",
+          "value": "minmax(140px, 1.2fr)",
+          "token": "--qd-atelier-width-28ce486ff2",
+          "context": "Typed DataTableColumn width",
+          "line": 388
+        },
+        {
+          "property": "width",
+          "value": "minmax(160px, 1.6fr)",
+          "token": "--qd-atelier-width-9e0ba99a02",
+          "context": "Typed DataTableColumn width",
+          "line": 389
+        }
+      ]
+    },
+    {
+      "path": "components/item-classification/MfdsRegisteredProducts.tsx",
+      "beforeHash": "678e745ba24762e2caa7787539f4f0d11236a9b5ec6b8b83078f067c18928353",
+      "afterHash": "b6229b6034223d235b29a98147ad4ebda4530a84dbf160800cca94eecdf3abf0",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "DataTable columns JSX",
+          "line": 321
+        },
+        {
+          "property": "width",
+          "value": "130px",
+          "token": "--qd-atelier-width-9db3c3232a",
+          "context": "DataTable columns JSX",
+          "line": 348
+        },
+        {
+          "property": "width",
+          "value": "60px",
+          "token": "--qd-atelier-width-8071f21693",
+          "context": "DataTable columns JSX",
+          "line": 368
+        },
+        {
+          "property": "width",
+          "value": "60px",
+          "token": "--qd-atelier-width-8071f21693",
+          "context": "DataTable columns JSX",
+          "line": 470
+        },
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "DataTable columns JSX",
+          "line": 487
+        },
+        {
+          "property": "width",
+          "value": "80px",
+          "token": "--qd-atelier-width-91269935bd",
+          "context": "DataTable columns JSX",
+          "line": 506
+        },
+        {
+          "property": "width",
+          "value": "80px",
+          "token": "--qd-atelier-width-91269935bd",
+          "context": "DataTable columns JSX",
+          "line": 524
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "DataTable columns JSX",
+          "line": 625
+        },
+        {
+          "property": "width",
+          "value": "1fr",
+          "token": "--qd-atelier-width-2edb6baa63",
+          "context": "DataTable columns JSX",
+          "line": 642
+        },
+        {
+          "property": "width",
+          "value": "50px",
+          "token": "--qd-atelier-width-e05d4a3301",
+          "context": "DataTable columns JSX",
+          "line": 668
+        },
+        {
+          "property": "width",
+          "value": "90px",
+          "token": "--qd-atelier-width-f47e3b970d",
+          "context": "DataTable columns JSX",
+          "line": 685
+        }
+      ]
+    },
+    {
+      "path": "components/qms/DefaultDocsPanel.tsx",
+      "beforeHash": "db4232fd6582939574ef25e2ae0ed85e1d00de57cd1acbfd368146a33149dcfc",
+      "afterHash": "4d746ac73bb9f3248d641b893f1abeafdf129ae221467bc9d0fa6bde47f8bc00",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "72px",
+          "token": "--qd-atelier-width-d9e8188b2c",
+          "context": "Typed DataTableColumn width",
+          "line": 146
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "Typed DataTableColumn width",
+          "line": 152
+        },
+        {
+          "property": "width",
+          "value": "84px",
+          "token": "--qd-atelier-width-e5a3feb436",
+          "context": "Typed DataTableColumn width",
+          "line": 166
+        },
+        {
+          "property": "width",
+          "value": "96px",
+          "token": "--qd-atelier-width-2d09dd5b97",
+          "context": "Typed DataTableColumn width",
+          "line": 172
+        },
+        {
+          "property": "width",
+          "value": "168px",
+          "token": "--qd-atelier-width-0f2aca65dd",
+          "context": "Typed DataTableColumn width",
+          "line": 184
+        },
+        {
+          "property": "width",
+          "value": "88px",
+          "token": "--qd-atelier-width-2b524186b8",
+          "context": "Typed DataTableColumn width",
+          "line": 218
+        },
+        {
+          "property": "width",
+          "value": "minmax(0, 1fr)",
+          "token": "--qd-atelier-width-48abb035bf",
+          "context": "Typed DataTableColumn width",
+          "line": 224
+        },
+        {
+          "property": "width",
+          "value": "88px",
+          "token": "--qd-atelier-width-2b524186b8",
+          "context": "Typed DataTableColumn width",
+          "line": 244
+        },
+        {
+          "property": "width",
+          "value": "168px",
+          "token": "--qd-atelier-width-0f2aca65dd",
+          "context": "Typed DataTableColumn width",
+          "line": 249
+        }
+      ]
+    },
+    {
+      "path": "components/qms/SheetEditor.tsx",
+      "beforeHash": "2dcd80af153e7a42fba15068c972b66c83036d66548a476dbecd1acddcadee80",
+      "afterHash": "7e46c219a729001cab20d6a0923dcf7d50f8eadb1255ef4f98ae61bc4d5af4ed",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(200px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-64a997b29d",
+          "context": "React style object",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "path": "components/recalls/RecallConsigneesPanel.tsx",
+      "beforeHash": "883bb24a172d606cb2df6a932ca825a806f22cb451a0139956841ca694a739d7",
+      "afterHash": "8e2b098ac4a88b38e35a5e3b6abe934d5d1d9cf078d9852aef4e84aa94268901",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(160px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3bc7450f25",
+          "context": "React style object",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "path": "components/recalls/RecallRecordFields.tsx",
+      "beforeHash": "7bbc084a81d1aa28f60a99ef83b5311be2f52734bab38f69bd1eb1b74bd32e9e",
+      "afterHash": "416bff74ebcf684cb34ddb1e50c23a92fb686793f4c7c446c17218daba08cdaa",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(170px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-798c27432c",
+          "context": "React style object",
+          "line": 145
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/QaAgreementReview.tsx",
+      "beforeHash": "45947bfc09f680d2ec0600b1f98387b4a71365739bdbf3aea7d057b466b78bb2",
+      "afterHash": "283abdaad856959d06c0f3ac3c4d0dbfa557dfc215ca35338bdaa231da5c370c",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(220px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-435d4a3766",
+          "context": "React style object",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierEvalPanel.tsx",
+      "beforeHash": "b53d248321ed85756bb807cac4a7c21d2bab6cf3098d26ad95c975bb923563be",
+      "afterHash": "1a2b5e2d7cb6d7ae7748a0dbf75348b647b053a6fd46128241a7b910cd8c7d36",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(160px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-3bc7450f25",
+          "context": "React style object",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierShipmentsPanel.tsx",
+      "beforeHash": "cbaa10c1e0a33eed1412ee79c60a19c74a38d682730af68887f1afbbb78b47c3",
+      "afterHash": "add8d1c0f5f4cf483965915403c5806a587ceff15c7d8dd949e87ca826ed0cae",
+      "conversions": [
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 162
+        },
+        {
+          "property": "gridTemplateColumns",
+          "value": "repeat(auto-fit, minmax(180px, 1fr))",
+          "token": "--qd-atelier-grid-template-columns-50e47f0061",
+          "context": "React style object",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "92d7bec43fab00a22bdf6116c73f7b2e8c8c55f5cdbdc7c144ef17d33453a670",
+      "afterHash": "91971633419b51dc1a8738bca829272ea5c96148894ef148bbdbd27635c71a7a",
+      "conversions": [
+        {
+          "property": "gridTemplateRows",
+          "value": "1fr",
+          "token": "--qd-atelier-grid-template-rows-11f1d87b5a",
+          "context": "React style object",
+          "line": 663
+        },
+        {
+          "property": "gridTemplateRows",
+          "value": "0fr",
+          "token": "--qd-atelier-grid-template-rows-83f858e009",
+          "context": "React style object",
+          "line": 663
+        }
+      ]
+    }
+  ]
+}

@@ -22,9 +22,13 @@
 //
 // 현장 모드 ChoiceGroup 은 장갑 손 규격(56px)이 따로 있어 그대로 둡니다.
 
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { useRef, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
-import { S, FS, F, T, RADIUS, MOTION, alpha } from '@/lib/design/tokens';
+import { S, FS, F, T, alpha } from '@/lib/design/tokens';
+import { QD } from '@/lib/design/q-design-contract';
 import { codeOrTextFont } from '@/lib/design/hangul-text';
+import { QDRuntime } from '@/lib/design/q-design-runtime';
 
 /**
  * 선택 칸의 모양 한 벌 (화면 검토 A11 · A38 · A62 · 2026-09-27).
@@ -35,17 +39,17 @@ export function choiceLook(on: boolean): CSSProperties {
   // 모서리는 공용 값(10). 부르는 쪽이 radius 를 따로 주면 그 뒤에 덮는다
   return on
     ? {
-        background: alpha(T.text, 0.04),
+        background: alpha(T.text, QDRuntime.alpha.tint0_04),
         color: T.text,
-        border: `1px solid ${T.text}`,
-        borderRadius: RADIUS.md,
-        boxShadow: `inset 0 0 0 1px ${T.text}`,
+        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.text}`,
+        borderRadius: QD.radius,
+        boxShadow: `inset 0 0 0 var(--qd-border-width) ${T.text}`,
       }
     : {
         background: 'transparent',
         color: T.text,
-        border: `1px solid ${T.border}`,
-        borderRadius: RADIUS.md,
+        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${QD.ctl}`,
+        borderRadius: QD.radius,
         boxShadow: 'none',
       };
 }
@@ -54,7 +58,7 @@ export function choiceLook(on: boolean): CSSProperties {
 export function ChoiceCheck({ on, color }: { on: boolean; color?: string }) {
   if (!on) return null;
   return (
-    <span aria-hidden style={{ color: color ?? T.text, fontWeight: 700, marginRight: S[1] }}>
+    <span aria-hidden style={{ color: color ?? T.text, fontWeight: "var(--qd-font-weight-bold)", marginRight: QDScale.space[1] }}>
       ✓
     </span>
   );
@@ -98,20 +102,20 @@ export function ChoiceChip({
       onClick={onClick}
       disabled={disabled}
       title={title}
-      className="qa-touch-44"
+      className="qa-touch-44 qd-choice"
       style={{
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: sm ? `${S[2]}px ${S[3.5]}px` : `${S[2.5]}px ${S[4.5]}px`,
-        minHeight: sm ? 36 : 44,
-        fontFamily: F.ui,
-        fontSize: sm ? FS[12] : FS[13],
-        fontWeight: on ? 600 : 500,
-        borderRadius: RADIUS.md,
+        padding: sm ? 'var(--qd-choice-padding-y) var(--qd-choice-padding-x)' : QD.controlPadding,
+        minHeight: sm ? QD.controlHeightSm : QD.controlHeight,
+        fontFamily: QDScale.family.ui,
+        fontSize: QD.controlSize, lineHeight: 'var(--qd-choice-line-height)',
+        fontWeight: on ? "var(--qd-font-weight-semibold)" : "var(--qd-font-weight-medium)",
+        borderRadius: QD.radius,
         cursor: disabled ? 'not-allowed' : 'pointer',
-        opacity: disabled ? 0.5 : 1,
-        transition: `background ${MOTION.fast}, border-color ${MOTION.fast}`,
+        opacity: disabled ? "var(--qd-atelier-opacity-520d3a5350)" : "var(--qd-atelier-opacity-dc43f5a623)",
+        transition: `background ${QD.motionFast}, border-color ${QD.motionFast}`,
         ...look,
         ...style,
       }}
@@ -147,17 +151,17 @@ export interface SegmentedChoiceProps<V extends string> {
   /** wrap: 인라인 칩 · grid: auto-fit(minCol) · column: 세로 카드. */
   layout?: 'wrap' | 'grid' | 'column';
   minCol?: number;
-  gap?: number;
+  gap?: number | string;
   /** @deprecated 2026-09-27 부터 모양을 가르지 않는다(골라진 칸은 choiceLook 한 가지). 옛 호출부 호환용 */
   fill?: 'solid' | 'tint';
   /** 체크 표시 색. 항목별 color 가 우선합니다. */
   color?: string;
   font?: 'serif' | 'mono';
-  fontSize?: number;
+  fontSize?: number | string;
   fontWeight?: number;
   padding?: string;
-  minHeight?: number;
-  radius?: number;
+  minHeight?: number | string;
+  radius?: number | string;
   letterSpacing?: string;
   /** 항목 버튼에 덧씌우는 스타일(정렬·폭 등 화면 고유 모양). */
   itemStyle?: CSSProperties;
@@ -202,15 +206,15 @@ export function SegmentedChoice<V extends string>({
   id,
   readOnly = false,
   layout = 'wrap',
-  minCol = 140,
-  gap = S[2],
+  minCol = QDPresentation.choiceMinColumn[140],
+  gap = QDScale.space[2],
   color = T.champagne,
   font = 'serif',
-  fontSize = FS[13],
-  fontWeight = 600,
-  padding = '10px 16px',
-  minHeight,
-  radius = RADIUS.md,
+  fontSize = QD.controlSize,
+  fontWeight = QDPresentation.choiceFontWeight[600],
+  padding = QDPresentation.cssDefaults.choicePadding,
+  minHeight = QD.controlHeight,
+  radius = QD.radius,
   letterSpacing,
   itemStyle,
   style,
@@ -277,7 +281,7 @@ export function SegmentedChoice<V extends string>({
             }}
             type="button"
             role="radio"
-            className="qa-touch-44"
+            className="qa-touch-44 qd-choice"
             aria-checked={on}
             aria-disabled={disabled || undefined}
             disabled={disabled}
@@ -292,10 +296,10 @@ export function SegmentedChoice<V extends string>({
               flexDirection: o.sub ? 'column' : 'row',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: o.sub ? 3 : S[1.5],
+              gap: o.sub ? "var(--qd-atelier-gap-04675ee191)" : QDScale.space[1.5],
               padding,
               minHeight,
-              fontFamily: font === 'mono' ? F.mono : F.serif,
+              fontFamily: font === 'mono' ? QDScale.family.mono : QDScale.family.serif,
               fontSize,
               fontWeight,
               letterSpacing,
@@ -304,9 +308,9 @@ export function SegmentedChoice<V extends string>({
               borderRadius: radius,
               // 못 고르는 항목은 옅은 글자색 하나로 말한다. 불투명도(0.6)까지 겹치면 글자가 거의 안 보여
               // 무엇이 잠겼는지 읽을 수 없었다(화면 검토 A84 · 2026-09-27 · 부작용 보고 유형)
-              opacity: 1,
+              opacity: "var(--qd-atelier-opacity-dc43f5a623)",
               cursor: disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer',
-              transition: `background ${MOTION.fast}, color ${MOTION.fast}, border-color ${MOTION.fast}`,
+              transition: `background ${QD.motionFast}, color ${QD.motionFast}, border-color ${QD.motionFast}`,
               ...itemStyle,
             }}
           >
@@ -323,7 +327,7 @@ export function SegmentedChoice<V extends string>({
             )}
             {o.sub && (
               // 보조 글이 한글이면 본문 글꼴(화면 검토 A44 · 2026-09-28). 날짜 · 코드만 고정폭
-              <span style={{ fontSize: FS[12], opacity: 0.8, ...codeOrTextFont(o.sub), fontWeight: 500 }}>{o.sub}</span>
+              <span style={{ fontSize: QDScale.font[12], opacity: "var(--qd-atelier-opacity-1cd8a80dee)", ...codeOrTextFont(o.sub), fontWeight: "var(--qd-font-weight-medium)" }}>{o.sub}</span>
             )}
           </button>
         );

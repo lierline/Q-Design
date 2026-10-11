@@ -1,0 +1,152 @@
+[
+  {
+    "path": "app/(app)/audits/body-form.tsx",
+    "line": 236,
+    "className": "className={cn(\n                    \"qd-choice transition-colors\",\n                    auditType === t.code\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{t.label}"
+  },
+  {
+    "path": "app/(app)/audits/checklist-form.tsx",
+    "line": 255,
+    "className": "className={cn(\n                              \"qd-choice transition-colors\",\n                              e.result === r.code\n                                ? CHOICE_ON\n                                : \"border-border bg-card hover:border-brand-copper\",\n                            )}",
+    "label": "{r.label}"
+  },
+  {
+    "path": "app/(app)/complaints/complaint-report-form.tsx",
+    "line": 462,
+    "className": "className={cn(\n                    \"qd-choice flex-1 transition-colors\",\n                    severity === s.code\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{s.label}"
+  },
+  {
+    "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
+    "line": 303,
+    "className": "className={\n                            \"qd-choice mb-1.5 inline-flex items-center gap-1.5 transition-colors \" +\n                            (all\n                              ? CHOICE_ON\n                              : some\n                                ? \"border-brand-copper text-brand-copperDark\"\n                                : \"border-border bg-card text-muted-foreground hover:border-brand-copper\")\n                          }",
+    "label": "<Users className=\"h-3.5 w-3.5\" />  {g.name}  <span className=\"font-normal opacity-80\">\n                            {g.members.length}명\n                          </span>"
+  },
+  {
+    "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
+    "line": 324,
+    "className": "className={\n                                \"qd-choice transition-colors \" +\n                                (selected.has(u.id)\n                                  ? CHOICE_ON\n                                  : \"border-border bg-card text-muted-foreground hover:border-brand-copper\")\n                              }",
+    "label": "{u.name}"
+  },
+  {
+    "path": "app/(app)/environmental/aspects/new/new-aspect-form.tsx",
+    "line": 152,
+    "className": "className={cn(\n                  \"qd-choice flex-1 transition-colors\",\n                  category === c.code\n                    ? CHOICE_ON\n                    : \"border-border bg-card hover:border-brand-copper\",\n                )}",
+    "label": "{c.label}"
+  },
+  {
+    "path": "app/(app)/environmental/aspects/new/new-aspect-form.tsx",
+    "line": 231,
+    "className": "className={cn(\n                    \"qd-choice flex-1 transition-colors\",\n                    scores[f.key] === n\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/inbound/inbound-form.tsx",
+    "line": 346,
+    "className": "className={\n                \"qd-choice flex-1 transition-colors \" +\n                (values.result === r.code\n                  ? CHOICE_ON\n                  : \"border-border bg-card hover:border-brand-copper\")\n              }",
+    "label": "{r.label}"
+  },
+  {
+    "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+    "line": 398,
+    "className": "className={cn(\n                                  \"qd-choice qd-control-icon transition-colors\",\n                                  r.score === n\n                                    ? n === 0 && r.isCritical\n                                      ? \"border-destructive bg-destructive text-destructive-foreground\"\n                                      : CHOICE_ON\n                                    : \"border-border bg-background hover:border-brand-copper\",\n                                  readOnly && \"opacity-60\",\n                                )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+    "line": 754,
+    "className": "className={cn(\n                            \"qd-choice transition-colors\",\n                            r.verdict === v.code\n                              ? v.code === \"nonconform\"\n                                ? \"border-destructive bg-destructive text-destructive-foreground\"\n                                : v.code === \"minor\"\n                                  ? \"border-amber-500 bg-amber-500 text-white\"\n                                  : CHOICE_ON\n                              : \"border-border bg-background hover:border-brand-copper\",\n                          )}",
+    "label": "{v.label}"
+  },
+  {
+    "path": "app/(app)/kpi/evaluations/checklist-form.tsx",
+    "line": 783,
+    "className": "className={cn(\n                            \"qd-choice qd-control-icon transition-colors\",\n                            r.score === n\n                              ? CHOICE_ON\n                              : \"border-border bg-background hover:border-brand-copper\",\n                          )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/kpi/evaluations/sheet-header-fields.tsx",
+    "line": 132,
+    "className": "className={cn(\r\n                  \"qd-choice transition-colors disabled:cursor-not-allowed disabled:opacity-60\",\r\n                  on\r\n                    ? CHOICE_ON\r\n                    : \"border-border bg-card hover:border-brand-copper\",\r\n                )}",
+    "label": "{t.label}"
+  },
+  {
+    "path": "app/(app)/kpi/new/new-kpi-form.tsx",
+    "line": 355,
+    "className": "className={cn(\n                \"qd-choice text-left transition-colors\",\n                direction === d.code\n                  ? CHOICE_ON\n                  : \"border-border bg-card hover:border-brand-copper\",\n              )}",
+    "label": "<p className=\"text-lg font-bold\">{d.arrow}</p>  <p className=\"text-xs\">{d.label}</p>"
+  },
+  {
+    "path": "app/(app)/nc/new/new-nc-form.tsx",
+    "line": 191,
+    "className": "className={cn(\n                    \"qd-choice flex-1 transition-colors\",\n                    severity === s.code\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{s.label}"
+  },
+  {
+    "path": "app/(app)/risks/new/new-risk-form.tsx",
+    "line": 172,
+    "className": "className={cn(\n                  \"qd-choice flex-1 transition-colors\",\n                  likelihood === n\n                    ? CHOICE_ON\n                    : \"border-border bg-card hover:border-brand-copper\",\n                )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/risks/new/new-risk-form.tsx",
+    "line": 194,
+    "className": "className={cn(\n                  \"qd-choice flex-1 transition-colors\",\n                  severity === n\n                    ? CHOICE_ON\n                    : \"border-border bg-card hover:border-brand-copper\",\n                )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/risks/[id]/risk-basic-info.tsx",
+    "line": 221,
+    "className": "className={cn(\n                      \"qd-choice flex-1 transition-colors\",\n                      value === n\n                        ? CHOICE_ON\n                        : \"border-border bg-card hover:border-brand-copper\",\n                    )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+    "line": 126,
+    "className": "className={cn(\n                  \"qd-choice text-left transition-colors disabled:opacity-60\",\n                  treatment === t.code\n                    ? CHOICE_ON\n                    : \"border-border bg-card hover:border-brand-copper\",\n                )}",
+    "label": "<p className=\"font-semibold\">{t.label}</p>  <p className=\"mt-0.5 opacity-80\">{t.description}</p>"
+  },
+  {
+    "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+    "line": 167,
+    "className": "className={cn(\n                    \"qd-choice flex-1 transition-colors disabled:opacity-60\",\n                    resL === n\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/risks/[id]/risk-detail-client.tsx",
+    "line": 188,
+    "className": "className={cn(\n                    \"qd-choice flex-1 transition-colors disabled:opacity-60\",\n                    resS === n\n                      ? CHOICE_ON\n                      : \"border-border bg-card hover:border-brand-copper\",\n                  )}",
+    "label": "{n}"
+  },
+  {
+    "path": "app/(app)/settings/clauses/guidance-editor.tsx",
+    "line": 348,
+    "className": "className={cn(\n        \"qd-choice inline-flex items-center gap-1.5 transition-colors\",\n        active\n          ? CHOICE_ON\n          : \"text-muted-foreground hover:text-brand-forestDark\",\n      )}",
+    "label": "{icon}  {label}"
+  },
+  {
+    "path": "app/(app)/settings/roles/users/assign-client.tsx",
+    "line": 225,
+    "className": "className={cn(\n                            \"qd-choice qd-control-icon inline-flex items-center justify-center transition-colors\",\n                            checked\n                              ? CHOICE_ON\n                              : \"border-border bg-card hover:border-brand-copper hover:bg-brand-forestPale dark:hover:bg-muted\",\n                          )}",
+    "label": "{checked && <Check className=\"h-3.5 w-3.5\" />}"
+  },
+  {
+    "path": "app/(app)/training/record/record-form.tsx",
+    "line": 129,
+    "className": "className={cn(\n                \"qd-choice transition-colors\",\n                result === r.code\n                  ? CHOICE_ON\n                  : \"border-border bg-card hover:border-brand-copper\",\n              )}",
+    "label": "{r.label}"
+  },
+  {
+    "path": "app/(app)/training/training-form.tsx",
+    "line": 120,
+    "className": "className={cn(\n                  \"qd-choice transition-colors\",\n                  type === t.code\n                    ? CHOICE_ON\n                    : \"border-border bg-card hover:border-brand-copper\",\n                )}",
+    "label": "{t.label}"
+  },
+  {
+    "path": "components/documents/approval-chain-editor.tsx",
+    "line": 166,
+    "className": "className={cn(\n                \"qd-choice transition-colors\",\n                addMode === m.kind\n                  ? CHOICE_ON\n                  : \"border-border bg-card text-muted-foreground hover:border-brand-copper\",\n              )}",
+    "label": "{m.label}  <span className=\"ml-1 opacity-70\">({m.hint})</span>"
+  }
+]

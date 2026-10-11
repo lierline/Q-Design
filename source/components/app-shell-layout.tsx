@@ -1,3 +1,4 @@
+import { QDPresentation } from '@/lib/design/q-design-runtime';
 import { redirect } from 'next/navigation';
 import { countReviewQueues, reviewQueueRolesOf } from '@/lib/inbox/review-queue';
 import { cookies, headers } from 'next/headers';
@@ -283,8 +284,8 @@ export default async function AppLayout({
         // iOS Safari URL bar 변화 대응: 100dvh 로 통일 (100vh fallback maxHeight).
         // 이전엔 root: 100vh + main: 100dvh 였는데, main 이 root 를 넘어 overflow:hidden 으로 잘리고
         // 스크롤 시 부모 경계로 튕겨 올라가는 elastic bounce 버그 유발.
-        height: '100dvh',
-        maxHeight: '100vh',
+        height: "var(--qd-atelier-height-8ce6d713d7)",
+        maxHeight: "var(--qd-atelier-max-height-dead6c5528)",
         // background 제거: body 의 T.bg 가 fallback. ribbon 이 위로 보이도록.
         color: T.text,
         overflow: 'hidden',
@@ -336,7 +337,7 @@ export default async function AppLayout({
         tabIndex={-1}
         className="qa-main-content"
         style={{
-          flex: 1,
+          flex: "var(--qd-atelier-flex-83725d2c6e)",
           // 본문 padding 의 SSOT. sticky 밴드·액션바가 이 값을 실측해 inset 을 잡습니다
           // (lib/design/sticky-inset.ts). 패드·폰은 globals.css 가 !important 로 덮습니다.
           padding: `${MAIN_PADDING.top}px ${MAIN_PADDING.right}px ${MAIN_PADDING.bottom}px ${MAIN_PADDING.left}px`,
@@ -346,7 +347,7 @@ export default async function AppLayout({
           // height 를 100% 로 두어 부모 root(100dvh) 의 실측 높이를 그대로 사용.
           // 절대값 100dvh + maxHeight 100vh 조합은 부모-자식 사이에 미세한 불일치를 만들어
           // 모바일 elastic bounce 가 발생했음.
-          height: '100%',
+          height: "var(--qd-atelier-height-26ecbf76a0)",
           // iOS Safari momentum scroll.
           WebkitOverflowScrolling: 'touch',
           // overscroll bounce 차단: 본문 위/아래 끝에서 시스템 elastic 으로 튕기는 현상 방지.
@@ -447,7 +448,7 @@ export default async function AppLayout({
         body="좌측 사이드바에서 R&D 아이디어 등록, 변경평가, 문서 관리까지 한 번에. 위 ⌘K (Ctrl+K) 로 빠른 검색·이동이 가능합니다."
         targetSelector='[data-coachmark="sidebar"]'
         placement="right"
-        delayMs={1200}
+        delayMs={QDPresentation.coachmarkDelay[1200]}
       />
       <GlobalSearch isMedqraftAdmin={isMedqraftAdmin} />
       {/* 무반응 15분 자동 로그아웃: 켜짐(2026-09-30 오너 결정 · 8-20 에 껐던 것을 다시 켬).

@@ -1,5 +1,9 @@
 'use client';
 
+import { Z } from '@/lib/design/q-design-runtime';
+import { labelCase, labelTracking, labelWordSpacing, QDText } from '@/lib/design/q-design-labels';
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { Monitor } from '@/components/q-design-icons/Monitor';
 import { Moon } from '@/components/q-design-icons/Moon';
 import { Sun } from '@/components/q-design-icons/Sun';
@@ -30,7 +34,7 @@ import { User as UserIcon } from '@/components/q-design-icons/User';
 import { Gauge as GaugeIcon } from '@/components/q-design-icons/Gauge';
 // 도메인별 아이콘은 lib/nav/nav-items.ts (NAV_ITEMS) 로 이전: 메뉴 SSOT.
 import { useTheme } from '@/lib/design/theme-provider';
-import { BP, F, FS, LH, RADIUS, S, T, Z, alpha, labelCase, labelTracking, labelWordSpacing } from '@/lib/design/tokens';
+import { F, FS, LH, RADIUS, S, T, alpha } from '@/lib/design/tokens';
 import { IconBtn } from '@/lib/design/components';
 import { isMyDept } from '@/lib/permissions';
 import type { SidebarGroups, SidebarMenuId } from '@/lib/permissions';
@@ -45,6 +49,7 @@ import { detectAdminGroup } from './AdminHubTabs';
 import { RuleEngineBadge } from './RuleEngineBadge';
 import { APP_VERSION_LABEL } from '@/lib/app-version';
 import { isOrgOwner } from '@/lib/rules/who';
+import { BP, QDRuntime } from '@/lib/design/q-design-runtime';
 
 type IconType = ComponentType<{ size?: number; strokeWidth?: number }>;
 
@@ -98,14 +103,14 @@ const SWIPE_CLOSE_THRESHOLD = 60; // px: 좌측 스와이프 임계값
 const DRAWER_FAB_STYLE: CSSProperties = {
   position: 'fixed',
   // L1: notch / dynamic island 회피: safe-area-inset-top 만큼 내려서 배치
-  top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
-  left: 'calc(env(safe-area-inset-left, 0px) + 12px)',
-  zIndex: Z.drawerFab,
-  width: 44,
-  height: 44,
+  top: "var(--qd-atelier-top-02a3a6bea5)",
+  left: "var(--qd-atelier-left-128cd8727f)",
+  zIndex: 'var(--qd-atelier-mobile-control-layer)',
+  width: "var(--qd-atelier-width-d1caead449)",
+  height: "var(--qd-atelier-height-351c89cba0)",
   background: T.surface,
-  border: `1px solid ${T.border}`,
-  borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 차림표 발치도 전부 굴린다(통일)
+  border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+  borderRadius: QDScale.radius, // 2026-09-14 오빠 결정: 차림표 발치도 전부 굴린다(통일)
   color: T.text,
   cursor: 'pointer',
   alignItems: 'center',
@@ -244,7 +249,7 @@ export function Sidebar(props: SidebarProps) {
         </div>
         {/* 스크립트가 붙기 전이라 눌러도 열리지 않는다. 붙는 즉시 같은 자리의 진짜 단추로 바뀐다 */}
         <button type="button" className="qa-drawer-fab-ssr" aria-label="사이드바 열기" aria-expanded={false} style={DRAWER_FAB_STYLE}>
-          <MenuIcon size={20} />
+          <MenuIcon size={QDPresentation.iconSize[20]} />
         </button>
       </>
     );
@@ -277,7 +282,7 @@ export function Sidebar(props: SidebarProps) {
           aria-expanded={false}
           style={{ ...DRAWER_FAB_STYLE, display: 'flex' }}
         >
-          <MenuIcon size={20} />
+          <MenuIcon size={QDPresentation.iconSize[20]} />
         </button>
       )}
 
@@ -289,10 +294,10 @@ export function Sidebar(props: SidebarProps) {
             aria-hidden
             style={{
               position: 'fixed',
-              inset: 0,
+              inset: "var(--qd-atelier-inset-4199adc115)",
               background: 'var(--qa-backdrop)',
-              backdropFilter: 'blur(4px)',
-              WebkitBackdropFilter: 'blur(4px)',
+              backdropFilter: 'var(--qd-backdrop-filter)',
+              WebkitBackdropFilter: 'var(--qd-backdrop-filter)',
               zIndex: Z.drawerBackdrop,
             }}
           />
@@ -304,22 +309,17 @@ export function Sidebar(props: SidebarProps) {
             aria-label="메뉴"
             style={{
               position: 'fixed',
-              top: 0,
-              left: 0,
+              top: "var(--qd-atelier-top-13ae86191f)",
+              left: "var(--qd-atelier-left-090a0c84b4)",
               // 모바일 drawer wrapper: 100dvh 로 동적 viewport (iOS URL bar 변화 대응).
               // L2: maxHeight: 100vh 제거: dvh 가 vh 보다 클 때 효과 무력화 방지.
-              height: '100dvh',
+              height: "var(--qd-atelier-height-8ce6d713d7)",
               zIndex: Z.drawer,
               boxShadow: 'var(--qa-shadow-xl)',
-              animation: 'qa-drawer-slide-in 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
+              animation: "var(--qd-atelier-animation-e2fb7e6e84)",
             }}
           >
-            <style
-              dangerouslySetInnerHTML={{
-                __html:
-                  '@keyframes qa-drawer-slide-in{from{transform:translateX(-100%)}to{transform:translateX(0)}}',
-              }}
-            />
+
             <SidebarBody
               {...props}
               collapsed={false}
@@ -377,7 +377,7 @@ function SidebarBody({
   //   264 (초기) → 224 (1차 축소) → 200 (2차 축소, 너무 좁아 THEME 줄바뀜)
   //   → 224 (복구) → 240 (2026-06-06, THEME 행 "◑ System" 줄바뀜 재발: 너비 보강
   //   + 아래 Theme 버튼 값 span 에 whiteSpace:nowrap 으로 근본 차단).
-  const width = collapsed ? 60 : 240;
+  const width = collapsed ? "var(--qd-atelier-width-8071f21693)" : "var(--qd-atelier-width-aebc026e77)";
   /* 발치 사용자 줄: «소유자 · 엔터프라이즈» 처럼 한글로(오너 결정 2026-09-28 · 화면 검토 A09 · A64) */
   const footMeta = isExpert ? '전문가 · 외부 자문' : orgRolePlanLabel(role, plan);
   const pathname = usePathname();
@@ -516,24 +516,24 @@ function SidebarBody({
       data-coachmark="sidebar"
       className="qa-sidebar-aside"
       style={{
-        width: isMobile ? 264 : width,
+        width: isMobile ? "var(--qd-atelier-width-973b02d046)" : width,
         background: T.surface,
-        borderRight: `1px solid ${T.border}`,
-        padding: isMobile || !collapsed ? '22px 16px' : '18px 6px',
+        borderRight: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+        padding: isMobile || !collapsed ? "var(--qd-atelier-padding-6655ed15d7)" : "var(--qd-atelier-padding-20c4134aae)",
         display: 'flex',
         flexDirection: 'column',
         flexShrink: 0,
         // 데스크탑은 sticky 로 main scroll 동기. 모바일 drawer 는 부모 wrapper 가
         // 이미 position:fixed 라 여기선 relative 유지.
         position: isMobile ? 'relative' : 'sticky',
-        top: 0,
+        top: "var(--qd-atelier-top-13ae86191f)",
         // 100dvh: iOS Safari 의 동적 URL bar 변화에 대응. 100vh 는 처음 한 번
         // 만 측정해 키보드/URL bar 변화 시 잘림 발생. dvh 는 실제 가시 영역.
         // L2: maxHeight: 100vh 제거 (dvh > vh 일 때 dvh 효과 무력화 방지).
-        height: '100dvh',
+        height: "var(--qd-atelier-height-8ce6d713d7)",
         transition: isMobile
           ? undefined
-          : 'width 0.22s cubic-bezier(0.16, 1, 0.3, 1), padding 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
+          : "var(--qd-atelier-transition-f7c7537b7b)",
         // M-16 (2026-09-03): 데스크톱은 aside 가 아니라 **nav 만** 스크롤합니다. 종전엔 aside 전체가
         // 스크롤이라 768~1000px 높이에서 로고·버전·테마 행이 함께 밀려 올라가 «푸터가 없는» 것처럼
         // 보였고, 활성 메뉴가 화면 밖에 있으면 어디에 있는지 알 수 없었습니다.
@@ -553,11 +553,11 @@ function SidebarBody({
           style={{
             display: 'flex',
             justifyContent: 'center',
-            marginBottom: S[3.5],
+            marginBottom: QDScale.space[3.5],
             flexShrink: 0,
           }}
         >
-          <LogoMark size={36} />
+          <LogoMark size={QDPresentation.logoSize[36]} />
         </Link>
       ) : (
         <Link
@@ -566,27 +566,27 @@ function SidebarBody({
           // qa-sidebar-logo: 높이 820 이하 화면에서 로고를 줄인다(globals.css · 오너 결정 2026-09-27)
           className="qa-sidebar-logo"
           style={{
-            marginBottom: S[5.5],
+            marginBottom: QDScale.space[5.5],
             flexShrink: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            textDecoration: 'none',
+            textDecoration: QDText.textDecoration.v30a0924a33,
           }}
         >
-          <Logo size={108} style={{ display: 'block' }} />
+          <Logo size={QDPresentation.logoSize[108]} style={{ display: 'block' }} />
           <div
             style={{
-              fontSize: FS[12],
+              fontSize: QDScale.font[12],
               color: isExpert ? T.champagne : T.muted,
-              fontFamily: F.mono,
+              fontFamily: QDScale.family.mono,
               // 2026-09-09: 한글 조직명이 «메 드 크 래 프 트» 로 벌어지던 자리
               // 2026-09-28: 등록한 표기 그대로 둔다(«Demo co.» 가 «DEMO CO.» 로 바뀌어 보였다 · 오너 결정 · 화면 검토 A64)
-              letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, 0.4),
+              letterSpacing: labelTracking(isExpert ? '외부 자문 전문가' : orgName, QDText.tracking.vf3e360d899),
               wordSpacing: labelWordSpacing(isExpert ? '외부 자문 전문가' : orgName),
-              textTransform: 'none',
-              marginTop: S[1.5],
+              textTransform: QDText.textTransform.v30a0924a33,
+              marginTop: QDScale.space[1.5],
               wordBreak: 'break-all',
               textAlign: 'center',
             }}
@@ -605,8 +605,8 @@ function SidebarBody({
         // 잰 28개가 전부 이름이 없었다).
         aria-label="주 차림표"
         style={{
-          flex: isMobile ? '1 0 auto' : '1 1 auto',
-          minHeight: 0,
+          flex: isMobile ? "var(--qd-atelier-flex-824afcc06b)" : "var(--qd-atelier-flex-7fff97ee23)",
+          minHeight: "var(--qd-atelier-min-height-558c2060a3)",
           overflowY: isMobile ? 'visible' : 'auto',
           overflowX: 'hidden',
           // 🔴 폰 서랍에서는 contain 을 걸지 않는다. overflowX 가 hidden 이면 브라우저가 overflowY 의 visible 을
@@ -615,7 +615,7 @@ function SidebarBody({
           overscrollBehavior: isMobile ? 'auto' : 'contain',
           display: 'flex',
           flexDirection: 'column',
-          gap: collapsed && !isMobile ? 0 : 3,
+          gap: collapsed && !isMobile ? "var(--qd-atelier-gap-dfec023665)" : "var(--qd-atelier-gap-04675ee191)",
         }}
       >
         {isExpert ? (
@@ -993,15 +993,15 @@ function SidebarBody({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              padding: '4px 4px 8px',
-              fontSize: FS[12],
+              padding: "var(--qd-atelier-padding-10130e168f)",
+              fontSize: QDScale.font[12],
               color: T.muted,
-              fontFamily: F.mono,
-              letterSpacing: 0.6,
+              fontFamily: QDScale.family.mono,
+              letterSpacing: "var(--qd-atelier-letter-spacing-6fc355123f)",
             }}
             title={`Q-Atelier ${APP_VERSION_LABEL}`}
           >
-            <span style={{ textTransform: 'uppercase' }}>Q-Atelier</span>
+            <span style={{ textTransform: QDText.textTransform.v642d85873e }}>Q-Atelier</span>
             <span style={{ color: T.champagne }}>{APP_VERSION_LABEL}</span>
           </div>
         )}
@@ -1013,9 +1013,9 @@ function SidebarBody({
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: S[1.5],
-            marginTop: S[3],
-            marginBottom: S[3],
+            gap: QDScale.space[1.5],
+            marginTop: QDScale.space[3],
+            marginBottom: QDScale.space[3],
             alignItems: 'center',
             flexShrink: 0,
           }}
@@ -1025,8 +1025,8 @@ function SidebarBody({
             title={`Theme: ${mode === 'system' ? `System (${theme})` : mode === 'dark' ? 'Dark' : 'Light'}: 클릭하여 순환`}
             style={RAIL_ICON_BTN}
           >
-            <span style={{ color: T.champagne, fontFamily: F.serif, fontWeight: 600, fontSize: FS[16], lineHeight: LH.none }}>
-              {mode === 'system' ? <Monitor size={16} /> : mode === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
+            <span style={{ color: T.champagne, fontFamily: QDScale.family.serif, fontWeight: "var(--qd-font-weight-semibold)", fontSize: QDScale.font[16], lineHeight: QDScale.leading.none }}>
+              {mode === 'system' ? <Monitor size={QDPresentation.iconSize[16]} /> : mode === 'dark' ? <Moon size={QDPresentation.iconSize[16]} /> : <Sun size={QDPresentation.iconSize[16]} />}
             </span>
           </IconBtn>
           <IconBtn onClick={onToggle} title="사이드바 펼치기" style={RAIL_ICON_BTN}>
@@ -1034,33 +1034,33 @@ function SidebarBody({
           </IconBtn>
         </div>
       ) : (
-        <div style={{ display: 'flex', gap: S[1.5], marginTop: S[3], marginBottom: S[3], alignItems: 'stretch', flexShrink: 0 }}>
+        <div style={{ display: 'flex', gap: QDScale.space[1.5], marginTop: QDScale.space[3], marginBottom: QDScale.space[3], alignItems: 'stretch', flexShrink: 0 }}>
           <button
             type="button"
             onClick={toggleTheme}
             className="qa-nav-item"
             title={`화면 테마: ${mode === 'system' ? `System (현재 ${theme === 'dark' ? 'Dark' : 'Light'})` : mode === 'dark' ? 'Dark' : 'Light'}. 누를 때마다 Dark → Light → System 순서로 바뀝니다.`}
             style={{
-              flex: 1,
+              flex: "var(--qd-atelier-flex-83725d2c6e)",
               background: 'transparent',
-              border: `1px solid ${T.border}`,
-              borderRadius: RADIUS.md, // 2026-09-14 오빠 결정: 발치 상자도 굴린다. 정본(extract-nav)이 이 값을 읽는다
+              border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+              borderRadius: QDScale.radius, // 2026-09-14 오빠 결정: 발치 상자도 굴린다. 정본(extract-nav)이 이 값을 읽는다
               color: T.subtle,
-              fontSize: FS[12],
-              fontFamily: F.mono,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
-              padding: '10px 14px',
+              fontSize: QDScale.font[12],
+              fontFamily: QDScale.family.mono,
+              letterSpacing: "var(--qd-atelier-letter-spacing-2cfff841a4)",
+              textTransform: QDText.textTransform.v642d85873e,
+              padding: "var(--qd-atelier-padding-961915113e)",
               cursor: 'pointer',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              transition: 'border-color 0.15s ease, color 0.15s ease',
+              transition: "var(--qd-atelier-transition-903f6a1058)",
             }}
           >
             <span style={{ whiteSpace: 'nowrap' }}>Theme</span>
-            <span style={{ color: T.champagne, fontWeight: 500, whiteSpace: 'nowrap' }}>
-              {mode === 'system' ? <Monitor size={16} /> : mode === 'dark' ? <Moon size={16} /> : <Sun size={16} />}{' '}
+            <span style={{ color: T.champagne, fontWeight: "var(--qd-font-weight-medium)", whiteSpace: 'nowrap' }}>
+              {mode === 'system' ? <Monitor size={QDPresentation.iconSize[16]} /> : mode === 'dark' ? <Moon size={QDPresentation.iconSize[16]} /> : <Sun size={QDPresentation.iconSize[16]} />}{' '}
               {mode === 'system' ? 'System' : mode === 'dark' ? 'Dark' : 'Light'}
             </span>
           </button>
@@ -1071,27 +1071,27 @@ function SidebarBody({
       )}
 
       {/* Footer (avatar + logout): flexShrink:0 (잘림 방지) */}
-      <div style={{ paddingTop: S[3], borderTop: `1px solid ${T.border}`, flexShrink: 0 }}>
+      <div style={{ paddingTop: QDScale.space[3], borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`, flexShrink: 0 }}>
         {collapsed && !isMobile ? (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: S[2.5] }}>
-            <Avatar name={userName} email={userEmail} size={34} userId={userId} avatarVersion={avatarVersion} />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: QDScale.space[2.5] }}>
+            <Avatar name={userName} email={userEmail} size={QDPresentation.avatarSize[34]} userId={userId} avatarVersion={avatarVersion} />
             <LogoutButton compact />
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: S[2.5], marginBottom: S[3] }}>
-              <Avatar name={userName} email={userEmail} size={32} userId={userId} avatarVersion={avatarVersion} />
-              <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[2.5], marginBottom: QDScale.space[3] }}>
+              <Avatar name={userName} email={userEmail} size={QDPresentation.avatarSize[32]} userId={userId} avatarVersion={avatarVersion} />
+              <div style={{ minWidth: "var(--qd-atelier-min-width-f24a3b2189)", flex: "var(--qd-atelier-flex-83725d2c6e)" }}>
                 <p
                   style={{
-                    margin: 0,
-                    fontSize: FS[13],
+                    margin: "var(--qd-space-0)",
+                    fontSize: QDScale.font[13],
                     color: T.text,
-                    fontWeight: 500,
+                    fontWeight: "var(--qd-font-weight-medium)",
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    lineHeight: LH.heading,
+                    lineHeight: QDScale.leading.heading,
                   }}
                   title={userName || userEmail}
                 >
@@ -1099,14 +1099,14 @@ function SidebarBody({
                 </p>
                 <p
                   style={{
-                    margin: '3px 0 0',
-                    fontSize: FS[12],
+                    margin: "var(--qd-atelier-margin-a3079d51f3)",
+                    fontSize: QDScale.font[12],
                     color: T.muted,
-                    fontFamily: F.ui,
-                    letterSpacing: labelTracking(footMeta, 0.4),
+                    fontFamily: QDScale.family.ui,
+                    letterSpacing: labelTracking(footMeta, QDText.tracking.vf3e360d899),
                     // 🔴 한글 좁은 띄어쓰기(labelWordSpacing · -0.35em)는 고정폭 글꼴 전용이다. 본문 글꼴에 걸면
                     //    «소유자 · 엔터프라이즈» 가 «소유자엔터프라이즈» 로 겹친다(2026-09-28 운영에서 봄)
-                    textTransform: 'none',
+                    textTransform: QDText.textTransform.v30a0924a33,
                   }}
                 >
                   {footMeta}
@@ -1195,7 +1195,7 @@ function isActiveForHref(pathname: string | null | undefined, href: string): boo
  * 이 값이 같아야 한다. 각자 적으면 한쪽만 바뀌어 그 줄만 어긋난다.
  * (S 스케일에 11 이 없어 raw 로 두되, 출처를 하나로 모아 사본을 만들지 않는다.)
  */
-const NAV_ITEM_PADDING = '11px 14px';
+const NAV_ITEM_PADDING = "var(--qd-atelier-padding-42dfea79bd)";
 
 function NavLink({
   href,
@@ -1227,12 +1227,12 @@ function NavLink({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          height: 42,
-          margin: '1px 0',
+          height: "var(--qd-atelier-height-e85d246b1d)",
+          margin: "var(--qd-atelier-margin-93937849d9)",
           color: active ? T.champagne : T.subtle,
           // 접힘 상태: champagne 옅은 사각 + 금빛 아이콘으로 active 강조(2026-09-27 왼쪽 2px 선은 걷었다 · «문서 결»)
-          background: active ? `${alpha(T.champagne, 0.10)}` : 'transparent',
-          transition: 'background 0.14s ease, color 0.14s ease',
+          background: active ? `${alpha(T.champagne, QDRuntime.alpha.tint0_1)}` : 'transparent',
+          transition: "var(--qd-atelier-transition-4db5304ca2)",
         }}
       >
         {/* Fixed-size SVG icon: same dimensions for every nav item */}
@@ -1242,30 +1242,30 @@ function NavLink({
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 24,
-            height: 24,
+            width: "var(--qd-atelier-width-ae5abd2361)",
+            height: "var(--qd-atelier-height-eb78790f84)",
             color: active ? T.champagne : T.muted,
           }}
         >
-          <Icon size={18} strokeWidth={1.75} />
+          <Icon size={QDPresentation.iconSize[18]} strokeWidth={1.75} />
         </span>
         {badge !== undefined && (
           <span
             style={{
               position: 'absolute',
-              top: 3,
-              right: 3,
-              fontSize: FS[12],
+              top: "var(--qd-atelier-top-7cdfab3373)",
+              right: "var(--qd-atelier-right-d428a85cbe)",
+              fontSize: QDScale.font[12],
               color: T.bg,
               background: T.red,
-              padding: '2px 6px',
-              fontFamily: F.mono,
-              lineHeight: LH.heading,
-              fontWeight: 700,
-              minWidth: 18,
+              padding: "var(--qd-atelier-padding-03e93ce316)",
+              fontFamily: QDScale.family.mono,
+              lineHeight: QDScale.leading.heading,
+              fontWeight: "var(--qd-font-weight-bold)",
+              minWidth: "var(--qd-atelier-min-width-491600e090)",
               textAlign: 'center',
-              borderRadius: RADIUS.pill,
-              boxShadow: `0 0 0 2px ${T.surface}`,
+              borderRadius: QDScale.radiusFull,
+              boxShadow: `var(--qd-atelier-avatar-ring-geometry) ${T.surface}`,
             }}
           >
             {badge}
@@ -1284,18 +1284,18 @@ function NavLink({
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
-        gap: S[3],
+        gap: QDScale.space[3],
         // 선택 표시(2026-09-27 «문서 결» · Q-Design docs/24): 왼쪽 3px 금색 막대 · 오른쪽 금색 점 대신 굵은 글자 +
         //   글자 밑 짧은 금색 선. 막대가 차지하던 3px 는 왼쪽 여백으로 돌려 글자 자리가 그대로다.
         padding: NAV_ITEM_PADDING,
-        paddingLeft: 17,
+        paddingLeft: "var(--qd-atelier-padding-left-2da5cadfb6)",
         color: active ? T.text : T.subtle,
         background: active ? T.surface2 : 'transparent',
-        fontSize: FS[14],
-        fontFamily: F.ui,
-        fontWeight: active ? 600 : 400,
-        letterSpacing: 0.1,
-        transition: 'background 0.14s ease, color 0.14s ease',
+        fontSize: QDScale.font[14],
+        fontFamily: QDScale.family.ui,
+        fontWeight: active ? "var(--qd-font-weight-semibold)" : "var(--qd-font-weight-normal)",
+        letterSpacing: "var(--qd-atelier-letter-spacing-4a873a4bd2)",
+        transition: "var(--qd-atelier-transition-4db5304ca2)",
       }}
     >
       <span
@@ -1304,37 +1304,37 @@ function NavLink({
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: 18,
-          height: 18,
+          width: "var(--qd-atelier-width-06f0618ae8)",
+          height: "var(--qd-atelier-height-1ca2107b5a)",
           color: active ? T.champagne : T.muted,
           flexShrink: 0,
         }}
       >
-        <Icon size={16} strokeWidth={1.75} />
+        <Icon size={QDPresentation.iconSize[16]} strokeWidth={1.75} />
       </span>
-      <span style={{ flex: 1, position: 'relative' }}>
+      <span style={{ flex: "var(--qd-atelier-flex-83725d2c6e)", position: 'relative' }}>
         {label}
         {/* 선택 표시: 글자 밑 짧은 금색 선(16px). 진입 시 한 번 펼쳐진다(qa-nav-active-underline) */}
         {active && (
           <span
             aria-hidden
             className="qa-nav-active-underline"
-            style={{ position: 'absolute', left: 0, bottom: -5, width: 16, height: 1.5, borderRadius: 1, background: T.champagne }}
+            style={{ position: 'absolute', left: "var(--qd-atelier-left-090a0c84b4)", bottom: "var(--qd-atelier-bottom-0b345d4976)", width: "var(--qd-atelier-width-0f88141c20)", height: "var(--qd-atelier-height-e737496ec6)", borderRadius: "var(--qd-atelier-border-radius-d806be1e94)", background: T.champagne }}
           />
         )}
       </span>
       {badge !== undefined && (
         <span
           style={{
-            fontSize: FS[12],
+            fontSize: QDScale.font[12],
             color: T.bg,
             background: T.red,
-            padding: '2px 8px',
-            fontFamily: F.mono,
-            lineHeight: LH.heading,
-            fontWeight: 700,
-            borderRadius: RADIUS.pill,
-            minWidth: 22,
+            padding: "var(--qd-atelier-padding-b26b9ada6f)",
+            fontFamily: QDScale.family.mono,
+            lineHeight: QDScale.leading.heading,
+            fontWeight: "var(--qd-font-weight-bold)",
+            borderRadius: QDScale.radiusFull,
+            minWidth: "var(--qd-atelier-min-width-a8fa375fbf)",
             textAlign: 'center',
           }}
         >
@@ -1349,17 +1349,17 @@ function NavLink({
 
 // 차림표의 아이콘 정사각(테마 · 접기 · 펼치기)은 공용 IconBtn(lib/design/components)이다(2026-10-07 · 이 파일의 사본을 걷음).
 // 옆의 THEME 상자와 같은 줄 · 같은 높이라 모서리만 RADIUS.md 로 맞춘다.
-const RAIL_ICON_BTN = { borderRadius: RADIUS.md } as const;
+const RAIL_ICON_BTN = { borderRadius: QDScale.radius } as const;
 
 /** Clean chevron SVG (Apple-style hairline). dir: left(<) right(>) up(^) down(v) */
-function ChevronIcon({ dir, size = 14 }: { dir: 'left' | 'right' | 'up' | 'down'; size?: number }) {
+function ChevronIcon({ dir, size = QDPresentation.iconSize[14] }: { dir: 'left' | 'right' | 'up' | 'down'; size?: number }) {
   // 밑그림은 «<»(꼭짓점이 왼쪽)다. 화면 회전은 시계 방향이 +라 꼭짓점을 위로 보내려면 +90 이다.
   // 화면 검토 A75 · 2026-09-27: 'up' · 'down' 이 서로 뒤바뀌어 있었다(이름은 up 인데 v 로 그려졌다).
   //   그래서 호출부가 «펼침 = up» 을 적고 화면에는 v 가 나와 접힌 묶음이 ^ 로 보였다.
   const rotation =
-    dir === 'right' ? 'rotate(180deg)'
-    : dir === 'up' ? 'rotate(90deg)'
-    : dir === 'down' ? 'rotate(-90deg)'
+    dir === 'right' ? QDPresentation.visual.rotation.reverse
+    : dir === 'up' ? QDPresentation.visual.rotation.quarter
+    : dir === 'down' ? QDPresentation.visual.rotation.negativeQuarter
     : undefined;
   return (
     <ChevronLeft size={size} style={{ transform: rotation }} />
@@ -1376,10 +1376,10 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
       <div
         aria-hidden
         style={{
-          height: 1,
+          height: "var(--qd-atelier-height-2264278404)",
           background: T.border,
-          margin: '8px 8px',
-          opacity: 0.6,
+          margin: "var(--qd-atelier-margin-6d71facf62)",
+          opacity: "var(--qd-atelier-opacity-fab5edc654)",
         }}
       />
     );
@@ -1387,15 +1387,15 @@ function SectionHeader({ label, collapsed }: { label: string; collapsed: boolean
   return (
     <div
       style={{
-        padding: '12px 14px 4px',
-        fontSize: FS[12],
-        fontFamily: F.mono,
+        padding: "var(--qd-atelier-padding-f5778c8c22)",
+        fontSize: QDScale.font[12],
+        fontFamily: QDScale.family.mono,
         // 2026-09-09: 여기만 labelTracking 을 안 거치고 있었습니다. 그룹 라벨은
         // 한글(「워크스페이스」·「연계 부서」)인데 1.6px 이 그대로 걸려 «워 크 스
         // 페 이 스» 로 벌어져 있었습니다. 대문자는 한글에 아무 일도 하지 않고,
         // 이 자간은 라틴 글자 사이를 벌리라고 만든 값입니다 (M-02/M-03 과 같은 건).
         // Q-Design 차림표 정본(docs/15)도 이 규칙을 따르므로 세 제품이 같아집니다.
-        letterSpacing: labelTracking(label, 1.6),
+        letterSpacing: labelTracking(label, QDText.tracking.vec6c168f44),
         wordSpacing: labelWordSpacing(label),
         textTransform: labelCase(label),
         color: T.muted,
@@ -1462,7 +1462,7 @@ function CollapsibleNavGroup({
   if (collapsed) {
     return (
       <>
-        <div aria-hidden style={{ height: 1, background: T.border, margin: '8px 8px', opacity: 0.6 }} />
+        <div aria-hidden style={{ height: "var(--qd-atelier-height-2264278404)", background: T.border, margin: "var(--qd-atelier-margin-6d71facf62)", opacity: "var(--qd-atelier-opacity-fab5edc654)" }} />
         {children}
       </>
     );
@@ -1478,13 +1478,13 @@ function CollapsibleNavGroup({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '100%',
-          padding: '12px 14px 4px',
-          fontSize: FS[12],
-          fontFamily: F.mono,
+          width: "var(--qd-atelier-width-b7aa1ec004)",
+          padding: "var(--qd-atelier-padding-f5778c8c22)",
+          fontSize: QDScale.font[12],
+          fontFamily: QDScale.family.mono,
           // 2026-09-09: SectionHeader 만 고치고 여기를 놓쳤다. 화면에 실제로 보이는
           // 묶음 이름표는 접이식인 이쪽이고, 「워 크 스 페 이 스」가 여기서 나왔다.
-          letterSpacing: labelTracking(label, 1.6),
+          letterSpacing: labelTracking(label, QDText.tracking.vec6c168f44),
           wordSpacing: labelWordSpacing(label),
           textTransform: labelCase(label),
           color: T.muted,
@@ -1498,7 +1498,7 @@ function CollapsibleNavGroup({
       >
         <span>{label}</span>
         {/* 꺾쇠 규칙 하나(화면 검토 A75): 펼침 = v, 접힘 = >. 워크스페이스 묶음과 같다 */}
-        <ChevronIcon dir={open ? 'down' : 'right'} size={10} />
+        <ChevronIcon dir={open ? 'down' : 'right'} size={QDPresentation.iconSize[10]} />
       </button>
       {open && <div>{children}</div>}
     </div>
@@ -1575,7 +1575,7 @@ function WorkspaceNavGroup({
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ flex: "var(--qd-atelier-flex-83725d2c6e)", minWidth: "var(--qd-atelier-min-width-f24a3b2189)" }}>
           {hubHref ? (
             <NavLink href={hubHref} label={label} icon={icon} collapsed={false} />
           ) : (
@@ -1588,17 +1588,17 @@ function WorkspaceNavGroup({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: S[3],
-                width: '100%',
+                gap: QDScale.space[3],
+                width: "var(--qd-atelier-width-b7aa1ec004)",
                 padding: NAV_ITEM_PADDING,
-                paddingLeft: 17, // NavLink 과 같은 글자 자리(종전 투명 3px 왼쪽 선 대신 · 2026-09-27)
+                paddingLeft: "var(--qd-atelier-padding-left-2da5cadfb6)", // NavLink 과 같은 글자 자리(종전 투명 3px 왼쪽 선 대신 · 2026-09-27)
                 background: 'transparent',
                 border: 'none',
                 color: T.subtle,
-                fontSize: FS[14],
-                fontFamily: F.ui,
-                fontWeight: 400,
-                letterSpacing: 0.1,
+                fontSize: QDScale.font[14],
+                fontFamily: QDScale.family.ui,
+                fontWeight: "var(--qd-font-weight-normal)",
+                letterSpacing: "var(--qd-atelier-letter-spacing-4a873a4bd2)",
                 textAlign: 'left',
                 cursor: 'pointer',
               }}
@@ -1609,15 +1609,15 @@ function WorkspaceNavGroup({
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 18,
-                  height: 18,
+                  width: "var(--qd-atelier-width-06f0618ae8)",
+                  height: "var(--qd-atelier-height-1ca2107b5a)",
                   color: T.muted,
                   flexShrink: 0,
                 }}
               >
-                <Icon size={16} strokeWidth={1.75} />
+                <Icon size={QDPresentation.iconSize[16]} strokeWidth={1.75} />
               </span>
-              <span style={{ flex: 1 }}>{label}</span>
+              <span style={{ flex: "var(--qd-atelier-flex-83725d2c6e)" }}>{label}</span>
             </button>
           )}
         </div>
@@ -1630,8 +1630,8 @@ function WorkspaceNavGroup({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 30,
-            height: 34,
+            width: "var(--qd-atelier-width-d01ec87d92)",
+            height: "var(--qd-atelier-height-2702c45a17)",
             flexShrink: 0,
             background: 'transparent',
             border: 'none',
@@ -1641,11 +1641,11 @@ function WorkspaceNavGroup({
           onMouseEnter={(e) => { e.currentTarget.style.color = T.subtle; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = T.muted; }}
         >
-          <ChevronIcon dir={open ? 'down' : 'right'} size={11} />
+          <ChevronIcon dir={open ? 'down' : 'right'} size={QDPresentation.iconSize[11]} />
         </button>
       </div>
       {open && (
-        <div style={{ marginLeft: S[4], paddingLeft: S[2], borderLeft: `1px solid ${T.border}`, display: 'flex', flexDirection: 'column', gap: 1, marginBottom: S[1] }}>
+        <div style={{ marginLeft: QDScale.space[4], paddingLeft: QDScale.space[2], borderLeft: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`, display: 'flex', flexDirection: 'column', gap: "var(--qd-atelier-gap-b888c81e5f)", marginBottom: QDScale.space[1] }}>
           {(() => {
             // subGroup 메타가 있으면 ISO 프로세스 소그룹으로 묶어 소헤더 렌더(QA 등),
             // 없으면 평면 렌더(R&D·RA 워크스페이스: 하위호환). "CAPA 부모 착시" 해소.
@@ -1661,8 +1661,8 @@ function WorkspaceNavGroup({
               <>
                 {ungrouped.map((m) => renderModule(m))}
                 {NAV_SUBGROUP_ORDER.filter((sg) => bySub.has(sg)).map((sg) => (
-                  <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                    <div style={{ fontSize: FS[12], color: T.muted, fontFamily: F.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], 1.2), wordSpacing: labelWordSpacing(NAV_SUBGROUP_LABEL[sg]), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: '9px 0 3px 4px' }}>
+                  <div key={sg} style={{ display: 'flex', flexDirection: 'column', gap: "var(--qd-atelier-gap-b888c81e5f)" }}>
+                    <div style={{ fontSize: QDScale.font[12], color: T.muted, fontFamily: QDScale.family.mono, letterSpacing: labelTracking(NAV_SUBGROUP_LABEL[sg], QDText.tracking.v77ac319bfe), wordSpacing: labelWordSpacing(NAV_SUBGROUP_LABEL[sg]), textTransform: labelCase(NAV_SUBGROUP_LABEL[sg]), padding: "var(--qd-atelier-padding-6dbda940f2)" }}>
                       {NAV_SUBGROUP_LABEL[sg]}
                     </div>
                     {bySub.get(sg)!.map((m) => renderModule(m))}
@@ -1678,7 +1678,7 @@ function WorkspaceNavGroup({
 }
 
 /** Hamburger-style 3-line icon for mobile FAB */
-function MenuIcon({ size = 18 }: { size?: number }) {
+function MenuIcon({ size = QDPresentation.iconSize[18] }: { size?: number }) {
   return (
     <Menu size={size} />
   );

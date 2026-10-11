@@ -1,0 +1,2267 @@
+{
+  "version": 1,
+  "rule": "Native text/date/number controls use --qd-ctl for their unselected outline and qa-input qd-input for shared focus/placeholder/disabled states. Semantic state colours, file/colour control dimensions, all handlers and data remain unchanged.",
+  "summary": {
+    "files": 51,
+    "outlineDefinitions": 71,
+    "classes": 89
+  },
+  "records": [
+    {
+      "path": "app/(app)/admin/eval-sets/page.tsx",
+      "beforeHash": "2db4ef58777f24a906f9c0f81f1357bba38a6df38315d6f491fe6a6ebc480bea",
+      "afterHash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f",
+      "edits": [
+        {
+          "start": 15318,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 313
+        },
+        {
+          "start": 15741,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 318,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/eval-sets/page.tsx",
+              "line": 313,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/eval-sets/[id]/review/page.tsx",
+      "beforeHash": "e2bd57df2657f760c1d8dcaa3d13a4bb122479753112f259cd2668706d6c332d",
+      "afterHash": "62a022091a70815ac58892e22167b681271bbc26f0f74f43d43a9143920b667b",
+      "edits": [
+        {
+          "start": 11578,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 180
+        },
+        {
+          "start": 11857,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 180,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/eval-sets/[id]/review/page.tsx",
+              "line": 180,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 12319,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 188
+        },
+        {
+          "start": 12680,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 188,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/eval-sets/[id]/review/page.tsx",
+              "line": 188,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/knowledge/page.tsx",
+      "beforeHash": "122019e7838ed0a3680bc00faef6be7f9f6cd362dd708cdf14d049b494ac7856",
+      "afterHash": "243b2b394c43e56e4a28bb9daf1f79d9bb013414e0e82d7aa9026c052be280ab",
+      "edits": [
+        {
+          "start": 11542,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 351
+        },
+        {
+          "start": 12703,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 376
+        },
+        {
+          "start": 18810,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 551,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/knowledge/page.tsx",
+              "line": 351,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/admin/knowledge/page.tsx",
+              "line": 376,
+              "tag": "input",
+              "type": "\"url\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/admin/knowledge/page.tsx",
+              "line": 386,
+              "tag": "input",
+              "type": "\"file\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/rule-table/page.tsx",
+      "beforeHash": "6828ce97bcc9a8c18a4478dfd17d74d333dc55d1708e5077d1b5192c8be4ae7a",
+      "afterHash": "7523e9877ed4d58c79fc9191ed075a43b7bf8b4f498edfd71531a00665eaa025",
+      "edits": [
+        {
+          "start": 11602,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 247
+        },
+        {
+          "start": 12108,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 252,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/rule-table/page.tsx",
+              "line": 247,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/subscriptions/page.tsx",
+      "beforeHash": "cf46b1195d0a1bcce7248d203c3d61c5daab5aab47533dac0d88809e5b9e822a",
+      "afterHash": "42f2a091335e6f4f993b0084e7a63fb8378582ebf6e1ab87166fdc11de39b1fd",
+      "edits": [
+        {
+          "start": 20660,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 565
+        },
+        {
+          "start": 49008,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 1243,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/subscriptions/page.tsx",
+              "line": 565,
+              "tag": "input",
+              "type": "\"date\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 49535,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 1264
+        },
+        {
+          "start": 49837,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 1277,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/subscriptions/page.tsx",
+              "line": 1264,
+              "tag": "input",
+              "type": "\"number\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/vigilance/page.tsx",
+      "beforeHash": "5a070f1be10b829645333928e6733c917ec1eae71f9419a0071a14603507c3ca",
+      "afterHash": "486ed35c34320ba64674f7437f6ddee24c651be3343f2139c1cfeeede37652ad",
+      "edits": [
+        {
+          "start": 9033,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 259
+        },
+        {
+          "start": 9474,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 267,
+          "consumers": [
+            {
+              "path": "app/(app)/admin/vigilance/page.tsx",
+              "line": 259,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/approve/client.tsx",
+      "beforeHash": "303b4feeb4db2f5071835e4ca6d35e3f5bae66afdfae2dfc4ea331fa6e0dceca",
+      "afterHash": "9d37dc88ffae0a43e912a2cc74573d4eec4f29e50a3191126b4a0967e71176fc",
+      "edits": [
+        {
+          "start": 13875,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 341
+        },
+        {
+          "start": 15014,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 366
+        },
+        {
+          "start": 15548,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 381
+        },
+        {
+          "start": 23356,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 561,
+          "consumers": [
+            {
+              "path": "app/(app)/approve/client.tsx",
+              "line": 341,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/approve/client.tsx",
+              "line": 366,
+              "tag": "input",
+              "type": "\"password\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/approve/client.tsx",
+              "line": 381,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audit/filter-bar.tsx",
+      "beforeHash": "35a3e1abaf7cba37471a07861fecf4ec23151cbfbd9a43d9cea14667879b3834",
+      "afterHash": "c1c3a91996843e38ac56e24e5cf1e385da400975ad575773a1af04553e585311",
+      "edits": [
+        {
+          "start": 3822,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 128
+        },
+        {
+          "start": 4319,
+          "before": "T.border",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 137,
+          "consumers": [
+            {
+              "path": "app/(app)/audit/filter-bar.tsx",
+              "line": 128,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 4826,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 153
+        },
+        {
+          "start": 5323,
+          "before": "T.border",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 162,
+          "consumers": [
+            {
+              "path": "app/(app)/audit/filter-bar.tsx",
+              "line": 153,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/[id]/client.tsx",
+      "beforeHash": "87ff83a44c8faa041586fd762b43c0d58f5ec7f8696cb4c5519496dccfad2492",
+      "afterHash": "7207e37725e0cf89bc10d5a028ac3d55b757f266a417c2eda22bb9fab3c57d2d",
+      "edits": [
+        {
+          "start": 18573,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 475
+        },
+        {
+          "start": 19258,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 487,
+          "consumers": [
+            {
+              "path": "app/(app)/capa/[id]/client.tsx",
+              "line": 475,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 24848,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 630
+        },
+        {
+          "start": 25366,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 641,
+          "consumers": [
+            {
+              "path": "app/(app)/capa/[id]/client.tsx",
+              "line": 630,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "beforeHash": "134addc8e859730bc73f9c7edcd979426909ee965b2dbc3fe12d1ac3d2513f91",
+      "afterHash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303",
+      "edits": [
+        {
+          "start": 28166,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 612
+        },
+        {
+          "start": 28333,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 613
+        },
+        {
+          "start": 28510,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 614
+        },
+        {
+          "start": 28669,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 615
+        },
+        {
+          "start": 29402,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 628,
+          "consumers": [
+            {
+              "path": "app/(app)/design-trace/client.tsx",
+              "line": 612,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/design-trace/client.tsx",
+              "line": 613,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/design-trace/client.tsx",
+              "line": 614,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/design-trace/client.tsx",
+              "line": 615,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/[id]/client.tsx",
+      "beforeHash": "ed4e03774bbdb4d298324a278a5285a3a6e00ba7edf4881a87d3270182e7714a",
+      "afterHash": "1085b024920c89ec4cd1226bdbcb8226c80e8d3736ffc0d607291fb7a4672d16",
+      "edits": [
+        {
+          "start": 22893,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 534
+        },
+        {
+          "start": 23114,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 538,
+          "consumers": [
+            {
+              "path": "app/(app)/device-licenses/[id]/client.tsx",
+              "line": 534,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 37052,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 771
+        },
+        {
+          "start": 37720,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 784,
+          "consumers": [
+            {
+              "path": "app/(app)/device-licenses/[id]/client.tsx",
+              "line": 771,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/fda-510k/new/client.tsx",
+      "beforeHash": "e03881ee7a68c26da773ba8948bd51d01e453f3b2b2106da48093cffaab4f533",
+      "afterHash": "9315c5e583d4e6f4c5ba0b495921dd309f39c985b0d43cd068a705005cbb69a4",
+      "edits": [
+        {
+          "start": 4254,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 92
+        },
+        {
+          "start": 5255,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 108,
+          "consumers": [
+            {
+              "path": "app/(app)/fda-510k/new/client.tsx",
+              "line": 92,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "beforeHash": "e01087f04e9242912241183fe428debcbe02e9d7295ca65b1d14fd3af6301391",
+      "afterHash": "ac5d3ca0b6b2f14347af28db2debd5159f7a977e01c1452e7edee050d4936dd7",
+      "edits": [
+        {
+          "start": 20177,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 613
+        },
+        {
+          "start": 20904,
+          "before": "T.borderHi",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 627,
+          "consumers": [
+            {
+              "path": "app/(app)/m/field-ui.tsx",
+              "line": 613,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/new/client.tsx",
+      "beforeHash": "32efe8c775656b625e81b50293fbe92b2d3fd7f62a76195663016d3c5a7f2c0e",
+      "afterHash": "43ca1229c687279e75d8842f7a1768eeafdf15dcbcb94e504b5079eb1f709077",
+      "edits": [
+        {
+          "start": 5040,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 129
+        },
+        {
+          "start": 7647,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 211,
+          "consumers": [
+            {
+              "path": "app/(app)/management-reviews/new/client.tsx",
+              "line": 129,
+              "tag": "input",
+              "type": "\"number\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "beforeHash": "eb0ecb294b812f4c2761fbfb90aaabb224ba99c1d34f4e06d54760e7bd0f3b96",
+      "afterHash": "40f3b0604b7942932a3b3e0011721010e793117257ce5138fc01e8971f7eb9a2",
+      "edits": [
+        {
+          "start": 22585,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 534
+        },
+        {
+          "start": 23107,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 545,
+          "consumers": [
+            {
+              "path": "app/(app)/management-reviews/[id]/client.tsx",
+              "line": 534,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/messages/page.tsx",
+      "beforeHash": "2f8cdc6688e2e92259df678e46209b1f6decf801da4d07c62cd30b9efad93309",
+      "afterHash": "0dcd77272f0751f41e5ab0b9446c68c122876fd00d38bb48b2d768552cbccf0e",
+      "edits": [
+        {
+          "start": 29824,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 773
+        },
+        {
+          "start": 31032,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 796,
+          "consumers": [
+            {
+              "path": "app/(app)/messages/page.tsx",
+              "line": 773,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/new/client.tsx",
+      "beforeHash": "e367d6e9e7d6720584a3b4547bfb3eb950d883336a2df033e1d331aac4163e15",
+      "afterHash": "112cbf52630649b42ef00d7478a8c2a937069a4491dbfbed94eaa82a5cf80732",
+      "edits": [
+        {
+          "start": 8601,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 190
+        },
+        {
+          "start": 9050,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 194,
+          "consumers": [
+            {
+              "path": "app/(app)/nonconformances/new/client.tsx",
+              "line": 190,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/reviews/page.tsx",
+      "beforeHash": "208cbf424ed7c8448241ba4456ab1864bc50f4e8c8d49af7d717860296b85232",
+      "afterHash": "ecdbd573ccf6aa257e048cba65eb6e5e338d105e155f3dd09ada1a0949849140",
+      "edits": [
+        {
+          "start": 16070,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 421
+        },
+        {
+          "start": 16684,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 436,
+          "consumers": [
+            {
+              "path": "app/(app)/research/[code]/reviews/page.tsx",
+              "line": 421,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 21197,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 520
+        },
+        {
+          "start": 21602,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 523,
+          "consumers": [
+            {
+              "path": "app/(app)/research/[code]/reviews/page.tsx",
+              "line": 520,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 29805,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 679
+        },
+        {
+          "start": 30473,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 690,
+          "consumers": [
+            {
+              "path": "app/(app)/research/[code]/reviews/page.tsx",
+              "line": 679,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+      "beforeHash": "fa4349554684bcabaaad126e25ad95b1465d71750c425753678c6759add93afe",
+      "afterHash": "c8c73ab41f72008e0132295e93829430d6c80742376662f3cab7159ed568f729",
+      "edits": [
+        {
+          "start": 30647,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 852
+        },
+        {
+          "start": 31127,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 861,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+              "line": 852,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 31975,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 881
+        },
+        {
+          "start": 32698,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 898
+        },
+        {
+          "start": 33662,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 925,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+              "line": 881,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+              "line": 898,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/members/owner-member-editor.tsx",
+      "beforeHash": "e86100ba219885c79c5eff4fa9dc61e31abd4146a04f7f8db6192e694c32c079",
+      "afterHash": "22a6df4ac60ae44ab1f220935a2674242dfba6fd0554309e84a7ec2eb2cb190d",
+      "edits": [
+        {
+          "start": 10918,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 283
+        },
+        {
+          "start": 11366,
+          "before": "T.border",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 292,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/members/owner-member-editor.tsx",
+              "line": 283,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 11733,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 305
+        },
+        {
+          "start": 12223,
+          "before": "T.border",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 315,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/members/owner-member-editor.tsx",
+              "line": 305,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/page.tsx",
+      "beforeHash": "87ca15b4b676a05a95ba72078bb6bcfba6ff350d7950d8eae60b1329324b7d9c",
+      "afterHash": "15147efc1814f56e85eedb3400638b1b0c89f558b8f6423be330286b5d847246",
+      "edits": [
+        {
+          "start": 28957,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 753
+        },
+        {
+          "start": 29275,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 763,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/page.tsx",
+              "line": 753,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/templates/template-manager.tsx",
+      "beforeHash": "82549aa61814bb8cae54a75ab6927fbc50b766f60304985d0e17b8cdb522c687",
+      "afterHash": "2fb3d152042c22d5dd57b0d58eea4a0e21ad9e4b4bfb54ce5a9f538c63e3db89",
+      "edits": [
+        {
+          "start": 27688,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 752,
+          "consumers": [
+            {
+              "path": "app/(app)/settings/templates/template-manager.tsx",
+              "line": 748,
+              "tag": "input",
+              "type": "\"color\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/standards/new/client.tsx",
+      "beforeHash": "f7efe1c78044dffe2f18d121f9831aefcb47ed8e36fa3318df64dee3de0ce80f",
+      "afterHash": "1d3269e2339cc0c24fd31d6b96bb09a266599e62ea05cf177cb3a11e59af0e29",
+      "edits": [
+        {
+          "start": 3827,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 89
+        },
+        {
+          "start": 6116,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 127,
+          "consumers": [
+            {
+              "path": "app/(app)/standards/new/client.tsx",
+              "line": 89,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/sterilization/new/client.tsx",
+      "beforeHash": "58e17cad19be0280a13d9db1294597d6ec47e154aba1def3a1f93f16b67e260c",
+      "afterHash": "6c74049b0512a869ad11a43712d693cf3c53d5983de553ae942624e15e8e0f5b",
+      "edits": [
+        {
+          "start": 5760,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 116
+        },
+        {
+          "start": 6904,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 133,
+          "consumers": [
+            {
+              "path": "app/(app)/sterilization/new/client.tsx",
+              "line": 116,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/training/courses/[id]/log/client.tsx",
+      "beforeHash": "121436a9e965660cb279d99a04354f18965486f8bf04d9b1ff45b03ad3620d80",
+      "afterHash": "66f7c655d94ece40e89c3d6c7796691963cf5706ca76bb64e153dc4f2e796eb0",
+      "edits": [
+        {
+          "start": 13370,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 317
+        },
+        {
+          "start": 13633,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 327,
+          "consumers": [
+            {
+              "path": "app/(app)/training/courses/[id]/log/client.tsx",
+              "line": 317,
+              "tag": "input",
+              "type": "\"number\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "beforeHash": "93d157626e52f6a8bf83070ae2ec869bf697ccf50dc6587b22a8744cf02d2309",
+      "afterHash": "38c7f55048ae7a7b15fd681a19134e2d7c378ce8259fc0cd0f92d9320dd1ca97",
+      "edits": [
+        {
+          "start": 10210,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 217
+        },
+        {
+          "start": 24441,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 454,
+          "consumers": [
+            {
+              "path": "app/(app)/udi/new/client.tsx",
+              "line": 217,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/admin/TransferMemberDialog.tsx",
+      "beforeHash": "193b574000414f0a2c33905c4641933e2e7116836731921a25f73beefe579184",
+      "afterHash": "214fe4f770b27302cac2ef2bcfddb80216d92bd343e6593befb47d0b05f0e977",
+      "edits": [
+        {
+          "start": 11041,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 302
+        },
+        {
+          "start": 11525,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 310,
+          "consumers": [
+            {
+              "path": "components/admin/TransferMemberDialog.tsx",
+              "line": 302,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/AiHelperButton.tsx",
+      "beforeHash": "c9e44db987c7feabd0d5ab0462f966c9a62795215ede2c9f7e739edbe4e97e4e",
+      "afterHash": "40db4e2ada7620b5829f0ffc8d497b428a3154fa73bc715c6588b9c9c270f390",
+      "edits": [
+        {
+          "start": 19067,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 546
+        },
+        {
+          "start": 19707,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 562,
+          "consumers": [
+            {
+              "path": "components/AiHelperButton.tsx",
+              "line": 546,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/AssessmentDocApprovalPanel.tsx",
+      "beforeHash": "e203bae4fce54b7ad41ea1d8c4f754d94510abd0cdec5cde26038b72c2029abf",
+      "afterHash": "86f3ada98962395152d5f6eccae49a063836833cea2d994ddd6ed9117a915329",
+      "edits": [
+        {
+          "start": 13681,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 287
+        },
+        {
+          "start": 14084,
+          "before": "T.border",
+          "after": "'var(--qd-ctl)'",
+          "kind": "control-outline",
+          "line": 287,
+          "consumers": [
+            {
+              "path": "components/AssessmentDocApprovalPanel.tsx",
+              "line": 287,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/AttachmentManager.tsx",
+      "beforeHash": "81fc6fb4722e515ca19c19cb8637be1704f11ee3ce5a71057a130ecb6e930ee1",
+      "afterHash": "eeba87017d310d1304d2959736940c807416e99a536bfd7940ed2c83d564368e",
+      "edits": [
+        {
+          "start": 11037,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 294
+        },
+        {
+          "start": 11387,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 305,
+          "consumers": [
+            {
+              "path": "components/AttachmentManager.tsx",
+              "line": 294,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/MeetingComposeDialog.tsx",
+      "beforeHash": "bd7166f09817b154745fe5f2d1468c83daaac53444b4dd9807cc0d945c33f31c",
+      "afterHash": "af330e7a94be79bc4f2de494a86cb3e09bed67a7144825be1bf6b14607809672",
+      "edits": [
+        {
+          "start": 6587,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 189,
+          "consumers": [
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 235,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 250,
+              "tag": "input",
+              "type": "\"date\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 264,
+              "tag": "input",
+              "type": "\"time\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 275,
+              "tag": "input",
+              "type": "\"time\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 291,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 303,
+              "tag": "input",
+              "type": "\"url\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 318,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/calendar/MeetingComposeDialog.tsx",
+              "line": 339,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 7940,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 235
+        },
+        {
+          "start": 8403,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 250
+        },
+        {
+          "start": 8872,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 264
+        },
+        {
+          "start": 9261,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 275
+        },
+        {
+          "start": 9735,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 291
+        },
+        {
+          "start": 10110,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 303
+        },
+        {
+          "start": 10692,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 318
+        },
+        {
+          "start": 11382,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "path": "components/CancelAssessmentButton.tsx",
+      "beforeHash": "67279b7524287595b084342895c993eb5c7305bd28d896b2bc01e0780c6dc6bb",
+      "afterHash": "b7c646f50cbbe7f111814d339c21c7f39134aba6c4a095786acfb9214b77b145",
+      "edits": [
+        {
+          "start": 7165,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 238
+        },
+        {
+          "start": 7731,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 250,
+          "consumers": [
+            {
+              "path": "components/CancelAssessmentButton.tsx",
+              "line": 238,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/ChangeRequestInbox.tsx",
+      "beforeHash": "cb4d00c8109820ce4ff85f9602c60ffa3ae349b61ebca3f633556eb693b8fa94",
+      "afterHash": "da1bf593039a0f11742ad3abe49ff5ea6a88c31bfd375a9c00a6e2f7e53023c0",
+      "edits": [
+        {
+          "start": 5195,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 167
+        },
+        {
+          "start": 5527,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 178,
+          "consumers": [
+            {
+              "path": "components/ChangeRequestInbox.tsx",
+              "line": 167,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 6025,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 189
+        },
+        {
+          "start": 6357,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 198,
+          "consumers": [
+            {
+              "path": "components/ChangeRequestInbox.tsx",
+              "line": 189,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/DesignChangeRequestButton.tsx",
+      "beforeHash": "80c380a5a3d404a7992e29f3693da62de1f1b952ead6757939474c5983bf542a",
+      "afterHash": "934670450cc5ec042e40b5d3344b1011f908f05859d95b3a8f8174ab79f7d34d",
+      "edits": [
+        {
+          "start": 4876,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 131
+        },
+        {
+          "start": 5329,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 135,
+          "consumers": [
+            {
+              "path": "components/DesignChangeRequestButton.tsx",
+              "line": 131,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 5965,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 151
+        },
+        {
+          "start": 6491,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 157,
+          "consumers": [
+            {
+              "path": "components/DesignChangeRequestButton.tsx",
+              "line": 151,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/device-licenses/LicenseSubmissionDocsPanel.tsx",
+      "beforeHash": "936266ff32375fa6f7daf1770e20856ba7159fd67d626fbc26591e2ee502034e",
+      "afterHash": "09f447b3c504653cc1f70744f1f4876eb9bf44910471e1759053fe3878955505",
+      "edits": [
+        {
+          "start": 26706,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 612
+        },
+        {
+          "start": 27212,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 624,
+          "consumers": [
+            {
+              "path": "components/device-licenses/LicenseSubmissionDocsPanel.tsx",
+              "line": 612,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 28344,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 650
+        },
+        {
+          "start": 28986,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 665,
+          "consumers": [
+            {
+              "path": "components/device-licenses/LicenseSubmissionDocsPanel.tsx",
+              "line": 650,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/DocCommentThread.tsx",
+      "beforeHash": "41886967bc0f8500b623a24e3b86bff1c8bb6ac02e37a4c436c67b026d249935",
+      "afterHash": "09ab6473f8d8175255611e4924cc06fe30e1b3183d82140f6431a6412cc8fe36",
+      "edits": [
+        {
+          "start": 12528,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 322
+        },
+        {
+          "start": 13057,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 332,
+          "consumers": [
+            {
+              "path": "components/DocCommentThread.tsx",
+              "line": 322,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 23140,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 495
+        },
+        {
+          "start": 23685,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 501,
+          "consumers": [
+            {
+              "path": "components/DocCommentThread.tsx",
+              "line": 495,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/DocumentArtifactPanel.tsx",
+      "beforeHash": "11b3950d321a7c78b54a3597df60411ab40fb0f2500f314e9632fe3d462a36fd",
+      "afterHash": "c0fc097d7ae3459704be85c2006db678787dcc6d5b29dca7c3809c5f6d8584d6",
+      "edits": [
+        {
+          "start": 40062,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 1112
+        },
+        {
+          "start": 40356,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 1119,
+          "consumers": [
+            {
+              "path": "components/DocumentArtifactPanel.tsx",
+              "line": 1112,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertScorePanel.tsx",
+      "beforeHash": "529e7a2bbcaf9a8603b01350d0a4ed1a16641f93d40471fc5d993fa239e3f5f6",
+      "afterHash": "e958f3f687d8028837329d2579f30e61fcd5f54bfb724813745217d6cca43577",
+      "edits": [
+        {
+          "start": 12347,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 337
+        },
+        {
+          "start": 12929,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 347,
+          "consumers": [
+            {
+              "path": "components/ExpertScorePanel.tsx",
+              "line": 337,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/FinalDecisionPanel.tsx",
+      "beforeHash": "47d3312b8a643283a243c122a27e2ea1e1566a9d53785c179cba879c4dbc15b0",
+      "afterHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
+      "edits": [
+        {
+          "start": 9351,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 249
+        },
+        {
+          "start": 9937,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 262,
+          "consumers": [
+            {
+              "path": "components/FinalDecisionPanel.tsx",
+              "line": 249,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/IfuClassifyDrawer.tsx",
+      "beforeHash": "b6a6194a8b4f2a3726d8859dac72a4a626e24f12a441919b8d5f04e30a7c6a61",
+      "afterHash": "356bc72bab6e87951e2a8697ee2f033fd5f0bdc76939e50eca3f40112f27e041",
+      "edits": [
+        {
+          "start": 5773,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 169
+        },
+        {
+          "start": 15260,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 304,
+          "consumers": [
+            {
+              "path": "components/IfuClassifyDrawer.tsx",
+              "line": 169,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/InquiryButton.tsx",
+      "beforeHash": "192985edb37f777f331a8fb1d072a08182ac7871976d1d8fd8811965ee976631",
+      "afterHash": "dba8c432f44a336f2d2f18279ab4dc8c21023eeb30cec96d01354dc8db4b0d54",
+      "edits": [
+        {
+          "start": 4980,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 157
+        },
+        {
+          "start": 5448,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 167,
+          "consumers": [
+            {
+              "path": "components/InquiryButton.tsx",
+              "line": 157,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationQuickReply.tsx",
+      "beforeHash": "5585e3995f5643a37bfd193cadd4a5993795b85de4b8068a11d7d4008d902838",
+      "afterHash": "dd91c78fec84acfc1d9d570336d921c18a9670f1dfecb33bf602b957ff53c69e",
+      "edits": [
+        {
+          "start": 7104,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 232
+        },
+        {
+          "start": 7567,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 242,
+          "consumers": [
+            {
+              "path": "components/NotificationQuickReply.tsx",
+              "line": 232,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/OpinionForm.tsx",
+      "beforeHash": "6ad76ad7f88c16c502fb5cdec3e0940179a1d663d2b3686fafeee7aa84a9a30e",
+      "afterHash": "655d9ccc80c03d32ce0e0e207196dbaa34949e916ae06334422953a10b41eb2e",
+      "edits": [
+        {
+          "start": 11406,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 335
+        },
+        {
+          "start": 13338,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 379
+        },
+        {
+          "start": 15803,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 439
+        },
+        {
+          "start": 17018,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 480
+        },
+        {
+          "start": 20310,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 571
+        },
+        {
+          "start": 20846,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 581,
+          "consumers": [
+            {
+              "path": "components/OpinionForm.tsx",
+              "line": 571,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 34681,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 1025,
+          "consumers": [
+            {
+              "path": "components/OpinionForm.tsx",
+              "line": 335,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/OpinionForm.tsx",
+              "line": 379,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/OpinionForm.tsx",
+              "line": 439,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/OpinionForm.tsx",
+              "line": 480,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/ParentLotsEditor.tsx",
+      "beforeHash": "5008ee1731998e1ce818c67cf15ec40cfddab0f8a22d41547e4f9270813d5fa7",
+      "afterHash": "f606d3cceacdf68f630cbdcb234e3016ef9e7e7230d8d65bc2c8a8dccd6869ba",
+      "edits": [
+        {
+          "start": 2524,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 63,
+          "consumers": [
+            {
+              "path": "components/ParentLotsEditor.tsx",
+              "line": 237,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/ParentLotsEditor.tsx",
+              "line": 260,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            },
+            {
+              "path": "components/ParentLotsEditor.tsx",
+              "line": 266,
+              "tag": "input",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 9456,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 237
+        },
+        {
+          "start": 10370,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 260
+        },
+        {
+          "start": 11003,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 266
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "beforeHash": "a43548893781035fcef9efa0738bd3426ecfe5dfbecfe1a456972d343eb5eaea",
+      "afterHash": "abaf850c19c8b5338e764a53e1826cbc0f711174db4d5c10c99ff818a28ca96f",
+      "edits": [
+        {
+          "start": 22735,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 573
+        },
+        {
+          "start": 23164,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 581,
+          "consumers": [
+            {
+              "path": "components/ProductProfileWizard.tsx",
+              "line": 573,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "beforeHash": "7f947bfa4f89ab8aed8c44800ad3108c876dc43638d075f93ca807e7fe7beba6",
+      "afterHash": "244bf1b4279b1d6b08b54935aaad4c4afb19755f621846b7c196e21c0dc4099f",
+      "edits": [
+        {
+          "start": 73260,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 1710
+        },
+        {
+          "start": 73704,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 1721,
+          "consumers": [
+            {
+              "path": "components/RdDocumentFlowPanel.tsx",
+              "line": 1710,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 95526,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 2357
+        },
+        {
+          "start": 96266,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 2372,
+          "consumers": [
+            {
+              "path": "components/RdDocumentFlowPanel.tsx",
+              "line": 2357,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/RequestReviewButton.tsx",
+      "beforeHash": "20d2d530decbaaef56e871f194f5305b9b4ddd6d148e8daa869ee1bee864596a",
+      "afterHash": "ab26a984a0fa6a42b2647c378181414f6b3123aa75db2c98e621abbed619cae6",
+      "edits": [
+        {
+          "start": 6891,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 209
+        },
+        {
+          "start": 7230,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 218,
+          "consumers": [
+            {
+              "path": "components/RequestReviewButton.tsx",
+              "line": 209,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 17434,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 452
+        },
+        {
+          "start": 17772,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 463,
+          "consumers": [
+            {
+              "path": "components/RequestReviewButton.tsx",
+              "line": 452,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 18669,
+          "before": "\"qa-input\"",
+          "after": "\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 481
+        },
+        {
+          "start": 19075,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 493,
+          "consumers": [
+            {
+              "path": "components/RequestReviewButton.tsx",
+              "line": 481,
+              "tag": "input",
+              "type": "\"date\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/RoleReviewPanel.tsx",
+      "beforeHash": "b6874bc0b2ae6d69429da1daf5d7df49793cddc055fd887fcf0e75a3a9f819f5",
+      "afterHash": "e75cbacccd2865acebfc3cdc75960bb2af3f7b5155c8db3c36d7f23e4406b6e0",
+      "edits": [
+        {
+          "start": 16708,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 497
+        },
+        {
+          "start": 17232,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 508,
+          "consumers": [
+            {
+              "path": "components/RoleReviewPanel.tsx",
+              "line": 497,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 23624,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 686
+        },
+        {
+          "start": 24110,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 691,
+          "consumers": [
+            {
+              "path": "components/RoleReviewPanel.tsx",
+              "line": 686,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 25164,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 721
+        },
+        {
+          "start": 25833,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 736,
+          "consumers": [
+            {
+              "path": "components/RoleReviewPanel.tsx",
+              "line": 721,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/StageProgressionAction.tsx",
+      "beforeHash": "e75169db7ae9f67f1ce7e1020f021f1533fdb783c882b3419d69eb58d619fdd5",
+      "afterHash": "d7e0726c368952c69b527391c3968df907037a4e16d9b7c08e97df5de58c7a3d",
+      "edits": [
+        {
+          "start": 30435,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 795
+        },
+        {
+          "start": 30947,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 806,
+          "consumers": [
+            {
+              "path": "components/StageProgressionAction.tsx",
+              "line": 795,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/StageRevertAction.tsx",
+      "beforeHash": "3f9e08126295ac4ae14076a55c257d266ca228a3e52a3c51bda77c84320dc4d4",
+      "afterHash": "782b1057b130008face78f04544f4b093c6e22a5810cb7ea43c52e1536d2993d",
+      "edits": [
+        {
+          "start": 4696,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 133
+        },
+        {
+          "start": 5176,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 142,
+          "consumers": [
+            {
+              "path": "components/StageRevertAction.tsx",
+              "line": 133,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "components/SupplementRequestButton.tsx",
+      "beforeHash": "123e12922c6ab45fc994828f52fe8382106f297cf5cdbf0850c4e72fd0e0e916",
+      "afterHash": "41fc9c7078e96c21e45529706b35890db607db16358e8f9a27fbd651fde017aa",
+      "edits": [
+        {
+          "start": 7210,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 177
+        },
+        {
+          "start": 7660,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 181,
+          "consumers": [
+            {
+              "path": "components/SupplementRequestButton.tsx",
+              "line": 177,
+              "tag": "select",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        },
+        {
+          "start": 8041,
+          "before": "",
+          "after": " className=\"qa-input qd-input\"",
+          "kind": "shared-control-class",
+          "line": 191
+        },
+        {
+          "start": 8489,
+          "before": "${T.border}",
+          "after": "var(--qd-ctl)",
+          "kind": "control-outline",
+          "line": 196,
+          "consumers": [
+            {
+              "path": "components/SupplementRequestButton.tsx",
+              "line": 191,
+              "tag": "textarea",
+              "type": "\"text\"",
+              "mode": "style"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

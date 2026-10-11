@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "scope": "Feature-gated manual watermark SVG presentation only. Existing auth, feature flag, markup escaping, wording and output bytes are retained at default settings.",
+  "definitions": {
+    "width": 460,
+    "height": 240,
+    "textX": 10,
+    "textY": 150,
+    "rotationDegrees": -24,
+    "fontFamily": "sans-serif",
+    "fontSize": 15,
+    "fill": "#8d7c58"
+  },
+  "records": [
+    {
+      "path": "lib/manual/watermark.ts",
+      "beforeHash": "c3aed990af52f355d3fdbb1dbfe05ebf69dc1544d69e4bc6114bbf7fc4947b2f",
+      "afterHash": "5f127ca6bee7ff39963b123cb23fedec7d75dda74e25e36c93373ae95752aa8f",
+      "edits": [
+        {
+          "start": 1167,
+          "before": "    '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"460\" height=\"240\">' +",
+          "after": "    `<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${tile.width}\" height=\"${tile.height}\">` +"
+        },
+        {
+          "start": 1262,
+          "before": "    '<text x=\"10\" y=\"150\" transform=\"rotate(-24 10 150)\" ' +",
+          "after": "    `<text x=\"${tile.textX}\" y=\"${tile.textY}\" transform=\"rotate(${tile.rotationDegrees} ${tile.textX} ${tile.textY})\" ` +"
+        },
+        {
+          "start": 1385,
+          "before": "    'font-family=\"sans-serif\" font-size=\"15\" fill=\"#8d7c58\">' +",
+          "after": "    `font-family=\"${escapeMarkup(tile.fontFamily)}\" font-size=\"${tile.fontSize}\" fill=\"${escapeMarkup(tile.fill)}\">` +"
+        },
+        {
+          "start": 1121,
+          "before": "  const t = escapeMarkup(line);",
+          "after": "  const t = escapeMarkup(line);\n  const tile = QDOutput.manualWatermark;"
+        },
+        {
+          "start": 0,
+          "before": "",
+          "after": "import { QDOutput } from '@/lib/design/q-design-output';\n"
+        }
+      ]
+    }
+  ]
+}

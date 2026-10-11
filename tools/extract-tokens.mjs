@@ -12,6 +12,9 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { readSourceCss } from './probe.mjs';
+import { readRuntimeValues } from './atelier-runtime-values.mjs';
+import { centralTagMetrics } from './tag-metrics-probe.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(HERE, '..', 'dist');
@@ -21,9 +24,9 @@ const tokensPath = join(SRC_ROOT, 'tokens', 'tokens.ts');
 const globalsPath = join(SRC_ROOT, 'css', 'globals.css');
 const expertPath = join(SRC_ROOT, 'css', 'expert-theme.css');
 
-const tokens = await import(pathToFileURL(tokensPath).href);
-const globalsCss = readFileSync(globalsPath, 'utf8');
-const expertCss = readFileSync(expertPath, 'utf8');
+const tokens = { ...await import(pathToFileURL(tokensPath).href), ...readRuntimeValues(resolve(HERE, '..')) };
+const globalsCss = readSourceCss(globalsPath);
+const expertCss = readSourceCss(expertPath);
 
 // ── CSS 변수 블록 파서 ───────────────────────────────────────────────────────
 // 셀렉터로 블록을 찾아 그 안의 «--이름: 값;» 을 모읍니다. 주석은 먼저 걷어냅니다:
@@ -121,9 +124,12 @@ for (const [label, tsPal, cssPal] of [
 // 리터럴을 파싱하되, 파싱이 맞는지는 «높이 계산이 알려진 값을 내는가» 로 확인합니다.
 // (md 는 minHeight 26 을 콘텐츠 26.1 이 0.1px 이겨 줄간격이 높이를 정합니다.)
 const tagSrc = readFileSync(join(SRC_ROOT, 'tokens', 'tag-metrics.ts'), 'utf8');
-const TAG_BORDER = Number((tagSrc.match(/TAG_BORDER\s*=\s*(\d+)/) || [])[1]);
-const TAG_DIMS = {};
+const centralTag = tagSrc.includes('export const TAG_DIMS = QDPresentation.visual.tag.dims;')
+  ? centralTagMetrics(tagSrc,tokens) : null;
+const TAG_BORDER = centralTag?.border ?? Number((tagSrc.match(/TAG_BORDER\s*=\s*(\d+)/) || [])[1]);
+const TAG_DIMS = centralTag?.dims ?? {};
 {
+ if (!centralTag) {
   const at = tagSrc.indexOf('export const TAG_DIMS = {');
   const body = tagSrc.slice(at, tagSrc.indexOf('} as const;', at));
   for (const m of body.matchAll(/(\w+):\s*\{([^}]+)\}/g)) {
@@ -133,6 +139,7 @@ const TAG_DIMS = {};
     }
     TAG_DIMS[m[1]] = row;
   }
+ }
 }
 const tagContentHeight = (size) =>
   TAG_DIMS[size].fs * tokens.LH.snug + TAG_DIMS[size].padY * 2 + TAG_BORDER * 2;
@@ -140,7 +147,7 @@ const tagDrivers = {};
 for (const size of Object.keys(TAG_DIMS)) {
   tagDrivers[size] = tagContentHeight(size) > TAG_DIMS[size].minH ? 'lineHeight' : 'minHeight';
 }
-if (!(TAG_BORDER === 1 && Object.keys(TAG_DIMS).length === 3)) {
+if (!(Number.isFinite(TAG_BORDER) && TAG_BORDER >= 0 && Object.keys(TAG_DIMS).length === 3)) {
   problems.push('Tag 규격 파싱이 온전하지 않습니다');
 } else if (tagDrivers.md !== 'lineHeight' || tagDrivers.sm !== 'minHeight') {
   problems.push(

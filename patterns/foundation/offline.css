@@ -1,0 +1,11 @@
+/* Standalone offline UI is bundled with its tokens. No network CSS dependency. */
+*, *::before, *::after { box-sizing: border-box; }
+.qd-offline { margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: var(--qd-space-8) var(--qd-space-6); background: var(--qd-bg); color: var(--qd-text); font-family: var(--qd-font-family-ui); }
+.qd-offline-card { width: 100%; max-width: var(--qd-auth-form-width); text-align: center; }
+.qd-offline-logo { width: var(--qd-space-18); height: var(--qd-space-18); object-fit: contain; display: block; margin: 0 auto var(--qd-space-7); }
+.qd-offline h1 { margin: 0 0 var(--qd-space-3); font-size: var(--qd-title-size); font-weight: var(--qd-font-weight-semibold); letter-spacing: -.015em; }
+.qd-offline p { margin: 0 0 var(--qd-space-8); font-size: var(--qd-body-size); line-height: var(--qd-leading-loose); color: var(--qd-subtle); }
+.qd-offline-action { display: inline-flex; justify-content: center; align-items: center; min-height: var(--qd-control-height); padding: var(--qd-space-3) var(--qd-space-7); border: 1px solid var(--qd-ctl); border-radius: var(--qd-radius); background: var(--qd-surface); color: var(--qd-text); font-size: var(--qd-control-size); font-weight: var(--qd-font-weight-medium); text-decoration: none; }
+.qd-offline-action:hover { background: var(--qd-surface2); }
+.qd-offline-action:focus-visible { outline: 2px solid var(--qd-accent); outline-offset: 3px; }
+.qd-offline .qd-offline-hint { margin-top: var(--qd-space-6); margin-bottom: 0; font-size: var(--qd-caption-size); color: var(--qd-muted); font-family: var(--qd-font-family-mono); }

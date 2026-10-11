@@ -42,7 +42,7 @@ describe('화면 글자는 12px 이상', () => {
     for (const f of FILES) {
       if (!/\.tsx?$/.test(f)) continue;
       const code = readSource(f, 'code');
-      for (const m of code.matchAll(/FS\[(8|9|10|11)\]/g)) hits.push(`${f} ${m[0]}`);
+      for (const m of code.matchAll(/(?:FS|QDScale\.font)\[(8|9|10|11)\]/g)) hits.push(`${f} ${m[0]}`);
     }
     expect(hits, '보조 글씨도 FS[12] 이상입니다(오너 결정 2026-09-27)').toEqual([]);
   });
@@ -81,7 +81,7 @@ describe('화면 글자는 12px 이상', () => {
       if (!/\.tsx?$/.test(f)) continue;
       const code = readSource(f, 'code');
       for (const line of code.split('\n')) {
-        if (/\.\.\.TYPE\.(caption|mono)\b/.test(line) && !/fontSize:\s*FS\[(1[2-9]|[2-9]\d)\]/.test(line)) {
+        if (/\.\.\.TYPE\.(caption|mono)\b/.test(line) && !/fontSize:\s*(?:FS|QDScale\.font)\[(1[2-9]|[2-9]\d)\]/.test(line)) {
           hits.push(`${f}: ${line.trim().slice(0, 80)}`);
         }
       }

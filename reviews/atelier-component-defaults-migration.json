@@ -1,0 +1,258 @@
+{
+  "recordedAt": "2026-10-10T07:07:59.248Z",
+  "defaults": {
+    "cardMinHeight": 124,
+    "stageNodeMinWidth": 100,
+    "statGridMinColumn": 120,
+    "tableSqueeze": 48,
+    "expertFieldMarginBottom": 22,
+    "topBandHeight": 56,
+    "approvalChainColumn": 86,
+    "textareaRows": 3,
+    "skeletonLines": 3,
+    "skeletonRows": 5,
+    "skeletonColumns": 4,
+    "skeletonCount": 1
+  },
+  "motionDefaults": {
+    "countUp": 800,
+    "foldOpen": 520,
+    "foldClose": 380,
+    "installShowDelay": 2500,
+    "installAutoHide": 13000,
+    "installAnimation": 320
+  },
+  "cssDefaults": {
+    "checkboxGlyph": "var(--qd-choice-glyph-size)",
+    "choicePadding": "var(--qd-atelier-padding-0ddf63605b)",
+    "drawerWidth": "var(--qd-atelier-width-260a93c4b6)",
+    "portalFooterPadding": "var(--qd-space-10) var(--qd-space-6) var(--qd-space-8)"
+  },
+  "files": [
+    {
+      "path": "lib/design/components.tsx",
+      "beforeSHA256": "f4744bda529b1095cfdc6bdac20974368a75784ea5b884149d749ba38f799516",
+      "afterSHA256": "3f26d67943f4b5ae7d94e50dc50ce425b63d6bd21a785ebd1549459ed507f6f1",
+      "changes": [
+        {
+          "from": "durationMs = 800",
+          "to": "durationMs = QDPresentation.motionDefaults.countUp",
+          "count": 1
+        },
+        {
+          "from": "(open ? 520 : 380)",
+          "to": "(open ? QDPresentation.motionDefaults.foldOpen : QDPresentation.motionDefaults.foldClose)",
+          "count": 1
+        },
+        {
+          "from": "rows = 3, ro",
+          "to": "rows = QDPresentation.commonDefaults.textareaRows, ro",
+          "count": 1
+        },
+        {
+          "from": "  size = 16,\n",
+          "to": "  size,\n",
+          "count": 1
+        },
+        {
+          "from": "style={{ width: size, height: size, accentColor: accent",
+          "to": "style={{ width: size ?? QDPresentation.cssDefaults.checkboxGlyph, height: size ?? QDPresentation.cssDefaults.checkboxGlyph, accentColor: accent",
+          "count": 1
+        },
+        {
+          "from": "minHeight = 124 }: CardProps)",
+          "to": "minHeight = QDPresentation.commonDefaults.cardMinHeight }: CardProps)",
+          "count": 1
+        },
+        {
+          "from": "  lines = 3,",
+          "to": "  lines = QDPresentation.commonDefaults.skeletonLines,",
+          "count": 1
+        },
+        {
+          "from": "SCROLL_TABLE_SQUEEZE = 48;",
+          "to": "SCROLL_TABLE_SQUEEZE = QDPresentation.commonDefaults.tableSqueeze;",
+          "count": 1
+        },
+        {
+          "from": "  width = 'min(480px, 96vw)',",
+          "to": "  width = QDPresentation.cssDefaults.drawerWidth,",
+          "count": 1
+        },
+        {
+          "from": "  nodeMinWidth = 100,",
+          "to": "  nodeMinWidth = QDPresentation.commonDefaults.stageNodeMinWidth,",
+          "count": 1
+        },
+        {
+          "from": "minCol = 120 }:",
+          "to": "minCol = QDPresentation.commonDefaults.statGridMinColumn }:",
+          "count": 1
+        },
+        {
+          "from": "    isNumeric ? (value as number) : 0,\n    800,\n",
+          "to": "    isNumeric ? (value as number) : 0,\n    QDPresentation.motionDefaults.countUp,\n",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    },
+    {
+      "path": "lib/design/segmented-choice.tsx",
+      "beforeSHA256": "5b7128b91fce85a83eeab2702cbd488c482dbda4c582f8f55422a92c2c2ecf7c",
+      "afterSHA256": "e0483dba567c25806bf003a8786bb1a888d50f4ced8b58b9d1ce0e7be07b7ecd",
+      "changes": [
+        {
+          "from": "  padding = '10px 16px',",
+          "to": "  padding = QDPresentation.cssDefaults.choicePadding,",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeSHA256": "77b152f603c275c5dceac98af123aed32e340429fb5a28b6a875d18ef223a2cf",
+      "afterSHA256": "58c1e75297dac5e5a4b3fc9f73e61c6dca1fe4b19c7f4b7b9141333be69c593e",
+      "changes": [
+        {
+          "from": "dir, size = 14",
+          "to": "dir, size = QDPresentation.iconSize[14]",
+          "count": 1
+        },
+        {
+          "from": "({ size = 18 }",
+          "to": "({ size = QDPresentation.iconSize[18] }",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    },
+    {
+      "path": "components/expert/Field.tsx",
+      "beforeSHA256": "0e2529198edead68e2f3366dbc05aa29a017b993791edec210fd85530d02a6e7",
+      "afterSHA256": "dd5c3177584579eb42396efcb15c0a375c7170b257e776cb24a3fea2b5dc4b59",
+      "changes": [
+        {
+          "from": "marginBottom = 22",
+          "to": "marginBottom = QDPresentation.commonDefaults.expertFieldMarginBottom",
+          "count": 1
+        }
+      ],
+      "addedImports": [
+        "import { QDPresentation } from '@/lib/design/q-design-runtime';"
+      ]
+    },
+    {
+      "path": "components/expert/PortalFooter.tsx",
+      "beforeSHA256": "350de0eb26a42fb26d08a342281fe2eb7127ef960cd5148e384b676cd40f78b6",
+      "afterSHA256": "76d1f6f02441d68b7fb9b3ad6916a87fb52cc8cf9c5b1b7b4617465f83183233",
+      "changes": [
+        {
+          "from": "padding = '40px 24px 32px'",
+          "to": "padding = QDPresentation.cssDefaults.portalFooterPadding",
+          "count": 1
+        }
+      ],
+      "addedImports": [
+        "import { QDPresentation } from '@/lib/design/q-design-runtime';"
+      ]
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "beforeSHA256": "eb1bc3792c7a600ff70d927a4aefa7a825680595bbbefef7156c6fcc81f4ae6a",
+      "afterSHA256": "3a04954ec1d976dbd26e277b5d57a8548d31f22aca20cd3bee776607e0ac73fa",
+      "changes": [
+        {
+          "from": "TOP_BAND_HEIGHT = 56;",
+          "to": "TOP_BAND_HEIGHT = QDPresentation.commonDefaults.topBandHeight;",
+          "count": 1
+        }
+      ],
+      "addedImports": [
+        "import { QDPresentation } from '@/lib/design/q-design-runtime';"
+      ]
+    },
+    {
+      "path": "components/ApprovalChainEditor.tsx",
+      "beforeSHA256": "57bd38b3b4d2fad8eb64bed7882a89b6ec315a36a218fb1eaef4bf6d199490cb",
+      "afterSHA256": "069c099b212216c247da24e73563f779f175b959d80f1305ead896d91cf59721",
+      "changes": [
+        {
+          "from": "const COL = 86;",
+          "to": "const COL = QDPresentation.commonDefaults.approvalChainColumn;",
+          "count": 1
+        }
+      ],
+      "addedImports": [
+        "import { QDPresentation } from '@/lib/design/q-design-runtime';"
+      ]
+    },
+    {
+      "path": "components/InstallAppPrompt.tsx",
+      "beforeSHA256": "bbb07151d966ae53c2bc544330166f17ff1f840e210443c530fa39b8697cca5c",
+      "afterSHA256": "6b9284aa77e4b50f30022d98ff75b9456222c60b9f25e70c76b971eddd74f53b",
+      "changes": [
+        {
+          "from": "SHOW_DELAY_MS = 2500;",
+          "to": "SHOW_DELAY_MS = QDPresentation.motionDefaults.installShowDelay;",
+          "count": 1
+        },
+        {
+          "from": "AUTO_HIDE_MS = 13000;",
+          "to": "AUTO_HIDE_MS = QDPresentation.motionDefaults.installAutoHide;",
+          "count": 1
+        },
+        {
+          "from": "ANIM_MS = 320;",
+          "to": "ANIM_MS = QDPresentation.motionDefaults.installAnimation;",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    },
+    {
+      "path": "components/ApprovalDocFile.tsx",
+      "beforeSHA256": "a9187ec1de93126ac132049fb0149117a81630f6feb8d4d00bc4485983a4c0db",
+      "afterSHA256": "969cd6dc5b034f5a475d33e8dc20e7cff168cee2879fa80d127c0f285f620b1b",
+      "changes": [
+        {
+          "from": "page.style.padding = '0 0 24px';",
+          "to": "page.style.padding = `0 0 ${QDScale.space[6]}`;",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "beforeSHA256": "7d4c5bd4fbf9a4cf7a7867148452ef7173f131c0e617d9ad6fd278d9286747ee",
+      "afterSHA256": "d2088c9b820658e185e1830f993902978ec0a9150e6380121af343981e8b5b5c",
+      "changes": [
+        {
+          "from": "  count = 1,",
+          "to": "  count = QDPresentation.commonDefaults.skeletonCount,",
+          "count": 1
+        },
+        {
+          "from": "  cols = 4,",
+          "to": "  cols = QDPresentation.commonDefaults.skeletonColumns,",
+          "count": 2
+        },
+        {
+          "from": "  rows = 5,",
+          "to": "  rows = QDPresentation.commonDefaults.skeletonRows,",
+          "count": 1
+        }
+      ],
+      "addedImports": []
+    }
+  ],
+  "boundaries": [
+    "Default skeleton/textarea rows describe placeholders and control geometry; supplied overrides remain untouched.",
+    "Pagination/fetch counts, upload count limits, idle-session security timers and data calculations remain product behavior.",
+    "Physical paper geometry and official SVG artwork are outside UI defaults.",
+    "StickyFocusGuard GAP is already owned by Q-Design source/components, never edited in the copied product file."
+  ],
+  "followupRecordedAt": "2026-10-10T07:20:34.796Z"
+}

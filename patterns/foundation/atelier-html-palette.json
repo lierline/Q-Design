@@ -1,0 +1,20 @@
+{
+  "canvas": { "theme": "light", "token": "--qa-bg" },
+  "surface": { "theme": "light", "token": "--qa-surface" },
+  "panel": { "theme": "light", "token": "--qa-surface2" },
+  "text": { "theme": "light", "token": "--qa-text" },
+  "subtle": { "theme": "light", "token": "--qa-subtle" },
+  "muted": { "theme": "light", "token": "--qa-muted" },
+  "border": { "theme": "light", "token": "--qa-border" },
+  "borderStrong": { "theme": "light", "token": "--qa-borderHi" },
+  "accent": { "theme": "light", "token": "--qa-champagne" },
+  "brand": { "theme": "dark", "token": "--qa-champagne" },
+  "onDarkMuted": { "theme": "dark", "token": "--qa-subtle" },
+  "success": { "theme": "light", "token": "--qa-green" },
+  "warning": { "theme": "light", "token": "--qa-warning" },
+  "danger": { "theme": "light", "token": "--qa-red" },
+  "info": { "theme": "light", "token": "--qa-blue" },
+  "dangerPanel": { "value": "#fbf0ee", "reason": "Opaque email warning tint, semantic danger remains shared." },
+  "warningPanel": { "value": "#fff8e1", "reason": "Export warning background retained; text and border use canonical warning." },
+  "infoPanel": { "value": "#f4f7fb", "reason": "Export informational background retained; text and border use canonical info." }
+}

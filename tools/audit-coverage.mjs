@@ -4,19 +4,22 @@
 // 「다 뽑았나」에 주장이 아니라 실측으로 답합니다.
 // Q-Atelier 원본에서 «디자인을 정의하는 것» 을 축별로 세고, 복사본과 대조합니다.
 //
-//   node tools/audit-coverage.mjs [Q-Atelier 경로]
+//   node tools/audit-coverage.mjs [Q-Atelier 경로] [--only=Q-Atelier,Q-Works,Q-Forge]
 //
 // 원본 경로가 필요합니다. 기본값 D:/Claude/Q-Atelier.
 // 하나라도 누락이면 종료 코드 1 로 실패합니다.
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
-import { join, resolve, dirname, basename } from 'node:path';
+import { join, resolve, dirname, basename, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PARTS } from './sync-parts.mjs';
+import { centralOutputs, copyProblems, isTestSource, keyframesIn, slash } from './audit-coverage-core.mjs';
+import { canonicalPatternPaths, colorSet, committedCssGraph, HEXRE, normHex, parseCoverageArgs } from './audit-coverage-imports.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
-const SRC = process.argv[2] || 'D:/Claude/Q-Atelier';
+const options = parseCoverageArgs(process.argv.slice(2));
+const SRC = resolve(options.source);
 
 if (!existsSync(SRC)) {
   console.error('원본을 못 찾았습니다: ' + SRC);
@@ -48,8 +51,11 @@ const read = (p) => readFileSync(p, 'utf8');
  *    사본입니다. 그것을 「아직 안 뽑았다」로 세면 감사가 언제나 빨간불이 되고,
  *    빨간불이 상수가 되면 «진짜 누락» 이 그 뒤에 숨습니다.
  */
-const 내보낸것 = (name) => /^q-design\./.test(name);
-const kfIn = (text) => [...text.matchAll(/@keyframes\s+([a-zA-Z0-9_-]+)/g)].map((m) => m[1]);
+const central = centralOutputs(PARTS, 'Q-Atelier', 'D:/Claude/Q-Atelier');
+const centralPaths = new Set(central.map(part => part.path));
+const sourcePath = path => slash(relative(SRC, path));
+const nativeRuntime = path => !centralPaths.has(sourcePath(path)) && !isTestSource(sourcePath(path));
+const kfIn = keyframesIn;
 
 const results = [];
 function check(label, expected, actual, note = '') {
@@ -59,9 +65,9 @@ function check(label, expected, actual, note = '') {
 
 // ── ① 키프레임 ──────────────────────────────────────────────────────────────
 const origKf = new Set();
-for (const f of walk(join(SRC, 'app'), (n) => /\.(tsx|css)$/.test(n))) kfIn(read(f)).forEach((k) => origKf.add(k));
-for (const f of walk(join(SRC, 'components'), (n) => /\.tsx$/.test(n))) kfIn(read(f)).forEach((k) => origKf.add(k));
-for (const f of walk(join(SRC, 'lib'), (n) => /\.tsx$/.test(n))) kfIn(read(f)).forEach((k) => origKf.add(k));
+for (const f of walk(join(SRC, 'app'), (n, p) => /\.(tsx|css)$/.test(n) && nativeRuntime(p))) kfIn(read(f)).forEach((k) => origKf.add(k));
+for (const f of walk(join(SRC, 'components'), (n, p) => /\.tsx$/.test(n) && nativeRuntime(p))) kfIn(read(f)).forEach((k) => origKf.add(k));
+for (const f of walk(join(SRC, 'lib'), (n, p) => /\.tsx$/.test(n) && nativeRuntime(p))) kfIn(read(f)).forEach((k) => origKf.add(k));
 
 const copyKf = new Set();
 for (const d of ['screens', 'css', 'components']) {
@@ -69,13 +75,31 @@ for (const d of ['screens', 'css', 'components']) {
   if (!existsSync(dir)) continue;
   for (const f of walk(dir, (n) => /\.(tsx|css)$/.test(n))) kfIn(read(f)).forEach((k) => copyKf.add(k));
 }
-check('키프레임', origKf, copyKf);
+check('제품 키프레임', origKf, copyKf, '제품 소유 런타임 원본만 집계');
+
+// Q-Design owns these files. Audit their outgoing copies instead of requiring a return snapshot.
+const centralExpected = new Set();
+const centralActual = new Set();
+const centralKf = new Set();
+const centralCopyKf = new Set();
+for (const part of central) {
+  centralExpected.add(part.path);
+  const source = existsSync(join(ROOT, part.src)) ? read(join(ROOT, part.src)) : null;
+  const copy = existsSync(join(SRC, part.path)) ? read(join(SRC, part.path)) : null;
+  const problems = copyProblems(part, source, copy);
+  if (!problems.length) centralActual.add(part.path);
+  else console.error('중앙 사본 불일치: ' + part.path + ' (' + problems.join(', ') + ')');
+  for (const name of kfIn(source ?? '')) centralKf.add(part.path + '#' + name);
+  for (const name of kfIn(copy ?? '')) centralCopyKf.add(part.path + '#' + name);
+}
+check('Q-Design 배포 사본', centralExpected, centralActual, 'PARTS의 정확한 경로, 정본 본문과 지문 대조');
+check('Q-Design 키프레임', centralKf, centralCopyKf, '중앙 소유 규칙은 역추출하지 않고 배포 사본에서 검사');
 
 // ── ② CSS 파일 ──────────────────────────────────────────────────────────────
 const origCss = new Set(
   [...walk(join(SRC, 'app'), (n) => /\.css$/.test(n)), ...walk(join(SRC, 'components'), (n) => /\.css$/.test(n))]
+    .filter(nativeRuntime)
     .map((p) => basename(p))
-    .filter((n) => !내보낸것(n))
     /*
      * app/fonts.css 는 뺀다(2026-09-26). 원본의 scripts/fonts/build-fonts.mjs 가 Pretendard 공식 꾸러미에서 만든
      * @font-face 목록(92조각)이라 디자인 규칙이 없다. 글꼴은 이 저장소의 source/fonts · dist/q-design.fonts.css 가
@@ -90,7 +114,7 @@ check('CSS 파일', origCss, copyCss);
 // 테스트 파일은 스타일 정의가 아니라 «검사» 이므로 대상이 아닙니다.
 const origStyled = new Set(
   ['app', 'components', 'lib']
-    .flatMap((r) => walk(join(SRC, r), (n) => /\.tsx$/.test(n) && !/\.test\.tsx$/.test(n)))
+    .flatMap((r) => walk(join(SRC, r), (n, p) => /\.tsx$/.test(n) && nativeRuntime(p)))
     .filter((p) => /<style\b/.test(read(p)))
     .map((p) => p.slice(SRC.length + 1).split('\\').join('/')),
 );
@@ -98,14 +122,14 @@ const copyStyled = new Set(readdirSync(join(ROOT, 'source', 'screens')).map((n) 
 check('style 블록 파일', origStyled, copyStyled);
 
 // ── ④ lib/design 전체 ───────────────────────────────────────────────────────
-const origDesign = new Set(readdirSync(join(SRC, 'lib', 'design')).filter((n) => !내보낸것(n)));
+const origDesign = new Set(readdirSync(join(SRC, 'lib', 'design')).filter((n) => nativeRuntime(join(SRC, 'lib', 'design', n))));
 const copyDesign = new Set([
   ...readdirSync(join(ROOT, 'source', 'tokens')),
   ...readdirSync(join(ROOT, 'source', 'components')),
   ...readdirSync(join(ROOT, 'source', 'contracts')),
   ...readdirSync(join(ROOT, 'source', 'provider')),
 ]);
-check('lib/design 파일', origDesign, copyDesign);
+check('lib/design 런타임', origDesign, copyDesign, '테스트는 런타임 수에 포함하지 않음. 커밋 전 새 런타임 파일은 계속 누락으로 표시');
 
 // ── ⑤ 브랜드 자산 ───────────────────────────────────────────────────────────
 const origBrand = new Set(
@@ -146,15 +170,16 @@ check('폰트', origFonts, copyFonts, '원본이 싣는 글꼴 종류 · 이 저
 //    `q-design.brief.json` 은 `--mq-bg` 를 `surface.bg` 로 담습니다. 이름으로 세면
 //    86개가 「빠졌다」고 나오는데 전부 들어 있습니다. 실제로 그렇게 한 번 오판했습니다.
 //
-// 🔑 **기준은 `dist/` 뿐입니다.** `source/` 는 원본의 사본이라 기준에 넣으면
-//    원본 파일이 자기 자신을 증명하고 언제나 100% 가 나옵니다.
+// 🔑 **기준은 `dist/`와 PARTS가 실제 배포하는 `patterns/` 정본입니다.**
+//    `source/` 는 원본의 사본이라 기준에 넣으면 자기 자신을 증명하게 됩니다.
+//    중앙 소유 patterns의 fallback 색은 dist 중복 파일 없이 직접 배포됩니다.
 //
 // 🔑 제품마다 «약속한 범위» 가 다릅니다. Q-Forge 는 Q-Design 을 «골라» 들이기로 한
 //    제품이라 고유 팔레트를 갖는 것이 정상입니다. 그런 곳까지 실패로 만들면
 //    빨간불이 상수가 되고, 상수가 된 빨간불 뒤에 진짜 누락이 숨습니다.
 const PRODUCTS = [
   { name: 'Q-Atelier', repo: SRC, files: ['app/globals.css', 'app/experts/expert-theme.css'], must: true,
-    why: 'Q-Design 의 정본. 여기 색이 dist 에 없으면 추출이 덜 된 것입니다' },
+    why: 'Q-Design 의 정본. 여기 색이 중앙 배포 정본에 없으면 추출이 덜 된 것입니다' },
   { name: 'MedQraft 문서', repo: 'D:/Claude/MedQraft Docs', files: ['templates/assets/colors_and_type.css'], must: true,
     why: '대외 문서 브랜드. 2026-09-10 부터 정본 범위 안입니다' },
   { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'], must: true,
@@ -166,52 +191,41 @@ const PRODUCTS = [
        + '다만 실측하면 이 19색은 MedQraft 문서 브랜드보다 Q-Atelier 쪽에 더 가깝습니다(문서 0 : Q 19)' },
 ];
 
-const HEXRE = /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/g;
-const normHex = (h) => {
-  let x = h.slice(1).toLowerCase();
-  if (x.length === 3) x = x.split('').map((c) => c + c).join('');
-  return '#' + x.slice(0, 6);
-};
-
-function headText(repo, path) {
-  const r = spawnSync('git', ['-C', repo, 'show', 'HEAD:' + path], { maxBuffer: 32 * 1024 * 1024 });
-  return r.status === 0 ? r.stdout.toString('utf8') : null;
-}
-
 const distDir = join(ROOT, 'dist');
-const distColors = new Set();
-for (const f of readdirSync(distDir)) {
-  if (!/\.(css|json|ts)$/.test(f)) continue;
-  for (const h of read(join(distDir, f)).match(HEXRE) ?? []) distColors.add(normHex(h));
-}
-if (distColors.size < 50) {
-  console.error('dist 에서 색을 ' + distColors.size + '개밖에 못 찾았습니다. 검사가 헛돕니다.');
+const distTexts = readdirSync(distDir).filter(file => /\.(css|json|ts)$/.test(file)).map(file => read(join(distDir, file)));
+const distCount = colorSet(distTexts).size;
+if (distCount < 50) {
+  console.error('dist 에서 색을 ' + distCount + '개밖에 못 찾았습니다. 검사가 헛돕니다.');
   process.exit(2);
 }
+const patternPaths = canonicalPatternPaths(PARTS);
+const distributionColors = colorSet([...distTexts, ...patternPaths.map(path => read(join(ROOT, path)))]);
 
 const productRows = [];
 for (const p of PRODUCTS) {
+  if (options.only && !options.only.has(p.name)) continue;
   if (!existsSync(join(p.repo, '.git'))) {
     productRows.push({ ...p, skipped: '저장소를 못 찾았습니다: ' + p.repo });
     continue;
   }
   const mine = new Set();
   const unreadable = [];
-  for (const f of p.files) {
-    const t = headText(p.repo, f);
-    if (t === null) { unreadable.push(f); continue; }
+  let css = new Map();
+  try { css = committedCssGraph(p.repo, p.files); }
+  catch (error) { unreadable.push(error.message); }
+  for (const t of css.values()) {
     /* «정의» 만 봅니다. var(--x) 로 쓰기만 한 것은 그 제품의 색이 아닙니다. */
     for (const m of t.matchAll(/--[a-zA-Z0-9_-]+\s*:([^;{}]*)[;}]/g)) {
       for (const h of m[1].match(HEXRE) ?? []) mine.add(normHex(h));
     }
   }
-  const gap = [...mine].filter((c) => !distColors.has(c)).sort();
+  const gap = [...mine].filter((c) => !distributionColors.has(c)).sort();
   productRows.push({ ...p, total: mine.size, gap, unreadable });
 }
 
 /* 검출력 자체 시험: 있을 리 없는 색을 넣어 빠짐으로 잡히는지 봅니다. */
 {
-  const probe = ['#010203'].filter((c) => !distColors.has(c));
+  const probe = ['#010203'].filter((c) => !distributionColors.has(c));
   if (probe.length !== 1) {
     console.error('색 감사 자체 시험 실패: 없는 색을 빠짐으로 못 잡습니다.');
     process.exit(2);
@@ -221,6 +235,7 @@ for (const p of PRODUCTS) {
 // ── 보고 ────────────────────────────────────────────────────────────────────
 let failed = 0;
 console.log('추출 완전성 감사 · 원본 ' + SRC);
+console.log('제품 작업트리와 보관본의 항목 대조입니다. 현재 UI 연결 검사는 check-components, 커밋 내용 대조는 refresh-source --check가 맡습니다.');
 console.log('');
 for (const r of results) {
   const n = typeof r.total === 'number' ? r.total : r.total;
@@ -236,15 +251,19 @@ for (const r of results) {
 }
 // ── 제품별 색 커버리지 보고 ────────────────────────────────────────────────
 console.log('');
-console.log('제품별 색 커버리지 · 기준은 dist/ 의 ' + distColors.size + '색 (이름 아니라 값)');
+console.log('제품별 색 커버리지 · 중앙 배포 정본 ' + distributionColors.size + '색 (dist/ + PARTS가 배포하는 patterns/ ' + patternPaths.length + '개 파일)');
+console.log('커밋된 HEAD의 로컬 CSS import를 포함한 HEX 사용자 속성 정의만 대조합니다. 전체 테마 일치 검사가 아닙니다.');
+console.log('현재 세 제품의 HEX·RGB·HSL 팔레트와 UI 연결은 build-palette --check 및 check-components가 검사합니다.');
+if (options.only) console.log('선택한 제품 색 범위: ' + [...options.only].join(', ') + ' (Atelier 파일 감사 ' + results.length + '개 축은 계속 검사)');
+if (options.only?.has('Q-Works')) console.log('Q-Works의 HSL 채널은 이 기존 HEX 감사 목록에 없습니다. 제품 팔레트·컴포넌트 검사 결과를 확인해야 합니다.');
 console.log('');
 console.log('  ' + '제품'.padEnd(16) + '정의   담김   빠짐   범위');
 let mustFail = 0;
 for (const r of productRows) {
-  if (r.skipped) { console.log('  ' + r.name.padEnd(16) + r.skipped); continue; }
+  if (r.skipped) { console.log('  ' + r.name.padEnd(16) + r.skipped); if (r.must) mustFail++; continue; }
   const held = r.total - r.gap.length;
   const scope = r.must ? '정본' : '정본 밖';
-  if (r.must && r.gap.length) mustFail++;
+  if (r.must && (r.gap.length || r.unreadable.length || r.total === 0)) mustFail++;
   console.log(
     '  ' + r.name.padEnd(16) +
     String(r.total).padStart(3) + '  ' + String(held).padStart(5) + '  ' +

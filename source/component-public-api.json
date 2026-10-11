@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "description": "Reviewed public renderer scopes. New exports in these files and new files under directory prefixes require manual role registration. Scope changes and exact-symbol exceptions are reviewed separately; never derive this list automatically during registry generation.",
+  "products": [
+    {
+      "id": "atelier",
+      "files": [
+        "lib/design/components.tsx",
+        "lib/design/segmented-choice.tsx"
+      ],
+      "prefixes": [],
+      "exemptions": []
+    },
+    {
+      "id": "maison",
+      "files": [
+        "components/shared/access-denied-banner.tsx",
+        "components/shared/approval-flow.tsx",
+        "components/shared/approval-header.tsx",
+        "components/shared/badge.tsx",
+        "components/shared/batch-save-bar.tsx",
+        "components/shared/clause-tree.tsx",
+        "components/shared/confirm-judgment-dialog.tsx",
+        "components/shared/count-card.tsx",
+        "components/shared/date-range-filter.tsx",
+        "components/shared/delete-with-reason-dialog.tsx",
+        "components/shared/detail-field.tsx",
+        "components/shared/doc-badges.tsx",
+        "components/shared/editable-card.tsx",
+        "components/shared/empty-state.tsx",
+        "components/shared/filter-chip.tsx",
+        "components/shared/form-dialog.tsx",
+        "components/shared/import-kit.tsx",
+        "components/shared/install-pwa.tsx",
+        "components/shared/linked-doc-card.tsx",
+        "components/shared/list-filter-select.tsx",
+        "components/shared/list-load-failed.tsx",
+        "components/shared/list-search.tsx",
+        "components/shared/missing-hint.tsx",
+        "components/shared/nc-capa-badges.tsx",
+        "components/shared/new-record-panel.tsx",
+        "components/shared/page-head.tsx",
+        "components/shared/page-help.tsx",
+        "components/shared/page-skeleton.tsx",
+        "components/shared/pagination.tsx",
+        "components/shared/record-foot.tsx",
+        "components/shared/revision-diff.tsx",
+        "components/shared/rows-editor.tsx",
+        "components/shared/sort-header-button.tsx",
+        "components/shared/sort-header.tsx",
+        "components/shared/stat-block.tsx",
+        "components/shared/step-progress.tsx",
+        "components/shared/unsaved-guard.tsx",
+        "components/shared/view-tabs.tsx"
+      ],
+      "prefixes": [
+        "components/ui/"
+      ],
+      "exemptions": []
+    },
+    {
+      "id": "carnet",
+      "files": [
+        "components/action-chip.tsx",
+        "components/dialog.tsx",
+        "components/info-tip.tsx",
+        "components/num-pad.tsx",
+        "components/row-link.tsx",
+        "components/shell.tsx",
+        "components/stat-detail.tsx",
+        "components/table.tsx",
+        "components/toast.tsx",
+        "components/ui.tsx"
+      ],
+      "prefixes": [],
+      "exemptions": []
+    }
+  ]
+}

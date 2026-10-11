@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "scope": "Exact reviewed compact empty-state role selector only.",
+  "records": [
+    {
+      "path": "lib/design/components.tsx",
+      "line": 2114,
+      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+      "argumentHash": "bf6585b9f6831570bd37b3f0f8dd2f000fe35d3e642adf81803edd38ff5ca886",
+      "value": "{`qd-empty${compact ? ' qd-empty--compact' : ''}`}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "empty-compact-role-selector",
+      "reason": "Exact Boolean compact selector chooses only the shared qd-empty base and qd-empty--compact modifier. Both current central role selectors exist; the actual EmptyState adapter follows base and compact mutations in the extended browser check. No other component style or caller is approved by this entry.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 2114,
+          "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 276,
+          "hash": "45ca076ece832af92c65be419086a1be438afd7538f9a5d9a66ad8b3f9835b7a"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 277,
+          "hash": "45ca076ece832af92c65be419086a1be438afd7538f9a5d9a66ad8b3f9835b7a"
+        }
+      ]
+    }
+  ]
+}

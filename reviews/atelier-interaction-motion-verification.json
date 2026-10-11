@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-10-10T07:29:56.325Z",
+  "tests": {
+    "command": "node --test tools/atelier-presentation.test.mjs",
+    "passed": 15,
+    "failed": 0,
+    "log": "D:/Claude/tmp/qd-atelier-presentation-final-tests.log"
+  },
+  "typecheck": {
+    "exitCode": 0,
+    "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+    "finishedAt": "2026-10-10T07:26:04.0518437Z"
+  },
+  "proofs": [
+    "reviews/atelier-component-defaults-migration.json",
+    "reviews/atelier-interaction-motion-migration.json"
+  ],
+  "runtime": "source/design/atelier-runtime.ts",
+  "runtimeSHA256": "79b523dafb3bfb6fd7a8befcef11a85ca741c60b0f96df400d0572e74aa63441",
+  "reactReview": "Read the Vercel React review skill. This batch only replaces static duration/style leaves with pure imported constants; hooks ordering, effect dependencies, callbacks, data flow and cleanup are source-equivalent by inverse hash proof."
+}

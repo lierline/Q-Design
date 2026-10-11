@@ -1,0 +1,4996 @@
+{
+  "version": 1,
+  "scope": "UI-only label imports and proven CSSProperties typography. Locked helpers, engine dependencies, business data and dynamic caller values remain unchanged.",
+  "canonical": "patterns/foundation/atelier-labels.ts",
+  "files": [
+    {
+      "path": "app/(app)/admin/expert-invites/invite-manager.tsx",
+      "beforeHash": "0820f0d4a51f786250e06757706b4fcb67ab94cef2531c99d8fc73e4f83a4c74",
+      "afterHash": "4cc0c2bf0328e146a70b602e7e2fb0c3e76bc7427435876368479b4e01a3200b",
+      "conversions": [
+        {
+          "line": 213,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 252,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 261,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/experts/page.tsx",
+      "beforeHash": "cf9f22bc3de806cfb17d7103af0e05d090bb5cd0ceeec7e3a9dd027f3aecd09d",
+      "afterHash": "a8c8ca5df9f24c0964fc254abac1cbb8adb0cf4f51cb9016cd0f4e0071911065",
+      "conversions": [
+        {
+          "line": 532,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/knowledge/page.tsx",
+      "beforeHash": "6327de1342d9d4d29b1606f3b0c8ed7923351d04159dfe4d3e65f5350389d473",
+      "afterHash": "706e11493b0a0e5eb572781d90abee2408d79b385be82edce9e21bcdab9726d5",
+      "conversions": [
+        {
+          "line": 521,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/mfds-diagnostics/page.tsx",
+      "beforeHash": "c4051d4088f172104aed9a0d88760209f1ea23e905824478ab99580bf0bb565e",
+      "afterHash": "c667f6c77fd8cbc7b473f61094bbded8b3e85e0774a55caf27d0f0438ef9f508",
+      "conversions": [
+        {
+          "line": 500,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 595,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 614,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/multi-view/page.tsx",
+      "beforeHash": "69cbd43fde9f2c504706759f31f982458f8aabae28c98148dfd0506283a916e9",
+      "afterHash": "e03b7e1b42a6ad6dca031a368bedaf01f3a82e4212e99d1dae089616896ee079",
+      "conversions": [
+        {
+          "line": 332,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 701,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/page.tsx",
+      "beforeHash": "4f739370acf5cc58972e3395fc69a9bf3dcd5c79f1956657b8ff9c7da5323cbd",
+      "afterHash": "d8ce90d7cebee7e48005cc6f47d412a9e3bd9fb89f6f10922e54eaea4923c7f9",
+      "conversions": [
+        {
+          "line": 194,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 235,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/permissions-matrix/page.tsx",
+      "beforeHash": "6d05b8d44171e6b3cb8cd5c6112849bfb5ff0cc69cc18faf5e7e878b9dcc4238",
+      "afterHash": "b620c8a8a62169c0fc0f71928f184e3258779e2f6ed97f0a20c367719e78c570",
+      "conversions": [
+        {
+          "line": 236,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 324,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 441,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 551,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/q-match-training/page.tsx",
+      "beforeHash": "5e9d8c02a1180c7a3d996ba39556db0b593c34a458d0beb640da6321832ca996",
+      "afterHash": "4a3bca4098e37f8e74446ae2a7d545f4f797367d9c656c4dc5ac4148fc18147f",
+      "conversions": [
+        {
+          "line": 766,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 794,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 877,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1325,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1444,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/screening/page.tsx",
+      "beforeHash": "25b1b3a994ed7c35eda15adf4e4e239977fbf1e4ed732f3440d1a0812fbbcbb4",
+      "afterHash": "d2c8fdbb61e183d9a7d4e18bc51a5f2c34326139ed148c562b28e1828e8edadd",
+      "conversions": [
+        {
+          "line": 360,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 395,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 552,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 557,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 701,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 850,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 969,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1068,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/subscriptions/page.tsx",
+      "beforeHash": "e5ba72dd8f8adb47cde0d1fd388fe7aaa4251a33bd40659b8f88a0b09757aaae",
+      "afterHash": "2708e4bad78a310d18620342e51046dd966e5823f3dd334d3228d27fe418f196",
+      "conversions": [
+        {
+          "line": 642,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 643,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 672,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 673,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 697,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 698,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 936,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 975,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1228,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1330,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/users/buttons.tsx",
+      "beforeHash": "110cbec33b4e5d00c6e4752728936749b36a5355364a9f8265d0eb541aefdc32",
+      "afterHash": "4297a68fc05b86cde9b802a95a0754094fe80fc7753e99ca2d2171fdd3aaad0e",
+      "conversions": [
+        {
+          "line": 65,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/users/users-table-client.tsx",
+      "beforeHash": "de743053ddc91faf8954ed6b0f35c8b4fffe172d0f35148943ab622829413a87",
+      "afterHash": "d2ae9a2f2794964b048d765e09d808567e333500865799d5b51ac54ce44b7746",
+      "conversions": [
+        {
+          "line": 110,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 227,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/validation-evidence/page.tsx",
+      "beforeHash": "89359511902c07f20f84df51466dbff1706d584c6fbee2ec56e78b08d6a3a892",
+      "afterHash": "48ba3082baa42a152b1e29dd39fa0925cb7432048664fdb069cb300b82126f17",
+      "conversions": [
+        {
+          "line": 478,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 487,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/vigilance/page.tsx",
+      "beforeHash": "0c9cbedb0e4de968a29329052558667795270cb37b2fbce307b6f07e177fb653",
+      "afterHash": "fa486755c3584ebe05f81f3644203ec17ae717e4d80b0de885e3f1ed6cd5d0cd",
+      "conversions": [
+        {
+          "line": 362,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/approve/client.tsx",
+      "beforeHash": "695fc86a96ce484a90bfc3c367871fe8c3f35d814cfb26346d1894bceeecca97",
+      "afterHash": "ab3337d5668d871849b47a3a79ff7d312b1301cfdc0e6ed14d36c032b02ac310",
+      "conversions": [
+        {
+          "line": 518,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/[code]/page.tsx",
+      "beforeHash": "1f3a3525f3716c03cca99853d7eb8ef0780781775105528a2ac92f09d834057b",
+      "afterHash": "c51e19e3e35baaec76c33c3c51504679a62e8477be9eb0f4576abfad9e6f888a",
+      "conversions": [
+        {
+          "line": 433,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/assessments-client.tsx",
+      "beforeHash": "03f7f725c272ad79087afbe53705b371018ca8dee7d99ef9188781025f517336",
+      "afterHash": "f89509b869405f0c59f7fb7f09ea370bddbc05dfb974e2c65de399ac81ad3ad7",
+      "conversions": [
+        {
+          "line": 573,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audit-readiness/page.tsx",
+      "beforeHash": "f66a1425664758d38e7a8fffc9d3819a4ab9a1263114668954996ab7b8a7908a",
+      "afterHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
+      "conversions": [
+        {
+          "line": 299,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audits/[id]/client.tsx",
+      "beforeHash": "d88d03091771c2bffb51fd797822f32a3e673702f594b0736731ddbe7bc0ddee",
+      "afterHash": "105bffb3a35ed8915b4ec13a25c61d2c20ded81e3d8f4feec2a1a996cf0e3613",
+      "conversions": [
+        {
+          "line": 314,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 385,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/authorized-reps/new/client.tsx",
+      "beforeHash": "ae0d8f1cebb2f4a858584677f17b730782c1dbdb8aa352262fc6009fab812981",
+      "afterHash": "90e2735e56f9e33bc92b7d4b409fdff5f7c2900a6c67e692c3be1bcce0356e59",
+      "conversions": [
+        {
+          "line": 113,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "wordSpacing",
+            "value": "normal",
+            "key": "v82fbb169e7"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/page.tsx",
+      "beforeHash": "c24a8149c32eb88f534ef333f089aa98bc04d06f72246af014a51cf461934d12",
+      "afterHash": "020e7687d26d256441bc10fdf2ba58f06454b26fcdf21cab872a33efa43b954b",
+      "conversions": [
+        {
+          "line": 795,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 918,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 938,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/suggestions/page.tsx",
+      "beforeHash": "ca729ea7c3563031b75a2b71fa6ea133e2c2a716aa71f683faefb9db92579e45",
+      "afterHash": "1d4bc7bb9f570959c3109fd481dbbc7a80abab52a2d3198e50cd6b7e540172c9",
+      "conversions": [
+        {
+          "line": 245,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 415,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/[id]/client.tsx",
+      "beforeHash": "1354b93020ddeb62e86e0f932eaca91a4d9b4cecdf3219aa15885c26b2f8da72",
+      "afterHash": "87ff83a44c8faa041586fd762b43c0d58f5ec7f8696cb4c5519496dccfad2492",
+      "conversions": [
+        {
+          "line": 266,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 667,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/[id]/client.tsx",
+      "beforeHash": "7bae98ca972a4ff4e33ef0a410bb2dc005bf133a29eed5cea0d873f3d0a10e78",
+      "afterHash": "76b818ca24895616c85a2349d82d613b43a3421f6981686212a87d0d5396d971",
+      "conversions": [
+        {
+          "line": 21,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 394,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.6,
+            "key": "vec6c168f44"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/new/client.tsx",
+      "beforeHash": "e28dcc861d7fc678357edd9cc1e16c25b7c6da62ff2ae305b3a2930ddcbb7f9a",
+      "afterHash": "187492b3f08040d9a53e745eb920fa3e99fcd612348df5bcd49d17672612884f",
+      "conversions": [
+        {
+          "line": 16,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 223,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.6,
+            "key": "vec6c168f44"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/[id]/client.tsx",
+      "beforeHash": "108ec8cd4bc61a2e2e1ea675ffc298f4673bc7168ba9846095483437fd6278fc",
+      "afterHash": "c8b4018116cf36791dc601d344ebc66ba58003f62ac62547c284858f38381619",
+      "conversions": [
+        {
+          "line": 256,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 518,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 586,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/customer-property/[id]/page.tsx",
+      "beforeHash": "2063d37cea8b09306b31981a571270634abffca0f323bebaff747d7ca71f8758",
+      "afterHash": "d21ac71b0a23a259e62646ea31995e7a73af4926bde299a15bdc94d84b2177ed",
+      "conversions": [
+        {
+          "line": 84,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "beforeHash": "2b3bd4ddc83a3594528854ae48ec931e8922974b45588d50e440cad7397d767f",
+      "afterHash": "427d42a4e22df91404034667ce4a048177608cf7a82e24548ade497d127b46c2",
+      "conversions": [
+        {
+          "line": 393,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/equipment/new/client.tsx",
+      "beforeHash": "1d35a61860d5746a4e269dd9c15144d1331430c7970b8612f85eafc0d3727e28",
+      "afterHash": "122eb22fc87bdd0bfa5b3d6cce246ec34926c4f0eb107f0e88e9bf65f341c031",
+      "conversions": [
+        {
+          "line": 113,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/equipment/page.tsx",
+      "beforeHash": "ff1dc14a5cf971a51d1c3129e7b943af9164cadcaacf4556cc9be480afe8bf8c",
+      "afterHash": "f9d37037181e148a21e390fc87fdb002fb58ddac4ce07f6f60a187f4dbc1257a",
+      "conversions": [
+        {
+          "line": 227,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 234,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/feedback/[id]/client.tsx",
+      "beforeHash": "2a9ca5b68d724244aada203134a54fe82e22a5d2c4df65a41c13ce5ce1e17a02",
+      "afterHash": "2a0ba05fdbd422fbecd6aa550d14f2c1efbe0335d33098adf872d1850fcf7549",
+      "conversions": [
+        {
+          "line": 291,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 306,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 313,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/inbox/[id]/page.tsx",
+      "beforeHash": "eccd48cd6686d5b278050141aa0053bd5f208cd7fcceaade4c4830616296e7ae",
+      "afterHash": "ece7a9b191333ce1d176872719ea16418cb5509ea59cc152c223b41edefc4a1e",
+      "conversions": [
+        {
+          "line": 116,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/inbox/page.tsx",
+      "beforeHash": "d1794d0cd626f0e420531da7d270fd9c40e503852cf69131302cb14cb3133181",
+      "afterHash": "9b0d998da2b9cb8a68861ea9b279460f0c1f97af0a0962487fe34aaf79dcdbee",
+      "conversions": [
+        {
+          "line": 345,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/lots/[id]/client.tsx",
+      "beforeHash": "837f4a9424f3dcb3d68bd4ab200324f72412da9c0c0690557516f0aebf65d4bc",
+      "afterHash": "ebbf960a7e73d2d1edfebff09dad04aad278fd1355382def329245e69690c7ff",
+      "conversions": [
+        {
+          "line": 241,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/lots/page.tsx",
+      "beforeHash": "98f007b2332b45629144bbcfc9640c8d32938218f85191eebe8cabaca7a88b9e",
+      "afterHash": "d24fe838e34c5b2f68fb230ec6873d89680c4228db3a428b24c4972a407953a0",
+      "conversions": [
+        {
+          "line": 280,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "beforeHash": "280a633ec8d82a2479c5f76f7f46ec4973408c336ac642817ffc6544c4f24480",
+      "afterHash": "f403371b10590c47f7c8a34067a710a3b6cf6070df2e8001ccca80228629718d",
+      "conversions": [
+        {
+          "line": 85,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 300,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/page.tsx",
+      "beforeHash": "7a85268139060a5f40b68876b41feedc5b5081ad6f37c8ad5d73099d5ec76101",
+      "afterHash": "f48cbf3f8ffb90219fedd8201db877008e162dd36248094541c50f550e9bcfc1",
+      "conversions": [
+        {
+          "line": 189,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "beforeHash": "145709466ab0eeb0332b4ded41162715b548650e24f48ff2be55a09b1ab46535",
+      "afterHash": "2dbd329c00b1f53b9c59fa1920f1d95cf294f0e2e9ea54cdd4d1ca191e4b668f",
+      "conversions": [
+        {
+          "line": 468,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "beforeHash": "8e0082452d209066d41917aab4a00952c1e8cd17a75078def2adaba5dce8960e",
+      "afterHash": "15173cfe5ffe3dc9f918c3fd83c42b154814c7aae44366a254f7dcd5ba010469",
+      "conversions": [
+        {
+          "line": 279,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/release/page.tsx",
+      "beforeHash": "fe329786f5bf004db59a5701a0de238d0a8de0d148d8557eae5f40eeae2aa846",
+      "afterHash": "1fec91c210b20b2b95a5a3de39a82bb43823a71589ad486276dc4c8b94d16573",
+      "conversions": [
+        {
+          "line": 105,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "beforeHash": "63911c02fc837dafb3c66003f7ca07fd56353b1f07fb7c28f3c31a58fa1f9ebb",
+      "afterHash": "eb0ecb294b812f4c2761fbfb90aaabb224ba99c1d34f4e06d54760e7bd0f3b96",
+      "conversions": [
+        {
+          "line": 309,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/[id]/client.tsx",
+      "beforeHash": "d5c86dbb0e12917b1ef8a7f0ac5677249db94b257e846c46245f3feb785d2611",
+      "afterHash": "f7e08f1fc7edaa926782342a349e5c47b1d444f4756b9a788381987b993bda62",
+      "conversions": [
+        {
+          "line": 197,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 289,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-templates/page.tsx",
+      "beforeHash": "289e729cd21a16d9163480b7b5177149847cf4b1476cc100fbf7103436c16023",
+      "afterHash": "12a068615c0dc2ad406ed915972daddb667214e101f4b3bb2be233eeed3ae7d9",
+      "conversions": [
+        {
+          "line": 123,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-validations/page.tsx",
+      "beforeHash": "d76b35dc0039bd3b2921fe99ca652a80d8c6145d440b64d298d9babd6560a833",
+      "afterHash": "652cfcafa7b0a9b2c6a0ae991dd7341f21f2d14348a8eb48708ab1949addd813",
+      "conversions": [
+        {
+          "line": 131,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 139,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production-equipment/page.tsx",
+      "beforeHash": "62f215a9a0849d793faac56ba16d7bae28315459d1fc988d842d410084b05e78",
+      "afterHash": "eb4cc0de9fc0ed992857ef594573f50de1ea6fc43b9fe9491706d486d5a0a4e3",
+      "conversions": [
+        {
+          "line": 144,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 152,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/products/client.tsx",
+      "beforeHash": "cdea7e00ade3da14cc84ca4cdc4ff4bc98e11189f4fb99aff9f1930baf0c08a3",
+      "afterHash": "ac69294371caf631665f176afdb61dded6d0cce064688f4d23d95c89a766cf38",
+      "conversions": [
+        {
+          "line": 524,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/products/page.tsx",
+      "beforeHash": "f8feeffd2cf58af7f0a7cc948fa21b416aac856e2be783028463e7d9efe233ae",
+      "afterHash": "eae466c95fd946c23c7623af6cd29da5d3990690f075de44fc18e84a5f2384c2",
+      "conversions": [
+        {
+          "line": 75,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/qa/qa-workspace-client.tsx",
+      "beforeHash": "a400df79d8f6f8b40783f16a2488df7757447d6d2ff59ae07aa6615a72b3e18a",
+      "afterHash": "c1f9cc9414b0db6ec85a629137d37b2b0925e205fd17bfe6f3a85231e09c467b",
+      "conversions": [
+        {
+          "line": 382,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 515,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 534,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/quality-objectives/[id]/client.tsx",
+      "beforeHash": "483e87495433c80b864157b74e19de4359497a42a5ab34a3145f6e01a2c41a20",
+      "afterHash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59",
+      "conversions": [
+        {
+          "line": 316,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 543,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/ra/ra-workspace-client.tsx",
+      "beforeHash": "715638a4f23039937fcf6577a7a9f30b48ded108ef9ad548f03ab9f8fd54cd85",
+      "afterHash": "6e8ab7f5cdb93ec3ff1c0c37a0fb78003beb07938437f6325c60183224d2051f",
+      "conversions": [
+        {
+          "line": 652,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 694,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 831,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 893,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/[id]/client.tsx",
+      "beforeHash": "443663aabec884c2a194d4a96cc02dfb8c8518217f4b02c4d17056fbcc1909e2",
+      "afterHash": "a824a1e0db11484226275d132a06f39b7a85dc26ed72cb319e12131105f84f39",
+      "conversions": [
+        {
+          "line": 274,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 640,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/regulatory-calendar/page.tsx",
+      "beforeHash": "dc543fe1382edc49d77d5cd0cd68d725e4db2be2d449dd5b8b2c2484c843290d",
+      "afterHash": "3edf3848cfaf0a11492a92f1742a6748668c41ff91651394e148b1e65bfbf952",
+      "conversions": [
+        {
+          "line": 28,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 220,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.1em",
+            "key": "vae83a9aee5"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/page.tsx",
+      "beforeHash": "1c6fa955556003bb739ce449b412818ac264b29d9f5e27dd8f3fe987d725cf98",
+      "afterHash": "d309070415db6ee1f266d5000c7f128b9a76ce43488c2b69c93b5af2c4b3c286",
+      "conversions": [
+        {
+          "line": 527,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/settings/page.tsx",
+      "beforeHash": "45f1ea7858c2a4a1c79b75fc76ce216c3da4df3aff7c255fc82c35141a156ea4",
+      "afterHash": "7528ac9cd08f95c3a70184bb309a1ccd336be65dc199436f2367b3f8d75f5ad3",
+      "conversions": [
+        {
+          "line": 354,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/research-client.tsx",
+      "beforeHash": "4a933e6b5457c99620746744ea2b5b9ba3c7e49f3e435988af7b5fe7b25db19f",
+      "afterHash": "4126128da1af680a1dbf9474cdc98e514c917b704588f094a6be44fd2389fd61",
+      "conversions": [
+        {
+          "line": 338,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/review/page.tsx",
+      "beforeHash": "9cf5efcddefd73eb240d0172412996f5fb9c5daf2e4b6188112c5e3315572e25",
+      "afterHash": "d76cfdf94bd02a9bc382062b64c677b228db1a4fef35dc7e17b55b0b8120fce9",
+      "conversions": [
+        {
+          "line": 109,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 299,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+      "beforeHash": "3d487f86b94cce9af79d21d3542f8bffcdd5d7b8fc7ef9917ff503997f74511d",
+      "afterHash": "fa4349554684bcabaaad126e25ad95b1465d71750c425753678c6759add93afe",
+      "conversions": [
+        {
+          "line": 590,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 840,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1047,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1092,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/templates/template-manager.tsx",
+      "beforeHash": "db5e367e6b8cd66ee8bb7648cba7f65786a1f0d33086a4ba1502aa0141c1d2e7",
+      "afterHash": "82549aa61814bb8cae54a75ab6927fbc50b766f60304985d0e17b8cdb522c687",
+      "conversions": [
+        {
+          "line": 989,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/usage/page.tsx",
+      "beforeHash": "c601176dbf345e1c0524eb94b11fe5b6f48e4c0d54a04ae41bf9fccc5c507b99",
+      "afterHash": "e2b57f4eeb1235b2aabbe16071ec5962b78233c60d8dedc7c1ff576b859b9802",
+      "conversions": [
+        {
+          "line": 213,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "wordSpacing",
+            "value": "normal",
+            "key": "v82fbb169e7"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/sterilization/[id]/client.tsx",
+      "beforeHash": "5b6d697bf8f4d677bc8580f33bb77bd3e409a5a11a3c1c3ac548494bfc049843",
+      "afterHash": "9ad14877e0cb26c72caaf1991486c00b0980ef197147f063d4cba0a993bcab4e",
+      "conversions": [
+        {
+          "line": 188,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/suppliers/[id]/client.tsx",
+      "beforeHash": "2a776e2c02aaa393b7e88c0c07c4e8f340fe17a6ab68d261fc13cb71e0dfafe4",
+      "afterHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
+      "conversions": [
+        {
+          "line": 123,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/suppliers/client.tsx",
+      "beforeHash": "d221a8dae80be6a9ceedcb476b23fd1c32a43f09a64d2020898a51c1262d0d2e",
+      "afterHash": "9252f2b8f7fe580a18f2238c4afc3f830f17f146f1761d79fa3312b664e49483",
+      "conversions": [
+        {
+          "line": 258,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/training/page.tsx",
+      "beforeHash": "c843283569c06b4dc444672e60d9f018ddcb6f501cdb214aa4dd27451ba963e0",
+      "afterHash": "70f6d964c120bd35f74d0c7d940f5c38c8076b34f987cee282f98368b4698ac1",
+      "conversions": [
+        {
+          "line": 254,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/training/records/[id]/page.tsx",
+      "beforeHash": "1bb7e7f19a99ab9aeacc883b40360e873e217e4e17188a6b0f16da8076f5a1e6",
+      "afterHash": "1b37e4d1126478f840148d02031fb802c7ee296a49fd7bed780e693122544acc",
+      "conversions": [
+        {
+          "line": 158,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/[id]/client.tsx",
+      "beforeHash": "54e09077994a1f8fb65a8b1c8e164ea17daf4dad350566dddeb7794df2c5d820",
+      "afterHash": "dae15760deb9dcdc281ed2208f8aed50b6fbf930adc7a11c8996956d25a5da2f",
+      "conversions": [
+        {
+          "line": 339,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "beforeHash": "141d0e36f76234eaaa771eac715bd96f4691722a97031daca7b16f452c289040",
+      "afterHash": "ea706c337ac38b73ca8e6f7f967086c8dac7a1f0f2f01ce4fe76f052e4c1c22f",
+      "conversions": [
+        {
+          "line": 12,
+          "reason": "central-label-import",
+          "value": [
+            "labelCase"
+          ]
+        },
+        {
+          "line": 393,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/vigilance/new/client.tsx",
+      "beforeHash": "f152126fade812744cd141bd7e25a11e62a9049453ec8237ee9f25967b53559b",
+      "afterHash": "443571c3d9e5aea149b37312d73f411a79f6ae3d2b8cb31328b68e0b6d4dece1",
+      "conversions": [
+        {
+          "line": 15,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 380,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.14em",
+            "key": "v4be350027f"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(auth)/forgot-password/page.tsx",
+      "beforeHash": "822a0016311cc889a3bf1945e56d8bf91544ce8a913a2927ab1123eac2ecbfcc",
+      "afterHash": "65809ebe5cee94432ea07f7dd56747086ec338e7839b534efc93115e779efe6c",
+      "conversions": [
+        {
+          "line": 57,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 70,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/(auth)/login/page.tsx",
+      "beforeHash": "717c4e941d9d58f8183e64726efb0be5d81be61e5c5427fa13be2f9bcd40ea12",
+      "afterHash": "7fa1b85f2cb29468621e7810207424ccb5696893dd8a9579ee539d2a04eeb9af",
+      "conversions": [
+        {
+          "line": 835,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 869,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 917,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1018,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1104,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1174,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1353,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/auth/reset/page.tsx",
+      "beforeHash": "2c9db1a07695715058c23f39928636c6b9a9a5a0d0e52d41e35a522a54dd5ad7",
+      "afterHash": "d3192863a7fb3feb5c77e32cd985d3326aecc0edafbfdb60b7c0505ddfe335e3",
+      "conversions": [
+        {
+          "line": 99,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/experts/inbox/[id]/page.tsx",
+      "beforeHash": "0ea26c1dbda93a731a3c2476e3b30f7920f58d63a464b6992e6092c5e4b36f3b",
+      "afterHash": "c94549bc0c00cf456e7aca9cb816d88f6d19c999272379d1d0fe640078d9f046",
+      "conversions": [
+        {
+          "line": 197,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 425,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 447,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/experts/inbox/page.tsx",
+      "beforeHash": "a4300553a64fd630219861985a9dd4e4f699a5296a0257355c4f540201988cf8",
+      "afterHash": "8108d2a8582521bf14231dd6f84e60cc87972cf608a7cdc736b8f1f29e75313a",
+      "conversions": [
+        {
+          "line": 269,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "app/onboarding/page.tsx",
+      "beforeHash": "4e60ebcd07bf6430dad5061bdb3a8ea0d87714b80272612aa145f5fdb6bbf098",
+      "afterHash": "a84707a195ed956eed718c80cc9148ba61cc1d6b668cfd4d3e0401c187f4e9aa",
+      "conversions": [
+        {
+          "line": 249,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/AIQuickAccessFab.tsx",
+      "beforeHash": "a5ccfcf9d101bf5e2718a00f3ec54d156b7f0183e0e96a437e2268a4defece96",
+      "afterHash": "a4ed32dc935b4ba759fb42ac15b184d67ab0887af82dba756f1b3d36f133a75f",
+      "conversions": [
+        {
+          "line": 162,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 219,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "path": "components/AdminHubTabs.tsx",
+      "beforeHash": "97dfb3aaefee9e11818188b50eabc48e2bdec87aac698481b866cb6afa4f1cf3",
+      "afterHash": "c19d9de5f6a6a523bb95fcb77a49c4112aedf3c63871eeb06462d9d5ae2b0b83",
+      "conversions": [
+        {
+          "line": 84,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 145,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 199,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 201,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 258,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "components/AiHelperButton.tsx",
+      "beforeHash": "8375af8f97bdf3c078d2104455cd5e34b81ecd5989ca796a88f68f3b5c8a8611",
+      "afterHash": "5a1ad091041856fd97ce5266dba35b2d897da30c40100cb25ca6fc1b3b72fb83",
+      "conversions": [
+        {
+          "line": 355,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalDocFile.tsx",
+      "beforeHash": "1123fcd012f9f2084535ab41d36d28993be6c946a5d8747fe936788a85596269",
+      "afterHash": "a9187ec1de93126ac132049fb0149117a81630f6feb8d4d00bc4485983a4c0db",
+      "conversions": [
+        {
+          "line": 206,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "line": 245,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/AssessmentDocApprovalPanel.tsx",
+      "beforeHash": "4c721168db9d298dd903f14c94ba7653d7c5a4dc2636812d5f257bd8e73e1c9a",
+      "afterHash": "e203bae4fce54b7ad41ea1d8c4f754d94510abd0cdec5cde26038b72c2029abf",
+      "conversions": [
+        {
+          "line": 315,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/AssessmentPreviewPanel.tsx",
+      "beforeHash": "a96223f406c93af5a2c2b8eb674ef97724109419e74a81112ff94d07428ee412",
+      "afterHash": "ae6194f317cca1747493fa22453cb161a83d052fdb55cc261e4370c6da22c0f0",
+      "conversions": [
+        {
+          "line": 352,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 395,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/AttachmentManager.tsx",
+      "beforeHash": "d4292732bdcbe6ce4718efba9758f7fd518449d548655d17718a731c049feb34",
+      "afterHash": "3b8bf50ecd43a4f71f57e1c3043a923dabbad6592dc02f18552db22d1a94230b",
+      "conversions": [
+        {
+          "line": 474,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "components/AuditReadinessWidget.tsx",
+      "beforeHash": "61266b1a20a69dee9712d61115b77c403e651f1a04237575d616593a2ed43cdd",
+      "afterHash": "dc8102d11961dc06e3991aeb529c067530f2abff0af0c616220fe1a650c9eea9",
+      "conversions": [
+        {
+          "line": 144,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 154,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/ChangeImpactDecisionTree.tsx",
+      "beforeHash": "f6019ed99a972301ab3b35cede38205dd92f86a03f178536882c58a2ba327cdb",
+      "afterHash": "3747e63ce744a6c4c75f8644e4f761c3162eb665feb3bafcfafa3a21590dc736",
+      "conversions": [
+        {
+          "line": 241,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 446,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/DesignReviewPanel.tsx",
+      "beforeHash": "5920b36dea2b96958654053acc79a89e8097a4f7a2c3cf3039ad968c17acbf20",
+      "afterHash": "0d9facbd2b523d9c3e056405ea2c1923a9c6f8880ae26e7b87b3148afe0a416a",
+      "conversions": [
+        {
+          "line": 581,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 620,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 648,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 766,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 940,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/DocumentApprovalPanel.tsx",
+      "beforeHash": "dee62be5ed689dafccc5fb0432f01e003c244bd9d15ec8f6e2cd667c11496a4b",
+      "afterHash": "5b7839b2cb280a8f312bac0ea0f7c011c852a2eb6994f41941fbd57eb16b3828",
+      "conversions": [
+        {
+          "line": 536,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertNotificationsPanel.tsx",
+      "beforeHash": "6e21ac5e00bdbffb83331ec0585a6e05be418e6d19920b8ffac5da5171d42726",
+      "afterHash": "be8dd61d17865f041e42834e455faf569894432081dde8ed5077ffe199bbe0c9",
+      "conversions": [
+        {
+          "line": 172,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/FieldModeBanner.tsx",
+      "beforeHash": "ddc56d354de29de6cb5323cb90d0c3b36b4e9e205cad0d879fec324435f18641",
+      "afterHash": "50edc420ef347d2e6ca773cba716f05e043d61dc04d750765899967612ec6adf",
+      "conversions": [
+        {
+          "line": 38,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/FinalJudgmentPanel.tsx",
+      "beforeHash": "1ede2e9751dd2c604bba0b7f3b6c4c7adb9cb712c969efff9e03da7c154b3d1e",
+      "afterHash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
+      "conversions": [
+        {
+          "line": 330,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 426,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/GlobalSearch.tsx",
+      "beforeHash": "904c3fde47404beecdd519556773386386367a8854e7751067b8619f5f3b6f5a",
+      "afterHash": "7f8252ebb70b97c34468e138a324f7a12eac2ae04f0cf228082adf276921a9e4",
+      "conversions": [
+        {
+          "line": 485,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/HubModuleGrid.tsx",
+      "beforeHash": "c834620261597d6a8889cad94fffa56f9fe0f57f9538ca908834095764406b51",
+      "afterHash": "ae742dc83dd244409e46d97c8b55bceea2cf3ca7da91f6564252845d469cbb6e",
+      "conversions": [
+        {
+          "line": 54,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/IfuClassifyDrawer.tsx",
+      "beforeHash": "8fa1aea4f79886abda00a1e2b18d161dd0782a18fe5e257cfa5804cf06b8a06e",
+      "afterHash": "b6a6194a8b4f2a3726d8859dac72a4a626e24f12a441919b8d5f04e30a7c6a61",
+      "conversions": [
+        {
+          "line": 300,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "components/InternalReviewQueue.tsx",
+      "beforeHash": "5b86bdfad66dfcc0bf785f9e430ebc22c714d90a23e1c0b393230e58d1e93481",
+      "afterHash": "e91c793ebb51ceebec6ecf1d92443f23b64b25f344819a60c81989cda368b702",
+      "conversions": [
+        {
+          "line": 100,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "beforeHash": "51087004518603341d71d2507fb494a0e44d91c5d1f37ec82ba9c5bd506b169e",
+      "afterHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
+      "conversions": [
+        {
+          "line": 692,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/KeywordReviewModal.tsx",
+      "beforeHash": "9299e10d1ae38e9c74173f57ed410b855a42380013d87ef31b67d77ed1eb2830",
+      "afterHash": "43ab564c5a67a7b32508427761e18e6e2b6dd3a9ad001f7dd6ea183c264edd9a",
+      "conversions": [
+        {
+          "line": 211,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 223,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/ListBackLink.tsx",
+      "beforeHash": "b38f6637760d0ea216935d662a485ae7b2bb5f1db2de456cf0a21659e22fb3b9",
+      "afterHash": "9ed9fe0d83ad5bf11a744e9c7a5b3d41a16a3ab9fe202753ab4f8803d53e0c90",
+      "conversions": [
+        {
+          "line": 35,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/ListPager.tsx",
+      "beforeHash": "e6fcf9653988595c6bdc3437b335e787b417a899f8b7fc72b7cd69617f509b65",
+      "afterHash": "ef500f185c43c5dd59d6b7fb2622a760b51dcdee229513551232bdeecd75d04b",
+      "conversions": [
+        {
+          "line": 16,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 83,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.4,
+            "key": "vf3e360d899"
+          }
+        },
+        {
+          "line": 100,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 102,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/ListToolbar.tsx",
+      "beforeHash": "21a09a3a2c60c6fdbcbab3bdc1c13a26d46d1ee656bea077f991580c4d1f9732",
+      "afterHash": "52dd04cc2d07680c3eaf6c096f87023719501b6e6310eafff1d3798fd17f507e",
+      "conversions": [
+        {
+          "line": 28,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking"
+          ]
+        },
+        {
+          "line": 103,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.4,
+            "key": "vf3e360d899"
+          }
+        },
+        {
+          "line": 198,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "components/MarketAccessWidget.tsx",
+      "beforeHash": "3ab4e0bfc5afed4ddba9887b0de6647ed34a445e0301dc477004375819ef1954",
+      "afterHash": "ffd777b9e90e451eb7f9dfb5791de4ff650b3b496ed1d0f00fb4ced0691ae235",
+      "conversions": [
+        {
+          "line": 69,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 82,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 86,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/MarketLockedNotice.tsx",
+      "beforeHash": "9e794d2f45f53bd6d7249e6dd1d5277c93ea84efd8c72d65c2b2fe6a9a2395c8",
+      "afterHash": "c2084446bb27b43b80d94d41cd511efa4a034ff0b17ffb596f87b7cfa7ba80d2",
+      "conversions": [
+        {
+          "line": 57,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "components/MatchedRulesList.tsx",
+      "beforeHash": "d2edd9702e34c54eefc32baad6dd6b4574cb600252cdc884082c4a6ef47a2fb8",
+      "afterHash": "a6c55afedff0864fae4b7f51dd885aa7d3a090a6e0470fdc5f15b177a06d956b",
+      "conversions": [
+        {
+          "line": 304,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "normal",
+            "key": "v82fbb169e7"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/MedqraftTemplateListClient.tsx",
+      "beforeHash": "2f18b8162566cabdedf21467042b70a78880569712a28e03531acb5c2a529356",
+      "afterHash": "62cd100a1283fca69a6635e961c20a11c34e29ab0f1275e5f2826d04e8af7c41",
+      "conversions": [
+        {
+          "line": 274,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 380,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/MemberPicker.tsx",
+      "beforeHash": "9872d077b9749eff4eeb555999bd6b53c612f7ebb623be332a344fb6defa42b8",
+      "afterHash": "2a2976cfba780f387ab0bc567befdce8d171da172582cff2f5a7cee86702a1c9",
+      "conversions": [
+        {
+          "line": 95,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/MobileBottomNav.tsx",
+      "beforeHash": "ff56f4abfc831d8e9c7c71e70e89e8302f60a92227038fa127634ea0287f4d33",
+      "afterHash": "44ce916b5237accba9a6ae5d20c3a94758a553ead359343aa00c7cc21f3e9a1e",
+      "conversions": [
+        {
+          "line": 50,
+          "reason": "central-label-import",
+          "value": [
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 261,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "components/ModuleLockedNotice.tsx",
+      "beforeHash": "9fcdb81a557019895c5f94640d4de4ddb1e6c136287454a68b970449c460d0cd",
+      "afterHash": "bd4c4066875c08295f3be1a2ec94ce7dfc88b86b94c2d4f5e89c38cab0614923",
+      "conversions": [
+        {
+          "line": 122,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "components/MyActionItems.tsx",
+      "beforeHash": "470b8e31da2b47585849c4dacad4479e0935da638fffd620387f974f5541cc36",
+      "afterHash": "6bd7c33b825c6d96bb1418f5c88dcd144650c5a134bd51dc9f4c489e54b317bc",
+      "conversions": [
+        {
+          "line": 262,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/MyActionsViews.tsx",
+      "beforeHash": "f24a087d4b15ff9a9cd1ae7fb068aa07ac6e3e627b730239b5331b5f7344e2ba",
+      "afterHash": "8f8ce27360a03068dd1f1172dee201c155d8926af0c27ab5069be17ba225508c",
+      "conversions": [
+        {
+          "line": 151,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "beforeHash": "2c42644f4714060b8592a0542139104f53c7ed5e9ff571b2e742ce4552c58413",
+      "afterHash": "7d504cab9879d82a518fd91c23a144d3fa116ef7a7678d8678136839105f0857",
+      "conversions": [
+        {
+          "line": 345,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 411,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationQuickReply.tsx",
+      "beforeHash": "e4835cf5067376c6cfc6b82e1be243b16d90c7d28c5664607f9ec526912b1681",
+      "afterHash": "91c8d723050fd070bd0d7cdc6458683934829d5385f589f00d1eb5d5ad87123e",
+      "conversions": [
+        {
+          "line": 72,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 180,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerProductWorkflow.tsx",
+      "beforeHash": "78b6028aafc7e853ad7cb4829f7178bc971fa0e45ec13c2166f7f3d02e3296e9",
+      "afterHash": "8f5853729c94842f03f67be549daca9b0b51918d6c10a3ed70bc5e6bb21e512c",
+      "conversions": [
+        {
+          "line": 864,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 950,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerResearchPipeline.tsx",
+      "beforeHash": "a31ade33d2e5997aeb43501203b0fbda3699674dd9ea47819d41a82ce8d6d193",
+      "afterHash": "a6780db8c67d6111ce474ced6a52277e5d166c1586d4026ace5c8139fb9e64fb",
+      "conversions": [
+        {
+          "line": 92,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerResearchPipelineClient.tsx",
+      "beforeHash": "b34067c38b92235b9ff60c6ff979418c0f830d19805bad3fb177547687edde5d",
+      "afterHash": "84e36db952dab39fc2fa71fb18bc58ffbf5a1bfaa4302cb6645e4073925091c4",
+      "conversions": [
+        {
+          "line": 151,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 177,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 332,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 449,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 558,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "components/PageTabs.tsx",
+      "beforeHash": "8149f9a37d3304417527af07ffeb4910c3c75947bc19285ec1983a945248a72d",
+      "afterHash": "81a88d5a99284885c4af87b6f46cfba574e57e99d59b439b458aa97ed3c5b39b",
+      "conversions": [
+        {
+          "line": 30,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/PendingResearchDocs.tsx",
+      "beforeHash": "371bc130948ef7febc8c0f2a646abde8816c3976498fa8e3d7ae6b0239df81a1",
+      "afterHash": "832ca4660e8c59920ba37be3ff91365b644e9d238b078bcd7bb6b20d7a46802e",
+      "conversions": [
+        {
+          "line": 239,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 261,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/PhoneModeGate.tsx",
+      "beforeHash": "9cd464b93ebc5488b2fc37892dd110894ee2d38c7b5c5e202368e8348d675b6a",
+      "afterHash": "99a5bf9a7a3219e1d5f158ccb590f91e6862caa61043ade42bc80b8a777d9ad9",
+      "conversions": [
+        {
+          "line": 110,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "beforeHash": "8d5402d343eca99fd0225a4c8c23fd532f6d21bb4499584f7c7d170c49fbec58",
+      "afterHash": "a43548893781035fcef9efa0738bd3426ecfe5dfbecfe1a456972d343eb5eaea",
+      "conversions": [
+        {
+          "line": 464,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 859,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 896,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1340,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "components/ProjectComplianceScore.tsx",
+      "beforeHash": "aaf9bee695b42656cd9d1e6395907e9259de47cfa469bd8733203709a12c2706",
+      "afterHash": "41fc40e18443c5d29ea46e3504e621fd18cb7c044b0b9f56b309419da4784fbb",
+      "conversions": [
+        {
+          "line": 387,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/QmsLinkedProcedureModal.tsx",
+      "beforeHash": "c42730d12bb2ab8aae4a4dacbe3ee9f7c4ad76cc97e0840295f75edcf55d3ec4",
+      "afterHash": "15729acaf9abec71f68fbd1eaf852121df373e53f4d8a793a0e5119a7a4cdfdd",
+      "conversions": [
+        {
+          "line": 267,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 298,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/QmsStatusWidget.tsx",
+      "beforeHash": "8a923495f120a6efbfd014f8ab83a95be3e9a45572fcbe67f0757d80ebfedf78",
+      "afterHash": "69085dbbe29da558ae03615fe7c62f417c1336d9a3775d705f0dbd4b8160f198",
+      "conversions": [
+        {
+          "line": 88,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 95,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/RaProgressPanel.tsx",
+      "beforeHash": "49abb34ad8c54ae89884e2ed271ccaf30747d4d32ba1b90f2a6fbf470ca63111",
+      "afterHash": "df55fe36a03ab7cbcbe00c7edcb07d1e43491294417c98a4ca6ad116d9cd60de",
+      "conversions": [
+        {
+          "line": 125,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 154,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 194,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 202,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/RaStatusNotice.tsx",
+      "beforeHash": "9e3d78e9fd3aa9068d4314d2b7cf5d4806933d83a78910bd0fe4808f84ca5a9f",
+      "afterHash": "5c209be06f7b0d9f383276aa5c2ea5e208807daa1e704884bc6824fee6affbbf",
+      "conversions": [
+        {
+          "line": 46,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 74,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "beforeHash": "72b555f17a1fb54bf5f810d35abe6ba625b67a9387984299d633da9e727fa178",
+      "afterHash": "97f2d02becaac8311a4b9b42f73fd7296cfdb1676f70706b40ecb780c7c97e3e",
+      "conversions": [
+        {
+          "line": 553,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1267,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 1272,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 1282,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "components/ReferenceSection.tsx",
+      "beforeHash": "3e920b6a77f3605bdf9fda95217fa8485442894776c780242601fb2802f03f4a",
+      "afterHash": "08f9ed7c1cf17329d629ba9968d697c7235c579c02b5d4e35a26bb4cfe6d436e",
+      "conversions": [
+        {
+          "line": 18,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing",
+            "labelCase"
+          ]
+        },
+        {
+          "line": 62,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 2.2,
+            "key": "v914204c25f"
+          }
+        },
+        {
+          "line": 82,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.5,
+            "key": "vd2cbad71ff"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/RegisterSection.tsx",
+      "beforeHash": "b0f554166ebd8749a35f8e2cce65d3c764366389aace69e682590d61312f5f0f",
+      "afterHash": "af33a64d442a713779a55ad27a60788fa7e08c2961bc5d358a7c20db9ceb7cf0",
+      "conversions": [
+        {
+          "line": 219,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "line": 245,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryChangesPanel.tsx",
+      "beforeHash": "bd956f7dc6eeddc6bd306d77ad4b51a2ac055e665b910964f8bf62531a902970",
+      "afterHash": "cc496e313ea43e3cc899e8207651e2f89fe2e624415f1bcb8156b69a32a93e4a",
+      "conversions": [
+        {
+          "line": 110,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryDeadlinesWidget.tsx",
+      "beforeHash": "2121d9d88f2652baba39219afd2d5b87332e8acf7d6f4407d9d0a5d5336fd05e",
+      "afterHash": "b8e66a679f08fc11eee4d91f0ec9ef03a26de919a07cfa328d5a14476892fdf2",
+      "conversions": [
+        {
+          "line": 105,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 116,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 143,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryPipelineWidget.tsx",
+      "beforeHash": "21538a0b9521fb4972b4af432d686578a85dbfe0d80f98854d2ee1738bf01eff",
+      "afterHash": "61775ef118463c8b046f3fff3f9826450d9a7ee3f672777b3d8d3ee0cc8a673a",
+      "conversions": [
+        {
+          "line": 76,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 83,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 98,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryWatchWidget.tsx",
+      "beforeHash": "00edf0de64da8acef32e199fc1d5c9c2b91c895d43bcbc86890e5f4c15ce66f7",
+      "afterHash": "64053ef3c87ae09e4309ae69411ac73262e5fd5cab69389e92becd7919813a2b",
+      "conversions": [
+        {
+          "line": 146,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 154,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/ReleaseChecklist.tsx",
+      "beforeHash": "f9fc04c5bea820ee6d62bed39087cedc79ad165dd77aae10289edbd411171e5a",
+      "afterHash": "54e6efeb6684b9cd4ce13b47fd9eacafdc41faab423c6d5a0a72c36e046654fe",
+      "conversions": [
+        {
+          "line": 183,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/RequirementsDashboard.tsx",
+      "beforeHash": "99538909e4ce0655b521f1845c2d050e6f3eee20f19610e01cd2028e5a9e8fe1",
+      "afterHash": "49c4871527608a21ba1bdd13b3bf7bb581bcfb4c3fd64c32c5bb065e0376b52e",
+      "conversions": [
+        {
+          "line": 492,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 848,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1232,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1510,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "components/ResearchChangeRequestsPanel.tsx",
+      "beforeHash": "7d6ec70cb94316be67fc6eabae74f7a590b3f126fd156af9cda9acdef3646d0a",
+      "afterHash": "91c88a3e03bd9c03e441c2ed6df1098fa14ccb89270ca507422408b5a235cfc2",
+      "conversions": [
+        {
+          "line": 1518,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1703,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1731,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "components/ResearchTabNav.tsx",
+      "beforeHash": "3697a84e263f61db402f751ff831b0bede82a68d212ac03f6a1c4bd7bc4f8993",
+      "afterHash": "0c5853e26507950144b0d2fe7e98edc1cf9d361f09dfd3c241496b88815b3478",
+      "conversions": [
+        {
+          "line": 79,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/RevisionRowExpandable.tsx",
+      "beforeHash": "f820f627fc57da555d7bc550b25052f4535b9318905b1857432d53e0622c7577",
+      "afterHash": "c59ac8a8e6fd531bee4ddbaff9b676f878afc4c04485891bd03adec214213a30",
+      "conversions": [
+        {
+          "line": 450,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "components/RoleProjectCard.tsx",
+      "beforeHash": "4d2599202e8ef5f033242e8154efabd9972d80a4e72cb8392ca127fbdc944ae0",
+      "afterHash": "e1a7ff71050b2f62325162e2ace6bd0bf1d48bd2a38015ecd3b7604328c6a1a3",
+      "conversions": [
+        {
+          "line": 123,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 136,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 178,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 226,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 264,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/RuleEngineBadge.tsx",
+      "beforeHash": "34233400317bf56e1fd711297813635ee7220f2562bd845b767fabc9bc9ddded",
+      "afterHash": "15bc7d5fce9f14e2cb1e3212e350be6da2e09b10018ecc5922877788585d5276",
+      "conversions": [
+        {
+          "line": 64,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeHash": "fa55ac742d90522aac341b720faeebd8c2f4b0f5836c72007138b5aa82d3b963",
+      "afterHash": "77b152f603c275c5dceac98af123aed32e340429fb5a28b6a875d18ef223a2cf",
+      "conversions": [
+        {
+          "line": 35,
+          "reason": "central-label-import",
+          "value": [
+            "labelCase",
+            "labelTracking",
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 573,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 584,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.4,
+            "key": "vf3e360d899"
+          }
+        },
+        {
+          "line": 586,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1002,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1050,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 1104,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.4,
+            "key": "vf3e360d899"
+          }
+        },
+        {
+          "line": 1107,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1396,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.6,
+            "key": "vec6c168f44"
+          }
+        },
+        {
+          "line": 1485,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.6,
+            "key": "vec6c168f44"
+          }
+        },
+        {
+          "line": 1663,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "components/SoloModeStepGuide.tsx",
+      "beforeHash": "359a7ed11173b4e7f2a2b744a0a822c74ab46eebfb41fa6344e98ac56a7c26be",
+      "afterHash": "5b761e65a22b2d8b32dfd9dba67175395b0f4e4a6a8e55eca9ad170ca7e4a964",
+      "conversions": [
+        {
+          "line": 166,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/StudioNote.tsx",
+      "beforeHash": "59dacf4e74e1fe2700835d60dad39dc8549e0da47b61b6503ebcc9264959666f",
+      "afterHash": "b61dd7743ba1a61879ba42568de118974f90515b39d8269cedb812f3ac888f91",
+      "conversions": [
+        {
+          "line": 80,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 92,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "beforeHash": "80172c5fa03c7e5b5f11f79f61c8f608106dca8e0668357814544b158123c089",
+      "afterHash": "af2c2798fced8ecd27ea82dfc3f830c8b96f1bb4d58f7bd98fa4c842100bded3",
+      "conversions": [
+        {
+          "line": 22,
+          "reason": "central-label-import",
+          "value": [
+            "labelCase",
+            "labelTracking",
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 334,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 742,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "components/SuggestionDetailModal.tsx",
+      "beforeHash": "04227bd1bc8b62f871d670e673e33d6ef4d0903a5738b1e85e8043d3398e5ba9",
+      "afterHash": "261f732fc1fceb15b386280c13161072f691bb367cc6c392385386c9661e64d3",
+      "conversions": [
+        {
+          "line": 480,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 499,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "components/TextAction.tsx",
+      "beforeHash": "bb31e2b3644a0be9c1971a8fa75efcd64ba12b5d3475fd6a49d7e2f15193aa6a",
+      "afterHash": "809a38c12fdb21ffd7b45d0c84feec2264ededa638ffb4556ca77b96ff1fa324",
+      "conversions": [
+        {
+          "line": 77,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "line": 77,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "beforeHash": "0ecde1c867b9f2cc7e5f741be59c1cb642f90c0af7f452a486b26df1c6c6e155",
+      "afterHash": "81da4ed70f5e2ea12100ea0707c05c10c694bf8fcc7ace6f33eeeda874f342fd",
+      "conversions": [
+        {
+          "line": 81,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "components/Toast.tsx",
+      "beforeHash": "6442c7dbd0b5c1ac5c2f1a7d8b26bbbb7ef48f2ea32c666acae14ed4a022dc44",
+      "afterHash": "ca7e54fd7d827f9a178245350b5c8e532929651a2daa1b49d1205ea07e8cfc5c",
+      "conversions": [
+        {
+          "line": 180,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "components/TodayQueue.tsx",
+      "beforeHash": "6f3631c1503de8901b934928dc7dfa5c9c91061d56039e0b294ac38ef507ddfe",
+      "afterHash": "20ec5d2da99cf2a0453a45556f7cdaf985593c721ed9ebe0cf14a657d06618dd",
+      "conversions": [
+        {
+          "line": 37,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 365,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.4,
+            "key": "v1a948f1b43"
+          }
+        },
+        {
+          "line": 367,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 413,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 516,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 647,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "components/WelcomeFlow.tsx",
+      "beforeHash": "ae5b4f31a93166fa5b97eaed849a28831bbb26950285230322f585adccf15d92",
+      "afterHash": "58887d580f85d7329386fb6904aad6b5bacb9416f799fee25ec8217fbfa44ea7",
+      "conversions": [
+        {
+          "line": 135,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 280,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "components/admin/MemberHandoverDialog.tsx",
+      "beforeHash": "808dcc2d9eb327f54c125ffc854983adf3b37804cd9c5a1be84889da89e570b5",
+      "afterHash": "699939315852be64912f118dad722e7842e1a0808e864d137290fd40686f5806",
+      "conversions": [
+        {
+          "line": 297,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/CalendarClient.tsx",
+      "beforeHash": "5690f521c9d1a06963d022da609e567e746ba9b8537bd1a7405279c70d6b8e2c",
+      "afterHash": "0f5b1484defd4e093d70f8fe70b64222221b3b77c07f188110e449e8a50e181e",
+      "conversions": [
+        {
+          "line": 375,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "line-through",
+            "key": "vbfa27938af"
+          }
+        },
+        {
+          "line": 375,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/MeetingComposeDialog.tsx",
+      "beforeHash": "d41f40d54b816c91ad59419e47ceee0ae1e3557b397ef9da27e968f985a783d7",
+      "afterHash": "8a62fa97909cf88b6f91fd251d647d78b54bcb6470fd3a18b263bdb69e2fb9fb",
+      "conversions": [
+        {
+          "line": 390,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/MeetingDetailPanel.tsx",
+      "beforeHash": "0f7800a688c048144c3dd8ff965fcfc3b741172b3fad2d5dfb89ae193dc4e5ab",
+      "afterHash": "3ba9fa808412562129cad4490727b9c769b67c69cf99ec595dde01f8775eff9c",
+      "conversions": [
+        {
+          "line": 128,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "line-through",
+            "key": "vbfa27938af"
+          }
+        },
+        {
+          "line": 128,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 153,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "underline",
+            "key": "v9c3ff05cab"
+          }
+        },
+        {
+          "line": 225,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 421,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/ClinicalDashboardView.tsx",
+      "beforeHash": "abd533b3b0199257b866066a2c168026792543a9e1b9c916d5e8ad4a2395a89f",
+      "afterHash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068",
+      "conversions": [
+        {
+          "line": 135,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 169,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 201,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/GettingStartedChecklist.tsx",
+      "beforeHash": "4a762383fa0c643bd19d5757025628ce83d0a73080e794df4dbdf6e73dedc1fc",
+      "afterHash": "9ccf92071129f9d822d3a210e4abd895bccad2b23ded80ab0cc6532e7bcfa915",
+      "conversions": [
+        {
+          "line": 259,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "line-through",
+            "key": "vbfa27938af"
+          }
+        },
+        {
+          "line": 259,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/ProductionDashboardView.tsx",
+      "beforeHash": "2ab9d9206d1b9ebd56ca4f41487e1e6ab820b687d34f7fd03f8c9dba02a6be4a",
+      "afterHash": "f6e54a7b1f44c53f914be47938e7891c9f34ae2ca777e912d9f90ccad1cb9299",
+      "conversions": [
+        {
+          "line": 92,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 109,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 237,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 249,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/QADashboardView.tsx",
+      "beforeHash": "fb5e12b6defcff7553dc754707522d1a974b621adc6ea5ca8ea58542b67c7122",
+      "afterHash": "9cc82081f4990540d9986381c0a3f855b0923435ac3591468673f8d02649b791",
+      "conversions": [
+        {
+          "line": 99,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 116,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/RADashboardView.tsx",
+      "beforeHash": "09294a1db57aca556781e0c78e6aced9bf01f47fbad2e4160e27720605ae0cf2",
+      "afterHash": "bd57498e327a73278a43cd45127a57544f912813e336635f49c9d39bd07adaa8",
+      "conversions": [
+        {
+          "line": 73,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 90,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/RDDashboardView.tsx",
+      "beforeHash": "a4be1eef919350efdeca7fd7876100e270cd0d7d47f214a0925413f66723cb9f",
+      "afterHash": "9c90503c08626189f53f9e874b3fe7dc7463aa465cd50f0b2b45bfca7e4c39a1",
+      "conversions": [
+        {
+          "line": 72,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 215,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/widgets.tsx",
+      "beforeHash": "a558cd2175d7a4f9f3be6050b6500948719fbbf94a258869fc02059e67c2a28c",
+      "afterHash": "9174ad03712fb15701dc14bb6410649840eb982b901126e707576d3af12509e4",
+      "conversions": [
+        {
+          "line": 18,
+          "reason": "central-label-import",
+          "value": [
+            "labelTracking",
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 52,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 54,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 135,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 137,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 172,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 174,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 319,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 357,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "components/device-licenses/LicenseSubmissionDocsPanel.tsx",
+      "beforeHash": "e18f6d14e19d3a743d98bad186045156b06ec61f0f41fdb908b9be319fea4a5e",
+      "afterHash": "936266ff32375fa6f7daf1770e20856ba7159fd67d626fbc26591e2ee502034e",
+      "conversions": [
+        {
+          "line": 378,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 396,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "components/expert/Field.tsx",
+      "beforeHash": "0bf20c88b20494de133688c7544344e266ca3ff7f283d9093bc0cf68e44f6246",
+      "afterHash": "0e2529198edead68e2f3366dbc05aa29a017b993791edec210fd85530d02a6e7",
+      "conversions": [
+        {
+          "line": 62,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "components/item-classification/MfdsRegisteredProducts.tsx",
+      "beforeHash": "af01201cd50d2380360c9486500cba5d670033ab6c262d48e8fa5fd6c1c28db9",
+      "afterHash": "e7a2cd46d08b0e5cf484dcb75afa2693e4334701f7971692d3bf47912430c6dc",
+      "conversions": [
+        {
+          "line": 230,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 415,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "line": 428,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 578,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierItemsPanel.tsx",
+      "beforeHash": "17411742a84bfd090531ab04489ce2d15c70b275b76cc9febf020a7bf8eea01f",
+      "afterHash": "050afc756f4e1237fe5126ef732a76c8a81b49b830bc654828b2f0c16f3fcb35",
+      "conversions": [
+        {
+          "line": 137,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "uppercase",
+            "key": "v642d85873e"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "4c47ceb024bda0475daf7d4a6c4f33eb1ff5e8a2e7fc4a6fecf7d999a4c346b1",
+      "afterHash": "f4744bda529b1095cfdc6bdac20974368a75784ea5b884149d749ba38f799516",
+      "conversions": [
+        {
+          "line": 15,
+          "reason": "central-label-import",
+          "value": [
+            "labelCase",
+            "labelTracking",
+            "labelWordSpacing"
+          ]
+        },
+        {
+          "line": 94,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.5,
+            "key": "v9f29a13043"
+          }
+        },
+        {
+          "line": 385,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 758,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1,
+            "key": "v6b86b273ff"
+          }
+        },
+        {
+          "line": 822,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.12em",
+            "key": "v7c1681a74c"
+          }
+        },
+        {
+          "line": 1066,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 1366,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.2,
+            "key": "v77ac319bfe"
+          }
+        },
+        {
+          "line": 1476,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 2.2,
+            "key": "v914204c25f"
+          }
+        },
+        {
+          "line": 1562,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.5,
+            "key": "v9f29a13043"
+          }
+        },
+        {
+          "line": 1895,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.5,
+            "key": "v9f29a13043"
+          }
+        },
+        {
+          "line": 1928,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 2.2,
+            "key": "v914204c25f"
+          }
+        },
+        {
+          "line": 2171,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.5,
+            "key": "vd2cbad71ff"
+          }
+        },
+        {
+          "line": 2174,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 2491,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.5,
+            "key": "v9f29a13043"
+          }
+        },
+        {
+          "line": 2635,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1.5,
+            "key": "v9f29a13043"
+          }
+        },
+        {
+          "line": 2733,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textTransform",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 3059,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 1,
+            "key": "v6b86b273ff"
+          }
+        },
+        {
+          "line": 3087,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "line": 3312,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.12em",
+            "key": "v7c1681a74c"
+          }
+        },
+        {
+          "line": 3342,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 3521,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 3631,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "textDecoration",
+            "value": "none",
+            "key": "v30a0924a33"
+          }
+        },
+        {
+          "line": 3675,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.1em",
+            "key": "vae83a9aee5"
+          }
+        },
+        {
+          "line": 4393,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.12em",
+            "key": "v7c1681a74c"
+          }
+        },
+        {
+          "line": 4432,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": "0.1em",
+            "key": "vae83a9aee5"
+          }
+        },
+        {
+          "line": 4487,
+          "reason": "central-latin-label-tracking",
+          "value": {
+            "value": 0.5,
+            "key": "vd2cbad71ff"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "lib/research/comment-markdown.tsx",
+      "beforeHash": "b278d62c3bad19884f31be0402f7f1ffa1ce4431d1b72846c30fd2034c2363d2",
+      "afterHash": "3eb7cfdf6936c666b9cbb795125d18b4ca677021dc522ed11cdab9e5438a6503",
+      "conversions": [
+        {
+          "line": 45,
+          "reason": "central-typography-value",
+          "value": {
+            "property": "fontStyle",
+            "value": "italic",
+            "key": "v2cd63dd677"
+          }
+        },
+        {
+          "reason": "central-typography-module",
+          "line": 7
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "checkedAt": "2026-10-10T07:02:02.315Z",
+    "files": 160,
+    "result": "Every current migrated file was compared to its exact preserved pre-migration source. Executable TS/TSX ASTs matched after substituting central typography values and excluding import declarations. This is historical migration evidence, not automatic approval of future source changes.",
+    "typecheck": "tsc --noEmit --incremental false exit0, tmp/atelier-typography-tsc.log",
+    "helperBehavior": "Native locked helper and central adapter outputs matched for Korean, mixed Korean/Latin, Latin, numeric, null, arrays and nested React-like children; central tracking and word-spacing mutations were observed."
+  }
+}

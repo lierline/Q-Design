@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "note": "Explicit offline cache for fetch-fonts.mjs. Refreshed only after a complete online build. Changed requirements or source need review and a fresh build.",
+  "requirementsSha256": "fe7974e799641d42f2741ea59faa07e9e2e714dc5ebd9c1944e327c6aaec1385",
+  "source": {
+    "path": "source/fonts/fonts.ts",
+    "sha256": "5a2cb91112c2806902ec89276d04abea44f8ea6e62de31d30f7862bae0ef2ab5"
+  },
+  "stylesheet": {
+    "path": "dist/q-design.fonts.css",
+    "sha256": "378694b470b3ee92197be68e18d483030abb769f6b79a5ef9e2e75c36a075f8a"
+  },
+  "files": {
+    "PretendardVariable.woff2": {
+      "bytes": 2057688,
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "cormorant-garamond-400-latin.woff2": {
+      "bytes": 37640,
+      "sha256": "d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235"
+    },
+    "cormorant-garamond-400-latin-ext.woff2": {
+      "bytes": 33736,
+      "sha256": "cfa9a397d86f66c5c51775a2500a712d5f632a04f0c5eca6930dfaf612d4566d"
+    },
+    "cormorant-garamond-500-latin.woff2": {
+      "bytes": 37640,
+      "sha256": "d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235"
+    },
+    "cormorant-garamond-500-latin-ext.woff2": {
+      "bytes": 33736,
+      "sha256": "cfa9a397d86f66c5c51775a2500a712d5f632a04f0c5eca6930dfaf612d4566d"
+    },
+    "cormorant-garamond-600-latin.woff2": {
+      "bytes": 37640,
+      "sha256": "d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235"
+    },
+    "cormorant-garamond-600-latin-ext.woff2": {
+      "bytes": 33736,
+      "sha256": "cfa9a397d86f66c5c51775a2500a712d5f632a04f0c5eca6930dfaf612d4566d"
+    },
+    "cormorant-garamond-700-latin.woff2": {
+      "bytes": 37640,
+      "sha256": "d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235"
+    },
+    "cormorant-garamond-700-latin-ext.woff2": {
+      "bytes": 33736,
+      "sha256": "cfa9a397d86f66c5c51775a2500a712d5f632a04f0c5eca6930dfaf612d4566d"
+    },
+    "jetbrains-mono-400-latin.woff2": {
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    "jetbrains-mono-400-latin-ext.woff2": {
+      "bytes": 11624,
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52"
+    },
+    "jetbrains-mono-500-latin.woff2": {
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    "jetbrains-mono-500-latin-ext.woff2": {
+      "bytes": 11624,
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52"
+    },
+    "jetbrains-mono-600-latin.woff2": {
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    "jetbrains-mono-600-latin-ext.woff2": {
+      "bytes": 11624,
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52"
+    },
+    "jetbrains-mono-700-latin.woff2": {
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    "jetbrains-mono-700-latin-ext.woff2": {
+      "bytes": 11624,
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52"
+    }
+  }
+}

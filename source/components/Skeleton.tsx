@@ -6,8 +6,11 @@
 //   <Skeleton.Row count={3} />        // 3줄 텍스트 모양
 //   <Skeleton.Card height={120} />    // 카드 모양 (border 포함)
 
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import type { CSSProperties } from 'react';
-import { S, T, RADIUS } from '@/lib/design/tokens';
+import { S, T } from '@/lib/design/tokens';
+import { QD } from '@/lib/design/q-design-contract';
 
 interface BaseProps {
   width?: number | string;
@@ -16,13 +19,14 @@ interface BaseProps {
   className?: string;
 }
 
-export function Skeleton({ width = '100%', height = 14, style, className }: BaseProps) {
+export function Skeleton({ width = 'var(--qd-atelier-skeleton-width-100)', height = QDPresentation.skeletonHeight[14], style, className }: BaseProps) {
   return (
     <div
-      className={`qa-skeleton ${className ?? ''}`}
+      className={`qa-skeleton qd-skeleton ${className ?? ''}`}
       style={{
         width,
         height,
+        borderRadius: QD.radius,
         ...style,
       }}
       aria-hidden
@@ -31,9 +35,9 @@ export function Skeleton({ width = '100%', height = 14, style, className }: Base
 }
 
 Skeleton.Row = function SkeletonRow({
-  count = 1,
-  gap = 8,
-  lastWidth = '70%',
+  count = QDPresentation.commonDefaults.skeletonCount,
+  gap = QDPresentation.skeletonGap[8],
+  lastWidth = 'var(--qd-atelier-skeleton-width-70)',
 }: {
   count?: number;
   gap?: number;
@@ -45,16 +49,16 @@ Skeleton.Row = function SkeletonRow({
       {Array.from({ length: count }).map((_, i) => (
         <Skeleton
           key={i}
-          height={12}
-          width={i === count - 1 && count > 1 ? lastWidth : '100%'}
+          height={QDPresentation.skeletonHeight[12]}
+          width={i === count - 1 && count > 1 ? lastWidth : 'var(--qd-atelier-skeleton-width-100)'}
         />
       ))}
     </div>
   );
 };
 
-Skeleton.Card = function SkeletonCard({ height = 120 }: { height?: number }) {
-  return <Skeleton height={height} style={{ padding: 0 }} />;
+Skeleton.Card = function SkeletonCard({ height = QDPresentation.skeletonHeight[120] }: { height?: number }) {
+  return <Skeleton height={height} style={{ padding: "var(--qd-space-0)" }} />;
 };
 
 /**
@@ -62,8 +66,8 @@ Skeleton.Card = function SkeletonCard({ height = 120 }: { height?: number }) {
  * 카드 안에 label (10px) + value (24px) + sub (10px) layout 모사.
  */
 Skeleton.KPIGrid = function SkeletonKPIGrid({
-  cols = 4,
-  minHeight = 124,
+  cols = QDPresentation.commonDefaults.skeletonColumns,
+  minHeight = QDPresentation.skeletonHeight[124],
 }: {
   cols?: number;
   minHeight?: number;
@@ -73,8 +77,8 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-        gap: S[3.5],
-        marginBottom: S[6],
+        gap: QDScale.space[3.5],
+        marginBottom: QDScale.space[6],
       }}
       aria-busy="true"
       aria-live="polite"
@@ -83,19 +87,19 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
         <div
           key={i}
           style={{
-            border: `1px solid ${T.border}`,
-            borderRadius: RADIUS.md, // 실 카드(Bx)와 동일 모서리(로딩↔실화면 점프 방지)
-            padding: '18px 20px',
+            border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+            borderRadius: QD.radius, // 실 카드(Bx)와 동일 모서리(로딩↔실화면 점프 방지)
+            padding: "var(--qd-atelier-padding-0230ce59c8)",
             minHeight,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            gap: S[2.5],
+            gap: QDScale.space[2.5],
           }}
         >
-          <Skeleton height={10} width="40%" />
-          <Skeleton height={26} width="55%" style={{ marginTop: S[1.5] }} />
-          <Skeleton height={10} width="65%" />
+          <Skeleton height={QDPresentation.skeletonHeight[10]} width="var(--qd-atelier-skeleton-width-40)" />
+          <Skeleton height={QDPresentation.skeletonHeight[26]} width="var(--qd-atelier-skeleton-width-55)" style={{ marginTop: QDScale.space[1.5] }} />
+          <Skeleton height={QDPresentation.skeletonHeight[10]} width="var(--qd-atelier-skeleton-width-65)" />
         </div>
       ))}
     </div>
@@ -111,10 +115,10 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
  */
 Skeleton.PageHd = function SkeletonPageHd({ sub = false, desc = true }: { sub?: boolean; desc?: boolean } = {}) {
   return (
-    <div style={{ marginBottom: S[7] }} aria-busy="true">
-      {sub && <Skeleton height={11} width={140} style={{ marginBottom: S[3] }} />}
-      <Skeleton height={28} width="42%" />
-      {desc && <Skeleton height={14} width="28%" style={{ marginTop: S[2.5] }} />}
+    <div style={{ marginBottom: QDScale.space[7] }} aria-busy="true">
+      {sub && <Skeleton height={QDPresentation.skeletonHeight[11]} width={QDPresentation.skeletonWidth[140]} style={{ marginBottom: QDScale.space[3] }} />}
+      <Skeleton height={QDPresentation.skeletonHeight[28]} width="var(--qd-atelier-skeleton-width-42)" />
+      {desc && <Skeleton height={QDPresentation.skeletonHeight[14]} width="var(--qd-atelier-skeleton-width-28)" style={{ marginTop: QDScale.space[2.5] }} />}
     </div>
   );
 };
@@ -123,8 +127,8 @@ Skeleton.PageHd = function SkeletonPageHd({ sub = false, desc = true }: { sub?: 
  * Table skeleton: row 가 같은 grid 로 정렬되어 자연스러운 표 형태.
  */
 Skeleton.Table = function SkeletonTable({
-  rows = 5,
-  cols = 4,
+  rows = QDPresentation.commonDefaults.skeletonRows,
+  cols = QDPresentation.commonDefaults.skeletonColumns,
 }: {
   rows?: number;
   cols?: number;
@@ -132,8 +136,8 @@ Skeleton.Table = function SkeletonTable({
   return (
     <div
       style={{
-        border: `1px solid ${T.border}`,
-        borderRadius: RADIUS.md, // 실 테이블 카드와 동일
+        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+        borderRadius: QD.radius, // 실 테이블 카드와 동일
         overflow: 'hidden',
       }}
       aria-busy="true"
@@ -143,14 +147,14 @@ Skeleton.Table = function SkeletonTable({
           key={r}
           style={{
             display: 'grid',
-            gridTemplateColumns: `2fr repeat(${cols - 1}, 1fr)`,
-            gap: S[4],
-            padding: '14px 18px',
-            borderBottom: r < rows - 1 ? '1px solid var(--qa-border)' : 'none',
+            gridTemplateColumns: `var(--qd-atelier-skeleton-leading-track) repeat(${cols - 1}, var(--qd-atelier-skeleton-track))`,
+            gap: QDScale.space[4],
+            padding: "var(--qd-atelier-padding-453be8fe1b)",
+            borderBottom: r < rows - 1 ? 'var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) var(--qa-border)' : 'none',
           }}
         >
           {Array.from({ length: cols }).map((_, c) => (
-            <Skeleton key={c} height={12} width={c === 0 ? '85%' : '60%'} />
+            <Skeleton key={c} height={QDPresentation.skeletonHeight[12]} width={c === 0 ? 'var(--qd-atelier-skeleton-width-85)' : 'var(--qd-atelier-skeleton-width-60)'} />
           ))}
         </div>
       ))}

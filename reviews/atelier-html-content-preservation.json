@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-10T06:39:50.672Z",
+  "method": "Transpile actual before/after source after removing canonical style imports, style attributes/blocks and normalizing only color literals/palette refs; compare all remaining emitted behavior and HTML content.",
+  "results": [
+    {
+      "path": "lib/email.ts",
+      "nonStyleCodeEqual": true
+    },
+    {
+      "path": "lib/research/notify-doc-review.ts",
+      "nonStyleCodeEqual": true
+    },
+    {
+      "path": "lib/research/notify-license-change.ts",
+      "nonStyleCodeEqual": true
+    },
+    {
+      "path": "app/api/research/[code]/comments/route.ts",
+      "nonStyleCodeEqual": true
+    },
+    {
+      "path": "lib/export/org-export.ts",
+      "nonStyleCodeEqual": true
+    }
+  ]
+}

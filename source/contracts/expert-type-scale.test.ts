@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -17,7 +18,7 @@ import { join } from 'node:path';
 // 🔑 이 계약은 «새 raw px 이 다시 생기는 것» 을 막는다. 정당한 예외는 세 가지뿐이고
 //    전부 **이유가 코드 주석에 있어야** 통과한다(「사다리 밖」 표시).
 
-const CSS = readFileSync(join(process.cwd(), 'app', 'experts', 'expert-theme.css'), 'utf8');
+const CSS = readDesignFile(join(process.cwd(), 'app', 'experts', 'expert-theme.css'), 'utf8');
 
 /** 사다리 토큰. 늘리려면 여기와 CSS 를 함께 고쳐야 한다(그게 벨이다). */
 const LADDER = ['--fs-label', '--fs-ui', '--fs-body', '--fs-lead', '--fs-title', '--fs-brand', '--fs-figure'];

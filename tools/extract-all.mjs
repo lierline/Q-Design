@@ -26,6 +26,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseCoverageArgs } from './audit-coverage-imports.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -33,12 +34,22 @@ const ROOT = resolve(HERE, '..');
 const args = process.argv.slice(2);
 const doSync = args.includes('--sync');
 const checkOnly = args.includes('--check');
+const only = args.filter(arg => arg.startsWith('--only='));
+if (only.length > 1 || args.some(arg => !['--sync', '--check'].includes(arg) && !arg.startsWith('--only='))) {
+  throw new Error('Use --check, --sync and optional --only=product,product.');
+}
+parseCoverageArgs(only);
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
-  { name: '계단', file: 'extract-ramp.mjs', extra: ['--write'], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
+  { name: '제품 팔레트', file: 'build-palette.mjs', why: '공통 팔레트를 세 제품의 변수 이름과 형식으로 변환합니다' },
+  { name: '메종 이메일', file: 'build-maison-email.mjs', why: '이메일의 인라인 색상을 공통 팔레트에서 계산합니다' },
+  { name: '아뜰리에 HTML 문서', file: 'build-atelier-html.mjs', why: '이메일과 HTML 내보내기의 색상 및 치수를 공통 규칙에서 계산합니다' },
+  { name: '제품 기반', file: 'build-foundation.mjs', why: '배경, 인증, 셸과 전역 규칙을 공통 인자와 조합합니다' },
+  { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
+  { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
   { name: 'React 업무 아이콘', file: 'build-react-icons.mjs', why: '제품에서 직접 가져올 수 있는 개별 React 모듈을 만듭니다' },
@@ -67,21 +78,25 @@ if (checkOnly) {
   console.log(src.out.trim());
   const tbl = run('contrast-table.mjs', ['--check']);
   console.log(tbl.out.trim() || tbl.err || '');
+  const palette = run('build-palette.mjs', ['--check']);
+  console.log(palette.out.trim());
+  const components = run('check-components.mjs');
+  console.log(components.out.trim());
   // 종이 문서 v8: 산출물이 규격서와 맞는가 · 변환기와의 차이가 알려진 것뿐인가
   const mqd = run('extract-mqdoc.mjs', ['--check']);
   console.log(mqd.out.trim());
   console.log('');
   // 「디자인 다 뽑았나」에 숫자로 답하는 자리입니다.
-  const cov = run('audit-coverage.mjs');
+  const cov = run('audit-coverage.mjs', only);
   console.log(cov.out.trim());
   console.log('');
-  const r = run('sync.mjs');
+  const r = run('sync.mjs', only);
   console.log(r.out.trim());
   console.log('');
   // 앱 아이콘: 제품 public 의 아이콘이 지금 원본으로 그린 것과 같은가 (그림 파일이라 지문 머리표 대신 전체 대조)
   const ico = run('app-icons.mjs', ['--check']);
   console.log(ico.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
+  process.exit((src.code || 0) || (tbl.code || 0) || (palette.code ?? 1) || (components.code ?? 1) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
 }
 
 console.log('산출물 다시 만들기');
@@ -126,12 +141,12 @@ if (!doSync) {
 console.log('');
 console.log('제품으로 내보내기');
 console.log('');
-const s = run('sync.mjs', ['--write']);
+const s = run('sync.mjs', ['--write', ...only]);
 console.log(s.out.trim().split('\n').map((l) => '  ' + l).join('\n'));
 if (s.code !== 0) process.exit(1);
 
 // 내보낸 뒤 «정말 같아졌는지» 다시 봅니다. 쓰기가 성공했다는 것과 같아졌다는 것은 다릅니다.
-const v = run('sync.mjs');
+const v = run('sync.mjs', only);
 console.log('');
 if (v.code === 0) {
   console.log('  확인: 모든 사본이 원본과 같습니다.');
@@ -142,7 +157,7 @@ if (v.code === 0) {
 }
 
 // 앱 아이콘도 제품 public 으로 냅니다. 이 도구는 쓴 뒤 다시 읽어 대조까지 합니다.
-const icons = run('app-icons.mjs', ['--write']);
+const icons = run('app-icons.mjs', ['--write', ...only]);
 console.log('');
 console.log(icons.out.trim().split('\n').filter((l) => !/그대로/.test(l)).map((l) => '  ' + l).join('\n'));
 if (icons.code !== 0) process.exit(1);

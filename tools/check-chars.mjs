@@ -9,6 +9,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isCompiledWorkbench } from './audit-coverage-core.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['source', 'node_modules', '.git']);
@@ -29,6 +30,7 @@ function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     if (SKIP.has(name)) continue;
     const p = join(dir, name);
+    if (isCompiledWorkbench(relative(ROOT, p))) continue;
     if (statSync(p).isDirectory()) walk(p, out);
     else if (EXT.test(name)) out.push(p);
   }
@@ -86,4 +88,4 @@ if (blocking.length) {
   for (const h of blocking) console.error('  ' + h.file + ':' + h.line + '  [' + h.what + ']  ' + h.text);
   process.exit(1);
 }
-console.log('금지 문자 없음 · 검사 파일 ' + walk(ROOT).length + '개 (source/ 제외)');
+console.log('금지 문자 없음 · 검사 파일 ' + walk(ROOT).length + '개 (source/ 및 생성된 preview/components/ 제외, preview/fixtures/ 포함)');

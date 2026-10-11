@@ -1,0 +1,146 @@
+{
+  "createdAt": "2026-10-11T00:19:40.360Z",
+  "scope": "Rectangular-radius consistency patch prompted by the supplied Atelier mobile screenshot. This does not certify completion of the remaining whole-screen design audit.",
+  "radiusPx": 10,
+  "canonicalVariable": "--qd-radius",
+  "aliases": [
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl",
+    "3xl"
+  ],
+  "preservedShapes": [
+    "circular profile and status dots",
+    "checkbox marker geometry",
+    "square print artifacts"
+  ],
+  "tests": {
+    "browserScenarios": 18,
+    "browserFailures": 0,
+    "canonicalRadiusMutation": "10px to 14px propagated to actual controls and aliases",
+    "atelier": {
+      "passed": 4664,
+      "expectedFailure": 1,
+      "skipped": 3,
+      "lintErrors": 0,
+      "lintWarnings": 1573
+    },
+    "maison": {
+      "passed": 2682
+    },
+    "maisonTypecheckPassed": true,
+    "carnetTypecheckPassed": true,
+    "carnetThemeCheckPassed": true,
+    "liveContractsPassed": true,
+    "releaseCheckExitCode": 0,
+    "sourceCopiesMatched": 110,
+    "appIconsMatched": 32
+  },
+  "deployments": [
+    {
+      "name": "maison",
+      "id": "dpl_DjhQptKXN5tkneqfhPiVRGVLkKys",
+      "sha": "c4c5b7514e855873a068a4ca1260322c86ecc553",
+      "state": "READY",
+      "aliases": [
+        "maison.medqraft.app",
+        "q-maison.vercel.app",
+        "q-maison-lierlines-projects.vercel.app",
+        "q-maison-git-main-lierlines-projects.vercel.app"
+      ],
+      "productionHost": "maison.medqraft.app",
+      "url": "q-maison-ndmbr73gv-lierlines-projects.vercel.app"
+    },
+    {
+      "name": "carnet",
+      "id": "dpl_HuJ3eBMLKNY2pqnGRPzNJBLYRD4L",
+      "sha": "c0126510665aa7173d2859c1b6e2fa3521b0bd82",
+      "state": "READY",
+      "aliases": [
+        "carnet.medqraft.app",
+        "q-carnet.vercel.app",
+        "q-carnet-lierlines-projects.vercel.app",
+        "q-carnet-git-main-lierlines-projects.vercel.app"
+      ],
+      "productionHost": "carnet.medqraft.app",
+      "url": "q-carnet-ebp0abn4x-lierlines-projects.vercel.app"
+    },
+    {
+      "name": "atelier",
+      "id": "dpl_85LXw2EPf8WBKLSowBbcGryvNit9",
+      "sha": "9044a536c26a7345c4304a3e7f76fa8f73c5742a",
+      "state": "READY",
+      "aliases": [
+        "www.qatelier.co.kr",
+        "atelier.medqraft.app",
+        "qatelier.co.kr",
+        "q-atelier-lierlines-projects.vercel.app",
+        "q-atelier-git-main-lierlines-projects.vercel.app"
+      ],
+      "productionHost": "atelier.medqraft.app",
+      "url": "q-atelier-403s46ovq-lierlines-projects.vercel.app"
+    }
+  ],
+  "productionReady": true,
+  "centralRepoChangesCommitted": false,
+  "propagation": "Canonical edit requires regeneration, product sync, build and deployment. Existing running production apps do not hot-update from a local canonical-file edit.",
+  "visualLimit": "Actual Atelier IconBtn with Gauge and Bell was verified locally at 375px; production Atelier authenticated settings was not captured. Production Maison form and Carnet login were inspected read-only at the recorded viewport sizes.",
+  "evidence": [
+    {
+      "path": "patterns/components.css",
+      "sha256": "dc75a6265f995d5514e6aad6c37a8a1ccf88dc409ce30f76fad111624c844ede"
+    },
+    {
+      "path": "patterns/foundation.css",
+      "sha256": "a9bcb6827c755ab557fb4f2b73acbb5a7ec3c760af0f940a55d4f1c2222d1341"
+    },
+    {
+      "path": "patterns/foundation/maison-tailwind.ts",
+      "sha256": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+    },
+    {
+      "path": "reviews/radius-mobile-atelier-375-2026-10-11.json",
+      "sha256": "bd6d9ea79b46bb30e3c18e927bab84176d9e5463ec215acad47b74f214f1e80a"
+    },
+    {
+      "path": "reviews/radius-evidence-revalidation-2026-10-11.json",
+      "sha256": "85c84a85d84ebb774703f8760ab32cf6d50dd992829ca43eaa84ba6fcd69be9a"
+    },
+    {
+      "path": "reviews/radius-atelier-evidence-revalidation-2026-10-11.json",
+      "sha256": "442ed0230771977d1d783f76e5474e3a303f127c810990ced032d8eb36a7e919"
+    },
+    {
+      "path": "reviews/production-radius-maison-carnet-375-2026-10-11.json",
+      "sha256": "4f58e6e7987d4cab266fd467d86c5a585b8ff6fc9be8ab175b3392267c31e6e7"
+    },
+    {
+      "path": "reviews/production-radius-atelier-2026-10-11.json",
+      "sha256": "fc1610eec209a69124f9fa15c170b48952e5938f0b3d707f886d12ec9b63a2ad"
+    }
+  ],
+  "logs": [
+    {
+      "path": "D:/Claude/tmp/qd-radius-browser-check-final.log",
+      "sha256": "8bbd97d57996e88a7f4c1139378cc3417e32dbdc55e7aebcf78b99bb6630e145"
+    },
+    {
+      "path": "D:/Claude/tmp/qd-radius-maison-tests-final.log",
+      "sha256": "c1d11f73534877937f2c3c025eb1ecc645f3310ac4159e8bd209d769c3195581"
+    },
+    {
+      "path": "D:/Claude/tmp/qd-radius-atelier-push.log",
+      "sha256": "bccb0c6cfa2f6a1fd983d33faf3830d43643a5d69a54b0523d70390ee1d8ffbb"
+    },
+    {
+      "path": "D:/Claude/tmp/qd-radius-release-final.log",
+      "sha256": "c4b1616e6713cf4f89a69b4938d426987cd417298e3a3f16c80e7cc0bbdfde93"
+    },
+    {
+      "path": "D:/Claude/tmp/qd-radius-contract-pass.log",
+      "sha256": "542af5c8ad8e801260563087925b93e4f3d4d738447095330b90468214b66c87"
+    }
+  ]
+}

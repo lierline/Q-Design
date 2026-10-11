@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -53,7 +54,11 @@ function bodyOf(text: string, lang: 'css' | 'ts'): string {
  * (Q-Design tools/sync-parts.mjs · 받아 두기만 하는 사본은 보내지 않는다)
  */
 const COPIES: Array<{ name: string; path: string; lang: 'css' | 'ts' }> = [
+  { name: '수치 UI 규칙', path: 'lib/design/q-design-runtime.ts', lang: 'ts' },
+  { name: '화면 기반과 제품 규칙', path: 'app/q-design.foundation.css', lang: 'css' },
   { name: '업무 화면', path: 'app/q-design.workspace.css', lang: 'css' },
+  { name: '공통 컴포넌트', path: 'app/q-design.components.css', lang: 'css' },
+  { name: '화면 팔레트', path: 'app/q-design.palette.css', lang: 'css' },
   { name: '문서 토큰', path: 'lib/design/q-design.doc.ts', lang: 'ts' },
   // 2026-09-25: 패밀리 자료 교환 형식(Q-Design source/exchange). 세 제품이 같은 뜻으로 읽어야 한다.
   { name: '자료 교환', path: 'lib/exchange/family-exchange.ts', lang: 'ts' },
@@ -67,7 +72,7 @@ describe('Q-Design 사본: 손으로 고치지 않았는가', () => {
       const full = join(ROOT, copy.path);
       expect(existsSync(full), `${copy.path} 가 없습니다. Q-Design 에서 sync 를 돌리세요.`).toBe(true);
 
-      const text = readFileSync(full, 'utf8');
+      const text = readDesignFile(full, 'utf8');
       const at = text.indexOf(MARK);
       expect(at, `${copy.path} 에 지문 머리표가 없습니다. 손으로 만든 파일이 아닌지 보세요.`).toBeGreaterThan(-1);
 
@@ -91,8 +96,20 @@ describe('Q-Design 사본: 손으로 고치지 않았는가', () => {
     });
   }
 
+  it('화면 CSS 사본을 한 번씩 실제로 불러오고 팔레트의 우선순위를 유지한다', () => {
+    const globals = readFileSync(join(ROOT, 'app/globals.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    for (const file of ['q-design.foundation.css', 'q-design.workspace.css', 'q-design.components.css', 'q-design.palette.css']) {
+      const imports = [...globals.matchAll(/@import\s+['"]([^'"]+)['"]\s*;/g)].map(match => match[1]);
+      expect(imports.filter(path => path === `./${file}`), file).toHaveLength(1);
+    }
+    const palette = bodyOf(readDesignFile(join(ROOT, 'app/q-design.palette.css'), 'utf8'), 'css');
+    expect(palette).toContain('@media screen');
+    expect(palette).toContain("html:root:not([data-theme='light'])");
+    expect(palette).not.toMatch(/@layer\b/);
+  });
+
   it('DOCX 빌더가 사본에서 색을 가져온다 (값을 손으로 적지 않는다)', () => {
-    const src = readFileSync(join(ROOT, 'lib/export/docx-builder/brand.ts'), 'utf8');
+    const src = readDesignFile(join(ROOT, 'lib/export/docx-builder/brand.ts'), 'utf8');
     // 배선이 살아 있는가
     expect(src).toContain("from '@/lib/design/q-design.doc'");
     // 주석을 걷어낸 뒤 hex 리터럴이 남아 있으면 «손으로 적은 값» 이 다시 생긴 것입니다.

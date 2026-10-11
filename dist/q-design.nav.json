@@ -1,7 +1,7 @@
 {
   "$meta": {
     "generatedBy": "tools/extract-nav.mjs",
-    "source": "source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx",
+    "source": "source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css",
     "note": "손으로 고치지 마세요. 원본을 고치고 다시 돌리세요."
   },
   "rail": {
@@ -73,8 +73,10 @@
   },
   "logout": {
     "padding": "0 4px",
-    "fontSize": 14,
+    "fontSize": 13,
     "minHeight": 36,
+    "fontSizeCss": "var(--qd-control-size, 13px)",
+    "minHeightCss": "var(--qd-control-height-sm, 36px)",
     "touchMin": 44,
     "hint": "LogoutButton → TextAction (글귀 · 오너 결정 2026-09-28)"
   }

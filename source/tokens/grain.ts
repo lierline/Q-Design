@@ -8,10 +8,11 @@
 //    지문을 드는 파일이라, 한 줄만 더해도 엔진 근거가 «다시 해야 함» 으로 바뀌고 배포 빌드 첫 단계가 멈춘다
 //    (2026-09-27 이 값을 처음 tokens.ts 에 넣었다가 validation-manifest 시험 2건이 빨개져 옮겼다).
 import { alpha } from './tokens';
+import { QDRuntime } from './q-design-runtime';
 
 export const GRAIN = {
   /** 상태 색을 가는 선에 섞는 비율 */
-  tint: 0.55,
+  tint: QDRuntime.grain.tint,
 } as const;
 
 /** 상자 테두리 전체를 옅은 상태 색으로(종전 «왼쪽 3px 색 띠» 자리). style 의 borderColor · border 색에 쓴다. */
@@ -19,8 +20,8 @@ export const tintBorder = (color: string): string => alpha(color, GRAIN.tint);
 
 /** 강조문: 위아래 가는 가로선(종류 색) 사이. style 에 펼쳐 쓴다(`...ruleBand(T.warning)`). */
 export const ruleBand = (color: string): { borderTop: string; borderBottom: string } => ({
-  borderTop: `1px solid ${tintBorder(color)}`,
-  borderBottom: `1px solid ${tintBorder(color)}`,
+  borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${tintBorder(color)}`,
+  borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${tintBorder(color)}`,
 });
 
 /** 조작 윤곽 색(입력 칸 · 보조 단추 · 아이콘 단추): 인접 면과 3:1 이상. 행 · 구역 구분선(T.border · T.borderHi)과 다른 층이다(2026-10-10).

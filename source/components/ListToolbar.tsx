@@ -15,6 +15,10 @@
 //    sticky inset 도 lib/design/sticky-inset.ts 와 TopHeaderBand 에서 읽는다 ·
 //    두 값(밴드 높이 56 · 컨테이너 padding)을 베끼면 어느 한 층에서 반드시 어긋난다.
 
+import { Z } from '@/lib/design/q-design-runtime';
+import { labelTracking, QDText } from '@/lib/design/q-design-labels';
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { useRef } from 'react';
 import { Search } from '@/components/q-design-icons/Search';
 import { ListPager } from '@/components/ListPager';
@@ -23,8 +27,8 @@ import { TOP_BAND_HEIGHT } from '@/components/TopHeaderBand';
 import { PAGE_SIZE, pageWindow, type SortOption } from '@/lib/api/list-page';
 import { useBreakpoints } from '@/lib/hooks/useBreakpoints';
 import { stickyTopInset, useScrollHostPadding } from '@/lib/design/sticky-inset';
-import { F, FS, LH, RADIUS, S, T, Z, labelTracking, hasHangul } from '@/lib/design/tokens';
-import { CTL } from '@/lib/design/grain';
+import { F, FS, LH, S, T, hasHangul } from '@/lib/design/tokens';
+import { QD } from '@/lib/design/q-design-contract';
 
 /*
  * 찾기 단추의 글. 네 제품이 「찾기」 · 「검색」 · 「조회하기」 로 갈려 있던 것을 오너가
@@ -94,24 +98,24 @@ export function ListToolbar({
   /* 한글이 섞인 글(「검색 지우기」 · 「총 57건」)은 자간 0 (오너 규칙 「한글이면 자간 0」) */
   // 한글이 섞이면 본문 글꼴 · 숫자 자리 맞춤(고정폭 어절 공백이 벌어졌다 · 화면 검토 A44 · 2026-09-28)
   const 라벨 = (text: string): React.CSSProperties => ({
-    fontFamily: hasHangul(text) ? F.ui : F.mono,
-    fontSize: FS[12],
+    fontFamily: hasHangul(text) ? QDScale.family.ui : QDScale.family.mono,
+    fontSize: QDScale.font[12],
     color: T.muted,
-    lineHeight: LH.none,
-    letterSpacing: labelTracking(text, 0.4),
+    lineHeight: QDScale.leading.none,
+    letterSpacing: labelTracking(text, QDText.tracking.vf3e360d899),
     fontVariantNumeric: 'tabular-nums',
   });
 
   const 칸: React.CSSProperties = {
-    height: 36,
-    minWidth: 0,
-    padding: `0 ${S[3]}px 0 32px`,
-    borderRadius: RADIUS.md,
-    border: `1px solid ${CTL}`,
+    height: QD.controlHeightSm,
+    minWidth: "var(--qd-atelier-min-width-f24a3b2189)",
+    padding: `0 ${QDScale.space[3]} 0 var(--qd-space-8)`,
+    borderRadius: QD.radius,
+    border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${QD.ctl}`,
     background: T.surface,
     color: T.text,
-    fontFamily: F.ui,
-    fontSize: FS[12],
+    fontFamily: QDScale.family.ui,
+    fontSize: QD.controlSize,
   };
 
   return (
@@ -129,9 +133,9 @@ export function ListToolbar({
         /* 밴드(Z.header)보다 아래, 본문보다 위 */
         zIndex: Z.sticky,
         background: T.bg,
-        paddingTop: S[2],
-        paddingBottom: S[3],
-        marginBottom: S[1],
+        paddingTop: QDScale.space[2],
+        paddingBottom: QDScale.space[3],
+        marginBottom: QDScale.space[1],
       }}
     >
       <form
@@ -140,7 +144,7 @@ export function ListToolbar({
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: S[2],
+          gap: QDScale.space[2],
           flexWrap: 'wrap',
         }}
       >
@@ -148,12 +152,12 @@ export function ListToolbar({
           <input key={k} type="hidden" name={k} value={v} />
         ))}
 
-        <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', flex: '1 1 220px' }}>
+        <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', flex: "var(--qd-atelier-flex-09b2b5aff4)" }}>
           <Search
-            size={14}
+            size={QDPresentation.iconSize[14]}
             strokeWidth={1.75}
             aria-hidden
-            style={{ position: 'absolute', left: 10, color: T.muted, pointerEvents: 'none' }}
+            style={{ position: 'absolute', left: "var(--qd-atelier-left-db1be71353)", color: T.muted, pointerEvents: 'none' }}
           />
           <input
             type="search"
@@ -162,7 +166,7 @@ export function ListToolbar({
             placeholder={`${searchIn} 검색`}
             aria-label={`${searchIn} 검색`}
             className="qa-touch-44"
-            style={{ ...칸, flex: 1 }}
+            style={{ ...칸, flex: "var(--qd-atelier-flex-83725d2c6e)" }}
           />
         </span>
 
@@ -172,7 +176,7 @@ export function ListToolbar({
             defaultValue={sort?.key ?? sorts[0].key}
             aria-label="정렬"
             className="qa-touch-44"
-            style={{ ...칸, padding: `0 ${S[3]}px`, flex: '0 0 auto' }}
+            style={{ ...칸, padding: `0 ${QDScale.space[3]}`, flex: "var(--qd-atelier-flex-8037400c24)" }}
           >
             {sorts.map((o) => (
               <option key={o.key} value={o.key}>
@@ -182,7 +186,7 @@ export function ListToolbar({
           </select>
         )}
 
-        <Btn p={false} sm type="submit" style={{ flex: '0 0 auto' }}>
+        <Btn p={false} sm type="submit" style={{ flex: "var(--qd-atelier-flex-8037400c24)" }}>
           {검색글}
         </Btn>
 
@@ -193,13 +197,13 @@ export function ListToolbar({
         {좁힘 && (
           <a
             href={basePath}
-            style={{ ...라벨('검색 지우기'), textDecoration: 'underline', flex: '0 0 auto' }}
+            style={{ ...라벨('검색 지우기'), textDecoration: QDText.textDecoration.v9c3ff05cab, flex: "var(--qd-atelier-flex-8037400c24)" }}
           >
             검색 지우기
           </a>
         )}
 
-        <span style={{ ...라벨(셈), marginLeft: 'auto', flex: '0 0 auto' }}>{셈}</span>
+        <span style={{ ...라벨(셈), marginLeft: 'auto', flex: "var(--qd-atelier-flex-8037400c24)" }}>{셈}</span>
       </form>
 
       {/*

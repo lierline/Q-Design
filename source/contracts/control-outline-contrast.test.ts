@@ -1,7 +1,10 @@
+import { readDesignFile, resolveStyleValues } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readSource } from '@/lib/test-utils/contract-source';
+import { QD } from './q-design-contract';
+import { CTL } from './grain';
 
 // =============================================================================
 // 디자인 가드: 조작 윤곽(--qa-ctl)은 인접 면과 3:1 이상 (2026-10-10)
@@ -55,7 +58,8 @@ describe('조작 윤곽 --qa-ctl 은 인접 면과 3:1 이상', () => {
   it('입력 칸 · 보조 단추 · 아이콘 단추가 구분선 색이 아니라 CTL 을 쓴다', () => {
     const comp = readSource('lib/design/components.tsx', 'code');
     const input = /const inputStyle[\s\S]*?\n\};/.exec(comp)?.[0] ?? '';
-    expect(input).toContain('${CTL}');
+    expect(input).toContain('${QD.ctl}');
+    expect(QD.ctl).toBe(`var(--qd-ctl, ${CTL})`);
     expect(input).not.toMatch(/border: `1px solid \$\{T\.border/);
   });
 
@@ -72,7 +76,7 @@ describe('조작 윤곽 --qa-ctl 은 인접 면과 3:1 이상', () => {
     const decl = /const (inputStyle|inputCss|selectStyle|fieldStyle|inp)\b[^\n=]*=\s*(?:\([^)]*\)\s*=>\s*)?\(?\{/g;
     const bad: string[] = [];
     for (const f of [...walk(join(process.cwd(), 'app')), ...walk(join(process.cwd(), 'components'))]) {
-      const src = readFileSync(f, 'utf8');
+      const src = resolveStyleValues(readDesignFile(f, 'utf8'));
       for (const m of src.matchAll(decl)) {
         let depth = 0;
         let i = m.index! + m[0].length - 1;
@@ -90,8 +94,8 @@ describe('조작 윤곽 --qa-ctl 은 인접 면과 3:1 이상', () => {
 
   it('목록 쪽 이동 단추 · 거르개 칸도 CTL 을 쓴다', () => {
     for (const f of ['components/ListPager.tsx', 'components/ListToolbar.tsx']) {
-      const src = readSource(f, 'code');
-      expect(src, f).toContain('border: `1px solid ${CTL}`');
+      const src = resolveStyleValues(readSource(f, 'code'));
+      expect(src, f).toContain('border: `1px solid ${QD.ctl}`');
     }
   });
 });

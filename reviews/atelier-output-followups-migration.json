@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "scope": "Exact DOCX right-aligned tab-stop geometry and retained legacy export palette, with unchanged values.",
+  "definitions": {
+    "tabStopTwip": {
+      "headerFooterRight": 9026
+    },
+    "legacyHtmlPalette": {
+      "primary": "A8854F",
+      "text": "1C1A16",
+      "subtle": "5A5550",
+      "muted": "8A8478",
+      "light": "C0BCB5",
+      "border": "E2DFD8",
+      "bg": "FAF8F3",
+      "bgSurface": "F3F1EC",
+      "green": "4A7C59",
+      "red": "C83E3E",
+      "warning": "B8893B"
+    }
+  },
+  "records": [
+    {
+      "path": "lib/export/docx-builder/header-footer.ts",
+      "beforeHash": "83b3c0d7252daeb076c5d1a981f33265bb29739612ac62e23042dddf54424ae6",
+      "afterHash": "7e5289e1441fbb2a24e47f1e2fa981e509c5c7f8692682ffbf41224a9d3d9c5c",
+      "edits": [
+        {
+          "start": 852,
+          "before": "position: 9026",
+          "after": "position: QDOutput.tabStopTwip.headerFooterRight"
+        },
+        {
+          "start": 2177,
+          "before": "position: 9026",
+          "after": "position: QDOutput.tabStopTwip.headerFooterRight"
+        }
+      ]
+    },
+    {
+      "path": "lib/export/doc-style.ts",
+      "beforeHash": "3dfec5872320aa4ff4a618b7a097b2fa011662782c91c0dcab3c3bf4cad11227",
+      "afterHash": "582631f65af62a9c17389404eefae0ce346595046817c031e48966291d687006",
+      "edits": [
+        {
+          "start": 371,
+          "before": "export const BRAND = {\n  primary: 'A8854F',  // 샴페인\n  text: '1C1A16',\n  subtle: '5A5550',\n  muted: '8A8478',\n  light: 'C0BCB5',\n  border: 'E2DFD8',\n  bg: 'FAF8F3',\n  bgSurface: 'F3F1EC',\n  green: '4A7C59',\n  red: 'C83E3E',\n  warning: 'B8893B',\n};",
+          "after": "export const BRAND = QDOutput.legacyHtmlPalette;"
+        },
+        {
+          "start": 0,
+          "before": "",
+          "after": "import { QDOutput } from '@/lib/design/q-design-output';\n"
+        }
+      ]
+    }
+  ]
+}

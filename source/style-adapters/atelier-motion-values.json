@@ -1,0 +1,595 @@
+{
+  "version": 1,
+  "scope": "Exact CSS animation/transition reads of legacy MOTION.fast/normal now consume QD.motionFast/Normal. Shared durations/easing and reduced-motion overrides apply.",
+  "files": [
+    {
+      "path": "app/(app)/audits/new/client.tsx",
+      "beforeHash": "267b698d2bfa18bfdf738a7d54aeeefbddd8681f73892266dffa2a489b6735f8",
+      "afterHash": "927e3cd1b8af12e969851b8922e74339f367462fe9d802ef61bca12155878208",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 107
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 107
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/new/client.tsx",
+      "beforeHash": "8d2a791f46c0b8e8422f371e37a6d008ee005a73041fbb704c3530464287c73d",
+      "afterHash": "4670ec2f94025086c21bd584e569c2a4b4867840e75f3c972ace3d1e1d05c62c",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 319
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/[id]/client.tsx",
+      "beforeHash": "eaffada4cc360f61cf66ff8738a76324b05989ecb8d88059998332f1cc0afc2f",
+      "afterHash": "68c40693475c6df232d19317c5262cccd5f2e8a87f119dd6e4dc1a7d042e950e",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 242
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 242
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/new/client.tsx",
+      "beforeHash": "075da6259d287fc8cd27ac61ee7aa9d5aab8a1aefa0f00f407911dd8735ddcb5",
+      "afterHash": "4a36a99b9827ba21ba779f1f69158c49c05c40da5055e202491723235d3acd1b",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 136
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/new/client.tsx",
+      "beforeHash": "8cbf6cfb2e6758ab2e597f81c837d5400b504e7cb133c7a3d215484a58a4eefc",
+      "afterHash": "8a6e56c4a776ec8df5cca92d8c80b2678ef3e1823313e162c8aaa3c338e93257",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 151
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 151
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 151
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 219
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 219
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 219
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 271
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 271
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/[id]/client.tsx",
+      "beforeHash": "abe5946e4bf09678bb991df4fc15d8ef0402c8dbdbac5022d81c632fa7dd0ff9",
+      "afterHash": "35acb0d5025724810a1b357c0152d241abf158f61d17423362dc57308f46375d",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 560
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 785
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/new/client.tsx",
+      "beforeHash": "d85850d630948b4135b9ce9bc63706008a89c9dae82942e8382073fd448c1d98",
+      "afterHash": "c7404b7dc6f3565048a9c70a4db4df18f95363f49f97094d2f2e83684f36032d",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 177
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 177
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 339
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 339
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/equipment/page.tsx",
+      "beforeHash": "e5acc6b05e3773ab57cda7b1d78041c7e47d07ac2a7f03db685cae31fdd917be",
+      "afterHash": "a5b6fe112d9fe046dee0ceeaa66aaa61dff46c59960848726dd9d9e4beb5315a",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 225
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 225
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/fda-510k/new/client.tsx",
+      "beforeHash": "16d50931495a08678b1528ff1ea394b68377ecfceecd92e9f47fcad2a89507f6",
+      "afterHash": "18eb26a78d62a8d97018ab638496c76668c93936008e20cab52c1e36100c5a29",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/new/client.tsx",
+      "beforeHash": "b86830ad4575dec03428c5d9b0f4f0d5d8b738006b9bd61ea35476d302025952",
+      "afterHash": "93d4fdcfd12f32959cbf8b5e93110b0146ddd5911abd3a0337c323b816d12f17",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 213
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/[id]/client.tsx",
+      "beforeHash": "ea0710e04a818dcffcce9851f133396c2cd676301760293044c397e6b2b4b7ff",
+      "afterHash": "8d1c58314b0ea192b07d7a983850f3a4b0076e6f0df71c386a9bb0ebe91714c2",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 322
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 322
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nonconformances/new/client.tsx",
+      "beforeHash": "b53fc894ffcce0f254b6f2541a5dd5713a0373fa4360f50e3932deade82c6650",
+      "afterHash": "56a813b714e764e9d0e3b1e1d6ea68d45b18ddb77463559b567fbfcbc81fefa5",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 177
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 177
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 177
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 251
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 251
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 251
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-templates/page.tsx",
+      "beforeHash": "0a9e8d69a5ddd29f1683918fa49aaea4d47639995cd74a10c0eba4dd4956fa8d",
+      "afterHash": "a8118cf063bd1dd18a8bf36cbab6c77ce3253266b52b1d7ab80bafd55143150e",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-validations/page.tsx",
+      "beforeHash": "042c60f5eadd486c66123177a0bcf05f689084873a657d95e6751d4d60bdfa70",
+      "afterHash": "8c0eedafd48dea0b68eeb7a79b11492199bcaabdc608bf7b51e0f2eff67503be",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 129
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production-equipment/page.tsx",
+      "beforeHash": "7e49805804a0584022bb57604dfc7da06f5cdcf8b48eb352f9c9b5b787934740",
+      "afterHash": "c7b02ed43ca04b604b1ff116f0d322270bf1d6b4cacac49106c8e28530d229c2",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 142
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/standards/new/client.tsx",
+      "beforeHash": "7f3ad94d16c7dbe404eb876daa87493a99a0b9a0d9efead2361a6a1f66b2eb3c",
+      "afterHash": "0fb799217aacc118cceb38704fc46459cb61774cdf0c71a6a29d313d9b025023",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 126
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/sterilization/new/client.tsx",
+      "beforeHash": "6712a18d98d997aba50afc697b8b5063d5a72d631ab4e63d765d351f9c4a0b08",
+      "afterHash": "32b15057d5a92c7f7e1a5273dbefefd66b5823d9424db91bc69549c69e64d6a8",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "beforeHash": "2b075cdce4ede47f86ae492eabcaf214ba588b815c74853f6567841b5333391e",
+      "afterHash": "04b90941ec55a6bdabbbc3e1a1ae4b9700d725c83bf53d153518e47b95b94434",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 451
+        }
+      ]
+    },
+    {
+      "path": "components/AIQuickAccessFab.tsx",
+      "beforeHash": "54c8e766d72f7d22798f1eac1049604c74b6cec16a6d6779da1e6bb008fec172",
+      "afterHash": "412f1a947b0df15c3a8a63757c187bd2a6f8cebb9a231738ecfbd0ab71899aed",
+      "conversions": [
+        {
+          "old": "MOTION.normal",
+          "next": "QD.motionNormal",
+          "line": 150
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 163
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 326
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 326
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 326
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "path": "components/AiDraftAssist.tsx",
+      "beforeHash": "f808a28097a23d0b100b1da00a503b6f6c28b27b04af649fcbe684e3284de988",
+      "afterHash": "a63f3e4d9836b2275f8a91796c94366c8ef1606354bb9789535a8fc4b7711233",
+      "conversions": [
+        {
+          "old": "MOTION.normal",
+          "next": "QD.motionNormal",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "path": "components/AuditReadinessWidget.tsx",
+      "beforeHash": "d651001c438b5c89e23681fe6eff4caf2a0f3301607821545c1c239d8336dc0f",
+      "afterHash": "68321db471985ebee23d1288804e633e21a9bbbb7cc74932e547ddf262e1fd36",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "path": "components/MarketAccessWidget.tsx",
+      "beforeHash": "8853b78d86928225ecb993787e6c0aa7aad70e214078a1b8c76a8fcf159be572",
+      "afterHash": "48c0b09dc68664bb3ed13a709106738c3a0d5ad940e0d4fbaa2f663bbc9f92a3",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "path": "components/ParentLotsEditor.tsx",
+      "beforeHash": "4eb782ee23158611a003b65ee4f063418f9ebe50e1baa94e732e21e98bb9e292",
+      "afterHash": "22eff2da2a3f94696b7fd19bf8ded83f46e39b0593bafc755a2158b3fce3bd4a",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "path": "components/PullToRefresh.tsx",
+      "beforeHash": "6253c3446094ed32c7d076ad57b492c93c46871c687ee7f21e631e9767268c2e",
+      "afterHash": "b91b12b1dc704d04db3f7c95cbf9c28f54414ffe3a15fb4cb902785f00d1d87c",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 112
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "path": "components/QmsStatusWidget.tsx",
+      "beforeHash": "cd91ae3f4e2f2d2d16b4a6d9cd1a274884c9ccffcfb1614e8a8d55011cc1aa52",
+      "afterHash": "9aa5835f6c66a45eed7f8e5e9e748e60aee83849f133ba32871cd2a8147b1cf2",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "path": "components/ReferenceSection.tsx",
+      "beforeHash": "1aee5f1fca5b1d6dff15b98eb4853f71c73a6ab772eb905f532a4a90f82d47ce",
+      "afterHash": "bcecb54ea194958a2efc001585a5f62ed23e9e8c273b6a209356a4959414eae5",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 75
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryDeadlinesWidget.tsx",
+      "beforeHash": "adfbf189e2120f86747a5bb4d70ce337a244a2d18f4d941d9230ea8d7ffd649c",
+      "afterHash": "1b0424ae0dfe27e680bbb64be189bab98380dd6069fa5b04aeb3384527a3942f",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryPipelineWidget.tsx",
+      "beforeHash": "bbdc863a2bd9591c78f951343ef7d8a9a8fb7a0f66e1bbaef78f7db23b765525",
+      "afterHash": "9f81bffe4a78c9e80c02c0b9103e2ce8b6483f08f09a40841be86f71e0817785",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 76
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "path": "components/RegulatoryWatchWidget.tsx",
+      "beforeHash": "080ccf7adefab936e669402198b46db27640be95ac781e9e3b7f4eaa4450ed05",
+      "afterHash": "77312de6754e2756e85e09ad9b55398d395ca11b396b8db5c801bcb840a3601c",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "path": "components/TodayQueue.tsx",
+      "beforeHash": "9e53ff2fc269ff1a1cd0c2f2777aeb3aec08096d06be8fbd94453d7412b11758",
+      "afterHash": "e87dfd3e15f31108da8e28f5fb32b3213fc443507b15c653a65f30b289b8b00f",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 516
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 516
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 516
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 648
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "beforeHash": "82cc463965767f9f11177a865556480fc09032cd1b459b35b0e4aa39cd8ac419",
+      "afterHash": "8fcadd2a186a612b8976f2f63d222079e06b38997f1d37b79d3ce45ab7259b37",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 278
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 278
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "6ccdf960eee5f58ba3a7887e7a850e9241f38247300a8eca6449d5166b74e7b4",
+      "afterHash": "097e597b4966c2a7f84f7b5409dc2b51ac829d11bd286830574afbf91ef57ce4",
+      "conversions": [
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 3340
+        },
+        {
+          "old": "MOTION.fast",
+          "next": "QD.motionFast",
+          "line": 3632
+        }
+      ]
+    }
+  ]
+}

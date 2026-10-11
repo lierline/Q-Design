@@ -63,7 +63,7 @@ describe('Bx 안쪽 여백', () => {
     expect(spread, 'Alert 의 루트 style 에 `...style` 이 없다. 호출부가 스타일을 못 바꾼다').toBeGreaterThan(-1);
     const rootStyle = fn.slice(0, spread);
     expect(
-      /marginBottom:\s*S\[[\d.]+\]/.test(rootStyle),
+      /marginBottom:\s*QDScale\.space\[[\d.]+\]/.test(rootStyle),
       'Alert 의 기본 marginBottom 이 사라졌다(또는 `...style` 뒤로 밀렸다). ' +
         '여백을 안 주는 호출 95곳이 전부 다음 요소에 붙는다.',
     ).toBe(true);
@@ -75,7 +75,7 @@ describe('Bx 안쪽 여백', () => {
     const src = readFileSync('lib/design/components.tsx', 'utf8');
     const fn = src.slice(src.indexOf('export function Bx('), src.indexOf('export function Bx(') + 2600);
     expect(
-      /padding:\s*S\[/.test(fn),
+      /padding:\s*(?:S|QDScale\.space)\[/.test(fn),
       'Bx 에 기본 padding 이 생겼다. 이 계약을 지우고 호출부의 중복 지정을 정리할 것.',
     ).toBe(false);
   });

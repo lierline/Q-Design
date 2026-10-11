@@ -1,0 +1,55 @@
+{
+  "recordedAt": "2026-10-10T07:10:40.570Z",
+  "scope": "Q-Atelier proven numeric presentation props and common numeric component defaults. Business-data arithmetic keeps number types; official artwork and dynamic conditions untouched.",
+  "migration": {
+    "files": 228,
+    "props": 726
+  },
+  "sourceEquivalence": {
+    "checkedAt": "2026-10-10T06:55:35.693Z",
+    "normalization": "Remove only added QDPresentation/QDScale import declarations, resolve exact QDPresentation family numeric references, resolve only JSX gap QDScale entries to original 4px scale, transpile with comments removed. Compare all remaining content and behavior.",
+    "matched": 228,
+    "total": 228,
+    "failures": []
+  },
+  "tests": {
+    "command": "node --test tools/atelier-presentation.test.mjs",
+    "cwd": "D:/Claude/Q-Design",
+    "exitCode": 0,
+    "passed": 11,
+    "failed": 0,
+    "log": "D:/Claude/tmp/qd-atelier-presentation-tests.log",
+    "logSHA256": "0774c85a1fee530e64f023dc63ecd2f6e3479eb0a5ff1366c9db3583c3167d91",
+    "tested": "AST selectivity and idempotence, exact numeric equivalence, real official SVG dimensions, real Grid arithmetic/CSS gap, ProgressRing finite geometry, chart geometry mutation preserving labels/data, Coachmark placement/rendered width consistency. Final run loads actual shared typography module and locked pure token helper."
+  },
+  "typecheck": {
+    "command": "npx tsc --noEmit",
+    "cwd": "D:/Claude/Q-Atelier",
+    "exitCode": 0,
+    "log": "D:/Claude/tmp/qd-atelier-defaults-typecheck.log",
+    "completedAt": "2026-10-10T07:09:58.5918276Z"
+  },
+  "artifacts": [
+    {
+      "path": "D:/Claude/Q-Design/source/design/atelier-runtime.ts",
+      "sha256": "a81940a5f443a4841dbd3afa2781c75d2bfe0a1be5773dd7b36d3c3a3a5b826a"
+    },
+    {
+      "path": "D:/Claude/Q-Design/tools/atelier-presentation-core.mjs",
+      "sha256": "647c573f9a227b747bf8a754a4a4a56b2b5f490285d6518029b0f3caff98f97b"
+    },
+    {
+      "path": "D:/Claude/Q-Design/tools/atelier-presentation.test.mjs",
+      "sha256": "ae8893854b4a38ed9ec0809463074acc3ef769cb68dbdeb4ae70e1b47acc18c4"
+    },
+    {
+      "path": "D:/Claude/Q-Design/reviews/atelier-presentation-migration.json",
+      "sha256": "67c5d043ee56c527ea995d853097fe0669e6b4d3fe549e3a7b2876c1386e7628"
+    },
+    {
+      "path": "D:/Claude/Q-Design/reviews/atelier-component-defaults-migration.json",
+      "sha256": "fbfb70fb5965f11a3ad9e7b40bb937730a28ba4f0f365453f7b9a1f9b2d15bc6"
+    }
+  ],
+  "limits": "228-file equivalence was recorded before the independent typography migration. It proves this numeric migration only; later source changes require their own evidence."
+}

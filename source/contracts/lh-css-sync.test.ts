@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -22,7 +23,7 @@ import { LH } from './tokens';
 //    산술(FS[12] * LH.relaxed)이 불가능해진다. number 를 유지하는 편이 낫다.
 
 const ROOT = process.cwd();
-const CSS = readFileSync(join(ROOT, 'app', 'globals.css'), 'utf8');
+const CSS = readDesignFile(join(ROOT, 'app', 'globals.css'), 'utf8');
 
 /** globals.css 에서 --qa-lh-* 정의를 파싱 */
 function cssLadder(): Record<string, number> {

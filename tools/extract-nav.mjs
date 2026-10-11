@@ -24,24 +24,29 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadQdValues } from './qd-adapter-values.mjs';
+import { read } from './probe.mjs';
+import { readRuntimeValues } from './atelier-runtime-values.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
+const runtime = readRuntimeValues(ROOT);
 const OUT = join(ROOT, 'dist');
 const SIDEBAR = join(ROOT, 'source', 'components', 'Sidebar.tsx');
 const GLOBALS = join(ROOT, 'source', 'css', 'globals.css');
 const LOGOUT_HINT = 'LogoutButton → TextAction (글귀 · 오너 결정 2026-09-28)';
 
-const sidebar = readFileSync(SIDEBAR, 'utf8');
-const globals = readFileSync(GLOBALS, 'utf8');
+const sidebar = read(SIDEBAR);
+const globals = read(GLOBALS);
 // 2026-10-07 원본 묶음 5(2e56225a)가 차림표 안의 IconBtn 사본을 걷고 공용 IconBtn(components.tsx)을
 // 쓰게 했다. 치수(기본 44 = TOUCH.min)는 공용 부품에서, 모서리는 차림표가 넘기는 RAIL_ICON_BTN 에서 읽는다.
-const components = readFileSync(join(ROOT, 'source', 'components', 'components.tsx'), 'utf8');
-const tokensTs = readFileSync(join(ROOT, 'source', 'tokens', 'tokens.ts'), 'utf8');
+const components = read(join(ROOT, 'source', 'components', 'components.tsx'));
+const tokensTs = read(join(ROOT, 'source', 'tokens', 'tokens.ts'));
 const touch = Object.fromEntries(
   [...slice(tokensTs, 'export const TOUCH = {', '} as const', 'touch').matchAll(/^\s+(\w+):\s*(\d+)/gm)].map(([, k, v]) => [k, Number(v)]),
 );
 const tokens = JSON.parse(readFileSync(join(OUT, 'q-design.tokens.json'), 'utf8'));
+const qd = loadQdValues(ROOT);
 
 // ── 구역 자르기 ──────────────────────────────────────────────────────────────
 // 파일 전체에 정규식을 걸면 접힘 상태 값과 펼침 상태 값이 섞입니다.
@@ -94,7 +99,7 @@ const PROBES = [
   // 로고 블록
   ['brand.logoSize',        Z.brand,  /<Logo size=\{(\d+)\}/, Number],
   ['brand.markSize',        Z.brand,  /<LogoMark size=\{(\d+)\} \/>/, Number],
-  ['brand.orgFontSize',     Z.brand,  /fontSize: FS\[(\d+)\],/, Number],
+  ['brand.orgFontSize',     Z.brand,  /fontSize: FS\[(\d+)\],/, qd.font],
   // 조직명도 labelTracking 을 거칩니다(2026-09-09). 한글 회사 이름이 흔합니다.
   ['brand.orgTracking',     Z.brand,  /letterSpacing: labelTracking\([^,]+, ([\d.]+)\),/, Number],
 
@@ -103,8 +108,8 @@ const PROBES = [
 
   // 항목
   ['item.padding',          Z.itemConst, /const NAV_ITEM_PADDING = '([^']+)';/, String],
-  ['item.gap',              Z.itemLink, /gap: S\[([\d.]+)\],/, Number],
-  ['item.fontSize',         Z.itemLink, /fontSize: FS\[(\d+)\],/, Number],
+  ['item.gap',              Z.itemLink, /gap: S\[([\d.]+)\],/, qd.step],
+  ['item.fontSize',         Z.itemLink, /fontSize: FS\[(\d+)\],/, qd.font],
   ['item.tracking',         Z.itemLink, /letterSpacing: ([\d.]+),/, Number],
   ['item.activeWeight',     Z.itemLink, /fontWeight: active \? (\d+) : \d+,/, Number],
   ['item.idleWeight',       Z.itemLink, /fontWeight: active \? \d+ : (\d+),/, Number],
@@ -121,30 +126,30 @@ const PROBES = [
 
   // 묶음 이름표
   ['group.padding',         Z.group,  /padding: '([^']+)',/, String],
-  ['group.fontSize',        Z.group,  /fontSize: FS\[(\d+)\],/, Number],
+  ['group.fontSize',        Z.group,  /fontSize: FS\[(\d+)\],/, qd.font],
   // 2026-09-09 이후 이 자리는 labelTracking 을 거칩니다. 한글 라벨이면 0 이고
   // 라틴이면 아래 값입니다. 정본 CSS 는 `data-hangul` 로 같은 갈래를 만듭니다.
   ['group.tracking',        Z.group,  /letterSpacing: labelTracking\(label, ([\d.]+)\),/, Number],
 
   // 판 번호 줄
   ['version.padding',       Z.version, /padding: '([^']+)',/, String],
-  ['version.fontSize',      Z.version, /fontSize: FS\[(\d+)\],/, Number],
+  ['version.fontSize',      Z.version, /fontSize: FS\[(\d+)\],/, qd.font],
   ['version.tracking',      Z.version, /letterSpacing: ([\d.]+),/, Number],
 
   // 테마 줄
   ['theme.padding',         Z.theme,  /padding: '([^']+)',/, String],
-  ['theme.fontSize',        Z.theme,  /fontSize: FS\[(\d+)\],/, Number],
+  ['theme.fontSize',        Z.theme,  /fontSize: FS\[(\d+)\],/, qd.font],
   ['theme.tracking',        Z.theme,  /letterSpacing: ([\d.]+),/, Number],
   ['theme.btnSize',         Z.iconBtn, /size = TOUCH\.(\w+),/, (k) => touch[k]],
   // 2026-09-14 오빠 결정 「전체를 다 굴린다」: 발치 상자·아이콘 단추의 모서리를 원본에서 읽는다 (RADIUS.<키> → px).
-  ['theme.radius',          Z.theme,  /borderRadius: RADIUS\.(\w+),/, (k) => tokens.radius[k]],
-  ['iconBtn.radius',        Z.railIconBtn, /borderRadius: RADIUS\.(\w+) \}/, (k) => tokens.radius[k]],
+  ['theme.radius',          Z.theme,  /borderRadius: (QD\.radius|RADIUS\.\w+),/, qd.pixels],
+  ['iconBtn.radius',        Z.railIconBtn, /borderRadius: (QD\.radius|RADIUS\.\w+) \}/, qd.pixels],
 
   // 바닥 계정 블록
   // 2026-10-06 프로필 사진(da7c60f5)이 userId · avatarVersion 을 뒤에 더했다. 펼친 발치(뒤에 <div>)만 잡는다.
   ['foot.avatarSize',       Z.foot,   /<Avatar name=\{userName\} email=\{userEmail\} size=\{(\d+)\}[^\n]*\/>\n              <div/, Number],
-  ['foot.nameFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.text,/, Number],
-  ['foot.metaFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.muted,/, Number],
+  ['foot.nameFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.text,/, qd.font],
+  ['foot.metaFontSize',     Z.foot,   /fontSize: FS\[(\d+)\],\n                    color: T\.muted,/, qd.font],
   ['foot.metaTracking',     Z.foot,   /letterSpacing: labelTracking\([^,]+, ([\d.]+)\),/, Number],
 ];
 
@@ -194,19 +199,21 @@ for (const [path, zone, re, cast] of PROBES) {
 // 상자였는데, 차림표 발치에서 주 동작처럼 무게를 가졌습니다. 원본 LogoutButton 이 보조 동작 글귀(TextAction)를
 // 쓰므로 치수를 거기서 읽습니다. LogoutButton 이 TextAction 을 안 쓰게 되면 여기서 멈춥니다(조용히 옛 값을 내지 않게).
 {
-  const logout = readFileSync(join(ROOT, 'source', 'components', 'LogoutButton.tsx'), 'utf8');
+  const logout = read(join(ROOT, 'source', 'components', 'LogoutButton.tsx'));
   if (!/<TextAction onClick=\{handleLogout\}>/.test(logout)) {
     throw new Error('LogoutButton 이 TextAction 을 쓰지 않습니다. 정본 .qd-rail-logout 을 다시 정해야 합니다.');
   }
-  const ta = readFileSync(join(ROOT, 'source', 'components', 'TextAction.tsx'), 'utf8');
+  const ta = read(join(ROOT, 'source', 'components', 'TextAction.tsx'));
   const body = slice(ta, 'export function TextAction(', 'export function TextLinkAction(', 'textAction');
   const pad = body.match(/padding: `0 \$\{S\[([\d.]+)\]\}px`,/);
-  const fs = body.match(/fontSize: FS\[(\d+)\],/);
-  const mh = body.match(/minHeight: (\d+),/);
-  if (!pad || !fs || !mh) throw new Error('TextAction 의 치수를 못 찾았습니다.');
-  put('logout.padding', `0 ${tokens.space.scale[pad[1]]}px`);
-  put('logout.fontSize', Number(fs[1]));
-  put('logout.minHeight', Number(mh[1]));
+  const fs = qd.property(body, 'fontSize');
+  const mh = qd.property(body, 'minHeight');
+  if (!pad) throw new Error('TextAction 의 여백을 못 찾았습니다.');
+  put('logout.padding', `0 ${qd.space(pad[1])}px`);
+  put('logout.fontSize', qd.pixels(fs));
+  put('logout.minHeight', qd.pixels(mh));
+  put('logout.fontSizeCss', qd.css(fs));
+  put('logout.minHeightCss', qd.css(mh));
   put('logout.touchMin', tokens.space.touch.min);
   put('logout.hint', LOGOUT_HINT);
 }
@@ -232,8 +239,8 @@ for (const [k, v] of flat(spec)) {
     throw new Error(`값이 비었습니다: ${k}`);
   }
 }
-if (spec.rail.width !== 240) throw new Error(`레일 폭이 240 이 아닙니다: ${spec.rail.width}`);
-if (spec.item.padding !== '11px 14px') throw new Error(`항목 여백이 바뀌었습니다: ${spec.item.padding}`);
+if (spec.rail.width <= 0 || spec.rail.widthCollapsed <= 0 || spec.rail.widthCollapsed > spec.rail.width) throw new Error('레일 폭의 크기 관계가 올바르지 않습니다.');
+if (!/^\d+(?:\.\d+)?px \d+(?:\.\d+)?px$/.test(spec.item.padding)) throw new Error(`항목 여백이 두 CSS 길이가 아닙니다: ${spec.item.padding}`);
 
 // ── CSS 만들기 ───────────────────────────────────────────────────────────────
 const C = tokens.color;
@@ -271,7 +278,7 @@ const bindBlock = (mode) => BINDINGS.map(([n, qa]) => bind(n, qa, mode)).join('\
  *    nav·list·screen 세 줄뿐입니다). 그래서 이 파일이 스스로 값을 들고 있어야 합니다.
  */
 const 케밥 = (k) => k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase());
-const zBlock = Object.entries(tokens.z)
+const zBlock = Object.entries(runtime.Z ?? tokens.z)
   .map(([k, v]) => `  --qd-z-${케밥(k)}: var(--qd-z-${케밥(k)}-src, var(--qa-z-${케밥(k)}, ${v}));`)
   .join('\n');
 
@@ -331,11 +338,11 @@ const css = `/* ================================================================
 
 :root {
 ${bindBlock('dark')}
-  --qd-font-ui: var(--qd-font-ui-src, inherit);
+  --qd-font-ui: var(--qd-font-ui-src, var(--qd-font-family-ui, inherit));
   /* 모노 사슬도 손으로 안 적습니다. tokens.json 의 값을 그대로 씁니다 ·
      세 제품이 «같은 얼굴» 을 쓰는 것이 이 파일의 목적 중 하나이고, 그 얼굴
      이름을 여기 따로 적으면 그것부터 갈립니다. */
-  --qd-font-mono: var(--qd-font-mono-src, ${tokens.typography.fontFamily.mono});
+  --qd-font-mono: var(--qd-font-mono-src, var(--qd-font-family-mono, ${tokens.typography.fontFamily.mono}));
   /* 한글 이름표의 어절 공백을 본문 폭으로 되돌리는 값입니다.
      JetBrains Mono 의 공백은 0.6em, Pretendard 는 0.251em 입니다(실측 · 10px 에서
      6px 대 2.51px). 0.6 - 0.35 = 0.25em 이라 본문과 맞습니다.
@@ -737,13 +744,13 @@ ${bindBlock('light')}
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  min-height: ${px(spec.logout.minHeight)};
+  min-height: ${spec.logout.minHeightCss};
   padding: ${spec.logout.padding};
   background: transparent;
   border: 0;
   color: var(--qd-muted);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.logout.fontSize)};
+  font-size: ${spec.logout.fontSizeCss};
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
@@ -757,9 +764,9 @@ ${bindBlock('light')}
 }
 
 /* ── 좁은 화면 ─────────────────────────────────────────────────────────────
-   1024px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지
+   ${runtime.BP.lg}px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지
    않게 여기서 못 박습니다. 각자 정하면 세 제품의 «접히는 순간» 이 달라집니다. */
-@media (max-width: 1023px) {
+@media (max-width: ${runtime.BP.lg - 1}px) {
   .qd-rail:not(.qd-rail--drawer) { display: none; }
 }
 
@@ -805,7 +812,7 @@ writeFileSync(
     {
       $meta: {
         generatedBy: 'tools/extract-nav.mjs',
-        source: 'source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx',
+        source: 'source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css',
         note: '손으로 고치지 마세요. 원본을 고치고 다시 돌리세요.',
       },
       ...spec,

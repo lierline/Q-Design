@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
@@ -63,7 +64,7 @@ function countHex(): { total: number; byFile: Record<string, number> } {
     for (const f of walk(join(ROOT, dir))) {
       const rel = f.slice(ROOT.length + 1).replace(/\\/g, '/');
       if (ALLOWED_FILES.has(rel)) continue;
-      const matches = readFileSync(f, 'utf8').match(HEX);
+      const matches = readDesignFile(f, 'utf8').match(HEX);
       if (matches?.length) {
         byFile[rel] = matches.length;
         total += matches.length;

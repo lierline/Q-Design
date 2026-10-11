@@ -4,6 +4,8 @@
 //   node tools/app-icons.mjs           dist/app-icons 에 만들고, 제품 쪽 파일과 같은지 봅니다
 //   node tools/app-icons.mjs --write   제품 저장소의 public 에도 쓰고, 쓴 뒤 다시 읽어 대조합니다
 //   node tools/app-icons.mjs --check   아무것도 쓰지 않고 대조만 합니다. 다르면 종료 코드 1
+//   렌더러는 app-icon-runtime.mjs 에 고정합니다. 다른 브라우저 버전은 쓰기 전에 거절합니다.
+//   --only=Q-Atelier,Q-Works,Q-Forge    선택 제품만 씁니다. 전체 렌더/읽기 검사는 유지합니다.
 //   (extract-all.mjs 가 부릅니다: 만들기 · --sync · --check 에 각각 대응)
 //
 // 오너 결정 (2026-09-25): 「똑같이 검은 배경에 Q 만 있으면 헷갈리니까 특성을 넣어 달라」
@@ -81,12 +83,13 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
+import { browserLaunchOptions } from './browser-launch.mjs';
+import { parseIconTargets, canWriteIconTarget } from './icon-targets.mjs';
+import { resolveIconTitleColor } from './icon-title-color.mjs';
+import { loadIconRuntime, assertIconBrowserVersion, assertIconVersion, assertStoredIconFile } from './app-icon-runtime.mjs';
 
-const require = createRequire(import.meta.url);
 const APP = 'D:/Claude/Q-Atelier';
-const { chromium } = require(APP + '/node_modules/playwright');
-const sharp = require(APP + '/node_modules/sharp');
+const { chromium, sharp, provenance: renderer, installCommand } = loadIconRuntime(APP);
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -94,6 +97,8 @@ const OUT = join(ROOT, 'dist', 'app-icons');
 const SRC = join(ROOT, 'source', 'brand', 'logo-dark.png');
 const write = process.argv.includes('--write');
 const checkOnly = process.argv.includes('--check');
+if (write && checkOnly) throw new Error('--write and --check cannot be combined');
+const onlyTargets = parseIconTargets(process.argv.slice(2));
 
 const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페스트의 background_color 와 같음
 
@@ -626,7 +631,9 @@ function checkTitleBars() {
       let ok = true;
       for (const m of slots) {
         const v = m[1].trim();
-        if (v === `'${want}'` || v === `"${want}"`) continue;
+        const runtimePath = join(p.root, 'lib/design/q-design-palette.ts');
+        const runtime = v === 'CARNET_PALETTE.themeColor' && existsSync(runtimePath) ? readFileSync(runtimePath, 'utf8') : '';
+        if (resolveIconTitleColor(v, text, runtime) === want) continue;
         ok = false;
         const line = text.slice(0, m.index).split('\n').length;
         problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}:${line}  ${v || '(값이 다음 줄)'}  (${want} 이어야 합니다)`);
@@ -664,7 +671,24 @@ const sha = (b) => createHash('sha256').update(b).digest('hex');
 async function main() {
   const Q = await metalQs();
   Q.art = await artworks();
-  const browser = await chromium.launch();
+  const launch = browserLaunchOptions();
+  if (launch.channel) {
+    // Sandboxed Windows runs need the browser's temporary profile inside the
+    // workspace. These are temporary browser files, never generated icon assets.
+    const browserTemp = join(ROOT, '../tmp/qd-app-icons/browser');
+    mkdirSync(browserTemp, { recursive: true });
+    process.env.TEMP = browserTemp;
+    process.env.TMP = browserTemp;
+    console.log(`아이콘 렌더러: ${launch.channel} (명시 선택)`);
+  }
+  let browser;
+  try { browser = await chromium.launch(launch); }
+  catch (error) {
+    throw new Error(`Pinned app icon browser could not start. Install it with: ${installCommand}\n${error.message}`);
+  }
+  try { assertIconBrowserVersion(browser.version()); }
+  catch (error) { await browser.close(); throw error; }
+  console.log(`아이콘 정본 렌더러: Chromium ${renderer.chromiumVersion} / Playwright ${renderer.playwright} / sharp ${renderer.sharp} / libvips ${renderer.vips}`);
   const page = await browser.newPage({ viewport: { width: 1024, height: 1024 }, deviceScaleFactor: 1 });
   const render = async (svg) => {
     await page.setContent(`<!doctype html><html><body style="margin:0;background:transparent">${svg}</body></html>`);
@@ -722,16 +746,16 @@ async function main() {
     .sort().join('\n')));
   const VERSION_FILE = join(OUT, 'version.json');
   const recorded = existsSync(VERSION_FILE) ? JSON.parse(readFileSync(VERSION_FILE, 'utf8')) : null;
-  if (recorded && recorded.version === ICON_VERSION && recorded.sha !== setSha) {
-    console.error(`❌ 그림이 바뀌었는데 판 번호가 그대로입니다(v=${ICON_VERSION}). 설치된 앱은 주소가 같으면 새 그림을 모릅니다.`);
-    console.error('   ICON_VERSION 을 올리고, 네 제품 refs 파일의 «?v=» 도 같은 번호로 바꾼 뒤 다시 돌리십시오.');
-    process.exit(1);
+  assertIconVersion(recorded, ICON_VERSION, setSha, { checkOnly });
+  if (checkOnly) for (const { p, files } of sheet) {
+    for (const [name, buf] of Object.entries(files)) assertStoredIconFile(join(OUT, p.key, name), buf);
   }
   if (recorded && recorded.version !== ICON_VERSION && recorded.sha === setSha) {
     console.log(`⚠️ 그림은 그대로인데 판 번호만 바뀌었습니다(v=${recorded.version} → v=${ICON_VERSION}). 설치 앱에 쓸데없는 갱신 안내가 뜹니다.`);
   }
 
   for (const { p, files } of sheet) {
+    const writeProduct = canWriteIconTarget(write, onlyTargets, p.key);
     const dir = join(OUT, p.key);
     if (!checkOnly) mkdirSync(dir, { recursive: true });
     for (const [name, buf] of Object.entries(files)) {
@@ -739,7 +763,7 @@ async function main() {
       const target = join(p.pub, name);
       const has = existsSync(target);
       const same = has && sha(readFileSync(target)) === sha(buf);
-      if (write && !same) {
+      if (writeProduct && !same) {
         writeFileSync(target, buf);
         /* 쓰기가 성공했다는 것과 같아졌다는 것은 다릅니다. 다시 읽어 대조합니다 */
         if (sha(readFileSync(target)) !== sha(buf)) {
@@ -747,33 +771,35 @@ async function main() {
           continue;
         }
       }
-      report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}`);
+      report.push(`  ${writeProduct ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}${write && !writeProduct ? ' (선택 제외, 쓰지 않음)' : ''}`);
     }
   }
-  if (!checkOnly) writeFileSync(VERSION_FILE, JSON.stringify({ version: ICON_VERSION, sha: setSha }, null, 2) + '\n', 'utf8');
+  if (!checkOnly) writeFileSync(VERSION_FILE, JSON.stringify({ version: ICON_VERSION, sha: setSha, renderer }, null, 2) + '\n', 'utf8');
 
   /*
    * 화면용 붓 Q. 위 판 번호 지문(setSha)이 만들어진 «뒤에» 다룹니다. 설치 앱 아이콘이 아니라서 지문에
    * 넣지 않습니다(머리 주석). 쓰고 · 다시 읽어 대조하는 방식은 아이콘과 같습니다.
    */
   const marks = await displayMarks();
+  if (checkOnly) for (const [name, buf] of Object.entries(marks)) assertStoredIconFile(join(OUT, 'marks', name), buf);
   if (!checkOnly) {
     mkdirSync(join(OUT, 'marks'), { recursive: true });
     for (const [name, buf] of Object.entries(marks)) writeFileSync(join(OUT, 'marks', name), buf);
   }
   for (const p of PRODUCTS.filter((x) => x.marksIn.length)) {
+    const writeProduct = canWriteIconTarget(write, onlyTargets, p.key);
     for (const [name, buf] of Object.entries(marks)) {
       const target = join(p.pub, name);
       const has = existsSync(target);
       const same = has && sha(readFileSync(target)) === sha(buf);
-      if (write && !same) {
+      if (writeProduct && !same) {
         writeFileSync(target, buf);
         if (sha(readFileSync(target)) !== sha(buf)) {
           report.push(`  ❌ 쓴 뒤에도 다름  ${p.name.padEnd(9)} ${name}`);
           continue;
         }
       }
-      report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}`);
+      report.push(`  ${writeProduct ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}${write && !writeProduct ? ' (선택 제외, 쓰지 않음)' : ''}`);
     }
   }
 
@@ -783,18 +809,20 @@ async function main() {
    */
   for (const { p, native } of sheet) {
     if (!native) continue;
+    if (checkOnly) assertStoredIconFile(join(OUT, p.key, NATIVE_ICON), native);
+    const writeProduct = canWriteIconTarget(write, onlyTargets, p.key);
     if (!checkOnly) writeFileSync(join(OUT, p.key, NATIVE_ICON), native);
     for (const target of p.native) {
       const has = existsSync(target);
       const same = has && sha(readFileSync(target)) === sha(native);
-      if (write && !same) {
+      if (writeProduct && !same) {
         writeFileSync(target, native);
         if (sha(readFileSync(target)) !== sha(native)) {
           report.push(`  ❌ 쓴 뒤에도 다름  ${p.name.padEnd(9)} iOS 앱 아이콘`);
           continue;
         }
       }
-      report.push(`  ${write ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} iOS 앱 아이콘 (${target.split('/').slice(-1)[0]})`);
+      report.push(`  ${writeProduct ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} iOS 앱 아이콘 (${target.split('/').slice(-1)[0]})${write && !writeProduct ? ' (선택 제외, 쓰지 않음)' : ''}`);
     }
   }
 

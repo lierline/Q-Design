@@ -23,7 +23,8 @@
 import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { LAYOUT } from './tokens';
+import { LAYOUT } from './q-design-runtime';
+import { resolveStyleValues } from '@/lib/test-utils/design-source';
 
 const ROOT = join(__dirname, '..', '..');
 const SCAN_DIRS = ['app', 'components'];
@@ -75,7 +76,7 @@ function scan(): Shell[] {
   const out: Shell[] = [];
   for (const base of SCAN_DIRS) {
     for (const p of tsxFiles(join(ROOT, base))) {
-      const lines = readFileSync(p, 'utf-8').split(/\r?\n/);
+      const lines = resolveStyleValues(readFileSync(p, 'utf-8')).split(/\r?\n/);
       lines.forEach((ln, i) => {
         const tok = TOKEN_WIDTH.exec(ln);
         const hard = tok ? null : HARD_WIDTH.exec(ln);

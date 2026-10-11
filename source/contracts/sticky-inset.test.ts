@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 // =============================================================================
 // 계약: sticky inset 은 스크롤 컨테이너의 padding 을 감안한다 (UI-01 · UI-02)
 // =============================================================================
@@ -22,7 +23,7 @@ import {
 } from './sticky-inset';
 
 const ROOT = join(__dirname, '..', '..');
-const read = (rel: string) => readFileSync(join(ROOT, rel), 'utf8');
+const read = (rel: string) => readDesignFile(join(ROOT, rel), 'utf8');
 
 /** 주석은 계약 대상이 아닙니다. 주석 안에서는 함정을 설명하느라 같은 문구를 씁니다. */
 function code(rel: string): string {

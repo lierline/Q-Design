@@ -20,6 +20,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { codeOnly, REPO_ROOT } from '@/lib/test-utils/contract-source';
+import { resolveStyleValues } from '@/lib/test-utils/design-source';
 
 type Counts = { boxed: number; input: number; text: number; why?: string };
 
@@ -79,7 +80,7 @@ function styleOf(tag: string): string {
 }
 
 export function classify(tag: string, kind: 'button' | 'input'): 'boxed' | 'input' | 'text' | null {
-  const s = styleOf(tag);
+  const s = resolveStyleValues(styleOf(tag));
   if (kind === 'input') {
     const type = (tag.match(/type=["']([a-z]+)/) || [])[1] || 'text';
     if (['checkbox', 'radio', 'file', 'hidden', 'range', 'color'].includes(type)) return null;

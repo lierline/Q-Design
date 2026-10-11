@@ -9,12 +9,15 @@
 // **에러 없이** 사라지고 있었다. 페이지가 생기면 「더 있다」는 사실 자체가 화면에 보인다.
 // 규칙과 계산은 lib/api/list-page.ts 가 SSOT.
 
+import { labelTracking, labelCase, QDText } from '@/lib/design/q-design-labels';
+import { QDScale } from '@/lib/design/q-design-scale';
 import Link from 'next/link';
 import { ChevronLeft } from '@/components/q-design-icons/ChevronLeft';
 import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
-import { S, FS, T, F, LH, RADIUS, ICON, labelTracking, labelCase, hasHangul } from '@/lib/design/tokens';
-import { CTL } from '@/lib/design/grain';
+import { S, FS, T, F, LH, hasHangul } from '@/lib/design/tokens';
+import { QD } from '@/lib/design/q-design-contract';
 import { pageCount, pageWindow, PAGE_SIZE } from '@/lib/api/list-page';
+import { ICON } from '@/lib/design/q-design-runtime';
 
 interface ListPagerProps {
   /** 현재 페이지(1-base). clampPage 를 거친 값을 넘긴다. */
@@ -74,31 +77,31 @@ export function ListPager({
   // 한글이 섞인 글(«1-26 / 총 26건»)은 본문 글꼴 · 숫자 자리 맞춤. 고정폭이면 어절 공백이 두 배로 벌어졌다
   // (화면 검토 A44 · 2026-09-28). 숫자만인 «2 / 5» 는 고정폭 그대로
   const label = (text: string): React.CSSProperties => ({
-    fontFamily: hasHangul(text) ? F.ui : F.mono,
-    fontSize: FS[12],
+    fontFamily: hasHangul(text) ? QDScale.family.ui : QDScale.family.mono,
+    fontSize: QDScale.font[12],
     color: T.muted,
-    lineHeight: LH.none,
-    letterSpacing: labelTracking(text, 0.4),
+    lineHeight: QDScale.leading.none,
+    letterSpacing: labelTracking(text, QDText.tracking.vf3e360d899),
     fontVariantNumeric: 'tabular-nums',
   });
 
   const btn = (enabled: boolean, text: string): React.CSSProperties => ({
     display: 'inline-flex',
     alignItems: 'center',
-    gap: S[1],
-    padding: '7px 12px',
-    minHeight: 36,
-    borderRadius: RADIUS.md,
-    border: `1px solid ${CTL}`,
+    gap: QDScale.space[1],
+    padding: "var(--qd-atelier-padding-8d82516493)",
+    minHeight: QD.controlHeightSm,
+    borderRadius: QD.radius,
+    border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${QD.ctl}`,
     background: 'transparent',
     color: enabled ? T.text : T.muted,
-    fontFamily: F.ui,
-    fontSize: FS[12],
-    lineHeight: LH.none,
-    letterSpacing: labelTracking(text, 1.2),
+    fontFamily: QDScale.family.ui,
+    fontSize: QD.controlSize,
+    lineHeight: QDScale.leading.none,
+    letterSpacing: labelTracking(text, QDText.tracking.v77ac319bfe),
     textTransform: labelCase(text),
-    textDecoration: 'none',
-    opacity: enabled ? 1 : 0.4,
+    textDecoration: QDText.textDecoration.v30a0924a33,
+    opacity: enabled ? "var(--qd-atelier-opacity-dc43f5a623)" : "var(--qd-atelier-opacity-86c88eaa9e)",
     pointerEvents: enabled ? 'auto' : 'none',
   });
 
@@ -108,10 +111,10 @@ export function ListPager({
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: S[3],
-        marginTop: 위 ? 0 : S[5],
-        paddingTop: 위 ? 0 : S[4],
-        borderTop: 위 ? undefined : `1px solid ${T.border}`,
+        gap: QDScale.space[3],
+        marginTop: 위 ? "var(--qd-atelier-margin-top-38db7dc3b0)" : QDScale.space[5],
+        paddingTop: 위 ? "var(--qd-space-0)" : QDScale.space[4],
+        borderTop: 위 ? undefined : `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
         justifyContent: 위 ? 'flex-end' : 'space-between',
         flexWrap: 'wrap',
       }}
@@ -123,9 +126,10 @@ export function ListPager({
       )}
 
       {showNav && (
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: S[2] }}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: QDScale.space[2] }}>
           <Link
             href={hrefFor(basePath, page - 1, params)}
+            className="qa-touch-44"
             style={btn(page > 1, '이전')}
             aria-disabled={page <= 1}
             tabIndex={page <= 1 ? -1 : undefined}
@@ -134,12 +138,13 @@ export function ListPager({
             이전
           </Link>
 
-          <span style={{ ...label(쪽), minWidth: 64, textAlign: 'center' }}>
+          <span style={{ ...label(쪽), minWidth: "var(--qd-atelier-min-width-212352ff9a)", textAlign: 'center' }}>
             {쪽}
           </span>
 
           <Link
             href={hrefFor(basePath, page + 1, params)}
+            className="qa-touch-44"
             style={btn(page < last, '다음')}
             aria-disabled={page >= last}
             tabIndex={page >= last ? -1 : undefined}

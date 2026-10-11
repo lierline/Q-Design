@@ -10,7 +10,11 @@
 //   2번+ 구역이 너무 넓은 것입니다. 어느 쪽 값인지 모르는 채로 뽑으면 안 됩니다.
 // =============================================================================
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { basename, dirname, join, resolve } from 'node:path';
+import { normalizeScaleSyntax, normalizeStyleLiterals } from './qd-adapter-values.mjs';
+import { normalizeRuntimeReferences, normalizeTypographyReferences, readRuntimeValues, resolveAtelierMedia } from './atelier-runtime-values.mjs';
+import { readOutputValues, resolveAtelierOutputCss } from './atelier-output-values.mjs';
 
 /**
  * 원본 읽기.
@@ -21,7 +25,30 @@ import { readFileSync } from 'node:fs';
  *    표지를 하나도 못 찾았습니다 - 「원본이 바뀐 것」 처럼 보이지만 아닙니다.
  */
 export function read(path) {
-  return readFileSync(path, 'utf8').replace(/\r\n/g, '\n');
+  const text = readFileSync(path, 'utf8').replace(/\r\n/g, '\n');
+  if (path.endsWith('.css')) return readSourceCss(path, text);
+  const sourceRoot = path.replaceAll('\\', '/').split('/source/')[0];
+  return /\.tsx?$/.test(path) ? normalizeScaleSyntax(normalizeStyleLiterals(normalizeTypographyReferences(normalizeRuntimeReferences(text, sourceRoot), sourceRoot), sourceRoot)) : text;
+}
+
+export function readSourceCss(path, fallback = readFileSync(path, 'utf8').replace(/\r\n/g, '\n')) {
+  const original = { 'globals.css': 'app/globals.css', 'expert-theme.css': 'app/experts/expert-theme.css', 'sheet-paper.css': 'components/qms/sheet-paper.css' }[basename(path)];
+  if (!original || !/[\\/]source[\\/]css[\\/]/.test(path)) return fallback;
+  const recipe = join(resolve(dirname(path), '..', '..'), 'patterns/foundation/atelier.css');
+  if (!existsSync(recipe)) {
+    if (/q-design\.foundation\.css/.test(fallback)) throw new Error(`Imported foundation recipe is missing: ${original}`);
+    return fallback;
+  }
+  const rawCss = readFileSync(recipe, 'utf8').replace(/\r\n/g, '\n');
+  let css = /qd-bp\(/.test(rawCss) ? resolveAtelierMedia(rawCss, readRuntimeValues(resolve(dirname(path), '..', '..'))) : rawCss;
+  if (/qd-output\(/.test(css)) css = resolveAtelierOutputCss(css, readOutputValues(resolve(dirname(path), '..', '..')));
+  const start = `/* qd-source-start: ${original} */`;
+  const end = `/* qd-source-end: ${original} */`;
+  if (css.split(start).length !== 2 || css.split(end).length !== 2) throw new Error(`Missing or duplicated foundation source section: ${original}`);
+  const from = css.indexOf(start) + start.length;
+  const to = css.indexOf(end);
+  if (to < from) throw new Error(`Invalid foundation source section: ${original}`);
+  return css.slice(from, to);
 }
 
 /**

@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -9,7 +10,7 @@ import { STATE, OVERLAY, ELEVATION, Z, S, type StateKey } from './tokens';
 // 'tokens 에서 가져오면 실제 CSS 변수와 항상 일치'를 보장한다(분할 출처 재발 방지).
 // =============================================================================
 
-const read = (rel: string) => readFileSync(join(process.cwd(), rel), 'utf8');
+const read = (rel: string) => readDesignFile(join(process.cwd(), rel), 'utf8');
 
 describe('[디자인 1단계] 승격 토큰: 분할 출처 닫기', () => {
   const css = read('app/globals.css');

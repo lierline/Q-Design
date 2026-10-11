@@ -1,0 +1,433 @@
+/* Q-Design owns remaining reviewed Atelier presentation values.
+   Original sites and values: source/style-adapters/atelier-core-values.json.
+   Edit values here; source code reads these stable parameter names. */
+:root {
+  --qd-atelier-permissions-tracking: 0.5px;
+  --qd-atelier-row-min-height: 60px;
+  --qd-atelier-approval-kind-gap: 7px;
+  --qd-atelier-approval-name-gap: 3px;
+  --qd-tag-xs-min-height: 20px;
+  --qd-tag-xs-size: var(--qd-caption-size);
+  --qd-tag-xs-padding-y: 0px;
+  --qd-tag-xs-padding-x: 6px;
+  --qd-tag-xs-dot-size: 5px;
+  --qd-tag-xs-gap: var(--qd-space-1);
+  --qd-tag-sm-min-height: 24px;
+  --qd-tag-sm-size: var(--qd-caption-size);
+  --qd-tag-sm-padding-y: 2px;
+  --qd-tag-sm-padding-x: 8px;
+  --qd-tag-sm-dot-size: 6px;
+  --qd-tag-sm-gap: var(--qd-space-1);
+  --qd-tag-md-min-height: 28px;
+  --qd-tag-md-size: var(--qd-control-size);
+  --qd-tag-md-padding-y: 4px;
+  --qd-tag-md-padding-x: 10px;
+  --qd-tag-md-dot-size: 7px;
+  --qd-tag-md-gap: 5px;
+  --qd-atelier-animation-e2fb7e6e84: qa-drawer-slide-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  --qd-atelier-animation-f980f830ce: qa-spin 0.8s linear infinite;
+  --qd-atelier-border-5614885022: 2px solid currentColor;
+  --qd-atelier-bottom-0b345d4976: -5px;
+  --qd-atelier-gap-813e1ff4f7: 4px 14px;
+  --qd-atelier-gap-b888c81e5f: 1px;
+  --qd-atelier-height-1ef1d2ac3e: 28px;
+  --qd-atelier-height-8ce6d713d7: 100dvh;
+  --qd-atelier-height-e737496ec6: 1.5px;
+  --qd-atelier-height-e85d246b1d: 42px;
+  --qd-atelier-left-128cd8727f: calc(env(safe-area-inset-left, 0px) + 12px);
+  --qd-atelier-left-db1be71353: 10px;
+  --qd-atelier-letter-spacing-4a873a4bd2: 0.1px;
+  --qd-atelier-line-height-3e0b4c5306: 1;
+  --qd-atelier-line-height-89aa2d62d2: 1.05;
+  --qd-atelier-margin-3c2f7af20d: -3px;
+  --qd-atelier-margin-5c2df38eed: 6px 0;
+  --qd-atelier-margin-6d71facf62: 8px 8px;
+  --qd-atelier-margin-8e48ce1c18: 16px 0;
+  --qd-atelier-margin-93937849d9: 1px 0;
+  --qd-atelier-margin-a3079d51f3: 3px 0 0;
+  --qd-atelier-margin-bb3ec884dd: -1px;
+  --qd-atelier-max-height-39454964ea: 85dvh;
+  --qd-atelier-max-width-108516c287: 60em;
+  --qd-atelier-max-width-6e15e025f4: 100vw;
+  --qd-atelier-min-height-353f128cde: 16px;
+  --qd-atelier-min-height-baaa9dc6ef: 124px;
+  --qd-atelier-min-width-212352ff9a: 64px;
+  --qd-atelier-min-width-491600e090: 18px;
+  --qd-atelier-min-width-a8fa375fbf: 22px;
+  --qd-atelier-padding-10130e168f: 4px 4px 8px;
+  --qd-atelier-padding-2fced8fcbc: 72px 24px;
+  --qd-atelier-padding-6dbda940f2: 9px 0 3px 4px;
+  --qd-atelier-padding-8a238426cb: 14px 6px;
+  --qd-atelier-padding-93bdbf7350: 20px 12px;
+  --qd-atelier-padding-cb2e44d3f6: 20px 0;
+  --qd-atelier-padding-f5778c8c22: 12px 14px 4px;
+  --qd-atelier-padding-left-2da5cadfb6: 17px;
+  --qd-atelier-right-d428a85cbe: 3px;
+  --qd-atelier-top-7cdfab3373: 3px;
+  --qd-atelier-transition-4db5304ca2: background 0.14s ease, color 0.14s ease;
+  --qd-atelier-transition-903f6a1058: border-color 0.15s ease, color 0.15s ease;
+  --qd-atelier-transition-ccf3ab5062: background 140ms ease, border-color 140ms ease;
+  --qd-atelier-width-0f88141c20: 16px;
+  --qd-atelier-width-99c58a1579: 28px;
+}
+
+/* Reviewed conditional style branches and shared navigation constants. */
+:root {
+  --qd-atelier-margin-top-38db7dc3b0: 0px;
+  --qd-atelier-width-8071f21693: 60px;
+  --qd-atelier-width-aebc026e77: 240px;
+  --qd-atelier-width-973b02d046: 264px;
+  --qd-atelier-padding-6655ed15d7: 22px 16px;
+  --qd-atelier-padding-20c4134aae: 18px 6px;
+  --qd-atelier-gap-dfec023665: 0px;
+  --qd-atelier-margin-bottom-dba5d0300b: 0px;
+  --qd-atelier-margin-bottom-8774b7f498: 10px;
+  --qd-atelier-padding-b5b76465e0: 96px 24px;
+  --qd-atelier-font-size-c4c2451b3f: 16px;
+  --qd-atelier-font-size-281e2e0411: 22px;
+  --qd-atelier-margin-bottom-761177ce75: 18px;
+  --qd-atelier-margin-56bc7ec797: 0 auto 22px;
+  --qd-atelier-margin-top-1788b51a41: 8px;
+  --qd-atelier-margin-bottom-f0e60d1fe1: 14px;
+  --qd-atelier-margin-bottom-4686eaf157: 4px;
+  --qd-atelier-gap-ab5acf201a: 4px;
+  --qd-atelier-min-width-73e2326cbc: fit-content;
+}
+
+/* Reviewed grid tracks: source/style-adapters/atelier-grid-values.json. */
+:root {
+  --qd-atelier-grid-template-columns-101a2cc416: 1fr 120px 120px;
+  --qd-atelier-grid-template-columns-1139b02e10: 120px 1fr 100px 140px 130px;
+  --qd-atelier-grid-template-columns-12bde0f4ce: 110px 1fr;
+  --qd-atelier-grid-template-columns-19076a0f87: 200px 1fr 70px;
+  --qd-atelier-grid-template-columns-219c84c5b3: 160px 1fr 120px;
+  --qd-atelier-grid-template-columns-224d4984a6: 1fr 1fr 1fr;
+  --qd-atelier-grid-template-columns-2bd9086160: repeat(auto-fit, minmax(110px, 1fr));
+  --qd-atelier-grid-template-columns-30c39a4664: repeat(3, minmax(0, 1fr));
+  --qd-atelier-grid-template-columns-327e1005ec: 120px 140px 1fr 80px 80px;
+  --qd-atelier-grid-template-columns-373f4e6d4a: repeat(auto-fit, minmax(150px, 1fr));
+  --qd-atelier-grid-template-columns-3bc7450f25: repeat(auto-fit, minmax(160px, 1fr));
+  --qd-atelier-grid-template-columns-3eadb6e786: 90px 1fr 60px;
+  --qd-atelier-grid-template-columns-3f8d8a1a52: repeat(auto-fit, minmax(100px, 1fr));
+  --qd-atelier-grid-template-columns-425074bb1c: 160px 180px 220px 1fr;
+  --qd-atelier-grid-template-columns-435d4a3766: repeat(auto-fit, minmax(220px, 1fr));
+  --qd-atelier-grid-template-columns-48babb64f5: 2fr 3fr auto;
+  --qd-atelier-grid-template-columns-4a72ec4126: 100px 1fr 110px 100px;
+  --qd-atelier-grid-template-columns-4b4c571294: 1fr 100px 90px 140px 100px;
+  --qd-atelier-grid-template-columns-4e2a40a174: 140px 80px 1fr;
+  --qd-atelier-grid-template-columns-4eb584f04b: repeat(auto-fill, minmax(280px, 1fr));
+  --qd-atelier-grid-template-columns-4ffa770a92: 120px 1fr 90px;
+  --qd-atelier-grid-template-columns-50e47f0061: repeat(auto-fit, minmax(180px, 1fr));
+  --qd-atelier-grid-template-columns-593a13ec38: 110px 1fr 100px 100px 130px 110px;
+  --qd-atelier-grid-template-columns-63a72b139a: 160px 1fr;
+  --qd-atelier-grid-template-columns-64a997b29d: repeat(auto-fit, minmax(200px, 1fr));
+  --qd-atelier-grid-template-columns-6a7670410f: repeat(auto-fill, minmax(260px, 1fr));
+  --qd-atelier-grid-template-columns-6acf26927d: minmax(260px, 320px) 1fr;
+  --qd-atelier-grid-template-columns-7286392c2b: 1fr 64px 64px 72px 64px 104px 110px;
+  --qd-atelier-grid-template-columns-731a2c25a9: 1fr 120px 130px 90px 36px;
+  --qd-atelier-grid-template-columns-736564bd8d: 1fr 90px 44px;
+  --qd-atelier-grid-template-columns-754cd9cbe0: repeat(4, minmax(0, 1fr));
+  --qd-atelier-grid-template-columns-760144ba86: 120px 1fr;
+  --qd-atelier-grid-template-columns-7620e0c8da: 1fr 100px 100px 100px;
+  --qd-atelier-grid-template-columns-798c27432c: repeat(auto-fit, minmax(170px, 1fr));
+  --qd-atelier-grid-template-columns-7b7c85ac14: 220px 100px 1fr;
+  --qd-atelier-grid-template-columns-7d1896c0d8: repeat(auto-fit, minmax(120px, 1fr));
+  --qd-atelier-grid-template-columns-7e2c038896: 120px 1fr 90px 90px 90px 110px 1fr;
+  --qd-atelier-grid-template-columns-814638854e: 1fr 160px;
+  --qd-atelier-grid-template-columns-82b5c85547: 1fr 140px auto;
+  --qd-atelier-grid-template-columns-8797425e7c: repeat(2, minmax(0, 1fr));
+  --qd-atelier-grid-template-columns-879f5d17bf: repeat(auto-fit, minmax(240px, 1fr));
+  --qd-atelier-grid-template-columns-88230d6a68: 80px 1fr;
+  --qd-atelier-grid-template-columns-8e15a94a30: 140px 200px minmax(0, 1fr) 140px;
+  --qd-atelier-grid-template-columns-9062b70a05: repeat(auto-fit, minmax(130px, 1fr));
+  --qd-atelier-grid-template-columns-906eead401: 110px 100px 1fr auto;
+  --qd-atelier-grid-template-columns-909ed3d6e0: 110px 90px 70px 110px 1fr 130px 90px;
+  --qd-atelier-grid-template-columns-93cf941397: 120px 1fr 110px 110px;
+  --qd-atelier-grid-template-columns-955c253345: 1fr 110px 140px;
+  --qd-atelier-grid-template-columns-96a18d90dd: 140px 1fr 130px;
+  --qd-atelier-grid-template-columns-9a086fb73b: 2fr 1fr 36px;
+  --qd-atelier-grid-template-columns-9bc36ed113: 1fr 1fr;
+  --qd-atelier-grid-template-columns-a69448802c: auto auto;
+  --qd-atelier-grid-template-columns-a7fb536c2c: 1fr 32px 1fr;
+  --qd-atelier-grid-template-columns-a9d0167977: 160px 100px 90px 1fr 130px 80px;
+  --qd-atelier-grid-template-columns-ac7bd9efa3: 88px 1fr 60px 50px 130px;
+  --qd-atelier-grid-template-columns-acab4d5989: 1fr 80px 90px 110px 130px 130px;
+  --qd-atelier-grid-template-columns-accd370ea1: auto auto minmax(0, 1fr);
+  --qd-atelier-grid-template-columns-af2bd6fdc3: 1fr;
+  --qd-atelier-grid-template-columns-b4e8abfa0c: 90px 1fr 70px 50px;
+  --qd-atelier-grid-template-columns-b667c33810: 90px 1fr;
+  --qd-atelier-grid-template-columns-bc7950908d: 1fr auto;
+  --qd-atelier-grid-template-columns-c29e4f0a73: 1fr auto 1fr;
+  --qd-atelier-grid-template-columns-c80b77add1: 160px 1fr 90px 130px 130px 90px;
+  --qd-atelier-grid-template-columns-c8242d978c: 44px 64px 100px 1fr 240px 24px;
+  --qd-atelier-grid-template-columns-c99b61dd4f: repeat(auto-fill, minmax(220px, 1fr));
+  --qd-atelier-grid-template-columns-ca0d3585aa: 40px 1fr 100px;
+  --qd-atelier-grid-template-columns-ce464e094a: 140px 1fr 110px;
+  --qd-atelier-grid-template-columns-cf80ef62a2: 180px 1fr;
+  --qd-atelier-grid-template-columns-cf92951214: 2fr 1.2fr 1fr 2fr;
+  --qd-atelier-grid-template-columns-cff7402eb4: 1fr 1px 1fr;
+  --qd-atelier-grid-template-columns-dc01a03683: 120px 1fr 90px 90px 90px 110px 1.4fr;
+  --qd-atelier-grid-template-columns-dcbf85a208: repeat(auto-fit, minmax(140px, 1fr));
+  --qd-atelier-grid-template-columns-dd1a19e633: repeat(4, 1fr);
+  --qd-atelier-grid-template-columns-dd6eaa7210: repeat(auto-fit, minmax(280px, 1fr));
+  --qd-atelier-grid-template-columns-e0e6f7b1e2: repeat(auto-fit, minmax(230px, 1fr));
+  --qd-atelier-grid-template-columns-e728a7afaf: minmax(0, 1fr) auto;
+  --qd-atelier-grid-template-columns-e7c72e3c1b: max-content 1fr;
+  --qd-atelier-grid-template-columns-e86b78c889: 100px 1fr 60px;
+  --qd-atelier-grid-template-columns-ef2dc99299: minmax(0, 1.35fr) minmax(0, 1fr);
+  --qd-atelier-grid-template-columns-effaff81d2: 1fr 200px 160px 200px;
+  --qd-atelier-grid-template-columns-f439f3a974: 2fr 1fr;
+  --qd-atelier-grid-template-columns-f8f37adb28: repeat(auto-fill, minmax(180px, 1fr));
+  --qd-atelier-grid-template-columns-fd9649aec9: 100px 1fr 90px 100px;
+  --qd-atelier-grid-template-columns-fdd87b757a: repeat(7, minmax(0, 1fr));
+  --qd-atelier-grid-template-rows-11f1d87b5a: 1fr;
+  --qd-atelier-grid-template-rows-83f858e009: 0fr;
+  --qd-atelier-width-04665c2790: 1.2fr;
+  --qd-atelier-width-051abb7ab4: minmax(150px, 0.9fr);
+  --qd-atelier-width-0f2aca65dd: 168px;
+  --qd-atelier-width-14a03b2410: minmax(90px, 0.8fr);
+  --qd-atelier-width-1ba51881f3: 70px;
+  --qd-atelier-width-20c5c66b47: 1.6fr;
+  --qd-atelier-width-28ce486ff2: minmax(140px, 1.2fr);
+  --qd-atelier-width-2dfcf515a9: minmax(96px, 0.8fr);
+  --qd-atelier-width-2edb6baa63: 1fr;
+  --qd-atelier-width-3454026bac: minmax(200px, 2fr);
+  --qd-atelier-width-3ca2ae1977: minmax(50px, 0.5fr);
+  --qd-atelier-width-433b187c26: 92px;
+  --qd-atelier-width-48abb035bf: minmax(0, 1fr);
+  --qd-atelier-width-4a8e5e3bb8: minmax(170px, 1fr);
+  --qd-atelier-width-55d8ffef28: 170px;
+  --qd-atelier-width-5a5f7abe41: 110px;
+  --qd-atelier-width-5af2b479cf: minmax(120px, 1.4fr);
+  --qd-atelier-width-5b306adf7f: minmax(0, 2fr);
+  --qd-atelier-width-5d3d8abc80: minmax(160px, 0.8fr);
+  --qd-atelier-width-5f6a72ded8: 2.4fr;
+  --qd-atelier-width-62e292aab3: minmax(110px, 1fr);
+  --qd-atelier-width-662c8e4334: 150px;
+  --qd-atelier-width-66e8ecd016: minmax(80px, 0.7fr);
+  --qd-atelier-width-6f807e8852: 1.5fr;
+  --qd-atelier-width-6fb572c7e7: minmax(80px, 0.8fr);
+  --qd-atelier-width-7080f70fb4: 108px;
+  --qd-atelier-width-79fdd70a86: 2fr;
+  --qd-atelier-width-8a12f78a68: minmax(60px, 0.6fr);
+  --qd-atelier-width-91269935bd: 80px;
+  --qd-atelier-width-9db3c3232a: 130px;
+  --qd-atelier-width-9e0ba99a02: minmax(160px, 1.6fr);
+  --qd-atelier-width-ad426e4154: 260px;
+  --qd-atelier-width-b66da02177: 1.4fr;
+  --qd-atelier-width-c1ca2330aa: minmax(140px, 1fr);
+  --qd-atelier-width-c6c02c7619: minmax(160px, 2fr);
+  --qd-atelier-width-c880d6ebcc: minmax(190px, 1.6fr);
+  --qd-atelier-width-cd80a789fc: minmax(100px, 0.9fr);
+  --qd-atelier-width-d334b57bfc: 120px;
+  --qd-atelier-width-d3db975bed: 64px;
+  --qd-atelier-width-d68e58999b: minmax(0, 0.6fr);
+  --qd-atelier-width-d9bdf1127d: minmax(0, 1.2fr);
+  --qd-atelier-width-dc9eac3f89: 190px;
+  --qd-atelier-width-e1bd43b81b: minmax(60px, 0.5fr);
+  --qd-atelier-width-e5a3feb436: 84px;
+  --qd-atelier-width-edb4cac963: 1.8fr;
+  --qd-atelier-width-f20c98971e: minmax(90px, 0.9fr);
+  --qd-atelier-width-f47e3b970d: 90px;
+  --qd-atelier-width-fc89e844ea: minmax(220px, 1.6fr);
+  --qd-atelier-width-ffcb6e42ab: 160px;
+}
+
+/* Reviewed conditional defaults: source/style-adapters/atelier-conditional-values.json. */
+:root {
+  --qd-department-badge-padding-md: 2px 8px;
+  --qd-department-badge-padding-sm: 1px 6px;
+  --qd-atelier-popover-max-width: 90vw;
+  --qd-atelier-animation-85e2db3bbe: qa-spin 1s linear infinite;
+  --qd-atelier-animation-c45e4328d3: qa-ptr-spin 0.8s linear infinite;
+  --qd-atelier-border-bottom-8a9040d989: 2px solid transparent;
+  --qd-atelier-border-top-12d5bfbfa4: 2px solid transparent;
+  --qd-atelier-box-shadow-4e3a320a2e: 0 0 0 0 transparent;
+  --qd-atelier-left-b77c85b911: 12px;
+  --qd-atelier-margin-af3c2c2206: 4px 0 0;
+  --qd-atelier-max-height-10313ebafa: calc(100vh - 80px);
+  --qd-atelier-max-height-70b738b89c: min(560px, calc(100vh - 80px));
+  --qd-atelier-max-height-98ef83fc64: calc(100dvh - 176px);
+  --qd-atelier-max-height-c37aced585: calc(100dvh - 96px);
+  --qd-atelier-min-height-d1125e45f1: 8px;
+  --qd-atelier-opacity-12f66c81f3: 0.32;
+  --qd-atelier-opacity-1e45cdc0ca: 0.45;
+  --qd-atelier-opacity-58891958e0: 0.35;
+  --qd-atelier-opacity-5a494e69a6: 0.82;
+  --qd-atelier-opacity-64201e50d3: 0.56;
+  --qd-atelier-opacity-723e7a154b: 0.72;
+  --qd-atelier-opacity-8ad03dac39: 0.78;
+  --qd-atelier-opacity-b53823ac50: 0;
+  --qd-atelier-outline-offset-add1a4a27f: 0px;
+  --qd-atelier-padding-0db622ccdc: 18px 22px 20px;
+  --qd-atelier-padding-10cb0c99af: 6px 11px;
+  --qd-atelier-padding-c2a728b34e: 5px 9px;
+  --qd-atelier-padding-right-5a7a43c1e0: 38px;
+  --qd-atelier-right-11f369524d: 12px;
+  --qd-atelier-transition-f7c7537b7b: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), padding 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  --qd-atelier-width-90cbec82bc: 0px;
+  --qd-atelier-width-c6c0c33c0f: 360px;
+}
+
+/* Reviewed function defaults: source/style-adapters/atelier-function-values.json. */
+:root {
+  --qd-atelier-min-height-33a0c459af: 70vh;
+  --qd-atelier-padding-a1041a2446: 24px 16px calc(120px + env(safe-area-inset-bottom, 0px));
+  --qd-atelier-transition-1460dce093: all 120ms ease;
+}
+
+/* Reviewed literal style fragments. See source/style-adapters/atelier-style-fragments.json. */
+:root {
+  --qd-atelier-border-style-5ed175bd8d: solid;
+  --qd-atelier-border-style-95c01bc47f: dashed;
+  --qd-atelier-border-style-d6cf0a6915: dotted;
+  --qd-atelier-border-width-629f400716: 1.5px;
+  --qd-atelier-border-width-d98604a1be: 3px;
+  --qd-atelier-flex-09b2b5aff4: 1 1 220px;
+  --qd-atelier-flex-134021ea72: 1 1 200px;
+  --qd-atelier-flex-17f6158ebf: 1 1 140px;
+  --qd-atelier-flex-2d42481910: 2;
+  --qd-atelier-flex-3b80b5ce9b: 1 1 420px;
+  --qd-atelier-flex-58b716a7c6: 0 0 140px;
+  --qd-atelier-flex-6173c2f380: 1 1 100px;
+  --qd-atelier-flex-6af622290f: 1 1 180px;
+  --qd-atelier-flex-7420610ca5: 1 1 160px;
+  --qd-atelier-flex-7fff97ee23: 1 1 auto;
+  --qd-atelier-flex-8037400c24: 0 0 auto;
+  --qd-atelier-flex-824afcc06b: 1 0 auto;
+  --qd-atelier-flex-83725d2c6e: 1;
+  --qd-atelier-flex-84473f0802: 1 1 480px;
+  --qd-atelier-flex-a490ddb63c: 0 0 136px;
+  --qd-atelier-flex-a81b3ff9da: 1 1 320px;
+  --qd-atelier-flex-b1967aa00f: 2 1 240px;
+  --qd-atelier-flex-b46b96af8e: 1 1 300px;
+  --qd-atelier-flex-b8d2a02f9a: 1 1 0;
+  --qd-atelier-flex-basis-479cc24a38: 100%;
+  --qd-atelier-flex-c249c57cd4: 0 0 150px;
+  --qd-atelier-flex-ca435f87aa: 1.7 1 460px;
+  --qd-atelier-flex-cb8b09fe18: 1 1 260px;
+  --qd-atelier-flex-d69425bc7f: 1 1 280px;
+  --qd-atelier-flex-e6b29ab574: 1 1 240px;
+  --qd-atelier-flex-ea169cb88e: 0 1 auto;
+  --qd-atelier-flex-ef5d1a5772: 0 1 300px;
+  --qd-atelier-font-weight-51f1217b48: 500;
+  --qd-atelier-max-height-dead6c5528: 100vh;
+  --qd-atelier-scroll-margin-top-056e6d9c19: 72px;
+  --qd-atelier-scroll-margin-top-319b6655dd: 24px;
+  --qd-atelier-scroll-margin-top-d4d92efb48: 80px;
+}
+
+/* Explicit finite defaults found by exact consumer review. */
+:root {
+  --qd-atelier-hub-link-underline-offset: 3px;
+  --qd-atelier-inline-icon-align: -2px;
+  --qd-atelier-matched-rule-hover: rgba(201, 168, 120, 0.04);
+  --qd-atelier-approval-connector-inset: calc(50% + 15px);
+  --qd-atelier-approval-connector-top: 11px;
+  --qd-atelier-observe-border-style: dashed;
+  --qd-atelier-document-outline-width: 2px;
+  --qd-atelier-observe-filter: grayscale(0.4);
+  --qd-atelier-type-display-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-display-font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+  --qd-atelier-type-display-font-weight: 700;
+  --qd-atelier-type-display-letter-spacing: -0.02em;
+  --qd-atelier-type-display-line-height: 1.05;
+  --qd-atelier-type-h1-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-h1-font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem);
+  --qd-atelier-type-h1-font-weight: 700;
+  --qd-atelier-type-h1-letter-spacing: -0.015em;
+  --qd-atelier-type-h1-line-height: 1.15;
+  --qd-atelier-type-h2-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-h2-font-size: clamp(1.25rem, 1rem + 0.8vw, 1.5rem);
+  --qd-atelier-type-h2-font-weight: 600;
+  --qd-atelier-type-h2-letter-spacing: -0.01em;
+  --qd-atelier-type-h2-line-height: 1.25;
+  --qd-atelier-type-h3-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-h3-font-size: 1.0625rem;
+  --qd-atelier-type-h3-font-weight: 600;
+  --qd-atelier-type-h3-letter-spacing: -0.005em;
+  --qd-atelier-type-h3-line-height: 1.35;
+  --qd-atelier-type-body-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-body-font-size: 0.9375rem;
+  --qd-atelier-type-body-font-weight: 400;
+  --qd-atelier-type-body-letter-spacing: 0px;
+  --qd-atelier-type-body-line-height: 1.65;
+  --qd-atelier-type-caption-font-family: var(--qd-font-family-ui);
+  --qd-atelier-type-caption-font-size: 0.8125rem;
+  --qd-atelier-type-caption-font-weight: 400;
+  --qd-atelier-type-caption-letter-spacing: 0px;
+  --qd-atelier-type-caption-line-height: 1.55;
+  --qd-atelier-type-mono-font-family: var(--qd-font-family-mono);
+  --qd-atelier-type-mono-font-size: 0.6875rem;
+  --qd-atelier-type-mono-font-weight: 500;
+  --qd-atelier-type-mono-letter-spacing: 0.08em;
+  --qd-atelier-type-mono-line-height: 1.4;
+  --qd-atelier-type-mono-text-transform: uppercase;
+}
+
+:root {
+  --qd-atelier-assessment-column-100: 100px;
+  --qd-atelier-assessment-column-110: 110px;
+  --qd-atelier-assessment-column-120: 120px;
+  --qd-atelier-assessment-column-140: 140px;
+  --qd-atelier-impact-grid: repeat(auto-fit, minmax(220px, 1fr));
+  --qd-atelier-pipeline-ring: 0 0 0 var(--qd-border-width);
+  --qd-atelier-pipeline-shadow: 0 2px 10px;
+}
+
+/* Exact residual screen defaults from independent consumer review. */
+:root {
+  --qd-atelier-link-underline-fine: 2px;
+  --qd-atelier-grid-members: 1fr 220px 160px 110px 130px 110px;
+  --qd-atelier-grid-users: 170px 1fr 110px 110px 1fr 200px;
+  --qd-atelier-grid-vigilance: 90px 1fr 120px 150px 100px 90px;
+  --qd-atelier-chart-label-width: 60px;
+  --qd-atelier-chart-summary-width: 50px;
+  --qd-atelier-usage-label-width: 100px;
+  --qd-atelier-glove-target: 64px;
+  --qd-atelier-section-leading: 1.35;
+  --qd-atelier-line-clamp-single: 1;
+  --qd-atelier-line-clamp-double: 2;
+  --qd-atelier-shadow-float: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+  --qd-atelier-shadow-surface: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px -4px rgba(0, 0, 0, 0.35);
+  --qd-atelier-risk-ring-geometry: 0 0 0 4px;
+  --qd-atelier-risk-ring-alpha: 13.3333333333%;
+  --qd-atelier-status-glow-geometry: 0 0 12px;
+  --qd-atelier-status-glow-alpha: 50.1960784314%;
+  --qd-atelier-avatar-ring-geometry: 0 0 0 2px;
+}
+
+/* Widget proportions track the same central gap as their flex parent. */
+:root {
+  --qd-atelier-widget-edit-quarter: calc(25% - var(--qd-space-4) * 3 / 4);
+  --qd-atelier-widget-edit-half: calc(50% - var(--qd-space-4) / 2);
+  --qd-atelier-widget-quarter: calc(25% - var(--qd-space-3) * 3 / 4);
+  --qd-atelier-widget-half: calc(50% - var(--qd-space-3) / 2);
+  --qd-atelier-widget-hidden-filter: grayscale(0.7);
+}
+
+/* Reviewed runtime template fragments; data values remain caller-owned. */
+:root {
+  --qd-atelier-shadow-ink: #000000;
+  --qd-atelier-shadow-small-geometry: 0 6px 20px;
+  --qd-atelier-shadow-side-geometry: -8px 0 24px;
+  --qd-atelier-shadow-large-geometry: 0 12px 40px;
+  --qd-atelier-shadow-menu-geometry: 0 8px 24px;
+}
+
+/* Collapse finite appearance defaults. */
+:root {
+  --qd-atelier-collapse-open-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --qd-atelier-collapse-close-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --qd-atelier-collapse-hidden-transform: translateY(-4px);
+}
+
+/* Dense table spacing follows the shared scale. */
+
+/* Finite table-track defaults verified at the actual DataTable consumers. */
+:root {
+  --qd-atelier-docset-tier-width: 84px;
+  --qd-atelier-org-table-plan-width: 110px;
+  --qd-atelier-org-table-expiry-width: 120px;
+  --qd-atelier-org-table-usage-track: 1.4fr;
+}

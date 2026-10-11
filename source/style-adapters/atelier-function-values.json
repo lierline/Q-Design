@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "scope": "Only literal presentation values in functions explicitly returning CSSProperties. Data and nested callback functions excluded.",
+  "files": [
+    {
+      "path": "app/(app)/admin/default-templates/page.tsx",
+      "beforeHash": "083cf1728b9e94d0acb6dbedf836bac4338cd9d7ad1bf49e8aae71522876498c",
+      "afterHash": "8f2b98a699db862e00af528e83bcc51550d2910b266fec43183e862fa4064540",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "5px 10px",
+          "token": "--qd-atelier-padding-8bd3da5984",
+          "line": 733
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/users/buttons.tsx",
+      "beforeHash": "129e8fd2ebf6a24f85ece3dad5c5606366f8406273e34a1f3081f8f74f84e608",
+      "afterHash": "29e9645028b022e724934a85a3a5df40777b4d6e5c078d63d9b992df0b0a1370",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "5px 12px",
+          "token": "--qd-atelier-padding-b0c25db9b6",
+          "line": 58
+        },
+        {
+          "property": "letterSpacing",
+          "value": "1px",
+          "token": "--qd-atelier-letter-spacing-32f7ddcf93",
+          "line": 64
+        },
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 67
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/approve/client.tsx",
+      "beforeHash": "2d6981f92ff8b99275014a2b33dc8541d37db8f0fc87eb598d86eb239030f5e5",
+      "afterHash": "2e8afd28e02df5f05f1b50efeb6614d274141af497bf15e8fc32c2366f4ad3b1",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 457
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 462
+        },
+        {
+          "property": "minHeight",
+          "value": "70vh",
+          "token": "--qd-atelier-min-height-33a0c459af",
+          "line": 495
+        },
+        {
+          "property": "maxWidth",
+          "value": "480px",
+          "token": "--qd-atelier-max-width-98ad3e139b",
+          "line": 496
+        },
+        {
+          "property": "margin",
+          "value": "0 auto",
+          "token": "--qd-atelier-margin-4a5cbbd240",
+          "line": 497
+        },
+        {
+          "property": "padding",
+          "value": "24px 16px calc(120px + env(safe-area-inset-bottom, 0px))",
+          "token": "--qd-atelier-padding-a1041a2446",
+          "line": 499
+        },
+        {
+          "property": "padding",
+          "value": "10px 4px",
+          "token": "--qd-atelier-padding-c436f1a2a5",
+          "line": 512
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 513
+        },
+        {
+          "property": "minHeight",
+          "value": "56px",
+          "token": "--qd-atelier-min-height-32de5e5151",
+          "line": 531
+        },
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 532
+        },
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 537
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 537
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 543
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 543
+        },
+        {
+          "property": "transition",
+          "value": "all 120ms ease",
+          "token": "--qd-atelier-transition-1460dce093",
+          "line": 544
+        },
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 554
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 556
+        },
+        {
+          "property": "minHeight",
+          "value": "48px",
+          "token": "--qd-atelier-min-height-b5adb2ef81",
+          "line": 557
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "beforeHash": "7bf8326d9050db5afcb7fe8314a018afbb2039f813742bafd9005da7790f907a",
+      "afterHash": "7ded4de8f80ccf63bebf0a05978b93802fe09d3d92dfab3bb145342af151087d",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "10px 12px",
+          "token": "--qd-atelier-padding-071d0f3c74",
+          "line": 626
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/fda-510k/new/client.tsx",
+      "beforeHash": "97bdc0ff81fbe06c9a1e9b865820c639f83b2a638b8319939969c74c720c781f",
+      "afterHash": "16d50931495a08678b1528ff1ea394b68377ecfceecd92e9f47fcad2a89507f6",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 107
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 107
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/new/client.tsx",
+      "beforeHash": "9d221608fcb30ef95a24e4f47132600997278c30e1e855551f6e06d573b96012",
+      "afterHash": "b86830ad4575dec03428c5d9b0f4f0d5d8b738006b9bd61ea35476d302025952",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 204
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 205
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 212
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+      "beforeHash": "5499565530c82cc39f1d169d8b116e942119d60d18afb7514fb51ca2c3068785",
+      "afterHash": "e8f275fe71745f3c46ec6b628a4139508894f4d7f7f84c99979326aa17f06b5f",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "4px 10px",
+          "token": "--qd-atelier-padding-62190e055c",
+          "line": 1084
+        },
+        {
+          "property": "letterSpacing",
+          "value": "0.5px",
+          "token": "--qd-atelier-letter-spacing-c7e9f7cfec",
+          "line": 1090
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/standards/new/client.tsx",
+      "beforeHash": "6b1950d71d92f24a2cbdc4f5fa032ebe9333cb0792e2ee797c632f18ed5d26d3",
+      "afterHash": "7f3ad94d16c7dbe404eb876daa87493a99a0b9a0d9efead2361a6a1f66b2eb3c",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 126
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 126
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 126
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/sterilization/new/client.tsx",
+      "beforeHash": "3cf3b0739f2c187fd8195877d4d08077e46bf1001532c182ef4b4e351e484fdf",
+      "afterHash": "6712a18d98d997aba50afc697b8b5063d5a72d631ab4e63d765d351f9c4a0b08",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 132
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 132
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/new/client.tsx",
+      "beforeHash": "356432902605db19a8f90174bd5428447df8912d732bed0b2813992a670b9921",
+      "afterHash": "2b075cdce4ede47f86ae492eabcaf214ba588b815c74853f6567841b5333391e",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 451
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 451
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 451
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalDocFile.tsx",
+      "beforeHash": "6f0fdd01ac3daa4aa442e3ab89df9442716d53644a7260bf2ea046175f9d2e6f",
+      "afterHash": "b6f83bf9a21808ed097c9cf309a3267a9de4f26b7838dd14c164dc5ddcb94e46",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "10px 0",
+          "token": "--qd-atelier-padding-74f604f83e",
+          "line": 239
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 240
+        }
+      ]
+    },
+    {
+      "path": "components/IfuClassifyDrawer.tsx",
+      "beforeHash": "c94b3cf7b095641c9c3369639f0a66190c14d1dd263ecac53d17ee4b91f93d75",
+      "afterHash": "21d37b3e600df810601c63be832cfa90d7e7b4b2c94400c008429b788191dd03",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 302
+        },
+        {
+          "property": "padding",
+          "value": "10px 12px",
+          "token": "--qd-atelier-padding-071d0f3c74",
+          "line": 302
+        }
+      ]
+    },
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "beforeHash": "b5d0042f7a187e63ff9938c5b2efc9b27ec8d64eeb88022340b7ef6563847f5f",
+      "afterHash": "d3b89e980d71801c04379281362bdffa307c6790d2075b624bd09f0f09babc35",
+      "conversions": [
+        {
+          "property": "letterSpacing",
+          "value": "0.3px",
+          "token": "--qd-atelier-letter-spacing-de0a108215",
+          "line": 1136
+        },
+        {
+          "property": "padding",
+          "value": "3px 8px",
+          "token": "--qd-atelier-padding-e9f6a32841",
+          "line": 1137
+        }
+      ]
+    },
+    {
+      "path": "components/ListPager.tsx",
+      "beforeHash": "83c52ce38066f1275b58b818abc720b48084b5e4e080b678472118bdaaf3ee27",
+      "afterHash": "5fb6018fc7c7b5d8e7abaaf5557349b060120b38d8d02f1b7e1e265b5ecc875e",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 103
+        },
+        {
+          "property": "opacity",
+          "value": "0.4",
+          "token": "--qd-atelier-opacity-86c88eaa9e",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "path": "components/OpinionForm.tsx",
+      "beforeHash": "6ed13ea0464bb2deb990d12008482a86078a53780ecd235ed7f88f3c4540ae59",
+      "afterHash": "df0458bb0d51fc40f0c272d388caccd656ee02a9b82f952601c586e3e967fde2",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "6px 12px",
+          "token": "--qd-atelier-padding-1c48da5609",
+          "line": 942
+        }
+      ]
+    },
+    {
+      "path": "components/ParentLotsEditor.tsx",
+      "beforeHash": "65edf0db85fa9b0ee16bef5b8d9acf5c7b9e6861149e562e35c62dd36a1e5430",
+      "afterHash": "4eb782ee23158611a003b65ee4f063418f9ebe50e1baa94e732e21e98bb9e292",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "100%",
+          "token": "--qd-atelier-width-b7aa1ec004",
+          "line": 56
+        },
+        {
+          "property": "padding",
+          "value": "12px 14px",
+          "token": "--qd-atelier-padding-634e55ac34",
+          "line": 57
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "path": "components/PhoneModeGate.tsx",
+      "beforeHash": "7e9bd0e7687130a2c1c29dafd3ba96f673fbb64f4532cdb811b6c94655b4a109",
+      "afterHash": "9f0b4c25438cd7b8ef1a0ff013d697dff4ea9c2f62205e6ccb8436af63693e4c",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "10px 4px",
+          "token": "--qd-atelier-padding-c436f1a2a5",
+          "line": 104
+        },
+        {
+          "property": "minHeight",
+          "value": "44px",
+          "token": "--qd-atelier-min-height-ab5a9c2852",
+          "line": 105
+        }
+      ]
+    }
+  ]
+}

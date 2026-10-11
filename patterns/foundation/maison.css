@@ -1,0 +1,1791 @@
+/* Q-Maison foundation adapter. Author here; the product imports the generated copy.
+   Layer and media ordering preserve legacy screen/print and shell behavior. */
+:root {
+  color-scheme: light;
+  --qd-maison-motion-default: 150ms;
+  --qd-chart-target-dash: 4 3;
+  --qd-chart-guide-dash: 3 3;
+  --qd-chart-guide-opacity: .5;
+  --qd-maison-table-column-12: 12%;
+  --qd-maison-table-column-14: 14%;
+  --qd-maison-table-column-16: 16%;
+  --qd-maison-table-column-20: 20%;
+  --qd-maison-table-column-24: 24%;
+  --qd-maison-table-column-26: 26%;
+  --qd-maison-table-column-28: 28%;
+  --qd-maison-safety-date-column: 3.5rem;
+  --qd-maison-safety-person-column: 5.5rem;
+  --qd-maison-safety-result-column: 4.5rem;
+  --qd-maison-process-connector-left: -27px;
+  --qd-chart-bar-radius: 2px;
+  --qd-print-label-size: 8pt;
+  --qd-print-cover-tracking: .3em;
+  --qd-print-cover-caption-size: 10px;
+  --qd-print-cover-fine-size: 9px;
+  --qd-inline-code-size: .85em;
+  --qd-help-code-size: .9em;
+  --qd-nav-icon-stroke: 1.75;
+  --qd-nav-branch-margin: 14px;
+  --qd-nav-branch-pad: 10px;
+  --qd-nav-leaf-margin: 7px;
+  --qd-nav-leaf-pad: 7px;
+  --qd-tree-audit-inset: 16px;
+  --qd-tree-audit-step: 20px;
+  --qd-tree-document-inset: 4px;
+  --qd-tree-document-step: 18px;
+  --qd-tree-clause-inset: 8px;
+  --qd-tree-clause-step: 16px;
+  --qd-tree-guidance-step: 1.1rem;
+  --qd-unchecked-hatch: linear-gradient(to top right, transparent calc(50% - .5px), currentColor calc(50% - .5px), currentColor calc(50% + .5px), transparent calc(50% + .5px));
+  --qd-unchecked-ink: color-mix(in srgb, var(--qd-muted) 70%, transparent);
+  --qd-step-skipped-hatch: repeating-linear-gradient(135deg, transparent 0 4px, color-mix(in srgb, var(--qd-muted) 18%, transparent) 4px 6px);
+}
+
+@layer components {
+  .qm-step-skipped { background-image: var(--qd-step-skipped-hatch); }
+}
+@layer base {
+  @media screen { body { font-size: var(--qd-body-size); } }
+}
+/* ---------------------------------------------------------------------
+ * Q-Maison 색 토큰 - Q 제품군 정본에서 왔다
+ *
+ *   출처: D:/Claude/Q-Design/dist/q-design.tokens.css
+ *   다크    bg #0c0c0c · surface #141414 · text #f0ebe0 · 샴페인 #b8935a
+ *   라이트  bg #faf9f6 · surface #ffffff · text #1c1a16 · 샴페인 #8a6838
+ *
+ *   Q-Atelier · Q-Sonar · Q-Carnet 과 같은 값이다. 여기서 임의로 바꾸면
+ *   패밀리에서 이 제품만 튄다. 정본이 바뀌면 그쪽에서 다시 받아 온다.
+ *
+ *   🔑 HSL 을 소수 넷째 자리까지 적는다. 정수로 반올림해 적었더니 hex 로 되돌릴 때
+ *      1씩 어긋났다(바탕 13 · 활성 28 · 샴페인 185,147,91). 옆 주석의 hex 가 정본
+ *      값이고, 이 HSL 은 그 hex 로 «정확히» 되돌아온다(2026-09-24 감사 22).
+ *      hex 로 바로 쓰지 않는 까닭: `hsl(var(--x) / 0.1)` 처럼 투명도를 얹는 자리가
+ *      앱 곳곳에 있어 변수가 «HSL 세 값» 이어야 한다.
+ *
+ *   🔑 회색을 쓰지 않는다. 옅은 면은 샴페인을 섞어 만든 따뜻한 중성색이다.
+ *   "품질을 기록합니다"
+ * --------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    --qd-ctl-src: #8c8575; /* 조작 윤곽 · 라이트 (정본 --qa-ctl, 배경과 3:1 이상). 2026-10-10 */
+    /* 본문: 따뜻한 오프화이트 */
+    --background: 45 28.5714% 97.2549%; /* #faf9f6 bg */
+    --foreground: 40 12% 9.8039%; /* #1c1a16 text */
+
+    /* Primary: 샴페인. 강조 막대 · 초점 · 활성 표시의 몫이다. 단추 면이 아니다 */
+    --primary: 35.122 42.268% 38.0392%; /* #8a6838 샴페인(라이트) */
+    --primary-foreground: 0 0% 100%; /* #ffffff on-accent */
+
+    /* Secondary: 옅은 면 */
+    --secondary: 42.857 22.5806% 93.9216%; /* #f3f1ec surface2 */
+    --secondary-foreground: 40 12% 9.8039%;
+
+    /* Accent: 옅은 면 */
+    --accent: 42.857 22.5806% 93.9216%; /* #f3f1ec */
+    --accent-foreground: 35.122 42.268% 38.0392%; /* 샴페인 */
+
+    /* Muted */
+    --muted: 42.857 22.5806% 93.9216%; /* #f3f1ec */
+    --muted-foreground: 39 9.6154% 40.7843%; /* #726b5e muted */
+
+    /* Surface */
+    --card: 0 0% 100%; /* #ffffff surface */
+    --card-foreground: 40 12% 9.8039%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 40 12% 9.8039%;
+
+    /* Lines */
+    --border: 42 14.7059% 86.6667%; /* #e2dfd8 */
+    --input: 42 14.7059% 86.6667%;
+    --ring: 35.122 42.268% 38.0392%; /* 샴페인 focus */
+
+    /* 라이트: 기존 #DC2828 은 카드(흰색) 위 4.80:1 로 4.5 를 겨우 넘고,
+       페이지 배경(크림 #F7F2ED) 위에서는 4.31:1 로 미달이었다.
+       채도는 유지하고 명도만 낮춰 두 표면 모두에서 기준을 확보한다. */
+    --destructive: 0 50% 43.9216%; /* #a83838 */
+    --destructive-foreground: 0 0% 100%;
+    /* 라이트에서는 «잉크»와 «채워진 면»이 같은 색이어도 되므로 값을 맞춰 기존 룩을 유지 */
+    --destructive-surface: 0 50% 43.9216%; /* #a83838 */
+
+    /* 모서리는 «절대값» 10px 이다. 전에는 0.625rem 이라 루트 글자(15px)를 따라
+       9.375px 가 됐고, rounded-md(= radius - 2px)는 7.375px 였다. 정본은 카드 ·
+       단추 · 입력칸 전부 10 이다(오너 결정 2026-09-24 「작은 조작부까지 전부 10」).
+       tailwind 의 lg · md 가 이 값을 읽는다(tailwind.config.ts). sm(6px)은 배지
+       몫이라 따로 둔다. */
+    --radius: var(--qd-radius, 10px);
+
+    /* 정본의 두 단계 보조색 (subtle > muted). shadcn 에 없는 갈래라 따로 둔다 */
+    --qw-subtle: 30 7.2464% 27.0588%; /* #4a4540 */
+    --qw-muted: 39 9.6154% 40.7843%; /* #726b5e */
+    /* 정본의 «짙은 선» (가리킨 입력칸 · 보조 단추의 테두리). shadcn 에 없는 갈래 */
+    --qw-border-hi: 42.857 11.2903% 75.6863%; /* #c8c4ba */
+
+    /* 정본 상태색. 「칸마다 다른 색」은 유지하되 값은 Q 제품군 톤이다.
+       Tailwind 기본 팔레트(emerald·sky…)를 직접 부르면 이 제품만 튄다.
+       출처: Q-Design dist/q-design.tokens.css 의 --qa-state-* */
+    --qw-state-green: 120 35.7143% 32.9412%; /* #367236 */
+    --qw-state-copper: 31.698 62.3529% 33.3333%; /* #8a5820 */
+    --qw-state-red: 0 50.211% 46.4706%; /* #b23b3b */
+    --qw-state-cobalt: 214.615 48.1481% 42.3529%; /* #3864a0 */
+    --qw-state-violet: 269.204 45.0199% 50.7843%; /* #8049ba */
+    --qw-state-gray: 36 2.4876% 39.4118%; /* #676562 */
+    --qw-state-gold: 35.122 50.6173% 31.7647%; /* #7a5828 */
+  }
+
+  .dark {
+    --qd-ctl-src: #7a7364; /* 조작 윤곽 · 다크 (정본 --qa-ctl, 배경과 3:1 이상) */
+    /* 먹색 바탕: Q 제품군 기본 */
+    --background: 0 0% 4.7059%; /* #0c0c0c bg */
+    --foreground: 41.25 34.7826% 90.9804%; /* #f0ebe0 text */
+
+    /* Primary: 샴페인 (다크에서 main 역할) */
+    --primary: 36.383 39.8305% 53.7255%; /* #b8935a 샴페인(다크) */
+    --primary-foreground: 30 11.1111% 3.5294%; /* #0a0908 on-accent */
+
+    --secondary: 0 0% 10.5882%; /* #1b1b1b surface2 */
+    --secondary-foreground: 41.25 34.7826% 90.9804%;
+
+    --accent: 0 0% 10.5882%; /* #1b1b1b */
+    --accent-foreground: 36.383 39.8305% 53.7255%; /* 샴페인 */
+
+    --muted: 0 0% 10.5882%; /* #1b1b1b */
+    --muted-foreground: 36.667 11.1111% 68.2353%; /* #b7b0a5 subtle */
+
+    --card: 0 0% 7.8431%; /* #141414 surface */
+    --card-foreground: 41.25 34.7826% 90.9804%;
+    --popover: 0 0% 7.8431%;
+    --popover-foreground: 41.25 34.7826% 90.9804%;
+
+    --border: 0 0% 14.1176%; /* #242424 */
+    --input: 0 0% 14.1176%;
+    --ring: 36.383 39.8305% 53.7255%; /* 샴페인 focus */
+
+    /* 다크: 하나의 토큰이 «딥그린 카드 위 텍스트»와 «크림 텍스트를 얹는 버튼 면»을
+       동시에 만족시킬 수 없다(텍스트는 밝아야 하고 면은 어두워야 한다).
+       기존 #D85A5A 는 카드 위 3.40:1, 버튼 면으로 쓰면 크림 텍스트가 3.41:1 로 양쪽 다 미달.
+       그래서 역할을 쪼갠다. --destructive 는 잉크(텍스트·테두리·틴트) 전용. */
+    --destructive: 0 42.246% 63.3333%; /* #c97a7a 잉크 */
+    --destructive-foreground: 41.25 34.7826% 90.9804%;
+    --destructive-surface: 0 50% 43.9216%; /* #a83838 면 */
+
+    --qw-subtle: 36.667 11.1111% 68.2353%; /* #b7b0a5 */
+    --qw-muted: 42.5 9.6% 49.0196%; /* #898271 */
+    --qw-border-hi: 0 0% 20%; /* #333333 */
+
+    --qw-state-green: 120 30.3922% 60%; /* #7ab87a */
+    --qw-state-copper: 32.727 60.5505% 57.2549%; /* #d49850 */
+    --qw-state-red: 0 42.246% 63.3333%; /* #c97a7a */
+    --qw-state-cobalt: 215.73 42.9952% 59.4118%; /* #6b8fc4 */
+    --qw-state-violet: 268.831 42.0765% 64.1176%; /* #a27dca */
+    --qw-state-gray: 30 5.2174% 54.902%; /* #928c86 */
+    --qw-state-gold: 35.556 42.8571% 62.9412%; /* #c9a878 */
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   정본에 색을 이어 준다
+
+   색 «이름» 만 저장소마다 다르다 (Q-Atelier 는 champagne · Q-Sonar 는 gold ·
+   Q-Forge 는 brand · 여기는 shadcn 의 HSL 변수). 정본 CSS 는 `--qd-*-src` 만
+   읽으므로 여기서 잇는다.
+
+   테마 갈래를 여기서 또 쓰지 않는다. `--background` 같은 변수가 이미 :root 와
+   .dark 에서 갈리므로, 이 한 벌이 두 테마를 다 따라간다.
+
+   🔴 잇는 줄을 빠뜨리면 그 자리만 Q-Atelier 의 바닥값으로 떨어진다. 지금은 두
+      제품의 값이 같아 티가 안 나지만, 한쪽이 색을 바꾸는 날 조용히 갈린다.
+
+   🔴 정본의 라이트 바닥값은 `html[data-theme='light']` 에서만 걸린다. 이 제품은
+      `html.dark` 로 테마를 가르므로, 여기서 잇지 않은 색은 라이트 화면에서도
+      다크 바닥값이 된다. 흰 종이 위에 흰 단추 글자가 서는 식이다.
+
+   subtle 과 muted 는 정본에서 두 단계인데 shadcn 에는 `--muted-foreground`
+   하나뿐이라, 정본 값에 맞춰 두 변수를 따로 둔다. 짙은 선(borderHi)도 같다.
+--------------------------------------------------------------------------- */
+:root {
+  --qd-bg-src: hsl(var(--background));
+  --qd-surface-src: hsl(var(--card));
+  --qd-surface2-src: hsl(var(--secondary));
+  --qd-border-src: hsl(var(--border));
+  --qd-borderHi-src: hsl(var(--qw-border-hi));
+  --qd-text-src: hsl(var(--foreground));
+  --qd-subtle-src: hsl(var(--qw-subtle));
+  --qd-muted-src: hsl(var(--qw-muted));
+  --qd-accent-src: hsl(var(--primary));
+  --qd-on-accent-src: hsl(var(--primary-foreground));
+  --qd-danger-src: hsl(var(--destructive));
+  --qd-ok-src: hsl(var(--qw-state-green));
+  --qd-warn-src: hsl(var(--qw-state-copper));
+  --qd-info-src: hsl(var(--qw-state-cobalt));
+  --qd-font-ui-src: var(--qd-font-family-ui);
+  --qd-font-mono-src: var(--qw-font-mono);
+  --qd-radius-control-src: var(--radius);
+
+  /* ── 모노 글꼴 사슬 ───────────────────────────────────────────────────
+     🔴 한글 폴백이 없으면 모노 자리의 한글이 윈도우의 «고정폭 한글 기본값»
+        (굴림체 계열)으로 선다. 차림표 묶음 이름 · 표 머리글 · 구역 이름표가
+        계단진 글씨로 나왔다(감사 22 사진). 원본 Q-Atelier 와 Q-Carnet 은 이
+        사슬에 Pretendard 를 두어 한글을 본문 글꼴이 맡는다. 같은 차례로 둔다.
+
+     한 곳에서만 적는다. tailwind 의 `font-mono` 도 이 변수를 읽는다
+     (tailwind.config.ts). 두 곳에 적으면 한쪽만 고쳐진다. */
+  --qw-font-mono: var(--qd-font-family-mono);
+
+  /* ── 배지 색은 «-src» 길이 없다 ───────────────────────────────────────
+     정본의 `.qd-tag--green` 은 `var(--qa-state-green, #7ab87a)` 를 직접 읽는다.
+     다른 색들처럼 `--qd-*-src` 로 갈아 끼울 자리가 없어서, 원본 이름 그대로
+     여기서 값을 준다. 안 주면 폴백(다크 값)이 라이트 테마에서도 쓰여
+     밝은 종이 위에 밝은 글자가 된다.
+     ------------------------------------------------------------------ */
+  --qa-state-green: hsl(var(--qw-state-green));
+  --qa-state-copper: hsl(var(--qw-state-copper));
+  --qa-state-red: hsl(var(--qw-state-red));
+  --qa-state-cobalt: hsl(var(--qw-state-cobalt));
+  --qa-state-violet: hsl(var(--qw-state-violet));
+  --qa-state-gray: hsl(var(--qw-state-gray));
+  --qa-state-gold: hsl(var(--qw-state-gold));
+}
+
+/* 규칙: 위험을 «배경 틴트만으로» 표현하는 새 코드는 금지.
+   bg-destructive/5·10·15 는 카드와 1.04~1.26:1 이라 사실상 보이지 않는다.
+   패널의 의미는 반드시 테두리(border-destructive/70)와 텍스트(text-destructive)가 진다. */
+
+/* ---------------------------------------------------------------------
+ * 다크 모드 가독성 가드 (v1.0.3)
+ *   80여 파일에서 text-brand-forestDark / text-brand-forest 로 본문 헤더를
+ *   렌더링하는데, 이 둘은 이제 먹색이라 다크 배경에서 동색이 되어 안 보인다.
+ *   라이트 모드에서는 그대로 두고, 다크 모드에서만 cream 으로 override.
+ *
+ *   bg-brand-forestPale 같이 라이트 배경 surface 도 다크에서 가독성 깨지므로
+ *   같은 맥락에서 일괄 fix.
+ *
+ *   다크의 글자는 정본 글자색(--foreground #f0ebe0)이다. 전에는 cream(#faf9f6)으로
+ *   되돌려 이 글자들만 원본 Q-Atelier 보다 한 톤 희게 섰다(2026-09-24 육안 대조).
+ *   가리킬 때 먹으로 바뀌는 글귀(hover:text-brand-forestDark · 200곳)도 여기서 받는다.
+ *   안 받으면 다크에서 가리키는 순간 글자가 판과 같은 먹색이 되어 사라졌다.
+ * --------------------------------------------------------------------- */
+.dark .text-brand-forestDark,
+.dark .text-brand-forest,
+.dark .text-brand-forestLight,
+.dark .hover\:text-brand-forestDark:hover {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* 라이트 배경 surface 가 다크 모드에서 그대로 뜨면 페이지 안에 흰 박스가 떠서 어색.
+   forest-pale, cream, white-gray 배경은 다크에서 card 배경으로 통일. */
+.dark .bg-brand-forestPale,
+.dark .bg-brand-cream,
+.dark .bg-brand-whiteGray {
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--card-foreground)) !important;
+}
+
+/* 옅은 면에 투명도를 얹은 자리(bg-brand-forestPale/30 · bg-brand-cream/30 같은 것 ·
+   정적 60곳 남짓 · 가리킴 90곳 남짓). 위 규칙은 투명도 없는 이름만 받아서, 이쪽은
+   다크에서도 라이트의 옅은 면(#f3f1ec · #faf9f6)을 그대로 얹었다. 먹 판 위에
+   «흰 안개» 가 깔려 판 바탕과 따로 떴다(설정 › 메뉴 권한의 안내 상자 · 역할 카드의
+   SYSTEM 표지 · 2026-09-24 육안 대조). 다크에서는 같은 투명도의 정본 surface2 로 받는다. */
+.dark .bg-brand-forestPale\/20,
+.dark .bg-brand-cream\/20 {
+  background-color: hsl(var(--secondary) / 0.2);
+}
+.dark .bg-brand-forestPale\/30,
+.dark .bg-brand-cream\/30,
+.dark .hover\:bg-brand-forestPale\/30:hover,
+.dark .hover\:bg-brand-cream\/30:hover {
+  background-color: hsl(var(--secondary) / 0.3);
+}
+.dark .bg-brand-forestPale\/40,
+.dark .bg-brand-cream\/40,
+.dark .hover\:bg-brand-forestPale\/40:hover,
+.dark .hover\:bg-brand-cream\/40:hover {
+  background-color: hsl(var(--secondary) / 0.4);
+}
+.dark .bg-brand-cream\/50,
+.dark .hover\:bg-brand-forestPale\/50:hover {
+  background-color: hsl(var(--secondary) / 0.5);
+}
+.dark .bg-brand-forestPale\/60,
+.dark .bg-brand-cream\/60,
+.dark .hover\:bg-brand-cream\/60:hover {
+  background-color: hsl(var(--secondary) / 0.6);
+}
+.dark .bg-brand-forestPale\/70 {
+  background-color: hsl(var(--secondary) / 0.7);
+}
+
+/* Baby pink 배지/배경은 다크에서 가시성 위해 채도 낮춘 어두운 핑크로 매핑.
+   (Tailwind 의 pink-50/100 류는 그대로 두고, brand-pink 만) */
+.dark .bg-brand-pink {
+  background-color: color-mix(in srgb, var(--qa-state-red) 40%, transparent) !important; /* 어두운 와인톤 */
+  color: theme("colors.brand.pink") !important;
+}
+.dark .text-brand-pinkDark {
+  color: theme("colors.brand.pink") !important;
+}
+
+/* copperDark (= goldDark) 도 다크에서 대비 부족 → 다크 샴페인으로 매핑.
+   라이트의 copperDark(#8a6838)가 곧 라이트 정본 강조색이므로 다크도 정본 강조색
+   (--primary #b8935a)이어야 한 클래스가 두 테마에서 같은 뜻이 된다. 전에는
+   copperLight(#c9a878)라 금색 글자가 테마마다 다른 금이었다(2026-09-24 육안 대조).
+   가리킬 때만 금이 되는 글귀도 함께 받는다(다크에서 #8a6838 은 먹 판 위 3:1 남짓). */
+.dark .text-brand-copperDark,
+.dark .hover\:text-brand-copperDark:hover,
+.dark .group:hover .group-hover\:text-brand-copperDark {
+  color: hsl(var(--primary)) !important;
+}
+
+/* ---------------------------------------------------------------------
+ * 다크모드 배지/배경 자동 보정
+ *
+ * 15+ 파일에서 인라인 Tailwind 컬러 배지를 사용 (bg-red-50 text-red-700 등).
+ * 다크 모드 대비를 일일이 dark: 변형으로 달 수 없으니, 일괄 보정 규칙.
+ *
+ * 패턴: bg-{color}-50 + text-{color}-{700|800|900}
+ * 다크에서 50 (라이트 톤) 배경은 거의 흰색이라 다크 위에서 떠 보임.
+ * → 950/30 (반투명 어두운 톤) 으로 변환하고 text 는 200/300 (밝은톤) 으로.
+ * --------------------------------------------------------------------- */
+.dark .bg-red-50 {
+  background-color: color-mix(in srgb, var(--qd-danger) 20%, transparent) !important;
+}
+.dark .bg-red-100 {
+  background-color: color-mix(in srgb, var(--qd-danger) 30%, transparent) !important;
+}
+.dark .text-red-700,
+.dark .text-red-800,
+.dark .text-red-900 {
+  color: var(--qd-danger) !important;
+}
+.dark .border-red-200,
+.dark .border-red-300 {
+  border-color: color-mix(in srgb, var(--qd-danger) 50%, transparent) !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: color-mix(in srgb, var(--qd-warn) 20%, transparent) !important;
+}
+.dark .bg-amber-100 {
+  background-color: color-mix(in srgb, var(--qd-warn) 30%, transparent) !important;
+}
+.dark .text-amber-700,
+.dark .text-amber-800,
+.dark .text-amber-900 {
+  color: var(--qd-warn) !important;
+}
+.dark .border-amber-200,
+.dark .border-amber-300 {
+  border-color: color-mix(in srgb, var(--qd-warn) 50%, transparent) !important;
+}
+
+.dark .bg-emerald-50 {
+  background-color: color-mix(in srgb, var(--qd-ok) 20%, transparent) !important;
+}
+.dark .bg-emerald-100 {
+  background-color: color-mix(in srgb, var(--qd-ok) 30%, transparent) !important;
+}
+.dark .text-emerald-700,
+.dark .text-emerald-800,
+.dark .text-emerald-900 {
+  color: var(--qd-ok) !important;
+}
+.dark .border-emerald-200,
+.dark .border-emerald-300 {
+  border-color: color-mix(in srgb, var(--qd-ok) 50%, transparent) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: color-mix(in srgb, var(--qd-info) 20%, transparent) !important;
+}
+.dark .bg-blue-100 {
+  background-color: color-mix(in srgb, var(--qd-info) 30%, transparent) !important;
+}
+.dark .text-blue-700,
+.dark .text-blue-800,
+.dark .text-blue-900 {
+  color: var(--qd-info) !important;
+}
+.dark .border-blue-200,
+.dark .border-blue-300 {
+  border-color: color-mix(in srgb, var(--qd-info) 50%, transparent) !important;
+}
+
+.dark .bg-sky-50 {
+  background-color: color-mix(in srgb, var(--qd-info) 20%, transparent) !important;
+}
+.dark .bg-sky-100 {
+  background-color: color-mix(in srgb, var(--qd-info) 30%, transparent) !important;
+}
+.dark .text-sky-700,
+.dark .text-sky-800,
+.dark .text-sky-900 {
+  color: var(--qd-info) !important;
+}
+.dark .border-sky-200,
+.dark .border-sky-300 {
+  border-color: color-mix(in srgb, var(--qd-info) 50%, transparent) !important;
+}
+
+.dark .bg-indigo-50 {
+  background-color: color-mix(in srgb, var(--qa-state-violet) 20%, transparent) !important;
+}
+.dark .bg-indigo-100 {
+  background-color: color-mix(in srgb, var(--qa-state-violet) 30%, transparent) !important;
+}
+.dark .text-indigo-700,
+.dark .text-indigo-800,
+.dark .text-indigo-900 {
+  color: var(--qa-state-violet) !important;
+}
+
+.dark .bg-purple-50 {
+  background-color: color-mix(in srgb, var(--qa-state-violet) 20%, transparent) !important;
+}
+.dark .bg-purple-100 {
+  background-color: color-mix(in srgb, var(--qa-state-violet) 30%, transparent) !important;
+}
+.dark .text-purple-700,
+.dark .text-purple-800,
+.dark .text-purple-900 {
+  color: var(--qa-state-violet) !important;
+}
+
+.dark .bg-pink-50 {
+  background-color: color-mix(in srgb, var(--qa-state-red) 20%, transparent) !important;
+}
+.dark .bg-pink-100 {
+  background-color: color-mix(in srgb, var(--qa-state-red) 30%, transparent) !important;
+}
+.dark .text-pink-700,
+.dark .text-pink-800,
+.dark .text-pink-900 {
+  color: var(--qa-state-red) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: color-mix(in srgb, var(--qd-muted) 40%, transparent) !important;
+}
+.dark .bg-gray-100 {
+  background-color: color-mix(in srgb, var(--qd-muted) 55.00000000000001%, transparent) !important;
+}
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: var(--qd-muted) !important;
+}
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: color-mix(in srgb, var(--qd-muted) 60%, transparent) !important;
+}
+
+.dark .bg-yellow-50 {
+  background-color: color-mix(in srgb, var(--qa-state-gold) 20%, transparent) !important;
+}
+.dark .bg-yellow-100 {
+  background-color: color-mix(in srgb, var(--qa-state-gold) 30%, transparent) !important;
+}
+.dark .text-yellow-700,
+.dark .text-yellow-800,
+.dark .text-yellow-900 {
+  color: var(--qa-state-gold) !important;
+}
+
+.dark .bg-orange-50 {
+  background-color: color-mix(in srgb, var(--qa-state-copper) 20%, transparent) !important;
+}
+.dark .bg-orange-100 {
+  background-color: color-mix(in srgb, var(--qa-state-copper) 30%, transparent) !important;
+}
+.dark .text-orange-700,
+.dark .text-orange-800,
+.dark .text-orange-900 {
+  color: var(--qa-state-copper) !important;
+}
+
+/* White 배경도 다크에서는 카드 톤으로 (`bg-white` 인라인 사용처 보정) */
+.dark .bg-white {
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--card-foreground)) !important;
+}
+
+/* ---------------------------------------------------------------------
+ * 화면 머리 뒤 간격은 정본 머리 하나가 쥔다 (2026-09-24 육안 대조)
+ *
+ *   정본 `.qd-page-head` 는 제 아래에 margin 30 을 둔다. 그런데 이 제품의 화면 틀은
+ *   머리와 본문을 한 flex 줄에 넣고 gap(16 · 20 · 24)으로 칸을 띄운다. flex 에서는
+ *   margin 이 gap 과 겹치지 않고 «더해져서», 머리 아래가 틀마다 46 · 50 · 54 로
+ *   갈렸다(원본 Q-Atelier 30). 메뉴를 옮기면 본문 첫 줄이 위아래로 튀었다.
+ *
+ *   머리 바로 다음 칸만 틀의 gap 만큼 끌어올린다. 머리 아래는 정본 30 하나가 되고,
+ *   나머지 칸 사이는 틀의 gap 그대로다. 정본 값(30)을 여기 다시 적지 않는다.
+ *   끌어올리는 값은 그 틀의 클래스가 말하는 gap 이다(gap-5 = 1.25rem).
+ *
+ *   층 밖에 둔다: 다음 칸에 mt-* 유틸리티가 붙어 있어도 이 자리는 정본 간격이 이긴다.
+ *   `space-y-*` 틀은 margin 이 겹쳐(collapse) 이미 30 이라 여기 넣지 않는다.
+ *   세로 틀(flex-col)에만 건다. 가로 줄이나 격자에서 옆 칸을 끌어올리면 안 된다.
+ * --------------------------------------------------------------------- */
+.flex-col.gap-4 > .qd-page-head + * {
+  margin-top: calc(var(--qd-spacing-unit) * -4);
+}
+.flex-col.gap-5 > .qd-page-head + * {
+  margin-top: calc(var(--qd-spacing-unit) * -5);
+}
+.flex-col.gap-6 > .qd-page-head + * {
+  margin-top: calc(var(--qd-spacing-unit) * -6);
+}
+
+/* ---------------------------------------------------------------------
+ * 정본 탭 줄 · 쪽 이동 줄의 바깥 여백도 같은 규칙으로 (2026-09-24 정본 여섯 자리)
+ *
+ *   정본 `.qd-tabs` 는 제 아래에 20, `.qd-pager` 는 제 위에 20 을 둔다(원본 PageTabs ·
+ *   ListPager). 이 제품의 세로 틀에서는 그 margin 이 gap 과 «더해져» 40 이 된다.
+ *   위 머리와 같은 규칙으로 틀의 gap 만큼 옆 칸을 끌어올려 정본 20 하나가 되게 한다.
+ *
+ *   쪽 이동 줄은 여백이 줄 «위» 에 있어 다음 칸을 끌어올릴 수 없다. 앞 칸의 아래를
+ *   gap 만큼 당긴다(:has). 어느 쪽이든 정본 값(20)을 여기 다시 적지 않는다.
+ * --------------------------------------------------------------------- */
+.flex-col.gap-2 > .qd-tabs + * {
+  margin-top: calc(var(--qd-spacing-unit) * -2);
+}
+.flex-col.gap-3 > .qd-tabs + * {
+  margin-top: calc(var(--qd-spacing-unit) * -3);
+}
+.flex-col.gap-4 > .qd-tabs + * {
+  margin-top: calc(var(--qd-spacing-unit) * -4);
+}
+.flex-col.gap-5 > .qd-tabs + * {
+  margin-top: calc(var(--qd-spacing-unit) * -5);
+}
+.flex-col.gap-6 > .qd-tabs + * {
+  margin-top: calc(var(--qd-spacing-unit) * -6);
+}
+.flex-col.gap-2 > :has(+ .qd-pager) {
+  margin-bottom: calc(var(--qd-spacing-unit) * -2);
+}
+.flex-col.gap-3 > :has(+ .qd-pager) {
+  margin-bottom: calc(var(--qd-spacing-unit) * -3);
+}
+.flex-col.gap-4 > :has(+ .qd-pager) {
+  margin-bottom: calc(var(--qd-spacing-unit) * -4);
+}
+.flex-col.gap-5 > :has(+ .qd-pager) {
+  margin-bottom: calc(var(--qd-spacing-unit) * -5);
+}
+.flex-col.gap-6 > :has(+ .qd-pager) {
+  margin-bottom: calc(var(--qd-spacing-unit) * -6);
+}
+
+/* ---------------------------------------------------------------------
+ * 칸 이름표 뒤 간격은 정본 7 하나다
+ *
+ *   정본 `.qd-field-label` 은 칸과 7 을 띄운다(원본 Lbl). 이 제품의 폼은 이름표와 칸을
+ *   `space-y-*` 묶음에 넣어 둔 자리가 많은데, 칸(input · select · textarea)은 줄 안
+ *   상자라 margin 이 겹치지 않고 «더해져» 7 + 6 · 7 + 8 이 된다. 이름표 바로 다음
+ *   칸만 묶음 간격을 빼서 정본 7 하나가 되게 한다. 정본 값(7)은 다시 적지 않는다.
+ *   (특이도를 Tailwind space-y 규칙과 같게 두고 층 밖 · 뒤에 두어 이긴다)
+ * --------------------------------------------------------------------- */
+[class*="space-y-"] > .qd-field-label + :not([hidden]) {
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------
+ * 머리 «안» (PageHead 의 below)에 선 탭 줄은 머리 하단선을 제 밑선으로 쓴다
+ *
+ *   대시보드의 부서 탭과 계정 · 권한 네 화면의 탭이 머리 안에 선다. 정본 탭 줄의
+ *   밑선과 머리 하단선이 18px 떨어져 두 줄로 서지 않도록, 탭 줄의 밑선을 떼고 아래를
+ *   머리 하단선의 윗여백(정본 .qd-page-head::after 의 margin-top 18)만큼 당긴다.
+ *   고른 탭의 금색 밑줄 2px 가 머리 하단선 바로 위에 앉아, 정본 탭 줄과 같은 얼굴이 된다.
+ *
+ *   🔴 18 은 정본 머리의 값이다. 정본이 그 값을 바꾸면 여기가 어긋난다.
+ *      `tests/unit/canon-six-shape.test.ts` 가 사본의 18 을 대조한다.
+ * --------------------------------------------------------------------- */
+.qd-page-head .qd-tabs {
+  margin-bottom: calc(-1 * var(--qd-page-head-line-gap, 18px));
+  border-bottom: 0;
+}
+
+/* 「검색 지우기」 글귀의 초점 고리도 이제 정본이 건다(Q-Design 05ffeb8). 여기 두었던 같은 규칙은
+   걷었다(값이 같았다 · 탭 · 거르개 칸 · 찾기 단추 · 쪽 이동 단추 · 표지와 같은 금색 2px · 4px 띄움). */
+
+/* ---------------------------------------------------------------------
+ * 거르개 띠는 스크롤을 따라온다 (오너 결정 2026-09-25 · 원본 ListToolbar)
+ *
+ *   정본 `.qd-filter-bar--sticky` 는 `--qd-sticky-top`(없으면 0)에 붙는다. 그 값은 제품이
+ *   준다: 머리띠의 높이다.
+ *
+ *   이 제품에서 구르는 것은 본문(`main#main-content`) 하나다. 본문의 위쪽 여백은 0 이고
+ *   (app/(app)/layout.tsx), 첫 자식인 머리띠(components/layout/main-band.tsx · 알림 종)가
+ *   top 0 에 붙어 좁은 화면 68 · 넓은 화면 56(lg:h-14)을 차지한다. 거르개 띠는 그 바로
+ *   아래에 붙는다. 🔴 머리띠 높이를 바꾸면 여기도 바꾼다(tests/unit/canon-polish 가 대조).
+ *
+ *   겹침(--qd-z-sticky-src): 정본 사다리의 sticky 칸(100)을 그대로 두면 이 제품의
+ *   대화상자(z-50) · 머리띠(z-20) · 머리의 펼침 목록(z-20)보다 높아 띠가 그 위로
+ *   올라온다. 표 줄에서 행 링크 위로 올린 칸(relative z-10 · 입고 · 반품)보다는 높아야
+ *   굴릴 때 그 칸이 띠 위로 비치지 않는다. 그 사이의 15 다.
+ * --------------------------------------------------------------------- */
+:root {
+  --qd-sticky-top: var(--qd-main-band-height);
+  --qd-z-sticky-src: 15;
+}
+@media (min-width: 1024px) {
+  :root {
+    --qd-sticky-top: var(--qd-main-band-height-desktop);
+  }
+}
+
+/* 종이에서는 띠를 제자리로 돌리고 찾기 폼을 걷는다(원본과 같음). 그 규칙은 목록 정본
+   (q-design.list.css 의 @media print)이 가진다. 여기 따로 적어 두었던 한 줄과 「이 제품은 찾기
+   칸을 종이에 남긴다」 는 설명은 2026-09-25 에 걷었다: 정본이 원본처럼 걷게 된 뒤로 사실이 아니었다 */
+
+/* 띠 뒤 간격은 정본 띠의 아래 여백(안쪽 12 · 바깥 4) 하나다. 세로 틀의 gap 과 더해지지
+   않게 다음 칸을 gap 만큼 끌어올린다(위 탭 · 쪽 이동 줄과 같은 규칙 · 정본 값은 다시
+   적지 않는다). 띠 «위» 는 틀의 gap 그대로 둔다 */
+.flex-col.gap-2 > .qd-filter-bar + * {
+  margin-top: calc(var(--qd-spacing-unit) * -2);
+}
+.flex-col.gap-3 > .qd-filter-bar + * {
+  margin-top: calc(var(--qd-spacing-unit) * -3);
+}
+.flex-col.gap-4 > .qd-filter-bar + * {
+  margin-top: calc(var(--qd-spacing-unit) * -4);
+}
+.flex-col.gap-5 > .qd-filter-bar + * {
+  margin-top: calc(var(--qd-spacing-unit) * -5);
+}
+.flex-col.gap-6 > .qd-filter-bar + * {
+  margin-top: calc(var(--qd-spacing-unit) * -6);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /*
+   * 🔴 셸의 높이 기준은 **퍼센트 사슬**이다: `dvh` 가 아니다
+   * (오빠 신고 2026-09-11 「스크롤이 나가는 현상이 또 존재합니다 … 검색바까지
+   *  위로 밀려올라갑니다」).
+   *
+   * 예전에는 body 가 `min-h-dvh`, 셸이 `h-dvh` 였다. 뷰포트 단위는 «브라우저가
+   * 말하는 뷰포트» 라, 데스크톱 껍데기(WebView)처럼 창 크롬·확대 배율이 끼는
+   * 환경에서 **실제로 보이는 높이와 어긋난다.** 어긋나는 순간 body 가 화면보다
+   * 커지고, 그러면 문서 자체가 스크롤되어 사이드바와 상단 검색바까지 밀려 올라간다
+   * (본문만 스크롤시키려고 만든 셸이 통째로 움직인다).
+   *
+   * `height: 100%` 는 «부모의 실제 높이» 로 푼다. html 은 뷰포트, body 는 html.
+   * 단위 지원 여부·계산 시점과 무관하게 늘 화면과 같다.
+   *
+   * 인쇄는 이 사슬을 푼다. `components/print/print-styles.tsx` 가
+   * `html,body{height:auto}` 로 되돌린다(지면이 여러 장으로 흘러야 한다).
+   */
+  /*
+   * ⚠️ body 의 높이는 **클래스로도 함께 준다** (`app/layout.tsx` 의 `h-full`).
+   *
+   * 2026-09-11 실측: 여기 적은 `body{height:100%}` 는 빌드 산출물에서 사라진다
+   * (묶어 써도, 따로 써도 `html{height:100%}` 한 줄만 남는다). CSS 최적화가
+   * 무엇을 근거로 떨어뜨리는지는 쫓지 않았다: 클래스 한 벌이면 확실하고, 확실한
+   * 쪽을 남기는 편이 최적화기의 속을 아는 것보다 오래 간다.
+   *
+   * 그래서 이 규칙은 «보험» 이다: 클래스가 지워져도 html 쪽은 남는다.
+   */
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  /*
+   * 🔴 앱 화면에서는 **문서가 굴러갈 길 자체를 막는다** (오빠 재신고 2026-09-11
+   * 「여전히 오류입니다」).
+   *
+   * 위의 퍼센트 사슬은 «body 가 화면보다 커지지 않게» 한다. 그런데 그 사슬이
+   * 온전해도 무언가 한 조각이 밖으로 삐져나오면 문서는 또 구른다. 그리고 그때마다
+   * 사이드바와 검색바가 함께 밀려 올라간다. 두 번 같은 자리에서 났으므로,
+   * 원인을 하나씩 쫓는 대신 **결과를 막는다.**
+   *
+   * 앱 셸이 있는 화면에만 건다(`[data-app-shell]`): 로그인·현장 화면은 내용이
+   * 길면 굴러야 하고, 인쇄 지면은 여러 장으로 흘러야 한다. 인쇄는
+   * `print-styles.tsx` 가 `overflow:visible !important` 로 따로 되돌린다.
+   *
+   * 본문(`main`)은 제 안에서 그대로 구른다. 막는 것은 «문서» 뿐이다.
+   */
+  html:has(> body > [data-app-shell]) {
+    overflow: hidden;
+  }
+
+  body:has(> [data-app-shell]) {
+    overflow: hidden;
+  }
+
+  html {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1,
+      "ss01" 1,
+      "tnum" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground;
+    text-rendering: optimizeLegibility;
+    /*
+     * 한글은 «낱말(어절)» 단위로만 줄을 바꾼다 (화면 검토 M12 · 2026-09-27).
+     * 기본값은 한글을 글자마다 끊을 수 있어 「필요합니 / 다」 · 「강 / 서준」 ·
+     * 「한 / 국 표준시」 처럼 낱말 가운데서 꺾였다. 칸보다 긴 낱말만 넘칠 때
+     * 끊는다(break-word 는 칸의 최소 폭을 줄이지 않아 표 열이 짜부라지지 않는다).
+     */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /*
+   * 루트 글자는 16px 이다 (2026-09-24 감사 22 · 15px 는 Login 유산).
+   *
+   * 이 앱은 Tailwind 의 rem 클래스로 글자와 여백을 잡는다. 15px 에서는 text-sm 이
+   * 13.125 · text-xs 가 11.25 · text-2xl 이 22.5 처럼 소수 px 가 되어 글자가 흐리게
+   * 서고, 같은 Tailwind 바탕인 Q-Sonar · Q-Carnet(16px)과 크기가 한 뼘씩 갈렸다.
+   *
+   * 🔑 인쇄는 15px 에 남긴다. 인쇄 지면(`components/print/print-styles.tsx`)은
+   *    rem 여백이 섞인 채 A4 한 장에 맞춰 다듬어져 있어서, 루트를 바꾸면 지면
+   *    높이가 조용히 움직여 한 장짜리 서식이 두 장으로 넘어간다.
+   */
+  :root {
+    font-size: var(--qd-root-size);
+  }
+  @media print {
+    :root {
+      font-size: 15px;
+    }
+  }
+
+  /* Selection: 코퍼 톤 */
+  ::selection {
+    background: theme("colors.brand.copper");
+    color: theme("colors.brand.forestDark");
+  }
+
+  /*
+   * 표의 머리글은 **한 줄이다** (오빠 지시 2026-09-11 ·
+   * 「헤더행은 두줄로 표기안되도록 행 간격조절합니다. 이내용은 전산 시스템 내
+   *   모든 표에 적용합니다」).
+   *
+   * 좁은 열에서 「심각도」가 「심각 / 도」로 접히면 그 칸만 키가 커져 머리줄 전체가
+   * 두 줄이 되고, 글자가 가운데서 끊겨 읽히지 않는다. 머리글은 길어야 대여섯
+   * 글자라 줄바꿈으로 얻는 것이 없다. 대신 열이 그만큼 넓어진다.
+   *
+   * 여기(기본층)에 두는 이유: 표가 백 개가 넘고 그중 상당수가 «정렬 없는» 평범한
+   * `<th>` 라, 부품 한두 개를 고쳐서는 다 덮이지 않는다. 표 자체의 규칙이므로
+   * 화면마다 클래스를 붙이는 대신 한 곳에서 정한다.
+   *
+   * 일부러 접어야 하는 머리글이 생기면 그 칸에 `whitespace-normal` 을 준다.
+   */
+  thead th {
+    white-space: nowrap;
+  }
+}
+
+/* ---------------------------------------------------------------------
+ * Brand wordmark: 명함 LOGO 패턴 재현
+ *   .brand-wordmark      → Q-MAISON (큰, copper)
+ *   .brand-tagline       → 짧은 표어 (작은, copper, 자간 넓음)
+ *   .brand-slogan-hangul → 품질을 기록합니다 (옅은 그린)
+ *
+ *   구역 이름표(옛 .brand-subtitle)와 화면 머리(옛 .page-head)는 여기 없다.
+ *   정본 `.qd-label` 과 `.qd-page-head`(components/shared/page-head.tsx)를 쓴다.
+ *   Cormorant · 금색 · 넓은 자간으로 이 제품만 따로 그리던 자리다 (감사 22).
+ * --------------------------------------------------------------------- */
+@layer components {
+  .brand-wordmark {
+    font-family: theme("fontFamily.wordmark");
+    font-weight: var(--qd-font-weight-normal);
+    letter-spacing: theme("letterSpacing.wordmark");
+    text-transform: uppercase;
+    color: theme("colors.brand.copper");
+  }
+
+  .brand-tagline {
+    font-family: theme("fontFamily.wordmark");
+    font-weight: var(--qd-font-weight-medium);
+    letter-spacing: theme("letterSpacing.wordmarkLg");
+    text-transform: uppercase;
+    color: theme("colors.brand.copperLight");
+  }
+
+  .brand-slogan-hangul {
+    font-family: theme("fontFamily.sans");
+    font-weight: var(--qd-font-weight-normal);
+    letter-spacing: 0.4em;
+    color: theme("colors.brand.cream");
+  }
+
+  /* ---------------------------------------------------------------------
+     화면 폭 (Q-Design docs/11 · 17)
+
+       상세  820px   읽는 화면. 한 줄이 길면 눈이 다음 줄 머리를 못 찾는다
+       폼    720px   쓰는 화면. 칸이 넓으면 어디를 채우는지 흐려진다
+       목록  제한 없음
+
+     🔑 목록만 폭을 두지 않는다. 「표와 행은 넓을수록 좋기 때문」 이라고 정본이
+        못 박았다. 여기서 목록까지 좁히면 열이 서로 밀려 표가 무너진다.
+
+     클래스가 아니라 표시자(data-shell)로 다는 이유: 상세 화면 마흔다섯의
+     최상위 클래스가 제각각이라(gap-6 · gap-5 · 그 밖) 클래스로 잡으면 새 화면이
+     다른 변형을 쓸 때 조용히 빠진다.
+     --------------------------------------------------------------------- */
+  [data-shell="detail"] {
+    max-width: var(--qd-reading-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  [data-shell="form"] {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* 종이는 제 폭을 따른다 */
+  @media print {
+    [data-shell="detail"],
+    [data-shell="form"] {
+      max-width: none;
+    }
+  }
+
+  /* 화면 머리의 금색 막대는 인쇄물에 싣지 않는다 (막대는 정본 .qd-page-head 가 그린다) */
+  @media print {
+    .qd-page-head-text::before {
+      display: none;
+    }
+  }
+
+  /* 지표 카드의 «고른 칸»: 누르면 목록이 그 단계로 좁혀지는 카드(CountCard).
+     정본 .qd-kpi 에는 고름이 없어 이 제품이 갖는다. 차림표 활성(.qd-nav-item.is-active)과
+     같은 말투로 한 단계 뜬 면 + 샴페인 테두리다. 색 바탕이나 한쪽 띠는 쓰지 않는다.
+     표시자를 aria-current 로 두어, 읽어 주는 말과 보이는 얼굴이 한 값에서 나온다.
+     아래에 내역을 펼친 칸(aria-expanded, 심사 대비 점검)도 같은 얼굴이다. */
+  .qd-kpi[aria-current="true"],
+  .qd-kpi[aria-expanded="true"] {
+    background: var(--qd-surface2);
+    border-color: var(--qd-accent);
+  }
+  .dark .brand-wordmark {
+    color: theme("colors.brand.copperLight");
+  }
+
+  /* 명함 표면: sidebar / hero 등에 사용.
+     배경을 마크 뒤 면(brand.forestLogo = Q 제품군 bg)과 같게 두어
+     마크의 사각 경계가 표면에 녹아들도록 한다. */
+  .surface-forest {
+    background-color: theme("colors.brand.forestLogo");
+    color: theme("colors.brand.cream");
+  }
+
+  /* 스크롤바 완전 숨김 (스크롤 기능은 유지)
+     사이드바·드로어 등 다크 배경 위에서 기본 스크롤바가 보기 흉할 때 사용. */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE/Edge legacy */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge / Opera */
+  }
+
+  /*
+   * 검색 칸의 «파란 ×» 를 없앤다 (오빠 지시 2026-09-08 · 「x 버튼이 두 개입니다」).
+   *
+   * `input[type=search]` 에는 브라우저가 제 지우기 단추를 그린다. 우리는 그 옆에
+   * 테마에 맞춘 × 를 이미 두고 있어서(사이드바 메뉴 검색·결재자 찾기 …) 한 칸에
+   * ×가 둘이 된다. 게다가 브라우저 것은 파란 기본색이라 다크 화면에서 튄다.
+   *
+   * 기능을 없애는 것이 아니다: 우리 ×가 같은 일을 하고 Esc 도 그대로 듣는다.
+   */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /*
+   * 숫자 칸의 «위아래 화살표» 를 없앤다 (오빠 지시 2026-09-08 · 「화살표가
+   * 부자연스럽게 들어가 있는 경우가 있습니다」).
+   *
+   * `input[type=number]` 의 스피너는 브라우저가 그리는 위젯이라 색을 못 바꾼다.
+   * 다크 화면에 흰 상자로 얹히고, 칸이 좁으면 글자 위로 겹쳐 앉는다. 배포 부수·
+   * 평가 점수처럼 **한두 자리 숫자를 손으로 치는** 칸들이라 화살표를 눌러 올릴
+   * 일도 거의 없다.
+   *
+   * 기능은 그대로다: 키보드 ↑↓ 는 계속 듣고, min·max·step 도 그대로 검증한다.
+   * 굳이 화살표가 필요한 칸이 생기면 그때 «우리 손으로 그린» 단추를 붙인다.
+   */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+  }
+
+  /*
+   * 조용한 스크롤 막대: 화면 전체 (오빠 지시 2026-09-08
+   * 「스크롤 바 디자인 너무 눈에 띄며, 부자연스럽습니다」).
+   *
+   * ## 왜 숨기지 않고 «얇게» 두나
+   *
+   * 예전에는 본문의 세로 막대를 `::-webkit-scrollbar:vertical { display:none }`
+   * 으로 감췄다. 그런데 그 규칙은 브라우저·OS 설정에 따라 먹지 않고, 안 먹는
+   * 순간 **운영체제 기본 막대**(흰 바탕 + 화살표 단추)가 그대로 나온다. 다크
+   * 화면에 흰 띠가 서는 그 모습이 이번 신고다.
+   *
+   * 그렇다고 두 축을 다 없애면 **잘린 것처럼** 보인다: 화면보다 넓은 표에서
+   * 스크롤은 되는데 손잡이가 없어 아무도 그 사실을 모른다(2026-09-02 신고 ·
+   * 「신규 KPI」 단추가 잘려 보임). 그래서 지우는 대신 **테마에 녹는 얇은 막대**로
+   * 바꾼다. 있는지 모를 만큼 조용하되, 필요할 때 눈에 띈다.
+   *
+   * 표준 속성(scrollbar-width/color)을 먼저 쓴다. 요즘 크롬은 이 속성이 있으면
+   * `::-webkit-scrollbar-*` 규칙을 아예 무시한다. webkit 규칙은 옛 사파리용으로
+   * 함께 남긴다.
+   */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--qd-muted) 28%, transparent) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--qd-scrollbar-size);
+    height: var(--qd-scrollbar-size);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    /* 안쪽 여백(투명 테두리)으로 «얇은 알약» 모양을 만든다 */
+    background-color: hsl(var(--muted-foreground) / 0.28);
+    background-clip: content-box;
+    border: var(--qd-scrollbar-inset) solid transparent;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.45);
+  }
+  /* 위·아래 화살표 단추: 운영체제 기본 막대에서 가장 눈에 걸리던 부분 */
+  ::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   로그인 · 회원가입 · 비밀번호 찾기 · 재설정 (2026-09-24 · 감사 22 로그인 단계)
+
+   집안 세 제품의 로그인과 같은 얼굴이다(app/(auth)/layout.tsx). 값은 원본 Q-Atelier
+   로그인(qa-auth-*)에서 옮겼고 Q-Sonar · Q-Carnet 도 같은 값을 쓴다. 색은 정본 변수
+   (--qd-*)만 읽어 다크 · 라이트를 스스로 따라간다. 칸과 단추는 정본(.qd-input ·
+   .qd-btn)이 그리고, 여기에는 정본에 없는 로그인 몫만 둔다.
+
+   로그인 짜임의 원본은 Q-Design patterns/foundation/maison.css다.
+   치수와 글자는 공용 foundation 토큰을 받고 제품은 생성 사본을 가져온다.
+
+   원본과 다르게 둔 것 두 가지(금지 목록 · 2026-09-24):
+     · 머리글 마지막 낱말은 금 «한 색» 이다. 원본은 금 기울기 글자(글자 그라데이션)다
+     · 오른쪽 판에 흐림(backdrop-filter)을 걸지 않는다. 원본은 1px 흐림이다
+--------------------------------------------------------------------------- */
+
+/* 비네트 · 카드 그림자는 테마마다 다르다 (원본 --qa-vignette · --qa-shadow-lg 값) */
+:root {
+  --qm-auth-vignette: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgb(168 133 79 / 0.06) 100%
+  );
+  --qm-auth-shadow: var(--qd-auth-shadow);
+}
+.dark {
+  --qm-auth-vignette: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgb(0 0 0 / 0.18) 100%
+  );
+  --qm-auth-shadow: var(--qd-auth-shadow);
+}
+
+/* 리본 둘의 표류 (원본 32s / 38s). 움직임을 줄인 설정에서는 멈춘다.
+   키프레임은 층 밖에 둔다. Tailwind 3 는 층 안의 규칙을 쓰임새로 거른다 */
+@keyframes qm-ribbon-drift-1 {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-3%, -2%, 0) scale(1.02);
+  }
+}
+@keyframes qm-ribbon-drift-2 {
+  0% {
+    transform: translate3d(2%, 1%, 0) scale(1.03);
+  }
+  50% {
+    transform: translate3d(-2%, -1%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(2%, 1%, 0) scale(1.03);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qm-ribbon-1,
+  .qm-ribbon-2 {
+    animation: none !important;
+  }
+}
+
+@layer components {
+  .qm-ribbon-1 {
+    animation: qm-ribbon-drift-1 var(--qd-ribbon-duration-1) ease-in-out infinite;
+    opacity: var(--qd-ribbon-opacity-1);
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .qm-ribbon-2 {
+    animation: qm-ribbon-drift-2 var(--qd-ribbon-duration-2) ease-in-out infinite;
+    opacity: var(--qd-ribbon-opacity-2);
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .qm-ribbon-vignette {
+    background: var(--qm-auth-vignette);
+  }
+
+  /* ── 틀: 좁은 화면은 한 단, 1024 부터 두 판(1.15 : 1) ── */
+  .qm-auth {
+    position: relative;
+    min-height: 100vh;
+    background: var(--qd-auth-background);
+  }
+  .qm-auth-split {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .qm-auth-brand {
+    display: none;
+  }
+  .qm-auth-form-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--qd-auth-mobile-padding);
+    min-height: 100vh;
+  }
+  .qm-auth-form-inner {
+    width: 100%;
+    max-width: var(--qd-auth-form-width);
+  }
+  .qm-auth-mobile-brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .qm-auth-desktop-brand {
+    display: none;
+  }
+
+  /* ── 왼쪽 판의 글 ── */
+  .qm-auth-clock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* 시계는 붙은 뒤에 채운다. 자리를 미리 잡아 두어야 아래 글이 튀지 않는다 */
+    min-height: 15px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    letter-spacing: var(--qd-auth-clock-tracking);
+    text-transform: uppercase;
+    color: var(--qd-muted);
+  }
+  .qm-auth-clock-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--qd-accent);
+    opacity: 0.85;
+  }
+  .qm-auth-clock-sep {
+    opacity: 0.5;
+  }
+  .qm-auth-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    letter-spacing: var(--qd-auth-eyebrow-tracking);
+    text-transform: uppercase;
+    color: var(--qd-accent);
+  }
+  .qm-auth-eyebrow-line {
+    width: 36px;
+    height: 1px;
+    background: var(--qd-accent);
+    opacity: 0.7;
+  }
+  .qm-auth-headline {
+    margin: 0;
+    /* 문장체 각자체(Cormorant Garamond). 이탤릭은 쓰지 않는다(집안 규칙) */
+    font-family: var(--qd-font-family-display);
+    font-size: var(--qd-auth-title-size);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    font-weight: var(--qd-font-weight-medium);
+    color: var(--qd-text);
+    text-wrap: balance;
+  }
+  .qm-auth-headline-accent {
+    color: var(--qd-accent);
+    font-weight: var(--qd-font-weight-semibold);
+  }
+  .qm-auth-subhead {
+    margin: 24px 0 0;
+    font-size: var(--qd-body-size);
+    line-height: 1.7;
+    color: var(--qd-subtle);
+    max-width: 480px;
+  }
+  .qm-auth-tagline {
+    margin-top: 20px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    letter-spacing: var(--qd-auth-eyebrow-tracking);
+    text-transform: uppercase;
+    color: var(--qd-muted);
+  }
+  .qm-auth-foot-mark {
+    margin-top: 36px;
+    margin-bottom: 0;
+  }
+  /* 다크에서만 흐린다. 라이트의 금(#8a6838)을 0.85 로 흐리면 작은 글(10px)의 명암비
+     4.5 에 못 미친다(Q-Sonar 2026-09-24 실측 3.63) */
+  .dark .qm-auth-foot-mark {
+    opacity: 0.85;
+  }
+
+  /* ── 오른쪽 판: 로고 줄 · 카드 ── */
+  .qm-auth-desktop-brand-title {
+    font-size: var(--qd-overlay-title-size);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--qd-text);
+  }
+  .qm-auth-desktop-brand-sub {
+    margin-top: 3px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    letter-spacing: var(--qd-auth-clock-tracking);
+    text-transform: uppercase;
+    color: var(--qd-muted);
+  }
+  /* 면 · 1px 테두리 · 10px · 금 코너 브래킷. 브래킷도 카드와 같은 곡률이다 */
+  .qm-auth-card {
+    position: relative;
+    padding: var(--qd-auth-card-padding);
+    background: var(--qd-auth-surface);
+    border: 1px solid var(--qd-border);
+    border-radius: var(--qd-radius);
+  }
+  .qm-auth-card::before,
+  .qm-auth-card::after {
+    display: var(--qd-auth-card-corner-display);
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    border: 0 solid color-mix(in oklab, var(--qd-accent) 60%, transparent);
+  }
+  .qm-auth-card::before {
+    top: -1px;
+    left: -1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: var(--qd-radius);
+  }
+  .qm-auth-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-bottom-right-radius: var(--qd-radius);
+  }
+  /* 회원가입 · 비밀번호 찾기 · 재설정의 제목 (로그인 카드에는 제목이 없다) */
+  .qm-auth-card-head {
+    margin-bottom: 20px;
+  }
+  .qm-auth-card-title {
+    font-size: var(--qd-overlay-title-size);
+    font-weight: var(--qd-font-weight-semibold);
+    line-height: 1.3;
+    color: var(--qd-text);
+  }
+  .qm-auth-card-desc {
+    margin-top: 6px;
+    font-size: var(--qd-control-size);
+    line-height: 1.6;
+    color: var(--qd-subtle);
+  }
+  /* 칸 이름표: 원본 로그인의 Lbl(모노 10px · subtle · 500). 한글이라 대문자 · 자간을 걸지 않는다 */
+  .qm-auth-label {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    font-weight: var(--qd-font-weight-medium);
+    color: var(--qd-subtle);
+    word-spacing: var(--qd-hangul-word-space);
+  }
+  .qm-auth-field-error {
+    margin-top: 6px;
+    font-size: var(--qd-caption-size);
+    color: var(--qd-danger);
+  }
+  /* 원본 로그인이 단추에 따로 준 글자 크기. 높이 · 면 · 모서리는 정본 .qd-btn 이 쥔다 */
+  .qm-auth-submit {
+    font-size: var(--qd-caption-size);
+  }
+
+  /* ── 카드 아래 글귀 (보조 동작은 상자 단추가 아니라 글귀) ── */
+  .qm-auth-after {
+    margin-top: 14px;
+    text-align: center;
+  }
+  .qm-auth-link {
+    display: inline-flex;
+    align-items: center;
+    /* 터치에서 누를 자리를 넉넉히. 글과 밑줄은 그대로 (원본 R-05) */
+    min-height: var(--qd-control-height);
+    padding: 0 8px;
+    border-bottom: 1px dashed var(--qd-border);
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    color: var(--qd-muted);
+    text-decoration: none;
+    word-spacing: var(--qd-hangul-word-space);
+    transition: color var(--qd-motion-fast) ease;
+  }
+  .qm-auth-link:hover {
+    color: var(--qd-text);
+  }
+  .qm-auth-note {
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    line-height: var(--qd-auth-footer-line-height);
+    color: var(--qd-muted);
+    word-spacing: var(--qd-hangul-word-space);
+  }
+  .qm-auth-link + .qm-auth-note {
+    margin-top: 22px;
+  }
+  .qm-auth-note-link {
+    color: var(--qd-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── 바닥글 ── */
+  .qm-auth-footer {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--qd-border);
+    text-align: center;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    line-height: var(--qd-auth-footer-line-height);
+    color: var(--qd-muted);
+  }
+  .qm-auth-footer-tagline {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .qm-auth-footer-latin {
+    letter-spacing: 1px;
+  }
+  .qm-auth-footer-caps {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .qm-auth-footer-name {
+    font-weight: var(--qd-font-weight-medium);
+    color: var(--qd-accent);
+  }
+  .qm-auth-footer-note {
+    margin-top: 10px;
+    font-family: var(--qd-font-ui);
+    line-height: 1.7;
+  }
+  .qm-auth-footer-note + .qm-auth-footer-latin {
+    margin-top: 6px;
+  }
+
+  /* ── 오른쪽 위 밝기 고르개 (components/shared/theme-toggle.tsx) ──
+     면 위 테두리 한 줄 · 앞에 금색 기호 · 모노 대문자 영문 값 (집안 로그인과 같은 자리) */
+  .qm-auth-theme {
+    position: fixed;
+    top: var(--qd-auth-theme-inset);
+    right: var(--qd-auth-theme-inset);
+    z-index: var(--qd-z-dropdown);
+    display: flex;
+    min-height: var(--qd-control-height);
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--qd-surface);
+    border: 1px solid var(--qd-border);
+    border-radius: var(--qd-radius-control, 10px);
+    color: var(--qd-subtle);
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      color var(--qd-motion-fast) ease,
+      border-color var(--qd-motion-fast) ease;
+  }
+  .qm-auth-theme:hover {
+    color: var(--qd-text);
+    border-color: var(--qd-borderHi);
+  }
+  .qm-auth-theme:focus-visible {
+    outline: 2px solid var(--qd-accent);
+    outline-offset: 3px;
+  }
+  .qm-auth-theme-mark {
+    color: var(--qd-accent);
+    font-size: var(--qd-body-size);
+    line-height: 1;
+  }
+  /* 손가락 기기에서는 누를 자리를 44px 로 */
+  @media (hover: none) and (pointer: coarse) {
+    .qm-auth-theme {
+      min-height: var(--qd-control-height);
+    }
+  }
+
+  /* ── 넓은 화면(1024 이상): 두 판 ── */
+  @media (min-width: 1024px) {
+    .qm-auth-split {
+      grid-template-columns: var(--qd-auth-columns);
+    }
+    /* 왼쪽 판: 시계는 위, 표준 표시는 아래, 글 덩어리는 그 사이 가운데 */
+    .qm-auth-brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--qd-auth-brand-padding);
+      /* 두 판은 반투명이라 뒤의 리본이 비친다. 같은 색의 투명도만 다르다 */
+      background: linear-gradient(
+        105deg,
+        color-mix(in oklab, var(--qd-bg) 75%, transparent) 0%,
+        color-mix(in oklab, var(--qd-accent) 6%, transparent) 100%
+      );
+      border-right: 1px solid
+        color-mix(in oklab, var(--qd-border) 60%, transparent);
+    }
+    /* 오른쪽 판은 위아래 가운데다. «위에서 고정» 은 큰 화면에서 판이 뜬다 (오빠 지적 2026-09-14) */
+    .qm-auth-form-wrap {
+      padding: var(--qd-auth-form-padding);
+      background: linear-gradient(
+        255deg,
+        color-mix(in oklab, var(--qd-bg) 82%, transparent) 0%,
+        color-mix(in oklab, var(--qd-surface) 70%, transparent) 100%
+      );
+    }
+    .qm-auth-mobile-brand {
+      display: none;
+    }
+    .qm-auth-desktop-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--qd-border);
+    }
+    .qm-auth-card {
+      box-shadow:
+        var(--qm-auth-shadow),
+        0 0 0 1px color-mix(in oklab, var(--qd-accent) 6%, transparent);
+    }
+  }
+}
+
+/* App shell and status screens are presentation adapters. The product owns
+   navigation, permissions and data; Q-Design owns their visible dimensions. */
+@layer components {
+  .qm-app-main {
+    scroll-padding-top: var(--qd-main-band-height);
+    padding-inline: var(--qd-main-pad-mobile-x, 16px);
+    padding-bottom: var(--qd-main-pad-mobile-y, 24px);
+  }
+  .qm-app-main--standalone { padding-top: var(--qd-main-pad-mobile-y, 24px); }
+  .qm-main-band {
+    position: sticky;
+    top: 0;
+    z-index: var(--qd-main-band-z, 20);
+    margin-inline: calc(-1 * var(--qd-main-pad-mobile-x, 16px));
+    display: flex;
+    height: var(--qd-main-band-height);
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--qd-space-2, 8px);
+    background: var(--qd-bg);
+    padding-inline: var(--qd-main-pad-mobile-x, 16px);
+  }
+  .qm-main-band-action {
+    min-width: var(--qd-control-height);
+    min-height: var(--qd-control-height);
+    padding: 0;
+  }
+  .qm-status-screen {
+    display: grid;
+    min-height: 100%;
+    place-items: center;
+    padding: var(--qd-space-6);
+    color: var(--qd-text);
+    background: var(--qd-bg);
+  }
+  .qm-status-content { max-width: var(--qd-status-width, 672px); text-align: center; }
+  .qm-status-title {
+    margin-top: var(--qd-space-2);
+    font-size: var(--qd-title-size);
+    font-weight: var(--qd-font-weight-semibold);
+    letter-spacing: -.025em;
+  }
+  .qm-command-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--qd-z-modal);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: min(12vh, 96px) var(--qd-space-4) var(--qd-space-4);
+  }
+  .qm-command-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-height: calc(100dvh - min(12vh, 96px) - var(--qd-space-4));
+    overflow: hidden;
+  }
+  .qm-command-input {
+    height: var(--qd-control-height);
+    width: 100%;
+    background: transparent;
+    color: var(--qd-text);
+    font-family: var(--qd-font-ui);
+    font-size: var(--qd-body-size);
+    outline: none;
+  }
+  .qm-command-input::placeholder { color: var(--qd-muted); opacity: 1; }
+  .qm-command-list { max-height: var(--qd-command-list-height, 352px); overflow-y: auto; min-height: 0; }
+  .qm-chart-label { font-size: var(--qd-chart-label-size); font-family: var(--qd-font-ui); }
+  @media (min-width: 1024px) {
+    .qm-app-main { scroll-padding-top: var(--qd-main-band-height-desktop); padding-inline: var(--qd-main-pad-x); padding-bottom: var(--qd-main-pad-y); }
+    .qm-main-band { height: var(--qd-main-band-height-desktop); margin-inline: calc(-1 * var(--qd-main-pad-x)); padding-inline: var(--qd-main-pad-x); }
+    .qm-main-band-action { min-width: var(--qd-control-height-sm); min-height: var(--qd-control-height-sm); }
+  }
+  @media (pointer: coarse) { .qm-main-band-action { min-width: var(--qd-control-height); min-height: var(--qd-control-height); } }
+}
+
+/* ---------------------------------------------------------------------------
+   이용약관 · 개인정보처리방침 (app/(legal) · 화면 검토 M26 · 2026-09-28)
+   Q-Atelier 의 법적 고지 판(app/(public)/layout.tsx)과 같은 짜임: 위 띠(표식 · 문서 고리 ·
+   로그인) → 가운데 한 단(820) → 바닥 한 줄. 본문은 의미 태그(h2 · h3 · p · ul · table)만 쓰고
+   모양은 여기 한 곳이 정한다. 글자는 모두 12px 이상(오너 결정 M77 · M43).
+--------------------------------------------------------------------------- */
+@layer components {
+  .qm-legal-shell {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--qd-bg);
+    color: var(--qd-text);
+  }
+  .qm-legal-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--qd-border);
+  }
+  .qm-legal-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: var(--qd-font-weight-semibold);
+    font-size: 15px;
+    color: var(--qd-text);
+    text-decoration: none;
+  }
+  .qm-legal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    font-size: var(--qd-control-size);
+  }
+  .qm-legal-nav a {
+    color: var(--qd-subtle);
+    text-decoration: none;
+  }
+  .qm-legal-nav a:hover {
+    color: var(--qd-text);
+  }
+  .qm-legal-nav .qm-legal-nav-login {
+    color: var(--qd-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .qm-legal-main {
+    flex: 1;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 32px 24px 56px;
+    box-sizing: border-box;
+  }
+  .qm-legal-doc h1 {
+    margin: 0 0 8px;
+    font-size: var(--qd-document-title-size);
+    font-weight: var(--qd-font-weight-bold);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+  .qm-legal-doc .qm-legal-meta {
+    margin: 0 0 32px;
+    font-family: var(--qd-font-mono);
+    font-size: var(--qd-caption-size);
+    line-height: 1.7;
+    color: var(--qd-muted);
+  }
+  .qm-legal-doc h2 {
+    margin: 36px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--qd-border);
+    font-size: var(--qd-section-size);
+    font-weight: var(--qd-font-weight-semibold);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+  .qm-legal-doc h3 {
+    margin: 24px 0 8px;
+    font-size: var(--qd-body-size);
+    font-weight: var(--qd-font-weight-semibold);
+    line-height: 1.45;
+  }
+  .qm-legal-doc p,
+  .qm-legal-doc li {
+    font-size: var(--qd-body-size);
+    line-height: var(--qd-reading-line-height);
+    color: var(--qd-subtle);
+    /* --qd-hangul-word-space(-0.35em)는 짧은 이름표용이다. 긴 글에 걸면 낱말이 붙는다 */
+  }
+  .qm-legal-doc p {
+    margin: 0 0 12px;
+  }
+  .qm-legal-doc ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+  .qm-legal-doc li {
+    margin-bottom: 6px;
+  }
+  .qm-legal-doc strong {
+    font-weight: var(--qd-font-weight-semibold);
+    color: var(--qd-text);
+  }
+  .qm-legal-doc a {
+    color: var(--qd-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .qm-legal-table-wrap {
+    margin: 0 0 16px;
+    overflow-x: auto;
+  }
+  .qm-legal-doc table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: var(--qd-control-size);
+    line-height: 1.7;
+  }
+  .qm-legal-doc th,
+  .qm-legal-doc td {
+    padding: 8px 10px;
+    border: 1px solid var(--qd-border);
+    text-align: left;
+    vertical-align: top;
+    color: var(--qd-subtle);
+  }
+  .qm-legal-doc th {
+    white-space: nowrap;
+    font-weight: var(--qd-font-weight-semibold);
+    color: var(--qd-text);
+    background: var(--qd-surface2);
+  }
+  .qm-legal-footer {
+    padding: 24px;
+    border-top: 1px solid var(--qd-border);
+    text-align: center;
+    font-size: var(--qd-caption-size);
+    line-height: 1.85;
+    color: var(--qd-muted);
+  }
+  .qm-legal-footer a {
+    color: var(--qd-accent);
+  }
+  .qm-legal-footer-note {
+    max-width: 520px;
+    margin: 8px auto;
+  }
+  @media (max-width: 640px) {
+    .qm-legal-header {
+      padding: 16px;
+    }
+    .qm-legal-main {
+      padding: 24px 16px 40px;
+    }
+  }
+
+  /* 로그인 · 가입 바닥의 법적 고지 줄 (app/(auth)/layout.tsx) */
+  .qm-auth-footer-legal {
+    margin-top: 10px;
+    font-family: var(--qd-font-ui);
+    font-size: var(--qd-caption-size);
+  }
+  .qm-auth-footer-legal a {
+    color: var(--qd-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .qm-auth-footer-legal a:hover {
+    color: var(--qd-text);
+  }
+}
+
+/* Match native control chrome to the app theme without changing control semantics. */
+:root.dark { color-scheme: dark; }
+
+/* Maison business layout arguments: preserve current values; edit here. */
+:root {
+  --qd-maison-max-height-60vh: 60vh;
+  --qd-maison-min-height-40vh: 40vh;
+  --qd-maison-max-width-80percent: 80%;
+  --qd-maison-max-width-92percent: 92%;
+  --qd-maison-max-height-11-75rem: 11.75rem;
+  --qd-maison-grid-template-columns-10rem-minmax-0-1fr: 10rem minmax(0,1fr);
+  --qd-maison-grid-template-columns-minmax-0-1-6fr-minmax-0-1fr: minmax(0,1.6fr) minmax(0,1fr);
+  --qd-maison-min-width-760px: 760px;
+  --qd-maison-width-38percent: 38%;
+  --qd-maison-min-height-2rem: 2rem;
+  --qd-maison-min-width-820px: 820px;
+  --qd-maison-min-width-420px: 420px;
+  --qd-maison-min-width-640px: 640px;
+  --qd-maison-min-height-6rem: 6rem;
+  --qd-maison-max-height-70vh: 70vh;
+  --qd-maison-min-width-720px: 720px;
+  --qd-maison-width-30percent: 30%;
+  --qd-maison-min-width-900px: 900px;
+  --qd-maison-grid-template-columns-minmax-0-1-5fr-minmax-0-1fr: minmax(0,1.5fr) minmax(0,1fr);
+  --qd-maison-min-width-44rem: 44rem;
+  --qd-maison-min-width-40rem: 40rem;
+  --qd-maison-min-width-52rem: 52rem;
+  --qd-maison-max-width-22rem: 22rem;
+  --qd-maison-vertical-align-negative-1px: -1px;
+  --qd-maison-z-index-60: 60;
+  --qd-maison-max-height-50vh: 50vh;
+  --qd-maison-flex-basis-calc-240px-380px-1rem: calc(240px + 380px + 1rem);
+  --qd-maison-grid-template-rows-minmax-240px-0-8fr-minmax-380px-1-2fr: minmax(240px,0.8fr) minmax(380px,1.2fr);
+  --qd-maison-min-width-6rem: 6rem;
+  --qd-maison-min-width-560px: 560px;
+  --qd-maison-min-width-52px: 52px;
+  --qd-maison-min-width-14rem: 14rem;
+  --qd-maison-min-width-12rem: 12rem;
+  --qd-maison-flex-1-5: 1.5;
+  --qd-maison-grid-template-columns-minmax-0-2fr-minmax-0-1fr: minmax(0,2fr) minmax(0,1fr);
+  --qd-maison-grid-template-columns-minmax-0-1fr-minmax-0-1fr: minmax(0,1fr) minmax(0,1fr);
+  --qd-maison-height-70vh: 70vh;
+  --qd-maison-grid-template-columns-minmax-0-1-4fr-minmax-0-1fr: minmax(0,1.4fr) minmax(0,1fr);
+  --qd-maison-max-width-180px: 180px;
+  --qd-maison-width-18px: 18px;
+  --qd-maison-min-width-1100px: 1100px;
+  --qd-maison-max-width-12rem: 12rem;
+  --qd-maison-max-height-26rem: 26rem;
+  --qd-maison-grid-template-columns-12rem-12rem-minmax-0-1fr-auto: 12rem 12rem minmax(0,1fr) auto;
+  --qd-maison-min-width-860px: 860px;
+  --qd-maison-min-width-980px: 980px;
+  --qd-maison-min-width-32rem: 32rem;
+  --qd-maison-grid-template-columns-1fr-12rem: 1fr 12rem;
+  --qd-maison-grid-template-columns-auto-1fr: auto 1fr;
+  --qd-maison-min-width-10rem: 10rem;
+  --qd-maison-max-width-18rem: 18rem;
+  --qd-maison-min-width-36rem: 36rem;
+  --qd-maison-min-width-520px: 520px;
+  --qd-maison-max-width-20rem: 20rem;
+  --qd-maison-min-width-76rem: 76rem;
+  --qd-maison-min-width-7-5rem: 7.5rem;
+  --qd-maison-min-width-8rem: 8rem;
+  --qd-maison-min-width-7rem: 7rem;
+  --qd-maison-min-width-9rem: 9rem;
+  --qd-maison-max-width-14rem: 14rem;
+  --qd-maison-max-width-24ch: 24ch;
+  --qd-maison-min-width-880px: 880px;
+  --qd-maison-max-width-28rem: 28rem;
+  --qd-maison-min-width-64px: 64px;
+  --qd-maison-min-width-1440px: 1440px;
+  --qd-maison-max-width-26rem: 26rem;
+  --qd-maison-grid-template-columns-4-5rem-minmax-0-1fr: 4.5rem minmax(0,1fr);
+  --qd-maison-grid-template-columns-minmax-0-1fr-minmax-0-1-4fr: minmax(0,1fr) minmax(0,1.4fr);
+  --qd-maison-min-height-18rem: 18rem;
+  --qd-maison-grid-template-columns-4-5rem-1fr-auto-auto: 4.5rem 1fr auto auto;
+  --qd-maison-max-height-22rem: 22rem;
+  --qd-maison-max-width-16rem: 16rem;
+  --qd-maison-min-width-200px: 200px;
+  --qd-maison-min-width-38px: 38px;
+  --qd-maison-min-width-180px: 180px;
+  --qd-maison-grid-template-columns-minmax-0-220px-minmax-0-1fr: minmax(0,220px) minmax(0,1fr);
+  --qd-maison-min-width-680px: 680px;
+  --qd-maison-min-width-960px: 960px;
+  --qd-maison-grid-template-columns-minmax-0-3fr-minmax-0-1fr: minmax(0,3fr) minmax(0,1fr);
+  --qd-maison-min-width-1040px: 1040px;
+  --qd-maison-max-height-92vh: 92vh;
+  --qd-maison-height-85vh: 85vh;
+  --qd-maison-max-width-calc-100vw-negative--2rem: calc(100vw - 2rem);
+  --qd-maison-min-width-9-5rem: 9.5rem;
+  --qd-maison-max-height-calc-100dvh-negative--280px: calc(100dvh - 280px);
+  --qd-maison-grid-template-columns-7-5rem-minmax-0-1fr: 7.5rem minmax(0,1fr);
+  --qd-maison-height-1em: 1em;
+  --qd-maison-width-1em: 1em;
+  --qd-maison-max-width-min-20rem-calc-100vw-negative--2rem: min(20rem, calc(100vw - 2rem));
+  --qd-maison-max-height-60dvh: 60dvh;
+  --qd-maison-max-height-calc-100dvh-negative--2rem: calc(100dvh - 2rem);
+  --qd-maison-width-calc-100percent-negative--2rem: calc(100% - 2rem);
+}

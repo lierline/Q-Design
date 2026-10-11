@@ -1,0 +1,367 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-10T06:06:09.369Z",
+  "scope": "Exact twelve boot-script string fragments inspected together with their consumer; source hash changes reopen review.",
+  "records": [
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "4f4ed2e07602cfe439e2a67f098f7a36eec5c3e22ac98006aaec820346847a15",
+      "line": 99,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "(function(){try{",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 99
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "9dfe8f195acb7c9d82da86d36687e018344025e22441e141aa1c2caf474a5dc5",
+      "line": 100,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "var s=localStorage.getItem('dhr-theme');",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 100
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "8d78bebcd7d184f55e18a20ea5c18c774146d78315b6434078738a2559d80b6f",
+      "line": 111,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "var m=s||(location.pathname.indexOf('/work')===0?'light':'dark');",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 111
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "d845dc27f0ba65f62a5a66b19862e7f7f852e6042330714ac154021abd9882ca",
+      "line": 112,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "var t=m==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):m;",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 112
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "54e43f47c4ce804f8d6f32bd4181e0d052d680bcdf97f1c7b86370ef1b970f89",
+      "line": 113,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "document.documentElement.dataset.theme=t==='light'?'light':'dark';",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 113
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "e2289ff6319fedcfbb7e130a420ea723f3b0b1f3bcb774bdfcdf368a53fc9dec",
+      "line": 114,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "}catch(e){}})()",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 114
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "line": 1
+        },
+        {
+          "path": "scripts/check-theme.mjs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "2dc2f59cea145125ddf83b28d80e7a453151992daf7e21283d29f9eed3935cfa",
+      "line": 132,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "(function(){try{",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 132
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "13d5e21a8ee50b45a25c8fa414a3571041715a0c2f38378c55145ee6ab282565",
+      "line": 133,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "addEventListener('beforeinstallprompt',function(e){",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 133
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "ae8b37d4abc5c05901a47a8474c7e3b8641c1871a40e5c43cb340f55b4261751",
+      "line": 134,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "e.preventDefault();window.__dhrInstall=e;dispatchEvent(new Event('dhr-install-ready'));});",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 134
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "5e7150d5be5e15b330846765cee712d5e40b515bd10a9237bbeb0f445b871da1",
+      "line": 135,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "addEventListener('appinstalled',function(){",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 135
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "e79c08cc5ed32152ff2ca09c9ee9c5cee4dc90e6473dc7829729e6a8ec6510ec",
+      "line": 136,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "window.__dhrInstall=null;dispatchEvent(new Event('dhr-install-done'));});",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 136
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "argumentHash": "b40f27234d1c1462316ee29f5cca8d2f27168d969658344671b6614310350b3b",
+      "line": 137,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "}catch(e){}})()",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 137
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "carnetPlatform": {
+    "themeColor": "#3d281d",
+    "note": "Fixed copper installed-app title bar from the approved app-icon identity. This is independent of custom company colors and must agree with app-icons titleBarOf(copper)."
+  },
+  "description": "Editable Q-Design screen palette. Shared overrides replace the committed snapshot only at adapter generation, never engine tokens.ts. Empty shared maps preserve current colors. Product exceptions preserve established roles; see docs/33-palette-canon.md.",
+  "shared": {
+    "dark": {},
+    "light": {}
+  },
+  "products": {
+    "atelier": {
+      "dark": {},
+      "light": {}
+    },
+    "maison": {
+      "dark": {},
+      "light": {}
+    },
+    "carnet": {
+      "dark": {
+        "body": "#ded8cc",
+        "scrim": "#000000",
+        "danger-bg": "#251818",
+        "danger-line": "#3d2626",
+        "ok-bg": "#17231a",
+        "warn-bg": "#251f16",
+        "info-bg": "#161d27",
+        "vignette": "radial-gradient(ellipse at center, transparent 42%, rgb(0 0 0 / .22) 100%)"
+      },
+      "light": {
+        "body": "#33302a",
+        "surface-sub": "#f5f3ee",
+        "indigo": "#f0ece3",
+        "indigo-deep": "#ebe6db",
+        "indigo-soft": "#f7f4ee",
+        "danger-bg": "#fbeeee",
+        "danger-line": "#e8d3d3",
+        "ok-bg": "#eef5ee",
+        "warn-bg": "#fbf4e6",
+        "info-bg": "#e8eff8",
+        "vignette": "radial-gradient(ellipse at center, transparent 50%, rgb(128 109 65 / .07) 100%)",
+        "brand-contrast-surface": "#f4f2ee"
+      }
+    }
+  },
+  "carnetBrand": {
+    "source": {
+      "token": "--qa-champagne",
+      "theme": "dark"
+    },
+    "darkCanvas": {
+      "token": "--qa-bg",
+      "theme": "dark"
+    },
+    "darkSurface": {
+      "token": "--qa-surface",
+      "theme": "dark"
+    },
+    "lightSurface": {
+      "exception": "brand-contrast-surface"
+    },
+    "minimumContrast": 4.5,
+    "note": "Default seven-step palette reproduces current Carnet runtime tone.ts. Light brand derives from dark champagne against its established #f4f2ee contrast surface, not Maison light champagne. Manufacturer custom colors stay runtime-owned."
+  }
+}

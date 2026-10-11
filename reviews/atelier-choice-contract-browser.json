@@ -1,0 +1,173 @@
+{
+  "scope": "Actual button JSX, actual choiceLook/ChoiceCheck helpers and live Q-Design CSS in an isolated regression fixture. Desktop live-app CUA verification recorded separately.",
+  "findings": [
+    {
+      "touch": false,
+      "val": null,
+      "measured": [
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "false"
+        },
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "false"
+        }
+      ],
+      "changed": [
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "false"
+        },
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "false"
+        }
+      ]
+    },
+    {
+      "touch": false,
+      "val": "none",
+      "measured": [
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "true"
+        },
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "false"
+        }
+      ],
+      "changed": [
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "true"
+        },
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "false"
+        }
+      ]
+    },
+    {
+      "touch": false,
+      "val": "has",
+      "measured": [
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "false"
+        },
+        {
+          "height": 36,
+          "minHeight": "36px",
+          "pressed": "true"
+        }
+      ],
+      "changed": [
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "false"
+        },
+        {
+          "height": 40,
+          "minHeight": "40px",
+          "pressed": "true"
+        }
+      ]
+    },
+    {
+      "touch": true,
+      "val": null,
+      "measured": [
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "false"
+        },
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "false"
+        }
+      ],
+      "changed": [
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "false"
+        },
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "false"
+        }
+      ]
+    },
+    {
+      "touch": true,
+      "val": "none",
+      "measured": [
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "true"
+        },
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "false"
+        }
+      ],
+      "changed": [
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "true"
+        },
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "false"
+        }
+      ]
+    },
+    {
+      "touch": true,
+      "val": "has",
+      "measured": [
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "false"
+        },
+        {
+          "height": 44,
+          "minHeight": "44px",
+          "pressed": "true"
+        }
+      ],
+      "changed": [
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "false"
+        },
+        {
+          "height": 48,
+          "minHeight": "48px",
+          "pressed": "true"
+        }
+      ]
+    }
+  ]
+}

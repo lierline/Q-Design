@@ -1,0 +1,840 @@
+{
+  "version": 1,
+  "scope": "18 exact DOM-measurement and central-offset mappings. No blanket Math, number, filename, property or helper exemption; changed source invalidates this evidence.",
+  "records": [
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 53,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "3f62fc24adbfa971efcc42473e31eab1629f3416f27ff76fcaf286f6d006590f",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "rect.left + rect.width / 2 - panelWidth / 2",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 53,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top - offset - height, left: rect.left + rect.width / 2 - panelWidth / 2 };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 53,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "a060a61765536eee00d0017e1c7a6f58890e79b41a06c8e6ddd7535f04d1e49c",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "rect.top - offset - height",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 53,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top - offset - height, left: rect.left + rect.width / 2 - panelWidth / 2 };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 55,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "ff6e4b16b787c20020cb555c4f786f3357e2ee8b608b16c930199890efb6ebe5",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "rect.left + rect.width / 2 - panelWidth / 2",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 55,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.bottom + offset, left: rect.left + rect.width / 2 - panelWidth / 2 };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 55,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "ddeb80009902846b2ec253efb473a98f3d46438999d2ff82c36d490b64472a09",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "rect.bottom + offset",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 55,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.bottom + offset, left: rect.left + rect.width / 2 - panelWidth / 2 };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 57,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "2b2ce3f2667e278b67f6891ac2c01ad882fce9f8a01a4a084ead37792004a044",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "rect.left - panelWidth - offset",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 57,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top + rect.height / 2 - height / 2, left: rect.left - panelWidth - offset };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 57,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "67b392e9ec6215b655ebf66a466d064290ba1a4fb0446f7ea1dee1eb3ca76b1f",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "rect.top + rect.height / 2 - height / 2",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 57,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top + rect.height / 2 - height / 2, left: rect.left - panelWidth - offset };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 60,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "4b0382a702798116e5bcc1e20a3658abc193a76dabbe960d7efaf403c4abe6fe",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "rect.right + offset",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 60,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top + rect.height / 2 - height / 2, left: rect.right + offset };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 60,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "6a35276fec84493f2e4125e6efa05c0b84ece4faa183564ca9241b813bf265b0",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "rect.top + rect.height / 2 - height / 2",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 60,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      return { top: rect.top + rect.height / 2 - height / 2, left: rect.right + offset };"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 127,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "06f8db6307eba501f299a090103059ad46ecee3cb6fd6ecefdce4c1464b27cd9",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY))",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/Coachmark.tsx",
+      "line": 128,
+      "sourceHash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+      "argumentHash": "b9ef6e498425b808552d61207fecf11954064c8633c58d8095a65fa69c4b30b7",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.left, window.innerWidth - QDPresentation.coachmarkGeometry.panelWidth - QDPresentation.coachmarkGeometry.viewportReserveX))",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "calcPosition receives the target getBoundingClientRect at mount and resize. Its gap, estimated height and width come from canonical QDPresentation.coachmarkGeometry. Half-width and half-height terms align centers; final top/left clamp against viewport measurements with canonical gutters and reserves. No unowned pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 128,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        left: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.left, window.innerWidth - QDPresentation.coachmarkGeometry.panelWidth - QDPresentation.coachmarkGeometry.viewportReserveX)),"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 48,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "function calcPosition(rect: DOMRect, placement: Placement, panelWidth: number = QDPresentation.coachmarkGeometry.panelWidth): Position {"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 91,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "      setVisible(true);"
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 102,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": ""
+        },
+        {
+          "path": "components/Coachmark.tsx",
+          "line": 127,
+          "hash": "afa92113fa818854288e2ea785b75cd79eda281051375917036d46986d6b9f0c",
+          "inspectedLine": "        top: Math.max(QDPresentation.coachmarkGeometry.viewportGutter, Math.min(pos.top, window.innerHeight - QDPresentation.coachmarkGeometry.estimatedHeight - QDPresentation.coachmarkGeometry.viewportReserveY)),"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 424,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"coachmarkGeometry\": {"
+        }
+      ]
+    },
+    {
+      "path": "components/ListToolbar.tsx",
+      "line": 132,
+      "sourceHash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+      "argumentHash": "44ea549cb9fa2596a74740c3607916b5ed456048a7589b0bcdbef179c34a3051",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "stickyTopInset(pad.top) + (isMobile ? 0 : TOP_BAND_HEIGHT)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "The toolbar reverses measured scroll-host top padding and adds the canonical top header band height only when that band exists on desktop. Zero on mobile removes the absent band, not an authored pixel spacing.",
+      "evidence": [
+        {
+          "path": "components/ListToolbar.tsx",
+          "line": 132,
+          "hash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+          "inspectedLine": "        top: stickyTopInset(pad.top) + (isMobile ? 0 : TOP_BAND_HEIGHT),"
+        },
+        {
+          "path": "components/ListToolbar.tsx",
+          "line": 26,
+          "hash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+          "inspectedLine": "import { TOP_BAND_HEIGHT } from '@/components/TopHeaderBand';"
+        },
+        {
+          "path": "components/ListToolbar.tsx",
+          "line": 74,
+          "hash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+          "inspectedLine": "  const pad = useScrollHostPadding(ref);"
+        },
+        {
+          "path": "components/ListToolbar.tsx",
+          "line": 132,
+          "hash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+          "inspectedLine": "        top: stickyTopInset(pad.top) + (isMobile ? 0 : TOP_BAND_HEIGHT),"
+        },
+        {
+          "path": "components/TopHeaderBand.tsx",
+          "line": 26,
+          "hash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+          "inspectedLine": "export const TOP_BAND_HEIGHT = QDPresentation.commonDefaults.topBandHeight;"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 29,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": ""
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 445,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "  \"topBandHeight\": 56,"
+        }
+      ]
+    },
+    {
+      "path": "components/TodayQueue.tsx",
+      "line": 345,
+      "sourceHash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+      "argumentHash": "5ba4f1f684667a523cec3fc596758b01e488f1cc717323445f7fc79288220246",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "infoRect.bottom + QDPresentation.commonDefaults.tooltipOffset",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "The tooltip uses the clicked button actual getBoundingClientRect, positioning at its bottom/left; the one separation is canonical QDPresentation.commonDefaults.tooltipOffset. Popup width and other appearance remain independent candidates.",
+      "evidence": [
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 345,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                top: infoRect.bottom + QDPresentation.commonDefaults.tooltipOffset,"
+        },
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 319,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                setInfoRect(infoBtnRef.current.getBoundingClientRect());"
+        },
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 345,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                top: infoRect.bottom + QDPresentation.commonDefaults.tooltipOffset,"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 436,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "    \"tooltipOffset\": 6,"
+        }
+      ]
+    },
+    {
+      "path": "components/TodayQueue.tsx",
+      "line": 346,
+      "sourceHash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+      "argumentHash": "ee99f993a0e30762c9b1e956404c88a79ef1257752bde405857cb907d245050c",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "infoRect.left",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "The tooltip uses the clicked button actual getBoundingClientRect, positioning at its bottom/left; the one separation is canonical QDPresentation.commonDefaults.tooltipOffset. Popup width and other appearance remain independent candidates.",
+      "evidence": [
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 346,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                left: infoRect.left,"
+        },
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 319,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                setInfoRect(infoBtnRef.current.getBoundingClientRect());"
+        },
+        {
+          "path": "components/TodayQueue.tsx",
+          "line": 345,
+          "hash": "0d9b584adeeb32f60805291cd4e3c819922e7c2a6ff4bd9f191ce65daac20cca",
+          "inspectedLine": "                top: infoRect.bottom + QDPresentation.commonDefaults.tooltipOffset,"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 436,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43",
+          "inspectedLine": "    \"tooltipOffset\": 6,"
+        }
+      ]
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "line": 39,
+      "sourceHash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+      "argumentHash": "2ab2d1529e64c32e86f2de196925124c9eba873f104e518d59192c4d4f95625b",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "stickyTopInset(pad.top)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "stickyTopInset negates the actual scroll-host padding returned by useScrollHostPadding so the band meets the viewport edge. The source padding, header height and other appearance remain separate central inputs.",
+      "evidence": [
+        {
+          "path": "components/TopHeaderBand.tsx",
+          "line": 39,
+          "hash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+          "inspectedLine": "        top: stickyTopInset(pad.top),"
+        },
+        {
+          "path": "components/TopHeaderBand.tsx",
+          "line": 22,
+          "hash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+          "inspectedLine": "import { T } from '@/lib/design/tokens';"
+        },
+        {
+          "path": "components/TopHeaderBand.tsx",
+          "line": 31,
+          "hash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+          "inspectedLine": "  const pad = useScrollHostPadding(ref);"
+        },
+        {
+          "path": "components/TopHeaderBand.tsx",
+          "line": 39,
+          "hash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+          "inspectedLine": "        top: stickyTopInset(pad.top),"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 29,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": ""
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 65,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "export function readEdgePadding(el: Element | null | undefined): EdgePadding | null {"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/sticky-inset.ts",
+      "line": 69,
+      "sourceHash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+      "argumentHash": "d56940629396f2b52324dd72cf65b947b05ef4eab5c40e958368173763d33e27",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "parseFloat(cs.paddingTop) || 0",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "readEdgePadding reads getComputedStyle on the actual nearest scroll host. parseFloat converts resolved CSS padding into measured pixels; zero handles an absent numeric measurement. These numbers reverse already-applied padding instead of defining new appearance.",
+      "evidence": [
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 69,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    top: parseFloat(cs.paddingTop) || 0,"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 55,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "  let node = el?.parentElement ?? null;"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 65,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "export function readEdgePadding(el: Element | null | undefined): EdgePadding | null {"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 97,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    if (!host) return;"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/sticky-inset.ts",
+      "line": 70,
+      "sourceHash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+      "argumentHash": "4a3033d31350bf5ac5c71892f23862bf79caaa6343f4f1cc25b07b768ade7acb",
+      "kind": "object-property",
+      "property": "right",
+      "reviewedExpression": "parseFloat(cs.paddingRight) || 0",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "readEdgePadding reads getComputedStyle on the actual nearest scroll host. parseFloat converts resolved CSS padding into measured pixels; zero handles an absent numeric measurement. These numbers reverse already-applied padding instead of defining new appearance.",
+      "evidence": [
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 70,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    right: parseFloat(cs.paddingRight) || 0,"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 55,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "  let node = el?.parentElement ?? null;"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 65,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "export function readEdgePadding(el: Element | null | undefined): EdgePadding | null {"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 97,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    if (!host) return;"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/sticky-inset.ts",
+      "line": 71,
+      "sourceHash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+      "argumentHash": "e1d7ec389888beef094662a0a12cfdeafb03e495673b90759f9b9f34436bc243",
+      "kind": "object-property",
+      "property": "bottom",
+      "reviewedExpression": "parseFloat(cs.paddingBottom) || 0",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "readEdgePadding reads getComputedStyle on the actual nearest scroll host. parseFloat converts resolved CSS padding into measured pixels; zero handles an absent numeric measurement. These numbers reverse already-applied padding instead of defining new appearance.",
+      "evidence": [
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 71,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    bottom: parseFloat(cs.paddingBottom) || 0,"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 55,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "  let node = el?.parentElement ?? null;"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 65,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "export function readEdgePadding(el: Element | null | undefined): EdgePadding | null {"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 97,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    if (!host) return;"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/sticky-inset.ts",
+      "line": 72,
+      "sourceHash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+      "argumentHash": "9f58292608573693a91b8e1c4ac5bc6942635df0a6e4e86fda5820e3a010c8be",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "parseFloat(cs.paddingLeft) || 0",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-measured-element-position",
+      "reason": "readEdgePadding reads getComputedStyle on the actual nearest scroll host. parseFloat converts resolved CSS padding into measured pixels; zero handles an absent numeric measurement. These numbers reverse already-applied padding instead of defining new appearance.",
+      "evidence": [
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 72,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    left: parseFloat(cs.paddingLeft) || 0,"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 55,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "  let node = el?.parentElement ?? null;"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 65,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "export function readEdgePadding(el: Element | null | undefined): EdgePadding | null {"
+        },
+        {
+          "path": "lib/design/sticky-inset.ts",
+          "line": 97,
+          "hash": "6eb9d22fe945b6be770a34edd856c7577679526b12fbd2f884432282586e3397",
+          "inspectedLine": "    if (!host) return;"
+        }
+      ]
+    }
+  ]
+}

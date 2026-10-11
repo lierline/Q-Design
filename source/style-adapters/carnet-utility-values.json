@@ -1,0 +1,2762 @@
+{
+  "version": 1,
+  "product": "carnet",
+  "note": "Authored arbitrary utility defaults moved to the central recipe. Paper geometry has separate variables; shared screen font sizes reuse the type scale. The occurrence list records original source coordinates before promotion.",
+  "definitions": {
+    "--qd-carnet-screen-min-w-949b475e": "46rem",
+    "--qd-carnet-screen-min-w-962ea4f8": "44rem",
+    "--qd-carnet-screen-tracking-8f48ca25": "0.08em",
+    "--qd-carnet-screen-max-h-ed8397e7": "55vh",
+    "--qd-carnet-screen-min-w-caf519f5": "18rem",
+    "--qd-carnet-screen-grid-cols-ea11a9a0": "minmax(0,3fr) minmax(0,2fr)",
+    "--qd-carnet-screen-min-w-a7137c8f": "40rem",
+    "--qd-carnet-screen-w-01df0df8": "6.5rem",
+    "--qd-carnet-screen-grid-rows-5e97b0f9": "1fr",
+    "--qd-carnet-screen-grid-rows-d2db2390": "0fr",
+    "--qd-carnet-screen-min-h-0d55acec": "calc(1.5*0.8125rem)",
+    "--qd-carnet-screen-w-3f353beb": "clamp(7rem,10vw,9rem)",
+    "--qd-carnet-screen-w-eb8c8289": "min(8rem,40%)",
+    "--qd-carnet-screen-tracking-a26c1eef": "0.14em",
+    "--qd-carnet-screen-tracking-df0ec655": "0.06em",
+    "--qd-carnet-screen-w-2720d6ba": "5.5rem",
+    "--qd-carnet-paper-w-90301f06": "24%",
+    "--qd-carnet-paper-w-44840b2f": "18%",
+    "--qd-carnet-paper-w-2005b93b": "12%",
+    "--qd-carnet-paper-w-06c8d6ce": "26%",
+    "--qd-carnet-paper-w-040b09c5": "20%",
+    "--qd-carnet-paper-w-77d2b686": "14%",
+    "--qd-carnet-paper-w-9ccfc53f": "22%",
+    "--qd-carnet-paper-w-9d132afd": "28%",
+    "--qd-carnet-paper-text-0c8f0854": "9px",
+    "--qd-carnet-paper-w-692554e8": "15%",
+    "--qd-carnet-paper-w-95db7274": "35%",
+    "--qd-carnet-paper-w-86f74131": "10%",
+    "--qd-carnet-paper-w-267eadac": "6%",
+    "--qd-carnet-paper-w-f4893a4a": "30%",
+    "--qd-carnet-paper-w-a24d581d": "40%",
+    "--qd-carnet-paper-text-18c0fb4b": "10px",
+    "--qd-carnet-paper-max-w-ce074077": "210mm",
+    "--qd-carnet-paper-w-1b6b94a3": "5%",
+    "--qd-carnet-paper-w-7721b836": "19%",
+    "--qd-carnet-paper-w-a5b4a5da": "31%",
+    "--qd-carnet-paper-w-e2339430": "13%",
+    "--qd-carnet-paper-w-43b9ca86": "7%",
+    "--qd-carnet-paper-w-c3587b60": "32%",
+    "--qd-carnet-paper-text-7ec68078": "7pt",
+    "--qd-carnet-paper-text-60877765": "15pt",
+    "--qd-carnet-paper-text-8ca094a6": "8.5pt",
+    "--qd-carnet-paper-text-98b54d33": "7.5pt",
+    "--qd-carnet-paper-text-f8565ca5": "6.5pt",
+    "--qd-carnet-paper-w-571bcb6e": "17%",
+    "--qd-carnet-paper-text-6ea21d4d": "8px",
+    "--qd-carnet-paper-w-c1ca2cfd": "21%",
+    "--qd-carnet-paper-w-7a9fe994": "8%",
+    "--qd-carnet-paper-w-65d681a6": "9%",
+    "--qd-carnet-paper-w-8b45a88c": "11%",
+    "--qd-carnet-paper-w-6c60c0b4": "25%",
+    "--qd-carnet-paper-w-c02635eb": "16%",
+    "--qd-carnet-paper-w-85fdd921": "23%",
+    "--qd-carnet-screen-max-w-14045440": "22rem",
+    "--qd-carnet-screen-tracking-08bae714": "0.3em",
+    "--qd-carnet-paper-text-f2b0952b": "0.8125rem",
+    "--qd-carnet-paper-rotate-4790844e": "18deg",
+    "--qd-carnet-paper-text-99b808ba": "22px",
+    "--qd-carnet-paper-rotate-d566543c": "24deg",
+    "--qd-carnet-paper-text-cb37b436": "64px",
+    "--qd-carnet-paper-text-12c0f199": "0.75rem",
+    "--qd-carnet-screen-grid-cols-4bdcdf7d": "8rem minmax(0,1fr)",
+    "--qd-carnet-screen-min-h-6e8bd557": "calc(2*1.625*var(--qd-body-size))",
+    "--qd-carnet-screen-w-3e6e4f30": "min(24rem,calc(100vw-2rem))",
+    "--qd-carnet-opacity-40": "40%",
+    "--qd-carnet-opacity-30": "30%",
+    "--qd-carnet-opacity-25": "25%",
+    "--qd-carnet-opacity-35": "35%",
+    "--qd-carnet-opacity-50": "50%",
+    "--qd-carnet-opacity-55": "55%",
+    "--qd-carnet-opacity-60": "60%",
+    "--qd-carnet-opacity-20": "20%",
+    "--qd-carnet-opacity-70": "70%",
+    "--qd-carnet-opacity-12": "12%",
+    "--qd-carnet-opacity-10": "10%",
+    "--qd-carnet-motion-300": "300ms",
+    "--qd-carnet-motion-250": "250ms",
+    "--qd-carnet-opacity-15": "15%"
+  },
+  "occurrences": [
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 255,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 342,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 351,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 353,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/material/page.tsx",
+      "line": 181,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/material/page.tsx",
+      "line": 190,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/access/page.tsx",
+      "line": 64,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/access/page.tsx",
+      "line": 114,
+      "original": "min-w-[46rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-949b475e)]",
+      "variable": "--qd-carnet-screen-min-w-949b475e",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/access/page.tsx",
+      "line": 123,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/access/page.tsx",
+      "line": 134,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/page.tsx",
+      "line": 121,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/page.tsx",
+      "line": 138,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/page.tsx",
+      "line": 174,
+      "original": "min-w-[44rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-962ea4f8)]",
+      "variable": "--qd-carnet-screen-min-w-962ea4f8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/page.tsx",
+      "line": 198,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/page.tsx",
+      "line": 219,
+      "original": "min-w-[44rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-962ea4f8)]",
+      "variable": "--qd-carnet-screen-min-w-962ea4f8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/brand/brand-forms.tsx",
+      "line": 83,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/brand/brand-forms.tsx",
+      "line": 83,
+      "original": "tracking-[0.08em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-8f48ca25)]",
+      "variable": "--qd-carnet-screen-tracking-8f48ca25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 176,
+      "original": "max-h-[55vh]",
+      "replacement": "max-h-[var(--qd-carnet-screen-max-h-ed8397e7)]",
+      "variable": "--qd-carnet-screen-max-h-ed8397e7",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 188,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 846,
+      "original": "min-w-[18rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-caf519f5)]",
+      "variable": "--qd-carnet-screen-min-w-caf519f5",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/flow-diagram.tsx",
+      "line": 65,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/flow-diagram.tsx",
+      "line": 97,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/flow-diagram.tsx",
+      "line": 100,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/flow-diagram.tsx",
+      "line": 106,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/workbench.tsx",
+      "line": 253,
+      "original": "xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]",
+      "replacement": "xl:grid-cols-[var(--qd-carnet-screen-grid-cols-ea11a9a0)]",
+      "variable": "--qd-carnet-screen-grid-cols-ea11a9a0",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/exchange/exchange-panels.tsx",
+      "line": 130,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/exchange/exchange-panels.tsx",
+      "line": 251,
+      "original": "min-w-[44rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-962ea4f8)]",
+      "variable": "--qd-carnet-screen-min-w-962ea4f8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/exchange/page.tsx",
+      "line": 97,
+      "original": "min-w-[44rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-962ea4f8)]",
+      "variable": "--qd-carnet-screen-min-w-962ea4f8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/items/item-forms.tsx",
+      "line": 623,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/model/forms.tsx",
+      "line": 170,
+      "original": "min-w-[40rem]",
+      "replacement": "min-w-[var(--qd-carnet-screen-min-w-a7137c8f)]",
+      "variable": "--qd-carnet-screen-min-w-a7137c8f",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/numbering/target-card.tsx",
+      "line": 152,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/numbering/target-card.tsx",
+      "line": 158,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 196,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 239,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 371,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 61,
+      "original": "text-[1.125rem]",
+      "replacement": "text-[length:var(--qd-font-size-18)]",
+      "variable": "--qd-font-size-18",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 63,
+      "original": "text-[1.125rem]",
+      "replacement": "text-[length:var(--qd-font-size-18)]",
+      "variable": "--qd-font-size-18",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 137,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 139,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/page.tsx",
+      "line": 282,
+      "original": "text-[2rem]",
+      "replacement": "text-[length:var(--qd-font-size-32)]",
+      "variable": "--qd-font-size-32",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 312,
+      "original": "w-[6.5rem]",
+      "replacement": "w-[var(--qd-carnet-screen-w-01df0df8)]",
+      "variable": "--qd-carnet-screen-w-01df0df8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 338,
+      "original": "w-[6.5rem]",
+      "replacement": "w-[var(--qd-carnet-screen-w-01df0df8)]",
+      "variable": "--qd-carnet-screen-w-01df0df8",
+      "scope": "screen"
+    },
+    {
+      "file": "app/error.tsx",
+      "line": 26,
+      "original": "text-[1.25rem]",
+      "replacement": "text-[length:var(--qd-font-size-20)]",
+      "variable": "--qd-font-size-20",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 196,
+      "original": "grid-rows-[1fr]",
+      "replacement": "grid-rows-[var(--qd-carnet-screen-grid-rows-5e97b0f9)]",
+      "variable": "--qd-carnet-screen-grid-rows-5e97b0f9",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 196,
+      "original": "grid-rows-[0fr]",
+      "replacement": "grid-rows-[var(--qd-carnet-screen-grid-rows-d2db2390)]",
+      "variable": "--qd-carnet-screen-grid-rows-d2db2390",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 255,
+      "original": "grid-rows-[1fr]",
+      "replacement": "grid-rows-[var(--qd-carnet-screen-grid-rows-5e97b0f9)]",
+      "variable": "--qd-carnet-screen-grid-rows-5e97b0f9",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 255,
+      "original": "grid-rows-[0fr]",
+      "replacement": "grid-rows-[var(--qd-carnet-screen-grid-rows-d2db2390)]",
+      "variable": "--qd-carnet-screen-grid-rows-d2db2390",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 117,
+      "original": "min-h-[calc(1.5*0.8125rem)]",
+      "replacement": "min-h-[var(--qd-carnet-screen-min-h-0d55acec)]",
+      "variable": "--qd-carnet-screen-min-h-0d55acec",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 117,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 123,
+      "original": "w-[clamp(7rem,10vw,9rem)]",
+      "replacement": "w-[var(--qd-carnet-screen-w-3f353beb)]",
+      "variable": "--qd-carnet-screen-w-3f353beb",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 123,
+      "original": "text-[1.125rem]",
+      "replacement": "text-[length:var(--qd-font-size-18)]",
+      "variable": "--qd-font-size-18",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 142,
+      "original": "w-[min(8rem,40%)]",
+      "replacement": "w-[var(--qd-carnet-screen-w-eb8c8289)]",
+      "variable": "--qd-carnet-screen-w-eb8c8289",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 142,
+      "original": "text-[1rem]",
+      "replacement": "text-[length:var(--qd-font-size-16)]",
+      "variable": "--qd-font-size-16",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 186,
+      "original": "tracking-[0.14em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-a26c1eef)]",
+      "variable": "--qd-carnet-screen-tracking-a26c1eef",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 188,
+      "original": "tracking-[0.06em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-df0ec655)]",
+      "variable": "--qd-carnet-screen-tracking-df0ec655",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 189,
+      "original": "tracking-[0.06em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-df0ec655)]",
+      "variable": "--qd-carnet-screen-tracking-df0ec655",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/page.tsx",
+      "line": 193,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/not-found.tsx",
+      "line": 10,
+      "original": "text-[1.25rem]",
+      "replacement": "text-[length:var(--qd-font-size-20)]",
+      "variable": "--qd-font-size-20",
+      "scope": "screen"
+    },
+    {
+      "file": "app/password/page.tsx",
+      "line": 36,
+      "original": "text-[1.375rem]",
+      "replacement": "text-[length:var(--qd-font-size-22)]",
+      "variable": "--qd-font-size-22",
+      "scope": "screen"
+    },
+    {
+      "file": "app/password/pin-form.tsx",
+      "line": 151,
+      "original": "w-[5.5rem]",
+      "replacement": "w-[var(--qd-carnet-screen-w-2720d6ba)]",
+      "variable": "--qd-carnet-screen-w-2720d6ba",
+      "scope": "screen"
+    },
+    {
+      "file": "app/password/pin-form.tsx",
+      "line": 151,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/password/pin-form.tsx",
+      "line": 151,
+      "original": "tracking-[0.06em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-df0ec655)]",
+      "variable": "--qd-carnet-screen-tracking-df0ec655",
+      "scope": "screen"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 255,
+      "original": "w-[24%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-90301f06)]",
+      "variable": "--qd-carnet-paper-w-90301f06",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 256,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 257,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 258,
+      "original": "w-[26%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-06c8d6ce)]",
+      "variable": "--qd-carnet-paper-w-06c8d6ce",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 259,
+      "original": "w-[20%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-040b09c5)]",
+      "variable": "--qd-carnet-paper-w-040b09c5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 302,
+      "original": "w-[14%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-77d2b686)]",
+      "variable": "--qd-carnet-paper-w-77d2b686",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 303,
+      "original": "w-[22%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-9ccfc53f)]",
+      "variable": "--qd-carnet-paper-w-9ccfc53f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 304,
+      "original": "w-[28%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-9d132afd)]",
+      "variable": "--qd-carnet-paper-w-9d132afd",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 305,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 306,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 321,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 348,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 349,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 350,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 351,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 367,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 414,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 415,
+      "original": "w-[26%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-06c8d6ce)]",
+      "variable": "--qd-carnet-paper-w-06c8d6ce",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 416,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 417,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 418,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 419,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 420,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 429,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 484,
+      "original": "w-[6%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-267eadac)]",
+      "variable": "--qd-carnet-paper-w-267eadac",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 485,
+      "original": "w-[30%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-f4893a4a)]",
+      "variable": "--qd-carnet-paper-w-f4893a4a",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 486,
+      "original": "w-[40%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-a24d581d)]",
+      "variable": "--qd-carnet-paper-w-a24d581d",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 487,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 488,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 585,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 593,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/cover/[id]/page.tsx",
+      "line": 608,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/all/page.tsx",
+      "line": 113,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/all/page.tsx",
+      "line": 149,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 99,
+      "original": "w-[5%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-1b6b94a3)]",
+      "variable": "--qd-carnet-paper-w-1b6b94a3",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 100,
+      "original": "w-[19%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-7721b836)]",
+      "variable": "--qd-carnet-paper-w-7721b836",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 101,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 102,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 103,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 104,
+      "original": "w-[31%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-a5b4a5da)]",
+      "variable": "--qd-carnet-paper-w-a5b4a5da",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 105,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 113,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 117,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 125,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 129,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 135,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 170,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 414,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 415,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 416,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 417,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 438,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 440,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 441,
+      "original": "w-[26%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-06c8d6ce)]",
+      "variable": "--qd-carnet-paper-w-06c8d6ce",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 442,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 443,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 444,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 480,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 481,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 482,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 483,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 497,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 510,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 511,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 512,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 513,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 539,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "line": 558,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 55,
+      "original": "w-[13%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-e2339430)]",
+      "variable": "--qd-carnet-paper-w-e2339430",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 56,
+      "original": "w-[14%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-77d2b686)]",
+      "variable": "--qd-carnet-paper-w-77d2b686",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 57,
+      "original": "w-[22%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-9ccfc53f)]",
+      "variable": "--qd-carnet-paper-w-9ccfc53f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 58,
+      "original": "w-[7%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-43b9ca86)]",
+      "variable": "--qd-carnet-paper-w-43b9ca86",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 59,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 60,
+      "original": "w-[7%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-43b9ca86)]",
+      "variable": "--qd-carnet-paper-w-43b9ca86",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 61,
+      "original": "w-[7%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-43b9ca86)]",
+      "variable": "--qd-carnet-paper-w-43b9ca86",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 62,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 78,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 87,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 221,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 222,
+      "original": "w-[32%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c3587b60)]",
+      "variable": "--qd-carnet-paper-w-c3587b60",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 223,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 224,
+      "original": "w-[32%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c3587b60)]",
+      "variable": "--qd-carnet-paper-w-c3587b60",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 260,
+      "original": "w-[14%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-77d2b686)]",
+      "variable": "--qd-carnet-paper-w-77d2b686",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 261,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 262,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 263,
+      "original": "w-[26%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-06c8d6ce)]",
+      "variable": "--qd-carnet-paper-w-06c8d6ce",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 264,
+      "original": "w-[24%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-90301f06)]",
+      "variable": "--qd-carnet-paper-w-90301f06",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/equipment-log/[id]/page.tsx",
+      "line": 288,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 88,
+      "original": "text-[7pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-7ec68078)]",
+      "variable": "--qd-carnet-paper-text-7ec68078",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 89,
+      "original": "text-[15pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-60877765)]",
+      "variable": "--qd-carnet-paper-text-60877765",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 94,
+      "original": "text-[8.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-8ca094a6)]",
+      "variable": "--qd-carnet-paper-text-8ca094a6",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 96,
+      "original": "text-[7pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-7ec68078)]",
+      "variable": "--qd-carnet-paper-text-7ec68078",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 98,
+      "original": "text-[7.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-98b54d33)]",
+      "variable": "--qd-carnet-paper-text-98b54d33",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 101,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 103,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 107,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 109,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 113,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 115,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 119,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 121,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label/[id]/page.tsx",
+      "line": 126,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 148,
+      "original": "w-[14%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-77d2b686)]",
+      "variable": "--qd-carnet-paper-w-77d2b686",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 149,
+      "original": "w-[19%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-7721b836)]",
+      "variable": "--qd-carnet-paper-w-7721b836",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 151,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 151,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 152,
+      "original": "w-[20%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-040b09c5)]",
+      "variable": "--qd-carnet-paper-w-040b09c5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 153,
+      "original": "w-[12%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-2005b93b)]",
+      "variable": "--qd-carnet-paper-w-2005b93b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 154,
+      "original": "w-[17%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-571bcb6e)]",
+      "variable": "--qd-carnet-paper-w-571bcb6e",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 161,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 167,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 182,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 193,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 201,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 228,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 229,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 230,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 231,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 267,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 269,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 270,
+      "original": "w-[26%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-06c8d6ce)]",
+      "variable": "--qd-carnet-paper-w-06c8d6ce",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 271,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 272,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/label-request/[id]/page.tsx",
+      "line": 273,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 115,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 246,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 252,
+      "original": "w-[20%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-040b09c5)]",
+      "variable": "--qd-carnet-paper-w-040b09c5",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 254,
+      "original": "text-[8px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-6ea21d4d)]",
+      "variable": "--qd-carnet-paper-text-6ea21d4d",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 255,
+      "original": "text-[8px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-6ea21d4d)]",
+      "variable": "--qd-carnet-paper-text-6ea21d4d",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 264,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 275,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 276,
+      "original": "w-[32%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c3587b60)]",
+      "variable": "--qd-carnet-paper-w-c3587b60",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 277,
+      "original": "w-[18%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-44840b2f)]",
+      "variable": "--qd-carnet-paper-w-44840b2f",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 278,
+      "original": "w-[32%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c3587b60)]",
+      "variable": "--qd-carnet-paper-w-c3587b60",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 299,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 301,
+      "original": "w-[21%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c1ca2cfd)]",
+      "variable": "--qd-carnet-paper-w-c1ca2cfd",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 302,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 303,
+      "original": "w-[10%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-86f74131)]",
+      "variable": "--qd-carnet-paper-w-86f74131",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 304,
+      "original": "w-[8%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-7a9fe994)]",
+      "variable": "--qd-carnet-paper-w-7a9fe994",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 305,
+      "original": "w-[8%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-7a9fe994)]",
+      "variable": "--qd-carnet-paper-w-7a9fe994",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 307,
+      "original": "w-[8%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-7a9fe994)]",
+      "variable": "--qd-carnet-paper-w-7a9fe994",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 308,
+      "original": "w-[9%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-65d681a6)]",
+      "variable": "--qd-carnet-paper-w-65d681a6",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 309,
+      "original": "w-[11%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-8b45a88c)]",
+      "variable": "--qd-carnet-paper-w-8b45a88c",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 318,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 327,
+      "original": "text-[8px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-6ea21d4d)]",
+      "variable": "--qd-carnet-paper-text-6ea21d4d",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 333,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 348,
+      "original": "w-[25%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-6c60c0b4)]",
+      "variable": "--qd-carnet-paper-w-6c60c0b4",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 349,
+      "original": "w-[25%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-6c60c0b4)]",
+      "variable": "--qd-carnet-paper-w-6c60c0b4",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 350,
+      "original": "w-[25%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-6c60c0b4)]",
+      "variable": "--qd-carnet-paper-w-6c60c0b4",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 351,
+      "original": "w-[25%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-6c60c0b4)]",
+      "variable": "--qd-carnet-paper-w-6c60c0b4",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/release-request/[id]/page.tsx",
+      "line": 364,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 55,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 74,
+      "original": "w-[5%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-1b6b94a3)]",
+      "variable": "--qd-carnet-paper-w-1b6b94a3",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 75,
+      "original": "w-[5%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-1b6b94a3)]",
+      "variable": "--qd-carnet-paper-w-1b6b94a3",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 76,
+      "original": "w-[16%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-c02635eb)]",
+      "variable": "--qd-carnet-paper-w-c02635eb",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 77,
+      "original": "w-[17%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-571bcb6e)]",
+      "variable": "--qd-carnet-paper-w-571bcb6e",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 78,
+      "original": "w-[23%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-85fdd921)]",
+      "variable": "--qd-carnet-paper-w-85fdd921",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 79,
+      "original": "w-[11%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-8b45a88c)]",
+      "variable": "--qd-carnet-paper-w-8b45a88c",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 80,
+      "original": "w-[23%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-85fdd921)]",
+      "variable": "--qd-carnet-paper-w-85fdd921",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 314,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 315,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 316,
+      "original": "w-[15%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-692554e8)]",
+      "variable": "--qd-carnet-paper-w-692554e8",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 317,
+      "original": "w-[35%]",
+      "replacement": "w-[var(--qd-carnet-paper-w-95db7274)]",
+      "variable": "--qd-carnet-paper-w-95db7274",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 372,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "app/print/work-order/[id]/page.tsx",
+      "line": 387,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/demo-banner.tsx",
+      "line": 71,
+      "original": "max-w-[1400px]",
+      "replacement": "max-w-[var(--qd-work-max)]",
+      "variable": "--qd-work-max",
+      "scope": "screen"
+    },
+    {
+      "file": "components/find-unit.tsx",
+      "line": 109,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "components/idle-lock.tsx",
+      "line": 186,
+      "original": "max-w-[22rem]",
+      "replacement": "max-w-[var(--qd-carnet-screen-max-w-14045440)]",
+      "variable": "--qd-carnet-screen-max-w-14045440",
+      "scope": "screen"
+    },
+    {
+      "file": "components/idle-lock.tsx",
+      "line": 202,
+      "original": "tracking-[0.3em]",
+      "replacement": "tracking-[var(--qd-carnet-screen-tracking-08bae714)]",
+      "variable": "--qd-carnet-screen-tracking-08bae714",
+      "scope": "screen"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 155,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 172,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 268,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 278,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f2b0952b)]",
+      "variable": "--qd-carnet-paper-text-f2b0952b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 346,
+      "original": "max-w-[210mm]",
+      "replacement": "max-w-[var(--qd-carnet-paper-max-w-ce074077)]",
+      "variable": "--qd-carnet-paper-max-w-ce074077",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 415,
+      "original": "-rotate-[18deg]",
+      "replacement": "-rotate-[var(--qd-carnet-paper-rotate-4790844e)]",
+      "variable": "--qd-carnet-paper-rotate-4790844e",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 415,
+      "original": "text-[22px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-99b808ba)]",
+      "variable": "--qd-carnet-paper-text-99b808ba",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 430,
+      "original": "text-[6.5pt]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-f8565ca5)]",
+      "variable": "--qd-carnet-paper-text-f8565ca5",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 474,
+      "original": "-rotate-[24deg]",
+      "replacement": "-rotate-[var(--qd-carnet-paper-rotate-d566543c)]",
+      "variable": "--qd-carnet-paper-rotate-d566543c",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 474,
+      "original": "text-[64px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-cb37b436)]",
+      "variable": "--qd-carnet-paper-text-cb37b436",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 496,
+      "original": "-rotate-[24deg]",
+      "replacement": "-rotate-[var(--qd-carnet-paper-rotate-d566543c)]",
+      "variable": "--qd-carnet-paper-rotate-d566543c",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 496,
+      "original": "text-[64px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-cb37b436)]",
+      "variable": "--qd-carnet-paper-text-cb37b436",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 501,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 518,
+      "original": "-rotate-[24deg]",
+      "replacement": "-rotate-[var(--qd-carnet-paper-rotate-d566543c)]",
+      "variable": "--qd-carnet-paper-rotate-d566543c",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 518,
+      "original": "text-[64px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-cb37b436)]",
+      "variable": "--qd-carnet-paper-text-cb37b436",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 522,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 542,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-12c0f199)]",
+      "variable": "--qd-carnet-paper-text-12c0f199",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 553,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 560,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 586,
+      "original": "text-[9px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-0c8f0854)]",
+      "variable": "--qd-carnet-paper-text-0c8f0854",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 641,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 653,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 658,
+      "original": "text-[10px]",
+      "replacement": "text-[length:var(--qd-carnet-paper-text-18c0fb4b)]",
+      "variable": "--qd-carnet-paper-text-18c0fb4b",
+      "scope": "paper"
+    },
+    {
+      "file": "components/release-evidence.tsx",
+      "line": 28,
+      "original": "sm:grid-cols-[8rem_minmax(0,1fr)]",
+      "replacement": "sm:grid-cols-[var(--qd-carnet-screen-grid-cols-4bdcdf7d)]",
+      "variable": "--qd-carnet-screen-grid-cols-4bdcdf7d",
+      "scope": "screen"
+    },
+    {
+      "file": "components/release-evidence.tsx",
+      "line": 39,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "components/shell.tsx",
+      "line": 92,
+      "original": "min-h-[calc(2*1.625*var(--qd-body-size))]",
+      "replacement": "min-h-[var(--qd-carnet-screen-min-h-6e8bd557)]",
+      "variable": "--qd-carnet-screen-min-h-6e8bd557",
+      "scope": "screen"
+    },
+    {
+      "file": "components/stat-detail.tsx",
+      "line": 104,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "components/table.tsx",
+      "line": 92,
+      "original": "text-[0.8125rem]",
+      "replacement": "text-[length:var(--qd-font-size-13)]",
+      "variable": "--qd-font-size-13",
+      "scope": "screen"
+    },
+    {
+      "file": "components/toast.tsx",
+      "line": 85,
+      "original": "w-[min(24rem,calc(100vw-2rem))]",
+      "replacement": "w-[var(--qd-carnet-screen-w-3e6e4f30)]",
+      "variable": "--qd-carnet-screen-w-3e6e4f30",
+      "scope": "screen"
+    },
+    {
+      "file": "components/ui.tsx",
+      "line": 286,
+      "original": "text-[0.75rem]",
+      "replacement": "text-[length:var(--qd-font-size-12)]",
+      "variable": "--qd-font-size-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/board/cost/page.tsx",
+      "line": 168,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/equipment/page.tsx",
+      "line": 152,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 283,
+      "original": "ring-warn/25",
+      "replacement": "ring-warn/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/layout.tsx",
+      "line": 350,
+      "original": "opacity-35",
+      "replacement": "opacity-[var(--qd-carnet-opacity-35)]",
+      "variable": "--qd-carnet-opacity-35",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/page.tsx",
+      "line": 470,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/deviation/page.tsx",
+      "line": 115,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/batch-forms.tsx",
+      "line": 239,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/batch-forms.tsx",
+      "line": 533,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/batch-forms.tsx",
+      "line": 663,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/page.tsx",
+      "line": 335,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/page.tsx",
+      "line": 343,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/production/[id]/page.tsx",
+      "line": 373,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/download-panel.tsx",
+      "line": 77,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/download-panel.tsx",
+      "line": 82,
+      "original": "border-ok/40",
+      "replacement": "border-ok/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/restore-panel.tsx",
+      "line": 83,
+      "original": "border-ok/40",
+      "replacement": "border-ok/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/backup/restore-panel.tsx",
+      "line": 225,
+      "original": "bg-warn-bg/40",
+      "replacement": "bg-warn-bg/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 151,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 623,
+      "original": "bg-canvas/50",
+      "replacement": "bg-canvas/[var(--qd-carnet-opacity-50)]",
+      "variable": "--qd-carnet-opacity-50",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "line": 803,
+      "original": "ring-warn/40",
+      "replacement": "ring-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/exchange/exchange-panels.tsx",
+      "line": 142,
+      "original": "border-ok/40",
+      "replacement": "border-ok/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/exchange/exchange-panels.tsx",
+      "line": 172,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/items/item-forms.tsx",
+      "line": 270,
+      "original": "opacity-55",
+      "replacement": "opacity-[var(--qd-carnet-opacity-55)]",
+      "variable": "--qd-carnet-opacity-55",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/items/item-forms.tsx",
+      "line": 583,
+      "original": "border-danger/40",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/model/forms.tsx",
+      "line": 99,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/model/forms.tsx",
+      "line": 240,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/model/page.tsx",
+      "line": 118,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/numbering/rule-form.tsx",
+      "line": 335,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/numbering/rule-form.tsx",
+      "line": 336,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/page.tsx",
+      "line": 274,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/page.tsx",
+      "line": 332,
+      "original": "border-danger/40",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/page.tsx",
+      "line": 529,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/settings/users/user-row.tsx",
+      "line": 48,
+      "original": "bg-canvas/60",
+      "replacement": "bg-canvas/[var(--qd-carnet-opacity-60)]",
+      "variable": "--qd-carnet-opacity-60",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 181,
+      "original": "border-info/20",
+      "replacement": "border-info/[var(--qd-carnet-opacity-20)]",
+      "variable": "--qd-carnet-opacity-20",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 348,
+      "original": "opacity-70",
+      "replacement": "opacity-[var(--qd-carnet-opacity-70)]",
+      "variable": "--qd-carnet-opacity-70",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/shipping/shipping-forms.tsx",
+      "line": 489,
+      "original": "bg-brand-soft/60",
+      "replacement": "bg-brand-soft/[var(--qd-carnet-opacity-60)]",
+      "variable": "--qd-carnet-opacity-60",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/tools/link/link-form.tsx",
+      "line": 62,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(admin)/trace/verify/page.tsx",
+      "line": 219,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 62,
+      "original": "bg-on-dark/25",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 64,
+      "original": "bg-on-dark/12",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-12)]",
+      "variable": "--qd-carnet-opacity-12",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 93,
+      "original": "border-on-dark/25",
+      "replacement": "border-on-dark/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 93,
+      "original": "bg-on-dark/10",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-10)]",
+      "variable": "--qd-carnet-opacity-10",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 104,
+      "original": "border-on-dark/25",
+      "replacement": "border-on-dark/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 104,
+      "original": "bg-on-dark/10",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-10)]",
+      "variable": "--qd-carnet-opacity-10",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 107,
+      "original": "border-on-dark/25",
+      "replacement": "border-on-dark/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 107,
+      "original": "bg-on-dark/10",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-10)]",
+      "variable": "--qd-carnet-opacity-10",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/layout.tsx",
+      "line": 136,
+      "original": "opacity-40",
+      "replacement": "opacity-[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/page.tsx",
+      "line": 235,
+      "original": "border-danger/40",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/page.tsx",
+      "line": 258,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/page.tsx",
+      "line": 266,
+      "original": "border-danger/40",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 356,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 366,
+      "original": "border-ok/30",
+      "replacement": "border-ok/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 524,
+      "original": "opacity-70",
+      "replacement": "opacity-[var(--qd-carnet-opacity-70)]",
+      "variable": "--qd-carnet-opacity-70",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 851,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 1115,
+      "original": "border-warn/30",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 1193,
+      "original": "border-danger/25",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/(work)/work/[id]/work-panel.tsx",
+      "line": 1215,
+      "original": "border-danger/25",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-25)]",
+      "variable": "--qd-carnet-opacity-25",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 195,
+      "original": "duration-300",
+      "replacement": "duration-[var(--qd-carnet-motion-300)]",
+      "variable": "--qd-carnet-motion-300",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 203,
+      "original": "duration-200",
+      "replacement": "duration-[var(--qd-motion-normal)]",
+      "variable": "--qd-motion-normal",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 254,
+      "original": "duration-250",
+      "replacement": "duration-[var(--qd-carnet-motion-250)]",
+      "variable": "--qd-carnet-motion-250",
+      "scope": "screen"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 310,
+      "original": "duration-150",
+      "replacement": "duration-[var(--qd-motion-fast)]",
+      "variable": "--qd-motion-fast",
+      "scope": "screen"
+    },
+    {
+      "file": "app/password/pin-form.tsx",
+      "line": 186,
+      "original": "border-danger/30",
+      "replacement": "border-danger/[var(--qd-carnet-opacity-30)]",
+      "variable": "--qd-carnet-opacity-30",
+      "scope": "screen"
+    },
+    {
+      "file": "app/print/day-record/[id]/all/page.tsx",
+      "line": 115,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "app/print/day-record/[id]/all/page.tsx",
+      "line": 150,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "components/clock.tsx",
+      "line": 85,
+      "original": "opacity-50",
+      "replacement": "opacity-[var(--qd-carnet-opacity-50)]",
+      "variable": "--qd-carnet-opacity-50",
+      "scope": "screen"
+    },
+    {
+      "file": "components/idle-lock.tsx",
+      "line": 190,
+      "original": "bg-on-dark/15",
+      "replacement": "bg-on-dark/[var(--qd-carnet-opacity-15)]",
+      "variable": "--qd-carnet-opacity-15",
+      "scope": "screen"
+    },
+    {
+      "file": "components/issue-link.tsx",
+      "line": 55,
+      "original": "opacity-70",
+      "replacement": "opacity-[var(--qd-carnet-opacity-70)]",
+      "variable": "--qd-carnet-opacity-70",
+      "scope": "screen"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 166,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    },
+    {
+      "file": "components/print-frame.tsx",
+      "line": 347,
+      "original": "border-warn/40",
+      "replacement": "border-warn/[var(--qd-carnet-opacity-40)]",
+      "variable": "--qd-carnet-opacity-40",
+      "scope": "screen"
+    }
+  ],
+  "structuralBoundaries": [
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 195,
+      "utility": "transition-[grid-template-rows]",
+      "reason": "Selector, transition property name or inherited geometry is structural, not a numeric appearance value"
+    },
+    {
+      "file": "app/login/login-form.tsx",
+      "line": 254,
+      "utility": "transition-[grid-template-rows]",
+      "reason": "Selector, transition property name or inherited geometry is structural, not a numeric appearance value"
+    },
+    {
+      "file": "components/shell.tsx",
+      "line": 82,
+      "utility": "has-[form]",
+      "reason": "Selector, transition property name or inherited geometry is structural, not a numeric appearance value"
+    },
+    {
+      "file": "components/shell.tsx",
+      "line": 82,
+      "utility": "has-[form]",
+      "reason": "Selector, transition property name or inherited geometry is structural, not a numeric appearance value"
+    },
+    {
+      "file": "components/stat-detail.tsx",
+      "line": 89,
+      "utility": "rounded-[inherit]",
+      "reason": "Selector, transition property name or inherited geometry is structural, not a numeric appearance value"
+    }
+  ],
+  "containerRecipes": {
+    "source": "patterns/foundation/carnet.css",
+    "classes": [
+      "carnet-kpi-rows-4",
+      "carnet-kpi-rows-5",
+      "carnet-kpi-rows-6",
+      "carnet-kpi-rows-7",
+      "carnet-kpi-rows-8"
+    ],
+    "reason": "Numeric container query conditions must be compile-time CSS; all ten thresholds are now central recipes, not local class literals."
+  }
+}

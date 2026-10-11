@@ -1,0 +1,258 @@
+{
+  "scope": "Fresh individual source and consumer review of the twelve candidates not automatically revalidated by formatting comparison. This is not a screen visual certificate.",
+  "records": [
+    {
+      "path": "app/(app)/audit-simulation/page.tsx",
+      "line": 729,
+      "sourceHash": "2cc8ada399089a00454d1336ec88e8e6fc79cecf93c955d94a7ac4220d8807a4",
+      "argumentHash": "66ea60512d69e1371c5cb3ac8137c2b43449f8fa9318db63f38047875c36c2a5",
+      "kind": "presentation-attribute",
+      "property": "accent",
+      "value": "{\n        score >= 90\n          ? \"green\"\n          : score >= 70\n            ? \"cobalt\"\n            : score >= 50\n              ? \"copper\"\n              : \"red\"\n      }",
+      "decision": "token-reference-verified",
+      "ruleId": "post-format-kpi-selector",
+      "reason": "The actual StatBlock accent selects green, cobalt, copper or red from STAT_ACCENT. The renderer writes --qd-kpi-color, and the helper selects declared canonical palette variables. Score thresholds remain business semantics.",
+      "evidence": [
+        {
+          "path": "app/(app)/audit-simulation/page.tsx",
+          "line": 729,
+          "hash": "2cc8ada399089a00454d1336ec88e8e6fc79cecf93c955d94a7ac4220d8807a4"
+        },
+        {
+          "path": "components/shared/stat-block.tsx",
+          "line": 1,
+          "hash": "5a7905563de665d06f33be3446b1543415e563ca77ecd966f6bc92c8ab762d18"
+        },
+        {
+          "path": "lib/ui/stat-accent.ts",
+          "line": 1,
+          "hash": "7d6131824cf0e689a16bb59b4152b6e6efd62c68ee25db4613673ff8fe052f48"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "line": 1,
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/plan-form.tsx",
+      "line": 183,
+      "sourceHash": "375d56df91443cc6483496a497f185f2acab6169336cc3a6b4c5a7df889698c4",
+      "argumentHash": "393cdfb47c7d443917cf11191301752747df89c1e4315cc3c4b778be6747d95d",
+      "kind": "named-style-value",
+      "property": "r",
+      "value": "await createCapaPlan(payload)",
+      "decision": "business-data",
+      "ruleId": "post-format-action-result",
+      "reason": "r is the result of createCapaPlan(payload), read through r.ok, r.error.message and r.data.plan_no. It does not set a radius or visual parameter.",
+      "evidence": [
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 183,
+          "hash": "375d56df91443cc6483496a497f185f2acab6169336cc3a6b4c5a7df889698c4"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/plan-form.tsx",
+      "line": 193,
+      "sourceHash": "375d56df91443cc6483496a497f185f2acab6169336cc3a6b4c5a7df889698c4",
+      "argumentHash": "05085ba80f189df61c1dbb90c65e4e40c589b3308004203b38d3627bf138b5db",
+      "kind": "named-style-value",
+      "property": "r",
+      "value": "await updateCapaPlan({ id: initial.id!, ...payload })",
+      "decision": "business-data",
+      "ruleId": "post-format-action-result",
+      "reason": "r is the result of updateCapaPlan with the authenticated record id and form payload, consumed by success/error and router refresh.",
+      "evidence": [
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 193,
+          "hash": "375d56df91443cc6483496a497f185f2acab6169336cc3a6b4c5a7df889698c4"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/concessions/report-form.tsx",
+      "line": 124,
+      "sourceHash": "53309ad5dcc1ca168c38f391bacced0fba964d414f399746f3671d6d852838dd",
+      "argumentHash": "11da8a82bcca9fc730e67b7bc6271a8d513c491fe66de3436b8f9a0e5c9df16e",
+      "kind": "object-spread",
+      "property": "...",
+      "value": "p",
+      "decision": "business-data",
+      "ruleId": "post-format-report-state",
+      "reason": "setV composes the prior ReportFormValue with one typed field [k]: val before saveConcessionReport. This spread carries report state and is outside style.",
+      "evidence": [
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 124,
+          "hash": "53309ad5dcc1ca168c38f391bacced0fba964d414f399746f3671d6d852838dd"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-hover-card.tsx",
+      "line": 47,
+      "sourceHash": "616001e9aa489925c09d919706eba0a08415e24ef46509b74f071a6ea0c6c845",
+      "argumentHash": "9f4a9c0cb32b27792f16ac5782182c47be86d8168ab46eec2b0d929961eb4f60",
+      "kind": "named-style-value",
+      "property": "r",
+      "value": "el.getBoundingClientRect()",
+      "decision": "coordinate-boundary",
+      "ruleId": "post-format-measured-anchor",
+      "reason": "r is a measured getBoundingClientRect result. Anchor edges are combined with the synchronized qdMaison calendarPopover width, height, edge and gap. Measured coordinates remain runtime input.",
+      "evidence": [
+        {
+          "path": "app/(app)/dashboard/calendar-hover-card.tsx",
+          "line": 47,
+          "hash": "616001e9aa489925c09d919706eba0a08415e24ef46509b74f071a6ea0c6c845"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/specs/spec-sheet.tsx",
+      "line": 107,
+      "sourceHash": "760da91dd95cf2ec861283b485a0de57a6866b6396ec927679f28984bd1f0b54",
+      "argumentHash": "a26136e6144dbb50d650a4ac88d5d49f2f6bccdeec7ad3e005c3d9e6ff51e109",
+      "kind": "named-style-value",
+      "property": "cols",
+      "value": "(\r\n    <colgroup>\r\n      <col style={{ width: qdPrint.width.v17 }} />\r\n      <col style={{ width: qdPrint.width.v17 }} />\r\n      {Array.from({ length: VCOLS }, (_, i) => (\r\n        <col\r\n          key={i}\r\n          style={{ width: `${qdPrint.specificationValueAreaPercent / VCOLS}%` }}\r\n        />\r\n      ))}\r\n    </colgroup>\r\n  )",
+      "decision": "confirmed-style-composition",
+      "ruleId": "post-format-paper-columns",
+      "reason": "cols is a colgroup inserted into four report tables. Fixed widths use qdPrint.width.v17; the remaining percentage uses central specificationValueAreaPercent divided by the six structural VCOLS needed for two/three-column spans.",
+      "evidence": [
+        {
+          "path": "app/(app)/purchasing/specs/spec-sheet.tsx",
+          "line": 107,
+          "hash": "760da91dd95cf2ec861283b485a0de57a6866b6396ec927679f28984bd1f0b54"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "4db49d6ebd564f7766cd3c41c8d2b943c739f9ff98fcf28569c3951b6d64bfe2"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/report-form.tsx",
+      "line": 104,
+      "sourceHash": "073376265e3ec1a6b34c0fb191c5349db7ea2b7c30efc7b5068e2aa0e98c741c",
+      "argumentHash": "44208ed6f647affaa4cd8fafdaeec2e0a9c76eb102f2ee985fc287373da8754d",
+      "kind": "object-spread",
+      "property": "...",
+      "value": "p",
+      "decision": "business-data",
+      "ruleId": "post-format-report-state",
+      "reason": "setV composes the prior ReportFormValue with one typed field [k]: val before saveRecallReport. This spread carries report state and is outside style.",
+      "evidence": [
+        {
+          "path": "app/(app)/recalls/report-form.tsx",
+          "line": 104,
+          "hash": "073376265e3ec1a6b34c0fb191c5349db7ea2b7c30efc7b5068e2aa0e98c741c"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-grid.tsx",
+      "line": 101,
+      "sourceHash": "4658eaeffd77fea81969a360e7ff61d23fd8a14fad4f5c397e87ce8e6aefcd3f",
+      "argumentHash": "ab3f6fc802a34de6398e5f7a3af6c9d864997611a46dd164ad96c3e27a4867ab",
+      "kind": "object-property",
+      "property": "h",
+      "value": "\"\"",
+      "decision": "business-data",
+      "ruleId": "post-format-humidity-default",
+      "reason": "h is the humidity string paired with temperature t in the area/day record default. It is a measurement form value, not height.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/monthly/month-grid.tsx",
+          "line": 101,
+          "hash": "4658eaeffd77fea81969a360e7ff61d23fd8a14fad4f5c397e87ce8e6aefcd3f"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-grid.tsx",
+      "line": 105,
+      "sourceHash": "4658eaeffd77fea81969a360e7ff61d23fd8a14fad4f5c397e87ce8e6aefcd3f",
+      "argumentHash": "2e3d9b946ce2331f98669b673fe17c4a1844c2267bdf2149cb47e17586b5b793",
+      "kind": "object-property",
+      "property": "h",
+      "value": "\"\"",
+      "decision": "business-data",
+      "ruleId": "post-format-humidity-default",
+      "reason": "h is the humidity default used while updating a typed t/h measurement in setValues, outside CSS.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/monthly/month-grid.tsx",
+          "line": 105,
+          "hash": "4658eaeffd77fea81969a360e7ff61d23fd8a14fad4f5c397e87ce8e6aefcd3f"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/roles/grades/grades-client.tsx",
+      "line": 202,
+      "sourceHash": "8316f6ba9fee2c23c6dc7372550f3cf688f332989824d9a68a7100978b5d16d6",
+      "argumentHash": "f2d36ef77639a7eff484ef729259361c42a7443ab59e3e323174c5f027c35897",
+      "kind": "object-spread",
+      "property": "...",
+      "value": "(prev[userId] ?? {\n          job_rank: null,\n          job_title: null,\n          department_id: null,\n        })",
+      "decision": "structural-behavior",
+      "ruleId": "post-format-permission-draft",
+      "reason": "The spread supplies prior job_rank, job_title and department_id in setDrafts for userId. Moving permission draft data into design would alter workflow.",
+      "evidence": [
+        {
+          "path": "app/(app)/settings/roles/grades/grades-client.tsx",
+          "line": 202,
+          "hash": "8316f6ba9fee2c23c6dc7372550f3cf688f332989824d9a68a7100978b5d16d6"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/roles/grades/grades-client.tsx",
+      "line": 321,
+      "sourceHash": "8316f6ba9fee2c23c6dc7372550f3cf688f332989824d9a68a7100978b5d16d6",
+      "argumentHash": "230c1233288173d67376231f761cffbeef5b589a36dad41d7923897558e829f7",
+      "kind": "named-style-value",
+      "property": "d",
+      "value": "drafts[u.id] ?? {\n                  job_rank: null,\n                  job_title: null,\n                  department_id: null,\n                }",
+      "decision": "structural-behavior",
+      "ruleId": "post-format-permission-draft",
+      "reason": "d selects the user draft with null identity defaults and supplies the role/department form and formatted user name. It is not SVG path data.",
+      "evidence": [
+        {
+          "path": "app/(app)/settings/roles/grades/grades-client.tsx",
+          "line": 321,
+          "hash": "8316f6ba9fee2c23c6dc7372550f3cf688f332989824d9a68a7100978b5d16d6"
+        }
+      ]
+    },
+    {
+      "path": "lib/import/suppliers-xlsx.ts",
+      "line": 291,
+      "sourceHash": "bd0430956425c022a424ca94865ce314e3be40f3dcbe5c65c77b68180e965993",
+      "argumentHash": "7a25017611b0b63484c2c9d1cb91860c3e41e856184e2ee05da6639a27e733c8",
+      "kind": "named-style-value",
+      "property": "h",
+      "value": "normalizeHeader(raw)",
+      "decision": "business-data",
+      "ruleId": "post-format-header-normalization",
+      "reason": "h is normalizeHeader(raw), compared to normalized supplier column names and aliases to populate colIndex. It is spreadsheet import data, not a height.",
+      "evidence": [
+        {
+          "path": "lib/import/suppliers-xlsx.ts",
+          "line": 291,
+          "hash": "bd0430956425c022a424ca94865ce314e3be40f3dcbe5c65c77b68180e965993"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2705 @@
+{
+  "version": 1,
+  "scope": "Only literal branches of conditional CSS property values in proven JSX style/CSSProperties contexts; conditions and calculated expressions remain identical.",
+  "files": [
+    {
+      "path": "app/(app)/admin/experts/page.tsx",
+      "beforeHash": "26f3748d155b6719618bbfb2296c0ea02ed8e76e34a0bb885e060bf24680b053",
+      "afterHash": "dde0dff912ae75184ab80caefb3d28e4b655599e0568c0ad21a6dca933cabb38",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "0px",
+          "token": "--qd-atelier-width-90cbec82bc",
+          "line": 102
+        },
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 526
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/permissions-matrix/page.tsx",
+      "beforeHash": "af88685ba0c6bc527239c1751ac73919c0e352aaa94ad93d8a370b8c6582b763",
+      "afterHash": "17878593699f3b5acae64e4221a81095ba6a7b0086acac4d84388e36da9a5405",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "700",
+          "token": "--qd-font-weight-bold",
+          "line": 377
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 377
+        },
+        {
+          "property": "fontWeight",
+          "value": "700",
+          "token": "--qd-font-weight-bold",
+          "line": 485
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 485
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/q-match-training/page.tsx",
+      "beforeHash": "943cc4645ed63fa36265fcfaca8dd85cc562cac1cf066ce170eebea93f9fb6e2",
+      "afterHash": "0f12dc84a38e22e6f0fac7b545b8bf9fe86de0cfb789eabe436cb076b4af0ddb",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 699
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 699
+        },
+        {
+          "property": "marginBottom",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 878
+        },
+        {
+          "property": "marginBottom",
+          "value": "16px",
+          "token": "--qd-space-4",
+          "line": 878
+        },
+        {
+          "property": "marginBottom",
+          "value": "10px",
+          "token": "--qd-space-2-5",
+          "line": 1197
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 1197
+        },
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 1284
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 1284
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/screening/page.tsx",
+      "beforeHash": "bbb29a5f21e595c9870cd23bb2d0942b8c19313daee288eae76deff4982ff409",
+      "afterHash": "d16738c1e59cc0e1fd862394a3f47e742a56ffa84a4a39786fedc90fe2646286",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 432
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 432
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 442
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 442
+        },
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 555
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 659
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 659
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 725
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 725
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/users/users-table-client.tsx",
+      "beforeHash": "9bdcccaea618e4df1416ec45ee1fb62a52ac0752bbb77a26786b3d85c2d2a774",
+      "afterHash": "4af80d777b375619d3fe3354ff8caccfebe531590d5fae00c0d30c417b00407f",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/[code]/page.tsx",
+      "beforeHash": "96d325bd930847116276a171118e0bbb43053de195761b38a6dacbfd582263dc",
+      "afterHash": "05be7a3f9db3de40b449b320ac40e6ab3fdae95ca5681043a10a373551fe3992",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 596
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 596
+        },
+        {
+          "property": "marginBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 1042
+        },
+        {
+          "property": "marginBottom",
+          "value": "28px",
+          "token": "--qd-space-7",
+          "line": 1042
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/assessments-client.tsx",
+      "beforeHash": "1760f6cead981941c582943af0d1f815fac40c4cccaa3f13ccf6afd8e8ab2372",
+      "afterHash": "18e085d1d09e40cff349cc5f50e81f4573e369b0474f6b045b2da81858614b41",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 435
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 450
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 450
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/assessments/new/page.tsx",
+      "beforeHash": "601fd3bdd35c123def072caeea56e3d92bf6642e9a0e1ec771033538c017865a",
+      "afterHash": "9c8dc325a0fb6a70e156a0075682a9e4108e5ea46530fc1513ba205ece41e46d",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "700",
+          "token": "--qd-font-weight-bold",
+          "line": 94
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/authorized-reps/page.tsx",
+      "beforeHash": "18e87a2978ca3a9e0dac1a879ba2d196df36667164c0545c105069156d0508f3",
+      "afterHash": "1f1f13909209733bae484098504d667de1c1919bd11e21ebf40f0c15ede6e62a",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 252
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 252
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/calibration/suggestions/page.tsx",
+      "beforeHash": "d97a8b3dd7bf31d4b91faf49cb38ad45bc2ffdba120d560238d970b9e7a9ea79",
+      "afterHash": "90dc2cac9bf7c10416d847f4a8848cf188decebbe5223055a29898a035bae27c",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 434
+        },
+        {
+          "property": "opacity",
+          "value": "0.4",
+          "token": "--qd-atelier-opacity-86c88eaa9e",
+          "line": 434
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/[id]/client.tsx",
+      "beforeHash": "05c1d7af36fde0f2b8967d6616f30294fadd7f8a9ad52ff36d90bb8cbefac977",
+      "afterHash": "347f807a40678672cf2cd876abf999293eabdc2f125e56f2db1a00810f991a8b",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 327
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 327
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/page.tsx",
+      "beforeHash": "f34491b66819e10e4c5879d82f00c3dc52cffea87508a2e540aa9da3a56be626",
+      "afterHash": "9133c64a83ab14b4cb610ed12af6acbde6597e8bd5d9c14eb51448584e10cf83",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 273
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 273
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/clinical-evaluations/new/client.tsx",
+      "beforeHash": "97bc6e59e156b3f7ed9183655e732eeccb7c927ad4255c6429f2dfe9f8d07014",
+      "afterHash": "075da6259d287fc8cd27ac61ee7aa9d5aab8a1aefa0f00f407911dd8735ddcb5",
+      "conversions": [
+        {
+          "property": "paddingBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 195
+        },
+        {
+          "property": "paddingBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 195
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/[id]/client.tsx",
+      "beforeHash": "d52694451bdf11c71c2831abbbd31e0aab062c184e286873debc0011da771416",
+      "afterHash": "5d3bf1f449a135c46cb4537a3cc2ac50ffdc1c93807dccbec8ed8d28c436a1a9",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 332
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 332
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/complaints/new/client.tsx",
+      "beforeHash": "f410d407ab82f913d772efb6d50763733a567a1aebf219678937f1e8375b6f59",
+      "afterHash": "8cbf6cfb2e6758ab2e597f81c837d5400b504e7cb133c7a3d215484a58a4eefc",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 265
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 265
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/[id]/client.tsx",
+      "beforeHash": "0e9e49ccdacbe783db51583558dbfab472612a86b547721c67278ddcc9efe401",
+      "afterHash": "abe5946e4bf09678bb991df4fc15d8ef0402c8dbdbac5022d81c632fa7dd0ff9",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 595
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 824
+        },
+        {
+          "property": "opacity",
+          "value": "0.35",
+          "token": "--qd-atelier-opacity-58891958e0",
+          "line": 824
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/device-licenses/new/client.tsx",
+      "beforeHash": "7f0179cf5a9d5391954f9fcc9dd30d6ea40468f712b053289e2e03cd2c694be5",
+      "afterHash": "d85850d630948b4135b9ce9bc63706008a89c9dae82942e8382073fd448c1d98",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 260
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 260
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/feedback/new/client.tsx",
+      "beforeHash": "ab4ed88f8ae8c189536390b07f74d369d44997a936de5e1a11705ac53d21224e",
+      "afterHash": "d1f401957bf64de1e60fb83c5054dde4ee44b0cea6e52e889611d1070ccc8363",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 225
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 225
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/lots/[id]/client.tsx",
+      "beforeHash": "399fc7f361bd83de838a3681f66c49e5d6e74d88e886655265f693f114f689d8",
+      "afterHash": "d908b6d2b7abd9a14c3716fecf4c47612f539ba6c4cd55e810d6fa2ae9a4cee6",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.85",
+          "token": "--qd-atelier-opacity-b575b8dd07",
+          "line": 337
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 337
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "beforeHash": "c1baa07c4f30e50c56650e04aa85150237cf892f03be3b1da73fd5b16d6c2e1a",
+      "afterHash": "17131dba0abd51eee780f50ab7153a08c404b711a7d95c249cd63898d0a181bb",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.8",
+          "token": "--qd-atelier-opacity-1cd8a80dee",
+          "line": 182
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 182
+        },
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 555
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 555
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "beforeHash": "839355f4cac6eb332f523fd096b0bb063653ce9dde90942e54cf082e4eaa7f3f",
+      "afterHash": "5925b1fce62c8d8669f1f26cc12d1cf0fd782fa4b024c08d38c330e72ecb2ec9",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.85",
+          "token": "--qd-atelier-opacity-b575b8dd07",
+          "line": 405
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 405
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/messages/page.tsx",
+      "beforeHash": "fc0ba47efe74c40650c9f2e4c1b977506bf98a97cec109386e31c4d9a238a94c",
+      "afterHash": "22e3ce48fad84f41580e1f776eee3aeb4030d34692c373c4eacbe520d79fcb90",
+      "conversions": [
+        {
+          "property": "gap",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 334
+        },
+        {
+          "property": "gap",
+          "value": "16px",
+          "token": "--qd-space-4",
+          "line": 334
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 445
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 445
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 473
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 473
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/notifications/page.tsx",
+      "beforeHash": "8b535161713e26d50d93edaffb298cba7aef85dfe911d3acf69e293baf30bd96",
+      "afterHash": "6c664d8c25f31c9d0d169c5ff6ee6a8e46a4b908654e11016fd2cdb4c40a8cd0",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 315
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 315
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/process-templates/page.tsx",
+      "beforeHash": "aa4872369041869e8f175ec0c103e9060bed30d06a9d1e71c832acd9492e8d3f",
+      "afterHash": "0a9e8d69a5ddd29f1683918fa49aaea4d47639995cd74a10c0eba4dd4956fa8d",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 121
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/products/client.tsx",
+      "beforeHash": "b9875e8391149beffef971087fe47dd0ef21979cd9a12ac172926d56a48b79d7",
+      "afterHash": "346e885ebc3924dbc6e89aac3e6f44b878bdc71ef29233d2a925543be291bcf1",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 513
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 513
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/products/page.tsx",
+      "beforeHash": "4bf12e804b5036eda3f3b41a450204d7df193d24a0c06e9567610feeba3096ce",
+      "afterHash": "70bd55b08a7eb2a354e74a938388d4c37ca9ff627d7fa41b5337bbf4567bde51",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 76
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/qms-documents/client.tsx",
+      "beforeHash": "9959ee78a77e12cb537c5b0127cf0f39e18d997d4d11e9a286d571eb9ed7884c",
+      "afterHash": "c35e9dc67f9864c3afc980e7d7b1246aa06431c11d9c01b112129151553339ef",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 726
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 726
+        },
+        {
+          "property": "fontSize",
+          "value": "14px",
+          "token": "--qd-font-size-14",
+          "line": 1408
+        },
+        {
+          "property": "fontSize",
+          "value": "13px",
+          "token": "--qd-font-size-13",
+          "line": 1408
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/profile/page.tsx",
+      "beforeHash": "684f8f624c475d75373c7a452cad03f5de84c1bb507fdc0d25ec2e99dcf09ae9",
+      "afterHash": "76f935f6b089b065b8d784e774a6a9013ee5a22fde2ce292ef7944a156de1399",
+      "conversions": [
+        {
+          "property": "animation",
+          "value": "qa-spin 1s linear infinite",
+          "token": "--qd-atelier-animation-85e2db3bbe",
+          "line": 305
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 384
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 427
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/[code]/reviews/page.tsx",
+      "beforeHash": "fd71d7464d830ccc2ad91c686a8da495d3cbae390e9f83e58495d478aa0c0061",
+      "afterHash": "5114404c68f504fdb2ccb14908c47627f20d7d9a5bbe1fa8cb2d1a0b5e1a1948",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 501
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 501
+        },
+        {
+          "property": "opacity",
+          "value": "0.72",
+          "token": "--qd-atelier-opacity-723e7a154b",
+          "line": 564
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 564
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/research/research-client.tsx",
+      "beforeHash": "812cd5f26642b2cee03d004d3d47902a725c6183e1cad59a0e8ac0459f948a86",
+      "afterHash": "8f5f791e57e681e16e26541fb01e86453e062b600dbe699b26cc7118a2a2a16b",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 517
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 532
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 532
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+      "beforeHash": "3507f6914a589d2f8da4e4db19c9e4bd04ee7f6aa21c3addb2ee6a5edb8e3e4a",
+      "afterHash": "5499565530c82cc39f1d169d8b116e942119d60d18afb7514fb51ca2c3068785",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 650
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 662
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 662
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 865
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 865
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 890
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 890
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 907
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 907
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/members/owner-member-editor.tsx",
+      "beforeHash": "b8187b6876c3e7c6c6b3978077d038754cdae90346a3f2e690685a70fe98d0d0",
+      "afterHash": "20b059b954e6e012eb5d44a889e5503f87d419f0a9d514cb915074e323b8671d",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 256
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/members/page.tsx",
+      "beforeHash": "e09e72646a6c1752aca634e0e61632b190652a36e96dfd95d6221ddc558f4991",
+      "afterHash": "55e2488187b69611c53a6280ae0ade11ad6811b5a340dd8d76a759f9aeb93932",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 204
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/templates/template-manager.tsx",
+      "beforeHash": "77907c47be664161e77d5e5c74c9f6e3a36a33723023aec9ad4ce47167746a19",
+      "afterHash": "cf6df48b9fddfe7a4d2bcbd06556464b2426f1d0791ce92c94fb4a91312de2c1",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 142
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 154
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 154
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/usage/page.tsx",
+      "beforeHash": "d9ac73be35f0d53aac0638485c45791747d6ce7b67fe44f9026fc445a84fdd65",
+      "afterHash": "c9094fc69915fc4f726a9e1f722170cb5fd42af6b27af7d40d71f23778cc8bf6",
+      "conversions": [
+        {
+          "property": "fontSize",
+          "value": "20px",
+          "token": "--qd-font-size-20",
+          "line": 335
+        },
+        {
+          "property": "fontSize",
+          "value": "16px",
+          "token": "--qd-font-size-16",
+          "line": 335
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 339
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/udi/[id]/client.tsx",
+      "beforeHash": "08fd400440767f08f3733ee612a56338f7acc65ef082a7c5b6476bf35d7634d3",
+      "afterHash": "17f613c354af4d1d300411425409106141be81b58505983f473885d985f0ba9f",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 332
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/vigilance/page.tsx",
+      "beforeHash": "5a9f4c11974713ea64ae803b40b8a5662022c8093ff6fd4403f3a52d94453663",
+      "afterHash": "1e20be29ad16c369123ef00713c8ce82790bedd5911d55a630154ad5a7794b94",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 272
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "path": "app/(auth)/login/page.tsx",
+      "beforeHash": "d4029a09458c140f0f3820b45ef694bce3a86a519b84f904ae6dc36fbea8aec5",
+      "afterHash": "0b3d39cb16d2c522897fcc174d098a4db4d8eb9923995a988730780ccd628f0e",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 441
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 441
+        },
+        {
+          "property": "marginBottom",
+          "value": "16px",
+          "token": "--qd-space-4",
+          "line": 549
+        },
+        {
+          "property": "marginBottom",
+          "value": "4px",
+          "token": "--qd-space-1",
+          "line": 549
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 836
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 836
+        },
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 1347
+        }
+      ]
+    },
+    {
+      "path": "components/AdminHubTabs.tsx",
+      "beforeHash": "23a6bb8504c51998e0363aa897830c488e4c0bcda2cb589fcbaeee469d142be8",
+      "afterHash": "cebed956fad94b08370a5709886ae15f6c75afa19a5313ae6959a662f86f45c8",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "700",
+          "token": "--qd-font-weight-bold",
+          "line": 149
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 149
+        },
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 251
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 255
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 255
+        }
+      ]
+    },
+    {
+      "path": "components/AiHelperButton.tsx",
+      "beforeHash": "effb7330213bfddcdfabd2f104f04ecbdab595f46f8c918ce9e9940a63377088",
+      "afterHash": "41aa612c976c5ff9603dc9408296cfc46d7e764946ee9469c0717e1dc3e39a4d",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalRoute.tsx",
+      "beforeHash": "4195e64c8fc560fa7b5abcb74ad41ea824b48316568eefd633b01f7f7bd59896",
+      "afterHash": "bf94241923478085a5212b64ea648e56ffa010dcd0931abef9733c5eb638c4bb",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 78
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovedAdvisoryList.tsx",
+      "beforeHash": "5801a2dd92109d6db1584590ec47be68568dccc1a964781e82130289c9f0e9e0",
+      "afterHash": "585c314aad765eb0622c953a4cb6891e7f9cf6b7d7cd8db74cd76e04d1759088",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 115
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "path": "components/BackwardsPlanner.tsx",
+      "beforeHash": "417148e9bde01fb748c13bc30c2b1e63188f0b208077c89d2358e0bc0fe39eb1",
+      "afterHash": "4f0a8e1e1ab4cd6727e7dfb8b7736cc5d1830df3c0c0895f8368f6d7df972061",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 195
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 195
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 551
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 551
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 667
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 667
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 678
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 678
+        }
+      ]
+    },
+    {
+      "path": "components/Confirm.tsx",
+      "beforeHash": "fadd6a8361caffdaca4808dafab1fe960f2860a0026bd821beb55e8d92144f71",
+      "afterHash": "30f642d51708db230b6c7fba0314d46fb2fe4c84575f480339c5a238607c7acf",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 118
+        },
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "path": "components/DocChecklistPanel.tsx",
+      "beforeHash": "18a118d83db71e40d6c2cc49645e7fb13c1842bd6c4fe93a8050d8ceb4e2bdd0",
+      "afterHash": "b1373c5d684deb93613c5b86ead9caf79d38b75e713b67c2112ca9997e39911c",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 512
+        },
+        {
+          "property": "marginBottom",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 512
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 628
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 628
+        }
+      ]
+    },
+    {
+      "path": "components/DocCommentThread.tsx",
+      "beforeHash": "68689f075d61f1142fb5220da314d1ba485122a6627506bc8d3e70c737c93469",
+      "afterHash": "ca6e33f54138986c3a16e0a4707eceab8486e0de0e8b8939bfc2745e4653791d",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 320
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 320
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 365
+        },
+        {
+          "property": "opacity",
+          "value": "0.45",
+          "token": "--qd-atelier-opacity-1e45cdc0ca",
+          "line": 365
+        },
+        {
+          "property": "opacity",
+          "value": "0.72",
+          "token": "--qd-atelier-opacity-723e7a154b",
+          "line": 422
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 422
+        }
+      ]
+    },
+    {
+      "path": "components/DocumentArtifactPanel.tsx",
+      "beforeHash": "52ee1dae006975e214aeac0ae698a8d7698599e7d9654a0a42439e52435a13a8",
+      "afterHash": "1b3df0d4be64a40c02e8503b397af41ae7559b9ddb31c11c216dc40014bfc610",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "4px",
+          "token": "--qd-space-1",
+          "line": 357
+        },
+        {
+          "property": "marginBottom",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 357
+        },
+        {
+          "property": "opacity",
+          "value": "0.4",
+          "token": "--qd-atelier-opacity-86c88eaa9e",
+          "line": 1052
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 1052
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertOpinionSummary.tsx",
+      "beforeHash": "c018015402ca3a4fa14c7271fbf8ec5a2084905da3a646fd2d5d4472fce800ef",
+      "afterHash": "2d5da793fee0c4df0789ae3061f908c4cf986edfb8edb85527054a7382505b82",
+      "conversions": [
+        {
+          "property": "margin",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 218
+        },
+        {
+          "property": "margin",
+          "value": "4px 0 0",
+          "token": "--qd-atelier-margin-af3c2c2206",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertScorePanel.tsx",
+      "beforeHash": "d853e4cafe8417d5f063eb0907ec3535a4a7584d26c48766063f03d45ce377c0",
+      "afterHash": "1d17bedaf995f201ab11bba8e1a818111522c1374655942c37042b2d560e1868",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 122
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "path": "components/FinalDecisionPanel.tsx",
+      "beforeHash": "897356c448939c66667aa50179c11aa74a348dd7e2d729941c81a5e977027c32",
+      "afterHash": "2c0d05952a622148c13cc8b0ce5af1758a4b9d5ee43220bb6c9797bdd5fa088a",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 116
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 116
+        },
+        {
+          "property": "marginBottom",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 129
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 129
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 315
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "path": "components/GlossaryTooltip.tsx",
+      "beforeHash": "8e97f0b9884c7d178ae4f5ab9db7ecf7bd1b80360742f8e19a2deb6c9a1fa12c",
+      "afterHash": "54161215b7b53db19a69a86fbd19fa43c3291c5d3b208987634b7318216976b9",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 88
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "path": "components/InstallAppPrompt.tsx",
+      "beforeHash": "1f9a7f1366eca22262c1e58eafd80c8d8ba7885afa81606b2ea186993ac7ccfb",
+      "afterHash": "306e5bb3e2a0fdd4442befb9a3c8e1eb4ac86347bd7c1a94ff87cf421c439bf6",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 134
+        },
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "beforeHash": "a5ee51bdd3169261ddc3d3701aba1f8bf3ba54d87fb549a7bd4953fdb516f9ac",
+      "afterHash": "b5d0042f7a187e63ff9938c5b2efc9b27ec8d64eeb88022340b7ef6563847f5f",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.72",
+          "token": "--qd-atelier-opacity-723e7a154b",
+          "line": 1563
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 1563
+        }
+      ]
+    },
+    {
+      "path": "components/LastModifiedBadge.tsx",
+      "beforeHash": "cfc8f3e7e40b216ceec7d7b69bac748e7377e1f722193c074df29bdf65c4ba5a",
+      "afterHash": "a2b4d3cde8df30ea428fa82273a75e57e6fa7b73b5fa1d88b7b106c3d5e4a66f",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 189
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "path": "components/ListPager.tsx",
+      "beforeHash": "0277c99f89d6ac5d7b7adbbd8018ec142e469756c367fce34f195b17e7470b64",
+      "afterHash": "83c52ce38066f1275b58b818abc720b48084b5e4e080b678472118bdaaf3ee27",
+      "conversions": [
+        {
+          "property": "paddingTop",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "path": "components/MatchedRulesList.tsx",
+      "beforeHash": "542c2b98b0fdc34d77f57f69cdd0b8b90b7d3c7218ebd95a6d428fea82fbcb84",
+      "afterHash": "eb6f78ae9194972ab969df1fe44395e9694f3f7b43e101ca2cc5a1be23f86658",
+      "conversions": [
+        {
+          "property": "fontSize",
+          "value": "13px",
+          "token": "--qd-font-size-13",
+          "line": 243
+        },
+        {
+          "property": "fontSize",
+          "value": "12px",
+          "token": "--qd-font-size-12",
+          "line": 243
+        }
+      ]
+    },
+    {
+      "path": "components/MedqraftTemplateListClient.tsx",
+      "beforeHash": "55a0eac4c1254334cbdf9f3ce80aeb836ba3583d5a6f4a08d2f343f4af7f3790",
+      "afterHash": "8bfda4a781e57378672ad9485708181ab98a50d973876d48d4b7288dba07428d",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 135
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 135
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 148
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 148
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 165
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 165
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 182
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 182
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 204
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 204
+        },
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 216
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "path": "components/MemberPicker.tsx",
+      "beforeHash": "54340102ca2b196b7a20b3e4c33a1591b85a98553fe2a1cbe67045c9579759c6",
+      "afterHash": "8bd4354232483532277baad6b3328ca0e4eb958d96315ee38a28b17068707ee8",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 76
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "path": "components/MobileBottomNav.tsx",
+      "beforeHash": "6bb684c530e5cfa92b6c28cba2fd845b36a826861adf075d2280e8f8905687e2",
+      "afterHash": "4c736fe8a813ef538d615cd5d2179b750e4907049cfad7b26b8ba7a00392b662",
+      "conversions": [
+        {
+          "property": "borderTop",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-top-12d5bfbfa4",
+          "line": 264
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 314
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "path": "components/MyActionsViews.tsx",
+      "beforeHash": "20b0af7f03d0234cfb37c381c8fc604f2f643f36f9ccab3d5992332a93b7e4cc",
+      "afterHash": "eb2ae15be46b63c6acf28ca7836a1bb458f1399b31b4408c0385260ac3e9185a",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 97
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "beforeHash": "ba1cd2763ff01a9a28dde6a3c90fa836cd4a77dd09d8fd0b38ec6d71b7455556",
+      "afterHash": "88b51505433cc69070362f586bd282879643b56718f5b9b0c4d4961d2f8b044f",
+      "conversions": [
+        {
+          "property": "top",
+          "value": "calc(100% + 6px)",
+          "token": "--qd-atelier-top-ef7712dd39",
+          "line": 235
+        },
+        {
+          "property": "right",
+          "value": "12px",
+          "token": "--qd-atelier-right-11f369524d",
+          "line": 236
+        },
+        {
+          "property": "right",
+          "value": "0px",
+          "token": "--qd-atelier-right-bd2004684d",
+          "line": 236
+        },
+        {
+          "property": "left",
+          "value": "12px",
+          "token": "--qd-atelier-left-b77c85b911",
+          "line": 237
+        },
+        {
+          "property": "width",
+          "value": "360px",
+          "token": "--qd-atelier-width-c6c0c33c0f",
+          "line": 238
+        },
+        {
+          "property": "maxHeight",
+          "value": "calc(100dvh - 176px)",
+          "token": "--qd-atelier-max-height-98ef83fc64",
+          "line": 240
+        },
+        {
+          "property": "maxHeight",
+          "value": "min(560px, calc(100vh - 80px))",
+          "token": "--qd-atelier-max-height-70b738b89c",
+          "line": 240
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 359
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 359
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerProductWorkflow.tsx",
+      "beforeHash": "2f7beb85ebd1ad88b81875a8d5ccb06ffe21805b37ae5d07b57e2c3dff8cf346",
+      "afterHash": "9eac49770e03bd4097ab19d9cefb96f93961b2d355bd9427f6f8de4d0c4396ea",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 474
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 474
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerResearchPipelineClient.tsx",
+      "beforeHash": "d37ccc3fdc85b16c4b49dcb09fc305b268b93f0a760b82502f1f867320bcbd13",
+      "afterHash": "bd2c4652651f8cf5acce6e491c6f3ae50a5732128f2769c3737442ce7f9ea753",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "12px",
+          "token": "--qd-atelier-width-7001be5058",
+          "line": 260
+        },
+        {
+          "property": "width",
+          "value": "10px",
+          "token": "--qd-atelier-width-21afe5201d",
+          "line": 260
+        },
+        {
+          "property": "height",
+          "value": "12px",
+          "token": "--qd-atelier-height-7ec4898503",
+          "line": 260
+        },
+        {
+          "property": "height",
+          "value": "10px",
+          "token": "--qd-atelier-height-7c868067ec",
+          "line": 260
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 356
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 356
+        }
+      ]
+    },
+    {
+      "path": "components/PageGuide.tsx",
+      "beforeHash": "ddafa8df99f2deeca0c5656f5d50b2ebc15cf2784b617600c2eb7b8b848d3c37",
+      "afterHash": "2656b4192dc6de484b3838e9db487c4ca9f40f39b2c484372873b2b643a84861",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 88
+        },
+        {
+          "property": "marginBottom",
+          "value": "18px",
+          "token": "--qd-space-4-5",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "path": "components/PageTabs.tsx",
+      "beforeHash": "01699908170bc705636ac735b21d7869e8fbd51d6b7a58dae3b6df042c233fd1",
+      "afterHash": "a4c3e2b42786d0cd5aa0bad5c2618d3998eaed049abeee5154fe9a2b5ed651ae",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "beforeHash": "68b56713af47e7e15dce18c9764da7847a218fea0dc7fddf1c851c8793b47380",
+      "afterHash": "ecba18aea7727a321d899fcb425b8e47e8052cc93c704380e09926a9cea37af8",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 837
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 837
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 1081
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 1081
+        }
+      ]
+    },
+    {
+      "path": "components/ProjectComplianceScore.tsx",
+      "beforeHash": "8a5a3436c20b5c70aacd9d19c01aeb54a2ee7227ba5538b2187322ce32f31847",
+      "afterHash": "020560141ded7d71f1fa44b8453c0deaf3952585a6b7ca4dcfa8da652c897eb0",
+      "conversions": [
+        {
+          "property": "width",
+          "value": "0px",
+          "token": "--qd-atelier-width-90cbec82bc",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "path": "components/PullToRefresh.tsx",
+      "beforeHash": "ea8c20cfc19e373bcd2a89286eb34fbea3c6a925c44d98071a481c1687241ea5",
+      "afterHash": "6253c3446094ed32c7d076ad57b492c93c46871c687ee7f21e631e9767268c2e",
+      "conversions": [
+        {
+          "property": "animation",
+          "value": "qa-ptr-spin 0.8s linear infinite",
+          "token": "--qd-atelier-animation-c45e4328d3",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "beforeHash": "51cded70514dc25bc1677e87fb101f881a9eae6bfa888ea9899194bdbae8177f",
+      "afterHash": "ac3a8aed22c227cea8f0745f673fdb9b42243369e9f5cd0387e91c9bc666ce18",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "10px",
+          "token": "--qd-space-2-5",
+          "line": 521
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 521
+        },
+        {
+          "property": "outlineOffset",
+          "value": "2px",
+          "token": "--qd-atelier-outline-offset-de44b94b65",
+          "line": 878
+        },
+        {
+          "property": "outlineOffset",
+          "value": "0px",
+          "token": "--qd-atelier-outline-offset-add1a4a27f",
+          "line": 878
+        },
+        {
+          "property": "opacity",
+          "value": "0.56",
+          "token": "--qd-atelier-opacity-64201e50d3",
+          "line": 879
+        },
+        {
+          "property": "opacity",
+          "value": "0.82",
+          "token": "--qd-atelier-opacity-5a494e69a6",
+          "line": 879
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 879
+        },
+        {
+          "property": "fontWeight",
+          "value": "700",
+          "token": "--qd-font-weight-bold",
+          "line": 909
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 909
+        },
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 1045
+        },
+        {
+          "property": "marginBottom",
+          "value": "10px",
+          "token": "--qd-space-2-5",
+          "line": 1045
+        },
+        {
+          "property": "opacity",
+          "value": "0.4",
+          "token": "--qd-atelier-opacity-86c88eaa9e",
+          "line": 2424
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 2424
+        }
+      ]
+    },
+    {
+      "path": "components/ReferenceSection.tsx",
+      "beforeHash": "3a3dbf8f8279e3345314b79d00a45769c4c0c4f26ad106e91fad0bf90b0085ae",
+      "afterHash": "1aee5f1fca5b1d6dff15b98eb4853f71c73a6ab772eb905f532a4a90f82d47ce",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "28px",
+          "token": "--qd-space-7",
+          "line": 36
+        },
+        {
+          "property": "marginBottom",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 36
+        },
+        {
+          "property": "marginBottom",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 50
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 50
+        },
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 74
+        },
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "path": "components/RequestReviewButton.tsx",
+      "beforeHash": "a5f43928720e185cedc77906719b3194a6d53eeed83766dc61bf858ea3239468",
+      "afterHash": "90033131310c02b02da8428190ede1f282e740b48beb02616bb91e46f3d4b00c",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 419
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 419
+        }
+      ]
+    },
+    {
+      "path": "components/RequirementsDashboard.tsx",
+      "beforeHash": "28bf8193c2af0dcec0183a198bcc4b1f2419b90feac1f85c13bc144de6f9371a",
+      "afterHash": "1e8042aacc1169301b75468d27becd700cd786844e357d22dda92d5f06feb23f",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 1432
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 1432
+        }
+      ]
+    },
+    {
+      "path": "components/ResearchChangeRequestsPanel.tsx",
+      "beforeHash": "281a8b2d7f911ef9053c58ba1e05a7b27f3e8bf07e5396bcea6f9972201c200e",
+      "afterHash": "b20c86bf2ba82f2a652aaaeff13c258e7faff8ed7271f516e7db2f6689e088b6",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 1491
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 1491
+        },
+        {
+          "property": "opacity",
+          "value": "0.55",
+          "token": "--qd-atelier-opacity-26712c22c2",
+          "line": 1588
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 1588
+        }
+      ]
+    },
+    {
+      "path": "components/ResearchTabNav.tsx",
+      "beforeHash": "2ddb752dc5abf0eae10be40584f1bd3c00bd6be374dabe7502b42383e6f01804",
+      "afterHash": "9b9bfb74afa1e209c0edf6e76386d35f56daf6f707b349d61e3e6772a94d491d",
+      "conversions": [
+        {
+          "property": "borderBottom",
+          "value": "2px solid transparent",
+          "token": "--qd-atelier-border-bottom-8a9040d989",
+          "line": 73
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 77
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "path": "components/RevisionRowExpandable.tsx",
+      "beforeHash": "7195280343fb1858a32b403c10d0f3212f28fbae0379ce19833668454ccd57fb",
+      "afterHash": "8755ca36e018f9dd4a009f5ee86516140745ee41afb2e8e7f24df8c823e36aa6",
+      "conversions": [
+        {
+          "property": "padding",
+          "value": "12px 16px",
+          "token": "--qd-atelier-padding-47a5dde148",
+          "line": 205
+        },
+        {
+          "property": "padding",
+          "value": "18px 22px 20px",
+          "token": "--qd-atelier-padding-0db622ccdc",
+          "line": 334
+        }
+      ]
+    },
+    {
+      "path": "components/RoleProjectCard.tsx",
+      "beforeHash": "590c74d97bc10aabfeacdf47a16a3995d837e082fcb55f52982059c9544d4dae",
+      "afterHash": "2cb9f7e3b34f39f5e491143ec91b827f3d7e6817b49eb9b3e1e10f12b19b9930",
+      "conversions": [
+        {
+          "property": "marginTop",
+          "value": "10px",
+          "token": "--qd-space-2-5",
+          "line": 215
+        },
+        {
+          "property": "marginTop",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "path": "components/RoleReviewPanel.tsx",
+      "beforeHash": "05214f69145b2b6abc8f3f12325fa5cef2402c43656248fec5e96654d272ff0a",
+      "afterHash": "3df764a99fea018c454db5965ca1b69999948f8489238b6b9c95896910a88814",
+      "conversions": [
+        {
+          "property": "boxShadow",
+          "value": "0 0 0 0 transparent",
+          "token": "--qd-atelier-box-shadow-4e3a320a2e",
+          "line": 148
+        },
+        {
+          "property": "marginBottom",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 320
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 320
+        }
+      ]
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeHash": "cc380ba0c1aa2f1a17cfe9c6ce45f4389befe56b8d8d12c1c1248ad7b41c03e6",
+      "afterHash": "914840ff68c389ee74acaaefe267cab7268d4d08e08c01a5a305090e0ce0212f",
+      "conversions": [
+        {
+          "property": "transition",
+          "value": "width 0.22s cubic-bezier(0.16, 1, 0.3, 1), padding 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+          "token": "--qd-atelier-transition-f7c7537b7b",
+          "line": 533
+        }
+      ]
+    },
+    {
+      "path": "components/SoloModeStepGuide.tsx",
+      "beforeHash": "4fdd849d176a1e85e88b596ce093109cecb59604f0be4044d6c2415f946d4a6b",
+      "afterHash": "c0cdcf4106fb89a1ef4825f20e7f87420fa4d45c007a6659a67e0751fca55000",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 167
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "path": "components/StageTrack.tsx",
+      "beforeHash": "53c3e79b1065f58442b9821d4d9ee8d3dc6115c94915c88a35bc7b8b57656896",
+      "afterHash": "27fe2ef3cc5710215962445dfe6d78a7b1be99519d93ca4029fffc004e78e41c",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 52
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "path": "components/SubmissionSectionChecklist.tsx",
+      "beforeHash": "8df9845d4bfa71b3d877513a3a789afbfdcbb75d004b5239cd9cc1f98a1ed219",
+      "afterHash": "95ad278e11c744085283c623aae57fb8acf0bba33343f1c2d2b856fe83ba6533",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 50
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "beforeHash": "173ac0629689ad35f216b8f813ced7873b0b1754d8bbd5fe9c5a0f4ada31fcef",
+      "afterHash": "f3bef9eb483c73063eae6747bce7dd7b62d6b1a0cf92bcb7748369cc6564558b",
+      "conversions": [
+        {
+          "property": "maxWidth",
+          "value": "calc(100vw - 24px)",
+          "token": "--qd-atelier-max-width-459b5c97be",
+          "line": 497
+        },
+        {
+          "property": "gap",
+          "value": "6px",
+          "token": "--qd-space-1-5",
+          "line": 525
+        },
+        {
+          "property": "gap",
+          "value": "8px",
+          "token": "--qd-space-2",
+          "line": 525
+        },
+        {
+          "property": "padding",
+          "value": "5px 9px",
+          "token": "--qd-atelier-padding-c2a728b34e",
+          "line": 531
+        },
+        {
+          "property": "padding",
+          "value": "6px 11px",
+          "token": "--qd-atelier-padding-10cb0c99af",
+          "line": 531
+        },
+        {
+          "property": "padding",
+          "value": "6px 14px",
+          "token": "--qd-atelier-padding-7576358438",
+          "line": 531
+        },
+        {
+          "property": "width",
+          "value": "7px",
+          "token": "--qd-atelier-width-e9960f26b2",
+          "line": 550
+        },
+        {
+          "property": "width",
+          "value": "8px",
+          "token": "--qd-atelier-width-0445905988",
+          "line": 550
+        },
+        {
+          "property": "height",
+          "value": "7px",
+          "token": "--qd-atelier-height-36840fdbd2",
+          "line": 551
+        },
+        {
+          "property": "height",
+          "value": "8px",
+          "token": "--qd-atelier-height-6f30f75c6a",
+          "line": 551
+        },
+        {
+          "property": "padding",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 583
+        },
+        {
+          "property": "padding",
+          "value": "16px",
+          "token": "--qd-space-4",
+          "line": 583
+        },
+        {
+          "property": "maxHeight",
+          "value": "calc(100dvh - 96px)",
+          "token": "--qd-atelier-max-height-c37aced585",
+          "line": 586
+        },
+        {
+          "property": "maxHeight",
+          "value": "calc(100vh - 80px)",
+          "token": "--qd-atelier-max-height-10313ebafa",
+          "line": 586
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 752
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 752
+        }
+      ]
+    },
+    {
+      "path": "components/TextAction.tsx",
+      "beforeHash": "c3117bfc2c4c1e15c573131497418f0434234bfb17d1097a8bce45f29ceaaa94",
+      "afterHash": "bb31e2b3644a0be9c1971a8fa75efcd64ba12b5d3475fd6a49d7e2f15193aa6a",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.5",
+          "token": "--qd-atelier-opacity-520d3a5350",
+          "line": 79
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "path": "components/Toast.tsx",
+      "beforeHash": "7131c931b3d30bd1209385175b7227011be2a53cd988ea1b24af2d00764bfec6",
+      "afterHash": "793121f6315a80ea574244b5559808d27f3ec44760c36fa3b56662fd0c31033f",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 152
+        },
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 152
+        },
+        {
+          "property": "marginTop",
+          "value": "1px",
+          "token": "--qd-atelier-margin-top-ebd484e183",
+          "line": 167
+        },
+        {
+          "property": "marginTop",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "path": "components/admin/DocsetStructurePanel.tsx",
+      "beforeHash": "28e501002eb525930064ed952bfd2bab025871cad861b6894614df4d4f8d3a33",
+      "afterHash": "4daae1a746b92e69cbac80b75c71374d9752f3b1ba8ced4e6a3cb6510a1515d0",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 265
+        },
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 265
+        }
+      ]
+    },
+    {
+      "path": "components/admin/MemberHandoverDialog.tsx",
+      "beforeHash": "e74af09e951917bde27660fb9d02ac256a8ef1a1089e4513c2dac21e6719d1c8",
+      "afterHash": "3dde86a0d75e3b52db250dfc6c947fafa6816a9dca69a6f029983d661d5f1087",
+      "conversions": [
+        {
+          "property": "marginBottom",
+          "value": "16px",
+          "token": "--qd-space-4",
+          "line": 146
+        },
+        {
+          "property": "marginBottom",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 146
+        }
+      ]
+    },
+    {
+      "path": "components/admin/TransferMemberDialog.tsx",
+      "beforeHash": "2a94f5d993cc59a368fe31774e4ac6d0a52994d5a124783e30a48a9229c6f2a4",
+      "afterHash": "833dc24794284863be3f0268269d81f959383f23d286a3f2533c4b0151e14787",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "500",
+          "token": "--qd-font-weight-medium",
+          "line": 231
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 231
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/CalendarClient.tsx",
+      "beforeHash": "a483ffd172a09d0e72cd9dba85474600196902d472148acd31ab67b9f6f808c6",
+      "afterHash": "0ec765843b77066be0d4842ea2ee499fdba64ad569537ef68bd7dbb5f93b5495",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 352
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 352
+        }
+      ]
+    },
+    {
+      "path": "components/calendar/MeetingDetailPanel.tsx",
+      "beforeHash": "66f373856a92f7b020f2ce7a564ea6600cd4f28d73be754e0f13fa716ffeba98",
+      "afterHash": "2f3be87f0dac0a0decb7b34f8cd3c3c51bb41889b6a96a9e58a6f40aa8b2905a",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.7",
+          "token": "--qd-atelier-opacity-a71c1e34e4",
+          "line": 117
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "beforeHash": "8c06afbe3a8c8fe0eb4dbc1e1872ea5ce6ce9b563bde2d523bf2e7cbe08f2fb2",
+      "afterHash": "82cc463965767f9f11177a865556480fc09032cd1b459b35b0e4aa39cd8ac419",
+      "conversions": [
+        {
+          "property": "minWidth",
+          "value": "100%",
+          "token": "--qd-atelier-min-width-37670ef1f2",
+          "line": 260
+        },
+        {
+          "property": "minWidth",
+          "value": "200px",
+          "token": "--qd-atelier-min-width-ac82c34137",
+          "line": 260
+        },
+        {
+          "property": "opacity",
+          "value": "0.32",
+          "token": "--qd-atelier-opacity-12f66c81f3",
+          "line": 274
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 274
+        },
+        {
+          "property": "minWidth",
+          "value": "100%",
+          "token": "--qd-atelier-min-width-37670ef1f2",
+          "line": 403
+        },
+        {
+          "property": "minWidth",
+          "value": "200px",
+          "token": "--qd-atelier-min-width-ac82c34137",
+          "line": 403
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/GettingStartedChecklist.tsx",
+      "beforeHash": "4f356fbcab9f99ae17c28ce41a9171f45cc560ef491a7618e0397d23cd92859c",
+      "afterHash": "635e4a248cfc36571ad5c4d3cabc44704b64c6c2baba6cec4ea7f46b2a975a69",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.78",
+          "token": "--qd-atelier-opacity-8ad03dac39",
+          "line": 225
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 225
+        }
+      ]
+    },
+    {
+      "path": "components/dashboard/widgets.tsx",
+      "beforeHash": "e5eb5bf62fb3f4e53d59cbca24dfa26a72bb6cde82f3652667b4915dc22d8f7d",
+      "afterHash": "1ae442d8b418f20f1cb3503ca57eb008d82173dc8892703c52210baa0ab1cf86",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 463
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 463
+        },
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 506
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 506
+        }
+      ]
+    },
+    {
+      "path": "components/device-licenses/LicenseSubmissionDocsPanel.tsx",
+      "beforeHash": "0140eef3fe82dcc90ff6a031c47c308c730f34d7f497dbf4d09b629e1bbacc0f",
+      "afterHash": "12f8f1f86a5a998510f6dc45ea906763cc666a26b7d976b03f8dea408f0f1f48",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "0.6",
+          "token": "--qd-atelier-opacity-fab5edc654",
+          "line": 625
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 625
+        }
+      ]
+    },
+    {
+      "path": "components/qms/DefaultDocsPanel.tsx",
+      "beforeHash": "4d746ac73bb9f3248d641b893f1abeafdf129ae221467bc9d0fa6bde47f8bc00",
+      "afterHash": "7b5903a6e0232d58f55fa6c3560269780e2e53a00e5c55e7d8f702edac44f5a9",
+      "conversions": [
+        {
+          "property": "fontWeight",
+          "value": "600",
+          "token": "--qd-font-weight-semibold",
+          "line": 155
+        },
+        {
+          "property": "fontWeight",
+          "value": "400",
+          "token": "--qd-font-weight-normal",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierDocsPanel.tsx",
+      "beforeHash": "4596e559e520ed0cd8aef03b5406cc2c8bd9f18fa6646ba8d1a2c04b841d53a0",
+      "afterHash": "e6b691881fd5e9bd7d70cb3fadc244c871084f5b04a352010d5c2f025a47fc41",
+      "conversions": [
+        {
+          "property": "marginTop",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 258
+        },
+        {
+          "property": "marginTop",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 258
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierEvalPanel.tsx",
+      "beforeHash": "1a2b5e2d7cb6d7ae7748a0dbf75348b647b053a6fd46128241a7b910cd8c7d36",
+      "afterHash": "3a8fccd1222ea32e3479adab6696f8c098f79a1ed451331df47794176f5b16a1",
+      "conversions": [
+        {
+          "property": "marginTop",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 171
+        },
+        {
+          "property": "marginTop",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 171
+        }
+      ]
+    },
+    {
+      "path": "components/suppliers/SupplierItemsPanel.tsx",
+      "beforeHash": "76e83e65a7e8e01267888c8b36aed1047d7b0d82b1c01f0ea1e2238e0da3b248",
+      "afterHash": "c2e89df5fa11adcc24be12945e743b933b3089c6f8257088da64840a539b3540",
+      "conversions": [
+        {
+          "property": "marginTop",
+          "value": "12px",
+          "token": "--qd-space-3",
+          "line": 128
+        },
+        {
+          "property": "marginTop",
+          "value": "0px",
+          "token": "--qd-space-0",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "91971633419b51dc1a8738bca829272ea5c96148894ef148bbdbd27635c71a7a",
+      "afterHash": "9994e4f17a70a43e116b680e45707c08c7ce358f565275da6dff1623391b45cd",
+      "conversions": [
+        {
+          "property": "border",
+          "value": "1px solid transparent",
+          "token": "--qd-atelier-border-6b5ff9d123",
+          "line": 393
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 398
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 500
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 671
+        },
+        {
+          "property": "opacity",
+          "value": "0",
+          "token": "--qd-atelier-opacity-b53823ac50",
+          "line": 671
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 866
+        },
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 913
+        },
+        {
+          "property": "paddingRight",
+          "value": "38px",
+          "token": "--qd-atelier-padding-right-5a7a43c1e0",
+          "line": 2566
+        },
+        {
+          "property": "paddingRight",
+          "value": "14px",
+          "token": "--qd-space-3-5",
+          "line": 2566
+        },
+        {
+          "property": "marginLeft",
+          "value": "2px",
+          "token": "--qd-space-0-5",
+          "line": 3724
+        },
+        {
+          "property": "marginLeft",
+          "value": "4px",
+          "token": "--qd-space-1",
+          "line": 3724
+        }
+      ]
+    },
+    {
+      "path": "lib/design/segmented-choice.tsx",
+      "beforeHash": "44431827d54e9eaf376ce9d25d6e9b00c3922f25c6ebfe45a8f7e118cdfdc486",
+      "afterHash": "bf33ffb1a3ab86a84e1a05d4a1c8da72963797ec29903dc1b0f867f78ea87b9a",
+      "conversions": [
+        {
+          "property": "opacity",
+          "value": "1",
+          "token": "--qd-atelier-opacity-dc43f5a623",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "path": "lib/research/comment-markdown.tsx",
+      "beforeHash": "2901b604e052e4a5c9ae054dc3b3e77c190e30f72177d39c71fbe769994a9ffc",
+      "afterHash": "99f5983c8bbdb024cc54b441969e293323c8316c93e4b21b43f1e307e8449c33",
+      "conversions": [
+        {
+          "property": "minHeight",
+          "value": "8px",
+          "token": "--qd-atelier-min-height-d1125e45f1",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "excludedCentralCopies": [
+    {
+      "path": "components/TopProgressBar.tsx",
+      "source": "source/components/TopProgressBar.tsx",
+      "reason": "Already centrally owned; original canonical copy restored by scoped sync."
+    }
+  ]
+}

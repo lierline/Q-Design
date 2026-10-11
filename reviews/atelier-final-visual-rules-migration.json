@@ -1,0 +1,1139 @@
+{
+  "version": 1,
+  "scope": "Exact finite UI display defaults and mathematical output-allocation inputs. Original business conditions, measured coordinates and engine tokens are unchanged. Three legacy black scrims deliberately converge on the canonical backdrop.",
+  "visual": {
+    "drawer": {
+      "classificationWidth": "min(480px, 96vw)",
+      "approvalWidth": "min(480px, 100vw)"
+    },
+    "chart": {
+      "minimumBarPercent": 2,
+      "lineJoin": "round",
+      "sparseThreshold": 2,
+      "sparseTicks": [
+        0,
+        1
+      ],
+      "normalTicks": [
+        0,
+        0.5,
+        1
+      ]
+    },
+    "treeIndent": 16,
+    "statusOutlinePercent": 25,
+    "statusFillPercent": 6,
+    "rotation": {
+      "diagonal": "rotate(45deg)",
+      "reverse": "rotate(180deg)",
+      "quarter": "rotate(90deg)",
+      "negativeQuarter": "rotate(-90deg)",
+      "zero": "rotate(0deg)",
+      "none": "none"
+    },
+    "iconBaselineTransform": "translateY(2px)",
+    "motion": {
+      "settled": "translateY(0) scale(1)",
+      "confirmHidden": "translateY(8px) scale(0.98)",
+      "toastHidden": "translateY(-8px) scale(0.98)",
+      "translateSettled": "translateY(0)",
+      "installHidden": "translateY(16px)",
+      "installEase": "cubic-bezier(.2,.8,.2,1)",
+      "opacityEase": "ease",
+      "authOpacity": "opacity var(--qd-motion-normal, 200ms) ease"
+    },
+    "pull": {
+      "restOffset": 44,
+      "fadeDistance": 40,
+      "degreesPerPixel": 4
+    },
+    "menuAnchorGap": 4,
+    "tooltipAnchorGap": 6,
+    "paperNumberColumnPercent": 6,
+    "scrollbarWidth": "thin",
+    "ring": {
+      "lineCap": "round",
+      "captionThreshold": 48
+    },
+    "panel": {
+      "compactPadding": "10px 12px",
+      "padding": "14px 16px"
+    },
+    "subscription": {
+      "mobilePanelWidth": "min(340px, calc(100vw - 24px))",
+      "panelWidth": "340px",
+      "compactRight": 52,
+      "mobileRight": 54,
+      "desktopRight": 64,
+      "touchAllowance": 12,
+      "compactTracking": 0.6,
+      "tracking": 1
+    },
+    "header": {
+      "mobileTop": 12,
+      "desktopTop": 18,
+      "mobileRight": 12,
+      "desktopRight": 22
+    },
+    "bottomNavHeight": 64,
+    "stroke": {
+      "normal": 1,
+      "emphasis": 2,
+      "approvalIdle": 1.5,
+      "selected": 3
+    },
+    "summaryLabelTrack": "2fr",
+    "fabBottom": "calc(env(safe-area-inset-bottom, 0) + var(--qa-fab-bottom, 80px))",
+    "battery": {
+      "maximumHue": 125,
+      "saturation": 62,
+      "lightness": 52
+    },
+    "goldText": {
+      "backgroundImage": "linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%)",
+      "WebkitBackgroundClip": "text",
+      "backgroundClip": "text",
+      "color": "transparent"
+    },
+    "tag": {
+      "border": 1,
+      "lineHeight": 1.4,
+      "dims": {
+        "xs": {
+          "minH": 20,
+          "fs": 12,
+          "padY": 0,
+          "padX": 6,
+          "dotSize": 5,
+          "gap": 4
+        },
+        "sm": {
+          "minH": 24,
+          "fs": 12,
+          "padY": 2,
+          "padX": 8,
+          "dotSize": 6,
+          "gap": 4
+        },
+        "md": {
+          "minH": 28,
+          "fs": 13,
+          "padY": 4,
+          "padX": 10,
+          "dotSize": 7,
+          "gap": 5
+        }
+      }
+    },
+    "grid": {
+      "tabletThreshold": 3,
+      "tabletColumns": 2
+    }
+  },
+  "Z": {
+    "base": 1,
+    "dropdown": 50,
+    "sticky": 100,
+    "header": 200,
+    "fab": 300,
+    "bottomNav": 400,
+    "drawerFab": 500,
+    "drawerBackdrop": 600,
+    "drawer": 700,
+    "overlay": 1000,
+    "modal": 1100,
+    "popover": 1200,
+    "tooltip": 9999,
+    "toast": 10000,
+    "blocking": 10001,
+    "sessionGate": 10002
+  },
+  "canonicalSourceBefore": "// Q-Design owns numeric presentation inputs required by JavaScript, SVG and media queries.\n// Measured coordinates, application data and locked engine tokens do not belong here.\n// Update this source and sync; do not edit the product copy.\n\nexport const BP = {\n  \"sm\": 480,\n  \"md\": 768,\n  \"lg\": 1024,\n  \"xl\": 1280,\n  \"2xl\": 1536\n} as const;\n\nexport const LAYOUT = {\n  \"mobile\": 520,\n  \"form\": 720,\n  \"detail\": 820,\n  \"wide\": 1140\n} as const;\n\nexport const ICON = {\n  \"strokeWidth\": 1.5,\n  \"strokeWidthThin\": 1.25,\n  \"sizeXs\": 14,\n  \"sizeSm\": 16,\n  \"sizeMd\": 20,\n  \"sizeLg\": 24,\n  \"sizeXl\": 32,\n  \"size2xl\": 48\n} as const;\n\nexport const QDRuntime = {\n  \"avatar\": {\n    \"size\": 30,\n    \"minFontSize\": 12,\n    \"fontScale\": 0.45\n  },\n  \"popover\": {\n    \"width\": 340,\n    \"infoWidth\": 360,\n    \"viewportGutter\": 16,\n    \"leaveDelayMs\": 120\n  },\n  \"switch\": {\n    \"sm\": {\n      \"w\": 40,\n      \"h\": 22,\n      \"knob\": 16\n    },\n    \"md\": {\n      \"w\": 52,\n      \"h\": 28,\n      \"knob\": 22\n    },\n    \"inset\": 3\n  },\n  \"grid\": {\n    \"minColumn\": 240,\n    \"foldMinColumn\": 150,\n    \"roundingAllowance\": 1\n  },\n  \"ribbon\": {\n    \"durationSeconds\": 1.7\n  },\n  \"grain\": {\n    \"tint\": 0.55\n  },\n  \"alpha\": {\n    \"tint0_02\": 0.02,\n    \"tint0_03\": 0.03,\n    \"tint0_04\": 0.04,\n    \"tint0_05\": 0.05,\n    \"tint0_06\": 0.06,\n    \"tint0_07\": 0.07,\n    \"tint0_08\": 0.08,\n    \"tint0_1\": 0.1,\n    \"tint0_12\": 0.12,\n    \"tint0_14\": 0.14,\n    \"tint0_15\": 0.15,\n    \"tint0_18\": 0.18,\n    \"tint0_2\": 0.2,\n    \"tint0_22\": 0.22,\n    \"tint0_25\": 0.25,\n    \"tint0_28\": 0.28,\n    \"tint0_3\": 0.3,\n    \"tint0_33\": 0.33,\n    \"tint0_35\": 0.35,\n    \"tint0_4\": 0.4,\n    \"tint0_45\": 0.45,\n    \"tint0_5\": 0.5,\n    \"tint0_55\": 0.55,\n    \"tint0_6\": 0.6,\n    \"tint0_7\": 0.7,\n    \"tint0_8\": 0.8,\n    \"tint0_82\": 0.82,\n    \"tint0_9\": 0.9\n  }\n} as const;\n\n// Explicit presentation dimensions, grouped by consumer contract. Values remain\n// numbers because Grid/SVG/measurement consumers perform arithmetic or append px.\n// Grid gap uses QDScale instead so shared spacing changes propagate through CSS.\nexport const QDPresentation = {\n  \"mainPadding\": {\n    \"top\": 32,\n    \"right\": 40,\n    \"bottom\": 32,\n    \"left\": 40\n  },\n  \"changeReasonColor\": {\n    \"PERF\": \"#7a9ac9\",\n    \"COST\": \"#9fc98a\",\n    \"SECURITY\": \"#c97a7a\",\n    \"REG\": \"#c9a878\",\n    \"CUSTOMER\": \"#c98aaa\",\n    \"DEFECT\": \"#c9a87a\",\n    \"FEATURE\": \"#a8c9b8\",\n    \"SUPPLY\": \"#aaa8c9\",\n    \"QUALITY\": \"#9fc98a\",\n    \"OBSO\": \"#a09890\"\n  },\n  \"iconStroke\": { \"1.8\": 1.8 },\n  \"fieldChoiceColumns\": { \"1\": 1, \"2\": 2, \"3\": 3 },\n  \"tableMinWidth\": {\n    \"560\": 560,\n    \"620\": 620,\n    \"640\": 640,\n    \"720\": 720,\n    \"760\": 760,\n    \"780\": 780,\n    \"820\": 820,\n    \"860\": 860,\n    \"900\": 900,\n    \"960\": 960\n  },\n  \"iconSize\": {\n    \"8\": 8,\n    \"9\": 9,\n    \"10\": 10,\n    \"11\": 11,\n    \"12\": 12,\n    \"13\": 13,\n    \"14\": 14,\n    \"15\": 15,\n    \"16\": 16,\n    \"17\": 17,\n    \"18\": 18,\n    \"20\": 20,\n    \"22\": 22,\n    \"24\": 24,\n    \"26\": 26,\n    \"28\": 28,\n    \"32\": 32,\n    \"44\": 44\n  },\n  \"gridMinColumn\": {\n    \"100\": 100,\n    \"110\": 110,\n    \"120\": 120,\n    \"140\": 140,\n    \"160\": 160,\n    \"170\": 170,\n    \"180\": 180,\n    \"200\": 200,\n    \"220\": 220,\n    \"240\": 240\n  },\n  \"skeletonHeight\": {\n    \"10\": 10,\n    \"11\": 11,\n    \"12\": 12,\n    \"14\": 14,\n    \"20\": 20,\n    \"26\": 26,\n    \"28\": 28,\n    \"90\": 90,\n    \"120\": 120,\n    \"124\": 124,\n    \"150\": 150,\n    \"160\": 160,\n    \"180\": 180,\n    \"200\": 200,\n    \"240\": 240,\n    \"260\": 260,\n    \"280\": 280,\n    \"300\": 300,\n    \"340\": 340\n  },\n  \"modalWidth\": {\n    \"480\": 480,\n    \"520\": 520,\n    \"560\": 560,\n    \"580\": 580,\n    \"600\": 600,\n    \"640\": 640,\n    \"760\": 760,\n    \"1100\": 1100\n  },\n  \"choiceMinColumn\": {\n    \"110\": 110,\n    \"120\": 120,\n    \"140\": 140,\n    \"160\": 160,\n    \"180\": 180\n  },\n  \"choiceFontWeight\": {\n    \"400\": 400,\n    \"500\": 500,\n    \"600\": 600\n  },\n  \"choiceMinHeight\": {\n    \"44\": 44,\n    \"48\": 48,\n    \"60\": 60\n  },\n  \"coachmarkDelay\": {\n    \"800\": 800,\n    \"1200\": 1200\n  },\n  \"memberListHeight\": {\n    \"160\": 160,\n    \"170\": 170,\n    \"180\": 180,\n    \"200\": 200\n  },\n  \"iconButtonSize\": {\n    \"30\": 30,\n    \"32\": 32,\n    \"34\": 34,\n    \"48\": 48\n  },\n  \"chartHeight\": {\n    \"200\": 200,\n    \"220\": 220\n  },\n  \"infoWidth\": {\n    \"300\": 300,\n    \"320\": 320,\n    \"360\": 360,\n    \"380\": 380\n  },\n  \"logoSize\": {\n    \"22\": 22,\n    \"28\": 28,\n    \"32\": 32,\n    \"36\": 36,\n    \"56\": 56,\n    \"96\": 96,\n    \"108\": 108,\n    \"120\": 120,\n    \"160\": 160\n  },\n  \"avatarSize\": {\n    \"32\": 32,\n    \"34\": 34,\n    \"72\": 72\n  },\n  \"installLogoSize\": {\n    \"36\": 36\n  },\n  \"progressSize\": {\n    \"40\": 40,\n    \"56\": 56\n  },\n  \"progressStroke\": {\n    \"4\": 4,\n    \"5\": 5\n  },\n  \"skeletonWidth\": {\n    \"140\": 140\n  },\n  \"skeletonGap\": {\n    \"8\": 8\n  },\n  \"chartGeometry\": {\n    \"width\": 1000,\n    \"padding\": {\n      \"top\": 12,\n      \"right\": 12,\n      \"bottom\": 28,\n      \"left\": 36\n    },\n    \"tickLabelOffsetX\": 6,\n    \"tickLabelOffsetY\": 4,\n    \"xLabelInset\": 6,\n    \"maxLabels\": 8,\n    \"lineWidth\": 1.8,\n    \"pointRadius\": 2.5,\n    \"gridDash\": \"2 4\"\n  },\n  \"coachmarkGeometry\": {\n    \"panelWidth\": 280,\n    \"estimatedHeight\": 100,\n    \"targetGap\": 12,\n    \"viewportGutter\": 8,\n    \"viewportReserveX\": 16,\n    \"viewportReserveY\": 40\n  },\n  \"commonDefaults\": {\n    \"kpiMaxSingleRow\": 5,\n    \"kpiRows\": 2,\n    \"fieldChoiceColumns\": 3,\n    \"tooltipOffset\": 6,\n    \"permissionLabelWidth\": 260,\n    \"permissionRoleWidth\": 64,\n    \"permissionGutterWidth\": 40,\n  \"cardMinHeight\": 124,\n  \"stageNodeMinWidth\": 100,\n  \"statGridMinColumn\": 120,\n  \"tableSqueeze\": 48,\n  \"expertFieldMarginBottom\": 22,\n  \"topBandHeight\": 56,\n  \"approvalChainColumn\": 86,\n  \"textareaRows\": 3,\n  \"skeletonLines\": 3,\n  \"skeletonRows\": 5,\n  \"skeletonColumns\": 4,\n  \"skeletonCount\": 1\n},\n  \"motionDefaults\": {\n  \"countUp\": 800,\n  \"foldOpen\": 520,\n  \"foldClose\": 380,\n  \"installShowDelay\": 2500,\n  \"installAutoHide\": 13000,\n  \"installAnimation\": 320\n},\n  \"interactionMotion\": {\n  \"feedbackDwell\": {\n    \"1200\": 1200,\n    \"1500\": 1500,\n    \"2000\": 2000,\n    \"2500\": 2500,\n    \"3000\": 3000\n  },\n  \"highlightDwell\": {\n    \"2600\": 2600,\n    \"4000\": 4000\n  },\n  \"scrollSettle\": {\n    \"50\": 50,\n    \"100\": 100,\n    \"150\": 150,\n    \"200\": 200\n  },\n  \"refreshDwell\": 800,\n  \"hoverLeave\": 200,\n  \"loginEntrance\": 1200,\n  \"toastDefault\": 3500,\n  \"toastError\": 6500\n},\n  \"cssDefaults\": {\n  \"checkboxGlyph\": \"var(--qd-choice-glyph-size)\",\n  \"choicePadding\": \"var(--qd-atelier-padding-0ddf63605b)\",\n  \"drawerWidth\": \"var(--qd-atelier-width-260a93c4b6)\",\n  \"portalFooterPadding\": \"var(--qd-space-10) var(--qd-space-6) var(--qd-space-8)\"\n}\n} as const;\n",
+  "canonicalBeforeHash": "c9c74c5953b5b1c496373c43dc94f64253d3302581e6bf03fb310654c5ef854b",
+  "canonicalAfterHash": "d389d52a8ab0c1624f13f0c61f838a075e2b171afe85aa60ba50dfbf30b06396",
+  "records": [
+    {
+      "path": "components/IfuClassifyDrawer.tsx",
+      "beforeHash": "356bc72bab6e87951e2a8697ee2f033fd5f0bdc76939e50eca3f40112f27e041",
+      "afterHash": "db448ed4d64ac032dc43f1153a5a774ddb620027fc8e33820615a0b37ee11277",
+      "edits": [
+        {
+          "start": 5041,
+          "before": "width=\"min(480px, 96vw)\"",
+          "after": "width={QDPresentation.visual.drawer.classificationWidth}"
+        }
+      ]
+    },
+    {
+      "path": "components/QuickApproveDrawer.tsx",
+      "beforeHash": "b6753e3015d63a09d767687d9527f293b0606d6a66782a16761b8a7f7ea7f42c",
+      "afterHash": "9cb27aec460e8aa8924477fb9e299ca4dff77dc6494d56818ff5e4654f105214",
+      "edits": [
+        {
+          "start": 962,
+          "before": "width=\"min(480px, 100vw)\"",
+          "after": "width={QDPresentation.visual.drawer.approvalWidth}"
+        },
+        {
+          "start": 518,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/admin/ai-control/_tabs/Overview.tsx",
+      "beforeHash": "80b8b14f633b0a70dce88cfd144cfd1acbb88b4c78cf59799b3268750bc5e278",
+      "afterHash": "d426a63ab67128058e5dfac57c87385dc58c9ff23f5b794404a353505d7c4c4e",
+      "edits": [
+        {
+          "start": 5309,
+          "before": "Math.max(2, (d.cost / max) * 100)",
+          "after": "Math.max(QDPresentation.visual.chart.minimumBarPercent, (d.cost / max) * 100)"
+        },
+        {
+          "start": 71,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/qms-documents/client.tsx",
+      "beforeHash": "e0bdbe2c07655ad6094478ca04f26eb275b97da36471bf15073fa92c623f3e56",
+      "afterHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+      "edits": [
+        {
+          "start": 81396,
+          "before": "paddingLeft: depth * 16",
+          "after": "paddingLeft: depth * QDPresentation.visual.treeIndent"
+        }
+      ]
+    },
+    {
+      "path": "app/experts/inbox/user-menu.tsx",
+      "beforeHash": "7b305255fee1e6a4aa49bbedbaf4fab55fcb02d5eb5b6ec16ccb3ffa4b29f67d",
+      "afterHash": "429dcff3cb877977e90c767caa18764c2d610e2012b19ee15d129e219ee631ab",
+      "edits": [
+        {
+          "start": 4411,
+          "before": "${statusBadge.color} 25%, transparent",
+          "after": "${statusBadge.color} ${QDPresentation.visual.statusOutlinePercent}%, transparent"
+        },
+        {
+          "start": 4644,
+          "before": "${statusBadge.color} 6%, transparent",
+          "after": "${statusBadge.color} ${QDPresentation.visual.statusFillPercent}%, transparent"
+        },
+        {
+          "start": 2987,
+          "before": "'var(--qd-border-width) solid var(--hairline-strong)'",
+          "after": "'var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) var(--hairline-strong)'"
+        },
+        {
+          "start": 17,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertNotificationsPanel.tsx",
+      "beforeHash": "3f78ab58127dd1191c92505c7046ff3b25d9f12338c244e3dc0ca1f7d8682c1a",
+      "afterHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+      "edits": [
+        {
+          "start": 6006,
+          "before": "'var(--qd-border-width) solid var(--qd-border)'",
+          "after": "'var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) var(--qd-border)'"
+        }
+      ]
+    },
+    {
+      "path": "app/experts/portal/signup/page.tsx",
+      "beforeHash": "d3d3e85eb4f6edcc19941c65a528f9d4ed4cbbe0c32e24e60a38c69456dc0345",
+      "afterHash": "2e4bb3b6f6c306e788a7534840af6f639e6e9922acb853b4af753cd43d0318b7",
+      "edits": [
+        {
+          "start": 8103,
+          "before": "transform: 'rotate(45deg)'",
+          "after": "transform: QDPresentation.visual.rotation.diagonal"
+        },
+        {
+          "start": 17,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "app/onboarding/qms-setup/client.tsx",
+      "beforeHash": "dbbe076358fa0a03f68896557a4be55bf95958d18739abdcb5e392f4fc35fbd3",
+      "afterHash": "299b3143b959e5d197951a5afc4c0f75fd669eeafb7945baf6334d0d75dd1f8a",
+      "edits": [
+        {
+          "start": 6159,
+          "before": "transform: 'translateY(2px)'",
+          "after": "transform: QDPresentation.visual.iconBaselineTransform"
+        }
+      ]
+    },
+    {
+      "path": "components/Confirm.tsx",
+      "beforeHash": "5916094062ea35b88fd926899840a67a5d9110e9239b294a9fa583ab724175b7",
+      "afterHash": "7fce47366f453e3fc96a4159ad9d4b735712b838de2c8bc6b99da4913599559b",
+      "edits": [
+        {
+          "start": 3786,
+          "before": "mounted ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.98)'",
+          "after": "mounted ? QDPresentation.visual.motion.settled : QDPresentation.visual.motion.confirmHidden"
+        },
+        {
+          "start": 15,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/Toast.tsx",
+      "beforeHash": "9b7cf99e8aba3bd8ab47529ade3518dfa5aabaa6ef38872c5f160c925b60f853",
+      "afterHash": "e884d53c0ab65fa08ce7ebd0664da74cc2652d5e22bc18240e72ac6b5f377ef2",
+      "edits": [
+        {
+          "start": 5360,
+          "before": "mounted ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.98)'",
+          "after": "mounted ? QDPresentation.visual.motion.settled : QDPresentation.visual.motion.toastHidden"
+        }
+      ]
+    },
+    {
+      "path": "components/InstallAppPrompt.tsx",
+      "beforeHash": "6b9284aa77e4b50f30022d98ff75b9456222c60b9f25e70c76b971eddd74f53b",
+      "afterHash": "ee0d24eb1a0e6e9afdfd1788323b069a970ff88e7d9d0159d0856af57d1f0171",
+      "edits": [
+        {
+          "start": 5200,
+          "before": "shown ? 'translateY(0)' : 'translateY(16px)'",
+          "after": "shown ? QDPresentation.visual.motion.translateSettled : QDPresentation.visual.motion.installHidden"
+        },
+        {
+          "start": 5450,
+          "before": "cubic-bezier(.2,.8,.2,1), opacity ${ANIM_MS}ms ease",
+          "after": "${QDPresentation.visual.motion.installEase}, opacity ${ANIM_MS}ms ${QDPresentation.visual.motion.opacityEase}"
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovedAdvisoryList.tsx",
+      "beforeHash": "f58aa7887b83eb78c742a964b0f3d316b85729fe40530156828e9694009b79b8",
+      "afterHash": "935a29b72b1305d645f08b6773598b30f93b15804b57ed683bb1f713c7d03995",
+      "edits": [
+        {
+          "start": 3918,
+          "before": "opinionsOpen ? 'rotate(180deg)' : 'none'",
+          "after": "opinionsOpen ? QDPresentation.visual.rotation.reverse : QDPresentation.visual.rotation.none"
+        },
+        {
+          "start": 6487,
+          "before": "expanded ? 'rotate(180deg)' : 'none'",
+          "after": "expanded ? QDPresentation.visual.rotation.reverse : QDPresentation.visual.rotation.none"
+        }
+      ]
+    },
+    {
+      "path": "components/MatchedRulesList.tsx",
+      "beforeHash": "e4797baa62c45676f9e68848de5866483a65cc58f5499a69377c8400147ceb30",
+      "afterHash": "ede468e4ec66fbcb0cf28442e9a7b7a8e079e371473897677c0ef664e81dd0e8",
+      "edits": [
+        {
+          "start": 5219,
+          "before": "isOpen ? 'rotate(90deg)' : 'rotate(0deg)'",
+          "after": "isOpen ? QDPresentation.visual.rotation.quarter : QDPresentation.visual.rotation.zero"
+        }
+      ]
+    },
+    {
+      "path": "components/ReferenceSection.tsx",
+      "beforeHash": "08f9ed7c1cf17329d629ba9968d697c7235c579c02b5d4e35a26bb4cfe6d436e",
+      "afterHash": "e950d3efe0949b70ca26eef9d918831aeb45e2cd13a26de1b4fe19d618ed024d",
+      "edits": [
+        {
+          "start": 3646,
+          "before": "open ? 'rotate(180deg)' : 'none'",
+          "after": "open ? QDPresentation.visual.rotation.reverse : QDPresentation.visual.rotation.none"
+        }
+      ]
+    },
+    {
+      "path": "components/RevisionRowExpandable.tsx",
+      "beforeHash": "2a4d675e752a2ee6b8a61c23d3c467b236355bc0ddc879aea7af0bcf358dec6f",
+      "afterHash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+      "edits": [
+        {
+          "start": 11746,
+          "before": "open ? 'rotate(90deg)' : 'rotate(0deg)'",
+          "after": "open ? QDPresentation.visual.rotation.quarter : QDPresentation.visual.rotation.zero"
+        }
+      ]
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeHash": "8e299e2b44c9aef3eda1cadba2256fc0643d1ccc10761ec5c78f91045b631856",
+      "afterHash": "45528f706868e5a29b71acb9d8e2d72ca655cbfa41c90336d051c56d862df5e4",
+      "edits": [
+        {
+          "start": 57388,
+          "before": "dir === 'right' ? 'rotate(180deg)'\n    : dir === 'up' ? 'rotate(90deg)'\n    : dir === 'down' ? 'rotate(-90deg)'",
+          "after": "dir === 'right' ? QDPresentation.visual.rotation.reverse\n    : dir === 'up' ? QDPresentation.visual.rotation.quarter\n    : dir === 'down' ? QDPresentation.visual.rotation.negativeQuarter"
+        },
+        {
+          "start": 2244,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 15,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/PullToRefresh.tsx",
+      "beforeHash": "422652da749e0d2dfed1096e89aba9b286437fd4c1be8819407fab9e9b7c60b2",
+      "afterHash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48",
+      "edits": [
+        {
+          "start": 4192,
+          "before": "shown - 44",
+          "after": "shown - QDPresentation.visual.pull.restOffset"
+        },
+        {
+          "start": 4261,
+          "before": "Math.min(1, shown / 40)",
+          "after": "Math.min(1, shown / QDPresentation.visual.pull.fadeDistance)"
+        },
+        {
+          "start": 5163,
+          "before": "Math.round(pull * 4)",
+          "after": "Math.round(pull * QDPresentation.visual.pull.degreesPerPixel)"
+        },
+        {
+          "start": 1027,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 547,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "beforeHash": "244bf1b4279b1d6b08b54935aaad4c4afb19755f621846b7c196e21c0dc4099f",
+      "afterHash": "1378de58afce1190eae7850563d7ee80dec8a142b61e8557fc57334cb4d70f69",
+      "edits": [
+        {
+          "start": 94549,
+          "before": "top: menuRect.bottom + 4",
+          "after": "top: menuRect.bottom + QDPresentation.visual.menuAnchorGap"
+        },
+        {
+          "start": 40228,
+          "before": "iAmApprover && hasApprovalChain ? 1 : 0.4",
+          "after": "iAmApprover && hasApprovalChain ? 1 : QDRuntime.alpha.tint0_4"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "cc2792571066097da50af9288ce2619fd06df650a57a3103587d29f7b289f262",
+      "afterHash": "d8634f81cc33c26ae02ede27b15cf0716b7cc865a32e3ae255ff39ac5f7144cd",
+      "edits": [
+        {
+          "start": 89055,
+          "before": "top: tooltipRect.bottom + 6",
+          "after": "top: tooltipRect.bottom + QDPresentation.visual.tooltipAnchorGap"
+        },
+        {
+          "start": 142596,
+          "before": "strokeLinecap=\"round\"",
+          "after": "strokeLinecap={QDPresentation.visual.ring.lineCap}"
+        },
+        {
+          "start": 146150,
+          "before": "${selected ? 3 : 2}px",
+          "after": "${selected ? QDPresentation.visual.stroke.selected : QDPresentation.visual.stroke.emphasis}px"
+        },
+        {
+          "start": 141239,
+          "before": "const hue = (c / 100) * 125;",
+          "after": "const hue = (c / 100) * QDPresentation.visual.battery.maximumHue;"
+        },
+        {
+          "start": 141315,
+          "before": "hsl(${Math.round(hue)}, 62%, 52%)",
+          "after": "hsl(${Math.round(hue)}, ${QDPresentation.visual.battery.saturation}%, ${QDPresentation.visual.battery.lightness}%)"
+        },
+        {
+          "start": 142385,
+          "before": "transform: 'rotate(-90deg)'",
+          "after": "transform: QDPresentation.visual.rotation.negativeQuarter"
+        },
+        {
+          "start": 143202,
+          "before": "fontSize: size <= 48 ?",
+          "after": "fontSize: size <= QDPresentation.visual.ring.captionThreshold ?"
+        },
+        {
+          "start": 49824,
+          "before": "const responsiveCss = `\n.${headerClass}-title{font-size:var(--qd-title-size, 22px)}\n@media (max-width:${BP.md - 1}px){\n  .${headerClass}-actions{width:100%;flex-wrap:wrap}\n  .${headerClass}-row{align-items:flex-start}\n}`;",
+          "after": "const responsiveCss = pageHeadingRules(headerClass);"
+        },
+        {
+          "start": 76849,
+          "before": "function gridTemplateFor(cols: number | undefined, minCol: number): string {\n  if (typeof cols === 'number' && cols > 0) {\n    return `repeat(${cols}, minmax(0, 1fr))`;\n  }\n  return `repeat(auto-fit, minmax(${minCol}px, 1fr))`;\n}",
+          "after": ""
+        },
+        {
+          "start": 77350,
+          "before": "  const rules: string[] = [];\n  if (responsive) {\n    if (responsive.base) {\n      rules.push(\n        `.${className}{grid-template-columns:${gridTemplateFor(responsive.base, minCol)}}`,\n      );\n    }\n    if (responsive.sm) {\n      rules.push(\n        `@media (min-width:${BP.sm}px){.${className}{grid-template-columns:${gridTemplateFor(responsive.sm, minCol)}}}`,\n      );\n    }\n    if (responsive.md) {\n      rules.push(\n        `@media (min-width:${BP.md}px){.${className}{grid-template-columns:${gridTemplateFor(responsive.md, minCol)}}}`,\n      );\n    }\n    if (responsive.lg) {\n      rules.push(\n        `@media (min-width:${BP.lg}px){.${className}{grid-template-columns:${gridTemplateFor(responsive.lg, minCol)}}}`,\n      );\n    }\n    if (responsive.xl) {\n      rules.push(\n        `@media (min-width:${BP.xl}px){.${className}{grid-template-columns:${gridTemplateFor(responsive.xl, minCol)}}}`,\n      );\n    }\n  } else if (typeof cols === 'number') {\n    // cols 만 있을 때:\n    //   - mobile (~sm): 1열 (자동 auto-fit minmax 가 이미 1열로 wrap)\n    //   - tablet (md~lg): cols 가 3 이상이면 명시적으로 2열 (auto-fit minmax 가\n    //     좁은 화면에서 어색한 3+ 열을 시도하는 문제 차단)\n    //   - desktop (≥lg): cols 강제\n    if (cols >= 3) {\n      rules.push(\n        `@media (min-width:${BP.md}px){.${className}{grid-template-columns:repeat(2,minmax(0,1fr))}}`,\n      );\n    }\n    rules.push(\n      `@media (min-width:${BP.lg}px){.${className}{grid-template-columns:${gridTemplateFor(cols, minCol)}}}`,\n    );\n  }\n\n  // 2026-09-03 M-06: 인라인 style 은 클래스 룰보다 셉니다. 그래서 위 @media 룰이 «있어도»\n  // 인라인 gridTemplateColumns 가 이겨 한 번도 적용된 적이 없었습니다(`<Grid cols={4}>` 가\n  // 데스크톱에서도 auto-fit 으로 남음). 룰이 하나라도 있으면 기본 템플릿을 «룰 맨 앞»에\n  // 같은 클래스 룰로 넣고 인라인은 생략합니다. 뒤의 룰이 같은 특이성으로 덮어씁니다.\n  // 룰이 없으면 종전대로 인라인입니다. grid-rules.test.tsx 가 이 배선을 잠급니다.\n",
+          "after": "  const rules = gridRulesFor(className, cols, minCol, responsive);\n"
+        },
+        {
+          "start": 135066,
+          "before": "<style>{`\n        @keyframes qa-drawer-slide-r { from { transform: translateX(var(--qd-space-6)); opacity: 0; } to { transform: translateX(0); opacity: 1; } }\n        @keyframes qa-drawer-slide-l { from { transform: translateX(calc(-1 * var(--qd-space-6))); opacity: 0; } to { transform: translateX(0); opacity: 1; } }\n        @keyframes qa-drawer-slide-b { from { transform: translateY(var(--qd-space-6)); opacity: 0; } to { transform: translateY(0); opacity: 1; } }\n      `}</style>",
+          "after": "<style>{drawerMotionRules}</style>"
+        },
+        {
+          "start": 997,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 15,
+          "before": "",
+          "after": "import { pageHeadingRules, gridTemplateFor, gridRulesFor, drawerMotionRules, Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/qms/SheetPaper.tsx",
+      "beforeHash": "fe4119643e9a6aa0cf1eea9a8857db20e6158e6f333ba9a9fabf0a821defd2b0",
+      "afterHash": "a32ca49bb2c7947e2c0d6771f7c2bfe8bc32dcc76bbadc45a9e32ac0376e901b",
+      "edits": [
+        {
+          "start": 5182,
+          "before": "Math.floor(94 / b.cols.length)",
+          "after": "Math.floor((100 - QDPresentation.visual.paperNumberColumnPercent) / b.cols.length)"
+        },
+        {
+          "start": 1890,
+          "before": "width: \"var(--qd-atelier-width-fd0294336b)\"",
+          "after": "width: `${QDPresentation.visual.paperNumberColumnPercent}%`"
+        },
+        {
+          "start": 5081,
+          "before": "width: \"var(--qd-atelier-width-fd0294336b)\"",
+          "after": "width: `${QDPresentation.visual.paperNumberColumnPercent}%`"
+        },
+        {
+          "start": 567,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalChainEditor.tsx",
+      "beforeHash": "8617bd1a632873cf13a5842a276d1e783b8b771091b8e39608e749dcb0b0719c",
+      "afterHash": "3495bdfdb15d9d38756aea2b7d3dbeedb96ad25ae7bccfd50cb3a1e210e489ca",
+      "edits": [
+        {
+          "start": 16836,
+          "before": "scrollbarWidth: 'thin'",
+          "after": "scrollbarWidth: QDPresentation.visual.scrollbarWidth"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "beforeHash": "8780620d22fedd4aee12c94c91abbb81e928186bdf0390f144d9c932d1bd647a",
+      "afterHash": "9e222a189241d777c9390c9554878577f018245c375708957f431cb5b74202a0",
+      "edits": [
+        {
+          "start": 5179,
+          "before": "strokeLinejoin=\"round\"",
+          "after": "strokeLinejoin={QDPresentation.visual.chart.lineJoin}"
+        },
+        {
+          "start": 2114,
+          "before": "const tickFractions = yMax <= 2 ? [0, 1] : [0, 0.5, 1];",
+          "after": "const tickFractions = yMax <= QDPresentation.visual.chart.sparseThreshold ? QDPresentation.visual.chart.sparseTicks : QDPresentation.visual.chart.normalTicks;"
+        }
+      ]
+    },
+    {
+      "path": "components/ExpertScorePanel.tsx",
+      "beforeHash": "e958f3f687d8028837329d2579f30e61fcd5f54bfb724813745217d6cca43577",
+      "afterHash": "a59165eccb15ca043878b93e084f6d9fdd8c639062f73ea48b5eb46a8dd5bda9",
+      "edits": [
+        {
+          "start": 7884,
+          "before": "compact ? '10px 12px' : '14px 16px'",
+          "after": "compact ? QDPresentation.visual.panel.compactPadding : QDPresentation.visual.panel.padding"
+        },
+        {
+          "start": 7723,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        }
+      ]
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "beforeHash": "2338fb7b739e05a4a5c5b78d2f08e7ceb184afa6ca490e455f1468036436643f",
+      "afterHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
+      "edits": [
+        {
+          "start": 10993,
+          "before": "? 'min(340px, calc(100vw - 24px))'\n    : '340px'",
+          "after": "? QDPresentation.visual.subscription.mobilePanelWidth\n    : QDPresentation.visual.subscription.panelWidth"
+        },
+        {
+          "start": 10502,
+          "before": "const wrapTop = isMobile ? 12 : 18;",
+          "after": "const wrapTop = isMobile ? QDPresentation.visual.header.mobileTop : QDPresentation.visual.header.desktopTop;"
+        },
+        {
+          "start": 10776,
+          "before": "(isCompact ? 52 : isMobile ? 54 : 64) + (isTouch ? 12 : 0)",
+          "after": "(isCompact ? QDPresentation.visual.subscription.compactRight : isMobile ? QDPresentation.visual.subscription.mobileRight : QDPresentation.visual.subscription.desktopRight) + (isTouch ? QDPresentation.visual.subscription.touchAllowance : 0)"
+        },
+        {
+          "start": 21273,
+          "before": "isCompact ? 0.6 : 1",
+          "after": "isCompact ? QDPresentation.visual.subscription.compactTracking : QDPresentation.visual.subscription.tracking"
+        },
+        {
+          "start": 20521,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        },
+        {
+          "start": 15948,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        },
+        {
+          "start": 1053,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 592,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "beforeHash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5",
+      "afterHash": "6a665a9e3e27351d76b552f23d1a8120bacd90a10f8be6eb70ebb3ea944e78f3",
+      "edits": [
+        {
+          "start": 6283,
+          "before": "const bellTop = isMobile ? 12 : 18;",
+          "after": "const bellTop = isMobile ? QDPresentation.visual.header.mobileTop : QDPresentation.visual.header.desktopTop;"
+        },
+        {
+          "start": 6394,
+          "before": "const bellRight = isMobile ? 12 : 22;",
+          "after": "const bellRight = isMobile ? QDPresentation.visual.header.mobileRight : QDPresentation.visual.header.desktopRight;"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "beforeHash": "ac5d3ca0b6b2f14347af28db2debd5159f7a977e01c1452e7edee050d4936dd7",
+      "afterHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "edits": [
+        {
+          "start": 7761,
+          "before": "const BOTTOM_NAV_HEIGHT = 64;",
+          "after": "const BOTTOM_NAV_HEIGHT = QDPresentation.visual.bottomNavHeight;"
+        },
+        {
+          "start": 1257,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 878,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "beforeHash": "2dbd329c00b1f53b9c59fa1920f1d95cf294f0e2e9ea54cdd4d1ca191e4b668f",
+      "afterHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "edits": [
+        {
+          "start": 12689,
+          "before": "${bad ? 2 : 1}px",
+          "after": "${bad ? QDPresentation.visual.stroke.emphasis : QDPresentation.visual.stroke.normal}px"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "beforeHash": "9ce1f53672cca59e669ec34fe8b62efb6dcc7458464b00b09bec7a2e8767c0e1",
+      "afterHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "edits": [
+        {
+          "start": 23760,
+          "before": "${overSample ? 2 : 1}px",
+          "after": "${overSample ? QDPresentation.visual.stroke.emphasis : QDPresentation.visual.stroke.normal}px"
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalRoute.tsx",
+      "beforeHash": "cb041352fa049f718bda8ddbc90c4b9e2a75485a077976828c63777146febf95",
+      "afterHash": "c44bcd0a1ce87e97fd70f9bb99f6b3d10bfa475953b7b7d5bb0528e6aadc15a7",
+      "edits": [
+        {
+          "start": 2018,
+          "before": "${state === 'current' ? 2 : 1.5}px",
+          "after": "${state === 'current' ? QDPresentation.visual.stroke.emphasis : QDPresentation.visual.stroke.approvalIdle}px"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/[id]/client.tsx",
+      "beforeHash": "a824a1e0db11484226275d132a06f39b7a85dc26ed72cb319e12131105f84f39",
+      "afterHash": "08e505285a39cb3c63b734a900a52117f60ed7d6a3aeb5d7da53ee8e13d3c204",
+      "edits": [
+        {
+          "start": 25055,
+          "before": "overdue ? 0.08 : 0.25",
+          "after": "overdue ? QDRuntime.alpha.tint0_08 : QDRuntime.alpha.tint0_25"
+        }
+      ]
+    },
+    {
+      "path": "components/TeamActivityFeed.tsx",
+      "beforeHash": "c6786f56233fa7c11b77a6954225b2691aec206e2da49f50aeff2d9061f34a36",
+      "afterHash": "a56f87c4d7bb342b76afc07cc609f3fa006e242faec101d800ee27379065a6fd",
+      "edits": [
+        {
+          "start": 4386,
+          "before": "crossRole ? 0.22 : 0.1",
+          "after": "crossRole ? QDRuntime.alpha.tint0_22 : QDRuntime.alpha.tint0_1"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
+      "beforeHash": "c8c73ab41f72008e0132295e93829430d6c80742376662f3cab7159ed568f729",
+      "afterHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
+      "edits": [
+        {
+          "start": 14824,
+          "before": "`2fr ${REACHABLE_FINDING_GRADES",
+          "after": "`${QDPresentation.visual.summaryLabelTrack} ${REACHABLE_FINDING_GRADES"
+        }
+      ]
+    },
+    {
+      "path": "app/(auth)/login/page.tsx",
+      "beforeHash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c",
+      "afterHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
+      "edits": [
+        {
+          "start": 17050,
+          "before": "'opacity var(--qd-motion-normal, 200ms) ease'",
+          "after": "QDPresentation.visual.motion.authOpacity"
+        }
+      ]
+    },
+    {
+      "path": "components/AiHelperButton.tsx",
+      "beforeHash": "40db4e2ada7620b5829f0ffc8d497b428a3154fa73bc715c6588b9c9c270f390",
+      "afterHash": "7083e29c211ec089f1580d4e15ae1640b0d21b7c4c14312b23a99668af3c73bb",
+      "edits": [
+        {
+          "start": 7019,
+          "before": "alpha('#000', QDRuntime.alpha.tint0_5)",
+          "after": "'var(--qd-backdrop)'"
+        }
+      ]
+    },
+    {
+      "path": "components/ChangeImpactDecisionTree.tsx",
+      "beforeHash": "074b98a137b1708f59f98549d3abd9c19a647d222bc67ff32b9d016d6e7b2760",
+      "afterHash": "fbd50d17f4920b4c6040856bb0ca7e372dffd378918499da7cb448907e21be88",
+      "edits": [
+        {
+          "start": 2680,
+          "before": "alpha('#000', QDRuntime.alpha.tint0_6)",
+          "after": "'var(--qd-backdrop)'"
+        }
+      ]
+    },
+    {
+      "path": "components/DocumentArtifactPanel.tsx",
+      "beforeHash": "c0fc097d7ae3459704be85c2006db678787dcc6d5b29dca7c3809c5f6d8584d6",
+      "afterHash": "3a449cd607d746974a4a4340a75f98db009e2ec4008dce554b9138ce1db2aad5",
+      "edits": [
+        {
+          "start": 26710,
+          "before": "alpha('#000', QDRuntime.alpha.tint0_5)",
+          "after": "'var(--qd-backdrop)'"
+        },
+        {
+          "start": 1118,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 14,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/AIQuickAccessFab.tsx",
+      "beforeHash": "a19cb0862e977cdf1a45162cfc6ea84c51af6e232d87a7a14e18a4c0f9be4e04",
+      "afterHash": "b866be01fbc1d074cd9e7a28fe90c197361781b15aaecddda4efc70eefc90df9",
+      "edits": [
+        {
+          "start": 4158,
+          "before": "'calc(env(safe-area-inset-bottom, 0) + var(--qa-fab-bottom, 80px))'",
+          "after": "QDPresentation.visual.fabBottom"
+        },
+        {
+          "start": 1423,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 707,
+          "before": "",
+          "after": "import { QDPresentation, Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/expert/HangulTracking.tsx",
+      "beforeHash": "ad53959961c821c293e7464b4ac553f2e9e97128524433a8f011b21de4dc7ca4",
+      "afterHash": "bcfece3846d018a56cd4ac61b2267dfa6f211f27e13e678abe96d25332712fde",
+      "edits": [
+        {
+          "start": 2572,
+          "before": "mono ? '-0.35em' : ''",
+          "after": "mono ? LABEL.hangulWordSpacing : ''"
+        },
+        {
+          "start": 839,
+          "before": "",
+          "after": "import { LABEL } from '@/lib/design/q-design-labels';\n"
+        }
+      ]
+    },
+    {
+      "path": "lib/export/seed-default-templates.ts",
+      "beforeHash": "fb6d7b35d4fe2b3944a34b10dcc727c9029d4ffdaab4bb7be90f626504b0440b",
+      "afterHash": "d12b83e73bd43d8dd14f314ea719a90a8cf09155196325c2303e9e2cd698a702",
+      "edits": [
+        {
+          "start": 1310,
+          "before": "const QATELIER_BRAND_COLOR = '#8a6838';",
+          "after": "const QATELIER_BRAND_COLOR = `#${DOC_COLOR.champagne.toLowerCase()}`;"
+        },
+        {
+          "start": 934,
+          "before": "",
+          "after": "import { DOC_COLOR } from '@/lib/design/q-design.doc';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/ApprovalDocFile.tsx",
+      "beforeHash": "abc2a9809ac15240c6c2983af357770ee705f6432484b01f7d8fe1334c3c5678",
+      "afterHash": "7c7a97b5097910a9457d3f6d89109369266b3a122bb6217248bbea93777fb209",
+      "edits": [
+        {
+          "start": 9460,
+          "before": "background: LIGHT_PALETTE.surface, color: LIGHT_PALETTE.text",
+          "after": "background: `#${DOC_COLOR.surface}`, color: `#${DOC_COLOR.ink}`"
+        },
+        {
+          "start": 1434,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 760,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\nimport { DOC_COLOR } from '@/lib/design/q-design.doc';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/WelcomeFlow.tsx",
+      "beforeHash": "930e2abe49215dcda22284ef83a43a8f20e5bc2e3f590552ba002eb3331d101a",
+      "afterHash": "38d5a603fe5697eebcb7f1e658c26a28d096cf447501d40260bd9d0adfe627e0",
+      "edits": [
+        {
+          "start": 6335,
+          "before": "...goldTextStyle()",
+          "after": "...QDPresentation.visual.goldText"
+        },
+        {
+          "start": 850,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 605,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/OwnerProductWorkflow.tsx",
+      "beforeHash": "91f53bb4d202b5af8988da3dc0d536c29ca4e10c25d4f3faf5eef28780757292",
+      "afterHash": "0d8ee398b7ffc820f832d315e8d83926ac747d652e98d33b964330e65643f3c9",
+      "edits": [
+        {
+          "start": 20202,
+          "before": "`linear-gradient(90deg, ${T.champagne}, ${alpha(T.champagne, QDRuntime.alpha.tint0_3)}, transparent)`",
+          "after": "workflowDivider(T.champagne, alpha(T.champagne, QDRuntime.alpha.tint0_3))"
+        },
+        {
+          "start": 448,
+          "before": "",
+          "after": "import { workflowDivider } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/tag-metrics.ts",
+      "beforeHash": "7e3b2747abcd89d0bd5eca921f142176e3e8a40eeb5a1040a1f0fd6cc25afc05",
+      "afterHash": "01a6bd9fe95cf2c6fac907b73b4a01a70afaefff54108ad51c6317fe0727da5c",
+      "edits": [
+        {
+          "start": 836,
+          "before": "export const TAG_BORDER = 1;",
+          "after": "export const TAG_BORDER = QDPresentation.visual.tag.border;"
+        },
+        {
+          "start": 1267,
+          "before": "export const TAG_DIMS = {\r\n  xs: { minH: 20, fs: 12, padY: 0, padX: 6, dotSize: 5, gap: S[1] },\r\n  sm: { minH: 24, fs: 12, padY: 2, padX: 8, dotSize: 6, gap: S[1] },\r\n  md: { minH: 28, fs: 13, padY: 4, padX: 10, dotSize: 7, gap: 5 },\r\n} as const;",
+          "after": "export const TAG_DIMS = QDPresentation.visual.tag.dims;"
+        },
+        {
+          "start": 1476,
+          "before": "lineHeight: number = LH.snug",
+          "after": "lineHeight: number = QDPresentation.visual.tag.lineHeight"
+        },
+        {
+          "start": 1722,
+          "before": "lineHeight: number = LH.snug",
+          "after": "lineHeight: number = QDPresentation.visual.tag.lineHeight"
+        },
+        {
+          "start": 2028,
+          "before": "lineHeight: number = LH.snug",
+          "after": "lineHeight: number = QDPresentation.visual.tag.lineHeight"
+        },
+        {
+          "start": 0,
+          "before": "import { S, LH } from './tokens';",
+          "after": ""
+        },
+        {
+          "start": 0,
+          "before": "",
+          "after": "import { QDPresentation } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "beforeHash": "40f3b0604b7942932a3b3e0011721010e793117257ce5138fc01e8971f7eb9a2",
+      "afterHash": "cfb1fba27dc393ced1ba21c6cac9084e5f21d034097ada4d6b2818cd195a77fb",
+      "edits": [
+        {
+          "start": 18953,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        }
+      ]
+    },
+    {
+      "path": "app/onboarding/page.tsx",
+      "beforeHash": "0ce1881a2c98fc44e06af81c60a5f2b0b0bf454dae32efc13c0f6f59afe45d9c",
+      "afterHash": "18c074aaa6edf07fe6a09eb8e70892c06e15b82292075a787fe7a78f309499f3",
+      "edits": [
+        {
+          "start": 14275,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        }
+      ]
+    },
+    {
+      "path": "components/BackButton.tsx",
+      "beforeHash": "3a4297adb1227588247d6308a5c9c61c089b47d839e413c8b4f4088deff4ed75",
+      "afterHash": "40322f77deb8cac4ab57e67c92357eb4b04a9184f26f8b44827821eda62ab607",
+      "edits": [
+        {
+          "start": 1212,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 1025,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/BarcodeScanButton.tsx",
+      "beforeHash": "cb3acdf7184d3555751bb000436d0db8303777c5f342afc57f29ca3800ea4080",
+      "afterHash": "a2379f408637f46f6cb784ac7202077436ecb6f0a4786bcd5bb0d02b6a567f19",
+      "edits": [
+        {
+          "start": 807,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 499,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/FieldPhotoPicker.tsx",
+      "beforeHash": "c4f98a23ebd8f3b3292ea74dc58031c3aa066d0dabfc884b3335f3d792698add",
+      "afterHash": "5e113f84c12d28c24d0c41f6bbd63b5ced63eb41f5e4eeea06224778114cf76d",
+      "edits": [
+        {
+          "start": 2836,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        }
+      ]
+    },
+    {
+      "path": "components/KeywordReviewModal.tsx",
+      "beforeHash": "569b1e90bd3cdf7bdc2b5739260383ed33e8fd75c5d07864982603c45d0f4bc1",
+      "afterHash": "1f9679fa472386603b6e716154785b4bc91f2dbdbfdfeda9f328c6d6834f4491",
+      "edits": [
+        {
+          "start": 676,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 417,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/ListToolbar.tsx",
+      "beforeHash": "4f59e0c05bcf0a70110816bf76a7418521cc6955ce1a7bddc4846cdb59131882",
+      "afterHash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
+      "edits": [
+        {
+          "start": 1434,
+          "before": "Z, ",
+          "after": ""
+        },
+        {
+          "start": 744,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/MobileBottomNav.tsx",
+      "beforeHash": "57f9b7c961c453f9dfe57aca9b27d3d4e0df1e194c41f4cc3b29e2bd2dbdd9d4",
+      "afterHash": "8c2dc2a1ef886b23b7f54a9829a9c0638331af9d60d4e04418293c0d63fe9a6b",
+      "edits": [
+        {
+          "start": 2486,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 1111,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/OpinionForm.tsx",
+      "beforeHash": "655d9ccc80c03d32ce0e0e207196dbaa34949e916ae06334422953a10b41eb2e",
+      "afterHash": "792543effca3231aaf780169e61a0efe5a80926b9f69703627e0ac5eeabaf6ab",
+      "edits": [
+        {
+          "start": 34315,
+          "before": "'dashed'",
+          "after": "'var(--qd-atelier-border-style-95c01bc47f)'"
+        }
+      ]
+    },
+    {
+      "path": "components/SessionExpiryGate.tsx",
+      "beforeHash": "3aa871e27748c12d6615e37287eb043e672d1580f0ccb07d4ee4f08526f59868",
+      "afterHash": "dfc56ed546b36a4b548b7e2b73ebbe8f0ac0b1d043135ff998dabda79619c5bb",
+      "edits": [
+        {
+          "start": 1316,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 1067,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "beforeHash": "e350b52d121318faafd61c223fa20d83a4c2f15972c8fa29b2d58ae487f9e395",
+      "afterHash": "526b6bf29f6b9fbf19b50cec19064ee007cf1295763a2007ee03eeb8c474cd33",
+      "edits": [
+        {
+          "start": 959,
+          "before": ", Z",
+          "after": ""
+        },
+        {
+          "start": 837,
+          "before": "",
+          "after": "import { Z } from '@/lib/design/q-design-runtime';\n"
+        }
+      ]
+    }
+  ]
+}

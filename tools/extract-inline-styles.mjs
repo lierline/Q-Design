@@ -16,11 +16,15 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readRuntimeTemplate } from './atelier-runtime-values.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 const SCREENS = join(ROOT, 'source', 'screens');
 const CSS_DIR = join(ROOT, 'source', 'css');
+const runtimeSource = readFileSync(join(ROOT, 'source/design/atelier-runtime.ts'), 'utf8');
+const recipes = new Set([...runtimeSource.matchAll(/export function (\w+)\([^)]*\): string \{ return `/g)].map(match => match[1]));
+const staticRecipes = new Map([...runtimeSource.matchAll(/export const (\w+) = `([^`]*?)`;/g)].map(match => [match[1], match[2]]));
 
 // 파일명이 평탄화되어 있습니다: app__(auth)__login__page.tsx → app/(auth)/login/page.tsx
 const unflatten = (name) => name.replace(/__/g, '/');
@@ -34,11 +38,25 @@ if (!files.length) {
 const rows = [];
 const inlineKf = new Set();
 for (const name of files) {
-  const text = readFileSync(join(SCREENS, name), 'utf8');
+  const source = readFileSync(join(SCREENS, name), 'utf8');
+  const linked = [];
+  for (const imported of source.matchAll(/import\s*\{([^}]+)\}\s*from\s*['"]@\/lib\/design\/q-design-runtime['"]/g)) {
+    for (const entry of imported[1].split(',')) {
+      const match = entry.trim().match(/^(\w+)(?:\s+as\s+(\w+))?$/);
+      if (match && recipes.has(match[1]) && new RegExp('\\b' + (match[2] ?? match[1]) + '\\s*\\(').test(source)) {
+        linked.push(readRuntimeTemplate(ROOT, match[1]));
+      }
+      if (match && staticRecipes.has(match[1]) && new RegExp('<style\\b[^>]*>\\s*\\{\\s*' + (match[2] ?? match[1]) + '\\s*\\}').test(source)) {
+        linked.push(staticRecipes.get(match[1]));
+      }
+    }
+  }
+  // Inspect only canonical CSS recipes explicitly imported and called by this screen.
+  const text = [source, ...linked].join('\n');
   const kf = [...text.matchAll(/@keyframes\s+([a-zA-Z0-9_-]+)/g)].map((m) => m[1]);
   const classes = [...text.matchAll(/^\s*\.([a-z][a-z0-9-]{2,})\s*[,{]/gm)].map((m) => m[1]);
   const mediaCount = (text.match(/@media[^{]*\{/g) || []).length;
-  const styleTags = (text.match(/<style\b/g) || []).length;
+  const styleTags = (source.match(/<style\b/g) || []).length;
   kf.forEach((k) => inlineKf.add(k));
   rows.push({
     path: unflatten(name),
@@ -77,8 +95,8 @@ lines.push('# 인라인 스타일 색인');
 lines.push('');
 lines.push('생성물입니다. `node tools/extract-inline-styles.mjs` 로 다시 만듭니다.');
 lines.push('');
-lines.push('Q-Atelier 는 스타일을 인라인 객체로 쓰므로 키프레임·호버·미디어쿼리가 컴포넌트 안에 들어갑니다.');
-lines.push('**`globals.css` 만 보면 키프레임의 절반 이상을 놓칩니다.**');
+lines.push('컴포넌트의 인라인 CSS와 해당 파일이 직접 가져와 호출하는 중앙 CSS 규칙을 함께 색인합니다.');
+lines.push('중앙 규칙은 `source/design/atelier-runtime.ts`에서 읽습니다. CSS 파일만 읽으면 이 규칙이 빠집니다.');
 lines.push('');
 lines.push('| | 개수 |');
 lines.push('|---|---:|');

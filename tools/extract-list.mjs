@@ -27,10 +27,13 @@
 // `.qd-table` 은 `table/th/td` 와 `div` 양쪽에 같은 값을 겁니다.
 // =============================================================================
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { read, slice, probeAll, put, flat, assertFilled, bindingsBlock, px } from './probe.mjs';
+import { loadQdValues } from './qd-adapter-values.mjs';
+import { readRuntimeValues } from './atelier-runtime-values.mjs';
+import { centralTagMetrics } from './tag-metrics-probe.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -39,8 +42,13 @@ const SRC = join(ROOT, 'source');
 
 const comp = read(join(SRC, 'components', 'components.tsx'));
 const globals = read(join(SRC, 'css', 'globals.css'));
-const tagMetrics = read(join(SRC, 'tokens', 'tag-metrics.ts'));
+const tagMetrics = readFileSync(join(SRC, 'tokens', 'tag-metrics.ts'), 'utf8');
 const tokens = JSON.parse(read(join(OUT, 'q-design.tokens.json')));
+const qd = loadQdValues(ROOT);
+const canonicalComponents = read(join(ROOT, 'patterns', 'components.css'));
+const live = {};
+const cssPixels = text => qd.pixels(JSON.stringify(text));
+const densityPixels = text => /^['"]/.test(text.trim()) ? qd.pixels(text.trim()) : Number(text);
 
 /*
  * 🔴 먼저 «부품 하나» 를 자르고, 그 안에서 다시 자릅니다.
@@ -70,45 +78,56 @@ const Z = {
 
 const spec = probeAll([
   // ── 표 ──────────────────────────────────────────────────────────────────
-  ['table.padY',        Z.tablePad,  /const padY = dense \? \d+ : (\d+);/, Number],
-  ['table.padYDense',   Z.tablePad,  /const padY = dense \? (\d+) : \d+;/, Number],
-  ['table.padX',        Z.tableCell, /padding: `\$\{padY\}px (\d+)px`,/, Number],
-  ['table.headFontSize',Z.tableHead, /fontSize: FS\[(\d+)\],/, Number],
+  ['table.padY',        Z.tablePad,  /const padY = dense \? [^:;]+ : ([^;]+);/, densityPixels],
+  ['table.padYDense',   Z.tablePad,  /const padY = dense \? ([^:;]+) : [^;]+;/, densityPixels],
+  ['table.padX',        Z.tableCell, /(var\(--qd-table-pad-x, [\d.]+px\))/, cssPixels],
+  ['table.headFontSize',Z.tableHead, /fontSize: FS\[(\d+)\],/, qd.font],
   ['table.headWeight',  Z.tableHead, /fontWeight: (\d+),/, Number],
   ['table.headTracking',Z.tableHead, /letterSpacing: labelTracking\(c\.header, '([\d.]+em)'\),/, String],
-  ['table.cellFontSize',Z.tableCell, /fontSize: FS\[(\d+)\],/, Number],
+  ['table.cellFontSize',Z.tableCell, /fontSize: ('[^']+'|QD\.\w+|FS\[[\d.]+\]),/, qd.pixels],
 
   // ── 항목 줄 (EntityRow) ─────────────────────────────────────────────────
   // 2026-09-27 «문서 결»(오너 결정 · docs/24): 상자 · 왼쪽 색 띠 대신 행 아래 가는 괘선 하나
-  ['row.gap',           Z.rowBox,    /gap: S\[([\d.]+)\],/, Number],
+  ['row.gap',           Z.rowBox,    /gap: S\[([\d.]+)\],/, qd.step],
   ['row.padding',       Z.rowBox,    /padding: '([^']+)',/, String],
   ['row.ruleWidth',     Z.rowBox,    /borderBottom: `(\d+)px solid \$\{T\.border\}`,/, Number],
   ['row.radius',        Z.rowBox,    /borderRadius: (\d+),/, Number],
   ['row.minHeight',     Z.rowBox,    /minHeight: (\d+),/, Number],
   ['row.chipSize',      Z.rowChip,   /width: (\d+),/, Number],
   ['row.chipAlpha',     Z.rowChip,   /background: alpha\(chipColor, ([\d.]+)\),/, Number],
-  ['row.codeFontSize',  Z.rowCode,   /fontSize: FS\[(\d+)\],/, Number],
+  ['row.codeFontSize',  Z.rowCode,   /fontSize: FS\[(\d+)\],/, qd.font],
   ['row.codeWeight',    Z.rowCode,   /fontWeight: (\d+),/, Number],
   ['row.codeTracking',  Z.rowCode,   /letterSpacing: labelTracking\(code, '([\d.]+em)'\),/, String],
-  ['row.titleFontSize', Z.rowTitleBox, /fontSize: FS\[(\d+)\],/, Number],
+  ['row.titleFontSize', Z.rowTitleBox, /fontSize: FS\[(\d+)\],/, qd.font],
   ['row.titleWeight',   Z.rowTitleBox, /fontWeight: (\d+),/, Number],
-  ['row.metaFontSize',  Z.rowMeta,   /fontSize: FS\[(\d+)\],/, Number],
+  ['row.metaFontSize',  Z.rowMeta,   /fontSize: FS\[(\d+)\],/, qd.font],
 
   // ── 배지 (Tag) ──────────────────────────────────────────────────────────
   ['tag.tracking',      Z.tagBox,    /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
 ]);
+// Both density variants retain their live source references. Older committed
+// snapshots are accepted until their corresponding product change is committed.
+const density = Z.tablePad.match(/const padY = dense \? ([^:;]+) : ([^;]+);/);
+if (!density) throw new Error('DataTable 의 밀도별 세로 여백을 못 찾았습니다.');
+const legacyPadY = Z.tableCell.match(/var\(--qd-table-pad-y, \$\{padY\}px\)/)?.[0];
+live.tablePadY = /^['"]/.test(density[2].trim()) ? qd.css(density[2].trim()) : legacyPadY?.replace('${padY}', String(spec.table.padY));
+live.tablePadYDense = /^['"]/.test(density[1].trim()) ? qd.css(density[1].trim()) : px(spec.table.padYDense);
+if (!live.tablePadY) throw new Error('DataTable 의 중앙 세로 여백을 못 찾았습니다.');
+live.tablePadX = Z.tableCell.match(/var\(--qd-table-pad-x, [\d.]+px\)/)[0];
+live.tableSize = qd.css(qd.property(Z.tableCell, 'fontSize'));
+put(spec, 'table.padY', cssPixels(live.tablePadY));
 
 /* 판 안쪽 여백. `SectionCard` 가 `S[6]` 을 씁니다 (간격 사다리는 4의 배수). */
 {
   const card = slice(comp, 'export function SectionCard({', 'export function DetailRow', 'SectionCard');
   const m = card.match(/padding: S\[(\d+)\],/);
   if (!m) throw new Error('SectionCard 의 여백을 못 찾았습니다.');
-  put(spec, 'panel.padding', Number(m[1]) * 4);
+  put(spec, 'panel.padding', qd.space(m[1]));
 }
 
 /* 모서리·전환·그림자는 토큰에서 옵니다. 여기서 다시 재지 않습니다.
    판(.qd-panel)의 모서리입니다. 항목 줄은 2026-09-27 부터 모서리가 없어(괘선) 원본에서 따로 읽습니다. */
-put(spec, 'panel.radius', tokens.radius.md);
+put(spec, 'panel.radius', qd.pixels('QD.radius'));
 
 /*
  * 판의 상태 색 테두리(2026-09-27 «문서 결»). 원본 Bx 의 accent 가 왼쪽 3px 색 띠에서
@@ -132,26 +151,35 @@ put(spec, 'panel.radius', tokens.radius.md);
 }
 
 /*
- * 못 읽은 자리(.qd-state-error)의 선. 원본 Alert 가 2026-09-27 부터 «위아래 가는 가로선(종류 색)
- * 사이의 강조문» 입니다. 그 섞는 비율을 읽습니다.
+ * Alert now delegates its opaque surface and full outline to canonical qd-notice.
+ * Read that visual recipe while preserving the error block's existing document layout.
  */
 {
   const al = slice(comp, 'export function Alert({', '// ─── ', 'Alert');
-  if (!/\.\.\.ruleBand\(c\),/.test(al)) throw new Error('Alert 의 위아래 가는 가로선(...ruleBand(c))을 못 찾았습니다.');
+  if (!/className="qd-notice"/.test(al) || !/data-kind=\{kind\}/.test(al)) throw new Error('Alert 의 중앙 notice 연결을 못 찾았습니다.');
   if (/borderLeft/.test(al)) throw new Error('Alert 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
-  put(spec, 'state.ruleMix', spec.panel.accentMix);
+  const notice = slice(canonicalComponents, '.qd-notice, .qd-toast {', '}', 'canonicalNotice');
+  const declarations = notice.split('\n').filter(line => /^\s*(?:box-sizing|padding|border|border-radius|background|color|font-size|line-height):/.test(line));
+  if (declarations.length !== 8) throw new Error('중앙 notice 표면 선언이 바뀌었습니다. 탐침을 검토하십시오.');
+  put(spec, 'state.surfaceDeclarations', declarations.join('\n'));
 }
-put(spec, 'tag.radius', tokens.radius.sm);
+put(spec, 'tag.radius', qd.pixels(qd.property(Z.tagBox, 'borderRadius')));
 /* 단추·입력의 모서리도 같은 사다리에서 옵니다(2026-09-09 감사 · 주제 #13).
    Q-Sonar 는 판이 10px 인데 그 안의 단추 191개·입력 12개가 전부 0px 이었습니다.
    10 이라는 숫자가 이미 세 벌(Q-Atelier tokens.ts · dist/q-design.tokens.json ·
    Q-Forge globals.css)이라 제품이 네 번째를 적지 않게 여기서 내보냅니다. */
-put(spec, 'control.radius', tokens.radius.md);
+put(spec, 'control.radius', qd.pixels('QD.radius'));
 put(spec, 'row.transition', tokens.motion.fast);
 put(spec, 'table.transition', tokens.motion.fast);
 
 /* 배지 규격 세 벌. tag-metrics.ts 가 SSOT 이고 거기 테스트가 높이 사슬을 잠급니다. */
 {
+  if (/export const TAG_DIMS = QDPresentation\.visual\.tag\.dims;/.test(tagMetrics)) {
+    const { dims } = centralTagMetrics(tagMetrics, readRuntimeValues(ROOT));
+    for (const [size, { dotSize, ...dimensions }] of Object.entries(dims)) {
+      put(spec, `tag.${size}`, { ...dimensions, dot: dotSize });
+    }
+  } else {
   const m = tagMetrics.match(/export const TAG_DIMS = \{([\s\S]*?)\n\} as const;/);
   if (!m) throw new Error('TAG_DIMS 를 못 찾았습니다.');
   for (const line of m[1].split('\n')) {
@@ -166,8 +194,12 @@ put(spec, 'table.transition', tokens.motion.fast);
       gap: line.includes('S[') ? gapRaw * 4 : gapRaw,
     });
   }
+  }
   for (const s of ['xs', 'sm', 'md']) {
     if (!spec.tag[s]) throw new Error(`배지 규격 ${s} 를 못 읽었습니다.`);
+    for (const [key, variable] of Object.entries({ minH: 'min-height', fs: 'size', padY: 'padding-y', padX: 'padding-x', dot: 'dot-size', gap: 'gap' })) {
+      spec.tag[s][key] = qd.pixels(`'var(--qd-tag-${s}-${variable})'`);
+    }
   }
 }
 
@@ -250,38 +282,42 @@ put(spec, 'table.transition', tokens.motion.fast);
   const S4 = (n) => Number(n) * 4; /* S[n] 는 4의 배수입니다 */
   const got = probeAll([
     // ── 쪽 이동 줄 (ListPager) ─────────────────────────────────────────────
-    ['pager.gap',         Q.pagerNav,   /gap: S\[([\d.]+)\],/, S4],
-    ['pager.gapAbove',    Q.pagerNav,   /marginTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
-    ['pager.padAbove',    Q.pagerNav,   /paddingTop: 위 \? 0 : S\[([\d.]+)\],/, S4],
-    ['pager.labelSize',   Q.pagerLabel, /fontSize: FS\[(\d+)\],/, Number],
+    ['pager.gap',         Q.pagerNav,   /gap: S\[([\d.]+)\],/, qd.space],
+    ['pager.gapAbove',    Q.pagerNav,   /marginTop: 위 \? 0 : S\[([\d.]+)\],/, qd.space],
+    ['pager.padAbove',    Q.pagerNav,   /paddingTop: 위 \? 0 : S\[([\d.]+)\],/, qd.space],
+    ['pager.labelSize',   Q.pagerLabel, /fontSize: FS\[(\d+)\],/, qd.font],
     ['pager.labelTracking', Q.pagerLabel, /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
-    ['pager.navGap',      Q.pagerPages, /gap: S\[([\d.]+)\] \}\}>/, S4],
+    ['pager.navGap',      Q.pagerPages, /gap: S\[([\d.]+)\] \}\}>/, qd.space],
     ['pager.pageMinWidth', Q.pagerPageNo, /minWidth: (\d+),/, Number],
-    ['pager.btnGap',      Q.pagerBtn,   /gap: S\[([\d.]+)\],/, S4],
+    ['pager.btnGap',      Q.pagerBtn,   /gap: S\[([\d.]+)\],/, qd.space],
     ['pager.btnPadding',  Q.pagerBtn,   /padding: '([^']+)',/, String],
-    ['pager.btnMinHeight', Q.pagerBtn,  /minHeight: (\d+),/, Number],
-    ['pager.btnSize',     Q.pagerBtn,   /fontSize: FS\[(\d+)\],/, Number],
+    ['pager.btnMinHeight', Q.pagerBtn,  /minHeight: (QD\.\w+|\d+),/, qd.pixels],
+    ['pager.btnSize',     Q.pagerBtn,   /fontSize: (QD\.\w+|FS\[[\d.]+\]),/, qd.pixels],
     ['pager.btnTracking', Q.pagerBtn,   /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
     ['pager.disabledOpacity', Q.pagerBtn, /opacity: enabled \? 1 : ([\d.]+),/, Number],
     // ── 거르개 띠 (ListToolbar) ─────────────────────────────────────────────
-    ['bar.padTop',        Q.barOuter,   /paddingTop: S\[([\d.]+)\],/, S4],
-    ['bar.padBottom',     Q.barOuter,   /paddingBottom: S\[([\d.]+)\],/, S4],
-    ['bar.gapBelow',      Q.barOuter,   /marginBottom: S\[([\d.]+)\],/, S4],
-    ['bar.gap',           Q.barForm,    /gap: S\[([\d.]+)\],/, S4],
-    ['bar.fieldHeight',   Q.barField,   /height: (\d+),/, Number],
-    ['bar.fieldPadX',     Q.barField,   /padding: `0 \$\{S\[([\d.]+)\]\}px 0 \d+px`,/, S4],
-    ['bar.fieldPadIcon',  Q.barField,   /padding: `0 \$\{S\[[\d.]+\]\}px 0 (\d+)px`,/, Number],
-    ['bar.fieldSize',     Q.barField,   /fontSize: FS\[(\d+)\],/, Number],
+    ['bar.padTop',        Q.barOuter,   /paddingTop: S\[([\d.]+)\],/, qd.space],
+    ['bar.padBottom',     Q.barOuter,   /paddingBottom: S\[([\d.]+)\],/, qd.space],
+    ['bar.gapBelow',      Q.barOuter,   /marginBottom: S\[([\d.]+)\],/, qd.space],
+    ['bar.gap',           Q.barForm,    /gap: S\[([\d.]+)\],/, qd.space],
+    ['bar.fieldHeight',   Q.barField,   /height: (QD\.\w+|\d+),/, qd.pixels],
+    ['bar.fieldPadX',     Q.barField,   /padding: `0 \$\{S\[([\d.]+)\]\}px 0 (?:var\(--qd-space-[\d-]+\)|\d+px)`,/, qd.space],
+    ['bar.fieldPadIcon',  Q.barField,   /padding: `0 \$\{S\[[\d.]+\]\}px 0 (var\(--qd-space-[\d-]+\)|\d+px)`,/, cssPixels],
+    ['bar.fieldSize',     Q.barField,   /fontSize: (QD\.\w+|FS\[[\d.]+\]),/, qd.pixels],
     ['bar.searchBasis',   Q.barSearch,  /flex: '1 1 (\d+)px'/, Number],
     ['bar.iconSize',      Q.barSearch,  /size=\{(\d+)\}/, Number],
     ['bar.iconLeft',      Q.barSearch,  /left: (\d+),/, Number],
-    ['bar.selectPadX',    Q.barSelect,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, S4],
-    ['bar.submitHeight',  Q.barSubmit,  /const minHeight = sm \? (\d+) : TOUCH\.min;/, Number],
-    ['bar.submitPadX',    Q.barSubmit,  /padding: sm \? '\d+px (\d+)px' :/, Number],
-    ['bar.submitSize',    Q.barSubmit,  /fontSize: sm \? FS\[(\d+)\] :/, Number],
+    ['bar.selectPadX',    Q.barSelect,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, qd.space],
+    ['bar.submitHeight',  Q.barSubmit,  /const minHeight = sm \? (QD\.\w+) : QD\.\w+;/, qd.pixels],
+    ['bar.submitPadX',    Q.barSubmit,  /padding: sm \? (QD\.\w+) :/, expression => {
+      const padding = qd.resolve(expression).match(/^[\d.]+px ([\d.]+)px$/);
+      if (!padding) throw new Error('Btn 의 작은 단추 여백이 두 축 px 표현이 아닙니다.');
+      return Number(padding[1]);
+    }],
+    ['bar.submitSize',    Q.barSubmit,  /fontSize: (QD\.\w+),/, qd.pixels],
     ['bar.submitTracking', Q.barSubmit, /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
     ['bar.submitText',    Q.barSubmitText, /const 검색글 = '([^']+)'/, String],
-    ['bar.labelSize',     Q.barLabel,   /fontSize: FS\[(\d+)\],/, Number],
+    ['bar.labelSize',     Q.barLabel,   /fontSize: FS\[(\d+)\],/, qd.font],
     ['bar.labelTracking', Q.barLabel,   /letterSpacing: labelTracking\(text, ([\d.]+)\),/, Number],
     // ── 원본 전역 초점 고리 ────────────────────────────────────────────────
     ['focus.outline',     Q.focus,      /outline: (\d+)px solid var\(--qa-champagne\);/, Number],
@@ -296,38 +332,46 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['empty.titleTracking', Q.emptyTitle, /letterSpacing: '(-?[\d.]+em)',/, String],
     ['empty.titleGapDesc', Q.emptyTitle, /marginBottom: description \? (\d+) :/, Number],
     ['empty.titleGapNext', Q.emptyTitle, /marginBottom: description \? \d+ : action \|\| hints \? (\d+) : 0,/, Number],
-    ['empty.descSize',    Q.emptyDesc,  /fontSize: FS\[(\d+)\],/, Number],
+    ['empty.descSize',    Q.emptyDesc,  /fontSize: FS\[(\d+)\],/, qd.font],
     ['empty.descMax',     Q.emptyDesc,  /maxWidth: (\d+),/, Number],
     ['empty.descGapNext', Q.emptyDesc,  /margin: action \|\| hints \? '0 auto (\d+)px' : '0 auto',/, Number],
     ['empty.actionGapHints', Q.emptyAction, /marginBottom: hints \? (\d+) : 0/, Number],
-    ['empty.hintsGap',    Q.emptyHintRow, /gap: S\[([\d.]+)\],/, S4],
+    ['empty.hintsGap',    Q.emptyHintRow, /gap: S\[([\d.]+)\],/, qd.space],
     ['empty.hintsGapNoAction', Q.emptyHintRow, /marginTop: action \? 0 : (\d+),/, Number],
     ['empty.hintPadding', Q.emptyHint,  /padding: '([^']+)',/, String],
     ['empty.hintBorderAlpha', Q.emptyHint, /border: `1px solid \$\{alpha\(T\.champagne, ([\d.]+)\)\}`,/, Number],
-    ['empty.hintSize',    Q.emptyHint,  /fontSize: FS\[(\d+)\],/, Number],
+    ['empty.hintSize',    Q.emptyHint,  /fontSize: FS\[(\d+)\],/, qd.font],
     ['empty.hintTracking', Q.emptyHint, /letterSpacing: labelTracking\(h\.label, ([\d.]+)\),/, Number],
-    ['empty.hintArrowGap', Q.emptyArrow, /marginRight: S\[([\d.]+)\]/, S4],
+    ['empty.hintArrowGap', Q.emptyArrow, /marginRight: S\[([\d.]+)\]/, qd.space],
   ]);
   Object.assign(spec, got);
+  live.pagerHeight = qd.css(qd.property(Q.pagerBtn, 'minHeight'));
+  live.pagerSize = qd.css(qd.property(Q.pagerBtn, 'fontSize'));
+  live.fieldHeight = qd.css(qd.property(Q.barField, 'height'));
+  live.fieldSize = qd.css(qd.property(Q.barField, 'fontSize'));
+  live.fieldPadIcon = Q.barField.match(/padding: `0 \$\{S\[[\d.]+\]\}px 0 (var\(--qd-space-[\d-]+\)|\d+px)`,/)[1];
+  live.submitHeight = qd.css(Q.barSubmit.match(/const minHeight = sm \? (QD\.\w+) :/)[1]);
+  live.submitPadding = qd.css(Q.barSubmit.match(/padding: sm \? (QD\.\w+) :/)[1]);
+  live.submitSize = qd.css(qd.property(Q.barSubmit, 'fontSize'));
   /* 원본이 말하는 색 · 글꼴이 정본 변수와 같은 뜻인지 봅니다. 다르면 이름을 잘못 잇게 됩니다 */
   for (const [what, zone, re] of [
     ['쪽 이동 줄 윗선 = border', Q.pagerNav, /borderTop: 위 \? undefined : `1px solid \$\{T\.border\}`,/],
     /* 2026-09-28(41d8b2eb) 고정폭 한글 걷기: 한글이 섞인 건수 글은 본문체, 숫자만이면 모노 */
     ['건수 글 = 한글은 본문체 · 숫자는 모노 · muted', Q.pagerLabel, /fontFamily: hasHangul\(text\) \? F\.ui : F\.mono,[\s\S]*color: T\.muted,/],
-    ['이동 단추 = 조작 윤곽(CTL) 테두리 · 투명 · text', Q.pagerBtn, /border: `1px solid \$\{CTL\}`,\s*background: 'transparent',\s*color: enabled \? T\.text : T\.muted,/],
-    ['이동 단추 모서리 = RADIUS.md', Q.pagerBtn, /borderRadius: RADIUS\.md,/],
+    ['이동 단추 = 조작 윤곽(QD.ctl) 테두리 · 투명 · text', Q.pagerBtn, /border: `1px solid \$\{QD\.ctl\}`,\s*background: 'transparent',\s*color: enabled \? T\.text : T\.muted,/],
+    ['이동 단추 모서리 = QD.radius', Q.pagerBtn, /borderRadius: QD\.radius,/],
     ['거르개 띠 바탕 = bg', Q.barOuter, /background: T\.bg,/],
-    ['거르개 칸 = surface 바탕 · 조작 윤곽(CTL) 테두리 · RADIUS.md', Q.barField, /borderRadius: RADIUS\.md,\s*border: `1px solid \$\{CTL\}`,\s*background: T\.surface,/],
-    ['거르개 단추 = 공용 Btn 보조(투명 · 조작 윤곽(CTL) · subtle)', Q.barSubmit, /: `1px solid \$\{CTL\}`,[\s\S]*?p \? T\.text : 'transparent',[\s\S]*?p \? T\.bg : T\.subtle,/],
+    ['거르개 칸 = surface 바탕 · 조작 윤곽(QD.ctl) 테두리 · QD.radius', Q.barField, /borderRadius: QD\.radius,\s*border: `1px solid \$\{QD\.ctl\}`,\s*background: T\.surface,/],
+    ['거르개 단추 = 공용 Btn 보조(투명 · 조작 윤곽(QD.ctl) · subtle)', Q.barSubmit, /: `1px solid \$\{QD\.ctl\}`,[\s\S]*?p \? QD\.text : 'transparent',[\s\S]*?p \? QD\.bg : QD\.subtle,/],
     ['건수 글(도구줄) = 한글은 본문체 · 숫자는 모노 · muted', Q.barLabel, /fontFamily: hasHangul\(text\) \? F\.ui : F\.mono,[\s\S]*color: T\.muted,/],
     ['빈 목록 제목 = subtle', Q.emptyTitle, /color: T\.subtle,/],
     ['빈 목록 설명 = muted · LH.loose', Q.emptyDesc, /color: T\.muted,\s*lineHeight: LH\.loose,/],
-    ['다음 할 일 표지 = champagne · 모노 · RADIUS.md', Q.emptyHint, /borderRadius: RADIUS\.md,[\s\S]*color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
+    ['다음 할 일 표지 = champagne · 모노 · QD.radius', Q.emptyHint, /borderRadius: QD\.radius,[\s\S]*color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
   ]) {
     if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
   }
   /* 빈 목록은 Bx(판) 위에 섭니다: surface · border · 카드 모서리 */
-  if (!/<Bx\s*\n\s*style=\{\{\s*\n\s*padding: compact \?/.test(empty)) {
+  if (!/<Bx\s+className=\{`qd-empty\$\{compact \? ' qd-empty--compact' : ''\}`\}\s*\n\s*style=\{\{\s*\n\s*padding: compact \?/.test(empty)) {
     throw new Error('빈 목록이 더는 Bx 판 위에 서지 않습니다. 판 규칙을 다시 보세요.');
   }
   /* 두 건수 글(목록 아래 · 도구줄)은 한 모양이어야 합니다. 갈리면 사람이 두 셈을 못 믿습니다 */
@@ -341,13 +385,13 @@ put(spec, 'table.transition', tokens.motion.fast);
    */
   {
     const bodyBlock = slice(globals, 'body {\n  background: var(--qa-bg);', '\n}', 'globals.body');
-    if (!/line-height: var\(--qa-lh-relaxed\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
-    const relaxed = tokens.typography.lineHeight.relaxed;
+    if (!/line-height: var\(--qd-leading-relaxed, var\(--qa-lh-relaxed\)\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
+    const relaxed = qd.leading('relaxed');
     if (typeof relaxed !== 'number') throw new Error('LH.relaxed 를 토큰에서 못 읽었습니다.');
     put(spec, 'body.lineHeight', relaxed);
   }
   /* 설명 줄간격(LH.loose)과 붙어 따라오는 층(Z.sticky)은 토큰에서 옵니다. 없으면 멈춥니다 */
-  const loose = tokens.typography.lineHeight.loose;
+  const loose = qd.leading('loose');
   if (typeof loose !== 'number') throw new Error('LH.loose 를 토큰에서 못 읽었습니다.');
   put(spec, 'empty.lineHeight', loose);
   if (typeof tokens.z.sticky !== 'number') throw new Error('Z.sticky 를 토큰에서 못 읽었습니다.');
@@ -355,8 +399,8 @@ put(spec, 'table.transition', tokens.motion.fast);
 }
 
 assertFilled(spec);
-if (spec.row.padding !== '14px 6px') throw new Error(`항목 줄 여백이 바뀌었습니다: ${spec.row.padding}`);
-if (spec.table.padX !== 12) throw new Error(`셀 좌우 여백이 바뀌었습니다: ${spec.table.padX}`);
+if (!/^\d+(?:\.\d+)?px \d+(?:\.\d+)?px$/.test(spec.row.padding)) throw new Error(`항목 줄 여백이 두 CSS 길이가 아닙니다: ${spec.row.padding}`);
+if (spec.table.padX <= 0) throw new Error(`셀 좌우 여백은 양수여야 합니다: ${spec.table.padX}`);
 
 // ── CSS ──────────────────────────────────────────────────────────────────────
 const BINDINGS = [
@@ -376,12 +420,12 @@ const mix = (pct) => `color-mix(in srgb, var(--_c) ${Math.round(pct * 100)}%, tr
 
 const tagSize = (name, d) => `
 .qd-tag--${name} {
-  min-height: ${px(d.minH)};
-  font-size: ${d.fs}px;
-  padding: ${d.padY}px ${d.padX}px;
-  gap: ${px(d.gap)};
+  min-height: var(--qd-tag-${name}-min-height, ${px(d.minH)});
+  font-size: var(--qd-tag-${name}-size, ${d.fs}px);
+  padding: var(--qd-tag-${name}-padding-y, ${d.padY}px) var(--qd-tag-${name}-padding-x, ${d.padX}px);
+  gap: var(--qd-tag-${name}-gap, ${px(d.gap)});
 }
-.qd-tag--${name} .qd-tag-dot { width: ${px(d.dot)}; height: ${px(d.dot)}; }`;
+.qd-tag--${name} .qd-tag-dot { width: var(--qd-tag-${name}-dot-size, ${px(d.dot)}); height: var(--qd-tag-${name}-dot-size, ${px(d.dot)}); }`;
 
 const css = `/* =============================================================================
    q-design.list.css · 목록 정본
@@ -422,7 +466,7 @@ ${bind('dark')}
   /* 모서리는 테마 축이 «아니라» 사다리입니다. 그래서 light 블록에는 안 넣습니다.
      값은 Q-Atelier lib/design/tokens.ts 의 RADIUS 에서 옵니다.
      각진 모서리를 브랜드로 쓰는 쪽은 \`--qd-radius-control-src: 0\` 한 줄이면 됩니다. */
-  --qd-radius-control: var(--qd-radius-control-src, ${px(spec.control.radius)});
+  --qd-radius-control: var(--qd-radius-control-src, ${qd.css('QD.radius')});
 }
 
 html[data-theme='light'] {
@@ -440,7 +484,7 @@ ${bind('light')}
   box-sizing: border-box;
   background: var(--qd-surface);
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, ${px(spec.panel.radius)});
+  border-radius: var(--qd-radius-card, ${qd.css('QD.radius')});
 }
 /* 상태 판 · 강조 판. 2026-09-27 «문서 결»(오너 결정 · docs/24): 왼쪽 3px 세로줄을 걷고
    **테두리 전체를 옅은 상태 색**으로 칠합니다(원본 Bx 의 accent 와 같은 규칙 · ${Math.round(spec.panel.accentMix * 100)}%).
@@ -493,7 +537,7 @@ ${bind('light')}
       붙으므로 --tall 을 걸지 않습니다.
 --------------------------------------------------------------------------- */
 .qd-table-scroll--tall {
-  max-height: 70vh;
+  max-height: var(--qd-table-scroll-max-height, 70vh);
   overflow-y: auto;
 }
 .qd-table--sticky thead th,
@@ -516,7 +560,7 @@ ${bind('light')}
 }
 .qd-table th,
 .qd-table .qd-th {
-  padding: ${px(spec.table.padY + 1)} ${px(spec.table.padX)};
+  padding: calc(${live.tablePadY} + 1px) ${live.tablePadX};
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.table.headFontSize)};
   font-weight: ${spec.table.headWeight};
@@ -579,8 +623,8 @@ ${bind('light')}
 
 .qd-table td,
 .qd-table .qd-td {
-  padding: ${px(spec.table.padY)} ${px(spec.table.padX)};
-  font-size: ${px(spec.table.cellFontSize)};
+  padding: ${live.tablePadY} ${live.tablePadX};
+  font-size: ${live.tableSize};
   color: var(--qd-text);
   vertical-align: middle;
 }
@@ -598,9 +642,9 @@ ${bind('light')}
 .qd-table .qd-accent { color: var(--qd-accent); }
 
 .qd-table--dense th,
-.qd-table--dense .qd-th { padding: ${px(spec.table.padYDense + 1)} ${px(spec.table.padX)}; }
+.qd-table--dense .qd-th { padding: calc(${live.tablePadYDense} + var(--qd-border-width, 1px)) ${live.tablePadX}; }
 .qd-table--dense td,
-.qd-table--dense .qd-td { padding: ${px(spec.table.padYDense)} ${px(spec.table.padX)}; }
+.qd-table--dense .qd-td { padding: ${live.tablePadYDense} ${live.tablePadX}; }
 
 /* 빈 목록. 「없음」 을 조용히 말합니다 */
 .qd-table-empty {
@@ -630,17 +674,11 @@ ${bind('light')}
  *
  * 원인 문자열은 code 로 함께 답니다. 원인을 버리면 고칠 수가 없습니다.
  */
-/* 2026-09-27 «문서 결»: 왼쪽 색 선 대신 위아래 가는 가로선(원본 Alert 와 같은 규칙).
-   붉은 글과 붉은 가로선 두 겹이 「없음」(흐린 모노 한 줄)과 가릅니다. */
+/* The error block receives the current canonical notice surface. Its code stays below the message. */
 .qd-state-error {
-  padding: 14px ${px(spec.table.padX)};
-  border-top: 1px solid color-mix(in srgb, var(--qd-danger) ${Math.round(spec.state.ruleMix * 100)}%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--qd-danger) ${Math.round(spec.state.ruleMix * 100)}%, transparent);
-  background: transparent;
-  font-family: var(--qd-font-mono);
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--qd-danger);
+  --qd-status: var(--qd-danger);
+${spec.state.surfaceDeclarations}
+  font-family: var(--qd-font-ui);
 }
 .qd-state-error code {
   display: block;
@@ -797,14 +835,14 @@ ${bind('light')}
   align-items: center;
   gap: ${px(spec.pager.btnGap)};
   box-sizing: border-box;
-  min-height: ${px(spec.pager.btnMinHeight)};
+  min-height: ${live.pagerHeight};
   padding: ${spec.pager.btnPadding};
   border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
   background: transparent;
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.pager.btnSize)};
+  font-size: ${live.pagerSize};
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -875,7 +913,7 @@ ${bind('light')}
 .qd-filter-input,
 .qd-filter-select {
   box-sizing: border-box;
-  height: ${px(spec.bar.fieldHeight)};
+  height: ${live.fieldHeight};
   min-width: 0;
   padding: 0 ${px(spec.bar.selectPadX)};
   border: 1px solid var(--qd-ctl);
@@ -883,25 +921,25 @@ ${bind('light')}
   background: var(--qd-surface);
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.bar.fieldSize)};
+  font-size: ${live.fieldSize};
 }
 .qd-filter-input {
   flex: 1;
-  padding: 0 ${px(spec.bar.fieldPadX)} 0 ${px(spec.bar.fieldPadIcon)};
+  padding: 0 ${px(spec.bar.fieldPadX)} 0 ${live.fieldPadIcon};
 }
 .qd-filter-select { flex: 0 0 auto; }
 .qd-filter-submit {
   box-sizing: border-box;
   flex: 0 0 auto;
-  height: ${px(spec.bar.submitHeight)};
-  padding: 0 ${px(spec.bar.submitPadX)};
+  min-height: ${live.submitHeight};
+  padding: ${live.submitPadding};
   border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(tokens.radius.md)});
   background: transparent;
   /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 ${px(spec.bar.submitPadX)}(전에는 text · 16) */
   color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.bar.submitSize)};
+  font-size: ${live.submitSize};
   line-height: 1;
   cursor: pointer;
 }
@@ -1042,7 +1080,7 @@ a.qd-row:hover, button.qd-row:hover { background-color: ${spec.row.hoverBackgrou
   color: var(--_c);
   background: transparent;
   border: 1px solid ${mix(spec.tag.secondaryBorder)};
-  border-radius: ${px(spec.tag.radius)};
+  border-radius: ${qd.css(qd.property(Z.tagBox, 'borderRadius'))};
 }
 .qd-tag[data-hangul] {
   letter-spacing: 0;
@@ -1098,7 +1136,7 @@ writeFileSync(
     {
       $meta: {
         generatedBy: 'tools/extract-list.mjs',
-        source: 'source/components/components.tsx + source/tokens/tag-metrics.ts + source/css/globals.css',
+        source: 'source/components/components.tsx + source/tokens/tag-metrics.ts + source/css/globals.css + source/components/ListPager.tsx + source/components/ListToolbar.tsx + source/tokens/q-design-contract.ts + patterns/components.css',
         note: '손으로 고치지 마세요. 원본을 고치고 다시 돌리세요.',
       },
       ...spec,

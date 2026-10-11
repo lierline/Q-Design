@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { resolveStyleValues } from '@/lib/test-utils/design-source';
 
 // =============================================================================
 // 강조 배경 위 글자색 계약: components/** 에 흰 글자 리터럴 금지 (2026-09-03 · M-13)
@@ -68,7 +69,7 @@ function scan(): Record<string, { line: number; src: string }[]> {
   const byFile: Record<string, { line: number; src: string }[]> = {};
   for (const f of walk(join(ROOT, SCAN_DIR))) {
     const rel = f.slice(ROOT.length + 1).replace(/\\/g, '/');
-    const hits = whiteColorLines(readFileSync(f, 'utf8'));
+    const hits = whiteColorLines(resolveStyleValues(readFileSync(f, 'utf8')));
     if (hits.length) byFile[rel] = hits;
   }
   return byFile;

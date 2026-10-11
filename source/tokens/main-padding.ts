@@ -1,3 +1,4 @@
+import { QDPresentation } from './q-design-runtime';
 // =============================================================================
 // main-padding: 본문 스크롤 컨테이너의 padding SSOT
 // =============================================================================
@@ -17,4 +18,4 @@ export interface EdgePadding {
  * sticky 훅이 측정 전 첫 페인트의 기본값으로 씁니다.
  * 패드·폰은 app/globals.css 가 !important 로 덮으므로 측정으로만 알 수 있습니다.
  */
-export const MAIN_PADDING: EdgePadding = { top: 32, right: 40, bottom: 32, left: 40 };
+export const MAIN_PADDING: EdgePadding = QDPresentation.mainPadding;

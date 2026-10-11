@@ -1,4 +1,5 @@
-import { S, LH } from './tokens';
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+
 
 // =============================================================================
 // Tag 크기 규격 + 높이 계산 SSOT (2026-08-06)
@@ -19,7 +20,7 @@ import { S, LH } from './tokens';
 // ⚠️ 이 값들은 **시각 규격**이다. 바꾸면 픽셀이 실제로 움직인다(값 보존 아님).
 
 /** 테두리 두께(px): 상하 각 1px 이 높이에 더해진다 */
-export const TAG_BORDER = 1;
+export const TAG_BORDER = QDPresentation.visual.tag.border;
 
 /**
  * 크기별 규격. `padY`/`padX` 를 숫자로 분리해 둔 이유는 높이 계산에 padY 가
@@ -30,22 +31,18 @@ export const TAG_BORDER = 1;
  * 전에는 10 · 11 · 11.5 라 표 안의 «재평가 필요» · «높음» 배지가 가장 작은 글씨였다. 높이도 함께 올려
  * 높이를 정하는 쪽(xs · sm 은 minHeight, md 는 줄 높이)이 전과 같게 했다(tag-metrics.test).
  */
-export const TAG_DIMS = {
-  xs: { minH: 20, fs: 12, padY: 0, padX: 6, dotSize: 5, gap: S[1] },
-  sm: { minH: 24, fs: 12, padY: 2, padX: 8, dotSize: 6, gap: S[1] },
-  md: { minH: 28, fs: 13, padY: 4, padX: 10, dotSize: 7, gap: 5 },
-} as const;
+export const TAG_DIMS = QDPresentation.visual.tag.dims;
 
 export type TagSize = keyof typeof TAG_DIMS;
 
 /** 콘텐츠가 요구하는 높이. 이게 minHeight 를 넘으면 배지가 그만큼 커진다. */
-export function tagContentHeight(size: TagSize, lineHeight: number = LH.snug): number {
+export function tagContentHeight(size: TagSize, lineHeight: number = QDPresentation.visual.tag.lineHeight): number {
   const d = TAG_DIMS[size];
   return d.fs * lineHeight + d.padY * 2 + TAG_BORDER * 2;
 }
 
 /** 실제 렌더 높이 = max(minHeight, 콘텐츠 높이) */
-export function tagHeight(size: TagSize, lineHeight: number = LH.snug): number {
+export function tagHeight(size: TagSize, lineHeight: number = QDPresentation.visual.tag.lineHeight): number {
   return Math.max(TAG_DIMS[size].minH, tagContentHeight(size, lineHeight));
 }
 
@@ -53,6 +50,6 @@ export function tagHeight(size: TagSize, lineHeight: number = LH.snug): number {
  * 이 크기의 높이를 «무엇이» 결정하는가.
  * `'minHeight'` = 규격이 지배(안전) · `'lineHeight'` = 줄간격이 지배(LH 변경에 반응).
  */
-export function tagHeightDriver(size: TagSize, lineHeight: number = LH.snug): 'minHeight' | 'lineHeight' {
+export function tagHeightDriver(size: TagSize, lineHeight: number = QDPresentation.visual.tag.lineHeight): 'minHeight' | 'lineHeight' {
   return tagContentHeight(size, lineHeight) > TAG_DIMS[size].minH ? 'lineHeight' : 'minHeight';
 }

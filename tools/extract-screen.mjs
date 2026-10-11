@@ -31,15 +31,21 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { read, slice, probeAll, put, flat, assertFilled, bindingsBlock, px } from './probe.mjs';
+import { loadQdValues } from './qd-adapter-values.mjs';
+import { readRuntimeValues, readRuntimeTemplate } from './atelier-runtime-values.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 const OUT = join(ROOT, 'dist');
 const SRC = join(ROOT, 'source');
+const runtime = readRuntimeValues(ROOT);
 
 const comp = read(join(SRC, 'components', 'components.tsx'));
 const tokensTs = read(join(SRC, 'tokens', 'tokens.ts'));
 const tokens = JSON.parse(read(join(OUT, 'q-design.tokens.json')));
+const qd = loadQdValues(ROOT);
+const canonicalCss = read(join(ROOT, 'patterns', 'components.css'));
+const cssDimension = value => qd.pixels(JSON.stringify(value));
 
 /* 부품 하나를 먼저 자르고 그 안에서 다시 자릅니다 (extract-list.mjs 와 같은 이유). */
 const P = {
@@ -62,30 +68,37 @@ const spec = probeAll([
   // ── KPI 카드 ────────────────────────────────────────────────────────────
   ['kpi.padding',     Z.kpiBox,   /padding: '([^']+)',/, String],
   ['kpi.minHeight',   Z.kpiBox,   /minHeight: (\d+),/, Number],
-  ['kpi.labelSize',   Z.kpiLabel, /fontSize: FS\[(\d+)\],/, Number],
+  ['kpi.labelSize',   Z.kpiLabel, /fontSize: FS\[(\d+)\],/, qd.font],
   ['kpi.labelWeight', Z.kpiLabel, /fontWeight: (\d+),/, Number],
   ['kpi.labelTracking', Z.kpiLabel, /letterSpacing: labelTracking\(label, ([\d.]+)\),/, Number],
-  ['kpi.labelGapBelow', Z.kpiLabel, /marginBottom: S\[([\d.]+)\],/, Number],
+  ['kpi.labelGapBelow', Z.kpiLabel, /marginBottom: S\[([\d.]+)\],/, qd.step],
   // 값 크기: 2026-09-15 부터 clamp(최소px, 칸폭 % cqw, 최대 FS). 최대가 종전의 36 이다
-  ['kpi.valueMin',    Z.kpiValue, /fontSize: `clamp\((\d+)px, /, Number],
-  ['kpi.valueFluid',  Z.kpiValue, /px, ([\d.]+)cqw, /, Number],
-  ['kpi.valueSize',   Z.kpiValue, /cqw, \$\{FS\[(\d+)\]\}px\)`,/, Number],
+  ['kpi.valueMin',    Z.kpiValue, /fontSize: `clamp\((var\(--qd-kpi-min-size\)|[\d.]+px), /, cssDimension],
+  ['kpi.valueFluid',  Z.kpiValue, /, (var\(--qd-kpi-fluid-size\)|[\d.]+cqw), var\(--qd-kpi-size/, value => {
+    const resolved = qd.resolve(JSON.stringify(value));
+    if (!/^[\d.]+cqw$/.test(resolved)) throw new Error(`KPI fluid size must use cqw: ${resolved}`);
+    return Number(resolved.slice(0, -3));
+  }],
+  ['kpi.valueSize',   Z.kpiValue, /, (var\(--qd-kpi-size, \$\{FS\[\d+\]\}px\))\)`,/, value => qd.pixels('`' + value + '`')],
   ['kpi.valueWeight', Z.kpiValue, /fontWeight: (\d+),/, Number],
   ['kpi.valueLine',   Z.kpiValue, /lineHeight: ([\d.]+),/, Number],
   ['kpi.valueTracking', Z.kpiValue, /letterSpacing: '(-?[\d.]+em)',/, String],
-  ['kpi.subSize',     Z.kpiSub,   /fontSize: FS\[(\d+)\],/, Number],
-  ['kpi.subGapAbove', Z.kpiSub,   /marginTop: S\[([\d.]+)\],/, Number],
+  ['kpi.subSize',     Z.kpiSub,   /fontSize: FS\[(\d+)\],/, qd.font],
+  ['kpi.subGapAbove', Z.kpiSub,   /marginTop: S\[([\d.]+)\],/, qd.step],
   ['kpi.subMinHeight', Z.kpiSub,  /minHeight: (\d+),/, Number],
 
   // ── 작은 지표 (Stat) · KPI 의 조밀한 짝 ─────────────────────────────────
-  ['stat.labelSize',  Z.statLabel, /fontSize: FS\[(\d+)\],/, Number],
+  ['stat.labelSize',  Z.statLabel, /fontSize: FS\[(\d+)\],/, qd.font],
   ['stat.labelTracking', Z.statLabel, /letterSpacing: labelTracking\(label, '([\d.]+em)'\),/, String],
-  ['stat.labelGapBelow', Z.statLabel, /marginBottom: S\[([\d.]+)\],/, Number],
-  ['stat.valueSize',  Z.statValue, /fontSize: FS\[(\d+)\],/, Number],
+  ['stat.labelGapBelow', Z.statLabel, /marginBottom: S\[([\d.]+)\],/, qd.step],
+  ['stat.valueSize',  Z.statValue, /fontSize: FS\[(\d+)\],/, qd.font],
   ['stat.valueWeight', Z.statValue, /fontWeight: (\d+),/, Number],
   ['stat.gridMinCol', Z.statGrid, /minCol = (\d+)/, Number],
-  ['stat.gridGap',    Z.statGrid, /gap: S\[([\d.]+)\],/, Number],
+  ['stat.gridGap',    Z.statGrid, /gap: S\[([\d.]+)\],/, qd.step],
 ]);
+
+const kpiMinCss = Z.kpiValue.match(/fontSize: `clamp\((var\(--qd-kpi-min-size\)|[\d.]+px), /)[1];
+const kpiFluidCss = Z.kpiValue.match(/, (var\(--qd-kpi-fluid-size\)|[\d.]+cqw), var\(--qd-kpi-size/)[1];
 
 /*
  * ── 화면 머리 · 단추 · 입력칸 (2026-09-24 · docs/22) ───────────────────────
@@ -107,7 +120,7 @@ const H = {
 };
 Object.assign(H, {
   hdOuter: slice(H.pageHd, 'return (', '<style', 'PageHd.outer'),
-  hdCss: slice(H.pageHd, 'const responsiveCss = `', '`;', 'PageHd.css'),
+  hdCss: H.pageHd.includes('const responsiveCss = pageHeadingRules(headerClass);') ? readRuntimeTemplate(ROOT, 'pageHeadingRules') : slice(H.pageHd, 'const responsiveCss = `', '`;', 'PageHd.css'),
   hdRow: slice(H.pageHd, 'className={`${headerClass}-row`}', '<div style={{ minWidth', 'PageHd.row'),
   hdBar: slice(H.pageHd, '{accent && (', '{sub && (', 'PageHd.bar'),
   hdSub: slice(H.pageHd, '{sub && (', '<h1', 'PageHd.sub'),
@@ -118,36 +131,35 @@ Object.assign(H, {
 
 Object.assign(spec, probeAll([
   // ── 화면 머리 (PageHd) · 막대 → 부제 → 제목 → 하단선 ───────────────────
-  ['head.gapBelow',     H.hdOuter,   /marginBottom: S\[([\d.]+)\]/, Number],
-  ['head.rowGap',       H.hdRow,     /gap: S\[([\d.]+)\],/, Number],
-  ['head.actionsGap',   H.hdActions, /gap: S\[([\d.]+)\]/, Number],
+  ['head.gapBelow',     H.hdOuter,   /marginBottom: S\[([\d.]+)\]/, qd.step],
+  ['head.rowGap',       H.hdRow,     /gap: S\[([\d.]+)\],/, qd.step],
+  ['head.actionsGap',   H.hdActions, /gap: S\[([\d.]+)\]/, qd.step],
   ['head.barWidth',     H.hdBar,     /width: (\d+),/, Number],
   ['head.barHeight',    H.hdBar,     /height: ([\d.]+),/, Number],
-  ['head.barGapBelow',  H.hdBar,     /marginBottom: S\[([\d.]+)\],/, Number],
-  ['head.subSize',      H.hdSub,     /fontSize: FS\[(\d+)\],/, Number],
+  ['head.barGapBelow',  H.hdBar,     /marginBottom: S\[([\d.]+)\],/, qd.step],
+  ['head.subSize',      H.hdSub,     /fontSize: FS\[(\d+)\],/, qd.font],
   ['head.subTracking',  H.hdSub,     /letterSpacing: labelTracking\(sub, ([\d.]+)\),/, Number],
-  ['head.subGapBelow',  H.hdSub,     /marginBottom: S\[([\d.]+)\],/, Number],
-  ['head.titleMin',     H.hdCss,     /font-size:clamp\((\d+)px, /, Number],
-  ['head.titleFluid',   H.hdCss,     /px, ([\d.]+)vw, /, Number],
-  ['head.titleMax',     H.hdCss,     /vw, (\d+)px\)/, Number],
+  ['head.subGapBelow',  H.hdSub,     /marginBottom: S\[([\d.]+)\],/, qd.step],
+  ['head.titleSize',    H.hdCss,     /font-size:(var\(--qd-title-size, \d+px\))/, cssDimension],
   ['head.stackBp',      H.hdCss,     /max-width:\$\{BP\.(\w+) - 1\}px/, String],
   ['head.titleWeight',  H.hdTitle,   /fontWeight: (\d+),/, Number],
-  ['head.titleLine',    H.hdTitle,   /lineHeight: ([\d.]+),/, Number],
+  ['head.titleLine',    H.hdTitle,   /lineHeight: LH\.(heading),/, qd.leading],
   ['head.titleTracking', H.hdTitle,  /letterSpacing: '(-?[\d.]+em)',/, String],
-  ['head.ruleGapAbove', H.hdRule,    /marginTop: S\[([\d.]+)\],/, Number],
+  ['head.ruleGapAbove', H.hdRule,    /marginTop: S\[([\d.]+)\],/, qd.step],
 
   // ── 단추 (Btn · .qa-btn) · 주(면) 와 보조(테두리) 가 같은 상자 ────────────
-  ['btn.padding',       H.btn,       /padding: sm \? '[^']+' : '([^']+)',/, String],
-  ['btn.paddingSm',     H.btn,       /padding: sm \? '([^']+)' :/, String],
-  ['btn.minHeightSm',   H.btn,       /const minHeight = sm \? (\d+) : TOUCH\.min;/, Number],
-  ['btn.fontSize',      H.btn,       /fontSize: sm \? FS\[\d+\] : FS\[(\d+)\],/, Number],
-  ['btn.fontSizeSm',    H.btn,       /fontSize: sm \? FS\[(\d+)\] :/, Number],
+  ['btn.padding',       H.btn,       /padding: sm \? QD\.controlPaddingSm : (QD\.controlPadding),/, qd.css],
+  ['btn.paddingSm',     H.btn,       /padding: sm \? (QD\.controlPaddingSm) :/, qd.css],
+  ['btn.minHeightSm',   H.btn,       /const minHeight = sm \? (QD\.controlHeightSm) : QD\.controlHeight;/, qd.pixels],
+  ['btn.minHeight',     H.btn,       /const minHeight = sm \? QD\.controlHeightSm : (QD\.controlHeight);/, qd.pixels],
+  ['btn.fontSize',      H.btn,       /fontSize: (QD\.controlSize),/, qd.pixels],
+  ['btn.fontSizeSm',    H.btn,       /fontSize: (QD\.controlSize),/, qd.pixels],
   ['btn.tracking',      H.btn,       /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
   /* 2026-10-08 Btn pending(회전 표시) 안에도 gap 이 있어, 단추 자신의 gap(바로 뒤가 padding)만 잡는다 */
-  ['btn.gap',           H.btn,       /gap: S\[([\d.]+)\],\n\s*padding: sm \?/, Number],
+  ['btn.gap',           H.btn,       /gap: S\[([\d.]+)\],\n\s*padding: sm \?/, qd.step],
   ['btn.weight',        H.btn,       /fontWeight: (\d+),/, Number],
   ['btn.disabledOpacity', H.btn,     /opacity: disabled \? ([\d.]+) : 1,/, Number],
-  ['btn.radius',        H.qaBtn,     /border-radius: (\d+)px;/, Number],
+  ['btn.radius',        H.qaBtn,     /border-radius: (var\(--qd-radius, \d+px\));/, cssDimension],
   ['btn.hoverOpacity',  H.qaBtnHover, /opacity: ([\d.]+);/, Number],
   ['btn.focusOutline',  H.qaBtnFocus, /outline: (\d+)px solid var\(--qa-champagne\);/, Number],
   ['btn.focusOffset',   H.qaBtnFocus, /outline-offset: (\d+)px;/, Number],
@@ -155,27 +167,25 @@ Object.assign(spec, probeAll([
   ['btn.focusRingMix',  H.qaBtnFocus, /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
 
   // ── 입력칸 (In · Sel · .qa-input) ─────────────────────────────────────────
-  ['input.padding',     H.input,     /padding: '([^']+)',/, String],
-  ['input.fontSize',    H.input,     /fontSize: FS\[(\d+)\],/, Number],
-  ['input.radius',      H.qaInput,   /border-radius: (\d+)px;/, Number],
+  ['input.padding',     H.input,     /padding: (`\$\{QD\.space2\} \$\{QD\.space3\}`),/, qd.css],
+  ['input.minHeight',   H.input,     /minHeight: (QD\.controlHeight),/, qd.pixels],
+  ['input.fontSize',    H.input,     /fontSize: (QD\.controlSize),/, qd.pixels],
+  ['input.radius',      H.qaInput,   /border-radius: (var\(--qd-radius, \d+px\));/, cssDimension],
   ['input.focusRing',   H.qaInputFocus, /box-shadow: 0 0 0 (\d+)px color-mix/, Number],
   ['input.focusRingMix', H.qaInputFocus, /var\(--qa-champagne\) (\d+)%, transparent\)/, Number],
 ]));
 {
-  const m = tokensTs.match(/export const TOUCH = \{\s*min: (\d+),/);
-  if (!m) throw new Error('TOUCH.min 을 못 찾았습니다.');
-  put(spec, 'btn.minHeight', Number(m[1]));
-  const bp = tokensTs.match(new RegExp(`export const BP = \\{[\\s\\S]*?\\b${spec.head.stackBp}: (\\d+),`));
-  if (!bp) throw new Error(`BP.${spec.head.stackBp} 를 못 찾았습니다.`);
-  put(spec, 'head.stackBelow', Number(bp[1]) - 1);
+  const bp = runtime.BP[spec.head.stackBp];
+  if (!Number.isFinite(bp)) throw new Error(`BP.${spec.head.stackBp} 를 못 찾았습니다.`);
+  put(spec, 'head.stackBelow', bp - 1);
 }
 /* 원본이 말하는 색이 정본 변수와 같은 뜻인지 확인합니다. 다르면 이름을 잘못 잇게 됩니다 */
 for (const [what, zone, re] of [
-  ['주 단추 면 = 글자색', H.btn, /: p \? T\.text : 'transparent',/],
-  ['주 단추 글자 = 바탕색', H.btn, /: p \? T\.bg : T\.subtle,/],
-  ['보조 단추 테두리 = 조작 윤곽(CTL)', H.btn, /: `1px solid \$\{CTL\}`,/],
-  ['입력칸 바탕 = surface', H.input, /background: T\.surface,/],
-  ['입력칸 테두리 = 조작 윤곽(CTL)', H.input, /border: `1px solid \$\{CTL\}`,/],
+  ['주 단추 면 = 글자색', H.btn, /: p \? QD\.text : 'transparent',/],
+  ['주 단추 글자 = 바탕색', H.btn, /: p \? QD\.bg : QD\.subtle,/],
+  ['보조 단추 테두리 = 조작 윤곽(CTL)', H.btn, /: `1px solid \$\{QD\.ctl\}`,/],
+  ['입력칸 바탕 = surface', canonicalCss, /\.qd-input\s*\{[^}]*background:\s*var\(--qd-surface\)/],
+  ['입력칸 테두리 = 조작 윤곽(CTL)', H.input, /border: `1px solid \$\{QD\.ctl\}`,/],
   ['입력칸 초점 = champagne 테두리 · surface2 바탕', H.qaInputFocus, /border-color: var\(--qa-champagne\)[^;]*;\s*background-color: var\(--qa-surface2\);/],
   ['보조 단추 올림 = muted', gcss, /\.qa-btn-secondary:hover:not\(:disabled\) \{\s*border-color: var\(--qa-muted\);/],
 ]) {
@@ -183,41 +193,49 @@ for (const [what, zone, re] of [
 }
 /* 좁은 화면의 입력칸 글자 · 손가락 기기의 단추 높이 (원본 globals.css) */
 {
-  const narrow = slice(gcss, '@media (max-width: 1023px) {\n  .qa-input,', '}\n}', 'qa-input narrow');
-  const m1 = narrow.match(/font-size: (\d+)px !important;/);
+  const narrow = slice(gcss, `@media (max-width: ${runtime.BP.lg - 1}px) {\n  .qa-input,`, '}\n}', 'qa-input narrow');
+  const m1 = narrow.match(/font-size: (var\(--qd-control-size, \d+px\)) !important;/);
   if (!m1) throw new Error('좁은 화면 입력칸 글자 크기를 못 찾았습니다.');
-  put(spec, 'input.fontSizeNarrow', Number(m1[1]));
-  put(spec, 'input.narrowBelow', 1023);
+  put(spec, 'input.fontSizeNarrow', cssDimension(m1[1]));
+  put(spec, 'input.narrowBelow', runtime.BP.lg - 1);
   const touch = slice(gcss, '@media (hover: none) and (pointer: coarse) {\n  .qa-btn,', '}\n}', 'qa-btn touch');
   /* 2026-09-27 원본이 이 규칙에 !important 를 붙였다(인라인 style 에 져서 한 번도 안 걸리던 터치 44).
      같은 블록에 입력칸 · 작은 조작부의 44 도 들어와, 단추 규칙 하나를 짚어 읽는다 */
-  const m2 = touch.match(/\.qa-btn-secondary \{\s*min-height: (\d+)px(?: !important)?;/);
-  if (!m2 || Number(m2[1]) !== spec.btn.minHeight) throw new Error('손가락 기기 단추 높이가 TOUCH.min 과 다릅니다.');
+  const m2 = touch.match(/\.qa-btn-secondary \{\s*min-height: (var\(--qd-control-height, \d+px\)) !important;/);
+  if (!m2 || cssDimension(m2[1]) < tokens.space.touch.min) throw new Error('손가락 기기 단추 높이가 TOUCH.min 보다 작습니다.');
 }
 
 /* 모서리는 RADIUS.md(10) 하나입니다 (docs/05 · 오너 결정 2026-09-24 「작은 조작부도 전부 10」) */
 for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radius]]) {
-  if (v !== tokens.radius.md) throw new Error(`${k} 모서리 ${v} 가 RADIUS.md(${tokens.radius.md}) 와 다릅니다.`);
+  if (v !== qd.pixels('QD.radius')) throw new Error(`${k} 모서리가 Q-Design 정본과 다릅니다.`);
 }
 
-/* 셸 폭. tokens.ts 의 LAYOUT 이 SSOT 입니다. */
+/* The Q-Design numeric UI contract owns shell widths. */
 {
-  const block = slice(tokensTs, 'export const LAYOUT = {', '} as const;', 'LAYOUT');
-  for (const m of block.matchAll(/(\w+): (\d+),/g)) put(spec, `shell.${m[1]}`, Number(m[2]));
+  for (const [name, value] of Object.entries(runtime.LAYOUT)) put(spec, `shell.${name}`, value);
   for (const k of ['mobile', 'form', 'detail', 'wide']) {
     if (!spec.shell?.[k]) throw new Error(`셸 폭 ${k} 를 못 읽었습니다.`);
   }
 }
 
-/* 본문 여백. main-padding.ts 가 SSOT 입니다. */
+/* 본문 여백은 제품 어댑터가 읽는 중앙 숫자 계약을 추출합니다. */
 {
   const mp = read(join(SRC, 'tokens', 'main-padding.ts'));
+  if (/import\s*\{\s*QDPresentation\s*\}\s*from\s*['"]\.\/q-design-runtime['"]/.test(mp)
+    && /MAIN_PADDING: EdgePadding = QDPresentation\.mainPadding;/.test(mp)) {
+    for (const edge of ['top', 'right', 'bottom', 'left']) {
+      const value = runtime.QDPresentation?.mainPadding?.[edge];
+      if (!Number.isFinite(value) || value < 0) throw new Error(`Invalid central main padding: ${edge}`);
+      put(spec, `main.${edge}`, value);
+    }
+  } else {
   const m = mp.match(/MAIN_PADDING: EdgePadding = \{ top: (\d+), right: (\d+), bottom: (\d+), left: (\d+) \}/);
   if (!m) throw new Error('MAIN_PADDING 을 못 찾았습니다.');
   put(spec, 'main.top', Number(m[1]));
   put(spec, 'main.right', Number(m[2]));
   put(spec, 'main.bottom', Number(m[3]));
   put(spec, 'main.left', Number(m[4]));
+  }
 }
 
 /*
@@ -230,13 +248,13 @@ for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radi
   const audit = read(join(SRC, 'screens', 'audit-page.tsx'));
   /* 칸 수는 화면이 정합니다. 2026-09-27 화면 검토(A18)가 이 화면의 KPI 를 넷에서 둘로 줄였고(세지 못하는
      «종류» 칸을 뺐다) 칸 폭 · 간격(180 · 14)은 그대로라, 칸 수를 못 박지 않고 폭과 간격만 읽습니다. */
-  const m = audit.match(/<Grid cols=\{\d+\} minCol=\{(\d+)\} gap=\{(\d+)\}/);
+  const m = audit.match(/<Grid cols=\{\d+\} minCol=\{(\d+)\} gap=\{(\d+|S\[[\d.]+\])\}/);
   if (!m) throw new Error('KPI 격자 값을 못 찾았습니다 (source/screens/audit-page.tsx).');
   put(spec, 'kpi.gridMinCol', Number(m[1]));
-  put(spec, 'kpi.gridGap', Number(m[2]));
+  put(spec, 'kpi.gridGap', qd.pixels(m[2]));
 }
 
-put(spec, 'panel.radius', tokens.radius.md);
+put(spec, 'panel.radius', qd.pixels('QD.radius'));
 
 /*
  * ── 2차 탭 · 구역 이름 · 칸 이름표 (2026-09-24 · docs/22 10절) ────────────────
@@ -248,24 +266,24 @@ put(spec, 'panel.radius', tokens.radius.md);
 {
   const tabsSrc = read(join(SRC, 'components', 'PageTabs.tsx'));
   const Q = {
-    tabsRow: slice(tabsSrc, '<div role="tablist"', '>', 'PageTabs.row'),
+    tabsRow: slice(tabsSrc, '<div className="qd-tabs" role="tablist"', '>', 'PageTabs.row'),
     tab: slice(tabsSrc, 'role="tab" aria-selected={on}', '}}>', 'PageTabs.tab'),
     section: slice(comp, '// ─── SECTION TITLE ──', '// ─── SECTION (', 'SectionTitle'),
     field: slice(comp, 'export function Lbl({', '// ─── INPUT', 'Lbl'),
   };
   const got = probeAll([
-    ['tabs.gapBelow',   Q.tabsRow, /marginBottom: S\[([\d.]+)\]/, Number],
+    ['tabs.gapBelow',   Q.tabsRow, /marginBottom: S\[([\d.]+)\]/, qd.step],
     ['tabs.padding',    Q.tab,     /padding: '([^']+)',/, String],
     ['tabs.barWidth',   Q.tab,     /borderBottom: on \? `(\d+)px solid \$\{T\.champagne\}`/, Number],
-    ['tabs.fontSize',   Q.tab,     /fontSize: FS\[(\d+)\],/, Number],
+    ['tabs.fontSize',   Q.tab,     /fontSize: (QD\.controlSize),/, qd.pixels],
     ['tabs.weightOn',   Q.tab,     /fontWeight: on \? (\d+) : \d+,/, Number],
     ['tabs.weightOff',  Q.tab,     /fontWeight: on \? \d+ : (\d+),/, Number],
-    ['section.fontSize', Q.section, /fontSize: FS\[(\d+)\],/, Number],
+    ['section.fontSize', Q.section, /fontSize: (QD\.sectionSize),/, qd.pixels],
     ['section.gapBelow', Q.section, /marginBottom: noMargin \? 0 : (\d+),/, Number],
     ['section.weight',   Q.section, /fontWeight: (\d+),/, Number],
-    ['field.fontSize',  Q.field,   /fontSize: FS\[(\d+)\],/, Number],
+    ['field.fontSize',  Q.field,   /fontSize: (QD\.captionSize),/, qd.pixels],
     ['field.tracking',  Q.field,   /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
-    ['field.gapBelow',  Q.field,   /marginBottom: (\d+),/, Number],
+    ['field.gapBelow',  Q.field,   /marginBottom: (["']var\(--qd-field-gap\)["']|\d+),/, qd.pixels],
     ['field.weight',    Q.field,   /fontWeight: (\d+),/, Number],
   ]);
   Object.assign(spec, got);
@@ -277,8 +295,8 @@ put(spec, 'panel.radius', tokens.radius.md);
    */
   {
     const bodyBlock = slice(gcss, 'body {\n  background: var(--qa-bg);', '\n}', 'globals.body');
-    if (!/line-height: var\(--qa-lh-relaxed\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
-    const relaxed = tokens.typography.lineHeight.relaxed;
+    if (!/line-height: var\(--qd-leading-relaxed, var\(--qa-lh-relaxed\)\);/.test(bodyBlock)) throw new Error('원본 본문 줄간격이 더는 --qa-lh-relaxed 가 아닙니다.');
+    const relaxed = qd.leading('relaxed');
     if (typeof relaxed !== 'number') throw new Error('LH.relaxed 를 토큰에서 못 읽었습니다.');
     put(spec, 'body.lineHeight', relaxed);
     /* 🔴 선택자 목록 사이 주석에 `}}` 가 있어 앞에서 자르면 거기서 끝난다. 선언 직전 선택자부터 자른다 */
@@ -309,8 +327,11 @@ put(spec, 'panel.radius', tokens.radius.md);
 }
 
 assertFilled(spec);
-if (spec.kpi.valueSize !== 36) throw new Error(`KPI 숫자 크기가 바뀌었습니다: ${spec.kpi.valueSize}`);
-if (spec.shell.detail !== 820) throw new Error(`상세 폭이 바뀌었습니다: ${spec.shell.detail}`);
+if (spec.kpi.valueSize < spec.kpi.valueMin) throw new Error('KPI 최대 크기가 최소 크기보다 작습니다.');
+for (const [name, value] of Object.entries(spec.shell)) {
+  if (!Number.isFinite(value) || value <= 0 || value !== runtime.LAYOUT[name]) throw new Error(`Invalid central shell width: ${name}`);
+}
+if (!(spec.shell.mobile <= spec.shell.form && spec.shell.form <= spec.shell.detail && spec.shell.detail <= spec.shell.wide)) throw new Error('Central shell widths must increase from mobile to wide.');
 
 // ── CSS ──────────────────────────────────────────────────────────────────────
 /* 이름은 차림표 · 목록 정본과 같게 둡니다(borderHi · danger). 한 변수를 두 이름으로 부르면 제품이 둘 다 이어야 합니다 */
@@ -416,7 +437,7 @@ ${bind('light')}
   display: flex;
   align-items: center;
   /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 ${px(spec.kpi.valueSize)} 그대로 */
-  font-size: clamp(${px(spec.kpi.valueMin)}, ${spec.kpi.valueFluid}cqw, ${px(spec.kpi.valueSize)});
+  font-size: clamp(${kpiMinCss}, ${kpiFluidCss}, var(--qd-kpi-size, ${px(spec.kpi.valueSize)}));
   font-weight: ${spec.kpi.valueWeight};
   line-height: ${spec.kpi.valueLine};
   letter-spacing: ${spec.kpi.valueTracking};
@@ -502,7 +523,7 @@ ${bind('light')}
 .qd-section-title {
   margin: 0 0 ${px(spec.section.gapBelow)};
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.section.fontSize)};
+  font-size: ${qd.css('QD.sectionSize')};
   font-weight: ${spec.section.weight};
   line-height: 1.35;
   color: var(--qd-text);
@@ -532,7 +553,7 @@ main, [role='dialog'] { counter-reset: qd-sec; }
   display: block;
   margin-bottom: ${px(spec.field.gapBelow)};
   font-family: var(--qd-font-mono);
-  font-size: ${px(spec.field.fontSize)};
+  font-size: ${qd.css('QD.captionSize')};
   font-weight: ${spec.field.weight};
   line-height: ${spec.body.lineHeight};
   letter-spacing: ${px(spec.field.tracking)};
@@ -573,7 +594,8 @@ main, [role='dialog'] { counter-reset: qd-sec; }
   background: none;
   color: var(--qd-muted);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.tabs.fontSize)};
+  min-height: ${qd.css('QD.controlHeight')};
+  font-size: ${qd.css('QD.controlSize')};
   font-weight: ${spec.tabs.weightOff};
   line-height: ${spec.body.lineHeight};
   text-decoration: none;
@@ -650,7 +672,7 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 .qd-page-head-title {
   margin: 0;
   font-family: var(--qd-font-ui);
-  font-size: clamp(${px(spec.head.titleMin)}, ${spec.head.titleFluid}vw, ${px(spec.head.titleMax)});
+  font-size: ${qd.css('QD.titleSize')};
   font-weight: ${spec.head.titleWeight};
   line-height: ${spec.head.titleLine};
   letter-spacing: ${spec.head.titleTracking};
@@ -679,12 +701,12 @@ main, [role='dialog'] { counter-reset: qd-sec; }
   align-items: center;
   justify-content: center;
   gap: ${px(spec.btn.gap * 4)};
-  min-height: ${px(spec.btn.minHeight)};
+  min-height: ${qd.css('QD.controlHeight')};
   padding: ${spec.btn.padding};
   border: 1px solid transparent;
   border-radius: var(--qd-radius-control, ${px(spec.btn.radius)});
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.btn.fontSize)};
+  font-size: ${qd.css('QD.controlSize')};
   font-weight: ${spec.btn.weight};
   line-height: 1;
   letter-spacing: 0;
@@ -694,7 +716,7 @@ main, [role='dialog'] { counter-reset: qd-sec; }
   transition: opacity ${tokens.motion.fast}, border-color ${tokens.motion.fast}, color ${tokens.motion.fast}, transform 0.05s ease;
 }
 .qd-btn[data-latin] { letter-spacing: ${px(spec.btn.tracking)}; text-transform: uppercase; }
-.qd-btn--sm { min-height: ${px(spec.btn.minHeightSm)}; padding: ${spec.btn.paddingSm}; font-size: ${px(spec.btn.fontSizeSm)}; }
+.qd-btn--sm { min-height: ${qd.css('QD.controlHeightSm')}; padding: ${spec.btn.paddingSm}; font-size: ${qd.css('QD.controlSize')}; }
 .qd-btn--primary { background: var(--qd-text); color: var(--qd-bg); }
 .qd-btn--primary:hover:not(:disabled) { opacity: ${spec.btn.hoverOpacity}; }
 .qd-btn--primary:active:not(:disabled) { transform: translateY(1px); }
@@ -711,7 +733,7 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 }
 /* 손가락 기기에서는 작은 단추도 ${spec.btn.minHeight}px (WCAG 2.2) */
 @media (hover: none) and (pointer: coarse) {
-  .qd-btn--sm { min-height: ${px(spec.btn.minHeight)}; }
+  .qd-btn--sm { min-height: max(${tokens.space.touch.min}px, ${qd.css('QD.controlHeight')}); }
 }
 
 /* ── 입력칸 ────────────────────────────────────────────────────────────────
@@ -721,12 +743,13 @@ main, [role='dialog'] { counter-reset: qd-sec; }
   box-sizing: border-box;
   width: 100%;
   padding: ${spec.input.padding};
+  min-height: ${qd.css('QD.controlHeight')};
   background: var(--qd-surface);
   border: 1px solid var(--qd-ctl);
   border-radius: var(--qd-radius-control, ${px(spec.input.radius)});
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: ${px(spec.input.fontSize)};
+  font-size: ${qd.css('QD.controlSize')};
   /* 원본 입력칸은 줄간격을 적지 않아 브라우저 기본값(normal)으로 그려집니다(높이 36~37).
      Tailwind preflight 를 쓰는 제품은 본문 줄간격(1.5~1.7)을 물려받아 42 · 44 로 커졌습니다 (2026-09-24) */
   line-height: normal;
@@ -746,7 +769,7 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 .qd-input[readonly] { color: var(--qd-muted); cursor: default; }
 .qd-input[aria-invalid='true'] { border-color: var(--qd-danger); }
 @media (max-width: ${px(spec.input.narrowBelow)}) {
-  .qd-input { font-size: ${px(spec.input.fontSizeNarrow)}; }
+  .qd-input { font-size: ${qd.css('QD.controlSize')}; }
 }
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────
@@ -786,7 +809,7 @@ writeFileSync(
     {
       $meta: {
         generatedBy: 'tools/extract-screen.mjs',
-        source: 'source/components/components.tsx + source/tokens/tokens.ts + source/tokens/main-padding.ts + patterns/workspace.css',
+        source: 'source/components/components.tsx + source/tokens/tokens.ts + source/tokens/main-padding.ts + source/tokens/q-design-contract.ts + patterns/components.css + patterns/workspace.css',
         note: '손으로 고치지 마세요. 원본을 고치고 다시 돌리세요.',
       },
       ...spec,

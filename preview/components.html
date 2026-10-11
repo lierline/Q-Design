@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Q Design · 세 제품 컴포넌트</title>
+  <link rel="stylesheet" href="../dist/q-design.fonts.css">
+  <link rel="stylesheet" href="../dist/q-design.tokens.css">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:var(--qa-bg);color:var(--qa-text);font:14px/1.6 'Pretendard Variable',sans-serif}main{max-width:1440px;margin:auto;padding:40px 24px}header{padding-bottom:24px;border-bottom:1px solid var(--qa-borderHi)}.eyebrow{color:var(--qa-champagne);font:12px 'JetBrains Mono',monospace}h1{font-size:28px;line-height:1.3;margin:12px 0}p{color:var(--qa-subtle);margin:8px 0}a{color:var(--qa-champagne);text-underline-offset:4px}.controls{display:flex;flex-wrap:wrap;gap:20px;align-items:end;padding:24px 0}label{display:grid;gap:6px;font-size:12px;color:var(--qa-subtle)}select,button{min-height:44px;border:1px solid var(--qa-ctl);border-radius:10px;background:var(--qa-surface);color:var(--qa-text);padding:8px 14px;font:inherit}button{cursor:pointer}input[type=range]{height:32px;accent-color:var(--qa-champagne)}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--qa-champagne);outline-offset:3px}.products{display:flex;align-items:start;gap:20px;overflow:auto;padding-bottom:20px}.product{flex:none;width:375px}.product>div{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.product h2{font-size:16px;margin:0}.product span{font:12px 'JetBrains Mono',monospace;color:var(--qa-muted)}iframe{display:block;width:100%;height:860px;border:1px solid var(--qa-borderHi);border-radius:10px;background:var(--qa-surface)}.note{font-size:12px;max-width:760px}output{font-variant-numeric:tabular-nums}@media(max-width:640px){main{padding:24px 16px}h1{font-size:22px}.products{margin-right:-16px}.product{width:375px}}
+  </style>
+</head>
+<body>
+<main>
+  <header><h1>세 제품, 하나의 디자인 규칙</h1><p>배경과 로그인부터 업무 컴포넌트까지 같은 조건에서 비교합니다.</p><p class="note"><a href="../docs/35-foundation-rules.md">전체 디자인 규칙</a> · <a href="../docs/34-foundation-reference-study.md">공식 디자인 참고 사례</a> · <a href="../docs/29-component-registry.md">공용 부품 역할표</a></p></header>
+  <div class="controls" aria-label="비교 조건">
+    <label>밝기<select id="theme"><option value="light">밝은 화면</option><option value="dark">어두운 화면</option></select></label>
+    <label>비교 화면<select id="mode"><option value="components">같은 역할의 컴포넌트</option><option value="product">제품별 업무 예시</option><option value="auth">배경과 로그인</option></select></label>
+    <label>화면 폭<select id="width"><option value="375">375px</option><option value="412">412px</option><option value="1024">1024px</option><option value="1440">1440px</option></select></label>
+    <label>공통 모서리 <output id="radius-value">10px</output><input id="radius" type="range" min="0" max="20" value="10"></label>
+    <label>입력·버튼 글자 <output id="type-value">13px</output><input id="type" type="range" min="12" max="18" value="13"></label>
+    <button id="reset" type="button">기준값으로</button>
+  </div>
+  <details><summary>전체 공통 인자 조정</summary><div class="controls"><label>디자인 인자<select id="parameter" aria-label="디자인 인자"></select></label><label>값<input id="parameter-value" style="min-height:44px;padding:8px 12px;width:300px;font:inherit" aria-label="디자인 인자 값"></label><button id="parameter-apply" type="button">세 제품에 미리 적용</button><output id="parameter-status" aria-live="polite"></output></div></details>
+  <p class="note">슬라이더는 이 검토 화면에서만 공통 변수를 바꿉니다. 제품에 저장하지 않습니다. 안쪽 화면에서 입력, 선택, 대화상자와 상세 패널을 직접 사용할 수 있습니다.</p>
+  <section class="products" aria-label="제품별 실제 부품">
+    <article class="product"><div><h2>Q-Atelier</h2><span>은색</span></div><iframe title="아뜰리에 실제 컴포넌트" data-product="atelier" data-view="matched" src="components/atelier/?theme=light&view=matched"></iframe></article>
+    <article class="product"><div><h2>Q-Maison</h2><span>샴페인 골드</span></div><iframe title="메종 실제 컴포넌트" data-product="maison" data-view="matched" src="components/maison/?theme=light&view=matched"></iframe></article>
+    <article class="product"><div><h2>Q-Carnet</h2><span>구리색</span></div><iframe title="카르넷 실제 컴포넌트" data-product="carnet" data-view="matched" src="components/carnet/?theme=light&view=matched"></iframe></article>
+  </section>
+  <p class="note">예시 데이터로 구성했습니다. 업무 데이터·권한·저장과 인쇄 전체의 검증 결과는 감사 기록의 범위를 확인하십시오.</p>
+</main>
+<script>
+  const frames=[...document.querySelectorAll('iframe')],theme=document.getElementById('theme'),width=document.getElementById('width'),radius=document.getElementById('radius'),type=document.getElementById('type'),mode=document.getElementById('mode');
+  const custom=new Map();
+  function apply(){document.documentElement.dataset.theme=theme.value;document.querySelectorAll('.product').forEach(e=>e.style.width=width.value+'px');for(const frame of frames){const view=mode.value==='components'?'matched':'gallery';if(frame.dataset.view!==view){frame.dataset.view=view;frame.src='components/'+frame.dataset.product+'/?theme='+theme.value+'&view='+view;continue;}const doc=frame.contentDocument,root=doc?.documentElement;if(!root||!doc.body)continue;root.dataset.theme=theme.value;root.classList.toggle('dark',theme.value==='dark');for(const [key,value]of custom)root.style.setProperty(key,value);doc.body.classList.toggle('qd-auth-only',mode.value==='auth');if(!doc.getElementById('qd-auth-preview')){const s=doc.createElement('style');s.id='qd-auth-preview';s.textContent='body.qd-auth-only{overflow:hidden}body.qd-auth-only .qd-audit-shell{visibility:hidden}body.qd-auth-only [data-testid="foundation-auth"]{display:block;visibility:visible;position:fixed;inset:0;z-index:20000;width:100vw;height:100dvh;max-width:none;margin:0;overflow:auto;background:var(--qd-auth-background)}body.qd-auth-only [data-testid="foundation-auth"] *{visibility:visible}';doc.head.append(s);}}const first=frames.find(frame=>frame.contentDocument?.body);if(first){const styles=first.contentWindow.getComputedStyle(first.contentDocument.documentElement);for(const [control,key,output]of [[radius,'--qd-radius','radius-value'],[type,'--qd-control-size','type-value']]){const actual=styles.getPropertyValue(key).trim();if(Number.isFinite(parseFloat(actual)))control.value=parseFloat(actual);document.getElementById(output).value=actual;}}}
+  for(const frame of frames)frame.addEventListener('load',apply);
+  for(const control of [theme,width,mode])control.addEventListener('input',apply);
+  for(const [control,key]of [[radius,'--qd-radius'],[type,'--qd-control-size']])control.addEventListener('input',()=>{custom.set(key,control.value+'px');apply();});
+  document.getElementById('reset').addEventListener('click',()=>{for(const frame of frames)for(const key of custom.keys())frame.contentDocument?.documentElement.style.removeProperty(key);custom.clear();apply();document.getElementById('parameter-status').textContent='기준값으로 복원했습니다.';});
+  const parameter=document.getElementById('parameter'),value=document.getElementById('parameter-value'),status=document.getElementById('parameter-status'),defaults=new Map();
+  Promise.all(['../patterns/components.css','../patterns/foundation.css'].map(url=>fetch(url).then(r=>{if(!r.ok)throw new Error('인자를 읽지 못했습니다.');return r.text();}))).then(sources=>{for(const source of sources){const root=source.match(/:root\s*\{([^}]+)\}/)?.[1]||'';for(const [,key,val]of root.matchAll(/(--qd-[\w-]+)\s*:\s*([^;]+);/g))defaults.set(key,val.trim());}for(const [key]of [...defaults].sort()){const option=document.createElement('option');option.value=key;option.textContent=key;parameter.append(option);}parameter.value='--qd-auth-form-width';value.value=defaults.get(parameter.value);status.textContent=defaults.size+'개 공통 인자를 읽었습니다.';}).catch(error=>status.textContent=error.message);
+  parameter.addEventListener('change',()=>value.value=custom.get(parameter.value)||defaults.get(parameter.value)||'');
+  document.getElementById('parameter-apply').addEventListener('click',()=>{if(!defaults.has(parameter.value)||/[;{}]/.test(value.value)||!value.value.trim()){status.textContent='올바른 CSS 값 하나를 입력하십시오.';return;}custom.set(parameter.value,value.value.trim());apply();status.textContent='세 제품의 검토 화면에 적용했습니다.';});
+</script>
+</body>
+</html>

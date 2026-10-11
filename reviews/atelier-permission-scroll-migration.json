@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "scope": "Permission matrix presentation only: bounded internal scrolling with opaque sticky headers. Roles, permission getters, row labels, authentication and print scaling are unchanged.",
+  "records": [
+    {
+      "path": "app/(app)/admin/permissions-matrix/page.tsx",
+      "beforeHash": "70831c062db15bcb2f9f308a702b79d68dc8333bb4dd88a71da1d6be52f1c3c0",
+      "afterHash": "f8349d8e107640dc0dd46b6ffb133efb8afca45644aa5b8530a498c2b816f2b4",
+      "edits": [
+        {
+          "start": 10895,
+          "before": "<ScrollTable minWidth={QDPresentation.commonDefaults.permissionLabelWidth + ROLE_ORDER.length * QDPresentation.commonDefaults.permissionRoleWidth + QDPresentation.commonDefaults.permissionGutterWidth} stickyFirstCol>",
+          "after": "<ScrollTable minWidth={QDPresentation.commonDefaults.permissionLabelWidth + ROLE_ORDER.length * QDPresentation.commonDefaults.permissionRoleWidth + QDPresentation.commonDefaults.permissionGutterWidth} stickyFirstCol tall>"
+        },
+        {
+          "start": 11167,
+          "before": "<div",
+          "after": "<div className=\"qd-table-scroll-header\""
+        },
+        {
+          "start": 11778,
+          "before": "              position: 'sticky',\r\n              top: \"var(--qd-atelier-top-13ae86191f)\",\r\n              background: T.surface,\r\n              zIndex: \"var(--qd-atelier-z-index-8fc771a8bb)\",\r\n",
+          "after": ""
+        },
+        {
+          "start": 15919,
+          "before": "<ScrollTable minWidth={QDPresentation.commonDefaults.permissionLabelWidth + ROLE_ORDER.length * QDPresentation.commonDefaults.permissionRoleWidth + QDPresentation.commonDefaults.permissionGutterWidth} stickyFirstCol>",
+          "after": "<ScrollTable minWidth={QDPresentation.commonDefaults.permissionLabelWidth + ROLE_ORDER.length * QDPresentation.commonDefaults.permissionRoleWidth + QDPresentation.commonDefaults.permissionGutterWidth} stickyFirstCol tall>"
+        },
+        {
+          "start": 16152,
+          "before": "<div",
+          "after": "<div className=\"qd-table-scroll-header\""
+        }
+      ]
+    }
+  ]
+}

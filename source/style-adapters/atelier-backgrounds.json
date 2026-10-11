@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "canonical": "patterns/foundation/atelier-backgrounds.tsx",
+  "product": "lib/design/q-design-backgrounds.tsx",
+  "rule": "Approved SVG paths, gradients, motion and wrapper output are preserved byte-for-byte in static React markup. Central source owns all artwork values. Theme colors continue through the existing central palette aliases.",
+  "baseline": {
+    "components/EntranceRibbon.tsx": {
+      "sourceHash": "e4e17bb0b1392328bc388a9bb303a853ee4e5aaccb088a3b80f9220ac2f9fb69",
+      "rendered": [
+        {
+          "props": {},
+          "hash": "0e52e9bc1831ce5378112b587fb70cf2c991d4c5cb77f052c3b432ccec04f4fb"
+        }
+      ]
+    },
+    "components/RibbonBackground.tsx": {
+      "sourceHash": "7f1340d761ff33ac2562a1ce425c9d0ba45bc3bddadd6bb52b6270f9390c77fe",
+      "rendered": [
+        {
+          "props": {},
+          "hash": "2ead058af5ad730ad7377615a7a9dcfabdfe5373984580ef02f5a02184069ff5"
+        },
+        {
+          "props": {
+            "intensity": "ambient",
+            "vignette": true
+          },
+          "hash": "60b492ddd34b49cf75a01280407506e242cf4d0a1511e727e5cbc71cf06e987e"
+        }
+      ]
+    }
+  }
+}

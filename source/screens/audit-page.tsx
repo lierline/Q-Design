@@ -3,6 +3,8 @@
 // =============================================================================
 // owner / admin 만 접근. 평가, 검토, 멤버 활동, 시스템 이벤트 로그 표시.
 
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import {
@@ -31,6 +33,7 @@ import { actionLabel, humanizeAuditSummary } from '@/lib/audit-labels';
 import { AuditFilterBar } from './filter-bar';
 import { AuditExportButton } from './export-button';
 import { loadMenuAccess, menuAllowed } from '@/lib/permissions/route-access';
+import { QDRuntime } from '@/lib/design/q-design-runtime';
 
 interface AuditLog {
   id: number;
@@ -191,7 +194,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
         요약 숫자는 모두 «전체 기준» 만 둔다 (화면 검토 A18 · 2026-09-27). «고유 사용자 · 액션 종류» 는
         이 쪽 기준이라 같은 줄의 전체 숫자와 섞여 «사용자 3명» 을 그대로 믿으면 틀렸다.
       */}
-      <Grid cols={2} minCol={180} gap={14} style={{ marginBottom: S[7] }}>
+      <Grid cols={QDPresentation.rendererInputs.gridColumns[2]} minCol={QDPresentation.gridMinColumn[180]} gap={QDScale.space[3.5]} style={{ marginBottom: QDScale.space[7] }}>
         <KPI
           label="총 활동"
           value={totalCount}
@@ -218,14 +221,14 @@ export default async function AuditPage({ searchParams }: PageProps) {
       ) : (
         <Bx>
           {/* 4-컬럼 fixed-width 테이블 → ScrollTable 로 감싸 모바일에서 가로 스크롤. */}
-          <ScrollTable minWidth={760}>
+          <ScrollTable minWidth={QDPresentation.tableMinWidth[760]}>
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '160px 180px 220px 1fr',
-              gap: S[3.5],
-              padding: '12px 18px',
-              borderBottom: `1px solid ${T.border}`,
+              gridTemplateColumns: "var(--qd-atelier-grid-template-columns-425074bb1c)",
+              gap: QDScale.space[3.5],
+              padding: "var(--qd-atelier-padding-32c3630eb9)",
+              borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
             }}
           >
             {['시간', '활동', '사용자', '요약'].map((l) => (
@@ -233,9 +236,9 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 key={l}
                 // 머리 칸 이름이 한글이라 본문 글꼴(고정폭 · 자간 1.5 · 대문자 걷기 · 화면 검토 A44 · 2026-09-28)
                 style={{
-                  fontSize: FS[12],
+                  fontSize: QDScale.font[12],
                   color: T.muted,
-                  fontFamily: F.ui,
+                  fontFamily: QDScale.family.ui,
                 }}
               >
                 {l}
@@ -249,16 +252,16 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 key={l.id}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '160px 180px 220px 1fr',
-                  gap: S[3.5],
-                  padding: '14px 18px',
+                  gridTemplateColumns: "var(--qd-atelier-grid-template-columns-425074bb1c)",
+                  gap: QDScale.space[3.5],
+                  padding: "var(--qd-atelier-padding-453be8fe1b)",
                   borderBottom:
-                    i < logList.length - 1 ? `1px solid ${T.border}` : 'none',
+                    i < logList.length - 1 ? `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}` : 'none',
                   alignItems: 'center',
-                  fontSize: FS[12],
+                  fontSize: QDScale.font[12],
                 }}
               >
-                <span style={{ fontFamily: F.mono, color: T.muted, fontSize: FS[12] }}>
+                <span style={{ fontFamily: QDScale.family.mono, color: T.muted, fontSize: QDScale.font[12] }}>
                   {isoDateTime(l.ts)}
                 </span>
                 <span
@@ -266,18 +269,18 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   style={{
                     // 줄마다 테두리 칩(한 화면 수십 개)이던 것을 보통 글로: 표 칸이 이미 경계다 (화면 검토 A35 · 2026-09-28)
                     color: T.text,
-                    fontSize: FS[13],
-                    fontFamily: F.ui,
-                    fontWeight: 500,
+                    fontSize: QDScale.font[13],
+                    fontFamily: QDScale.family.ui,
+                    fontWeight: "var(--qd-atelier-font-weight-51f1217b48)",
                   }}
                 >
                   {actionLabel(l.action)}
                 </span>
                 <span
                   style={{
-                    fontSize: FS[12],
+                    fontSize: QDScale.font[12],
                     color: T.subtle,
-                    fontFamily: F.mono,
+                    fontFamily: QDScale.family.mono,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -289,14 +292,14 @@ export default async function AuditPage({ searchParams }: PageProps) {
                 <div>
                   <span
                     style={{
-                      fontSize: FS[12],
+                      fontSize: QDScale.font[12],
                       color: T.text,
-                      fontFamily: F.serif,
-                      lineHeight: LH.relaxed,
+                      fontFamily: QDScale.family.serif,
+                      lineHeight: QDScale.leading.relaxed,
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       display: '-webkit-box',
-                      WebkitLineClamp: 2,
+                      WebkitLineClamp: 'var(--qd-atelier-line-clamp-double)',
                       WebkitBoxOrient: 'vertical',
                     }}
                     title={summaryKr ?? ''}
@@ -306,17 +309,17 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   </span>
                   {/* Solo Mode 가시성: single_role_workflow 플래그 + details 요약 */}
                   {l.details && (
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: S[1], marginTop: S[1], alignItems: 'center' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: QDScale.space[1], marginTop: QDScale.space[1], alignItems: 'center' }}>
                       {(l.details as Record<string, unknown>).single_role_workflow === true && (
                         <span
                           title="1인 조직 모드: SOD(직무분리) 완화 흐름. ISO 13485 §5.5.1(소규모 조직 책임·권한)·§5.5.2(경영대리인 겸직) 근거 · audit_logs 에 기록되어 추적성 보증 · §8.2.4 내부심사는 외부 위탁 필수."
                           style={{
-                            borderRadius: RADIUS.sm,
-                            fontSize: FS[12],
-                            padding: '2px 6px',
-                            border: `1px solid ${alpha(T.champagne, 0.5)}`,
+                            borderRadius: QDScale.radius,
+                            fontSize: QDScale.font[12],
+                            padding: "var(--qd-atelier-padding-03e93ce316)",
+                            border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(T.champagne, QDRuntime.alpha.tint0_5)}`,
                             color: T.champagne,
-                            fontFamily: F.ui,
+                            fontFamily: QDScale.family.ui,
                           }}
                         >
                           {/* 영어 대문자 «SOLO MODE» → 설정 화면과 같은 이름(«1인 결재 허용») · 화면 검토 A66 · 2026-09-28 */}
@@ -338,13 +341,13 @@ export default async function AuditPage({ searchParams }: PageProps) {
         채워 정작 «누가 언제 무엇을 했나» 기록 줄이 밀려났다. 이 쪽에 보이는 기록 기준이다.
       */}
       {Object.keys(byAction).length > 0 && (
-        <details style={{ marginTop: S[5], marginBottom: S[5] }}>
-          <summary style={{ cursor: 'pointer', fontSize: FS[13], color: T.subtle, fontFamily: F.ui }}>
+        <details style={{ marginTop: QDScale.space[5], marginBottom: QDScale.space[5] }}>
+          <summary style={{ cursor: 'pointer', fontSize: QDScale.font[13], color: T.subtle, fontFamily: QDScale.family.ui }}>
             종류별 보기 (이 쪽의 기록 {logList.length}건 기준 · {Object.keys(byAction).length}종)
           </summary>
           {/* 이름 · 건수 두 칸 목록(가는 구분선). 상자 무리는 금지 장치였다(화면 검토 A35 · 2026-09-28) */}
-          <Bx style={{ padding: `${S[1]}px ${S[4.5]}px`, marginTop: S[2.5] }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', columnGap: S[6] }}>
+          <Bx style={{ padding: `${QDScale.space[1]} ${QDScale.space[4.5]}`, marginTop: QDScale.space[2.5] }}>
+            <div style={{ display: 'grid', gridTemplateColumns: "var(--qd-atelier-grid-template-columns-6a7670410f)", columnGap: QDScale.space[6] }}>
               {Object.entries(byAction)
                 .sort(([, a], [, b]) => b - a)
                 .map(([action, count]) => (
@@ -355,13 +358,13 @@ export default async function AuditPage({ searchParams }: PageProps) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'baseline',
-                      gap: S[3],
-                      padding: `${S[2]}px 0`,
-                      borderBottom: `1px solid ${T.border}`,
+                      gap: QDScale.space[3],
+                      padding: `${QDScale.space[2]} 0`,
+                      borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
                     }}
                   >
-                    <span style={{ fontSize: FS[13], color: T.text, fontFamily: F.ui }}>{actionLabel(action)}</span>
-                    <span style={{ fontSize: FS[13], color: T.subtle, fontFamily: F.mono, fontVariantNumeric: 'tabular-nums' }}>{count}건</span>
+                    <span style={{ fontSize: QDScale.font[13], color: T.text, fontFamily: QDScale.family.ui }}>{actionLabel(action)}</span>
+                    <span style={{ fontSize: QDScale.font[13], color: T.subtle, fontFamily: QDScale.family.mono, fontVariantNumeric: 'tabular-nums' }}>{count}건</span>
                   </div>
                 ))}
             </div>

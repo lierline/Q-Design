@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "purpose": "Opaque mobile header and centrally owned backdrop/surface filters. No application handlers or data changes.",
+  "changes": [
+    {
+      "path": "components/Sidebar.tsx",
+      "before": "'blur(4px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "before": "'blur(12px)'",
+      "after": "'var(--qd-surface-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "before": "top: bellTop,",
+      "after": "top: isMobile ? 'var(--qd-atelier-mobile-control-top)' : bellTop,",
+      "count": 1
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "before": "top: isMobile ? bellTop + (isTouch ? 44 : 32) + 6 :",
+      "after": "top: isMobile ? `calc(var(--qd-atelier-mobile-control-top) + ${isTouch ? 'var(--qd-control-height)' : 'var(--qd-control-height-sm)'} + var(--qd-space-1-5))` :",
+      "count": 1
+    },
+    {
+      "path": "components/MobileBottomNav.tsx",
+      "before": "'blur(14px)'",
+      "after": "'var(--qd-surface-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/WelcomeFlow.tsx",
+      "before": "'blur(6px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/SessionIdleMonitor.tsx",
+      "before": "'blur(2px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/KeywordReviewModal.tsx",
+      "before": "'blur(6px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/DocChecklistPanel.tsx",
+      "before": "'blur(4px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "before": "'blur(4px)'",
+      "after": "'var(--qd-backdrop-filter)'",
+      "count": 4
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "before": "'blur(4px)'",
+      "after": "'var(--qd-surface-filter)'",
+      "count": 2
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "before": "background: alpha(T.bg, QDRuntime.alpha.tint0_82),",
+      "after": "background: T.surface,",
+      "count": 2
+    },
+    {
+      "path": "app/experts/inbox/user-menu.tsx",
+      "before": "'blur(16px)'",
+      "after": "'var(--qd-surface-filter)'",
+      "count": 1
+    },
+    {
+      "path": "app/experts/inbox/user-menu.tsx",
+      "before": "background: 'color-mix(in srgb, var(--ink) 98%, transparent)',",
+      "after": "background: 'var(--ink)',",
+      "count": 1
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "before": "if (isMobile) return <>{children}</>;",
+      "after": "if (isMobile) return <><div ref={ref} className=\"qa-mobile-top-band\" aria-hidden=\"true\" style={{ zIndex: Z.header }} />{children}</>;",
+      "count": 1
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "before": "// 모바일(<1024)은 햄버거 FAB 와 하단 네비가 따로 있어 종전 fixed 배치를 그대로 둡니다.\n// 그때 이 컴포넌트는 아무 상자도 만들지 않고 자식만 돌려줍니다(자식이 스스로 fixed 로 돕니다).\n// SSR 첫 페인트는 데스크톱 가정이라 모바일에서 한 프레임 밴드가 보였다 사라질 수 있습니다.\n// 두 위젯도 같은 가정으로 그려 왔으므로 새로 생기는 어긋남은 아닙니다.\n//\n",
+      "after": "// 모바일에서는 버튼의 기존 fixed 위치와 쌓임 순서를 유지합니다.\n// 별도 불투명 배경이 스크롤 본문을 가리고, pointer-events:none 으로 조작을 통과시킵니다.\n// 배경과 본문 상단 여백은 같은 중앙 높이 토큰으로 safe-area까지 맞춥니다.\n//\n",
+      "count": 1
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "before": "top: wrapTop,",
+      "after": "top: isMobile ? 'var(--qd-atelier-mobile-control-top)' : wrapTop,",
+      "count": 2
+    }
+  ],
+  "files": [
+    {
+      "path": "components/Sidebar.tsx",
+      "beforeHash": "58c1e75297dac5e5a4b3fc9f73e61c6dca1fe4b19c7f4b7b9141333be69c593e",
+      "afterHash": "d5ca4621e922158b7f163342f986492516ef9c4ef78bda9eb3b2d168b21ddc08"
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "beforeHash": "7d504cab9879d82a518fd91c23a144d3fa116ef7a7678d8678136839105f0857",
+      "afterHash": "6c112ad65a15ac283a224ce3300c2f5d3adba41cd863791e584803e631d92bbc"
+    },
+    {
+      "path": "components/MobileBottomNav.tsx",
+      "beforeHash": "44ce916b5237accba9a6ae5d20c3a94758a553ead359343aa00c7cc21f3e9a1e",
+      "afterHash": "57f9b7c961c453f9dfe57aca9b27d3d4e0df1e194c41f4cc3b29e2bd2dbdd9d4"
+    },
+    {
+      "path": "components/WelcomeFlow.tsx",
+      "beforeHash": "58887d580f85d7329386fb6904aad6b5bacb9416f799fee25ec8217fbfa44ea7",
+      "afterHash": "ca2f3ed2d69396047c69e8e095ced03b8745060b1f187ad0ac2b34c0248c239b"
+    },
+    {
+      "path": "components/SessionIdleMonitor.tsx",
+      "beforeHash": "e53f64dbae8524d2d199c6bebe59ddc2e3951bd9e88f4d26a7f009017193b93e",
+      "afterHash": "3880ca818fc72fc1f6ff91cf34f3ccd8db4d91c5cc3fe9e5d3074786a604f0a6"
+    },
+    {
+      "path": "components/KeywordReviewModal.tsx",
+      "beforeHash": "43ab564c5a67a7b32508427761e18e6e2b6dd3a9ad001f7dd6ea183c264edd9a",
+      "afterHash": "569b1e90bd3cdf7bdc2b5739260383ed33e8fd75c5d07864982603c45d0f4bc1"
+    },
+    {
+      "path": "components/DocChecklistPanel.tsx",
+      "beforeHash": "a98d6db5c7b388021f9d4721bbe3f1fafafd2314bb676d5d64d95c6fd27e869b",
+      "afterHash": "b2222232a0b8a235f5d29212822df1db953705fb99b6b38ae992b956c77a8494"
+    },
+    {
+      "path": "components/RdDocumentFlowPanel.tsx",
+      "beforeHash": "2b6369102902ff494f23c51d2fc4b15a63941b307a6b9b7f4f5f23a64d526b5b",
+      "afterHash": "e7d7096fa7f03e7f9c3b14fbd94cf6c041d397f5d97d879322e209bc096fd44c"
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "beforeHash": "abea6f08e1c75cb3863d9d7a3ab56aa02b2ac815cec1a33687410cda5c850b2c",
+      "afterHash": "894ba86d9f24d8aa2b0aa0bd42d6bdbb2e06a6559ee0adb7c0e3ab76750d46ae"
+    },
+    {
+      "path": "app/experts/inbox/user-menu.tsx",
+      "beforeHash": "88d3ef8d14afa7fdc4bf1c6bc49ba715bb2893ff30fdf24b5501aa97ea86ab6c",
+      "afterHash": "7afab3900cf70e8b5aca05c4792e77f0e943dcd586739c87add9e15f63f6bcba"
+    },
+    {
+      "path": "components/TopHeaderBand.tsx",
+      "beforeHash": "3a04954ec1d976dbd26e277b5d57a8548d31f22aca20cd3bee776607e0ac73fa",
+      "afterHash": "32588b6d14aa56b366827b2d0014d245f171f7daa846e1d72249445b40402c33"
+    },
+    {
+      "path": "components/SubscriptionIndicator.tsx",
+      "beforeHash": "7e1885f04a4bdfd45fb0588c5ce617298ff02f987c62990023763bc8ccd883f9",
+      "afterHash": "29a1875198cfd05aa8899789c6c9c83646e209e45a89016aad19b7bf460980b0"
+    }
+  ]
+}

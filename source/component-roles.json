@@ -1,0 +1,1719 @@
+{
+  "version": 1,
+  "scope": "shared-rules-and-product-adapters",
+  "roles": [
+    {
+      "id": "action",
+      "label": "주 행동·아이콘 버튼",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/17-screen-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Btn",
+            "IconBtn"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/button.tsx",
+          "symbols": [
+            "Button"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.screen.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-btn"
+          ]
+        }
+      ],
+      "differences": "공통 버튼 CSS는 있으나 Atelier는 원본 React, Maison은 CVA 래퍼, Carnet은 native button 클래스가 중심이다. Carnet 현장 .btn-*는 별도 역할로 남는다."
+    },
+    {
+      "id": "text-action",
+      "label": "보조 글자 행동",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/TextAction.tsx",
+          "symbols": [
+            "TextAction",
+            "TextLinkAction"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/button.tsx",
+          "symbols": [
+            "Button"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/BackButton.tsx",
+          "symbols": [
+            "BackButton"
+          ]
+        }
+      ],
+      "differences": "Maison Button의 link·ghost, 정렬 머리와 닫기·수정 글귀는 qd-text-action을 사용한다. Atelier 전용 TextAction 및 Carnet 행동 링크의 API는 제품별로 유지한다. 보조 행동을 글자로 두는 결정은 같다."
+    },
+    {
+      "id": "text-input",
+      "label": "문자·숫자 입력",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "In"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/input.tsx",
+          "symbols": [
+            "Input"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/money-input.tsx",
+          "symbols": [
+            "MoneyInput"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/password-input.tsx",
+          "symbols": [
+            "PasswordInput"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/suggest-input.tsx",
+          "symbols": [
+            "SuggestInput"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.screen.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-input"
+          ]
+        }
+      ],
+      "differences": "공통 입력 외형은 연결되어 있다. 금액·비밀번호·추천 입력의 동작은 Maison 래퍼이며 Carnet 현장 .input과 숫자판은 별도로 남는다."
+    },
+    {
+      "id": "select",
+      "label": "선택·검색 선택",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Sel"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/select.tsx",
+          "symbols": [
+            "Select"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/combobox.tsx",
+          "symbols": [
+            "Combobox"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.screen.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-input"
+          ]
+        }
+      ],
+      "differences": "세 제품 native select와 Maison 검색형 Combobox를 구분한다. Maison 팝오버 표면·옵션 상태는 중앙 규칙을 사용한다. OS 선택기와 검색·키보드·값 전달 동작은 제품 어댑터에 남는다."
+    },
+    {
+      "id": "textarea",
+      "label": "여러 줄 입력",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Txt"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/textarea.tsx",
+          "symbols": [
+            "Textarea"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.screen.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-input"
+          ]
+        }
+      ],
+      "differences": "Atelier·Maison에는 래퍼가 있고 Carnet은 textarea에 공통 클래스를 붙인다. 행 수·크기 조절·읽기 전용 처리의 인터페이스는 다르다."
+    },
+    {
+      "id": "field",
+      "label": "필드 이름표·오류 연결",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md",
+          "docs/17-screen-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Lbl",
+            "Field",
+            "FldRow",
+            "FldError"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/label.tsx",
+          "symbols": [
+            "Label"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/field.tsx",
+          "symbols": [
+            "Field"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Field"
+          ]
+        }
+      ],
+      "differences": "이름표의 외형은 정본이다. 오류·도움말 id 연결은 Atelier와 Maison의 구현이 다르며 Carnet Field는 이름표와 children을 묶는 별도 어댑터다."
+    },
+    {
+      "id": "date",
+      "label": "날짜·달력",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/calendar.tsx",
+          "symbols": [
+            "Calendar"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/date-picker.tsx",
+          "symbols": [
+            "DatePicker"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/date-range-picker.tsx",
+          "symbols": [
+            "DateRangePicker"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/date-range-filter.tsx",
+          "symbols": [
+            "DateRangeFilter"
+          ]
+        }
+      ],
+      "differences": "Maison Calendar·DatePicker·DateRangePicker는 중앙 날짜 칸·팝오버·행동 규칙을 사용한다. 날짜 계산과 키보드·값 전달은 유지한다. Atelier와 Carnet의 native 날짜 입력을 같은 달력 구현으로 간주하지 않는다. 7열 날짜 격자는 44px 클릭 영역을 보존한다."
+    },
+    {
+      "id": "check-toggle",
+      "label": "체크·토글",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Checkbox",
+            "Switch"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/checkbox.tsx",
+          "symbols": [
+            "Checkbox"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/MemberPicker.tsx",
+          "symbols": [
+            "MemberPicker"
+          ]
+        }
+      ],
+      "differences": "Maison은 native input의 44px 클릭 영역과 16px 표시를 분리해 qd-choice-hit·qd-checkbox·qd-checkbox-mark로 연결한다. 표시만 반경 4px 예외이며 바깥 조작부는 10px다. 체크·중간·사용 불가·초점은 중앙 규칙, native 라벨·키보드·폼 전송은 그대로다. 제품별 Switch와 상태 API는 구분한다."
+    },
+    {
+      "id": "choice-chip",
+      "label": "선택 칩·분할 선택",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "FilterChip"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/segmented-choice.tsx",
+          "symbols": [
+            "ChoiceChip",
+            "ChoiceCheck",
+            "SegmentedChoice"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/filter-chip.tsx",
+          "symbols": [
+            "FilterChip"
+          ]
+        }
+      ],
+      "differences": "Maison CHOICE_ON·CHIP와 FilterChip은 중앙 qd-choice 선택 규칙을 사용한다. 최신 결정에 따라 선택 상태는 옅은 면과 굵은 글자로 표현한다. Atelier 분할 선택과 Carnet ActionChip의 업무 의미는 각각 유지한다."
+    },
+    {
+      "id": "badge",
+      "label": "상태 태그·배지",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Tag",
+            "RiskPill"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/badge.tsx",
+          "symbols": [
+            "Badge",
+            "BadgeRaw"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/doc-badges.tsx",
+          "symbols": [
+            "StatusBadge",
+            "LevelBadge"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/nc-capa-badges.tsx",
+          "symbols": [
+            "NcSeverityBadge",
+            "NcStatusBadge"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Tag",
+            "LockMark"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/action-chip.tsx",
+          "symbols": [
+            "ActionChip"
+          ]
+        }
+      ],
+      "differences": "qd-tag 외형이 공통이다. 업무 상태를 색·문구에 대응시키는 함수와 잠금·행동 배지의 의미는 제품이 소유한다."
+    },
+    {
+      "id": "section-title",
+      "label": "구역 제목",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "SectionTitle",
+            "SectionTitleInfo",
+            "CardTitle"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "native-class",
+          "file": "app/q-design.screen.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-section-title"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Panel"
+          ]
+        }
+      ],
+      "differences": "C안 16px 본문색 제목과 번호가 현재 기준이다. Maison은 CSS 클래스를 직접 쓰고 Carnet Panel이 내부 제목을 그린다. 전용 SectionTitle export가 없는 것을 누락된 파일로 보지 않는다."
+    },
+    {
+      "id": "page-head",
+      "label": "화면 머리",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/17-screen-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "PageHd",
+            "EntityCardHeader"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/page-head.tsx",
+          "symbols": [
+            "PageHead"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/approval-header.tsx",
+          "symbols": [
+            "ApprovalHeader"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/shell.tsx",
+          "symbols": [
+            "PageShell"
+          ]
+        }
+      ],
+      "differences": "PageShell은 머리와 본문 폭을 함께 맡는다. 제품별 액션·상태·결재 정보 연결이 다르며 동일한 함수 인터페이스로 이행한 상태는 아니다."
+    },
+    {
+      "id": "tabs",
+      "label": "화면 내 탭",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/17-screen-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/PageTabs.tsx",
+          "symbols": [
+            "PageTabs"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "WorkspaceTab"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/view-tabs.tsx",
+          "symbols": [
+            "ViewTabs",
+            "TabButton",
+            "TabCount"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/shell.tsx",
+          "symbols": [
+            "FilterBar"
+          ]
+        }
+      ],
+      "differences": "Maison은 링크 탭과 버튼 탭을 나눈다. Carnet은 FilterBar 안에서 탭을 만든다. 탭의 선택 속성·주소·목록 조건은 각 제품에서 확인해야 한다."
+    },
+    {
+      "id": "data-table",
+      "label": "표·열 머리·정렬",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "DataTable",
+            "ScrollTable",
+            "PhoneSwap"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/sort-header.tsx",
+          "symbols": [
+            "SortHeader"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/sort-header-button.tsx",
+          "symbols": [
+            "SortHeaderButton"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/table.tsx",
+          "symbols": [
+            "Table",
+            "Th",
+            "Td",
+            "IdCell",
+            "TwoLine",
+            "ActionTd",
+            "ActionTh"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "TableWrap"
+          ]
+        }
+      ],
+      "differences": "표 CSS의 기본 외형만 정본이다. DataTable의 데이터·폰 카드 행·정렬 전체 동작은 공통화되지 않았다. Maison에는 표 전체 래퍼보다 화면별 table과 정렬 머리가 많다."
+    },
+    {
+      "id": "list-toolbar",
+      "label": "목록 검색·필터",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/ListToolbar.tsx",
+          "symbols": [
+            "ListToolbar"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/list-search.tsx",
+          "symbols": [
+            "ListSearch"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/list-filter-select.tsx",
+          "symbols": [
+            "ListFilterSelect"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/date-range-filter.tsx",
+          "symbols": [
+            "DateRangeFilter"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/pagination.tsx",
+          "symbols": [
+            "PageSizeSelect"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/shell.tsx",
+          "symbols": [
+            "FilterBar",
+            "FilterSearch"
+          ]
+        }
+      ],
+      "differences": "Atelier는 통합 Toolbar, Maison은 여러 작은 부품, Carnet은 FilterBar와 FilterSearch다. 검색 조건의 주소 반영과 초기화는 제품별 어댑터에 있다."
+    },
+    {
+      "id": "pagination",
+      "label": "쪽 이동·목록 건수",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/ListPager.tsx",
+          "symbols": [
+            "ListPager"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/pagination.tsx",
+          "symbols": [
+            "ListPagination",
+            "PageSizeSelect"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "ListCount",
+            "Truncated"
+          ]
+        }
+      ],
+      "differences": "Carnet ListCount는 qd-pager 형태의 건수 표시이며 실제 이전·다음 페이지 이동 부품과 같지 않다. 독립된 공용 페이지 이동 구현이 없는 차이를 남긴다."
+    },
+    {
+      "id": "modal",
+      "label": "모달·확인 창",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Modal"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/Confirm.tsx",
+          "symbols": [
+            "ConfirmProvider"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/dialog.tsx",
+          "symbols": [
+            "Dialog",
+            "DialogContent",
+            "DialogHeader",
+            "DialogFooter",
+            "DialogTitle",
+            "DialogDescription",
+            "DialogTrigger",
+            "DialogClose",
+            "DialogPortal",
+            "DialogOverlay"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/form-dialog.tsx",
+          "symbols": [
+            "FormDialog"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/confirm-judgment-dialog.tsx",
+          "symbols": [
+            "ConfirmJudgmentDialog"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/delete-with-reason-dialog.tsx",
+          "symbols": [
+            "DeleteWithReasonDialog"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/dialog.tsx",
+          "symbols": [
+            "Dialog"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/GlobalSearch.tsx",
+          "symbols": [
+            "GlobalSearch"
+          ]
+        }
+      ],
+      "differences": "배경막·표면·모서리·글자·여백·크기·모션의 공통 CSS가 있다. Maison Radix Dialog와 FormDialog는 이를 사용한다. Portal·Trigger·Close·Overlay도 역할표에 포함한다. 초점 관리·취소·저장·스크롤 배치는 각 제품의 어댑터를 유지한다."
+    },
+    {
+      "id": "drawer",
+      "label": "서랍",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/06-components.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Drawer"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/sheet.tsx",
+          "symbols": [
+            "Sheet",
+            "SheetContent",
+            "SheetTitle",
+            "SheetDescription",
+            "SheetTrigger",
+            "SheetClose"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/page-help.tsx",
+          "symbols": [
+            "PageHelp"
+          ]
+        }
+      ],
+      "differences": "공통 서랍 표면과 머리·본문·행동 규칙을 사용한다. Maison Sheet와 PageHelp는 같은 규칙에 연결하고 방향·폭·Radix 초점 처리를 유지한다. Carnet AdminChrome 메뉴 서랍은 내비게이션 역할이므로 범용 상세 서랍과 구분한다."
+    },
+    {
+      "id": "feedback",
+      "label": "안내·오류·조회 실패",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/24-document-grain.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Alert",
+            "InfoBox",
+            "SubmitFailureSummary",
+            "NextStep",
+            "LegalNote"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/list-load-failed.tsx",
+          "symbols": [
+            "ListLoadFailed"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/missing-hint.tsx",
+          "symbols": [
+            "MissingHint"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/access-denied-banner.tsx",
+          "symbols": [
+            "AccessDeniedBanner"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/unsaved-guard.tsx",
+          "symbols": [
+            "UnsavedNotice"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Msg",
+            "Warnings",
+            "Caution"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/batch-save-bar.tsx",
+          "symbols": [
+            "ChangedMark"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/import-kit.tsx",
+          "symbols": [
+            "ImportSummary"
+          ]
+        }
+      ],
+      "differences": "중앙 qd-notice·qd-field-error·qd-field-hint를 제공한다. Maison 접근 제한·미저장·판정 결과와 필드 오류는 이 규칙을 사용한다. 조치가 필요한 오류는 화면에 남기고, 일반 설명은 정보 팝오버로 구분한다. 서버 상태 판정과 문구는 제품 책임이다."
+    },
+    {
+      "id": "toast",
+      "label": "토스트",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/Toast.tsx",
+          "symbols": [
+            "ToastProvider"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/sonner.tsx",
+          "symbols": [
+            "Toaster"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/toast.tsx",
+          "symbols": [
+            "Toasts"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/install-pwa.tsx",
+          "symbols": [
+            "InstallPwa"
+          ]
+        }
+      ],
+      "differences": "표면·상태색·타이포·여백은 중앙 qd-toast를 제공한다. Maison Sonner와 설치 안내는 이 표면을 사용한다. Atelier provider, Maison Sonner, Carnet 토스트의 API·지속 시간은 유지하며 폼 오류의 유일한 전달 수단으로 쓰지 않는다."
+    },
+    {
+      "id": "empty",
+      "label": "빈 상태",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "EmptyState"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/empty-state.tsx",
+          "symbols": [
+            "EmptyState"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Empty"
+          ]
+        }
+      ],
+      "differences": "기본 빈 상태 CSS를 공유한다. 이름·설명·다음 행동의 전달 props는 다르며 조회 실패와 구분하는 책임은 호출 화면에 남는다."
+    },
+    {
+      "id": "loading",
+      "label": "로딩·스켈레톤",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "LoadingState",
+            "Skeleton",
+            "SkeletonPanel"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/Skeleton.tsx",
+          "symbols": [
+            "Skeleton"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/page-skeleton.tsx",
+          "symbols": [
+            "SkeletonHead",
+            "ListSkeleton",
+            "CardGridSkeleton",
+            "DetailSkeleton",
+            "FormSkeleton",
+            "TreeSkeleton",
+            "BoardSkeleton"
+          ]
+        }
+      ],
+      "differences": "중앙 qd-skeleton이 면·모서리·동작 감소를 제공한다. Maison은 화면 형태별 스켈레톤의 빈 자리 배치를 유지하고 로딩 표면을 연결했다. 제품별 라우트 로딩과 자료 조회의 완료 판정은 공통화하지 않는다."
+    },
+    {
+      "id": "progress",
+      "label": "진행 막대·링",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "ProgressBar",
+            "ProgressRing",
+            "SectionProgressCard",
+            "DistributionBars"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Progress"
+          ]
+        }
+      ],
+      "differences": "중앙 qd-progress·qd-progress-fill이 연속 수치 진행의 외형을 제공한다. Maison StepProgress는 단계 표시 역할이며 수치 막대와 구분한다. 라우트 진행선의 완료 판정은 제품 동작에 남는다."
+    },
+    {
+      "id": "tooltip-info",
+      "label": "툴팁·정보 설명",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "InfoDot",
+            "TooltipBody",
+            "TooltipRow",
+            "TooltipDivider",
+            "TooltipNote"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/page-help.tsx",
+          "symbols": [
+            "PageHelp"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/info-tip.tsx",
+          "symbols": [
+            "InfoTip"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/Coachmark.tsx",
+          "symbols": [
+            "Coachmark"
+          ]
+        }
+      ],
+      "differences": "중앙 qd-tooltip·qd-popover를 제공한다. Atelier InfoDot, Maison PageHelp 서랍, Carnet InfoTip은 정보 전달 목적이 같아도 구조·초점·본문 배치가 다르다. PageHelp는 drawer 역할에도 등록한다."
+    },
+    {
+      "id": "kpi",
+      "label": "지표·요약",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/17-screen-canon.md",
+          "docs/25-workspace-refinement.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "KPI",
+            "KpiGrid",
+            "Card",
+            "Stat",
+            "StatGrid"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/stat-block.tsx",
+          "symbols": [
+            "StatBlock",
+            "StatRow"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/count-card.tsx",
+          "symbols": [
+            "CountCard"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/shell.tsx",
+          "symbols": [
+            "StatStrip"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Stat"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/stat-detail.tsx",
+          "symbols": [
+            "StatDetail"
+          ]
+        }
+      ],
+      "differences": "기본 KPI 외형과 업무 화면 조합은 연결되어 있다. 지표별 집계·단위·설명·상세보기 및 0과 조회 실패 구분은 제품이 유지한다."
+    },
+    {
+      "id": "record-row",
+      "label": "항목 행·상세 값",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md",
+          "docs/24-document-grain.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "EntityRow",
+            "CardRows",
+            "CardRow",
+            "CardFigure",
+            "DetailRow"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/detail-field.tsx",
+          "symbols": [
+            "DetailField"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/record-foot.tsx",
+          "symbols": [
+            "RecordFoot"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/linked-doc-card.tsx",
+          "symbols": [
+            "LinkedDocRow",
+            "LinkedDocCard"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/row-link.tsx",
+          "symbols": [
+            "RowLink"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/table.tsx",
+          "symbols": [
+            "TwoLine"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/import-kit.tsx",
+          "symbols": [
+            "ImportActionCell"
+          ]
+        }
+      ],
+      "differences": "qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다."
+    },
+    {
+      "id": "form-section",
+      "label": "폼 구역·행동 묶음",
+      "canon": {
+        "status": "pattern",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/12-composition-patterns.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "FormSection",
+            "Section",
+            "FormActions"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/editable-card.tsx",
+          "symbols": [
+            "EditableCard"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/rows-editor.tsx",
+          "symbols": [
+            "RowsEditor"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/new-record-panel.tsx",
+          "symbols": [
+            "NewRecordPanel"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/batch-save-bar.tsx",
+          "symbols": [
+            "BatchSaveBar"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Panel",
+            "Field"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/import-kit.tsx",
+          "symbols": [
+            "ImportRules",
+            "ImportCommitBar"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/DangerZone.tsx",
+          "symbols": [
+            "DangerZone"
+          ]
+        }
+      ],
+      "differences": "Atelier는 FormSection과 FormActions, Maison은 편집 패널·행 편집기·일괄 저장, Carnet은 Panel과 Field 조합이다. 공통 제목·입력 외형을 사용해도 업무 동작은 제품 전용이다."
+    },
+    {
+      "id": "stages",
+      "label": "단계·결재 표시",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/24-document-grain.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "StageTimeline"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/StageTrack.tsx",
+          "symbols": [
+            "StageTrack"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/ApprovalRoute.tsx",
+          "symbols": [
+            "ApprovalRoute",
+            "RouteNode"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/step-progress.tsx",
+          "symbols": [
+            "StepProgress"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/approval-flow.tsx",
+          "symbols": [
+            "ApprovalFlow"
+          ]
+        }
+      ],
+      "differences": "중앙 qd-step의 글자·현재 단계 상태를 사용한다. Maison StepProgress의 완료·생략·현재 단계 표시와 ApprovalFlow의 결재 데이터 해석은 제품 어댑터다. 동일한 결재 엔진을 세 제품에 배포하지 않는다."
+    },
+    {
+      "id": "container",
+      "label": "패널·카드·격자",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "docs/16-list-canon.md",
+          "docs/04-space-layout.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Bx",
+            "Card",
+            "SectionCard",
+            "Panel",
+            "Grid"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/ui/card.tsx",
+          "symbols": [
+            "Card",
+            "CardHeader",
+            "CardContent",
+            "CardFooter",
+            "CardTitle",
+            "CardDescription"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/ui.tsx",
+          "symbols": [
+            "Panel"
+          ]
+        }
+      ],
+      "differences": "Maison Card·CardHeader·CardTitle·CardDescription·CardContent·CardFooter는 중앙 qd-card 외형에 연결한다. 기존 qd-panel과 제품별 Grid·반응형 배치를 동일한 컴포넌트 구현으로 간주하지 않는다."
+    },
+    {
+      "id": "field-numpad",
+      "label": "현장 숫자판",
+      "canon": {
+        "status": "product-only",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "carnet",
+          "kind": "component",
+          "file": "components/num-pad.tsx",
+          "symbols": [
+            "NumPad",
+            "PresetPicker"
+          ]
+        }
+      ],
+      "differences": "Carnet 현장 입력 전용 공용 부품이다. 물리적 숫자 배열·빠른 수량 선택을 일반 폼 입력과 합치지 않는다."
+    },
+    {
+      "id": "file-input",
+      "label": "파일 선택",
+      "canon": {
+        "status": "product-only",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/import-kit.tsx",
+          "symbols": [
+            "ImportFilePicker"
+          ]
+        },
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/FilePickButton.tsx",
+          "symbols": [
+            "FilePickButton"
+          ]
+        }
+      ],
+      "differences": "Atelier FilePickButton과 Maison ImportFilePicker는 공용 행동 외형에서 native 파일 선택기를 연다. 허용 형식·파싱·미리보기·업무 검증은 각 제품 어댑터와 호출 화면이 소유한다."
+    },
+    {
+      "id": "tree-navigation",
+      "label": "계층 목록 탐색",
+      "canon": {
+        "status": "product-only",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/clause-tree.tsx",
+          "symbols": [
+            "ClauseTree"
+          ]
+        }
+      ],
+      "differences": "Maison 조항 트리는 업무 계층·펼침·다중 선택을 유지한다. 글자·모서리·상태색은 공유 토큰을 받지만 트리 배치와 업무 동작을 공통 트리 엔진으로 이행한 것은 아니다."
+    },
+    {
+      "id": "document-diff",
+      "label": "문서 변경 비교",
+      "canon": {
+        "status": "product-only",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md",
+          "patterns/components.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/revision-diff.tsx",
+          "symbols": [
+            "RevisionDiff"
+          ]
+        }
+      ],
+      "differences": "Maison 개정 비교는 추가·삭제 상태에 테마별 의미색을 사용한다. 변경 계산·비교 문구는 제품 어댑터 책임이며 인쇄 문서의 지면 규칙과 구분한다."
+    },
+    {
+      "id": "separator",
+      "label": "내용 구분선",
+      "canon": {
+        "status": "pattern",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Div"
+          ]
+        }
+      ],
+      "differences": "Atelier Div는 내용 구역 사이의 얇은 선이다. 판이나 조작부의 윤곽과 구분하며 색은 구분선 토큰을 따른다."
+    },
+    {
+      "id": "disclosure-motion",
+      "label": "펼침과 등장",
+      "canon": {
+        "status": "pattern",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "Collapse",
+            "Reveal"
+          ]
+        }
+      ],
+      "differences": "Atelier Collapse는 접힌 내용의 inert 상태와 높이 전환, Reveal은 등장 동작을 담당한다. 업무 상태와 데이터는 바꾸지 않으며 동작 감소 설정과 초점 접근을 별도로 확인한다."
+    },
+    {
+      "id": "text-semantic",
+      "label": "문장 의미와 강조",
+      "canon": {
+        "status": "pattern",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "En",
+            "InlineStrong"
+          ]
+        }
+      ],
+      "differences": "Atelier En의 언어 지정과 InlineStrong의 부분 강조는 읽기 의미를 유지하는 텍스트 어댑터다. 전체 문장을 장식용 대문자나 별도 색으로 바꾸지 않는다."
+    },
+    {
+      "id": "avatar",
+      "label": "사용자 사진과 이름 표시",
+      "canon": {
+        "status": "pattern",
+        "evidence": [
+          "docs/28-handoff-to-codex-2026-10-10.md"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "components/Avatar.tsx",
+          "symbols": [
+            "Avatar"
+          ]
+        }
+      ],
+      "differences": "Atelier Avatar는 저장된 사진을 사용하고 없거나 읽지 못하면 머리글자를 표시한다. 공식 제품 로고와 구분한다. 사진 조회·대체 문구·크기 인자는 제품 어댑터에 남는다."
+    }
+  ]
+}

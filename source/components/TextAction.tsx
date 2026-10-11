@@ -10,9 +10,12 @@
 // TextLinkAction 은 같은 모양의 «링크» 다(화면 검토 A11 · A63 · 2026-09-27). 양식 바닥의 «취소» 가
 // `<Link><Btn p={false}>취소</Btn></Link>` 상자로 여러 화면에 있었다. 가는 곳이 주소면 이것을 쓴다.
 
+import { QDText } from '@/lib/design/q-design-labels';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { useState, type ReactNode, type Ref } from 'react';
 import Link from 'next/link';
-import { F, FS, S, T } from '@/lib/design/tokens';
+import { F, S, T } from '@/lib/design/tokens';
+import { QD } from '@/lib/design/q-design-contract';
 
 export function TextAction({
   children,
@@ -60,22 +63,22 @@ export function TextAction({
       aria-expanded={expanded}
       aria-haspopup={hasPopup}
       // 터치 화면에서는 높이 44(globals.css). 테두리 · 바탕이 없는 글자라 모양은 그대로다
-      className="qa-touch-44"
+      className="qa-touch-44 qd-text-action"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         background: 'transparent',
         border: 'none',
-        padding: `0 ${S[1]}px`,
-        minHeight: 36,
+        padding: `0 ${QDScale.space[1]}`,
+        minHeight: QD.controlHeightSm,
         cursor: disabled ? 'default' : 'pointer',
-        fontFamily: F.ui,
-        fontSize: FS[14],
+        fontFamily: QDScale.family.ui,
+        fontSize: QD.controlSize,
         color: danger ? T.red : hover && !disabled ? T.text : T.muted,
-        textDecoration: danger && hover && !disabled ? 'underline' : 'none',
-        textUnderlineOffset: 3,
-        opacity: danger && disabled ? 0.5 : 1,
-        transition: 'color 150ms ease',
+        textDecoration: danger && hover && !disabled ? QDText.textDecoration.v9c3ff05cab : QDText.textDecoration.v30a0924a33,
+        textUnderlineOffset: 'var(--qd-atelier-hub-link-underline-offset)',
+        opacity: danger && disabled ? "var(--qd-atelier-opacity-520d3a5350)" : "var(--qd-atelier-opacity-dc43f5a623)",
+        transition: `color ${QD.motionFast}`,
         display: 'inline-flex',
         alignItems: 'center',
       }}
@@ -100,13 +103,13 @@ export function TextLinkAction({
 }) {
   const [hover, setHover] = useState(false);
   const style = {
-    padding: `0 ${S[1]}px`,
-    minHeight: 36,
-    fontFamily: F.ui,
-    fontSize: FS[14],
+    padding: `0 ${QDScale.space[1]}`,
+    minHeight: QD.controlHeightSm,
+    fontFamily: QDScale.family.ui,
+    fontSize: QD.controlSize,
     color: hover ? T.text : T.muted,
     textDecoration: 'none',
-    transition: 'color 150ms ease',
+    transition: `color ${QD.motionFast}`,
     display: 'inline-flex',
     alignItems: 'center',
   } as const;
@@ -121,7 +124,7 @@ export function TextLinkAction({
         href={href}
         target={target}
         rel={target ? 'noopener' : undefined}
-        className="qa-touch-44"
+        className="qa-touch-44 qd-text-action"
         onClick={onClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -136,7 +139,7 @@ export function TextLinkAction({
       href={href}
       target={target}
       rel={target ? 'noopener' : undefined}
-      className="qa-touch-44"
+      className="qa-touch-44 qd-text-action"
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

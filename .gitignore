@@ -17,3 +17,17 @@ node_modules/
 # 무엇을 찍었는지(_index) 와 실측 결과(_measure) 는 커밋한다 (preview/screens/audit/README.md)
 preview/screens/audit/*.png
 preview/screens/audit/family/*.png
+
+# Rebuilt from real product components by build-component-workbench.mjs
+preview/components/
+preview/screens/components/*.png
+
+# Private authenticated production screenshots stay local.
+reviews/production-*.png
+reviews/**/*.png
+reviews/**/*.jpg
+reviews/**/*.jpeg
+reviews/*-pages/
+reviews/*-pages-*.json
+reviews/*-invite-*.json
+reviews/*-onboarding-fixture-*.json

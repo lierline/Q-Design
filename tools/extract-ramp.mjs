@@ -21,18 +21,19 @@
  * 🔑 대표는 **Q-Atelier 값이 이깁니다.** 정본의 출처이기 때문입니다.
  */
 
-import { execFileSync } from 'node:child_process';
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { committedCssGraph, parseCoverageArgs } from './audit-coverage-imports.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WRITE = process.argv.includes('--write');
+const options = parseCoverageArgs(process.argv.slice(2).filter(arg => arg !== '--write'));
 
 /* Q 계열만입니다. MedQraft 는 별도 브랜드입니다(2026-09-10 결정). */
 const FAMILY = [
   { name: 'Q-Atelier', repo: 'D:/Claude/Q-Atelier', files: ['app/globals.css'], canon: true },
-  { name: 'Q-Sonar', repo: 'D:/Claude/Lead-Radar', files: ['src/app/globals.css'] },
+  { name: 'Q-Works', repo: 'D:/Claude/Q-Works', files: ['app/globals.css'] },
   { name: 'Q-Forge', repo: 'D:/Claude/DHR', files: ['app/globals.css'] },
 ];
 
@@ -71,30 +72,16 @@ function lab(hex) {
 }
 const de = (a, b) => Math.hypot(...lab(a).map((v, i) => v - lab(b)[i]));
 
-function headText(repo, path) {
-  try {
-    return execFileSync('git', ['-C', repo, 'show', 'HEAD:' + path], {
-      encoding: 'utf8',
-      maxBuffer: 32 * 1024 * 1024,
-    });
-  } catch {
-    return null;
-  }
-}
-
 /* 가족이 실제로 쓰는 샴페인 값과, 그것을 쓰는 제품·변수 이름 */
 const used = new Map();
-for (const p of FAMILY) {
+for (const p of FAMILY.filter(product => !options.only || options.only.has(product.name))) {
   if (!existsSync(join(p.repo, '.git'))) {
     console.error('저장소를 못 찾았습니다: ' + p.repo);
     process.exit(2);
   }
-  for (const f of p.files) {
-    const t = headText(p.repo, f);
-    if (t === null) {
-      console.error('원본에 없습니다: ' + p.repo + ':' + f);
-      process.exit(2);
-    }
+  // Palette declarations now live in imported generated CSS. The committed
+  // import graph proves what reaches the app instead of reading only its entry.
+  for (const t of committedCssGraph(p.repo, p.files).values()) {
     for (const m of t.matchAll(/(--[a-zA-Z0-9_-]+)\s*:([^;{}]*)[;}]/g)) {
       for (const raw of m[2].match(/#[0-9a-fA-F]{6}\b/g) ?? []) {
         const hex = raw.toLowerCase();

@@ -9,6 +9,8 @@
 // dist/q-design.fonts.css 로 만듭니다.
 //
 //   node tools/fetch-fonts.mjs
+//   node tools/fetch-fonts.mjs --offline  검증한 캐시만 사용, 네트워크와 파일 쓰기 없음
+//   QD_FONTS_OFFLINE=1 도 같은 동작입니다. 실패한 다운로드를 조용히 캐시로 바꾸지 않습니다.
 //
 // 라틴 서브셋(latin · latin-ext)만 받습니다. 한글은 Pretendard 가 담당하므로
 // cyrillic·greek·vietnamese 는 필요 없습니다(용량만 늘어납니다).
@@ -16,24 +18,29 @@
 //
 // ⚠️ Cormorant 는 italic 을 받지 않습니다. 브랜드 규칙입니다(폴백으로도 기울지 않게).
 
-import { writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FONT_FAMILIES, FONT_SUBSETS, FONT_CACHE_PATH, assertWoff2, assertFontSource, inspectFontCache, verifyFontCache } from './font-cache.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 const FONT_DIR = join(ROOT, 'source', 'fonts');
 const DIST = join(ROOT, 'dist');
 
+if (process.argv.includes('--offline') || process.env.QD_FONTS_OFFLINE === '1') {
+  const cache = verifyFontCache(ROOT);
+  console.log(`오프라인 캐시 검증 통과 · ${cache.faces} faces · ${Math.round(cache.bytes / 1024)}KB · 네트워크/쓰기 없음`);
+  process.exit(0);
+}
+assertFontSource(readFileSync(join(FONT_DIR, 'fonts.ts'), 'utf8'));
+
 // woff2 를 받으려면 최신 브라우저인 척해야 합니다. 아니면 ttf 가 옵니다.
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
-const FAMILIES = [
-  { name: 'JetBrains Mono', q: 'JetBrains+Mono:wght@400;500;600;700', slug: 'jetbrains-mono' },
-  { name: 'Cormorant Garamond', q: 'Cormorant+Garamond:wght@400;500;600;700', slug: 'cormorant-garamond' },
-];
-const KEEP = new Set(['latin', 'latin-ext']);
+const FAMILIES = FONT_FAMILIES;
+const KEEP = new Set(FONT_SUBSETS);
 
 mkdirSync(FONT_DIR, { recursive: true });
 mkdirSync(DIST, { recursive: true });
@@ -66,7 +73,11 @@ for (const fam of FAMILIES) {
 
     const file = fam.slug + '-' + weight + '-' + subset + '.woff2';
     const dest = join(FONT_DIR, file);
-    if (existsSync(dest) && statSync(dest).size > 1000) {
+    let validCachedFile = false;
+    if (existsSync(dest)) {
+      try { assertWoff2(readFileSync(dest), file); validCachedFile = true; } catch { /* Fetch a complete replacement. */ }
+    }
+    if (validCachedFile) {
       skipped++;
     } else {
       const r = await fetch(url, { headers: { 'User-Agent': UA } });
@@ -76,10 +87,7 @@ for (const fam of FAMILIES) {
       }
       const buf = Buffer.from(await r.arrayBuffer());
       // woff2 는 'wOF2' 로 시작합니다. 아니면 다른 것을 받은 것입니다.
-      if (buf.subarray(0, 4).toString('latin1') !== 'wOF2') {
-        console.error('woff2 가 아닙니다: ' + file + ' (앞 4바이트 ' + buf.subarray(0, 4).toString('hex') + ')');
-        process.exit(1);
-      }
+      assertWoff2(buf, file);
       writeFileSync(dest, buf);
       downloaded++;
     }
@@ -157,7 +165,15 @@ lines.push("  --qa-font-cormorant: 'Cormorant Garamond';");
 lines.push('}');
 lines.push('');
 
-writeFileSync(join(DIST, 'q-design.fonts.css'), lines.join('\n'), 'utf8');
+// A complete family/weight/subset inventory is mandatory before blessing a cache.
+const nextCss = lines.join('\n');
+const cssPath = join(DIST, 'q-design.fonts.css');
+const manifest = inspectFontCache(ROOT, {
+  read: (path, ...args) => path === cssPath ? nextCss : readFileSync(path, ...args),
+});
+writeFileSync(cssPath, nextCss, 'utf8');
+mkdirSync(dirname(join(ROOT, FONT_CACHE_PATH)), { recursive: true });
+writeFileSync(join(ROOT, FONT_CACHE_PATH), JSON.stringify(manifest, null, 2) + '\n', 'utf8');
 
 const total = faces.reduce((n, f) => n + f.size, 0);
 console.log('생성 완료 · dist/q-design.fonts.css');

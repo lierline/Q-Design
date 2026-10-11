@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "scope": "Only the two R&D impact selection buttons receive the shared choice class. Their conditions, handlers, labels and inline styles are unchanged. Shared 36px compact / 44px coarse-pointer minimum prevents the check glyph from changing height.",
+  "records": [
+    {
+      "path": "app/(app)/assessments/new/page.tsx",
+      "beforeHash": "8e277441333828534ebc2b8d632ce4520510de2b60230c985c5a69bfaa3eef52",
+      "afterHash": "453035d39ecb81645c09eedfcd9473c9c241a07b735c4b5f36e78ca6895e7f88",
+      "edits": [
+        {
+          "start": 24500,
+          "before": "\"qa-touch-44\"",
+          "after": "\"qa-touch-44 qd-choice\""
+        },
+        {
+          "start": 25387,
+          "before": "\"qa-touch-44\"",
+          "after": "\"qa-touch-44 qd-choice\""
+        }
+      ]
+    }
+  ]
+}

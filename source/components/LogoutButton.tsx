@@ -1,5 +1,7 @@
 'use client';
 
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { QDScale } from '@/lib/design/q-design-scale';
 import { useRouter } from 'next/navigation';
 import { signOutAndClear } from '@/lib/auth/sign-out';
 import { TextAction } from '@/components/TextAction';
@@ -30,8 +32,8 @@ export function LogoutButton({
   if (compact) {
     // 접힌 차림표의 아이콘 정사각은 공용 IconBtn(2026-10-07). 올리면 빨강(danger)은 그대로
     return (
-      <IconBtn size={34} title="로그아웃" danger onClick={() => void handleLogout()}>
-        <span style={{ fontFamily: F.serif, fontWeight: 600, fontSize: FS[14], lineHeight: 1 }}>⎋</span>
+      <IconBtn size={QDPresentation.iconButtonSize[34]} title="로그아웃" danger onClick={() => void handleLogout()}>
+        <span style={{ fontFamily: QDScale.family.serif, fontWeight: "var(--qd-font-weight-semibold)", fontSize: QDScale.font[14], lineHeight: "var(--qd-atelier-line-height-3e0b4c5306)" }}>⎋</span>
       </IconBtn>
     );
   }

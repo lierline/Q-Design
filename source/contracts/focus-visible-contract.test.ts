@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -47,7 +48,7 @@ function 인라인끈곳(): { 셈: number; 목록: string[] } {
   const 목록: string[] = [];
   for (const 곳 of SCAN) {
     for (const p of 파일들(join(ROOT, 곳))) {
-      const 줄들 = readFileSync(p, 'utf8').split(/\r?\n/);
+      const 줄들 = readDesignFile(p, 'utf8').split(/\r?\n/);
       줄들.forEach((줄, i) => {
         if (!/outline:\s*['"]none['"]/.test(줄)) return;
         셈++;
@@ -75,7 +76,7 @@ describe('초점 표시', () => {
     const { 목록 } = 인라인끈곳();
     const 파일 = new Set(목록.map((m) => m.split(':')[0]));
     for (const f of 파일) {
-      const s = readFileSync(join(ROOT, f), 'utf8');
+      const s = readDesignFile(join(ROOT, f), 'utf8');
       expect(s, `${f} 에 outline:none 을 남긴 이유가 없습니다`).toContain('남겨 두는 outline:none');
     }
   });
@@ -87,7 +88,7 @@ describe('초점 표시', () => {
      *    실제로 그랬다: 이 검사를 처음 돌렸을 때 button 이 없다고 나왔는데,
      *    바로 위 주석에 적어 둔 중괄호 때문이었다.
      */
-    const css = readFileSync(join(ROOT, 'app', 'globals.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, ' ');
+    const css = readDesignFile(join(ROOT, 'app', 'globals.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, ' ');
     /*
      * 정규식 하나로 CSS 를 파싱하려다 «앞 규칙까지 빨아들여» 엉뚱한 선택자를
      * 모은 적이 있다. 그래서 규칙을 하나씩 끊어 본다: `}` 다음부터 다음 `{` 까지가

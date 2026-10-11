@@ -10,7 +10,7 @@ export type IconProps = SVGProps<SVGSVGElement> & {
 /** Phosphor Regular uses filled outlines. Legacy stroke options must not thicken them. */
 export function createIcon(name: string, shape: ReactNode) {
   const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon({
-    size = 20, color = 'currentColor', children, className, style,
+    size, color = 'currentColor', children, className, style,
     strokeWidth, absoluteStrokeWidth, ...props
   }, ref) {
     void strokeWidth;
@@ -18,11 +18,12 @@ export function createIcon(name: string, shape: ReactNode) {
     const named = props['aria-label'] || props['aria-labelledby'] || props.role === 'img';
     return (
       <svg
-        ref={ref} xmlns="http://www.w3.org/2000/svg" width={size} height={size}
+        ref={ref} xmlns="http://www.w3.org/2000/svg" width={size ?? 20} height={size ?? 20}
         viewBox="0 0 256 256" color={color} aria-hidden={named ? undefined : true}
         focusable="false" {...props} fill="currentColor" stroke="none"
         data-qd-icon={name} className={['qd-phosphor-icon', className].filter(Boolean).join(' ')}
-        style={{ display: 'inline-block', flexShrink: 0, verticalAlign: '-0.18em', ...style }}
+        data-qd-default-size={size === undefined && props.width === undefined && props.height === undefined ? '' : undefined}
+        style={{ display: 'inline-block', flexShrink: 0, verticalAlign: 'var(--qd-icon-align, -0.18em)', ...style }}
       >
         {shape}{children}
       </svg>

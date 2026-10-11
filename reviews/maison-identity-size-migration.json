@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "sites": [
+    {
+      "path": "app/(app)/capa/capa-sheets.tsx",
+      "line": 516,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "77c34e0a7bca1a7c8dad380bec958e16c8f07c1ed9332a81a975925e468d95e8"
+    },
+    {
+      "path": "app/(app)/complaints/[id]/complaint-sheet.tsx",
+      "line": 335,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "7fe65264e3bc1fd0e99de0a7965b8a09738fbe6e09fa90b03c50c8b165e230f1"
+    },
+    {
+      "path": "app/(app)/contracts/contract-sheet.tsx",
+      "line": 161,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "4d749eefe1fda68b2a9df8a88cacdc843aef6c9be25fe5b3a4dbdb123203ef3c"
+    },
+    {
+      "path": "app/(app)/documents/[id]/print/page.tsx",
+      "line": 177,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "14",
+      "replacement": "qdPrint.companyMark.maxHeightMm",
+      "sourceHash": "7bccb79de1970cfa746a07de9d0e9ffa6c89b00034da52d17a805d96da4bc056"
+    },
+    {
+      "path": "app/(app)/documents/[id]/print/page.tsx",
+      "line": 210,
+      "component": "QrCode",
+      "property": "size",
+      "original": "88",
+      "replacement": "qdPrint.documentQrSize",
+      "sourceHash": "7bccb79de1970cfa746a07de9d0e9ffa6c89b00034da52d17a805d96da4bc056"
+    },
+    {
+      "path": "app/(app)/drawings/drawing-sheet.tsx",
+      "line": 242,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "93341725be2efd02e4a83ba00553a55284c4c1e108ff2d84ab3afa3ffd946332"
+    },
+    {
+      "path": "app/(app)/inspections/[id]/print/page.tsx",
+      "line": 232,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "058d24476e709eeadd4db53f0d782488ff5c4420e245b98e5dc35bfb525369d2"
+    },
+    {
+      "path": "app/(app)/inspections/print/page.tsx",
+      "line": 489,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "11",
+      "replacement": "qdPrint.companyMark.bandMaxHeightMm",
+      "sourceHash": "ecf2601125140da761893a97a1fcf1595bfab561516d2421dae5e9b0e98688aa"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/checklist-sheet.tsx",
+      "line": 226,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "2a3ea3dc262a16c5b827a753440cb7dc8796bd886360c2154e027f2463a0332e"
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-sheet.tsx",
+      "line": 448,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "b88a0460c10e65ee45ccbd609012aecdaab8b1d628eb0189e5c25d85ea02038a"
+    },
+    {
+      "path": "app/(app)/production/print/page.tsx",
+      "line": 823,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "11",
+      "replacement": "qdPrint.companyMark.bandMaxHeightMm",
+      "sourceHash": "b6a221f6d7c70cc12915454ef8ac50d130a2a6425175669ee912c64fb15b96a3"
+    },
+    {
+      "path": "app/(app)/recalls/recall-sheets.tsx",
+      "line": 463,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "5bc517527c8cab2efed4891615ec6636ea279d696f814de00c03be7882dbdd39"
+    },
+    {
+      "path": "app/(app)/returns/print/page.tsx",
+      "line": 170,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "11",
+      "replacement": "qdPrint.companyMark.bandMaxHeightMm",
+      "sourceHash": "911d895f86742cb6854737b0c1b4e25c83ce32f0afede6566cdcc97d3a1d7c5d"
+    },
+    {
+      "path": "app/(app)/risks/[id]/print/[kind]/page.tsx",
+      "line": 336,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "4ad685f2442fe16d4cc9987286a63fa7440a14b4e404dfe80ba794818b29f638"
+    },
+    {
+      "path": "app/(app)/risks/print/page.tsx",
+      "line": 328,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "11",
+      "replacement": "qdPrint.companyMark.bandMaxHeightMm",
+      "sourceHash": "49d5c9d6145ddeb5a2854aa3da61c0a14749d2550426ba331e2be36eca7c6592"
+    },
+    {
+      "path": "app/(app)/shipping/shipment-sheet.tsx",
+      "line": 282,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "40bd358033151877051a3fdaba03d7cc29f2c99de04e7c3d9b613343daf9ba51"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/eval-report-sheet.tsx",
+      "line": 167,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "27009868bc6d913f98e5bb774a67fa21c3918a57827e6075df2a07568d9b35ba"
+    },
+    {
+      "path": "app/(app)/traceability/print/page.tsx",
+      "line": 158,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "11",
+      "replacement": "qdPrint.companyMark.bandMaxHeightMm",
+      "sourceHash": "e1305dba7118ca6d2ee79130ffe4ccf2ca376207d3a167cd01d1d2a232c6f403"
+    },
+    {
+      "path": "app/(auth)/layout.tsx",
+      "line": 95,
+      "component": "BrandLogo",
+      "property": "size",
+      "original": "96",
+      "replacement": "qdMaison.logoSize",
+      "sourceHash": "49b6567f92825049119d12803415315704fdaaec431c748c053a76070855e6b8"
+    },
+    {
+      "path": "app/(auth)/layout.tsx",
+      "line": 100,
+      "component": "BrandLogo",
+      "property": "size",
+      "original": "56",
+      "replacement": "qdMaison.logoAuthMobileSize",
+      "sourceHash": "49b6567f92825049119d12803415315704fdaaec431c748c053a76070855e6b8"
+    },
+    {
+      "path": "app/(legal)/layout.tsx",
+      "line": 36,
+      "component": "BrandLogo",
+      "property": "size",
+      "original": "28",
+      "replacement": "qdMaison.logoLegalSize",
+      "sourceHash": "c8d19b3c2559573dea11d745d6d5fa9ba042acd3dd4d697d755bc48193dc83f6"
+    },
+    {
+      "path": "components/layout/mobile-sidebar.tsx",
+      "line": 106,
+      "component": "BrandLogo",
+      "property": "size",
+      "original": "108",
+      "replacement": "qdMaison.logoRailSize",
+      "sourceHash": "aab7aafd6066987b2a5689067e9f7f4aa2b801917baa7fbe0dc365f13aab6926"
+    },
+    {
+      "path": "components/layout/sidebar.tsx",
+      "line": 59,
+      "component": "BrandLogo",
+      "property": "size",
+      "original": "108",
+      "replacement": "qdMaison.logoRailSize",
+      "sourceHash": "5b9941de801d45fea68ed73a87e1cc3a6ee351a51056c41959a074a89399d8ec"
+    },
+    {
+      "path": "components/print/report-sheet.tsx",
+      "line": 261,
+      "component": "CompanyMark",
+      "property": "maxHeightMm",
+      "original": "16",
+      "replacement": "qdPrint.companyMark.headerMaxHeightMm",
+      "sourceHash": "ca4212f18f237c5c9db7d2330591431d1815ad2e9708d9fa187233bd2a4c9cc0"
+    }
+  ]
+}

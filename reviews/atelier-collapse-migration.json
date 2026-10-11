@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "scope": "Only finite Collapse animation curve and hidden translation defaults. Duration, reduced-motion behavior, DOM/inert state and caller overrides are preserved.",
+  "definitions": {
+    "--qd-atelier-collapse-open-easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "--qd-atelier-collapse-close-easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--qd-atelier-collapse-hidden-transform": "translateY(-4px)"
+  },
+  "records": [
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "00cb9b584b9e9e9cee36f27867d36e5694fff7ef58b597df80ac792e07784842",
+      "afterHash": "149b1bb3464325974d905caf6c0567355ffc17e9df6c152749578a523f784ebc",
+      "edits": [
+        {
+          "start": 21840,
+          "before": "? 'cubic-bezier(0.22, 1, 0.36, 1)' // ease-out expo",
+          "after": "? 'var(--qd-atelier-collapse-open-easing)' // ease-out expo"
+        },
+        {
+          "start": 21927,
+          "before": ": 'cubic-bezier(0.4, 0, 0.2, 1)'; // standard ease",
+          "after": ": 'var(--qd-atelier-collapse-close-easing)'; // standard ease"
+        },
+        {
+          "start": 22779,
+          "before": "transform: open ? 'translateY(0)' : 'translateY(-4px)'",
+          "after": "transform: open ? 'translateY(0)' : 'var(--qd-atelier-collapse-hidden-transform)'"
+        }
+      ]
+    }
+  ]
+}

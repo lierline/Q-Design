@@ -4,6 +4,7 @@ import { join, relative } from 'node:path';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { PageHd } from './components';
+import { QDText } from './q-design-labels';
 import { REPO_ROOT, readSource } from '@/lib/test-utils/contract-source';
 
 // =============================================================================
@@ -150,7 +151,13 @@ describe('PageHd 소스가 Q-Design 추출기의 표지를 지킨다', () => {
   });
 
   it('이름표 구역에 자간 탐침이 한 번, 하단선 표지가 부품 안에 한 번', () => {
-    expect(between('{sub && (', '<h1').match(/letterSpacing: labelTracking\(sub, [\d.]+\),/g)?.length).toBe(1);
+    const eyebrow = between('{sub && (', '<h1').replace(/QDText\.tracking\.(\w+)/g, (_, key: string) => {
+      if (!Object.hasOwn(QDText.tracking, key)) throw new Error(`Unknown canonical tracking: ${key}`);
+      const value = QDText.tracking[key as keyof typeof QDText.tracking];
+      if (typeof value !== 'number' || !Number.isFinite(value)) throw new Error(`Expected numeric tracking: ${key}`);
+      return String(value);
+    });
+    expect(eyebrow.match(/letterSpacing: labelTracking\(sub, [\d.]+\),/g)?.length).toBe(1);
     expect(hd.split('<div style={{ marginTop:').length - 1).toBe(1);
   });
 });

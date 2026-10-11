@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -20,8 +21,8 @@ import { PAGE_MARGIN_MM, PRINT_CONTENT_W, PRINT_MAIN_PAD_X, printZoom } from './
 //    배운 것이다(CLAUDE.md 「사본이 어긋나면 계약이 조용히 무력해진다」).
 
 const ROOT = join(__dirname, '..', '..');
-const CSS = readFileSync(join(ROOT, 'app', 'globals.css'), 'utf8');
-const COMPONENTS = readFileSync(join(ROOT, 'lib', 'design', 'components.tsx'), 'utf8');
+const CSS = readDesignFile(join(ROOT, 'app', 'globals.css'), 'utf8');
+const COMPONENTS = readDesignFile(join(ROOT, 'lib', 'design', 'components.tsx'), 'utf8');
 
 /**
  * 손으로 적은 가로 스크롤 감싸개. ScrollTable 을 안 쓰므로 배율도 안 받는다.
@@ -35,11 +36,11 @@ const 동결_손스크롤 = 15;
 
 describe('종이 치수가 한 곳에서 나온다', () => {
   it('@page 좌우 여백이 print.ts 와 같다', () => {
-    const m = /@page\s*\{[^}]*margin:\s*([0-9.]+)mm\s+([0-9.]+)mm\s+([0-9.]+)mm/.exec(CSS);
+    const m = /@page\s*\{[^}]*margin:\s*([0-9.]+)mm\s+([0-9.]+)mm\s+([0-9.]+)mm\s+([0-9.]+)mm/.exec(CSS);
     expect(m, 'globals.css 에서 @page margin 을 못 찾았습니다').not.toBeNull();
     expect(Number(m![1]), '위 여백').toBe(PAGE_MARGIN_MM.top);
-    expect(Number(m![2]), '좌우 여백').toBe(PAGE_MARGIN_MM.right);
-    expect(Number(m![2]), '좌우 여백').toBe(PAGE_MARGIN_MM.left);
+    expect(Number(m![2]), '오른쪽 여백').toBe(PAGE_MARGIN_MM.right);
+    expect(Number(m![4]), '왼쪽 여백').toBe(PAGE_MARGIN_MM.left);
     expect(Number(m![3]), '아래 여백').toBe(PAGE_MARGIN_MM.bottom);
   });
 
@@ -122,7 +123,7 @@ describe('손으로 적은 스크롤 감싸개', () => {
     const 목록: string[] = [];
     for (const 곳 of ['app', 'components']) {
       for (const p of 파일들(join(ROOT, 곳))) {
-        readFileSync(p, 'utf8')
+        readDesignFile(p, 'utf8')
           .split(/\r?\n/)
           .forEach((t, i) => {
             if (!/overflowX:\s*'auto'/.test(t)) return;

@@ -1,3 +1,4 @@
+import { readDesignFile, resolveStyleValues } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -23,7 +24,7 @@ const ROOT = process.cwd();
 const 도구줄 = 'components/ListToolbar.tsx';
 const 페이저 = 'components/ListPager.tsx';
 
-const read = (rel: string) => readFileSync(join(ROOT, rel), 'utf8');
+const read = (rel: string) => readDesignFile(join(ROOT, rel), 'utf8');
 
 /** 주석을 걷어 낸 코드. 「이렇게 하면 안 된다」고 적은 주석이 걸리면 안 된다 */
 function bare(rel: string): string {
@@ -110,8 +111,10 @@ describe('ListPager · 위와 아래', () => {
 
   it('위쪽에서는 목록을 닫는 줄을 그리지 않는다', () => {
     expect(코드).toContain("place = 'bottom'");
-    expect(코드).toContain('위 ? 0 : S[5]');
-    expect(코드).toContain('위 ? undefined : `1px solid ${T.border}`');
+    const margin = 코드.match(/marginTop:\s*위\s*\?\s*([^\n]+?)\s*:\s*QDScale\.space\[5\]/)?.[1];
+    expect(margin).toBeDefined();
+    expect(resolveStyleValues(`marginTop: ${margin}`)).toBe('marginTop: 0');
+    expect(resolveStyleValues(코드)).toContain('위 ? undefined : `1px solid ${T.border}`');
   });
 
   /* 두 곳이 같은 건수를 다르게 적으면 사람이 목록을 못 믿는다 */
@@ -156,7 +159,7 @@ const 일부러_뺀_화면: Record<string, string> = {
 };
 
 const 목록화면 = 화면들()
-  .map((f) => ({ f, s: readFileSync(f, 'utf8') }))
+  .map((f) => ({ f, s: readDesignFile(f, 'utf8') }))
   .filter((x) => x.s.includes('<ListPager'));
 const 도구줄화면 = 목록화면.filter((x) => x.s.includes('<ListToolbar'));
 
@@ -194,7 +197,7 @@ describe('쓰는 곳이 있다 · 선언만 되고 아무도 안 쓰면 소용�
   it.each(도구줄화면.map((x) => x.f))(
     '%s · 세는 기준 = 거르는 기준, 사용자 문자열은 .order() 에 안 닿는다',
     (f) => {
-      const 화면 = readFileSync(f, 'utf8');
+      const 화면 = readDesignFile(f, 'utf8');
       /* 세는 기준 = 거르는 기준. 좁혀 놓고 «전체» 로 접으면 없는 페이지로 간다 */
       expect(화면).toContain('clampPage(requested, shownTotal)');
       /* 사용자 문자열이 .order() 에 닿지 않는다 */
@@ -213,7 +216,7 @@ describe('쓰는 곳이 있다 · 선언만 되고 아무도 안 쓰면 소용�
   it.each(도구줄화면.map((x) => x.f))(
     '%s · 빈 화면에도 도구줄을 그린다',
     (f) => {
-      const 화면 = readFileSync(f, 'utf8');
+      const 화면 = readDesignFile(f, 'utf8');
       const 그린곳 = 화면.split('{도구줄}').length - 1;
       expect(그린곳).toBeGreaterThanOrEqual(2);
     },
@@ -223,7 +226,7 @@ describe('쓰는 곳이 있다 · 선언만 되고 아무도 안 쓰면 소용�
   it.each(도구줄화면.map((x) => x.f))(
     '%s · 아래 페이저도 좁힌 건수로 접고 좁힘을 이어 나른다',
     (f) => {
-      const 화면 = readFileSync(f, 'utf8');
+      const 화면 = readDesignFile(f, 'utf8');
       const i = 화면.lastIndexOf('<ListPager');
       const 아래 = 화면.slice(i, i + 400);
       expect(아래).toContain('total={shownTotal}');

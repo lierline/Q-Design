@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "path": "app/(app)/research/new/page.tsx",
+      "beforeHash": "d1aeebfee522b5576cf5545264a6a0651edb6b25373725072a55382b8971ba79",
+      "afterHash": "7f2c36bb135f5df00ba7abafab28e4b963f853570e51879abd9cd8f13e553d10",
+      "edits": [
+        {
+          "start": 10934,
+          "before": "id=\"research-new-title\"\n",
+          "after": "id=\"research-new-title\"\n                  className=\"qa-input qd-input\"\n"
+        },
+        {
+          "start": 16064,
+          "before": "id=\"research-new-idea\"\n",
+          "after": "id=\"research-new-idea\"\n                  className=\"qa-input qd-input\"\n"
+        },
+        {
+          "start": 19203,
+          "before": "id=\"research-new-intended-use\"\n",
+          "after": "id=\"research-new-intended-use\"\n                  className=\"qa-input qd-input\"\n"
+        },
+        {
+          "start": 19644,
+          "before": "id=\"research-new-population\"\n",
+          "after": "id=\"research-new-population\"\n                  className=\"qa-input qd-input\"\n"
+        },
+        {
+          "start": 21274,
+          "before": "padding: '10px 14px',\n    background: T.surface,\n    border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,\n    color: T.text,",
+          "after": "padding: 'var(--qd-space-2-5) var(--qd-space-3-5)',\n    minHeight: 'var(--qd-control-height)',\n    border: 'var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) var(--qd-ctl)',"
+        }
+      ]
+    }
+  ],
+  "reason": "Real native form controls consume the central control outline and focus/disabled surface rules; separator border was too low contrast."
+}

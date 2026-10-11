@@ -20,11 +20,12 @@
 //    덩이만 건너뛰어, 원본에 없는 설명문이 본문에 섞여 지문이 어긋났습니다.
 // =============================================================================
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PARTS, HOLD } from './sync-parts.mjs';
+import { publicAssetConsumerFiles } from './sync-html-consumers.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -60,6 +61,10 @@ const only = onlyArg ? new Set(onlyArg.slice('--only='.length).split(',').map((x
 export function bodyOf(text, lang = 'css') {
   const mark = text.indexOf(MARK);
   if (mark < 0) return text;
+  if (lang === 'html') {
+    const end = text.indexOf('-->', mark);
+    return end < 0 ? text : text.slice(end + 3).replace(/^\r?\n/, '');
+  }
   if (lang === 'ts') {
     /*
      * TS 머리표는 «끝 표시» 로 닫습니다. 「맨 앞의 줄 주석을 전부 건너뛴다」로 하면
@@ -99,6 +104,7 @@ const header = (srcRel, digest, lang = 'css') => {
   ];
   // ⚠️ 머리표 끝의 개행은 «하나» 입니다. 둘이면 본문 앞에 빈 줄이 남아 지문이 어긋납니다.
   if (lang === 'ts') return lines.map((l) => ('// ' + l).trimEnd()).join('\n') + '\n' + END_MARK + '\n';
+  if (lang === 'html') return `<!-- Q-Design source: ${srcRel}\nq-design-nav-sha256: ${digest}\n-->\n`;
   return '/* ' + lines.map((l, i) => (i === 0 ? l : '   ' + l).trimEnd()).join('\n') + ' */\n';
 };
 
@@ -160,6 +166,7 @@ for (const part of PARTS) {
        * 「같음」 으로 건너뛰어 **낡은 안내가 사본에 남습니다** - 실제로 갱신 명령이
        * 없어진 스크립트를 가리킨 채 남을 뻔했습니다.
        */
+      mkdirSync(dirname(path), { recursive: true });
       writeFileSync(path, header(part.src, digest, part.lang) + body, 'utf8');
       console.log(`  ${!has ? '신규' : same ? '그대로' : '갱신'}    ${who}  ${path}`);
     } else {
@@ -176,53 +183,66 @@ for (const part of PARTS) {
  * 하지 않았습니다(운영 CSS 를 받아 보고서야 알았습니다). [[declared-but-unread]]
  *
  * 그래서 받는 저장소의 코드에서 사본을 부르는 줄을 찾습니다. CSS 는 파일 이름이 든
- * import 줄, TS 는 확장자를 뺀 이름으로 끝나는 import 경로입니다. 시험 파일과 사본 자신은
+ * import 줄, TS 는 확장자를 뺀 이름으로 끝나는 import 경로입니다. HTML 은 public 서비스
+ * 워커와 문서의 정적 URL 참조를 함께 찾습니다. 시험 파일과 사본 자신은
  * 셈에서 뺍니다(시험이 읽는 것은 «쓰는» 것이 아닙니다). 알리기만 하고 멈추지는 않습니다.
  */
-const 건너뛸곳 = new Set(['node_modules', '.next', '.git', '.turbo', '.vercel', 'dist', 'build', 'out', 'coverage', 'reports', 'docs', 'public', 'test', 'tests', '__tests__']);
-const 코드확장자 = /\.(css|tsx?|jsx?|mjs|cjs)$/;
+const 건너뛸곳 = new Set(['node_modules', '.next', '.git', '.turbo', '.vercel', '.claude', '.codex', '.agents', '.superpowers', 'backups', 'capacitor-www', 'dist', 'build', 'out', 'coverage', 'reports', 'docs', 'public', 'test', 'tests', '__tests__', 'test-results', 'test-utils']);
+const 코드확장자 = /\.(css|tsx?|jsx?|mjs|cjs|html?)$/;
 const 저장소코드 = new Map();
+const 소스내용 = new Map();
+function 소스읽기(path) {
+  if (!소스내용.has(path)) 소스내용.set(path, readFileSync(path, 'utf8'));
+  return 소스내용.get(path);
+}
 function 저장소뿌리(path) {
   for (let d = dirname(path); d !== dirname(d); d = dirname(d)) if (existsSync(join(d, 'package.json'))) return d;
   return dirname(path);
 }
-function 코드파일들(root) {
-  if (저장소코드.has(root)) return 저장소코드.get(root);
+function 코드파일들(root, includePublic = false) {
+  const key = root + ':' + includePublic;
+  if (저장소코드.has(key)) return 저장소코드.get(key);
   const out = [];
   const walk = (dir) => {
     for (const e of readdirSync(dir, { withFileTypes: true })) {
       if (e.isDirectory()) {
-        if (!건너뛸곳.has(e.name)) walk(join(dir, e.name));
+        if ((!건너뛸곳.has(e.name) && !e.name.startsWith('.next-')) || (includePublic && e.name === 'public')) walk(join(dir, e.name));
       } else if (코드확장자.test(e.name) && !/\.(test|spec)\./.test(e.name)) {
         out.push(join(dir, e.name));
       }
     }
   };
   walk(root);
-  저장소코드.set(root, out);
+  저장소코드.set(key, out);
   return out;
 }
 const 글자틀 = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 function 부르는곳(path, lang) {
+  if (lang === 'html' || (lang === 'ts' && /\/public\/.*\.js$/.test(path.replaceAll('\\', '/')))) {
+    const root = 저장소뿌리(path);
+    return publicAssetConsumerFiles(path, root, 코드파일들(root, true), 소스읽기).length;
+  }
   const 이름 = basename(path);
   const 찾기 = lang === 'ts'
     ? new RegExp(`(?:from|import)\\s*\\(?\\s*['"][^'"]*/${글자틀(이름.replace(/\.tsx?$/, ''))}(?:\\.tsx?|\\.js)?['"]`)
     : new RegExp(`(?:@import|import)\\s[^;\\n]*${글자틀(이름)}`);
   const 자신 = resolve(path);
-  return 코드파일들(저장소뿌리(path)).filter((f) => resolve(f) !== 자신 && 찾기.test(readFileSync(f, 'utf8'))).length;
+  return 코드파일들(저장소뿌리(path)).filter((f) => resolve(f) !== 자신 && 찾기.test(소스읽기(f))).length;
 }
 const 안부름 = [];
 for (const part of PARTS) {
+  if (selectedPart && part.name !== selectedPart) continue;
   for (const [who, path] of Object.entries(part.to)) {
+    if (only && !only.has(who)) continue;
     if (existsSync(path) && 부르는곳(path, part.lang) === 0) 안부름.push(`  ${part.name}  ${who}  ${path}`);
   }
 }
 console.log('');
 if (안부름.length) {
-  console.log(`받아 두기만 하는 사본 ${안부름.length}곳 (받는 저장소의 코드가 부르지 않습니다. 여기 규칙은 그 제품에서 아무 일도 안 합니다)`);
+  console.log(`선택 범위에서 정적 참조를 찾지 못한 사본 ${안부름.length}곳 (동적 경로와 간접 연결은 별도 확인이 필요합니다)`);
   for (const line of 안부름) console.log(line);
 } else {
-  console.log('받아 두기만 하는 사본: 없음 (모든 사본을 받는 저장소의 코드가 부릅니다)');
+  console.log('선택 범위의 정적 참조 미확인 사본: 없음 (코드 또는 문서 참조를 찾았습니다. 실행 경로 전체를 보증하지는 않습니다)');
 }
 
 if (!write && drift) {

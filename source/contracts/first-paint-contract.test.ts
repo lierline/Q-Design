@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 /**
  * 첫 그림(서버가 보낸 HTML 이 스크립트 없이 그려지는 순간)의 폰 · 패드 세로 모양 (2026-09-27)
  *
@@ -16,10 +17,10 @@ import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { readSource, REPO_ROOT } from '@/lib/test-utils/contract-source';
-import { BP } from '@/lib/design/tokens';
+import { BP } from '@/lib/design/q-design-runtime';
 import { BreakpointsFirstGuess, PHONE_GUESS, useBreakpoints } from '@/lib/hooks/useBreakpoints';
 
-const css = readFileSync(join(REPO_ROOT, 'app/globals.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+const css = readDesignFile(join(REPO_ROOT, 'app/globals.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
 
 /** 선택자 하나의 규칙 본문들(미디어 블록 안팎 모두). 공백은 하나로 줄인다 */
 function rulesFor(selector: string, source: string): string[] {

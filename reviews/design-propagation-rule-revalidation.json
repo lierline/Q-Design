@@ -1,0 +1,25 @@
+{
+  "scope": "Appended unlayered role-weight bridge only. Every prior canonical byte and each revalidated evidence line is unchanged. No product business source or unknown argument was approved.",
+  "source": "patterns/foundation.css",
+  "beforeHash": "ccdeb1afd0fc9af1a5209257644d7c5e10018082fc2ffb5a8a035827f013371d",
+  "afterHash": "454816245eb2458a56bfe47a07b1aba9f2067b76744d7af659056fda76b5aef1",
+  "appended": "\n/* Common role weights must outrank product resets and generated literal weights.\n   This unlayered bridge keeps the component owner effective in Tailwind and\n   non-Tailwind apps. Product inline adapters already use these same variables. */\nhtml .qd-btn, html .qd-field-label, html .qd-control-label { font-weight: var(--qd-font-weight-medium); }\nhtml .qd-card-title, html .qd-dialog-title, html .qd-drawer-title { font-weight: var(--qd-font-weight-semibold); }\n",
+  "changes": [
+    {
+      "file": "atelier-fold-grid-review.json",
+      "count": 61
+    },
+    {
+      "file": "atelier-renderer-enum-review.json",
+      "count": 6
+    },
+    {
+      "file": "atelier-style-bindings-review.json",
+      "count": 7
+    },
+    {
+      "file": "atelier-widget-width-review.json",
+      "count": 348
+    }
+  ]
+}

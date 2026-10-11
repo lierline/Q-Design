@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "scope": "The dense table variant consumes canonical padding while normal density and header stroke arithmetic remain unchanged.",
+  "definitions": {
+    "--qd-table-pad-y-dense": "var(--qd-space-2)"
+  },
+  "records": [
+    {
+      "path": "lib/design/components.tsx",
+      "beforeHash": "149b1bb3464325974d905caf6c0567355ffc17e9df6c152749578a523f784ebc",
+      "afterHash": "cc2792571066097da50af9288ce2619fd06df650a57a3103587d29f7b289f262",
+      "edits": [
+        {
+          "start": 113617,
+          "before": "const padY = dense ? 8 : 11;",
+          "after": "const padY = dense ? 'var(--qd-table-pad-y-dense)' : 'var(--qd-table-pad-y, 11px)';"
+        },
+        {
+          "start": 114403,
+          "before": "${dense ? `${padY}px` : `var(--qd-table-pad-y, ${padY}px)`}",
+          "after": "${padY}"
+        },
+        {
+          "start": 116195,
+          "before": "${dense ? `${padY}px` : `var(--qd-table-pad-y, ${padY}px)`}",
+          "after": "${padY}"
+        }
+      ]
+    }
+  ]
+}

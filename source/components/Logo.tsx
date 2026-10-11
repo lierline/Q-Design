@@ -17,6 +17,7 @@
  *              두 이미지 픽셀 크기가 다르므로 object-fit:contain 으로 정규화.
  */
 
+import { QDPresentation } from '@/lib/design/q-design-runtime';
 import { useTheme } from '@/lib/design/theme-provider';
 
 interface LogoProps {
@@ -27,7 +28,7 @@ interface LogoProps {
   color?: string;
 }
 
-export function Logo({ size = 160, style }: LogoProps) {
+export function Logo({ size = QDPresentation.logoSize[160], style }: LogoProps) {
   const { theme } = useTheme();
   const src = theme === 'dark' ? '/q-mark-on-dark.webp' : '/q-mark-on-light.webp';
   return (
@@ -57,7 +58,7 @@ export function Logo({ size = 160, style }: LogoProps) {
  * 두 테마 이미지(360×353 / 360×357)의 비율 차이를 정규화한다.
  */
 export function LogoMark({
-  size = 32,
+  size = QDPresentation.logoSize[32],
   style,
 }: {
   size?: number;

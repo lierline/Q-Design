@@ -1,3 +1,4 @@
+import { readDesignFile } from '@/lib/test-utils/design-source';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -11,7 +12,7 @@ import { join } from 'node:path';
 //   · 새 --qa-* 는 반드시 양 테마에 함께 정의.
 //   · 값(hex)은 테마별로 다른 게 정상(AA 튜닝): 이 가드는 '키 집합'만 검사.
 
-const css = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+const css = readDesignFile(join(process.cwd(), 'app/globals.css'), 'utf8');
 
 // 셀렉터 다음 첫 '{' 부터 depth 매칭 '}' 까지 블록 본문 추출.
 function block(selectorRe: RegExp): string {
