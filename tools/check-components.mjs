@@ -44,6 +44,7 @@ const steps=[
   ['tools/copy-spacing.mjs','--check'],
   ['--test','tools/extract-ramp.test.mjs'],
   ['--test','tools/native-offline.test.mjs'],
+  ['--test','tools/native-palette-roles.test.mjs'],
   ['--test','tools/all-screen-connections.test.mjs'],
   ['tools/all-screen-connections.mjs','--check'],
   ['--test','tools/page-evidence-verdict.test.mjs'],

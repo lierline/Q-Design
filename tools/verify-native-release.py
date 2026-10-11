@@ -55,9 +55,15 @@ for product, repo in (("atelier", "Q-Atelier-App"), ("maison", "Q-Maison-App"), 
         compiled_backgrounds[name] = compiled.group(1).lower()
     assert re.search(r"color/app_bg\s*\n\s*\(\) @color/qd_native_bg_light\s*\n\s*\(night\) @color/qd_native_bg_dark\b", dump), f"Compiled day/night canvas consumer mismatch: {product}"
     assert re.search(r"color/splash_light\s*\n\s*\(\) @color/qd_native_bg_light\b", dump), f"Compiled startup canvas consumer mismatch: {product}"
+    compiled_native_aliases = {}
+    for name in ("ic_bg", "loading_accent", "loading_accent_bright", "muted_on_dark", "launch_glint", "muted_on_light"):
+        target = "qd_native_" + name
+        assert re.search(r"color/" + re.escape(name) + r"\s*\n\s*\(\) @color/" + re.escape(target) + r"\b", dump), f"Compiled native role consumer mismatch: {product}/{name}"
+        assert target in compiled_backgrounds, f"Missing compiled native role: {product}/{target}"
+        compiled_native_aliases[name] = target
     package = "qatelier" if product == "atelier" else product
     launch = app / f"app/src/main/java/app/medqraft/{package}/LaunchView.java"
-    results.append({"product": product, "artifacts": artifacts, "lintErrors": len(errors), "lintWarnings": len(warnings), "compiledHintBreakStrategy": int(match.group(1)), "compiledBackgrounds": compiled_backgrounds, "compiledBackgroundsArtifact": "unsigned-apk", "startupSourceSha256": digest(launch.read_bytes()), "resourceSourceSha256": digest(resource.read_bytes()), "paletteSourceSha256": digest(palette_resource.read_bytes()), "signed": False, "installedRuntimeReviewed": False})
-report = {"version": 1, "scope": "Actual unsigned release APK and AAB assets, compiled Android hint strategy and shared canvas, and release lint. Existing signed distribution files are unchanged. Installation, device rendering, other native visual parameters and iOS compilation remain unverified.", "results": results}
+    results.append({"product": product, "artifacts": artifacts, "lintErrors": len(errors), "lintWarnings": len(warnings), "compiledHintBreakStrategy": int(match.group(1)), "compiledBackgrounds": {k: v for k, v in compiled_backgrounds.items() if k in ("qd_native_bg_light", "qd_native_bg_dark")}, "compiledPaletteColors": compiled_backgrounds, "compiledNativeAliases": compiled_native_aliases, "compiledPaletteArtifact": "unsigned-apk", "compiledBackgroundsArtifact": "unsigned-apk", "startupSourceSha256": digest(launch.read_bytes()), "resourceSourceSha256": digest(resource.read_bytes()), "paletteSourceSha256": digest(palette_resource.read_bytes()), "signed": False, "installedRuntimeReviewed": False})
+report = {"version": 1, "scope": "Actual unsigned release APK and AAB offline assets, compiled APK Android hint strategy, shared canvas, startup role colors and aliases, and release lint. AAB compiled color resources are not independently decoded here. Existing signed distribution files are unchanged. Installation, device rendering, other native visual parameters and iOS compilation remain unverified.", "results": results}
 (root / "reviews/native-release-build-results.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(json.dumps([{k: r[k] for k in ("product", "lintErrors", "lintWarnings", "compiledHintBreakStrategy", "signed", "installedRuntimeReviewed")} for r in results]))
