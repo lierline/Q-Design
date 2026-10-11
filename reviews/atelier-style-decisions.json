@@ -6417,12 +6417,12 @@
     "unknown": "No sufficient exact-source proof exists in this review. Further inspection or centralization is required."
   },
   "counts": {
-    "business-data": 1131,
+    "business-data": 1137,
     "token-reference-verified": 33184,
     "central-selector": 1161,
     "structural-behavior": 7114,
     "delegated-renderer-parameter": 416,
-    "unknown": 897,
+    "unknown": 891,
     "confirmed-style-composition": 85,
     "compatibility-noop": 18,
     "business-content": 176,
@@ -1123445,10 +1123445,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Cache-key accumulator. Its djb2-derived hash is returned inside qmatch.preview.v1 after processing input and canonical keywords; it is not a renderer height.",
       "evidence": [
+        {
+          "path": "components/ItemClassificationPreview.tsx",
+          "line": 193,
+          "hash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d"
+        },
         {
           "path": "components/ItemClassificationPreview.tsx",
           "line": 199,
@@ -1667090,10 +1667095,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "HTTP Content-Disposition header. Filename regular expressions consume it and return the decoded download filename or null; downstream display is not approved.",
       "evidence": [
+        {
+          "path": "lib/api/content-disposition.ts",
+          "line": 39,
+          "hash": "9d1c04e6bb8e72341aafec927826ee52ca14c82957fe7dea666ff0f33a7c46cd"
+        },
         {
           "path": "lib/api/content-disposition.ts",
           "line": 40,
@@ -1667459,10 +1667469,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Lowercased hostname used only by relying-party equality and suffix checks returning an eligibility boolean. Authentication behavior and downstream rendering remain separate.",
       "evidence": [
+        {
+          "path": "lib/auth/passkey.ts",
+          "line": 20,
+          "hash": "b6f0f0eb32508bc767cb56a2d2505b18c81c7cc15b73c14d4d2d7ccc6c1b1749"
+        },
         {
           "path": "lib/auth/passkey.ts",
           "line": 21,
@@ -1782295,10 +1782310,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "FNV-1a engine-content fingerprint seed. Bitwise operations and Math.imul produce the returned fingerprint string; it is not a screen height. Engine code is neither modified nor executed.",
       "evidence": [
+        {
+          "path": "lib/engine/fingerprint.ts",
+          "line": 33,
+          "hash": "d5053f602f7d45ebd091f5e83c507b82ce345d12125de10215b4dc831101ff34"
+        },
         {
           "path": "lib/engine/fingerprint.ts",
           "line": 40,
@@ -1818642,10 +1818662,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Normalized IPv6 string. Bracket and zone removal, embedded IPv4 conversion and hextet parsing produce a number array or null, not a UI dimension. No network request is made.",
       "evidence": [
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 54,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        },
         {
           "path": "lib/url-ingest.ts",
           "line": 55,
@@ -1818698,10 +1818723,15 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Normalized hostname string after bracket and trailing-dot removal. It is returned to URL validation and connection handling, not to a renderer style. Network policy is unchanged.",
       "evidence": [
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 111,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        },
         {
           "path": "lib/url-ingest.ts",
           "line": 112,

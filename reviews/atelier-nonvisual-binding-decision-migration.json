@@ -1,0 +1,65 @@
+{
+  "scope": "Historical full-report comparison. Only six exact local nonvisual-data decisions changed; all other decisions, source hashes and inventory metadata remained identical. Not a future-edit or visual certificate.",
+  "ref": "5ff6ffc",
+  "path": "reviews/atelier-style-decisions.json",
+  "beforeHash": "b8e6efc96fede78cd6e0df7928eeeed8653102dfab51a66ae7fc00dd138661f8",
+  "afterHash": "f01c2d31b8831a13e6e99e7383993e23f497dad844eec677b8cfab0d896f9324",
+  "changed": [
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "line": 199,
+      "argumentHash": "14115e07743953dd9848690ab21d022ef8f6d3f75aa6d3b918a878ba87c151d9",
+      "sourceHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    },
+    {
+      "path": "lib/api/content-disposition.ts",
+      "line": 40,
+      "argumentHash": "9147e0f34de27edc94c8cd9ed552d969a4691d52125737e2fbabea3c5b4cf4fa",
+      "sourceHash": "9d1c04e6bb8e72341aafec927826ee52ca14c82957fe7dea666ff0f33a7c46cd",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    },
+    {
+      "path": "lib/auth/passkey.ts",
+      "line": 21,
+      "argumentHash": "7f2a4de79f7be77a42624e7af919c90987052a4b311cbb9530760fbe5b738839",
+      "sourceHash": "b6f0f0eb32508bc767cb56a2d2505b18c81c7cc15b73c14d4d2d7ccc6c1b1749",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    },
+    {
+      "path": "lib/engine/fingerprint.ts",
+      "line": 40,
+      "argumentHash": "13fe9025cae156eb32fee11b0f00ab14a11bd1aeff74a822bbd40b09798b1b42",
+      "sourceHash": "d5053f602f7d45ebd091f5e83c507b82ce345d12125de10215b4dc831101ff34",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    },
+    {
+      "path": "lib/url-ingest.ts",
+      "line": 55,
+      "argumentHash": "781a6c9ea3083078d25da9a98be6052e324fbc797e7105b4449f0313290ea60c",
+      "sourceHash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    },
+    {
+      "path": "lib/url-ingest.ts",
+      "line": 112,
+      "argumentHash": "ec711e2613d1a91e246b9a59195e247850fd6682cd691407f3334778f69735a3",
+      "sourceHash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-nonvisual-local-binding"
+    }
+  ],
+  "unknownBefore": 897,
+  "unknownAfter": 891
+}

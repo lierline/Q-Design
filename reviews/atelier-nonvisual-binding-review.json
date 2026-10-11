@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "scope": "Six individually inspected local h bindings only, bound to complete unchanged source and exact AST arguments. No identifier, initializer number, file, other function or later visual use is exempted.",
+  "records": [
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "line": 199,
+      "sourceHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
+      "argumentHash": "14115e07743953dd9848690ab21d022ef8f6d3f75aa6d3b918a878ba87c151d9",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "5381",
+      "inspectedConsumer": "cacheKeyFor",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Cache-key accumulator. Its djb2-derived hash is returned inside qmatch.preview.v1 after processing input and canonical keywords; it is not a renderer height.",
+      "evidence": [
+        {
+          "path": "components/ItemClassificationPreview.tsx",
+          "line": 193,
+          "hash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d"
+        },
+        {
+          "path": "components/ItemClassificationPreview.tsx",
+          "line": 199,
+          "hash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d"
+        }
+      ]
+    },
+    {
+      "path": "lib/api/content-disposition.ts",
+      "line": 40,
+      "sourceHash": "9d1c04e6bb8e72341aafec927826ee52ca14c82957fe7dea666ff0f33a7c46cd",
+      "argumentHash": "9147e0f34de27edc94c8cd9ed552d969a4691d52125737e2fbabea3c5b4cf4fa",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "header ?? ''",
+      "inspectedConsumer": "filenameFromDisposition",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "HTTP Content-Disposition header. Filename regular expressions consume it and return the decoded download filename or null; downstream display is not approved.",
+      "evidence": [
+        {
+          "path": "lib/api/content-disposition.ts",
+          "line": 39,
+          "hash": "9d1c04e6bb8e72341aafec927826ee52ca14c82957fe7dea666ff0f33a7c46cd"
+        },
+        {
+          "path": "lib/api/content-disposition.ts",
+          "line": 40,
+          "hash": "9d1c04e6bb8e72341aafec927826ee52ca14c82957fe7dea666ff0f33a7c46cd"
+        }
+      ]
+    },
+    {
+      "path": "lib/auth/passkey.ts",
+      "line": 21,
+      "sourceHash": "b6f0f0eb32508bc767cb56a2d2505b18c81c7cc15b73c14d4d2d7ccc6c1b1749",
+      "argumentHash": "7f2a4de79f7be77a42624e7af919c90987052a4b311cbb9530760fbe5b738839",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "hostname.toLowerCase()",
+      "inspectedConsumer": "passkeyHostOk",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Lowercased hostname used only by relying-party equality and suffix checks returning an eligibility boolean. Authentication behavior and downstream rendering remain separate.",
+      "evidence": [
+        {
+          "path": "lib/auth/passkey.ts",
+          "line": 20,
+          "hash": "b6f0f0eb32508bc767cb56a2d2505b18c81c7cc15b73c14d4d2d7ccc6c1b1749"
+        },
+        {
+          "path": "lib/auth/passkey.ts",
+          "line": 21,
+          "hash": "b6f0f0eb32508bc767cb56a2d2505b18c81c7cc15b73c14d4d2d7ccc6c1b1749"
+        }
+      ]
+    },
+    {
+      "path": "lib/engine/fingerprint.ts",
+      "line": 40,
+      "sourceHash": "d5053f602f7d45ebd091f5e83c507b82ce345d12125de10215b4dc831101ff34",
+      "argumentHash": "13fe9025cae156eb32fee11b0f00ab14a11bd1aeff74a822bbd40b09798b1b42",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "0x811c9dc5",
+      "inspectedConsumer": "engineContentFingerprint",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "FNV-1a engine-content fingerprint seed. Bitwise operations and Math.imul produce the returned fingerprint string; it is not a screen height. Engine code is neither modified nor executed.",
+      "evidence": [
+        {
+          "path": "lib/engine/fingerprint.ts",
+          "line": 33,
+          "hash": "d5053f602f7d45ebd091f5e83c507b82ce345d12125de10215b4dc831101ff34"
+        },
+        {
+          "path": "lib/engine/fingerprint.ts",
+          "line": 40,
+          "hash": "d5053f602f7d45ebd091f5e83c507b82ce345d12125de10215b4dc831101ff34"
+        }
+      ]
+    },
+    {
+      "path": "lib/url-ingest.ts",
+      "line": 55,
+      "sourceHash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918",
+      "argumentHash": "781a6c9ea3083078d25da9a98be6052e324fbc797e7105b4449f0313290ea60c",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "s.trim().toLowerCase()",
+      "inspectedConsumer": "parseIpv6",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Normalized IPv6 string. Bracket and zone removal, embedded IPv4 conversion and hextet parsing produce a number array or null, not a UI dimension. No network request is made.",
+      "evidence": [
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 54,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        },
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 55,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        }
+      ]
+    },
+    {
+      "path": "lib/url-ingest.ts",
+      "line": 112,
+      "sourceHash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918",
+      "argumentHash": "ec711e2613d1a91e246b9a59195e247850fd6682cd691407f3334778f69735a3",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "hostname.toLowerCase()",
+      "inspectedConsumer": "normalizeHost",
+      "decision": "business-data",
+      "ruleId": "exact-nonvisual-local-binding",
+      "reason": "Normalized hostname string after bracket and trailing-dot removal. It is returned to URL validation and connection handling, not to a renderer style. Network policy is unchanged.",
+      "evidence": [
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 111,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        },
+        {
+          "path": "lib/url-ingest.ts",
+          "line": 112,
+          "hash": "f7cbf1ba38513bee4e009cdb2cf93ce18b29769d200c08e4ee8b3b2937fb8918"
+        }
+      ]
+    }
+  ]
+}
