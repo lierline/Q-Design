@@ -11,6 +11,7 @@ const core='lib/design/components.tsx';
 export const parameterTargets=[...dimensionTargets.filter(t=>t[1]!=='ListToolbar').map(t=>t.slice(0,3)),...colorTargets,
  ...[['IconBtn','size'],['ProgressBar','height'],['ProgressBar','trackColor'],['Checkbox','size'],['Skeleton','w'],['Skeleton','h'],['Skeleton','radius'],['SkeletonPanel','height'],['Card','minHeight'],['Tag','color'],['Grid','gap'],['Grid','minCol'],['Grid','cols']].map(t=>[core,...t]),
  ['components/Skeleton.tsx','Skeleton','width'],['components/Skeleton.tsx','Skeleton','height'],
+ [core,'Reveal','style'],[core,'Panel','style'],
  ['components/TimeSeriesChart.tsx','TimeSeriesChart','height']];
 
 export function parameterLeaves(ts,checker,fn,binding,sf){

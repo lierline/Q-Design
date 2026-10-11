@@ -6421,8 +6421,8 @@
     "token-reference-verified": 33184,
     "central-selector": 1161,
     "structural-behavior": 7114,
-    "delegated-renderer-parameter": 416,
-    "unknown": 870,
+    "delegated-renderer-parameter": 419,
+    "unknown": 867,
     "confirmed-style-composition": 85,
     "compatibility-noop": 18,
     "business-content": 176,
@@ -1725885,14 +1725885,20 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 2017,
           "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 2015,
+          "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+          "delegatedReview": true
         }
       ]
     },
@@ -1726018,14 +1726024,32 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 2066,
           "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 2036,
+          "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/research/[code]/design-requirements/page.tsx",
+          "line": 403,
+          "hash": "adbeb49837e3d32e837315b7d4b2a1b1c9a1394439292aaea88b67bd8f34f1de",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/research/[code]/risks/page.tsx",
+          "line": 395,
+          "hash": "514037be22821adcd86a3f770c8778e868419a23c24b4f7957d4f51dc785f069",
+          "delegatedReview": true
         }
       ]
     },
@@ -1726063,14 +1726087,32 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 2072,
           "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 2036,
+          "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/research/[code]/design-requirements/page.tsx",
+          "line": 403,
+          "hash": "adbeb49837e3d32e837315b7d4b2a1b1c9a1394439292aaea88b67bd8f34f1de",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/research/[code]/risks/page.tsx",
+          "line": 395,
+          "hash": "514037be22821adcd86a3f770c8778e868419a23c24b4f7957d4f51dc785f069",
+          "delegatedReview": true
         }
       ]
     },

@@ -13,7 +13,7 @@ import { isCompiledWorkbench } from './audit-coverage-core.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['source', 'node_modules', '.git']);
-const EXT = /\.(md|html|css|json|mjs|js|ts|tsx)$/;
+const EXT = /\.(md|html|css|json|mjs|js|ts|tsx|swift)$/;
 
 // 코드포인트로 지목합니다. 리터럴로 적으면 이 파일 자신이 검사에 걸립니다.
 const BANNED = [

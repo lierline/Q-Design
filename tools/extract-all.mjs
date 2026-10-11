@@ -53,6 +53,7 @@ const STEPS = [
   { name: '기본 UI 구현', file: 'build-component-implementations.mjs', extra: [...only], why: '검토한 기본 부품 구현을 큐 디자인 정본과 연결하고 공개 내보내기를 기록합니다' },
   { name: '앱 오프라인', file: 'build-native-offline.mjs', extra: [...only], why: 'Android와 iOS 앱의 독립 화면을 공통 규칙에서 만듭니다' },
   { name: '앱 시작 장면', file: 'build-native-launcher.mjs', extra: [...only], why: 'Android 세 앱의 실제 시작 화면을 하나의 공통 표현 규칙에서 만듭니다' },
+  { name: 'iOS 공용 장면', file: 'build-ios-components.mjs', extra: [...only], why: '기존 UIKit 시작 화면과 안내 메시지를 정본 구현에서 만듭니다' },
   { name: '앱 시작 인자', file: 'native-style-arguments.mjs', why: 'Java 구문 트리로 시작 화면의 리터럴과 실제 표현 인자를 목록화합니다' },
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
@@ -178,6 +179,9 @@ if (native.code !== 0) process.exit(1);
 const nativeLaunch = run('build-native-launcher.mjs', ['--write', ...only]);
 console.log(nativeLaunch.out.trim());
 if (nativeLaunch.code !== 0) process.exit(1);
+const iosComponents = run('build-ios-components.mjs', ['--write', ...only]);
+console.log(iosComponents.out.trim());
+if (iosComponents.code !== 0) process.exit(1);
 const implementations = run('build-component-implementations.mjs', ['--write', ...only]);
 console.log(implementations.out.trim());
 if (implementations.code !== 0) process.exit(1);

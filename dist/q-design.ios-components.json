@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "Exact full-source ownership of the two existing Q-Atelier UIKit presentation components. Source equality and propagation are checked, without claiming Swift compilation, installation, or visual conformance. UIKit/CoreText, dynamic type, reduced motion, runtime input and externally referenced palette/font/logo resources remain distinct boundaries. No other product iOS app or native class is included.",
+  "records": [
+    {
+      "key": "Q-Atelier",
+      "product": "atelier",
+      "component": "LaunchView",
+      "canonical": "patterns/native/ios/LaunchView.swift",
+      "generated": "dist/native-components/ios/LaunchView.swift",
+      "target": "Q-Atelier-iOS/QAtelier/Sources/LaunchView.swift",
+      "sourceHash": "378c68c71f3b4132664c99c7930cd6138b1e06fbebabdbff7680dee71f336e78"
+    },
+    {
+      "key": "Q-Atelier",
+      "product": "atelier",
+      "component": "ToastView",
+      "canonical": "patterns/native/ios/ToastView.swift",
+      "generated": "dist/native-components/ios/ToastView.swift",
+      "target": "Q-Atelier-iOS/QAtelier/Sources/ToastView.swift",
+      "sourceHash": "d86aea72ac70ddba4bfed812d6067817ea9260ec342e721fcd123304dcb9742e"
+    }
+  ]
+}
