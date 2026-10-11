@@ -1,15 +1,15 @@
 {
-  "createdAt": "2026-10-11T11:19:03.523Z",
+  "createdAt": "2026-10-11T12:38:06.993Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 963,
-  "confirmedStyleArguments": 554,
-  "confirmedStylePercent": 57.5,
+  "unknown": 907,
+  "confirmedStyleArguments": 527,
+  "confirmedStylePercent": 58.1,
   "kinds": {
-    "object-property": 399,
-    "style-expression": 255,
+    "object-property": 383,
+    "style-expression": 244,
     "presentation-attribute": 113,
-    "named-style-value": 71,
+    "named-style-value": 42,
     "dynamic-style": 36,
     "class-utility": 13,
     "svg-geometry": 20,
@@ -20,9 +20,9 @@
     "html-attribute": 3
   },
   "counts": {
-    "confirmed-style-object": 286,
-    "direct-jsx-style": 255,
-    "unresolved-consumer": 242,
+    "confirmed-style-object": 270,
+    "direct-jsx-style": 244,
+    "unresolved-consumer": 213,
     "component-prop-needs-consumer-trace": 113,
     "dom-style-write": 13,
     "selector-or-variant": 34,
@@ -1273,138 +1273,6 @@
       "context": "direct-jsx-style"
     },
     {
-      "path": "app/(app)/m/lot/client.tsx",
-      "line": 307,
-      "argumentHash": "9a798eb609f1cce13836b6cc495cc36fce18cf8392c5689d3ae9e58d874c937c",
-      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "currentHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n                minHeight: GLOVE_TARGET, display: 'grid', gap: QDScale.space[0.5], alignContent: 'center',\n                padding: `${QDScale.space[2]} ${QDScale.space[3]}`, textAlign: 'left',\n                borderRadius: QDScale.radius, border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.borderHi}`,\n                background: 'transparent', color: 'inherit', cursor: 'pointer',\n              }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/lot/client.tsx",
-      "line": 308,
-      "argumentHash": "064336d0248ff4d3a52b0dd602981f37ab886c5c7f8274484ce13862fdd24c82",
-      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "currentHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "GLOVE_TARGET",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/m/lot/client.tsx",
-      "line": 345,
-      "argumentHash": "1b840770a261d7159fa77e6b60092bb13eb66b7c9c9189e36545ffaf4276c2d8",
-      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "currentHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{fieldStyle}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/lot/client.tsx",
-      "line": 361,
-      "argumentHash": "a8849f25a7c3e4fd68eef1093daf6e678ba5f5dd9b8be688e19bcb4f83bfebac",
-      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "currentHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{fieldStyle}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/process/client.tsx",
-      "line": 330,
-      "argumentHash": "f42efd8339a8cf3366073362c18bdba6a70198b5bed4d7794ccb198ce62f6bd3",
-      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "currentHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n                          minHeight: GLOVE_TARGET,\n                          width: \"var(--qd-atelier-width-b7aa1ec004)\",\n                          display: 'grid',\n                          gridTemplateColumns: \"var(--qd-atelier-grid-template-columns-e728a7afaf)\",\n                          alignItems: 'center',\n                          gap: QDScale.space[2],\n                          padding: `${QDScale.space[2]} ${QDScale.space[3]}`,\n                          textAlign: 'left',\n                          borderRadius: QDScale.radius,\n                          border: `${bad ? QDPresentation.visual.stroke.emphasis : QDPresentation.visual.stroke.normal}px var(--qd-atelier-border-style-5ed175bd8d) ${bad ? T.red : T.borderHi}`,\n                          background: bad ? alpha(T.red, QDRuntime.alpha.tint0_08) : 'transparent',\n                          color: 'inherit',\n                          cursor: 'pointer',\n                        }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/process/client.tsx",
-      "line": 331,
-      "argumentHash": "8982a1a199578aad20f48d5532f5b41eb71d78e607df381ed124ee62c6bbf753",
-      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "currentHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "GLOVE_TARGET",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/m/process/client.tsx",
-      "line": 376,
-      "argumentHash": "79fef214903b5ef7a159a58739847f3f1b5eb5dd22af9da5ab96f2970a723db3",
-      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "currentHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n                      minHeight: GLOVE_TARGET,\n                      display: 'grid',\n                      gap: QDScale.space[0.5],\n                      alignContent: 'center',\n                      padding: `${QDScale.space[2]} ${QDScale.space[3]}`,\n                      borderRadius: QDScale.radius,\n                      border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.borderHi}`,\n                      background: 'transparent',\n                      color: 'inherit',\n                      cursor: 'pointer',\n                    }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/process/client.tsx",
-      "line": 377,
-      "argumentHash": "4d0b7db28fef167d91d50efded04d957fa19744ddeba91884aa8edd13da142a7",
-      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "currentHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "GLOVE_TARGET",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 328,
-      "argumentHash": "b39ca13c229f7f3f4fd29dcb16e1f966454527273f3b9ff0768a717886587162",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{fieldStyle}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 444,
-      "argumentHash": "74867bd6b0f8d9d83f7cc81f3eb31955207ddfc54b13d8f7fcf3743dd95bfd75",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n              width: \"var(--qd-atelier-width-b7aa1ec004)\", minHeight: GLOVE_TARGET, display: 'grid', gap: QDScale.space[0.5], alignContent: 'center',\n              padding: `${QDScale.space[2]} ${QDScale.space[3]}`, textAlign: 'left',\n              borderRadius: QDScale.radius, border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.borderHi}`,\n              background: 'transparent', color: 'inherit', cursor: 'pointer',\n            }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 445,
-      "argumentHash": "73c2222b4abcc3bd37a074278ae7c6f8e1a8e6943dc0e9f00756b6d770883132",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "GLOVE_TARGET",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 508,
-      "argumentHash": "2235ce38fb823849a68d8a9165c328bf708462753d7a2de472e601921a1aaf38",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{fieldStyle}",
-      "context": "direct-jsx-style"
-    },
-    {
       "path": "app/(app)/m/receiving/client.tsx",
       "line": 528,
       "argumentHash": "347b67df094d35eb80ae80a125192b5910e7a1fb744eb649c8aa3215f493f7af",
@@ -1414,28 +1282,6 @@
       "property": "accent",
       "value": "true",
       "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 545,
-      "argumentHash": "0cad78868c67d30589cb5b923142b676a041cca047ec9a0624fe78174320a6f2",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n                      width: \"var(--qd-atelier-width-b7aa1ec004)\", minHeight: GLOVE_TARGET, display: 'flex', alignItems: 'center',\n                      padding: `${QDScale.space[2]} ${QDScale.space[3]}`, textAlign: 'left', cursor: 'pointer',\n                      borderRadius: QDScale.radius, background: 'transparent', color: 'inherit',\n                      border: `${overSample ? QDPresentation.visual.stroke.emphasis : QDPresentation.visual.stroke.normal}px var(--qd-atelier-border-style-5ed175bd8d) ${overSample ? T.red : T.borderHi}`,\n                      fontSize: QDScale.font[22], fontWeight: \"var(--qd-font-weight-bold)\", fontVariantNumeric: 'tabular-nums',\n                    }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/m/receiving/client.tsx",
-      "line": 546,
-      "argumentHash": "c99eea0159e9ce00e973cc26613f9f54d5e604bff4726cc4229ad60a6b24f9d8",
-      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "currentHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "GLOVE_TARGET",
-      "context": "confirmed-style-object"
     },
     {
       "path": "app/(app)/nmpa/page.tsx",
@@ -2978,127 +2824,6 @@
       "context": "unresolved-consumer"
     },
     {
-      "path": "app/api/capa/[id]/plan/actions/[actionId]/route.ts",
-      "line": 34,
-      "argumentHash": "ff36fd0bd6d2f0a8cd5252d4d11017ecfa1edb1a3ed006e39ed7360a86c6c3a5",
-      "sourceHash": "b93159aacd937a89588b8045101d6507c2136f6f804e0d5b0e3938de59d0b8d7",
-      "currentHash": "b93159aacd937a89588b8045101d6507c2136f6f804e0d5b0e3938de59d0b8d7",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.capa)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/capa/[id]/plan/actions/route.ts",
-      "line": 31,
-      "argumentHash": "12d4bfb4b725f4330150e4d57a9b6adae9f345bb79f4d7c2ab8d1e9b7ce08e4c",
-      "sourceHash": "d0ed5123a4e091e2653367f77f42a63b102e99633c171c07919eaf7b38ba7532",
-      "currentHash": "d0ed5123a4e091e2653367f77f42a63b102e99633c171c07919eaf7b38ba7532",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.capa)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/capa/[id]/plan/route.ts",
-      "line": 44,
-      "argumentHash": "259efdacc59ae75d11b05ce5e214a9366f755ad08923b549930996d742059656",
-      "sourceHash": "41d058a94102b6b251d7079e4b2f2401a7f84f7ff296f0faf2b279a7d79d9804",
-      "currentHash": "41d058a94102b6b251d7079e4b2f2401a7f84f7ff296f0faf2b279a7d79d9804",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.capa)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/capa/[id]/report/route.ts",
-      "line": 41,
-      "argumentHash": "4631b88d0acb1a6a153ad303fcf592aad777622ffede7b3d722a314880c07d00",
-      "sourceHash": "00b6bbe819b9be5d495d956ae5161a1684f9f0db2c491d58139e8372e595435c",
-      "currentHash": "00b6bbe819b9be5d495d956ae5161a1684f9f0db2c491d58139e8372e595435c",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.capa)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/complaints/[id]/investigation/route.ts",
-      "line": 78,
-      "argumentHash": "7ed21fd23f44f7b4f4dc062f1c28e718d4ca6ebf49c655c9849b9f674aeb6aa6",
-      "sourceHash": "48ccd1ffd3db7be9011c4246ffe1f1d07c68298c7ebf35e20be2f240026ba838",
-      "currentHash": "48ccd1ffd3db7be9011c4246ffe1f1d07c68298c7ebf35e20be2f240026ba838",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(f.supabase, f.user.id, WRITE_ROLES.complaints)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/computer-systems/access/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "13ff0c0e8c3adfaae3aeb42546761b3d8ac6860766204c343e42d9de8493fdb5",
-      "sourceHash": "3d8a30fd3d5d022351697ddbcb0549944d30e66e98f10394998548d538d07cfc",
-      "currentHash": "3d8a30fd3d5d022351697ddbcb0549944d30e66e98f10394998548d538d07cfc",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPUTER_SYSTEM_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/computer-systems/changes/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "13ff0c0e8c3adfaae3aeb42546761b3d8ac6860766204c343e42d9de8493fdb5",
-      "sourceHash": "262cf1107d1bff4422c8b7ba89803d79067b6263490b84ab3d763de2a30a93c3",
-      "currentHash": "262cf1107d1bff4422c8b7ba89803d79067b6263490b84ab3d763de2a30a93c3",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPUTER_SYSTEM_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/computer-systems/incidents/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "13ff0c0e8c3adfaae3aeb42546761b3d8ac6860766204c343e42d9de8493fdb5",
-      "sourceHash": "14eac0f3d3e052fa428c889ad0fe63919b97a51a23b536260e7c3f137caf8e1d",
-      "currentHash": "14eac0f3d3e052fa428c889ad0fe63919b97a51a23b536260e7c3f137caf8e1d",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPUTER_SYSTEM_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/computer-systems/systems/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "13ff0c0e8c3adfaae3aeb42546761b3d8ac6860766204c343e42d9de8493fdb5",
-      "sourceHash": "4b4bca7a493e47301ab98225dff952ef5ad4aee82783609a6553b835211adab9",
-      "currentHash": "4b4bca7a493e47301ab98225dff952ef5ad4aee82783609a6553b835211adab9",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPUTER_SYSTEM_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/contracts/[id]/changes/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "825d869db79645a8808425ab7d9ec6aa3f35e21acb3c78182b36e9aad280dbb7",
-      "sourceHash": "46603881f7d1f06e0737bd4c428049a8cfff2f3a28455da8c47db8907d68657f",
-      "currentHash": "46603881f7d1f06e0737bd4c428049a8cfff2f3a28455da8c47db8907d68657f",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CONTRACT_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/contracts/[id]/route.ts",
-      "line": 32,
-      "argumentHash": "436ee76e9d0b032bb92cf905592052fa1f7d45742aa93b010a3d74d7e0f2a3f4",
-      "sourceHash": "a975db23bbfbd46175817970114cd4ce76a7090eb4195af16ec41b98d1e13bcb",
-      "currentHash": "a975db23bbfbd46175817970114cd4ce76a7090eb4195af16ec41b98d1e13bcb",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CONTRACT_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
       "path": "app/api/cron/stale-reviews/route.ts",
       "line": 178,
       "argumentHash": "e46c7b392793e53a41c7a22ac3154bc5629015ae18147fe2b76fd6d33c11c4cf",
@@ -3107,61 +2832,6 @@
       "kind": "named-style-value",
       "property": "h",
       "value": "history.get(key)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/customer-communications/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "825d869db79645a8808425ab7d9ec6aa3f35e21acb3c78182b36e9aad280dbb7",
-      "sourceHash": "7aebe15464233be89f92a342ca06c35ae2c4aff9112dc8fcbc1cb20a535b738e",
-      "currentHash": "7aebe15464233be89f92a342ca06c35ae2c4aff9112dc8fcbc1cb20a535b738e",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CONTRACT_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/customer-property/[id]/incidents/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "0f5522d2774bf79539c2eab257ee16b1f86ff11bc58ae458e0449f60fab19617",
-      "sourceHash": "fbc0a2b07c07df7c950345ece960a93fa5923d56dd8bb1a32ad7f7af5947fd0a",
-      "currentHash": "fbc0a2b07c07df7c950345ece960a93fa5923d56dd8bb1a32ad7f7af5947fd0a",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CUSTOMER_PROPERTY_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/customer-property/[id]/returns/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "0f5522d2774bf79539c2eab257ee16b1f86ff11bc58ae458e0449f60fab19617",
-      "sourceHash": "90dca03172bf6159831392aa5ca2ae822f8b4ab851cf1f7dd527d601ea389b02",
-      "currentHash": "90dca03172bf6159831392aa5ca2ae822f8b4ab851cf1f7dd527d601ea389b02",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CUSTOMER_PROPERTY_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/customer-property/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "0f5522d2774bf79539c2eab257ee16b1f86ff11bc58ae458e0449f60fab19617",
-      "sourceHash": "67856495f60a3ae4e4ae1b4a964ccba438eab6b573a4cb129ebdb3ab76f7ddb0",
-      "currentHash": "67856495f60a3ae4e4ae1b4a964ccba438eab6b573a4cb129ebdb3ab76f7ddb0",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CUSTOMER_PROPERTY_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/customer-property/[id]/usages/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "0f5522d2774bf79539c2eab257ee16b1f86ff11bc58ae458e0449f60fab19617",
-      "sourceHash": "45a78699caff2deaf578a4f7f9a310651da3ba7160688d14ba7490c999ff4d5f",
-      "currentHash": "45a78699caff2deaf578a4f7f9a310651da3ba7160688d14ba7490c999ff4d5f",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, CUSTOMER_PROPERTY_WRITE)",
       "context": "unresolved-consumer"
     },
     {
@@ -3187,116 +2857,6 @@
       "context": "unresolved-consumer"
     },
     {
-      "path": "app/api/nonconformances/[id]/dispositions/[dispId]/route.ts",
-      "line": 48,
-      "argumentHash": "f25635991a4b3f856ba78c8695138a69daa3362d28b6cb379075c63d5be8f167",
-      "sourceHash": "e8d1f69c86b08b116bed5f40f95885a9bacddbaf456c33c6de49c1a55af6de57",
-      "currentHash": "e8d1f69c86b08b116bed5f40f95885a9bacddbaf456c33c6de49c1a55af6de57",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.nonconformances)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/product-service/[id]/installs/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "295a3d313b30a2344d37e5b0ea40aa3fd1fa5adb4ff6dcb1d4ee66600a1e53d6",
-      "sourceHash": "c10627ecf00ed1bfe8dd6a48a26b3be1967518c9c72c57986aa998fdc697a8cc",
-      "currentHash": "c10627ecf00ed1bfe8dd6a48a26b3be1967518c9c72c57986aa998fdc697a8cc",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, PRODUCT_SERVICE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/product-service/[id]/services/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "295a3d313b30a2344d37e5b0ea40aa3fd1fa5adb4ff6dcb1d4ee66600a1e53d6",
-      "sourceHash": "b0a218327ae19737361fe45b964f938c4745e1c4757c55e6ffdc75a477064357",
-      "currentHash": "b0a218327ae19737361fe45b964f938c4745e1c4757c55e6ffdc75a477064357",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, PRODUCT_SERVICE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/product-service/[id]/spec/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "295a3d313b30a2344d37e5b0ea40aa3fd1fa5adb4ff6dcb1d4ee66600a1e53d6",
-      "sourceHash": "24b16e891974ad9434612b7a0fb472b41ce5d297bba8ad400ae5bc2d5a32db18",
-      "currentHash": "24b16e891974ad9434612b7a0fb472b41ce5d297bba8ad400ae5bc2d5a32db18",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, PRODUCT_SERVICE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/product-service/[id]/trends/[childId]/route.ts",
-      "line": 31,
-      "argumentHash": "295a3d313b30a2344d37e5b0ea40aa3fd1fa5adb4ff6dcb1d4ee66600a1e53d6",
-      "sourceHash": "6be7df324540bb7d46cc478361af4c10ebf402dbb37756c9aacb82e25ea6ec1a",
-      "currentHash": "6be7df324540bb7d46cc478361af4c10ebf402dbb37756c9aacb82e25ea6ec1a",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, PRODUCT_SERVICE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/recalls/[id]/consignees/[cid]/route.ts",
-      "line": 29,
-      "argumentHash": "ea6e487153a7f242c633017ca11337456da07d0df730af7aea3eda57b2edd907",
-      "sourceHash": "6fbc49aafd77e3582ffee93879f7749ded969a03920379c6ab78707dbe90a5d8",
-      "currentHash": "6fbc49aafd77e3582ffee93879f7749ded969a03920379c6ab78707dbe90a5d8",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.recalls)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/record-control/backups/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "357418487479df17e6a15b6aad2d8dd409eb741a9bdd13542eb681c4d46ee696",
-      "sourceHash": "616a8014c8588d9cfea30f275d4230e9fb14e9362290ff4b3715bcf2f65d8a4e",
-      "currentHash": "616a8014c8588d9cfea30f275d4230e9fb14e9362290ff4b3715bcf2f65d8a4e",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, RECORD_CONTROL_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/record-control/disposals/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "357418487479df17e6a15b6aad2d8dd409eb741a9bdd13542eb681c4d46ee696",
-      "sourceHash": "f6fb57b1a2fef7a6a8d525be16c5aee32f8d12b813b60d3417fb3dca318e7d17",
-      "currentHash": "f6fb57b1a2fef7a6a8d525be16c5aee32f8d12b813b60d3417fb3dca318e7d17",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, RECORD_CONTROL_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/record-control/retention/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "357418487479df17e6a15b6aad2d8dd409eb741a9bdd13542eb681c4d46ee696",
-      "sourceHash": "8184b306d008138ef756d19fd8b7bd3ce4e02f1b94ba81232bebb17ecd4e7576",
-      "currentHash": "8184b306d008138ef756d19fd8b7bd3ce4e02f1b94ba81232bebb17ecd4e7576",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, RECORD_CONTROL_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/record-control/reviews/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "357418487479df17e6a15b6aad2d8dd409eb741a9bdd13542eb681c4d46ee696",
-      "sourceHash": "7042097b019098529da8dcbfa395e15715fe96fa3ecd18cc56ee83b3175c0d09",
-      "currentHash": "7042097b019098529da8dcbfa395e15715fe96fa3ecd18cc56ee83b3175c0d09",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, RECORD_CONTROL_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
       "path": "app/api/sheets/[kind]/[parentId]/route.ts",
       "line": 110,
       "argumentHash": "f292b7d9f030f5f7e871a534e9fb182ca268233016fe3c39ba8464304dc8cd26",
@@ -3316,39 +2876,6 @@
       "kind": "named-style-value",
       "property": "w",
       "value": "await assertWriteRole(supabase, user.id, WRITE_ROLES.suppliers)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/training/competence/authorizations/[id]/route.ts",
-      "line": 35,
-      "argumentHash": "8e027f9b8a8caefd73b9c5f97180a9592d361e1369f02b8868abb303ca1e3f97",
-      "sourceHash": "7256b758e557ab3cbd5c22eb1d520c2b1cf978fb5fdaf2cd6eb09e0505d52e6f",
-      "currentHash": "7256b758e557ab3cbd5c22eb1d520c2b1cf978fb5fdaf2cd6eb09e0505d52e6f",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPETENCE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/training/competence/practicals/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "b9315b62667ed3d9979a66ba8044f272c4240e3856fa891784e95c0c46aa2bb7",
-      "sourceHash": "c340b8d35901612ae1115240e1513aed99604bfe53555af3e2e904ff929c3b72",
-      "currentHash": "c340b8d35901612ae1115240e1513aed99604bfe53555af3e2e904ff929c3b72",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPETENCE_WRITE)",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/api/training/competence/roles/[id]/route.ts",
-      "line": 31,
-      "argumentHash": "b9315b62667ed3d9979a66ba8044f272c4240e3856fa891784e95c0c46aa2bb7",
-      "sourceHash": "539a531bf52be6569fe29d89092ed862002d7713a1e2d85bb51f11726bdc66fd",
-      "currentHash": "539a531bf52be6569fe29d89092ed862002d7713a1e2d85bb51f11726bdc66fd",
-      "kind": "named-style-value",
-      "property": "w",
-      "value": "await assertWriteRole(supabase, user.id, COMPETENCE_WRITE)",
       "context": "unresolved-consumer"
     },
     {
@@ -8270,39 +7797,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 745,
-      "argumentHash": "766ef0ab1fa90b8fb624d422f4d446af1aeb469cc38119b42dd447c380f165e7",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "gap",
-      "value": "tagLength('gap', dims.gap)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 746,
-      "argumentHash": "7e6f00913724536d99be7bde8b2eee819cf8ed76a9a5ffdac2b8b7380efe4090",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "minHeight",
-      "value": "tagLength('min-height', dims.minH)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 747,
-      "argumentHash": "99ab6a8a2b973130e1d327408f7a6ce9cd4cb9bbd0e3ea38408e9594847199a6",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "fontSize",
-      "value": "tagLength('size', dims.fs)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 752,
       "argumentHash": "b568de4bc78711983b7728b324312f97de9bbd15591d805e9774ac745b29afb6",
       "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
@@ -8325,17 +7819,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 757,
-      "argumentHash": "30f5aa7a595c070573b5456fc96f58d04facb382c2e838010cfb3f8b2fc499b1",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "padding",
-      "value": "`${tagLength('padding-y', dims.padY)} ${tagLength('padding-x', dims.padX)}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 769,
       "argumentHash": "638f3ddbedc2fd95b0c6d296fe240e43e922ad08a348e3a809b706b3d0ca0872",
       "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
@@ -8344,28 +7827,6 @@
       "property": "style",
       "value": "{{\n            width: tagLength('dot-size', dims.dotSize),\n            height: tagLength('dot-size', dims.dotSize),\n            borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\",\n            background: c,\n            flexShrink: 0,\n          }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 770,
-      "argumentHash": "e1a62e8d6d96e76b94b6ec61e6e0d583c06f042cb79d73c96f34855f28087763",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "width",
-      "value": "tagLength('dot-size', dims.dotSize)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 771,
-      "argumentHash": "710e15a8f575d865f19482acb0a0c67157e2bfca259d36dc76d030148a2808f1",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "height",
-      "value": "tagLength('dot-size', dims.dotSize)",
-      "context": "confirmed-style-object"
     },
     {
       "path": "lib/design/components.tsx",
@@ -8388,83 +7849,6 @@
       "property": "className",
       "value": "qd-switch",
       "context": "selector-or-variant"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 863,
-      "argumentHash": "007ba6b87954c68b49f9032c294c23d259c816d77db29a05da4f4c72b1ae7f64",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        position: 'relative', width: dims.w, height: dims.h, flexShrink: 0, borderRadius: QD.radius,\n        cursor: disabled ? 'default' : 'pointer',\n        background: checked ? color : T.border,\n        // 꺼진 상태 윤곽: 트랙 색(--qa-border)만으로는 면과 1.2:1 이라 보이지 않았다(조작 윤곽 3:1)\n        boxShadow: checked ? 'none' : `inset 0 0 0 var(--qd-border-width) ${QD.ctl}`,\n        border: 'none', transition: `background ${QD.motionFast}, box-shadow ${QD.motionFast}`, opacity: disabled ? \"var(--qd-atelier-opacity-520d3a5350)\" : \"var(--qd-atelier-opacity-dc43f5a623)\",\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 864,
-      "argumentHash": "964d4399cba3a429a0a1735a1517cb308dd94177c1366f7f69703ac2947ad9cd",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "height",
-      "value": "dims.h",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 864,
-      "argumentHash": "8b6e416e14bd65dc806acff61aeb94babfd53c4b5c260707b799cfb4f5af3d66",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "width",
-      "value": "dims.w",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 872,
-      "argumentHash": "36b4bc3f44b33dea3668e6854357ee319d767f9f44ef88bf82fc482234ebb7fa",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "height",
-      "value": "dims.knob",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 872,
-      "argumentHash": "49222222230d4ed4448f25045c3c1fec1a47de66de27b106f3e463c43112fa77",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "left",
-      "value": "checked ? onLeft : QDRuntime.switch.inset",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 872,
-      "argumentHash": "003dd5a548d0c35e221b04f77d0e1a4f94cafcfd0be79bfde66cce99e5eb19db",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "object-property",
-      "property": "width",
-      "value": "dims.knob",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 872,
-      "argumentHash": "bea0e13e5d5a43f75b85f217961d388e0648a92c86beaa037af88f85bf48d40b",
-      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "currentHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ position: 'absolute', top: QDRuntime.switch.inset, left: checked ? onLeft : QDRuntime.switch.inset, width: dims.knob, height: dims.knob, borderRadius: QD.radius, background: checked ? T.bg : T.surface, transition: `left ${QD.motionFast}` }}",
-      "context": "direct-jsx-style"
     },
     {
       "path": "lib/design/components.tsx",

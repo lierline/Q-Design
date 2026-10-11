@@ -3,6 +3,11 @@ import assert from 'node:assert/strict';
 import {applyBindings,normalizeCopy,termsForFile,relocateCopyBindings,formatProductCopy} from './copy-spacing.mjs';
 const terms=[{from:'작성중',to:'작성 중'}];
 
+test('a product without Prettier preserves source whitespace and explicit line breaks',async()=>{
+ const code='const label = "경력 (년)";\r\nconst help = "첫 줄\\n둘째 줄";\r\n';
+ assert.equal(await formatProductCopy('D:/Claude/Q-Atelier','app/experts/settings/profile-form.tsx',code),code);
+});
+
 test('the product formatter resolves its plugins from the product and relocates actual copy',async()=>{
  const before='const result = fail(ErrorCodes.VALIDATION, "사용 중인 창고만 선택할 수 있습니다.");';
  const formatted=await formatProductCopy('D:/Claude/Q-Works','app/(app)/shipping/actions.ts',before);

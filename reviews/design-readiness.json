@@ -8,7 +8,7 @@
     "failures": 0
   },
   "styleUnknowns": {
-    "atelier": 963,
+    "atelier": 907,
     "maison": 0,
     "carnet": 0
   },
@@ -20,9 +20,9 @@
       "targetsWithReviewedCapture": 201,
       "targetsWithUsableVisualCapture": 193,
       "targetsWithVerifiedBoundaryCapture": 8,
-      "captureRecords": 244,
-      "images": 1002,
-      "reviewedImages": 1002,
+      "captureRecords": 249,
+      "images": 1019,
+      "reviewedImages": 1019,
       "missingImages": 0
     },
     {
@@ -206,8 +206,34 @@
     {
       "product": "atelier",
       "kind": "unresolved-style-arguments",
-      "count": 963,
+      "count": 907,
       "note": "Unclassified source arguments are not automatically visual defects or approved exceptions."
+    },
+    {
+      "product": "atelier",
+      "kind": "native-release-followups",
+      "signed": false,
+      "installedRuntimeReviewed": false,
+      "note": "Unsigned release build and asset inspection are separate from signing and installed device review."
+    },
+    {
+      "product": "maison",
+      "kind": "native-release-followups",
+      "signed": false,
+      "installedRuntimeReviewed": false,
+      "note": "Unsigned release build and asset inspection are separate from signing and installed device review."
+    },
+    {
+      "product": "carnet",
+      "kind": "native-release-followups",
+      "signed": false,
+      "installedRuntimeReviewed": false,
+      "note": "Unsigned release build and asset inspection are separate from signing and installed device review."
+    },
+    {
+      "product": "atelier",
+      "kind": "ios-build-and-device-review",
+      "note": "Generated iOS sources have been synchronized. An iOS build and installed device review have not been recorded."
     }
   ]
 }

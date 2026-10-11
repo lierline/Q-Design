@@ -20,7 +20,15 @@ export function copyNodes(file,code){
 export function normalizeCopy(raw,terms){return terms.reduce((text,{from,to})=>text.replaceAll(from,to),raw);}
 export function termsForFile(terms,product,file){return terms.filter(term=>(!term.products||term.products.includes(product))&&(!term.paths||term.paths.includes(file)));}
 export async function formatProductCopy(base,file,code){
- const require=createRequire(path.join(base,'package.json')),prettier=require('prettier'),full=path.join(base,file);
+ const require=createRequire(path.join(base,'package.json')),full=path.join(base,file);
+ let formatter;
+ try{formatter=require.resolve('prettier');}catch(error){
+  // A product without this formatter keeps its existing source layout. Only
+  // reviewed AST literals are replaced; plugin/configuration errors still fail.
+  if(error.code==='MODULE_NOT_FOUND')return code;
+  throw error;
+ }
+ const prettier=require(formatter);
  const config=await prettier.resolveConfig(full)??{};
  const plugins=config.plugins?.map(plugin=>typeof plugin==='string'?require.resolve(plugin):plugin);
  return prettier.format(code,{...config,...(plugins?{plugins}:{}),filepath:full});

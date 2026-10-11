@@ -9,6 +9,8 @@ const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
 const styles=Object.fromEntries(['atelier','maison','carnet'].map(product=>[product,read(`reviews/${product}-style-decisions.json`)]));
 const pages=read('reviews/page-evidence-summary.json');
 const propagation=read('reviews/design-propagation-results.json');
+const nativeReleasePath='reviews/native-release-build-results.json';
+const nativeRelease=fs.existsSync(path.join(root,nativeReleasePath))?read(nativeReleasePath):null;
 const candidates=read('reviews/maison-choice-missing-base-candidates.json');
 const normalize=value=>value.replaceAll('\r\n','\n');
 const choices=candidates.map(candidate=>{
@@ -25,6 +27,9 @@ for(const {product,summary}of pages.products){
 }
 if(choices.some(c=>c.state!=='base-present'))blockers.push({product:'maison',kind:'choice-base-followups',count:choices.filter(c=>c.state!=='base-present').length,files:new Set(choices.filter(c=>c.state!=='base-present').map(c=>c.path)).size,note:'Square scoring controls and long labels require role-specific review before migration.'});
 if(propagation.failures.length)blockers.push({kind:'shared-parameter-propagation',count:propagation.failures.length});
+if(!nativeRelease)blockers.push({kind:'missing-native-release-evidence',note:'Native source synchronization alone does not verify a built application.'});
+else for(const row of nativeRelease.results)if(!row.signed||!row.installedRuntimeReviewed)blockers.push({product:row.product,kind:'native-release-followups',signed:row.signed,installedRuntimeReviewed:row.installedRuntimeReviewed,note:'Unsigned release build and asset inspection are separate from signing and installed device review.'});
+blockers.push({product:'atelier',kind:'ios-build-and-device-review',note:'Generated iOS sources have been synchronized. An iOS build and installed device review have not been recorded.'});
 const report={version:1,scope:'Audit closure guard. Passing source/copy tests does not certify all screens. Zero blockers still requires explicit visual and interaction review.',status:blockers.length?'not-certified':'evidence-ready-for-review',sharedParameters:{checks:propagation.checks,paletteChecks:propagation.paletteChecks,failures:propagation.failures.length},styleUnknowns:Object.fromEntries(Object.entries(styles).map(([product,review])=>[product,review.counts.unknown??0])),screenEvidence:pages.products.map(({product,summary})=>({product,...summary})),choices,blockers};
 if(args.includes('--write'))fs.writeFileSync(path.join(root,'reviews/design-readiness.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({status:report.status,sharedParameters:report.sharedParameters,blockers},null,2));

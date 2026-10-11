@@ -41,6 +41,7 @@ export function reviewedLeafProof(argument, review) {
     &&['object-spread','object-property','presentation-attribute','dynamic-style','style-expression'].includes(argument.kind))
     return {central:false,evidence:review.evidence.map(item=>({...item,delegatedReview:true}))};
   if(review.ruleId==='exact-fold-grid-consumer')return {central:true,evidence:review.evidence};
+  if(review.ruleId==='exact-sized-renderer-metric'&&review.decision==='token-reference-verified'&&argument.kind==='object-property')return {central:true,evidence:review.evidence};
   if(['exact-domain-ratio-rendering','exact-measured-element-position'].includes(review.ruleId)
     &&['object-property','presentation-attribute','dynamic-style'].includes(argument.kind))
     return {central:false,evidence:review.evidence.map(item=>({...item,dataGeometryReview:true}))};
@@ -193,7 +194,14 @@ export function collectAdapterReferences({ ts, files, variables, hash, numericFi
           const aliasText=node.getText(sf).replace(/\[['"]([\w-]+)['"]\]/g,'.$1');
           if(proof?.central&&/^[\w$]+(?:\.[\w$]+)*$/.test(aliasText)&&imports.has(aliasText.split('.')[0])){
             const[binding,...members]=aliasText.split('.'),imported=imports.get(binding),base=imported.module.startsWith('@/')?imported.module.slice(2):imported.module.startsWith('.')?path.posix.normalize(path.posix.join(path.posix.dirname(file),imported.module)):null;
-            if(base)for(const suffix of ['.ts','.tsx']){const prefix=`${base}${suffix}::${imported.exported}${members.length?'.'+members.join('.'):''}.`;for(const[origin,evidence]of [...references])if(origin.startsWith(prefix))references.set(`${file}::${key}.${origin.slice(prefix.length)}`,[{path:file,line:sf.getLineAndCharacterOfPosition(node.getStart(sf)).line+1,hash:hash(code),...(evidence[0]?.valueKind?{valueKind:evidence[0].valueKind}:{})},...evidence]);}
+            if(base)for(const suffix of ['.ts','.tsx']){
+              const originRoot=`${base}${suffix}::${imported.exported}${members.length?'.'+members.join('.'):''}`;
+              const own={path:file,line:sf.getLineAndCharacterOfPosition(node.getStart(sf)).line+1,hash:hash(code)};
+              const keys=references.get(originRoot+'#keys');
+              if(keys)references.set(`${file}::${key}#keys`,[own,...keys]);
+              const prefix=originRoot+'.';
+              for(const[origin,evidence]of [...references])if(origin.startsWith(prefix))references.set(`${file}::${key}.${origin.slice(prefix.length)}`,[{...own,...(evidence[0]?.valueKind?{valueKind:evidence[0].valueKind}:{})},...evidence]);
+            }
           }
           if(ts.isObjectLiteralExpression(node))for(const member of node.properties)if(ts.isPropertyAssignment(member)&&!ts.isComputedPropertyName(member.name))visit(member.initializer,key+'.'+member.name.getText(sf).replace(/^['"]|['"]$/g,''));
         };

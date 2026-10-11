@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "scope": "Actual unsigned release APK and AAB assets, compiled Android hint strategy and shared canvas, and release lint. Existing signed distribution files are unchanged. Installation, device rendering, other native visual parameters and iOS compilation remain unverified.",
+  "results": [
+    {
+      "product": "atelier",
+      "artifacts": [
+        {
+          "kind": "unsigned-apk",
+          "path": "Q-Atelier-App/app/build/outputs/apk/release/app-release-unsigned.apk",
+          "sha256": "fefa5e676a53c78b196ca63149cb8cb9f420957242bb8ce056e3d86b620e5cb4",
+          "embeddedOfflineSha256": "fe7f336e995fcd35c3b644b89b6d40901ae061bea2c9a3e3256566638469c057",
+          "matchesCanonical": true
+        },
+        {
+          "kind": "unsigned-aab",
+          "path": "Q-Atelier-App/app/build/outputs/bundle/release/app-release.aab",
+          "sha256": "87340a5100e2f05374df9090427e5a831f55217397655ccc21622c8090c2a740",
+          "embeddedOfflineSha256": "fe7f336e995fcd35c3b644b89b6d40901ae061bea2c9a3e3256566638469c057",
+          "matchesCanonical": true
+        }
+      ],
+      "lintErrors": 0,
+      "lintWarnings": 9,
+      "compiledHintBreakStrategy": 1,
+      "compiledBackgrounds": {
+        "qd_native_bg_light": "#fffaf9f6",
+        "qd_native_bg_dark": "#ff0c0c0c"
+      },
+      "compiledBackgroundsArtifact": "unsigned-apk",
+      "startupSourceSha256": "b1a9000199771d8dc78c60ed176efd4262152e2c21e8aed29422fe1879560de8",
+      "resourceSourceSha256": "3b629edf53ce7b958a624469432b553d825711c06ed3d51238a609909396b073",
+      "paletteSourceSha256": "afcc1b3466ebae2b54c2f724ecbef756034c380971e3f3f0e359595c6476bf5c",
+      "signed": false,
+      "installedRuntimeReviewed": false
+    },
+    {
+      "product": "maison",
+      "artifacts": [
+        {
+          "kind": "unsigned-apk",
+          "path": "Q-Maison-App/app/build/outputs/apk/release/app-release-unsigned.apk",
+          "sha256": "87b1582396b71a0920d719a933bf12cab14b1ea4e65953c4dbde87b75dbfbccf",
+          "embeddedOfflineSha256": "727d872788b7e10bc192e088899fee34b64cd27ff67ff2504460597fda70b369",
+          "matchesCanonical": true
+        },
+        {
+          "kind": "unsigned-aab",
+          "path": "Q-Maison-App/app/build/outputs/bundle/release/app-release.aab",
+          "sha256": "cf53b0e5945072a652d01e77d7b4f4509c1b73aaeec0728687c02b9bd34bc301",
+          "embeddedOfflineSha256": "727d872788b7e10bc192e088899fee34b64cd27ff67ff2504460597fda70b369",
+          "matchesCanonical": true
+        }
+      ],
+      "lintErrors": 0,
+      "lintWarnings": 9,
+      "compiledHintBreakStrategy": 1,
+      "compiledBackgrounds": {
+        "qd_native_bg_light": "#fffaf9f6",
+        "qd_native_bg_dark": "#ff0c0c0c"
+      },
+      "compiledBackgroundsArtifact": "unsigned-apk",
+      "startupSourceSha256": "d29b52721dcb8d962e3cf24c97107071d2ac6dd17dc99180a6dd3c6fee772d0f",
+      "resourceSourceSha256": "3b629edf53ce7b958a624469432b553d825711c06ed3d51238a609909396b073",
+      "paletteSourceSha256": "afcc1b3466ebae2b54c2f724ecbef756034c380971e3f3f0e359595c6476bf5c",
+      "signed": false,
+      "installedRuntimeReviewed": false
+    },
+    {
+      "product": "carnet",
+      "artifacts": [
+        {
+          "kind": "unsigned-apk",
+          "path": "Q-Carnet-App/app/build/outputs/apk/release/app-release-unsigned.apk",
+          "sha256": "52b01aa78f4809dec9e8c8334d3f4304a7f6a5f7382a2b11ad2978a3c62fbd81",
+          "embeddedOfflineSha256": "d41a97b6bbbf72496989a47833791c289eaebec914ab289719bc798cfd795315",
+          "matchesCanonical": true
+        },
+        {
+          "kind": "unsigned-aab",
+          "path": "Q-Carnet-App/app/build/outputs/bundle/release/app-release.aab",
+          "sha256": "932342fa7f71136520ea22ed6cdb1d22aa02389e3f7c82b1288a650ff8ace464",
+          "embeddedOfflineSha256": "d41a97b6bbbf72496989a47833791c289eaebec914ab289719bc798cfd795315",
+          "matchesCanonical": true
+        }
+      ],
+      "lintErrors": 0,
+      "lintWarnings": 9,
+      "compiledHintBreakStrategy": 1,
+      "compiledBackgrounds": {
+        "qd_native_bg_light": "#fffaf9f6",
+        "qd_native_bg_dark": "#ff0c0c0c"
+      },
+      "compiledBackgroundsArtifact": "unsigned-apk",
+      "startupSourceSha256": "1eb4d91972be7595b4c21402ebed4b32beea95de8d74f8af42bbe88e7f598a7f",
+      "resourceSourceSha256": "3b629edf53ce7b958a624469432b553d825711c06ed3d51238a609909396b073",
+      "paletteSourceSha256": "afcc1b3466ebae2b54c2f724ecbef756034c380971e3f3f0e359595c6476bf5c",
+      "signed": false,
+      "installedRuntimeReviewed": false
+    }
+  ]
+}

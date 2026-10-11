@@ -22,6 +22,7 @@ const componentParity=readManifest('atelier-component-parity-migration.json');
 const extendedParity=readManifest('atelier-extended-parity-migration.json');
 const responsiveChart=readManifest('atelier-responsive-chart-migration.json');
 const followupControls=readManifest('atelier-followup-controls-migration.json');
+const expertCopy=readManifest('atelier-expert-copy-migration.json');
 const hash=source=>createHash('sha256').update(source.replaceAll('\r\n','\n')).digest('hex');
 // Preserve earlier migration proofs after the later, separately reviewed pass.
 // Each individual inverse is exact, and both snapshots remain hash-checked.
@@ -42,6 +43,8 @@ function reverseManifest(path,source,manifest){
  return source;
 }
 export function reverseResponsiveChart(path,source){
+ const copy=expertCopy.records.find(record=>record.path===path);
+ if(copy&&hash(source)!==copy.beforeHash)source=reverseManifest(path,source,expertCopy);
  const followup=followupControls.records.find(record=>record.path===path);
  if(followup&&hash(source)!==followup.beforeHash){
   source=reverseManifest(path,source.replaceAll('\r\n','\n'),followupControls);

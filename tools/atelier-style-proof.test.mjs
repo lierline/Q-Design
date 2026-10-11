@@ -498,3 +498,16 @@ test('local aliases of closed central variants prove each branch and numeric ari
  assert.equal(prove('const dims=QD.sizes[size];mutate(dims);const v=dims.width;'),null);
  assert.equal(prove('const dims=QD.sizes[size];const v=dims.unknown;'),null);
 });
+
+test('imported size aliases preserve the finite key set and reject mutation or independent fallback metrics',()=>{
+ const central='export const QD={sizes:{sm:{width:28},md:{width:36}}};';
+ const alias='import {QD}from "./central";export const DIMS=QD.sizes;';
+ const refs=body=>collectAdapterReferences({ts,files:new Map([['lib/central.ts',central],['lib/metrics.ts',body]]),variables,hash,centralFiles:new Map([['lib/central.ts',{path:'source/central.ts',line:1,hash:hash(central)}]])});
+ const prove=(body,value)=>{const sf=source('import {DIMS}from "@/lib/metrics";const dims=DIMS[size];const v='+value+';');return expressionProof({ts,node:sf.statements.at(-1).declarationList.declarations[0].initializer,sf,property:'width',imports:sourceImports(ts,sf),file:sf.fileName,references:refs(body),variables,locals:localBindings(ts,sf,hash,refs(body))});};
+ assert.ok(prove(alias,'dims.width')?.central);
+ assert.equal(prove(alias,'dims.missing'),null);
+ assert.equal(prove(alias,'dims.width+5'),null);
+ assert.equal(prove(alias+'DIMS.sm.width=19;','dims.width'),null);
+ assert.equal(prove(alias+'consume(DIMS);','dims.width'),null);
+ assert.equal(prove('export const DIMS={sm:{width:28},md:{width:36}};','dims.width'),null);
+});
