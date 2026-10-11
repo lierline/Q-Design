@@ -6140,18 +6140,18 @@
       "matchedOccurrences": 1
     },
     {
-      "argumentHash": "b0f3b5026d85359b1f99d0ac4faeb177f90992b0692b7106e9c26f7ef121652b",
-      "sourceHash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae",
+      "argumentHash": "9cb1e1bb64b8b34d9afdf21d09e1a5ba0efda9fed1994f929bb481334393c8c3",
+      "sourceHash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d",
       "path": "app/(app)/settings/clauses/page.tsx",
-      "line": 192,
+      "line": 195,
       "decision": "business-data",
       "ruleId": "exact-spread-data-consumer",
       "reason": "This exact object composition carries form values, domain records or document field data; the inspected consumer is not a CSS style object. Consumer: fields standard > fields pathname, query > binding hrefFor > function ClausesPage.",
       "evidence": [
         {
           "path": "app/(app)/settings/clauses/page.tsx",
-          "line": 192,
-          "hash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae"
+          "line": 195,
+          "hash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d"
         }
       ],
       "reviewedExpression": "(activeChapter !== \"all\" ? { ch: activeChapter } : {})",
@@ -6162,18 +6162,18 @@
       "property": "..."
     },
     {
-      "argumentHash": "d4bc591da8f4f363b2e8ee38f9b91960fedfc6f6fb3f9e060d3b5285366dc506",
-      "sourceHash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae",
+      "argumentHash": "209052352b7615c5eda15d8ed96ce0c1a7e3afb574d305e2e141dd3f30eedb58",
+      "sourceHash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d",
       "path": "app/(app)/settings/clauses/page.tsx",
-      "line": 193,
+      "line": 196,
       "decision": "business-data",
       "ruleId": "exact-spread-data-consumer",
       "reason": "This exact object composition carries form values, domain records or document field data; the inspected consumer is not a CSS style object. Consumer: fields standard > fields pathname, query > binding hrefFor > function ClausesPage.",
       "evidence": [
         {
           "path": "app/(app)/settings/clauses/page.tsx",
-          "line": 193,
-          "hash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae"
+          "line": 196,
+          "hash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d"
         }
       ],
       "reviewedExpression": "(query ? { q: sp.q } : {})",
@@ -6184,18 +6184,18 @@
       "property": "..."
     },
     {
-      "argumentHash": "a1ad3b506bab550f46b1f33b47e29b14b2d137ee2bc0f4c1069d65ed9834e9c8",
-      "sourceHash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae",
+      "argumentHash": "f3edbee53ffb2d0ff58f4ec08cc0c213a22b35beb10d2c7f8c1e595c660796a2",
+      "sourceHash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d",
       "path": "app/(app)/settings/clauses/page.tsx",
-      "line": 194,
+      "line": 197,
       "decision": "business-data",
       "ruleId": "exact-spread-data-consumer",
       "reason": "This exact object composition carries form values, domain records or document field data; the inspected consumer is not a CSS style object. Consumer: fields standard > fields pathname, query > binding hrefFor > function ClausesPage.",
       "evidence": [
         {
           "path": "app/(app)/settings/clauses/page.tsx",
-          "line": 194,
-          "hash": "7483ceaf975f2a5052990be23ed4866d2fd357eef5140189c7acd251126b3bae"
+          "line": 197,
+          "hash": "0f49efe23d7a735a8419a574a3743474df1286c041de54a0873b509bbeb5eb5d"
         }
       ],
       "reviewedExpression": "(open ? {} : { clause: c.id })",
@@ -6541,18 +6541,18 @@
       "matchedOccurrences": 1
     },
     {
-      "argumentHash": "d73fbf17fbb4a31f084305719948e54cce475716f8a7c6603cf6256388734370",
-      "sourceHash": "9890c51551b574f0255fda571ca63dc1d6f09e646f72c25e3439fb36c21309bb",
+      "argumentHash": "f222bd523c509b3e291cce49e6f59ca2ee45cd6183237df1d47603abd3e955f5",
+      "sourceHash": "c90c6f822df1e2a2997152a7b89e2094072add747751511f5123783aceb960ce",
       "path": "app/(app)/shipping/actions.ts",
-      "line": 992,
+      "line": 995,
       "decision": "business-data",
       "ruleId": "exact-spread-data-consumer",
       "reason": "This exact object composition carries form values, domain records or document field data; the inspected consumer is not a CSS style object. Consumer: fields category > call notifyByPermission > function notifyShipmentTurn.",
       "evidence": [
         {
           "path": "app/(app)/shipping/actions.ts",
-          "line": 992,
-          "hash": "9890c51551b574f0255fda571ca63dc1d6f09e646f72c25e3439fb36c21309bb"
+          "line": 995,
+          "hash": "c90c6f822df1e2a2997152a7b89e2094072add747751511f5123783aceb960ce"
         }
       ],
       "reviewedExpression": "params",

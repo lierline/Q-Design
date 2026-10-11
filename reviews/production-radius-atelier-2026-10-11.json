@@ -1,0 +1,34 @@
+{
+  "scope": "Read-only production login DOM and loaded shared icon CSS. Authenticated settings not captured.",
+  "capturedAt": "2026-10-11T00:19:13.598Z",
+  "metrics": {
+    "aliases": {
+      "2xl": "10px",
+      "3xl": "10px",
+      "lg": "10px",
+      "md": "10px",
+      "sm": "10px",
+      "xl": "10px"
+    },
+    "fields": [
+      {
+        "radius": "10px",
+        "type": "email"
+      },
+      {
+        "radius": "10px",
+        "type": "password"
+      }
+    ],
+    "radius": "10px",
+    "squareRule": [
+      {
+        "priority": "important",
+        "selector": ".qd-control-icon, .qd-dialog-close, .qd-mobile-menu",
+        "value": "var(--qd-radius)"
+      }
+    ],
+    "url": "https://atelier.medqraft.app/login",
+    "width": 375
+  }
+}

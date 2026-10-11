@@ -18,6 +18,22 @@ export function copyNodes(file,code){
  };visit(ast);return nodes;
 }
 export function normalizeCopy(raw,terms){return terms.reduce((text,{from,to})=>text.replaceAll(from,to),raw);}
+export function termsForFile(terms,product,file){return terms.filter(term=>(!term.products||term.products.includes(product))&&(!term.paths||term.paths.includes(file)));}
+export async function formatProductCopy(base,file,code){
+ const require=createRequire(path.join(base,'package.json')),prettier=require('prettier'),full=path.join(base,file);
+ const config=await prettier.resolveConfig(full)??{};
+ const plugins=config.plugins?.map(plugin=>typeof plugin==='string'?require.resolve(plugin):plugin);
+ return prettier.format(code,{...config,...(plugins?{plugins}:{}),filepath:full});
+}
+export function relocateCopyBindings(file,before,after,bindings){
+ const oldNodes=copyNodes(file,before),newNodes=copyNodes(file,after);
+ if(oldNodes.length!==newNodes.length||oldNodes.some((node,i)=>node.kind!==newNodes[i].kind||node.raw!==newNodes[i].raw))throw Error('Formatting changed authored literal content: '+file);
+ return bindings.map(binding=>{
+  const index=oldNodes.findIndex(node=>node.line===binding.line&&node.kind===binding.kind&&node.ordinal===binding.ordinal&&node.raw===binding.emitted);
+  if(index<0)throw Error('Cannot relocate changed copy binding: '+file+':'+binding.line);
+  const node=newNodes[index];return {...binding,line:node.line,kind:node.kind,ordinal:node.ordinal};
+ });
+}
 export function applyBindings(file,code,bindings,terms){
  const nodes=copyNodes(file,code),changes=[],used=new Set();
  for(const binding of bindings){
@@ -45,13 +61,18 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const base=path.resolve(root,'..',repo);
   for(const full of ['app','components','lib'].flatMap(dir=>files(path.join(base,dir)))){
    const file=path.relative(base,full).replaceAll('\\','/'),before=fs.readFileSync(full,'utf8'),old=prior.find(row=>row.product===product&&row.path===file);
-   const {after,changes}=applyBindings(file,before,old?.bindings??[],rules.terms);
+   let {after,changes}=applyBindings(file,before,old?.bindings??[],termsForFile(rules.terms,product,file));
    if(!changes.length&&!old)continue;
    const bindings=[...(old?.bindings??[])];
    for(const change of changes){
     const binding={line:change.line,kind:change.kind,ordinal:change.ordinal,original:change.original,emitted:change.emitted};
     const index=bindings.findIndex(row=>row.line===binding.line&&row.kind===binding.kind&&row.ordinal===binding.ordinal);
     if(index<0)bindings.push(binding);else bindings[index]=binding;
+   }
+   if(changes.length){
+    const formatted=await formatProductCopy(base,file,after);
+    bindings.splice(0,bindings.length,...relocateCopyBindings(file,after,formatted,bindings));
+    after=formatted;
    }
    records.push({product,path:file,bindings});
    if(changes.length){pending.push({product,path:file,count:changes.length});baselines.push({product,repo,path:file,before,after,beforeHash:hash(before),afterHash:hash(after),changes});}

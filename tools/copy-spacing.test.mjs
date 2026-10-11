@@ -1,7 +1,32 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {applyBindings,normalizeCopy} from './copy-spacing.mjs';
+import {applyBindings,normalizeCopy,termsForFile,relocateCopyBindings,formatProductCopy} from './copy-spacing.mjs';
 const terms=[{from:'작성중',to:'작성 중'}];
+
+test('the product formatter resolves its plugins from the product and relocates actual copy',async()=>{
+ const before='const result = fail(ErrorCodes.VALIDATION, "사용 중인 창고만 선택할 수 있습니다.");';
+ const formatted=await formatProductCopy('D:/Claude/Q-Works','app/(app)/shipping/actions.ts',before);
+ const bindings=[{line:1,kind:'StringLiteral',ordinal:0,original:'"사용중인 창고만 선택할 수 있습니다."',emitted:'"사용 중인 창고만 선택할 수 있습니다."'}];
+ const relocated=relocateCopyBindings('copy.ts',before,formatted,bindings);
+ assert.equal(relocated[0].line,3);
+ assert.equal(applyBindings('copy.ts',formatted,relocated,[{from:'사용중인',to:'운영 중인'}]).after,formatted.replace('사용 중인','운영 중인'));
+});
+test('formatter line breaks relocate exact bindings and reject literal mutations',()=>{
+ const before='const result = fail(ErrorCodes.VALIDATION, "사용 중인 창고만 선택할 수 있습니다.");';
+ const first=applyBindings('copy.ts',before,[],[{from:'사용 중인',to:'사용 중인'}]);
+ const binding={line:1,kind:'StringLiteral',ordinal:0,original:'"사용중인 창고만 선택할 수 있습니다."',emitted:'"사용 중인 창고만 선택할 수 있습니다."'};
+ const formatted='const result = fail(\n  ErrorCodes.VALIDATION,\n  "사용 중인 창고만 선택할 수 있습니다.",\n);';
+ const relocated=relocateCopyBindings('copy.ts',first.after,formatted,[binding]);
+ assert.equal(relocated[0].line,3);
+ assert.equal(applyBindings('copy.ts',formatted,relocated,[{from:'사용중인',to:'운영 중인'}]).after,formatted.replace('사용 중인','운영 중인'));
+ assert.throws(()=>relocateCopyBindings('copy.ts',before,formatted.replace('ErrorCodes.VALIDATION','ErrorCodes.UNKNOWN').replace('사용 중인','수정된'),[binding]),/changed authored literal/);
+});
+test('domain labels only change inside their explicitly reviewed product and paths',()=>{
+ const scoped=[{from:'사용중',to:'사용 중',products:['maison'],paths:['lib/supabase/types.ts']}];
+ assert.equal(applyBindings('lib/supabase/types.ts','const label="사용중";',[],termsForFile(scoped,'maison','lib/supabase/types.ts')).after,'const label="사용 중";');
+ assert.equal(termsForFile(scoped,'atelier','lib/supabase/types.ts').length,0);
+ assert.equal(termsForFile(scoped,'maison','app/recalls/recall-sheets.tsx').length,0);
+});
 test('copy changes preserve business codes, comments, dynamic values and explicit breaks',()=>{
  const code='// 작성중\nconst state="draft"; const error=`작성중입니다. ${name}\\n다시 확인하세요`; const view=<p>작성중 <br />{userText}</p>;';
  const result=applyBindings('copy.tsx',code,[],terms);

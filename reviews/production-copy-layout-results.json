@@ -1,0 +1,8 @@
+{
+ "version":1,
+ "scope":"Read-only authenticated Maison UI observations at 375 by 812px after the corresponding production deployments. No permission, account, record, clause text or warehouse mutation was performed. Pixel evidence stays local.",
+ "permissionDescriptions":{"route":"/settings/roles","minimumWidthPx":160,"pageWidthPx":375,"regions":[{"clientWidth":321,"scrollWidth":957,"clientHeight":556,"scrollHeight":5119,"previousScrollHeight":7501,"cells":1793,"overflowCells":0,"lastObservedScrollTop":4562},{"clientWidth":287,"scrollWidth":957,"clientHeight":556,"scrollHeight":2828,"previousScrollHeight":3611,"cells":771,"overflowCells":0}],"visualScope":"First region top, middle and bottom at leftmost horizontal position; second region geometry only. This is not all-role or every-cell visual coverage."},
+ "activeState":{"route":"/warehouses/new","display":"사용 중","source":"lib/supabase/types.ts","submitted":false},
+ "clauseOrder":{"route":"/settings/clauses","observedSequence":["7.1.5","7.1.5.1","7.1.5.2","7.1.6","7.2","7.3","7.4","7.5","7.5.1","7.5.2","7.5.3"],"previousFinding":"The two 7.1.5 children appeared after 7.5.3.","scope":"Presentation order only. No standard content validation or database edits."},
+ "itemCodePrint":{"route":"/traceability/print","pageWidthPx":375,"paperWidthPx":1122.515625,"codeCells":9,"className":"wrap","whiteSpace":"normal","overflowWrap":"anywhere","cellWidthPx":121,"overflowCells":0,"scope":"Current production code cells and left visible document range. Synthetic browser cases separately cover long and legacy codes. Full paper, printed output and PDF pagination are not certified."}
+}

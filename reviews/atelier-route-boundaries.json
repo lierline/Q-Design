@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "route": "/inbox/[id]",
+      "role": "expert",
+      "state": "expected-role-redirect",
+      "destination": "/experts/inbox",
+      "detailRendered": false,
+      "reason": "The authenticated expert is redirected by the parent application layout before its company-only detail page renders.",
+      "evidence": [
+        {
+          "path": "app/(app)/layout.tsx",
+          "line": 105,
+          "hash": "b5507e9d871ffb9d69871262145067e7587bf9f48bbfe264596d5d5234947ee9",
+          "expression": "if (isExpert) {\n    redirect('/experts/inbox');\n  }"
+        }
+      ]
+    },
+    {
+      "route": "/family-link",
+      "role": "owner",
+      "state": "expected-feature-redirect",
+      "destination": "/dashboard",
+      "detailRendered": false,
+      "reason": "The actual local owner capture is rejected by openFamilyLink and redirected to dashboard. This certifies the disabled/access-gated state only, not the underlying family-link UI. Subscription/permissions are not modified to expose the feature.",
+      "evidence": [
+        {
+          "path": "app/(app)/family-link/page.tsx",
+          "line": 36,
+          "hash": "f3f3ca95fb225eac2f67da2a60eb79bed2a88712c53a143906fcdbe4d805e1ed",
+          "expression": "const ctx = await openFamilyLink(supabase, user.id);\n  if (!ctx) redirect('/dashboard');"
+        },
+        {
+          "path": "lib/family-link/gate.ts",
+          "line": 27,
+          "hash": "160eade8513057280165b962f125cb843a72957ed84eb2e899d87726276d3922",
+          "expression": "export async function openFamilyLink(supabase: SupabaseClient, userId: string): Promise<ExchangeCtx | null> {\n  const ctx = await openExchange(supabase, userId);\n  if (!ctx) return null;\n  return (await isFamilyLinkEnabled(ctx.admin, ctx.orgId)) ? ctx : null;\n}"
+        },
+        {
+          "path": "lib/family-link/gate.ts",
+          "line": 14,
+          "hash": "160eade8513057280165b962f125cb843a72957ed84eb2e899d87726276d3922",
+          "expression": "export async function isFamilyLinkEnabled(admin: SupabaseClient, orgId: string): Promise<boolean> {\n  const { data, error } = await admin.from('subscriptions').select('family_link_enabled').eq('org_id', orgId).maybeSingle();\n  if (error) throw new Error(error.message);\n  return (data as { family_link_enabled?: boolean } | null)?.family_link_enabled === true;\n}"
+        }
+      ]
+    },
+    {
+      "route": "/m/approve",
+      "role": "owner",
+      "state": "expected-route-alias",
+      "destination": "/approve",
+      "detailRendered": false,
+      "reason": "The legacy field approval address is redirected by Next routing before the former page guard. The route component independently implements the same destination. Visible approval-inbox pixels do not certify a separate legacy page.",
+      "evidence": [
+        {
+          "path": "app/(app)/m/approve/page.tsx",
+          "line": 11,
+          "hash": "cfd46df14d2531a1ef730dd162be07a93477a723be3b5188c5eaf55d30426ad4",
+          "expression": "export default function LegacyFieldApprovePage() {\n  redirect('/approve');\n}"
+        },
+        {
+          "path": "next.config.ts",
+          "line": 96,
+          "hash": "90fbc0ace875f8d42f8c3dc2f6efe62125481d3aae77abe68ca84176bec484d6",
+          "expression": "async redirects() {\n    return [{ source: '/m/approve', destination: '/approve', permanent: false }];\n  },"
+        }
+      ]
+    }
+  ]
+}

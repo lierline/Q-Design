@@ -16899,6 +16899,7 @@
             "qd-step",
             "qd-tab",
             "qd-table",
+            "qd-table-description",
             "qd-table-group-label",
             "qd-table-scroll--tall",
             "qd-table-scroll-header",
@@ -16993,6 +16994,7 @@
             "--qd-surface-src",
             "--qd-surface2",
             "--qd-surface2-src",
+            "--qd-table-description-min-width",
             "--qd-table-header-layer",
             "--qd-table-pad-x",
             "--qd-table-pad-y",
@@ -58262,6 +58264,7 @@
             "lib/auth/session.ts",
             "lib/permissions/check.ts",
             "lib/supabase/server.ts",
+            "lib/ui/clause-order.ts",
             "lib/utils/cn.ts"
           ],
           "reachable": true,
@@ -59015,6 +59018,7 @@
             }
           ],
           "classes": [
+            "qd-table-description",
             "qd-table-scroll--tall",
             "qd-table-scroll-header",
             "qd-table-sticky-first"
@@ -59250,6 +59254,7 @@
           "classes": [
             "qd-section-title",
             "qd-section-title--flush",
+            "qd-table-description",
             "qd-table-group-label",
             "qd-table-scroll--tall",
             "qd-table-scroll-header",
@@ -64335,6 +64340,7 @@
             "qd-step",
             "qd-tab",
             "qd-table",
+            "qd-table-description",
             "qd-table-group-label",
             "qd-table-scroll--tall",
             "qd-table-scroll-header",
@@ -64429,6 +64435,7 @@
             "--qd-surface-src",
             "--qd-surface2",
             "--qd-surface2-src",
+            "--qd-table-description-min-width",
             "--qd-table-header-layer",
             "--qd-table-pad-x",
             "--qd-table-pad-y",
@@ -78150,6 +78157,7 @@
             "qd-step",
             "qd-tab",
             "qd-table",
+            "qd-table-description",
             "qd-table-group-label",
             "qd-table-scroll--tall",
             "qd-table-scroll-header",
@@ -78244,6 +78252,7 @@
             "--qd-surface-src",
             "--qd-surface2",
             "--qd-surface2-src",
+            "--qd-table-description-min-width",
             "--qd-table-header-layer",
             "--qd-table-pad-x",
             "--qd-table-pad-y",

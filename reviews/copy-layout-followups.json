@@ -1,0 +1,10 @@
+{
+ "version":1,
+ "scope":"Findings observed directly in historical screen captures. Recheck current consumers and production rendering before migration or approval.",
+ "findings":[
+  {"product":"maison","route":"/settings/audit-logs/[id]","kind":"untranslated-field-labels","fields":["dimension_specs","lot_prefix"],"value":"packaging","consumer":"lib/audit/labels.ts","sourceCheck":"Table-specific item_codes field names and process_step now use reviewed field labels and existing INSPECTION_PROCESS_STEPS display labels, including 완제품 포장.","status":"implemented-and-unit-tested-production-record-recapture-pending","testsPassed":24,"constraint":"Audit keys, original values and unknown-key fallback remain unchanged. Unit tests and deployment do not replace an actual matching production record capture."},
+  {"product":"maison","route":"/settings/clauses","kind":"clause-order-source-recheck","observation":"The late 7.1.5 children also appeared after 7.5.3 in production before this fix.","status":"fixed-and-production-visually-verified","testsPassed":8,"observedSequence":["7.1.5","7.1.5.1","7.1.5.2","7.1.6"],"constraint":"Existing numerical clause comparator sorts the view. No standard text, identifiers or database content were changed."},
+  {"product":"maison","route":"/traceability/print","kind":"long-identifier-column-overflow","status":"fixed-with-central-wrap-and-production-consumer-verified","syntheticBrowserCases":4,"currentProductionCodeCells":9,"constraint":"Historical long and legacy codes reproduced in isolated fixtures. Current production has 9 shorter codes; actual PDF pagination and every horizontal document range remain unverified."},
+  {"product":"maison","routes":["/warehouses","/warehouses/new","/warehouses/[id]","/warehouses/[id]/edit"],"kind":"active-state-spacing","status":"fixed-in-shared-domain-labels-new-form-production-verified","display":"사용 중","constraint":"Historical finding captures are retained. Current new-form verification is not a complete detailed-record or every-state certificate."}
+ ]
+}

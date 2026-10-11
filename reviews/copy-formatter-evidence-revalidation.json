@@ -1,0 +1,11 @@
+{
+  "scope": "Formatter-only TypeScript syntax equivalence and complete ordered style-argument equivalence. Relocates the existing exact notification payload review without sending a notification.",
+  "updates": [
+    {
+      "path": "app/(app)/shipping/actions.ts",
+      "line": 995,
+      "expression": "params",
+      "consumer": "fields category > call notifyByPermission > function notifyShipmentTurn"
+    }
+  ]
+}

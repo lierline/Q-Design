@@ -615,6 +615,19 @@
     },
     {
       "product": "maison",
+      "path": "app/(app)/inventory/actions.ts",
+      "bindings": [
+        {
+          "line": 37,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
       "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
       "bindings": [
         {
@@ -862,6 +875,26 @@
     },
     {
       "product": "maison",
+      "path": "app/(app)/returns/actions.ts",
+      "bindings": [
+        {
+          "line": 78,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        },
+        {
+          "line": 401,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
       "path": "app/(app)/reviews/approval-ui.tsx",
       "bindings": [
         {
@@ -982,6 +1015,19 @@
           "ordinal": 0,
           "original": "작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          ",
           "emitted": "작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/shipping/actions.ts",
+      "bindings": [
+        {
+          "line": 348,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
         }
       ]
     },
@@ -1489,6 +1535,20 @@
           "ordinal": 1,
           "original": "\"작성중\"",
           "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1211,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 2109,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
         }
       ]
     },
