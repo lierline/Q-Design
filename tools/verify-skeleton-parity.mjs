@@ -1,0 +1,31 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+import {hash} from './style-arguments-core.mjs';
+import {loadIconRuntime} from './app-icon-runtime.mjs';
+import {skeletonRenderers} from './skeleton-runtime-fixture.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),product=path.resolve(root,'../Q-Atelier');
+const cssFiles=['patterns/components.css','patterns/foundation.css','dist/q-design.palette.atelier.css','patterns/foundation/atelier.css'];
+const css=cssFiles.map(file=>fs.readFileSync(root+'/'+file,'utf8').replace(/@import[^;]+;/g,'')).join('\n');
+const {chromium}=loadIconRuntime(product),browser=await chromium.launch({headless:true}),records=[];
+try{for(const mutation of [false,true])for(const theme of ['dark','light'])for(const width of [1280,390,375]){
+ const f=skeletonRenderers(r=>{if(mutation){r.QDPresentation.skeletonHeight[14]=19;r.QDPresentation.skeletonHeight[12]=17;}});
+ const variants=[['core-default',f.core.Skeleton,{}],['standalone-default',f.standalone,{}],['core-body',f.core.SkeletonPanel,{lines:2}],['standalone-body',f.standalone.Row,{count:2}],['core-override',f.core.Skeleton,{w:'37%',h:31}],['standalone-override',f.standalone,{width:'37%',height:31}],['core-style',f.core.Skeleton,{style:{height:29}}],['standalone-style',f.standalone,{style:{height:29}}]];
+ const markup=variants.map(([id,component,props])=>`<section id="${id}">${f.render(component,props)}</section>`).join('');
+ const page=await browser.newPage({viewport:{width,height:900}});await page.route('**/*',route=>route.abort());
+ await page.setContent(`<html data-theme="${theme}"><head><style>${css}section{margin:24px}</style></head><body>${markup}</body></html>`);
+ const sizes=await page.evaluate(()=>Object.fromEntries([...document.querySelectorAll('section')].map(section=>[section.id,[...section.querySelectorAll('.qa-skeleton')].map(el=>({height:el.getBoundingClientRect().height,radius:getComputedStyle(el).borderRadius,animation:getComputedStyle(el).animationName}))])));
+ const generic=mutation?19:14,body=mutation?17:12;
+ for(const id of ['core-default','standalone-default'])assert.equal(sizes[id][0].height,generic);
+ assert.deepEqual(sizes['core-body'].map(s=>s.height),[generic,body,body]);assert.deepEqual(sizes['standalone-body'].map(s=>s.height),[body,body]);
+ for(const id of ['core-override','standalone-override'])assert.equal(sizes[id][0].height,31);
+ for(const id of ['core-style','standalone-style'])assert.equal(sizes[id][0].height,29);
+ for(const group of Object.values(sizes))for(const size of group)assert.equal(size.radius,'10px');
+ await page.emulateMedia({reducedMotion:'reduce'});
+ const animations=await page.locator('.qa-skeleton').evaluateAll(els=>els.map(el=>getComputedStyle(el).animationName));assert(animations.every(value=>value==='none'));
+ records.push({theme,width,mutation,sizes,reducedMotion:animations});await page.close();
+}}finally{await browser.close();}
+const sourceFiles=['lib/design/components.tsx','components/Skeleton.tsx','lib/design/q-design-runtime.ts'];
+fs.writeFileSync(root+'/reviews/skeleton-parity-browser-results.json',JSON.stringify({version:1,scope:'Real loading renderer declarations and actual CSS. Isolated fixtures with all network requests blocked. Twelve fixtures plus reduced-motion checks, not business-screen certifications.',sourceFiles:sourceFiles.map(file=>({file,hash:hash(fs.readFileSync(product+'/'+file,'utf8'))})),cssFiles:cssFiles.map(file=>({file,hash:hash(fs.readFileSync(root+'/'+file,'utf8'))})),records},null,2)+'\n');
+console.log(JSON.stringify({fixtures:records.length,defaultAndBodyParity:true,sharedHeightMutations:true,callerOverrides:true,reducedMotion:true}));

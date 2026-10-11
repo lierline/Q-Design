@@ -62,6 +62,8 @@ const steps=[
   ['tools/build-ios-components.mjs','--check'],
   ['tools/native-style-arguments.mjs','--check'],
   ['--test','tools/build-component-implementations.test.mjs'],
+  ['--test','tools/atelier-skeleton-parity-proof.test.mjs'],
+  ['tools/atelier-skeleton-parity-proof.mjs','--check'],
   ['tools/build-component-implementations.mjs','--check'],
   ['tools/build-atelier-simulator.mjs','--check'],
   ['tools/check-style-bindings.mjs'],

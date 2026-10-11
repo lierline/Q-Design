@@ -1947,7 +1947,7 @@ export function LoadingState({
 /** 단일 shimmer 바: 텍스트 줄/이미지 자리 등. */
 export function Skeleton({
   w = '100%',
-  h = QDPresentation.skeletonHeight[12],
+  h = QDPresentation.skeletonHeight[14],
   radius,
   style,
 }: {
@@ -1997,7 +1997,7 @@ export function SkeletonPanel({
         <Skeleton
           key={i}
           w={i === lines - 1 ? '55%' : '100%'}
-          h={QDPresentation.skeletonHeight[10]}
+          h={QDPresentation.skeletonHeight[12]}
           style={{ marginBottom: i === lines - 1 ? "var(--qd-atelier-margin-bottom-dba5d0300b)" : "var(--qd-atelier-margin-bottom-8774b7f498)" }}
         />
       ))}

@@ -25,6 +25,7 @@ const followupControls=readManifest('atelier-followup-controls-migration.json');
 const expertCopy=readManifest('atelier-expert-copy-migration.json');
 const expertFieldAssociation=readManifest('atelier-expert-field-association-migration.json');
 const toastCopy=readManifest('atelier-toast-copy-migration.json');
+const skeletonParity=readManifest('atelier-skeleton-parity-migration.json');
 const hash=source=>createHash('sha256').update(source.replaceAll('\r\n','\n')).digest('hex');
 // Preserve earlier migration proofs after the later, separately reviewed pass.
 // Each individual inverse is exact, and both snapshots remain hash-checked.
@@ -45,6 +46,8 @@ function reverseManifest(path,source,manifest){
  return source;
 }
 export function reverseResponsiveChart(path,source){
+ const skeleton=skeletonParity.records.find(record=>record.path===path);
+ if(skeleton&&hash(source)!==skeleton.beforeHash)source=reverseManifest(path,source.replaceAll('\r\n','\n'),skeletonParity);
  const toast=toastCopy.records.find(record=>record.path===path);
  if(toast&&hash(source)!==toast.beforeHash)source=reverseManifest(path,source.replaceAll('\r\n','\n'),toastCopy);
  const field=expertFieldAssociation.records.find(record=>record.path===path);

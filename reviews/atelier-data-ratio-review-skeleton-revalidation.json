@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "path": "lib/design/components.tsx",
+  "beforeHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+  "afterHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+  "beforeReportHash": "b0b9bfa4488045c282c08fe39ef9e7d228b24ef5ac1358dc42b570d9b326e889",
+  "afterReportHash": "eb936bfc14359d45a111e1063ddcc8a81cb0cdd1dd3720dd52e2fec4e08c63cd",
+  "records": [
+    {
+      "index": 35,
+      "before": {
+        "path": "lib/design/components.tsx",
+        "line": 806,
+        "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+        "argumentHash": "99e9db3af0c8beec0c561c3d844dc7e479ae32937255ff248e0478f8049e04fe",
+        "kind": "object-property",
+        "property": "width",
+        "reviewedExpression": "`${pct}%`",
+        "decision": "coordinate-boundary",
+        "ruleId": "exact-domain-ratio-rendering",
+        "reason": "ProgressBar normalizes its numeric value to the declared 0 to 100 ARIA range; width represents that normalized value. Caller values and all other appearance arguments remain independent candidates. This exact data-to-track mapping does not approve surrounding style, caller defaults or future numeric expressions.",
+        "evidence": [
+          {
+            "path": "lib/design/components.tsx",
+            "line": 806,
+            "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+            "inspectedLine": "      <div className=\"qd-progress-fill\" style={{ width: `${pct}%`, height: \"var(--qd-atelier-height-26ecbf76a0)\", background: fill, transition: `width ${QD.motionNormal}` }} />"
+          },
+          {
+            "path": "lib/design/components.tsx",
+            "line": 802,
+            "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+            "inspectedLine": "  const pct = Math.max(0, Math.min(100, Math.round(value)));"
+          }
+        ]
+      },
+      "after": {
+        "path": "lib/design/components.tsx",
+        "line": 806,
+        "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+        "argumentHash": "99e9db3af0c8beec0c561c3d844dc7e479ae32937255ff248e0478f8049e04fe",
+        "kind": "object-property",
+        "property": "width",
+        "reviewedExpression": "`${pct}%`",
+        "decision": "coordinate-boundary",
+        "ruleId": "exact-domain-ratio-rendering",
+        "reason": "ProgressBar normalizes its numeric value to the declared 0 to 100 ARIA range; width represents that normalized value. Caller values and all other appearance arguments remain independent candidates. This exact data-to-track mapping does not approve surrounding style, caller defaults or future numeric expressions.",
+        "evidence": [
+          {
+            "path": "lib/design/components.tsx",
+            "line": 806,
+            "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+            "inspectedLine": "      <div className=\"qd-progress-fill\" style={{ width: `${pct}%`, height: \"var(--qd-atelier-height-26ecbf76a0)\", background: fill, transition: `width ${QD.motionNormal}` }} />"
+          },
+          {
+            "path": "lib/design/components.tsx",
+            "line": 802,
+            "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+            "inspectedLine": "  const pct = Math.max(0, Math.min(100, Math.round(value)));"
+          }
+        ]
+      }
+    },
+    {
+      "index": 36,
+      "before": {
+        "path": "lib/design/components.tsx",
+        "line": 3073,
+        "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+        "argumentHash": "5f9a64e195bf55f22e7fac8195ffe66fc017375224581239ffeb28e4f107bd99",
+        "kind": "object-property",
+        "property": "width",
+        "reviewedExpression": "`${pct}%`",
+        "decision": "coordinate-boundary",
+        "ruleId": "exact-domain-ratio-rendering",
+        "reason": "DistributionBars divides each data count by total count, with an empty-total guard. Category color, height and other appearance are separate arguments. This exact data-to-track mapping does not approve surrounding style, caller defaults or future numeric expressions.",
+        "evidence": [
+          {
+            "path": "lib/design/components.tsx",
+            "line": 3073,
+            "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+            "inspectedLine": "                  width: `${pct}%`,"
+          },
+          {
+            "path": "lib/design/components.tsx",
+            "line": 3040,
+            "hash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+            "inspectedLine": "      {data.map((d) => {"
+          }
+        ]
+      },
+      "after": {
+        "path": "lib/design/components.tsx",
+        "line": 3073,
+        "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+        "argumentHash": "5f9a64e195bf55f22e7fac8195ffe66fc017375224581239ffeb28e4f107bd99",
+        "kind": "object-property",
+        "property": "width",
+        "reviewedExpression": "`${pct}%`",
+        "decision": "coordinate-boundary",
+        "ruleId": "exact-domain-ratio-rendering",
+        "reason": "DistributionBars divides each data count by total count, with an empty-total guard. Category color, height and other appearance are separate arguments. This exact data-to-track mapping does not approve surrounding style, caller defaults or future numeric expressions.",
+        "evidence": [
+          {
+            "path": "lib/design/components.tsx",
+            "line": 3073,
+            "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+            "inspectedLine": "                  width: `${pct}%`,"
+          },
+          {
+            "path": "lib/design/components.tsx",
+            "line": 3040,
+            "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+            "inspectedLine": "      {data.map((d) => {"
+          }
+        ]
+      }
+    }
+  ]
+}

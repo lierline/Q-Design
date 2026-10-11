@@ -1,0 +1,1130 @@
+{
+  "version": 1,
+  "scope": "Real loading renderer declarations and actual CSS. Isolated fixtures with all network requests blocked. Twelve fixtures plus reduced-motion checks, not business-screen certifications.",
+  "sourceFiles": [
+    {
+      "file": "lib/design/components.tsx",
+      "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+    },
+    {
+      "file": "components/Skeleton.tsx",
+      "hash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68"
+    },
+    {
+      "file": "lib/design/q-design-runtime.ts",
+      "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+    }
+  ],
+  "cssFiles": [
+    {
+      "file": "patterns/components.css",
+      "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+    },
+    {
+      "file": "patterns/foundation.css",
+      "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839"
+    },
+    {
+      "file": "dist/q-design.palette.atelier.css",
+      "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+    },
+    {
+      "file": "patterns/foundation/atelier.css",
+      "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a"
+    }
+  ],
+  "records": [
+    {
+      "theme": "dark",
+      "width": 1280,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "mutation": false,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 14,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 12,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "mutation": true,
+      "sizes": {
+        "core-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-default": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-body": [
+          {
+            "height": 19,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-body": [
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          },
+          {
+            "height": 17,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-override": [
+          {
+            "height": 31,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "core-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ],
+        "standalone-style": [
+          {
+            "height": 29,
+            "radius": "10px",
+            "animation": "qd-skeleton-pulse"
+          }
+        ]
+      },
+      "reducedMotion": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    }
+  ]
+}

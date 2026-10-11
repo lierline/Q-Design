@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "scope": "Two independently verified central height references. Complete report equality after only those two records and hash references to the exact two-edit source migration. No other classification change.",
+  "beforeReportHash": "71a161792c53220ca00918e94792f4fe819c73c521c9459fd5109084d5557eb5",
+  "afterReportHash": "3d2d0a6cdcda4d11b6b25a663c63cd49c12bfdd761b08b82d3b5ab185f46db6b",
+  "beforeSourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+  "afterSourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+  "records": [
+    {
+      "index": 48002,
+      "before": {
+        "path": "lib/design/components.tsx",
+        "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+        "argumentHash": "09efbba02a0ee1ca954661167ab998b421f3ca43b295256e4686ebcec11d9ee8",
+        "line": 1950,
+        "kind": "named-style-value",
+        "property": "h",
+        "value": "QDPresentation.skeletonHeight[12]",
+        "family": "behavior-structure",
+        "status": "review-required",
+        "context": "candidate default or local binding; follow its consumers before classifying",
+        "originalStatus": "review-required",
+        "decision": "token-reference-verified",
+        "ruleId": "canonical-scalar",
+        "reason": "Exact import and exported member trace to declared central variables; adapter source and declarations are hashed.",
+        "evidence": [
+          {
+            "path": "lib/design/q-design-runtime.ts",
+            "line": 318,
+            "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+            "valueKind": "number"
+          }
+        ]
+      },
+      "after": {
+        "path": "lib/design/components.tsx",
+        "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+        "argumentHash": "e572bb13de9f9162df0516d81d7d3890bbaa8644905085a372b207f3b9ea6d51",
+        "line": 1950,
+        "kind": "named-style-value",
+        "property": "h",
+        "value": "QDPresentation.skeletonHeight[14]",
+        "family": "behavior-structure",
+        "status": "review-required",
+        "context": "candidate default or local binding; follow its consumers before classifying",
+        "originalStatus": "review-required",
+        "decision": "token-reference-verified",
+        "ruleId": "canonical-scalar",
+        "reason": "Exact import and exported member trace to declared central variables; adapter source and declarations are hashed.",
+        "evidence": [
+          {
+            "path": "lib/design/q-design-runtime.ts",
+            "line": 319,
+            "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+            "valueKind": "number"
+          }
+        ]
+      }
+    },
+    {
+      "index": 48023,
+      "before": {
+        "path": "lib/design/components.tsx",
+        "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+        "argumentHash": "5337a4bd304f7d52d0197f9d6a20df05443aa3ebbf6168ef80d215e7491b1b11",
+        "line": 2000,
+        "kind": "presentation-attribute",
+        "property": "h",
+        "value": "{QDPresentation.skeletonHeight[10]}",
+        "family": "behavior-structure",
+        "status": "review-required",
+        "originalStatus": "review-required",
+        "decision": "token-reference-verified",
+        "ruleId": "canonical-scalar",
+        "reason": "Exact import and exported member trace to declared central variables; adapter source and declarations are hashed.",
+        "evidence": [
+          {
+            "path": "lib/design/q-design-runtime.ts",
+            "line": 316,
+            "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+            "valueKind": "number"
+          }
+        ]
+      },
+      "after": {
+        "path": "lib/design/components.tsx",
+        "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+        "argumentHash": "46a5920144e56b69e51480b47b6b278d2fd8934f1d4b4d1aed72e9ad9b41b88b",
+        "line": 2000,
+        "kind": "presentation-attribute",
+        "property": "h",
+        "value": "{QDPresentation.skeletonHeight[12]}",
+        "family": "behavior-structure",
+        "status": "review-required",
+        "originalStatus": "review-required",
+        "decision": "token-reference-verified",
+        "ruleId": "canonical-scalar",
+        "reason": "Exact import and exported member trace to declared central variables; adapter source and declarations are hashed.",
+        "evidence": [
+          {
+            "path": "lib/design/q-design-runtime.ts",
+            "line": 318,
+            "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+            "valueKind": "number"
+          }
+        ]
+      }
+    }
+  ],
+  "counts": {
+    "business-data": 1158,
+    "token-reference-verified": 33184,
+    "central-selector": 1161,
+    "structural-behavior": 7114,
+    "delegated-renderer-parameter": 419,
+    "unknown": 867,
+    "confirmed-style-composition": 85,
+    "compatibility-noop": 18,
+    "business-content": 176,
+    "font-resource": 659,
+    "central-source-verified": 9060,
+    "coordinate-boundary": 42,
+    "inactive-compatibility-export": 42,
+    "platform-metadata": 1
+  }
+}
