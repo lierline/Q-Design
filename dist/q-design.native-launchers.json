@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "scope": "Exact native startup recipe ownership. Only package and product wordmark are substituted. Typography, shared canvas and hint strategy continue to consume central resources. Shipped logo/font assets, Android user animation scale, runtime state and other native components are distinct boundaries. This is not installation or visual certification.",
+  "records": [
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "template": "patterns/native/launch-view.java.tpl",
+      "templateHash": "f941d122d9403ad75480669e315a72f77aa1cd29a8ce4cf9468384485c3d52d7",
+      "generated": "dist/native-launchers/LaunchView.atelier.java",
+      "target": "Q-Atelier-App/app/src/main/java/app/medqraft/qatelier/LaunchView.java",
+      "sourceHash": "b1a9000199771d8dc78c60ed176efd4262152e2c21e8aed29422fe1879560de8",
+      "identity": {
+        "package": "app.medqraft.qatelier",
+        "wordmark": "Q-ATELIER"
+      }
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "template": "patterns/native/launch-view.java.tpl",
+      "templateHash": "f941d122d9403ad75480669e315a72f77aa1cd29a8ce4cf9468384485c3d52d7",
+      "generated": "dist/native-launchers/LaunchView.maison.java",
+      "target": "Q-Maison-App/app/src/main/java/app/medqraft/maison/LaunchView.java",
+      "sourceHash": "d29b52721dcb8d962e3cf24c97107071d2ac6dd17dc99180a6dd3c6fee772d0f",
+      "identity": {
+        "package": "app.medqraft.maison",
+        "wordmark": "Q-MAISON"
+      }
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "template": "patterns/native/launch-view.java.tpl",
+      "templateHash": "f941d122d9403ad75480669e315a72f77aa1cd29a8ce4cf9468384485c3d52d7",
+      "generated": "dist/native-launchers/LaunchView.carnet.java",
+      "target": "Q-Carnet-App/app/src/main/java/app/medqraft/carnet/LaunchView.java",
+      "sourceHash": "1eb4d91972be7595b4c21402ebed4b32beea95de8d74f8af42bbe88e7f598a7f",
+      "identity": {
+        "package": "app.medqraft.carnet",
+        "wordmark": "Q-CARNET"
+      }
+    }
+  ]
+}

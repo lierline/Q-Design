@@ -51,6 +51,8 @@ const STEPS = [
   { name: '아뜰리에 HTML 문서', file: 'build-atelier-html.mjs', why: '이메일과 HTML 내보내기의 색상 및 치수를 공통 규칙에서 계산합니다' },
   { name: '제품 기반', file: 'build-foundation.mjs', why: '배경, 인증, 셸과 전역 규칙을 공통 인자와 조합합니다' },
   { name: '앱 오프라인', file: 'build-native-offline.mjs', extra: [...only], why: 'Android와 iOS 앱의 독립 화면을 공통 규칙에서 만듭니다' },
+  { name: '앱 시작 장면', file: 'build-native-launcher.mjs', extra: [...only], why: 'Android 세 앱의 실제 시작 화면을 하나의 공통 표현 규칙에서 만듭니다' },
+  { name: '앱 시작 인자', file: 'native-style-arguments.mjs', why: 'Java 구문 트리로 시작 화면의 리터럴과 실제 표현 인자를 목록화합니다' },
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
@@ -172,3 +174,9 @@ if (icons.code !== 0) process.exit(1);
 const native = run('build-native-offline.mjs', ['--write', ...only]);
 console.log(native.out.trim());
 if (native.code !== 0) process.exit(1);
+const nativeLaunch = run('build-native-launcher.mjs', ['--write', ...only]);
+console.log(nativeLaunch.out.trim());
+if (nativeLaunch.code !== 0) process.exit(1);
+const nativeArguments = run('native-style-arguments.mjs', ['--check']);
+console.log(nativeArguments.out.trim());
+if (nativeArguments.code !== 0) process.exit(1);
