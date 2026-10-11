@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "scope": "Fourteen individually inspected lexical h/w data bindings only. Complete current source and exact syntax-tree locations are pinned. No file, identifier, later visual consumer or scoring/permission behavior is exempted or certified.",
+  "records": [
+    {
+      "path": "app/(app)/products/client.tsx",
+      "line": 310,
+      "sourceHash": "de2a62dd3b856bb76430889354b3297ce9b331c6f7eb1b762f4602ae8421a323",
+      "argumentHash": "943209e4f59d0354726fdd650bab465aa0feaa4c430d3e6838efd2bd4321a7e5",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "dj.hints as MfdsHints",
+      "inspectedConsumer": "fillFromMfds",
+      "consumerLine": 298,
+      "consumerUses": [
+        311,
+        313,
+        314
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Permit-dossier hint object, consumed by product form data setters. Display styles and derived content remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "app/(app)/products/client.tsx",
+          "line": 310,
+          "hash": "de2a62dd3b856bb76430889354b3297ce9b331c6f7eb1b762f4602ae8421a323"
+        },
+        {
+          "path": "app/(app)/products/client.tsx",
+          "line": 298,
+          "hash": "de2a62dd3b856bb76430889354b3297ce9b331c6f7eb1b762f4602ae8421a323"
+        }
+      ]
+    },
+    {
+      "path": "app/api/admin/mfds-probe/route.ts",
+      "line": 658,
+      "sourceHash": "884fb0be79cd6fa0d58ca930d07aa318c37df9aaab852395b74036c5185981cf",
+      "argumentHash": "686e729ede73b4220ec71372671a1bc2519858886f983b428f0049346af77ef2",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "j.headers ?? {}",
+      "inspectedConsumer": "echoOnce",
+      "consumerLine": 652,
+      "consumerUses": [
+        661,
+        663,
+        664
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Echo-response HTTP headers returned in a diagnostic JSON envelope. Header presence flags are data, not a height. No external request is executed for this review.",
+      "evidence": [
+        {
+          "path": "app/api/admin/mfds-probe/route.ts",
+          "line": 658,
+          "hash": "884fb0be79cd6fa0d58ca930d07aa318c37df9aaab852395b74036c5185981cf"
+        },
+        {
+          "path": "app/api/admin/mfds-probe/route.ts",
+          "line": 652,
+          "hash": "884fb0be79cd6fa0d58ca930d07aa318c37df9aaab852395b74036c5185981cf"
+        }
+      ]
+    },
+    {
+      "path": "app/api/cron/stale-reviews/route.ts",
+      "line": 178,
+      "sourceHash": "1eaf5a9ffeda7c4b0f1e7822a2b01a4011a43b5b7c478f131b7757765b4e2190",
+      "argumentHash": "e46c7b392793e53a41c7a22ac3154bc5629015ae18147fe2b76fd6d33c11c4cf",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "history.get(key)",
+      "inspectedConsumer": "POST",
+      "consumerLine": 33,
+      "consumerUses": [
+        179,
+        180
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Reminder history count and timestamp entry accumulated by recipient/link. Sending and reminder policy are not executed or changed.",
+      "evidence": [
+        {
+          "path": "app/api/cron/stale-reviews/route.ts",
+          "line": 178,
+          "hash": "1eaf5a9ffeda7c4b0f1e7822a2b01a4011a43b5b7c478f131b7757765b4e2190"
+        },
+        {
+          "path": "app/api/cron/stale-reviews/route.ts",
+          "line": 33,
+          "hash": "1eaf5a9ffeda7c4b0f1e7822a2b01a4011a43b5b7c478f131b7757765b4e2190"
+        }
+      ]
+    },
+    {
+      "path": "components/AssessmentDocApprovalPanel.tsx",
+      "line": 111,
+      "sourceHash": "86f3ada98962395152d5f6eccae49a063836833cea2d994ddd6ed9117a915329",
+      "argumentHash": "c0fb3063c82d842db889a90b7b80889e24170f32c0f70cb61643d92cc6b1c6bb",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "(await hres.json()) as { items: ApprovalRecord[] }",
+      "inspectedConsumer": "anonymous",
+      "consumerLine": 85,
+      "consumerUses": [
+        112
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Approval-history JSON payload passed to setHistory. Row styling and approval behavior remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "components/AssessmentDocApprovalPanel.tsx",
+          "line": 111,
+          "hash": "86f3ada98962395152d5f6eccae49a063836833cea2d994ddd6ed9117a915329"
+        },
+        {
+          "path": "components/AssessmentDocApprovalPanel.tsx",
+          "line": 85,
+          "hash": "86f3ada98962395152d5f6eccae49a063836833cea2d994ddd6ed9117a915329"
+        }
+      ]
+    },
+    {
+      "path": "components/DocumentApprovalPanel.tsx",
+      "line": 149,
+      "sourceHash": "5b7839b2cb280a8f312bac0ea0f7c011c852a2eb6994f41941fbd57eb16b3828",
+      "argumentHash": "e23b905bc35f6003a27d6b07f82fa7b358b52804a331249d0837f4916a9ae957",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "(await histRes.json()) as { items: ApprovalRecord[] }",
+      "inspectedConsumer": "anonymous",
+      "consumerLine": 119,
+      "consumerUses": [
+        150
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Approval-history JSON payload passed to setHistory. Row styling and approval behavior remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "components/DocumentApprovalPanel.tsx",
+          "line": 149,
+          "hash": "5b7839b2cb280a8f312bac0ea0f7c011c852a2eb6994f41941fbd57eb16b3828"
+        },
+        {
+          "path": "components/DocumentApprovalPanel.tsx",
+          "line": 119,
+          "hash": "5b7839b2cb280a8f312bac0ea0f7c011c852a2eb6994f41941fbd57eb16b3828"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 205,
+      "sourceHash": "abaf850c19c8b5338e764a53e1826cbc0f711174db4d5c10c99ff818a28ca96f",
+      "argumentHash": "f431dbb135877aa45185934400c97525441d41b91295e4227a084ab965735da8",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "dj?.hints as { deviceClass: 1 | 2 | 3 | 4 | null; bodyContact: boolean | null; materialCount: number; bodyContactMaterials: string[]; trackingRequired: boolean | null; cancelled: boolean; className: string | null } | undefined",
+      "inspectedConsumer": "fillFromMfds",
+      "consumerLine": 166,
+      "consumerUses": [
+        206,
+        207,
+        208,
+        209
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Permit-dossier hints consumed by product profile suggestions and informational text. The domain className field is a medical-item classification name, not a CSS class.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 205,
+          "hash": "abaf850c19c8b5338e764a53e1826cbc0f711174db4d5c10c99ff818a28ca96f"
+        },
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 166,
+          "hash": "abaf850c19c8b5338e764a53e1826cbc0f711174db4d5c10c99ff818a28ca96f"
+        }
+      ]
+    },
+    {
+      "path": "lib/export/docx-builder/body.ts",
+      "line": 193,
+      "sourceHash": "23f75b44c5db469b5c405a3ac2202d6c6c36d41954d3d3620620417ec458d79c",
+      "argumentHash": "0bf29c2eb527c1936d3104b99b85e0e75e3bd4e2a0895bae493d914c077bb90d",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "/^(#{1,3})\\s+(.+)$/.exec(line)",
+      "inspectedConsumer": "buildBodySection",
+      "consumerLine": 138,
+      "consumerUses": [
+        194,
+        195,
+        196
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Markdown heading match. Its hash-count and title select the existing semantic heading builders; document font and spacing rules remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/export/docx-builder/body.ts",
+          "line": 193,
+          "hash": "23f75b44c5db469b5c405a3ac2202d6c6c36d41954d3d3620620417ec458d79c"
+        },
+        {
+          "path": "lib/export/docx-builder/body.ts",
+          "line": 138,
+          "hash": "23f75b44c5db469b5c405a3ac2202d6c6c36d41954d3d3620620417ec458d79c"
+        }
+      ]
+    },
+    {
+      "path": "lib/export/merge-into-template.ts",
+      "line": 152,
+      "sourceHash": "f771fac4e3774a32e97a77c4e6dbb8f3d549a2105109410c21df7705e295ae87",
+      "argumentHash": "d51d1339c7e07ab2ee2342eca8b7053c374f527d8bd204c46e95354e9313dfc6",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "/^(#{1,3})\\s+(.+)$/.exec(line)",
+      "inspectedConsumer": "buildOoxmlBlock",
+      "consumerLine": 106,
+      "consumerUses": [
+        153,
+        154,
+        155
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Markdown heading match. Its level and title feed existing centrally tokenized Word paragraph generation; this is not an independent height.",
+      "evidence": [
+        {
+          "path": "lib/export/merge-into-template.ts",
+          "line": 152,
+          "hash": "f771fac4e3774a32e97a77c4e6dbb8f3d549a2105109410c21df7705e295ae87"
+        },
+        {
+          "path": "lib/export/merge-into-template.ts",
+          "line": 106,
+          "hash": "f771fac4e3774a32e97a77c4e6dbb8f3d549a2105109410c21df7705e295ae87"
+        }
+      ]
+    },
+    {
+      "path": "lib/rule-override-pure.ts",
+      "line": 428,
+      "sourceHash": "f63716e1ca07470712192b6b19f1e29f164a148453a255562bc6c277637d8ed9",
+      "argumentHash": "a27c7387a99ca55c0c04ae65c15ae2ddc09c60a3712cb3382497ea10dbc24304",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "hay.toLowerCase()",
+      "inspectedConsumer": "includesAny",
+      "consumerLine": 426,
+      "consumerUses": [
+        429
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Lowercased searchable text used by substring predicates. Rule matching is unchanged and not executed.",
+      "evidence": [
+        {
+          "path": "lib/rule-override-pure.ts",
+          "line": 428,
+          "hash": "f63716e1ca07470712192b6b19f1e29f164a148453a255562bc6c277637d8ed9"
+        },
+        {
+          "path": "lib/rule-override-pure.ts",
+          "line": 426,
+          "hash": "f63716e1ca07470712192b6b19f1e29f164a148453a255562bc6c277637d8ed9"
+        }
+      ]
+    },
+    {
+      "path": "lib/rules/actions.ts",
+      "line": 135,
+      "sourceHash": "2892a457b4c350e5d1f02b02f837c81cecb4358fc15f9c908bee9391d09ce08c",
+      "argumentHash": "ccbcc67bfcec585f2bc98e269b5b9b4bfc52b442f258ea7d4032b2c85888733f",
+      "kind": "named-style-value",
+      "property": "w",
+      "reviewedExpression": "ACTIONS[key].who",
+      "inspectedConsumer": "canDo",
+      "consumerLine": 134,
+      "consumerUses": [
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Action permission metadata with role and ownership predicates. Permission behavior is unchanged and not executed.",
+      "evidence": [
+        {
+          "path": "lib/rules/actions.ts",
+          "line": 135,
+          "hash": "2892a457b4c350e5d1f02b02f837c81cecb4358fc15f9c908bee9391d09ce08c"
+        },
+        {
+          "path": "lib/rules/actions.ts",
+          "line": 134,
+          "hash": "2892a457b4c350e5d1f02b02f837c81cecb4358fc15f9c908bee9391d09ce08c"
+        }
+      ]
+    },
+    {
+      "path": "lib/medical-items/grade-resolve.ts",
+      "line": 82,
+      "sourceHash": "242d3dc3d52bcd51a348583fe676a61dfa2e1eaef103684789b34f2b49ef3777",
+      "argumentHash": "19c239e0e53e50cafb1339f588c6b98257b9f1774f1aba4f6d7e540212aa17ab",
+      "kind": "named-style-value",
+      "property": "w",
+      "reviewedExpression": "weighted[g]",
+      "inspectedConsumer": "resolveActualGrade",
+      "consumerLine": 44,
+      "consumerUses": [
+        83,
+        84,
+        87
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Weighted grade vote used by maximum/tie selection. This is business scoring data, not a width. Scoring is unchanged and not executed.",
+      "evidence": [
+        {
+          "path": "lib/medical-items/grade-resolve.ts",
+          "line": 82,
+          "hash": "242d3dc3d52bcd51a348583fe676a61dfa2e1eaef103684789b34f2b49ef3777"
+        },
+        {
+          "path": "lib/medical-items/grade-resolve.ts",
+          "line": 44,
+          "hash": "242d3dc3d52bcd51a348583fe676a61dfa2e1eaef103684789b34f2b49ef3777"
+        }
+      ]
+    },
+    {
+      "path": "lib/judgment-synthesizer.ts",
+      "line": 143,
+      "sourceHash": "4b64f9b8ea660c07133da583ec20bd636eedd31d6aa38e073cb534273131f150",
+      "argumentHash": "91e79e00295b106b874b1644abf425b0e5de5a306ce13e87e5693480e8b440bc",
+      "kind": "named-style-value",
+      "property": "w",
+      "reviewedExpression": "input.weights",
+      "inspectedConsumer": "buildUserPrompt",
+      "consumerLine": 142,
+      "consumerUses": [
+        171,
+        172,
+        173
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Normalized model/expert weights interpolated into the synthesis prompt. Not an independent width; prompt generation and model calls are not executed.",
+      "evidence": [
+        {
+          "path": "lib/judgment-synthesizer.ts",
+          "line": 143,
+          "hash": "4b64f9b8ea660c07133da583ec20bd636eedd31d6aa38e073cb534273131f150"
+        },
+        {
+          "path": "lib/judgment-synthesizer.ts",
+          "line": 142,
+          "hash": "4b64f9b8ea660c07133da583ec20bd636eedd31d6aa38e073cb534273131f150"
+        }
+      ]
+    },
+    {
+      "path": "lib/compliance/scoring.ts",
+      "line": 147,
+      "sourceHash": "3b7c69d84ba650d68bbc305d6606952512148605f6ae7d9ff44db6454862a9b9",
+      "argumentHash": "114873e4b140d665a38945492f4f2c7cc79e9630256cfd706b84883673e351af",
+      "kind": "named-style-value",
+      "property": "w",
+      "reviewedExpression": "SEVERITY_WEIGHT[item.severity]",
+      "inspectedConsumer": "scoreAssessment",
+      "consumerLine": 118,
+      "consumerUses": [
+        162,
+        163,
+        167,
+        168,
+        171,
+        172
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Severity weight accumulated into compliance totals and scores. No visual dimension is authored by this binding; scoring is unchanged and not executed.",
+      "evidence": [
+        {
+          "path": "lib/compliance/scoring.ts",
+          "line": 147,
+          "hash": "3b7c69d84ba650d68bbc305d6606952512148605f6ae7d9ff44db6454862a9b9"
+        },
+        {
+          "path": "lib/compliance/scoring.ts",
+          "line": 118,
+          "hash": "3b7c69d84ba650d68bbc305d6606952512148605f6ae7d9ff44db6454862a9b9"
+        }
+      ]
+    },
+    {
+      "path": "lib/engine/paraphrase.ts",
+      "line": 109,
+      "sourceHash": "e0dfe58394dc700ed81282191cad17240d86c3464c83b69520455507432f4e27",
+      "argumentHash": "d697b4cdbdcf0b9394bc2a504cc4257454237a78a29bcb34e2cf4876debf3f26",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "price(headModel, 400, HEAD_OUTPUT_CEILING)",
+      "inspectedConsumer": "estimateDeriveCostUsd",
+      "consumerLine": 95,
+      "consumerUses": [
+        110,
+        111
+      ],
+      "decision": "business-data",
+      "ruleId": "exact-domain-data-binding",
+      "reason": "Head-model price estimate accumulated into a per-case budget. This is cost data, not a height. No model call or estimate execution is performed.",
+      "evidence": [
+        {
+          "path": "lib/engine/paraphrase.ts",
+          "line": 109,
+          "hash": "e0dfe58394dc700ed81282191cad17240d86c3464c83b69520455507432f4e27"
+        },
+        {
+          "path": "lib/engine/paraphrase.ts",
+          "line": 95,
+          "hash": "e0dfe58394dc700ed81282191cad17240d86c3464c83b69520455507432f4e27"
+        }
+      ]
+    }
+  ]
+}
