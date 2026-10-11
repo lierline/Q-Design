@@ -10,9 +10,9 @@
         "targetsWithReviewedCapture": 201,
         "targetsWithUsableVisualCapture": 193,
         "targetsWithVerifiedBoundaryCapture": 8,
-        "captureRecords": 256,
-        "images": 1035,
-        "reviewedImages": 1035,
+        "captureRecords": 257,
+        "images": 1037,
+        "reviewedImages": 1037,
         "missingImages": 0
       },
       "missingTargets": [],
@@ -8044,6 +8044,43 @@
             {
               "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-mobile-width-390-settled-20261011-2.png",
               "hash": "f4a49a96b24b41db9b6ac36db9c5a413cd82cb607ad4870f45e592a4bac9fcdc",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-production-autofill-final-desktop-20261011.json",
+          "route": "/experts/portal/login",
+          "url": "https://atelier.medqraft.app/experts/portal/login",
+          "actualURL": "https://atelier.medqraft.app/experts/portal/login",
+          "role": "anonymous-production-autofill-final-desktop-20261011",
+          "viewport": [
+            1280,
+            720
+          ],
+          "capturedAt": "2026-10-11T14:41:13.297Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-production-autofill-final-desktop-20261011-0.png",
+              "hash": "cd21dab83e3222653f26e2ea656a769dab50c3dfec1f132d37a558a0147b72b0",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-production-autofill-final-desktop-20261011-1.png",
+              "hash": "ffbce710ca4ea62c3c8bcbb911003d43922d137be8f3336dec39e70d5307ada5",
               "exists": true,
               "reviewed": true,
               "verdict": "no-visible-layout-defect",

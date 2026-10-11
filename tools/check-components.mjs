@@ -16,6 +16,8 @@ const steps=[
   ['tools/atelier-size-renderer-review.mjs','--check'],
   ['--test','tools/field-label-spacing-proof.test.mjs'],
   ['tools/field-label-spacing-proof.mjs','--check'],
+  ['--test','tools/autofill-style-proof.test.mjs'],
+  ['tools/autofill-style-proof.mjs','--check'],
   ['--test','tools/expert-field-association-proof.test.mjs'],
   ['tools/expert-field-association-proof.mjs','--check'],
   ['--test','tools/atelier-icon-compatibility-review.test.mjs'],

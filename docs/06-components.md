@@ -1,5 +1,13 @@
 # 컴포넌트
 
+현재 세 제품의 공통 표시 규칙은 `patterns/components.css`와 제품별 기반 규칙에서 관리한다. 아래 원본 실측 표는 초기 추출 당시의 기록이다. 현재 값과 중앙 연결 여부는 `dist/q-design.components.json`, `dist/q-design.style-arguments.json` 및 제품별 검토 기록을 함께 확인한다.
+
+### 자동 채움 입력 상태 (2026-10-11)
+
+브라우저가 채운 `input`과 `textarea`도 중앙 팔레트를 따른다. `--qd-autofill-surface`는 `--qd-surface`, `--qd-autofill-ink`는 `--qd-text`에 연결한다. 브라우저 고유 배경은 중앙 inset paint로 덮으며 자동 채움 기능과 값은 변경하지 않는다. 키보드 초점은 중앙 강조색·테두리 두께·간격을 따른다. 비활성 상태는 `--qd-bg`와 `--qd-muted`로 바꾼다. 시스템 강제 색상 모드에서는 `FieldText`, `GrayText`, `Highlight`를 사용하고 inset paint를 해제한다.
+
+이 규칙은 세 웹 제품, 아뜰리에의 독립 시뮬레이터와 오프라인 화면, 세 Android 앱과 아뜰리에 iOS의 생성 오프라인 자산에 포함된다. 중앙 수정 후 생성·동기화·제품 빌드·배포를 수행해야 반영된다. 설치 앱에 포함되는 변경은 앱 재빌드와 서명·배포도 필요하다.
+
 원본은 부품 60여 종이 **파일 하나(`components.tsx`, 3,733줄)** 에 모여 있습니다.
 스타일은 CSS 클래스가 아니라 **인라인 style 객체**로 들어갑니다.
 호버·포커스처럼 인라인으로 표현할 수 없는 것만 전역 CSS 클래스(`qa-*`)를 씁니다.
