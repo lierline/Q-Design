@@ -1,13 +1,93 @@
 {
- "version":1,
- "scope":"Production release of reviewed shared control, wrapping and copy changes. This does not certify all business screens or release the native app bundles.",
- "products":[
-  {"product":"atelier","commit":"39123ed2c8d9cfca9cd9edeee8c7f2badf7d8fdd","deployment":"dpl_8bS4pTKeA1zSs2fkoUp14MShHs7h","state":"READY","productionAlias":"atelier.medqraft.app","additionalAliases":["www.qatelier.co.kr","qatelier.co.kr"],"currentScope":"Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.","earlierControlObservations":["375px login fields, theme control and primary action are at least 44px with 10px radius.","Body word-break keep-all and overflow-wrap break-word are applied. Underline tabs retain their own presentation."]},
-  {"product":"maison","commit":"3509438ae2df280ec3250173c49fdd39a76592e3","deployment":"dpl_C7qXRPFuxyqUWvByjU8eevWF6puy","state":"READY","productionAlias":"maison.medqraft.app","currentEvidence":"production-copy-layout-results.json","observations":["Role descriptions measure 160px, 0 overflowing cells and 375px page width; first region inspected at top, middle and bottom.","Warehouse new form visibly displays 사용 중.","7.1.5.1 and 7.1.5.2 now follow their parent 7.1.5.","All 9 current production item-code cells use the canonical wrap rule with anywhere fallback and 0 overflow."],"earlierControlObservations":["Risk wording, equal 44px and 10px safety header controls, and agenda/report/risk paper scrolling were observed in the preceding shared-control phase."]},
-  {"product":"carnet","commit":"a1f7f2ab2f01ebc57476ebb73eaeaa92d1881e57","deployment":"dpl_6CCkPhBvcbUkJQePAjgz6GMuVjw8","state":"READY","productionAlias":"carnet.medqraft.app","currentScope":"Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.","earlierControlObservations":["375px login controls use 10px radius and rgb(122,115,100) outline; body uses keep-all and break-word.","The theme control measures 44px and login field controls and keypad controls measure 56px."]}
- ],
- "validation":{"scopedReleaseCommand":"node tools/extract-all.mjs --check --only=Q-Atelier,Q-Works,Q-Forge","exitCode":0,"browserCommand":"node tools/check-components.mjs --browser","browserExitCode":0,"browserRuntime":"Chromium 151.0.7922.34 / Playwright 1.62.1","iconAssetsMatched":32,"sharedPropagationChecks":408,"paletteChecks":36,"sharedPropagationFailures":0,"copyRules":9,"copyFiles":76,"copyPhrases":160,"copyTestsPassed":6,"descriptionBrowserCases":8,"printIdentifierBrowserCases":4,"auditLabelTestsPassed":24,"clauseOrderTestsPassed":8,"maisonTypecheckExitCode":0,"riskAndPrintTestsPassed":32},
- "native":{"androidDebugBuilds":3,"offlineBrowserCases":36,"installedBundleRelease":"not performed","iosCompilation":"not available on this Windows host"},
- "screenReview":{"atelierImages":661,"maisonImages":855,"carnetImages":295,"allExistingImagesReviewed":true,"allStatesCertified":false},
- "remaining":"Unusable or partial screen evidence and 1036 unresolved Atelier style arguments remain tracked in design-readiness.json. All existing image review coverage is not an all-state, all-role or all-device certificate. Existing signed app releases and iOS compilation remain pending."
+  "version": 1,
+  "scope": "Production release of reviewed shared control, wrapping and copy changes. This does not certify all business screens or release the native app bundles.",
+  "products": [
+    {
+      "product": "atelier",
+      "commit": "39123ed2c8d9cfca9cd9edeee8c7f2badf7d8fdd",
+      "deployment": "dpl_8bS4pTKeA1zSs2fkoUp14MShHs7h",
+      "state": "READY",
+      "productionAlias": "atelier.medqraft.app",
+      "additionalAliases": [
+        "www.qatelier.co.kr",
+        "qatelier.co.kr"
+      ],
+      "currentScope": "Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.",
+      "earlierControlObservations": [
+        "375px login fields, theme control and primary action are at least 44px with 10px radius.",
+        "Body word-break keep-all and overflow-wrap break-word are applied. Underline tabs retain their own presentation."
+      ]
+    },
+    {
+      "product": "maison",
+      "commit": "5d61279e29a5431b9c1cfffaed7be8b2246df172",
+      "deployment": "dpl_CczxsHMorSaf31cGR7JVpYsudTki",
+      "state": "READY",
+      "productionAlias": "maison.medqraft.app",
+      "currentEvidence": "production-copy-layout-results.json",
+      "observations": [
+        "Role descriptions measure 160px, 0 overflowing cells and 375px page width; first region inspected at top, middle and bottom.",
+        "Warehouse new form visibly displays 사용 중.",
+        "7.1.5.1 and 7.1.5.2 now follow their parent 7.1.5.",
+        "All 9 current production item-code cells use the canonical wrap rule with anywhere fallback and 0 overflow.",
+        "Menu descriptions measure 160px with 597 cells and 0 cell overflows; top, bottom and final system-management column were visually inspected.",
+        "An actual item-code audit record visibly displays 치수 규격, 로트 접두, 재질, 최종 완제품, 완제품 포장 and 사용 중 at 375px after the latest deployment."
+      ],
+      "earlierControlObservations": [
+        "Risk wording, equal 44px and 10px safety header controls, and agenda/report/risk paper scrolling were observed in the preceding shared-control phase."
+      ],
+      "additionalAliases": [
+        "q-maison.vercel.app"
+      ]
+    },
+    {
+      "product": "carnet",
+      "commit": "a1f7f2ab2f01ebc57476ebb73eaeaa92d1881e57",
+      "deployment": "dpl_6CCkPhBvcbUkJQePAjgz6GMuVjw8",
+      "state": "READY",
+      "productionAlias": "carnet.medqraft.app",
+      "currentScope": "Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.",
+      "earlierControlObservations": [
+        "375px login controls use 10px radius and rgb(122,115,100) outline; body uses keep-all and break-word.",
+        "The theme control measures 44px and login field controls and keypad controls measure 56px."
+      ]
+    }
+  ],
+  "validation": {
+    "scopedReleaseCommand": "node tools/extract-all.mjs --check --only=Q-Atelier,Q-Works,Q-Forge",
+    "exitCode": 0,
+    "browserCommand": "node tools/check-components.mjs --browser",
+    "browserExitCode": 0,
+    "browserRuntime": "Chromium 151.0.7922.34 / Playwright 1.62.1",
+    "iconAssetsMatched": 32,
+    "sharedPropagationChecks": 408,
+    "paletteChecks": 36,
+    "sharedPropagationFailures": 0,
+    "copyRules": 9,
+    "copyFiles": 76,
+    "copyPhrases": 160,
+    "copyTestsPassed": 6,
+    "descriptionBrowserCases": 8,
+    "printIdentifierBrowserCases": 4,
+    "auditLabelTestsPassed": 24,
+    "clauseOrderTestsPassed": 8,
+    "maisonTypecheckExitCode": 0,
+    "riskAndPrintTestsPassed": 32,
+    "scopedReleaseLog": "D:/Claude/tmp/qd-audit-label-release-final.log",
+    "browserScope": "Shared rules and browser cases verified before subsequent view-only clause order and audit dictionary additions; those additions have targeted regression and production UI evidence."
+  },
+  "native": {
+    "androidDebugBuilds": 3,
+    "offlineBrowserCases": 36,
+    "installedBundleRelease": "not performed",
+    "iosCompilation": "not available on this Windows host"
+  },
+  "screenReview": {
+    "atelierImages": 661,
+    "maisonImages": 855,
+    "carnetImages": 295,
+    "allExistingImagesReviewed": true,
+    "allStatesCertified": false
+  },
+  "remaining": "Unusable or partial screen evidence and 1036 unresolved Atelier style arguments remain tracked in design-readiness.json. All existing image review coverage is not an all-state, all-role or all-device certificate. Existing signed app releases and iOS compilation remain pending."
 }
