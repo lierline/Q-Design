@@ -92,6 +92,8 @@ function ComponentGallery() {
           <span data-testid="open-drawer"><Btn p={false} onClick={() => setDrawer(true)}>상세 정보</Btn></span>
           <span data-testid="open-confirm"><Btn p={false} onClick={async () => setConfirmation(await confirm({ title: '검토를 완료할까요?', message: '검토 결과를 확인합니다.', confirmLabel: '검토 완료' }) ? '확인했습니다.' : '취소했습니다.')}>완료 확인</Btn></span>
           <span data-testid="show-toast"><Btn p={false} onClick={() => toast.success('변경 사항을 저장했습니다.', { title: '저장 완료', ttlMs: 15000 })}>저장 알림</Btn></span>
+          <span data-testid="show-toast-korean"><Btn p={false} onClick={() => toast.info('새 버전이 준비되었습니다. 새로고침하면 적용됩니다.', { ttlMs: 60000 })}>한국어 알림 줄바꿈</Btn></span>
+          <span data-testid="show-toast-identifier"><Btn p={false} onClick={() => toast.info('QD_COPY_WRAPPING_IDENTIFIER_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789', { ttlMs: 60000 })}>긴 식별자 알림</Btn></span>
         </div>
         <p data-testid="confirmation-result" style={{ margin: 0 }}>{confirmation}</p>
       </section>

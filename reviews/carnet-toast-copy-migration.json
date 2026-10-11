@@ -1,0 +1,21 @@
+{
+  "ref": "93ce0ca5cb9f74bcbe6519fb46547be36b4928f1",
+  "scope": "Exact central flex minimum and shared safe-area placement. Timers, error/success selection, message values, ARIA roles, dismissal and portal behavior are unchanged.",
+  "records": [
+    {
+      "path": "components/toast.tsx",
+      "beforeHash": "8b88b1461a8f5edf564c69ba2ff45d952c2a6ba60b15166e6218b3d4cbbedd7e",
+      "afterHash": "fed336b16a74b4a608c654f88ad4be34e984e64d9b11458bbc6e63133c366bd8",
+      "edits": [
+        {
+          "before": "          <span className=\"flex-1\">{n.text}</span>",
+          "after": "          <span className=\"flex-1\" style={{ minWidth: 'var(--qd-space-0)' }}>{n.text}</span>"
+        },
+        {
+          "before": "      className=\"pointer-events-none fixed right-4 top-4 z-[var(--qd-z-toast)] flex w-[var(--qd-carnet-screen-w-3e6e4f30)] flex-col gap-2\"",
+          "after": "      className=\"pointer-events-none fixed right-[var(--qd-toast-inset-right)] top-[var(--qd-toast-inset-top)] z-[var(--qd-z-toast)] flex w-[var(--qd-toast-width)] flex-col gap-2\""
+        }
+      ]
+    }
+  ]
+}

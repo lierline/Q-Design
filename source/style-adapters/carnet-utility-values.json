@@ -2159,9 +2159,10 @@
       "file": "components/toast.tsx",
       "line": 85,
       "original": "w-[min(24rem,calc(100vw-2rem))]",
-      "replacement": "w-[var(--qd-carnet-screen-w-3e6e4f30)]",
-      "variable": "--qd-carnet-screen-w-3e6e4f30",
-      "scope": "screen"
+      "replacement": "w-[var(--qd-toast-width)]",
+      "variable": "--qd-toast-width",
+      "scope": "screen",
+      "currentBindingProof": "reviews/carnet-toast-copy-migration.json"
     },
     {
       "file": "components/ui.tsx",

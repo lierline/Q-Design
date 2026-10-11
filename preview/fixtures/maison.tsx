@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
@@ -42,6 +44,11 @@ export default function Fixture() {
 
   return (
     <main className="mx-auto max-w-5xl space-y-6 p-4 sm:p-6">
+      <Toaster closeButton position="top-right" />
+      <div className="flex flex-wrap gap-2">
+        <Button data-testid="show-toast-korean" onClick={() => toast.info("새 버전이 준비되었습니다. 새로고침하면 적용됩니다.", { duration: 60000 })}>한국어 알림 줄바꿈</Button>
+        <Button data-testid="show-toast-identifier" onClick={() => toast.info("QD_COPY_WRAPPING_IDENTIFIER_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789", { duration: 60000 })}>긴 식별자 알림</Button>
+      </div>
       <header className="qd-page-head qd-page-head--plain">
         <div className="qd-page-head-row">
           <div className="qd-page-head-text">

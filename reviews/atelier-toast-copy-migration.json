@@ -1,0 +1,33 @@
+{
+  "ref": "6b781a8509e1d463afbdc6a2f28de29b5034445a",
+  "scope": "Exact toast-message wrapping, flex minimum and shared safe-area placement bindings. Timers, dismissal, ARIA roles, kind, text, motion and message values are unchanged.",
+  "records": [
+    {
+      "path": "components/Toast.tsx",
+      "beforeHash": "e884d53c0ab65fa08ce7ebd0664da74cc2652d5e22bc18240e72ac6b5f377ef2",
+      "afterHash": "9591aae9d8b9284158328e601bdfca6869fb895f750ddc5867c49a93ce568342",
+      "edits": [
+        {
+          "before": "            lineHeight: QDScale.leading.notice,\n            wordBreak: 'break-word',",
+          "after": "            lineHeight: QDScale.leading.notice,"
+        },
+        {
+          "before": "minWidth: \"var(--qd-atelier-min-width-f24a3b2189)\"",
+          "after": "minWidth: \"var(--qd-space-0)\""
+        },
+        {
+          "before": "top: \"var(--qd-atelier-top-2b4a5c2363)\"",
+          "after": "top: \"var(--qd-toast-inset-top)\""
+        },
+        {
+          "before": "right: \"var(--qd-atelier-right-1301a84022)\"",
+          "after": "right: \"var(--qd-toast-inset-right)\""
+        },
+        {
+          "before": "maxWidth: \"var(--qd-atelier-max-width-b7675c5965)\"",
+          "after": "width: \"var(--qd-toast-width)\""
+        }
+      ]
+    }
+  ]
+}

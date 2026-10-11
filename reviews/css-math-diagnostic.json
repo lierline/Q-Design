@@ -1,0 +1,6384 @@
+{
+  "scope": "Diagnostic CSS math grammar in current 390px dark component fixtures. Standard declarations and custom variables with exact known CSS property consumers only. Untyped and unresolved scopes are not passes. This is not browser visual certification or all-screen coverage.",
+  "counts": {
+    "untyped-custom-value": 165,
+    "supported": 250,
+    "unresolved-scope": 1
+  },
+  "records": [
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 68,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 81,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [
+        "margin",
+        "padding",
+        "gap",
+        "margin-bottom",
+        "padding-left",
+        "margin-top",
+        "min-width"
+      ],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [
+        "margin",
+        "padding",
+        "gap",
+        "margin-bottom",
+        "padding-left",
+        "margin-top",
+        "min-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 82,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 83,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 84,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 85,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 86,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 87,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 88,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 89,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [
+        "margin-bottom",
+        "padding-left",
+        "padding-right",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [
+        "margin-bottom",
+        "padding-left",
+        "padding-right",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 90,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 91,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 92,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 93,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 94,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 95,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 96,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 97,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 98,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 99,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [
+        "margin-top",
+        "gap",
+        "margin-bottom",
+        "margin",
+        "margin-left"
+      ],
+      "resolvedValue": "calc(4px * 0.5)",
+      "supported": [
+        "margin-top",
+        "gap",
+        "margin-bottom",
+        "margin",
+        "margin-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 100,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 101,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [
+        "margin-bottom",
+        "gap",
+        "margin-right",
+        "margin-left",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [
+        "margin-bottom",
+        "gap",
+        "margin-right",
+        "margin-left",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 102,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [
+        "margin-bottom",
+        "gap",
+        "row-gap"
+      ],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [
+        "margin-bottom",
+        "gap",
+        "row-gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 103,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [
+        "gap",
+        "margin-bottom",
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [
+        "gap",
+        "margin-bottom",
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 104,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [
+        "margin-bottom",
+        "margin-top",
+        "padding",
+        "padding-left"
+      ],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [
+        "margin-bottom",
+        "margin-top",
+        "padding",
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 105,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [
+        "padding",
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [
+        "padding",
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 106,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 107,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 134,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [
+        "opacity"
+      ],
+      "resolvedValue": "calc(0.14 * .5)",
+      "supported": [
+        "opacity"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [
+        "opacity"
+      ],
+      "resolvedValue": "calc(0.08 * .5)",
+      "supported": [
+        "opacity"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 334,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 368,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 369,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 370,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 371,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 372,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/foundation.css",
+      "line": 375,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 9,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit, 4px) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 10,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit, 4px) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 11,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit, 4px) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 12,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit, 4px) * 4)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 13,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit, 4px) * 5)",
+      "properties": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 14,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit, 4px) * 6)",
+      "properties": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 31,
+      "property": "--qd-select-end-padding",
+      "value": "calc(var(--qd-space-4) * 2)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(calc(4px * 4) * 2)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 79,
+      "property": "z-index",
+      "value": "calc(var(--qd-table-header-layer) - 1)",
+      "properties": [
+        "z-index"
+      ],
+      "resolvedValue": "calc(2 - 1)",
+      "supported": [
+        "z-index"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 99,
+      "property": "font-size",
+      "value": "clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size))",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(20px, 16cqw, 36px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 225,
+      "property": "max-width",
+      "value": "calc(100vw - 32px)",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100vw - 32px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/components.css",
+      "line": 372,
+      "property": "min-height",
+      "value": "calc(var(--qd-control-height) - var(--qd-border-width) * 2)",
+      "properties": [
+        "min-height"
+      ],
+      "resolvedValue": "calc(44px - 1px * 2)",
+      "supported": [
+        "min-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/workspace.css",
+      "line": 47,
+      "property": "font-size",
+      "value": "clamp(24px, 3vw, 32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px, 3vw, 32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "patterns/workspace.css",
+      "line": 88,
+      "property": "font-size",
+      "value": "clamp(24px,3vw,32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px,3vw,32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 69,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 82,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [
+        "margin",
+        "padding",
+        "gap",
+        "margin-bottom",
+        "padding-left",
+        "margin-top",
+        "min-width"
+      ],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [
+        "margin",
+        "padding",
+        "gap",
+        "margin-bottom",
+        "padding-left",
+        "margin-top",
+        "min-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 83,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top",
+        "margin-bottom",
+        "gap",
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 84,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 85,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 86,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "gap",
+        "padding-top",
+        "width",
+        "height",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 87,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [
+        "padding-left",
+        "margin-bottom",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 88,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "column-gap",
+        "scroll-margin-top",
+        "margin-bottom",
+        "margin-top",
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 89,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 90,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [
+        "margin-bottom",
+        "padding-left",
+        "padding-right",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [
+        "margin-bottom",
+        "padding-left",
+        "padding-right",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 91,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 92,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 93,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 94,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 95,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 96,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 97,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 98,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 99,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 100,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [
+        "margin-top",
+        "gap",
+        "margin-bottom",
+        "margin",
+        "margin-left"
+      ],
+      "resolvedValue": "calc(4px * 0.5)",
+      "supported": [
+        "margin-top",
+        "gap",
+        "margin-bottom",
+        "margin",
+        "margin-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 101,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 102,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [
+        "margin-bottom",
+        "gap",
+        "margin-right",
+        "margin-left",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [
+        "margin-bottom",
+        "gap",
+        "margin-right",
+        "margin-left",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 103,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [
+        "margin-bottom",
+        "gap",
+        "row-gap"
+      ],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [
+        "margin-bottom",
+        "gap",
+        "row-gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 104,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [
+        "gap",
+        "margin-bottom",
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [
+        "gap",
+        "margin-bottom",
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 105,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [
+        "margin-bottom",
+        "margin-top",
+        "padding",
+        "padding-left"
+      ],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [
+        "margin-bottom",
+        "margin-top",
+        "padding",
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 106,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [
+        "padding",
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [
+        "padding",
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 107,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 108,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [
+        "opacity"
+      ],
+      "resolvedValue": "calc(0.14 * .5)",
+      "supported": [
+        "opacity"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 136,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [
+        "opacity"
+      ],
+      "resolvedValue": "calc(0.08 * .5)",
+      "supported": [
+        "opacity"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 275,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 275,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 335,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 369,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 370,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 371,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 372,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 373,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 376,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 893,
+      "property": "padding",
+      "value": "var(--qd-atelier-mobile-header-height) 28px calc(100px + env(safe-area-inset-bottom, 0)) 28px",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(0px + max(64px, calc(44px + calc(4px * 3) * 2))) 28px calc(100px + env(safe-area-inset-bottom, 0)) 28px",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 896,
+      "property": "bottom",
+      "value": "calc(80px + env(safe-area-inset-bottom, 0))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(80px + env(safe-area-inset-bottom, 0))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 903,
+      "property": "padding",
+      "value": "var(--qd-atelier-mobile-header-height) 16px calc(128px + env(safe-area-inset-bottom, 0)) 16px",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(0px + max(64px, calc(44px + calc(4px * 3) * 2))) 16px calc(128px + env(safe-area-inset-bottom, 0)) 16px",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 906,
+      "property": "bottom",
+      "value": "calc(80px + env(safe-area-inset-bottom, 0))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(80px + env(safe-area-inset-bottom, 0))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2210,
+      "property": "font-size",
+      "value": "clamp(13px, 1.5vw, 16px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(13px, 1.5vw, 16px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2232,
+      "property": "font-size",
+      "value": "clamp(40px, 6vw, 80px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(40px, 6vw, 80px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2249,
+      "property": "font-size",
+      "value": "clamp(28px, 4vw, 44px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(28px, 4vw, 44px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2832,
+      "property": "padding",
+      "value": "48px 20px calc(110px + env(safe-area-inset-bottom, 0)) 20px",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "48px 20px calc(110px + env(safe-area-inset-bottom, 0)) 20px",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2854,
+      "property": "padding",
+      "value": "8px 0 max(10px, env(safe-area-inset-bottom))",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "8px 0 max(10px, env(safe-area-inset-bottom))",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2964,
+      "property": "left",
+      "value": "calc(50% + 8px)",
+      "properties": [
+        "left"
+      ],
+      "resolvedValue": "calc(50% + 8px)",
+      "supported": [
+        "left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 2965,
+      "property": "right",
+      "value": "calc(-50% + 8px)",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "calc(-50% + 8px)",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3024,
+      "property": "padding",
+      "value": "clamp(56px, 6vw, 96px) clamp(40px, 5vw, 80px)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "clamp(56px, 6vw, 96px) clamp(40px, 5vw, 80px)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3088,
+      "property": "font-size",
+      "value": "clamp(56px, 8.4vw, 124px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(56px, 8.4vw, 124px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3114,
+      "property": "font-size",
+      "value": "clamp(48px, 13vw, 84px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(48px, 13vw, 84px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3128,
+      "property": "margin",
+      "value": "clamp(28px, 3vw, 40px) 0 22px",
+      "properties": [
+        "margin"
+      ],
+      "resolvedValue": "clamp(28px, 3vw, 40px) 0 22px",
+      "supported": [
+        "margin"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3156,
+      "property": "font-size",
+      "value": "clamp(20px, 2.4vw, 32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(20px, 2.4vw, 32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3161,
+      "property": "margin-top",
+      "value": "clamp(18px, 2vw, 26px)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "clamp(18px, 2vw, 26px)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3190,
+      "property": "padding",
+      "value": "clamp(56px, 6vw, 96px) clamp(32px, 5vw, 80px)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "clamp(56px, 6vw, 96px) clamp(32px, 5vw, 80px)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3219,
+      "property": "margin",
+      "value": "18px 0 clamp(48px, 6vw, 72px)",
+      "properties": [
+        "margin"
+      ],
+      "resolvedValue": "18px 0 clamp(48px, 6vw, 72px)",
+      "supported": [
+        "margin"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3414,
+      "property": "margin-bottom",
+      "value": "clamp(32px, 4vw, 52px)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "clamp(32px, 4vw, 52px)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3447,
+      "property": "top",
+      "value": "clamp(28px, 3vw, 40px)",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "clamp(28px, 3vw, 40px)",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3448,
+      "property": "left",
+      "value": "clamp(40px, 5vw, 80px)",
+      "properties": [
+        "left"
+      ],
+      "resolvedValue": "clamp(40px, 5vw, 80px)",
+      "supported": [
+        "left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3527,
+      "property": "margin-bottom",
+      "value": "clamp(48px, 6vw, 80px)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "clamp(48px, 6vw, 80px)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3553,
+      "property": "font-size",
+      "value": "clamp(34px, 4.8vw, 60px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(34px, 4.8vw, 60px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3572,
+      "property": "font-size",
+      "value": "clamp(26px, 3.2vw, 40px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(26px, 3.2vw, 40px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3586,
+      "property": "font-size",
+      "value": "clamp(16px, 1.6vw, 20px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(16px, 1.6vw, 20px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3604,
+      "property": "margin",
+      "value": "clamp(28px, 3vw, 36px) 0 0",
+      "properties": [
+        "margin"
+      ],
+      "resolvedValue": "clamp(28px, 3vw, 36px) 0 0",
+      "supported": [
+        "margin"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3615,
+      "property": "margin-bottom",
+      "value": "clamp(56px, 6vw, 80px)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "clamp(56px, 6vw, 80px)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3647,
+      "property": "font-size",
+      "value": "clamp(36px, 4vw, 52px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(36px, 4vw, 52px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3668,
+      "property": "padding",
+      "value": "clamp(60px, 8vw, 100px) clamp(20px, 4vw, 60px)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "clamp(60px, 8vw, 100px) clamp(20px, 4vw, 60px)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3688,
+      "property": "font-size",
+      "value": "clamp(17px, 1.6vw, 21px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(17px, 1.6vw, 21px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 3708,
+      "property": "margin",
+      "value": "clamp(48px, 6vw, 72px) 0 24px",
+      "properties": [
+        "margin"
+      ],
+      "resolvedValue": "clamp(48px, 6vw, 72px) 0 24px",
+      "supported": [
+        "margin"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 4438,
+      "property": "background",
+      "value": "linear-gradient(to top right, transparent calc(50% - 0.4pt), #5a554c calc(50% - 0.4pt), #5a554c calc(50% + 0.4pt), transparent calc(50% + 0.4pt))",
+      "properties": [
+        "background"
+      ],
+      "resolvedValue": "linear-gradient(to top right, transparent calc(50% - 0.4pt), #5a554c calc(50% - 0.4pt), #5a554c calc(50% + 0.4pt), transparent calc(50% + 0.4pt))",
+      "supported": [
+        "background"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 4673,
+      "property": "font-size",
+      "value": "var(--qd-auth-title-size, clamp(36px, 4.4vw, 56px))",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "var(--qd-auth-title-size, clamp(36px, 4.4vw, 56px))",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "unresolved-scope"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 4791,
+      "property": "transform",
+      "value": "translate(-50%, calc(-50% + 10px))",
+      "properties": [
+        "transform"
+      ],
+      "resolvedValue": "translate(-50%, calc(-50% + 10px))",
+      "supported": [
+        "transform"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5175,
+      "property": "top",
+      "value": "max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-top))",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "max(24px, env(safe-area-inset-top))",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5175,
+      "property": "right",
+      "value": "max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-right))",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "max(24px, env(safe-area-inset-right))",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5188,
+      "property": "top",
+      "value": "max(var(--qd-space-3), env(safe-area-inset-top))",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "max(calc(4px * 3), env(safe-area-inset-top))",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5188,
+      "property": "right",
+      "value": "max(var(--qd-space-3), env(safe-area-inset-right))",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "max(calc(4px * 3), env(safe-area-inset-right))",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5301,
+      "property": "width",
+      "value": "min(44vw, 44vh, 520px)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(44vw, 44vh, 520px)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5302,
+      "property": "height",
+      "value": "min(44vw, 44vh, 520px)",
+      "properties": [
+        "height"
+      ],
+      "resolvedValue": "min(44vw, 44vh, 520px)",
+      "supported": [
+        "height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5353,
+      "property": "font-size",
+      "value": "clamp(10px, 1.4vw, 14px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(10px, 1.4vw, 14px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5372,
+      "property": "font-size",
+      "value": "clamp(40px, 6.5vw, 88px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(40px, 6.5vw, 88px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5390,
+      "property": "width",
+      "value": "min(480px, 80vw)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(480px, 80vw)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5427,
+      "property": "font-size",
+      "value": "clamp(13px, 1.6vw, 17px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(13px, 1.6vw, 17px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5724,
+      "property": "transform",
+      "value": "rotate(calc(-1 * var(--qd-widget-edit-tilt)))",
+      "properties": [
+        "transform"
+      ],
+      "resolvedValue": "rotate(calc(-1 * 0.12deg))",
+      "supported": [
+        "transform"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5813,
+      "property": "--qd-atelier-mobile-control-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-3))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 3))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5816,
+      "property": "--qd-atelier-mobile-header-height",
+      "value": "calc(env(safe-area-inset-top, 0px) + max(var(--qd-mobile-header-height), calc(var(--qd-control-height) + var(--qd-space-3) * 2)))",
+      "properties": [
+        "padding-top",
+        "height"
+      ],
+      "resolvedValue": "calc(0px + max(64px, calc(44px + calc(4px * 3) * 2)))",
+      "supported": [
+        "padding-top",
+        "height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5931,
+      "property": "--qd-atelier-bottom-815a5d659e",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + 88px)",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(0px + 88px)",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5933,
+      "property": "--qd-atelier-bottom-da8f4bd309",
+      "value": "calc(100% + 6px)",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(100% + 6px)",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5938,
+      "property": "--qd-atelier-font-size-055dc5c3c0",
+      "value": "clamp(14px, 1.5vw, 18px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(14px, 1.5vw, 18px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5939,
+      "property": "--qd-atelier-font-size-13a1020d43",
+      "value": "clamp(24px, 2.6vw, 34px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px, 2.6vw, 34px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5940,
+      "property": "--qd-atelier-font-size-f2d756bcf6",
+      "value": "clamp(18px, 1.9vw, 22px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(18px, 1.9vw, 22px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5976,
+      "property": "--qd-atelier-height-bf5589be64",
+      "value": "calc(100dvh - 60px - 64px - env(safe-area-inset-bottom, 0px))",
+      "properties": [
+        "height"
+      ],
+      "resolvedValue": "calc(100dvh - 60px - 64px - 0px)",
+      "supported": [
+        "height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5986,
+      "property": "--qd-atelier-left-6e5755a879",
+      "value": "calc(env(safe-area-inset-left, 0px) + 64px)",
+      "properties": [
+        "left"
+      ],
+      "resolvedValue": "calc(0px + 64px)",
+      "supported": [
+        "left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 5988,
+      "property": "--qd-atelier-left-db1e77a45f",
+      "value": "calc(50% + 14px)",
+      "properties": [
+        "left"
+      ],
+      "resolvedValue": "calc(50% + 14px)",
+      "supported": [
+        "left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6075,
+      "property": "--qd-atelier-max-height-a80878c177",
+      "value": "min(480px, 62vh)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "min(480px, 62vh)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6079,
+      "property": "--qd-atelier-max-height-d330673408",
+      "value": "calc(100dvh - 160px)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - 160px)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6082,
+      "property": "--qd-atelier-max-width-21fe21a652",
+      "value": "calc(100vw - 32px - env(safe-area-inset-right, 0px) - env(safe-area-inset-left, 0px))",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100vw - 32px - 0px - 0px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6087,
+      "property": "--qd-atelier-max-width-459b5c97be",
+      "value": "calc(100vw - 24px)",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100vw - 24px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6092,
+      "property": "--qd-atelier-max-width-590540c0d2",
+      "value": "min(360px, calc(100vw - 32px))",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "min(360px, calc(100vw - 32px))",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6094,
+      "property": "--qd-atelier-max-width-65871e5b08",
+      "value": "calc(100% - 150px)",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100% - 150px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6103,
+      "property": "--qd-atelier-max-width-b7675c5965",
+      "value": "min(360px, calc(100vw - 40px))",
+      "properties": [],
+      "resolvedValue": "min(360px, calc(100vw - 40px))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6104,
+      "property": "--qd-atelier-max-width-ce40589044",
+      "value": "calc(100vw - 60px)",
+      "properties": [],
+      "resolvedValue": "calc(100vw - 60px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6327,
+      "property": "--qd-atelier-right-0061bf06a1",
+      "value": "max(16px, env(safe-area-inset-right))",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "max(16px, 0px)",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6329,
+      "property": "--qd-atelier-right-1301a84022",
+      "value": "calc(env(safe-area-inset-right, 0px) + 20px)",
+      "properties": [],
+      "resolvedValue": "calc(0px + 20px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6339,
+      "property": "--qd-atelier-right-9a07a1e88f",
+      "value": "calc(50% + 14px)",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "calc(50% + 14px)",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6342,
+      "property": "--qd-atelier-right-dd80098e40",
+      "value": "calc(env(safe-area-inset-right, 0px) + 16px)",
+      "properties": [
+        "right"
+      ],
+      "resolvedValue": "calc(0px + 16px)",
+      "supported": [
+        "right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6353,
+      "property": "--qd-atelier-top-2b4a5c2363",
+      "value": "calc(env(safe-area-inset-top, 0px) + 20px)",
+      "properties": [],
+      "resolvedValue": "calc(0px + 20px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6354,
+      "property": "--qd-atelier-top-2ea4485706",
+      "value": "calc(100% - 8px)",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(100% - 8px)",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6355,
+      "property": "--qd-atelier-top-35257ea498",
+      "value": "calc(100% + 8px)",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(100% + 8px)",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6358,
+      "property": "--qd-atelier-top-5be99922b4",
+      "value": "calc(100% + 4px)",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(100% + 4px)",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6369,
+      "property": "--qd-atelier-top-ef7712dd39",
+      "value": "calc(100% + 6px)",
+      "properties": [
+        "top"
+      ],
+      "resolvedValue": "calc(100% + 6px)",
+      "supported": [
+        "top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6411,
+      "property": "--qd-atelier-width-0f48e263a7",
+      "value": "min(460px, calc(100vw - 32px))",
+      "properties": [],
+      "resolvedValue": "min(460px, calc(100vw - 32px))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6418,
+      "property": "--qd-atelier-width-260a93c4b6",
+      "value": "min(480px, 96vw)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(480px, 96vw)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6423,
+      "property": "--qd-atelier-width-3b6b0b3a82",
+      "value": "min(720px, 96vw)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(720px, 96vw)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6425,
+      "property": "--qd-atelier-width-4f8003cea3",
+      "value": "min(440px, 92vw)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(440px, 92vw)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6437,
+      "property": "--qd-atelier-width-7ac3605468",
+      "value": "min(420px, 94vw)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(420px, 94vw)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6439,
+      "property": "--qd-atelier-width-81703a012a",
+      "value": "min(320px, 100%)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(320px, 100%)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6458,
+      "property": "--qd-atelier-width-dfccfa742e",
+      "value": "calc(100% - 48px)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "calc(100% - 48px)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6521,
+      "property": "--qd-atelier-left-128cd8727f",
+      "value": "calc(env(safe-area-inset-left, 0px) + 12px)",
+      "properties": [
+        "left"
+      ],
+      "resolvedValue": "calc(0px + 12px)",
+      "supported": [
+        "left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6732,
+      "property": "--qd-atelier-max-height-10313ebafa",
+      "value": "calc(100vh - 80px)",
+      "properties": [],
+      "resolvedValue": "calc(100vh - 80px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6733,
+      "property": "--qd-atelier-max-height-70b738b89c",
+      "value": "min(560px, calc(100vh - 80px))",
+      "properties": [],
+      "resolvedValue": "min(560px, calc(100vh - 80px))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6734,
+      "property": "--qd-atelier-max-height-98ef83fc64",
+      "value": "calc(100dvh - 176px)",
+      "properties": [],
+      "resolvedValue": "calc(100dvh - 176px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6735,
+      "property": "--qd-atelier-max-height-c37aced585",
+      "value": "calc(100dvh - 96px)",
+      "properties": [],
+      "resolvedValue": "calc(100dvh - 96px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6759,
+      "property": "--qd-atelier-padding-a1041a2446",
+      "value": "24px 16px calc(120px + env(safe-area-inset-bottom, 0px))",
+      "properties": [],
+      "resolvedValue": "24px 16px calc(120px + 0px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6809,
+      "property": "--qd-atelier-approval-connector-inset",
+      "value": "calc(50% + 15px)",
+      "properties": [],
+      "resolvedValue": "calc(50% + 15px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6815,
+      "property": "--qd-atelier-type-display-font-size",
+      "value": "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)",
+      "properties": [],
+      "resolvedValue": "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6820,
+      "property": "--qd-atelier-type-h1-font-size",
+      "value": "clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem)",
+      "properties": [],
+      "resolvedValue": "clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6825,
+      "property": "--qd-atelier-type-h2-font-size",
+      "value": "clamp(1.25rem, 1rem + 0.8vw, 1.5rem)",
+      "properties": [],
+      "resolvedValue": "clamp(1.25rem, 1rem + 0.8vw, 1.5rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6886,
+      "property": "--qd-atelier-widget-edit-quarter",
+      "value": "calc(25% - var(--qd-space-4) * 3 / 4)",
+      "properties": [],
+      "resolvedValue": "calc(25% - calc(4px * 4) * 3 / 4)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6887,
+      "property": "--qd-atelier-widget-edit-half",
+      "value": "calc(50% - var(--qd-space-4) / 2)",
+      "properties": [],
+      "resolvedValue": "calc(50% - calc(4px * 4) / 2)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6888,
+      "property": "--qd-atelier-widget-quarter",
+      "value": "calc(25% - var(--qd-space-3) * 3 / 4)",
+      "properties": [],
+      "resolvedValue": "calc(25% - calc(4px * 3) * 3 / 4)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "atelier",
+      "file": "dist/q-design.foundation.atelier.css",
+      "line": 6889,
+      "property": "--qd-atelier-widget-half",
+      "value": "calc(50% - var(--qd-space-3) / 2)",
+      "properties": [],
+      "resolvedValue": "calc(50% - calc(4px * 3) / 2)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 68,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 81,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 82,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 83,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 84,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 85,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 86,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 87,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 88,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 89,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 90,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 91,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 92,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 93,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 94,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 95,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 96,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 97,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 98,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 99,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 100,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 101,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 102,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 103,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 104,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 105,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 106,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 107,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 134,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(0.14 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(0.08 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 334,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 368,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 369,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 370,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 371,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 372,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/foundation.css",
+      "line": 375,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 9,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit, 4px) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 10,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit, 4px) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 11,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit, 4px) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 12,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit, 4px) * 4)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 13,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit, 4px) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 14,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit, 4px) * 6)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 31,
+      "property": "--qd-select-end-padding",
+      "value": "calc(var(--qd-space-4) * 2)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(calc(4px * 4) * 2)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 79,
+      "property": "z-index",
+      "value": "calc(var(--qd-table-header-layer) - 1)",
+      "properties": [
+        "z-index"
+      ],
+      "resolvedValue": "calc(2 - 1)",
+      "supported": [
+        "z-index"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 99,
+      "property": "font-size",
+      "value": "clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size))",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(20px, 16cqw, 36px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 225,
+      "property": "max-width",
+      "value": "calc(100vw - 32px)",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100vw - 32px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/components.css",
+      "line": 372,
+      "property": "min-height",
+      "value": "calc(var(--qd-control-height) - var(--qd-border-width) * 2)",
+      "properties": [
+        "min-height"
+      ],
+      "resolvedValue": "calc(44px - 1px * 2)",
+      "supported": [
+        "min-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/workspace.css",
+      "line": 47,
+      "property": "font-size",
+      "value": "clamp(24px, 3vw, 32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px, 3vw, 32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "patterns/workspace.css",
+      "line": 88,
+      "property": "font-size",
+      "value": "clamp(24px,3vw,32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px,3vw,32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 69,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 82,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 83,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 84,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 85,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 86,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 87,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 88,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 89,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 90,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 91,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 92,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 93,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 94,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 95,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 96,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 97,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 98,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 99,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 100,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 101,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 0.75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 102,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 103,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 104,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 105,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 106,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 107,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 108,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(0.14 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 136,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(0.08 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 275,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 275,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 335,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 369,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 370,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 371,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 372,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 373,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 376,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 432,
+      "property": "--qd-unchecked-hatch",
+      "value": "linear-gradient(to top right, transparent calc(50% - .5px), currentColor calc(50% - .5px), currentColor calc(50% + .5px), transparent calc(50% + .5px))",
+      "properties": [],
+      "resolvedValue": "linear-gradient(to top right, transparent calc(50% - .5px), currentColor calc(50% - .5px), currentColor calc(50% + .5px), transparent calc(50% + .5px))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 922,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -4)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -4)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 925,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -5)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -5)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 928,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -6)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -6)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 942,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -2)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -2)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 945,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -3)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -3)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 948,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -4)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -4)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 951,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -5)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -5)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 954,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -6)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -6)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 957,
+      "property": "margin-bottom",
+      "value": "calc(var(--qd-spacing-unit) * -2)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(0.25rem * -2)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 960,
+      "property": "margin-bottom",
+      "value": "calc(var(--qd-spacing-unit) * -3)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(0.25rem * -3)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 963,
+      "property": "margin-bottom",
+      "value": "calc(var(--qd-spacing-unit) * -4)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(0.25rem * -4)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 966,
+      "property": "margin-bottom",
+      "value": "calc(var(--qd-spacing-unit) * -5)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(0.25rem * -5)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 969,
+      "property": "margin-bottom",
+      "value": "calc(var(--qd-spacing-unit) * -6)",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(0.25rem * -6)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 997,
+      "property": "margin-bottom",
+      "value": "calc(-1 * var(--qd-page-head-line-gap, 18px))",
+      "properties": [
+        "margin-bottom"
+      ],
+      "resolvedValue": "calc(-1 * 18px)",
+      "supported": [
+        "margin-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1038,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -2)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -2)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1041,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -3)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -3)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1044,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -4)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -4)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1047,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -5)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -5)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1050,
+      "property": "margin-top",
+      "value": "calc(var(--qd-spacing-unit) * -6)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(0.25rem * -6)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1842,
+      "property": "margin-inline",
+      "value": "calc(-1 * var(--qd-main-pad-mobile-x, 16px))",
+      "properties": [
+        "margin-inline"
+      ],
+      "resolvedValue": "calc(-1 * 16px)",
+      "supported": [
+        "margin-inline"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1878,
+      "property": "padding",
+      "value": "min(12vh, 96px) var(--qd-space-4) var(--qd-space-4)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "min(12vh, 96px) calc(4px * 4) calc(4px * 4)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1884,
+      "property": "max-height",
+      "value": "calc(100dvh - min(12vh, 96px) - var(--qd-space-4))",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - min(12vh, 96px) - calc(4px * 4))",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 1901,
+      "property": "margin-inline",
+      "value": "calc(-1 * var(--qd-main-pad-x))",
+      "properties": [
+        "margin-inline"
+      ],
+      "resolvedValue": "calc(-1 * 40px)",
+      "supported": [
+        "margin-inline"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2118,
+      "property": "--qd-maison-flex-basis-calc-240px-380px-1rem",
+      "value": "calc(240px + 380px + 1rem)",
+      "properties": [],
+      "resolvedValue": "calc(240px + 380px + 1rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2174,
+      "property": "--qd-maison-max-width-calc-100vw-negative--2rem",
+      "value": "calc(100vw - 2rem)",
+      "properties": [],
+      "resolvedValue": "calc(100vw - 2rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2176,
+      "property": "--qd-maison-max-height-calc-100dvh-negative--280px",
+      "value": "calc(100dvh - 280px)",
+      "properties": [],
+      "resolvedValue": "calc(100dvh - 280px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2180,
+      "property": "--qd-maison-max-width-min-20rem-calc-100vw-negative--2rem",
+      "value": "min(20rem, calc(100vw - 2rem))",
+      "properties": [],
+      "resolvedValue": "min(20rem, calc(100vw - 2rem))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2182,
+      "property": "--qd-maison-max-height-calc-100dvh-negative--2rem",
+      "value": "calc(100dvh - 2rem)",
+      "properties": [],
+      "resolvedValue": "calc(100dvh - 2rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "maison",
+      "file": "dist/q-design.foundation.maison.css",
+      "line": 2183,
+      "property": "--qd-maison-width-calc-100percent-negative--2rem",
+      "value": "calc(100% - 2rem)",
+      "properties": [],
+      "resolvedValue": "calc(100% - 2rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 68,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 81,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [
+        "min-width"
+      ],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [
+        "min-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 82,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 83,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 84,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 85,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 86,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 87,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 88,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 89,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 90,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 91,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 92,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 93,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 94,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 95,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 96,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 97,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 98,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 99,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [
+        "margin-left"
+      ],
+      "resolvedValue": "calc(4px * .5)",
+      "supported": [
+        "margin-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 100,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * .75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 101,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 102,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 103,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 104,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 105,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 106,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 107,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 134,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(.14 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(.08 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 274,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 334,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 368,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 369,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 370,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 371,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 372,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/foundation.css",
+      "line": 375,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 9,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit, 4px) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 10,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit, 4px) * 2)",
+      "properties": [
+        "padding",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 11,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit, 4px) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 12,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit, 4px) * 4)",
+      "properties": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 13,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit, 4px) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 14,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit, 4px) * 6)",
+      "properties": [
+        "padding",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 31,
+      "property": "--qd-select-end-padding",
+      "value": "calc(var(--qd-space-4) * 2)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(calc(4px * 4) * 2)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 79,
+      "property": "z-index",
+      "value": "calc(var(--qd-table-header-layer) - 1)",
+      "properties": [
+        "z-index"
+      ],
+      "resolvedValue": "calc(2 - 1)",
+      "supported": [
+        "z-index"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 99,
+      "property": "font-size",
+      "value": "clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size))",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(20px, 16cqw, 36px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 225,
+      "property": "max-width",
+      "value": "calc(100vw - 32px)",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "calc(100vw - 32px)",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/components.css",
+      "line": 372,
+      "property": "min-height",
+      "value": "calc(var(--qd-control-height) - var(--qd-border-width) * 2)",
+      "properties": [
+        "min-height"
+      ],
+      "resolvedValue": "calc(44px - 1px * 2)",
+      "supported": [
+        "min-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/workspace.css",
+      "line": 47,
+      "property": "font-size",
+      "value": "clamp(24px, 3vw, 32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px, 3vw, 32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "patterns/workspace.css",
+      "line": 88,
+      "property": "font-size",
+      "value": "clamp(24px,3vw,32px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(24px,3vw,32px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 69,
+      "property": "--qd-auth-title-size",
+      "value": "clamp(36px, 4.4vw, 56px)",
+      "properties": [
+        "font-size"
+      ],
+      "resolvedValue": "clamp(36px, 4.4vw, 56px)",
+      "supported": [
+        "font-size"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 82,
+      "property": "--qd-space-0",
+      "value": "calc(var(--qd-space-unit) * 0)",
+      "properties": [
+        "min-width"
+      ],
+      "resolvedValue": "calc(4px * 0)",
+      "supported": [
+        "min-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 83,
+      "property": "--qd-space-1",
+      "value": "calc(var(--qd-space-unit) * 1)",
+      "properties": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 1)",
+      "supported": [
+        "outline-offset",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 84,
+      "property": "--qd-space-2",
+      "value": "calc(var(--qd-space-unit) * 2)",
+      "properties": [
+        "padding",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 2)",
+      "supported": [
+        "padding",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 85,
+      "property": "--qd-space-3",
+      "value": "calc(var(--qd-space-unit) * 3)",
+      "properties": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "resolvedValue": "calc(4px * 3)",
+      "supported": [
+        "right",
+        "top",
+        "left",
+        "gap",
+        "padding",
+        "row-gap",
+        "padding-inline"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 86,
+      "property": "--qd-space-4",
+      "value": "calc(var(--qd-space-unit) * 4)",
+      "properties": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "resolvedValue": "calc(4px * 4)",
+      "supported": [
+        "padding",
+        "padding-top",
+        "gap"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 87,
+      "property": "--qd-space-5",
+      "value": "calc(var(--qd-space-unit) * 5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 88,
+      "property": "--qd-space-6",
+      "value": "calc(var(--qd-space-unit) * 6)",
+      "properties": [
+        "padding",
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 6)",
+      "supported": [
+        "padding",
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 89,
+      "property": "--qd-space-7",
+      "value": "calc(var(--qd-space-unit) * 7)",
+      "properties": [
+        "margin-top"
+      ],
+      "resolvedValue": "calc(4px * 7)",
+      "supported": [
+        "margin-top"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 90,
+      "property": "--qd-space-8",
+      "value": "calc(var(--qd-space-unit) * 8)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 8)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 91,
+      "property": "--qd-space-9",
+      "value": "calc(var(--qd-space-unit) * 9)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 9)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 92,
+      "property": "--qd-space-10",
+      "value": "calc(var(--qd-space-unit) * 10)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 10)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 93,
+      "property": "--qd-space-11",
+      "value": "calc(var(--qd-space-unit) * 11)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 11)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 94,
+      "property": "--qd-space-12",
+      "value": "calc(var(--qd-space-unit) * 12)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 12)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 95,
+      "property": "--qd-space-14",
+      "value": "calc(var(--qd-space-unit) * 14)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 14)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 96,
+      "property": "--qd-space-16",
+      "value": "calc(var(--qd-space-unit) * 16)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 16)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 97,
+      "property": "--qd-space-18",
+      "value": "calc(var(--qd-space-unit) * 18)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 18)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 98,
+      "property": "--qd-space-20",
+      "value": "calc(var(--qd-space-unit) * 20)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 20)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 99,
+      "property": "--qd-space-24",
+      "value": "calc(var(--qd-space-unit) * 24)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 24)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 100,
+      "property": "--qd-space-0-5",
+      "value": "calc(var(--qd-space-unit) * 0.5)",
+      "properties": [
+        "margin-left"
+      ],
+      "resolvedValue": "calc(4px * .5)",
+      "supported": [
+        "margin-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 101,
+      "property": "--qd-space-0-75",
+      "value": "calc(var(--qd-space-unit) * 0.75)",
+      "properties": [],
+      "resolvedValue": "calc(4px * .75)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 102,
+      "property": "--qd-space-1-5",
+      "value": "calc(var(--qd-space-unit) * 1.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 1.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 103,
+      "property": "--qd-space-2-5",
+      "value": "calc(var(--qd-space-unit) * 2.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 2.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 104,
+      "property": "--qd-space-3-5",
+      "value": "calc(var(--qd-space-unit) * 3.5)",
+      "properties": [
+        "padding"
+      ],
+      "resolvedValue": "calc(4px * 3.5)",
+      "supported": [
+        "padding"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 105,
+      "property": "--qd-space-4-5",
+      "value": "calc(var(--qd-space-unit) * 4.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 4.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 106,
+      "property": "--qd-space-5-5",
+      "value": "calc(var(--qd-space-unit) * 5.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 5.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 107,
+      "property": "--qd-space-6-5",
+      "value": "calc(var(--qd-space-unit) * 6.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 6.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 108,
+      "property": "--qd-space-7-5",
+      "value": "calc(var(--qd-space-unit) * 7.5)",
+      "properties": [],
+      "resolvedValue": "calc(4px * 7.5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 135,
+      "property": "--qd-ribbon-ambient-opacity-1",
+      "value": "calc(var(--qd-background-ribbon-primary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(.14 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 136,
+      "property": "--qd-ribbon-ambient-opacity-2",
+      "value": "calc(var(--qd-background-ribbon-secondary-opacity) * .5)",
+      "properties": [],
+      "resolvedValue": "calc(.08 * .5)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 275,
+      "property": "padding-left",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-left"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-left"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 275,
+      "property": "padding-right",
+      "value": "calc(var(--qd-tab-padding-x) * 5 / 9)",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(18px * 5 / 9)",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 335,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-space-3) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - calc(4px * 3) * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 369,
+      "property": "--qd-toast-inset-top",
+      "value": "calc(env(safe-area-inset-top, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 370,
+      "property": "--qd-toast-inset-right",
+      "value": "calc(env(safe-area-inset-right, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 371,
+      "property": "--qd-toast-inset-bottom",
+      "value": "calc(env(safe-area-inset-bottom, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 372,
+      "property": "--qd-toast-inset-left",
+      "value": "calc(env(safe-area-inset-left, 0px) + var(--qd-space-5))",
+      "properties": [],
+      "resolvedValue": "calc(0px + calc(4px * 5))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 373,
+      "property": "--qd-toast-width",
+      "value": "min(var(--qd-toast-max-width), calc(100vw - var(--qd-toast-inset-left) - var(--qd-toast-inset-right)))",
+      "properties": [],
+      "resolvedValue": "min(360px, calc(100vw - calc(0px + calc(4px * 5)) - calc(0px + calc(4px * 5))))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 376,
+      "property": "padding-right",
+      "value": "calc(var(--qd-control-height) + var(--qd-space-4))",
+      "properties": [
+        "padding-right"
+      ],
+      "resolvedValue": "calc(44px + calc(4px * 4))",
+      "supported": [
+        "padding-right"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 441,
+      "property": "grid-template-columns",
+      "value": "repeat(auto-fit, minmax(min(var(--qd-carnet-work-match-width), 100%), 1fr))",
+      "properties": [
+        "grid-template-columns"
+      ],
+      "resolvedValue": "repeat(auto-fit, minmax(min(18rem, 100%), 1fr))",
+      "supported": [
+        "grid-template-columns"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 442,
+      "property": "grid-template-columns",
+      "value": "repeat(auto-fit, minmax(min(var(--qd-carnet-work-batch-width), 100%), 1fr))",
+      "properties": [
+        "grid-template-columns"
+      ],
+      "resolvedValue": "repeat(auto-fit, minmax(min(24rem, 100%), 1fr))",
+      "supported": [
+        "grid-template-columns"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 450,
+      "property": "width",
+      "value": "min(var(--qd-tooltip-width), calc(100vw - var(--qd-tooltip-inset) * 2))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "min(320px, calc(100vw - 12px * 2))",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 450,
+      "property": "max-height",
+      "value": "calc(100dvh - var(--qd-tooltip-inset) * 2)",
+      "properties": [
+        "max-height"
+      ],
+      "resolvedValue": "calc(100dvh - 12px * 2)",
+      "supported": [
+        "max-height"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 464,
+      "property": "width",
+      "value": "calc(100% + var(--qd-watermark-tile-width))",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "calc(100% + 620px)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 1064,
+      "property": "grid-template-columns",
+      "value": "repeat(auto-fit, minmax(min(100%, calc(var(--qd-date-control-min-width) * 2 + var(--qd-space-3))), 1fr))",
+      "properties": [
+        "grid-template-columns"
+      ],
+      "resolvedValue": "repeat(auto-fit, minmax(min(100%, calc(150px * 2 + calc(4px * 3))), 1fr))",
+      "supported": [
+        "grid-template-columns"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 1070,
+      "property": "grid-template-columns",
+      "value": "minmax(0, 1fr) minmax(min(100%, var(--qd-date-control-min-width)), 1fr)",
+      "properties": [
+        "grid-template-columns"
+      ],
+      "resolvedValue": "minmax(0, 1fr) minmax(min(100%, 150px), 1fr)",
+      "supported": [
+        "grid-template-columns"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 1199,
+      "property": "width",
+      "value": "clamp(1.75rem, 16%, 5rem)",
+      "properties": [
+        "width"
+      ],
+      "resolvedValue": "clamp(1.75rem, 16%, 5rem)",
+      "supported": [
+        "width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2272,
+      "property": "padding-bottom",
+      "value": "calc(var(--qd-main-pad-y) + 4.5rem)",
+      "properties": [
+        "padding-bottom"
+      ],
+      "resolvedValue": "calc(32px + 4.5rem)",
+      "supported": [
+        "padding-bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2295,
+      "property": "bottom",
+      "value": "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2334,
+      "property": "bottom",
+      "value": "calc(1.5rem + env(safe-area-inset-bottom, 0px))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(1.5rem + env(safe-area-inset-bottom, 0px))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2353,
+      "property": "bottom",
+      "value": "calc(4.75rem + env(safe-area-inset-bottom, 0px))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(4.75rem + env(safe-area-inset-bottom, 0px))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2359,
+      "property": "max-width",
+      "value": "min(24rem, calc(100vw - 2.5rem))",
+      "properties": [
+        "max-width"
+      ],
+      "resolvedValue": "min(24rem, calc(100vw - 2.5rem))",
+      "supported": [
+        "max-width"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2371,
+      "property": "bottom",
+      "value": "calc(5.75rem + env(safe-area-inset-bottom, 0px))",
+      "properties": [
+        "bottom"
+      ],
+      "resolvedValue": "calc(5.75rem + env(safe-area-inset-bottom, 0px))",
+      "supported": [
+        "bottom"
+      ],
+      "unresolved": [],
+      "status": "supported"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2553,
+      "property": "--qd-carnet-screen-min-h-0d55acec",
+      "value": "calc(1.5*0.8125rem)",
+      "properties": [],
+      "resolvedValue": "calc(1.5*.8125rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2554,
+      "property": "--qd-carnet-screen-w-3f353beb",
+      "value": "clamp(7rem,10vw,9rem)",
+      "properties": [],
+      "resolvedValue": "clamp(7rem,10vw,9rem)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2555,
+      "property": "--qd-carnet-screen-w-eb8c8289",
+      "value": "min(8rem,40%)",
+      "properties": [],
+      "resolvedValue": "min(8rem,40%)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2605,
+      "property": "--qd-carnet-screen-min-h-6e8bd557",
+      "value": "calc(2*1.625*var(--qd-body-size))",
+      "properties": [],
+      "resolvedValue": "calc(2*1.625*14px)",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    },
+    {
+      "product": "carnet",
+      "file": "dist/q-design.foundation.carnet.css",
+      "line": 2606,
+      "property": "--qd-carnet-screen-w-3e6e4f30",
+      "value": "min(24rem, calc(100vw - 2rem))",
+      "properties": [],
+      "resolvedValue": "min(24rem, calc(100vw - 2rem))",
+      "supported": [],
+      "unresolved": [],
+      "status": "untyped-custom-value"
+    }
+  ]
+}

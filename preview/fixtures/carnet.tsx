@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Toasts from '@/components/toast';
 import { Dialog } from '@/components/dialog';
 import { Empty, Msg, Panel, Progress, Tag, Warnings, Caution, Stat } from '@/components/ui';
 import { Table, Th, Td } from '@/components/table';
@@ -12,6 +13,7 @@ import Watermark from '@/components/watermark';
 
 export default function Fixture() {
   const [open, setOpen] = useState(false);
+  const [toastState, setToastState] = useState<{ error: string } | undefined>();
   return (
     <AdminChrome
       groups={[{ label: '운영', items: [{ href: '/', label: '생산 기록', icon: 'production' }, { href: '/settings', label: '설정', icon: 'settings' }] }]}
@@ -21,6 +23,11 @@ export default function Fixture() {
       foot={<div className="p-4 text-xs text-muted">공통 컴포넌트 검토</div>}
     >
     <div className="space-y-6">
+      <Toasts states={[toastState]} />
+      <div className="flex flex-wrap gap-2">
+        <button type="button" className="qd-text-action" data-testid="show-toast-korean" onClick={() => setToastState({ error: '새 버전이 준비되었습니다. 새로고침하면 적용됩니다.' })}>한국어 알림 줄바꿈</button>
+        <button type="button" className="qd-text-action" data-testid="show-toast-identifier" onClick={() => setToastState({ error: 'QD_COPY_WRAPPING_IDENTIFIER_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789' })}>긴 식별자 알림</button>
+      </div>
       <section className="carnet-auth" data-testid="foundation-auth">
         <Ribbon intensity="full" />
         <aside className="login-brand">

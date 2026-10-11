@@ -1,0 +1,25 @@
+{
+  "ref": "260975db2ca1548c442876f6ce2243807bb3b361",
+  "scope": "Exact default Sonner wrapping, flex minimum and shared safe-area placement bindings. Inert container marker, unstyled mode, existing classes, caller props, timers, dismissal and values are unchanged. Library defaults no longer bypass central copy and width tokens.",
+  "records": [
+    {
+      "path": "components/ui/sonner.tsx",
+      "beforeHash": "020bf2f69fbb7e48a11f60acde955526c7b885b0033cf9be8d6c70667602039c",
+      "afterHash": "de62dedd799a6a4deeda1a588cbaa9b4e87d39677919e4a2908ca505659b8861",
+      "edits": [
+        {
+          "before": "        unstyled: true,",
+          "after": "        unstyled: true,\n        style: {\n          width: \"100%\",\n        },"
+        },
+        {
+          "before": "          toast: \"group toast qd-toast\",",
+          "after": "          toast: \"group toast qd-toast\",\n          content: \"min-w-[var(--qd-space-0)]\","
+        },
+        {
+          "before": "      className=\"toaster group\"",
+          "after": "      className=\"toaster group\"\n      style={{ width: \"var(--qd-toast-width)\" }}\n      offset={{\n        top: \"var(--qd-toast-inset-top)\",\n        right: \"var(--qd-toast-inset-right)\",\n        bottom: \"var(--qd-toast-inset-bottom)\",\n        left: \"var(--qd-toast-inset-left)\",\n      }}\n      mobileOffset={{\n        top: \"var(--qd-toast-inset-top)\",\n        right: \"var(--qd-toast-inset-right)\",\n        bottom: \"var(--qd-toast-inset-bottom)\",\n        left: \"var(--qd-toast-inset-left)\",\n      }}"
+        }
+      ]
+    }
+  ]
+}

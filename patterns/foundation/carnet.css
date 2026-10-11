@@ -2210,7 +2210,7 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
   --qd-carnet-paper-text-12c0f199: 0.75rem;
   --qd-carnet-screen-grid-cols-4bdcdf7d: 8rem minmax(0,1fr);
   --qd-carnet-screen-min-h-6e8bd557: calc(2*1.625*var(--qd-body-size));
-  --qd-carnet-screen-w-3e6e4f30: min(24rem,calc(100vw-2rem));
+  --qd-carnet-screen-w-3e6e4f30: min(24rem, calc(100vw - 2rem));
 }
 
 /* Motion and compositing scalar utilities. 0/100 opacity remains visibility state. */

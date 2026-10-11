@@ -2,6 +2,12 @@
 
 현재 세 제품의 공통 표시 규칙은 `patterns/components.css`와 제품별 기반 규칙에서 관리한다. 아래 원본 실측 표는 초기 추출 당시의 기록이다. 현재 값과 중앙 연결 여부는 `dist/q-design.components.json`, `dist/q-design.style-arguments.json` 및 제품별 검토 기록을 함께 확인한다.
 
+### 알림 너비·여백·줄바꿈 (2026-10-12)
+
+세 제품의 알림은 `patterns/foundation.css`의 `--qd-toast-width`를 사용한다. 최대 너비는 `--qd-toast-max-width`(360px), 각 화면 끝 여백은 `--qd-space-5`와 해당 방향의 안전 영역을 합친다. 모바일에서는 양쪽 여백을 뺀 화면 너비까지 줄어든다. 위치별 토큰은 `--qd-toast-inset-top`, `right`, `bottom`, `left`다. 한글은 `--qd-copy-word-break`로 단어 사이에서 줄바꾸고, 긴 식별자는 `--qd-copy-overflow-wrap`으로 상자 안에서 줄바꾼다. 텍스트의 flex 최소 너비는 `--qd-space-0`이다.
+
+아뜰리에 ToastProvider, 메종 Sonner 어댑터, 카르넷 Toasts가 같은 규칙을 읽는다. 메종의 라이브러리 닫기 버튼은 알림 오른쪽 내부에 배치하고 중앙 제어 높이, 모서리, 보조 글자색, 호버 색과 키보드 초점 규칙을 적용한다. 메시지 내용, 성공·오류 판정, 유지 시간과 닫기 동작은 변경하지 않는다. 실제 세 제품 부품의 36개 조건과 중앙 값 변경 전파를 `tools/verify-toast-copy.mjs`로 확인한다. 앱 오프라인 자산에도 이 정본이 포함된다.
+
 ### 자동 채움 입력 상태 (2026-10-11)
 
 브라우저가 채운 `input`과 `textarea`도 중앙 팔레트를 따른다. `--qd-autofill-surface`는 `--qd-surface`, `--qd-autofill-ink`는 `--qd-text`에 연결한다. 브라우저 고유 배경은 중앙 inset paint로 덮으며 자동 채움 기능과 값은 변경하지 않는다. 키보드 초점은 중앙 강조색·테두리 두께·간격을 따른다. 비활성 상태는 `--qd-bg`와 `--qd-muted`로 바꾼다. 시스템 강제 색상 모드에서는 `FieldText`, `GrayText`, `Highlight`를 사용하고 inset paint를 해제한다.

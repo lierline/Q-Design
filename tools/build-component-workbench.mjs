@@ -58,6 +58,7 @@ for (const product of definitions.filter(item => !selected || selected.includes(
     oxc: { jsx: { runtime: 'automatic' } },
     plugins: process.env.QD_BUILD_TRACE ? [{ name: 'audit-trace', transform(_code, id) { console.log(id); } }] : [],
     resolve: { alias: [
+      ...(product.id === 'maison' ? [{ find: /^sonner$/, replacement: slash(require.resolve('sonner')) }] : []),
       { find: /^@\//, replacement: slash(productRoot) + '/' },
       { find: 'next/link', replacement: join(stage, 'link.tsx') },
       { find: 'next/navigation', replacement: join(stage, 'navigation.ts') },
