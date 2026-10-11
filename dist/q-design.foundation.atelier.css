@@ -2257,7 +2257,7 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   font-family: var(--mono);
   font-size: var(--fs-label);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--qd-tracking-normal);
   text-transform: uppercase;
   color: var(--mist);
   margin-bottom: 10px;
@@ -5856,6 +5856,28 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   line-height: var(--qd-line-height-normal);
   padding: var(--qd-control-pad-y) var(--qd-control-pad-x);
   border-radius: var(--qd-radius-control);
+}
+
+/* Form labels keep ordinary word spacing, including optional Korean hints. */
+.expert-portal-root label.field-label > span {
+  letter-spacing: var(--qd-tracking-normal) !important;
+}
+
+/* Keep the same brand stage for short and long desktop access forms.
+   The intrinsic minimum keeps short windows from clipping the brand content. */
+@media (min-width: 1024px) {
+  .expert-portal-root:has(.luxe-login-shell) {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  .expert-portal-root .luxe-login-stage {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    height: 100dvh;
+    min-height: min-content;
+  }
 }
 
 /* Q-Design owns remaining reviewed Atelier presentation values.

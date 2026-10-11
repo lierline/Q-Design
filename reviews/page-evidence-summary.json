@@ -10,9 +10,9 @@
         "targetsWithReviewedCapture": 201,
         "targetsWithUsableVisualCapture": 193,
         "targetsWithVerifiedBoundaryCapture": 8,
-        "captureRecords": 249,
-        "images": 1019,
-        "reviewedImages": 1019,
+        "captureRecords": 256,
+        "images": 1035,
+        "reviewedImages": 1035,
         "missingImages": 0
       },
       "missingTargets": [],
@@ -2452,7 +2452,9 @@
           "role": "anonymous",
           "captures": [
             "reviews/atelier-pages/screens/_experts_portal_login-anonymous.json",
-            "reviews/atelier-pages/screens/_experts_portal_login-public-continuation-20261011.json"
+            "reviews/atelier-pages/screens/_experts_portal_login-public-continuation-20261011.json",
+            "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop-20261011.json",
+            "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop1024x480-settled-20261011.json"
           ],
           "hasCapture": true,
           "hasReviewedCapture": true,
@@ -7335,8 +7337,8 @@
         {
           "metadata": "reviews/atelier-pages/screens/_experts_portal-anonymous-valid-invite.json",
           "route": "/experts/portal",
-          "url": "http://localhost:3600/experts/portal?invite=LOCAL_TEST_INVITE",
-          "actualURL": "http://localhost:3600/experts/portal?invite=LOCAL_TEST_INVITE",
+          "url": "http://localhost:3600/experts/portal?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal?invite=REDACTED",
           "role": "anonymous-valid-invite",
           "theme": "dark",
           "viewport": [
@@ -7675,10 +7677,84 @@
           "verifiedBoundaryCapture": false
         },
         {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop-20261011.json",
+          "route": "/experts/portal/login",
+          "url": "http://localhost:3600/experts/portal/login",
+          "actualURL": "http://localhost:3600/experts/portal/login",
+          "role": "anonymous-brand-stage-final-desktop-20261011",
+          "viewport": [
+            1280,
+            720
+          ],
+          "capturedAt": "2026-10-11T13:31:31.459Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop-20261011-0.png",
+              "hash": "59cd6cd990356ad394a13d3b4e176928493b3e296e3d76e685a4079a42648ddf",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop-20261011-1.png",
+              "hash": "d609bbca1bf9a44b4a767ba938765938b86fa2b16f2bed966c41d510a8963757",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop1024x480-settled-20261011.json",
+          "route": "/experts/portal/login",
+          "url": "http://localhost:3600/experts/portal/login",
+          "actualURL": "http://localhost:3600/experts/portal/login",
+          "role": "anonymous-brand-stage-final-desktop1024x480-settled-20261011",
+          "viewport": [
+            1024,
+            480
+          ],
+          "capturedAt": "2026-10-11T13:34:45.012Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop1024x480-settled-20261011-0.png",
+              "hash": "5f5f266e138db369d28f7e74bf82fd3ad3a828fe532e6c7f0d1207bfd8cc97f4",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-brand-stage-final-desktop1024x480-settled-20261011-1.png",
+              "hash": "d7656094368f774824d4691f4a73515a05c3bd51e9a6432369b21e236517832c",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
           "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-expert-copy-final-20261011.json",
           "route": "/experts/portal/signup",
-          "url": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
-          "actualURL": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
           "role": "anonymous-expert-copy-final-20261011",
           "theme": "dark",
           "viewport": [
@@ -7729,10 +7805,180 @@
           "verifiedBoundaryCapture": false
         },
         {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-brand-final-desktop-20261011.json",
+          "route": "/experts/portal/signup",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "role": "anonymous-field-fragment-brand-final-desktop-20261011",
+          "viewport": [
+            1280,
+            720
+          ],
+          "capturedAt": "2026-10-11T13:28:33.439Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-brand-final-desktop-20261011-0.png",
+              "hash": "76aea3cdece4b050dd502fe9bbbbcc3238dcdfdc34f12127c1e1cb9822bb9d6b",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-brand-final-desktop-20261011-1.png",
+              "hash": "b9bd137cadf5270fcbd81387be300c7ad4e3c7607f809106c37829592d4de5cf",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-brand-final-desktop-20261011-2.png",
+              "hash": "80d280262c9c4da6fe94dd21489cc36f4d4c2da631bebf7a511838acade9b9d4",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-final-mobile390-20261011.json",
+          "route": "/experts/portal/signup",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "role": "anonymous-field-fragment-final-mobile390-20261011",
+          "viewport": [
+            390,
+            844
+          ],
+          "capturedAt": "2026-10-11T13:28:33.440Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-final-mobile390-20261011-0.png",
+              "hash": "9b423331eb0db0fe1ea489ed5717689818aee497c5707da2877b0681d694fc9b",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-final-mobile390-20261011-1.png",
+              "hash": "ecf84f744bd22e6caf43f4c582f752369d77dcb0ad39ef6955c459093cd48232",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-fragment-final-mobile390-20261011-2.png",
+              "hash": "00b9ee3517c234e9093ff39cd44282218f88744603b6e2b169ee3eda8e301620",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-desktop-final-20261011.json",
+          "route": "/experts/portal/signup",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "role": "anonymous-field-label-spacing-desktop-final-20261011",
+          "viewport": [
+            1280,
+            720
+          ],
+          "capturedAt": "2026-10-11T13:10:06.620Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": false,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-desktop-final-20261011-0.png",
+              "hash": "5f4f3855016a9f32061641106e7453d76fe88df0cca3e3fa669330779d9df625",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "finding-present-brand-stage-replaced-by-final-capture",
+              "needsAttention": true
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-desktop-final-20261011-1.png",
+              "hash": "aa9077d582d04e3238d61ad3fc63ae38cdd3e6abccb7a7598607b7995774fef5",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "finding-present-brand-stage-replaced-by-final-capture",
+              "needsAttention": true
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": false,
+          "verifiedBoundaryCapture": false
+        },
+        {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-mobile-final-20261011.json",
+          "route": "/experts/portal/signup",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "role": "anonymous-field-label-spacing-mobile-final-20261011",
+          "viewport": [
+            390,
+            844
+          ],
+          "capturedAt": "2026-10-11T13:03:13.018Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": true,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-mobile-final-20261011-0.png",
+              "hash": "6351c0354e9bb65fc8494e9fd78a82561815ec469c01b1ace94a08bb32a7f28c",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-mobile-final-20261011-1.png",
+              "hash": "718f5007354eab624f2e4a3bc7b89613116b9263aaef12cfb45c0052684cc53a",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            },
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-field-label-spacing-mobile-final-20261011-2.png",
+              "hash": "7adef7e27300e61abe7845053dedd1ffdfecdcea31fd3a883dcadf1c79feabf8",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "no-visible-layout-defect",
+              "needsAttention": false
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": true,
+          "verifiedBoundaryCapture": false
+        },
+        {
           "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-mobile-width-390-final-20261011.json",
           "route": "/experts/portal/signup",
-          "url": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
-          "actualURL": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
           "role": "anonymous-mobile-width-390-final-20261011",
           "viewport": [
             390,
@@ -7768,8 +8014,8 @@
         {
           "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-mobile-width-390-settled-20261011.json",
           "route": "/experts/portal/signup",
-          "url": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
-          "actualURL": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
           "role": "anonymous-mobile-width-390-settled-20261011",
           "viewport": [
             390,
@@ -7811,10 +8057,39 @@
           "verifiedBoundaryCapture": false
         },
         {
+          "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-production-brand-stage-final-desktop-20261011.json",
+          "route": "/experts/portal/login",
+          "url": "https://atelier.medqraft.app/experts/portal/login",
+          "actualURL": "https://atelier.medqraft.app/experts/portal/login",
+          "role": "anonymous-production-brand-stage-final-desktop-20261011",
+          "viewport": [
+            1280,
+            720
+          ],
+          "capturedAt": "2026-10-11T13:50:14.099Z",
+          "mode": "sequential-overlapping-scrolled-viewport",
+          "scrollComplete": false,
+          "images": [
+            {
+              "path": "D:/Claude/Q-Design/reviews/atelier-pages/screens/_experts_portal_signup-anonymous-production-brand-stage-final-desktop-20261011-0.png",
+              "hash": "c439b5b5487f4fe577b2a3631232267f62f505f5684d97e9db298fa536b42aaf",
+              "exists": true,
+              "reviewed": true,
+              "verdict": "finding-present-autofill-browser-palette",
+              "needsAttention": true
+            }
+          ],
+          "routeBoundary": null,
+          "allImagesReviewed": true,
+          "viewportMatches": true,
+          "usableVisualCapture": false,
+          "verifiedBoundaryCapture": false
+        },
+        {
           "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-anonymous-valid-invite.json",
           "route": "/experts/portal/signup",
-          "url": "http://localhost:3600/experts/portal/signup?invite=LOCAL_TEST_INVITE&name=QDesign%20%EB%A1%9C%EC%BB%AC%20%EA%B2%80%EC%88%98",
-          "actualURL": "http://localhost:3600/experts/portal/signup?invite=LOCAL_TEST_INVITE&name=QDesign%20%EB%A1%9C%EC%BB%AC%20%EA%B2%80%EC%88%98",
+          "url": "http://localhost:3600/experts/portal/signup?invite=REDACTED&name=QDesign+%EB%A1%9C%EC%BB%AC+%EA%B2%80%EC%88%98",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED&name=QDesign+%EB%A1%9C%EC%BB%AC+%EA%B2%80%EC%88%98",
           "role": "anonymous-valid-invite",
           "theme": "dark",
           "viewport": [
@@ -7906,7 +8181,7 @@
           "metadata": "reviews/atelier-pages/screens/_experts_portal_signup-public-continuation-20261011.json",
           "route": "/experts/portal/signup",
           "url": "http://localhost:3600/experts/portal/signup",
-          "actualURL": "http://localhost:3600/experts/portal/signup?invite=2gc4WiitDdK0AOvmPK9t8H6PH4wK0xyM",
+          "actualURL": "http://localhost:3600/experts/portal/signup?invite=REDACTED",
           "role": "public-continuation-20261011",
           "theme": "dark",
           "viewport": [

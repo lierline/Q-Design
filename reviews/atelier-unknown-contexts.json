@@ -1,14 +1,14 @@
 {
-  "createdAt": "2026-10-11T12:38:06.993Z",
+  "createdAt": "2026-10-11T13:46:47.306Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 907,
+  "unknown": 900,
   "confirmedStyleArguments": 527,
-  "confirmedStylePercent": 58.1,
+  "confirmedStylePercent": 58.6,
   "kinds": {
     "object-property": 383,
     "style-expression": 244,
-    "presentation-attribute": 113,
+    "presentation-attribute": 106,
     "named-style-value": 42,
     "dynamic-style": 36,
     "class-utility": 13,
@@ -23,7 +23,7 @@
     "confirmed-style-object": 270,
     "direct-jsx-style": 244,
     "unresolved-consumer": 213,
-    "component-prop-needs-consumer-trace": 113,
+    "component-prop-needs-consumer-trace": 106,
     "dom-style-write": 13,
     "selector-or-variant": 34,
     "svg-artwork-or-data-geometry": 20
@@ -2484,17 +2484,6 @@
     },
     {
       "path": "app/(auth)/login/page.tsx",
-      "line": 786,
-      "argumentHash": "a44e7607fa2eccd0a23b59e48f03b4417a25e644ee69883d24999e2b0044d660",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.75}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
       "line": 850,
       "argumentHash": "db3027f10a5cd313d358c972fb6a5be0e066720c10cd77dec82538cf3b2a0d57",
       "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
@@ -3405,17 +3394,6 @@
       "property": "style",
       "value": "{{ background: `#${DOC_COLOR.surface}`, color: `#${DOC_COLOR.ink}`, borderRadius: QDScale.radius, padding: \"var(--qd-atelier-padding-9706c4057c)\", minHeight: \"var(--qd-atelier-min-height-067de4be95)\", wordBreak: 'keep-all', overflowWrap: 'anywhere' }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/ApprovalRoute.tsx",
-      "line": 48,
-      "argumentHash": "6ed21eb42616dff4aa186f1e54b85828dbba20f6df518d0810e08ac906ee8c6d",
-      "sourceHash": "c44bcd0a1ce87e97fd70f9bb99f6b3d10bfa475953b7b7d5bb0528e6aadc15a7",
-      "currentHash": "c44bcd0a1ce87e97fd70f9bb99f6b3d10bfa475953b7b7d5bb0528e6aadc15a7",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{3}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "components/ApprovedAdvisoryList.tsx",
@@ -4420,17 +4398,6 @@
     },
     {
       "path": "components/ListToolbar.tsx",
-      "line": 158,
-      "argumentHash": "cbb83ad14f063bc930e91ea6150ebaedc7f887a111c4a1b22f9797dacb326161",
-      "sourceHash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
-      "currentHash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.75}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "components/ListToolbar.tsx",
       "line": 169,
       "argumentHash": "ec34d8dabdd8f6c73f33868991c579bb872c2f502521a1d30b628c8de01ac6f7",
       "sourceHash": "ce7dd855437f1b45c41f1c10aefb2cd4c6237df57d4c7680fa12dc3f11404824",
@@ -4507,17 +4474,6 @@
       "context": "component-prop-needs-consumer-trace"
     },
     {
-      "path": "components/MobileBottomNav.tsx",
-      "line": 352,
-      "argumentHash": "144d8847d192e3eb9c5648ef0d1877294dbd5364cd308b92a7ac64b71a851b00",
-      "sourceHash": "8c2dc2a1ef886b23b7f54a9829a9c0638331af9d60d4e04418293c0d63fe9a6b",
-      "currentHash": "8c2dc2a1ef886b23b7f54a9829a9c0638331af9d60d4e04418293c0d63fe9a6b",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.6}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
       "path": "components/MyActionItems.tsx",
       "line": 266,
       "argumentHash": "964cb9dbddb98a490e840b20cf5b06f8755c38b4d2d073d662db75c26f42cd6c",
@@ -4571,17 +4527,6 @@
       "property": "filter",
       "value": "`recipient_id=eq.${userId}`",
       "context": "unresolved-consumer"
-    },
-    {
-      "path": "components/NotificationBell.tsx",
-      "line": 194,
-      "argumentHash": "39e252a2ec8351a406226ab01381bd74ccab4d5fdc9ff61d02fd88c2b58117c6",
-      "sourceHash": "6a665a9e3e27351d76b552f23d1a8120bacd90a10f8be6eb70ebb3ea944e78f3",
-      "currentHash": "6a665a9e3e27351d76b552f23d1a8120bacd90a10f8be6eb70ebb3ea944e78f3",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.6}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "components/NotificationBell.tsx",
@@ -5374,17 +5319,6 @@
       "property": "transition",
       "value": "dragging ? 'none' : `transform ${QD.motionFast}, opacity ${QD.motionFast}`",
       "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/PullToRefresh.tsx",
-      "line": 134,
-      "argumentHash": "e271bab784f810a3f10380df24be7b5b70e21b689cae1f2285af83a70c026243",
-      "sourceHash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48",
-      "currentHash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{2}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "components/PullToRefresh.tsx",
@@ -6455,17 +6389,6 @@
     },
     {
       "path": "components/SubscriptionIndicator.tsx",
-      "line": 426,
-      "argumentHash": "bd7c4b4449ca6f63d9a32f4f127a593f80a1cf8f513dc7f16bd202984331618c",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.8}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
       "line": 429,
       "argumentHash": "90d41c2435df327784129d4760d4d5fe4900528484c49ec8cca7c01654dc0d05",
       "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
@@ -7423,10 +7346,10 @@
     },
     {
       "path": "components/expert/Field.tsx",
-      "line": 49,
-      "argumentHash": "81ae4f956cfeaa0d3d41d8852155b64b7165589650c68067cc380b8cd0b002ec",
-      "sourceHash": "dd5c3177584579eb42396efcb15c0a375c7170b257e776cb24a3fea2b5dc4b59",
-      "currentHash": "dd5c3177584579eb42396efcb15c0a375c7170b257e776cb24a3fea2b5dc4b59",
+      "line": 53,
+      "argumentHash": "f2fa7cd4d908b728eb4b0fdad8aeb07f16897993b48512b067b1af278fb5eeee",
+      "sourceHash": "716285bb203d40b8af5f5f516e4b630f41c87e600f256b8afe879d030d513177",
+      "currentHash": "716285bb203d40b8af5f5f516e4b630f41c87e600f256b8afe879d030d513177",
       "kind": "style-expression",
       "property": "style",
       "value": "{{ marginBottom }}",

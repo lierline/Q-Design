@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { reviewVerdict, needsVisualAttention } from './page-evidence-verdict.mjs';
 import { verifiedRouteBoundary, captureDecision, scrollCoverageComplete } from './page-evidence-boundaries.mjs';
+import { publishedPageEvidence } from './page-evidence-publication.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -60,6 +61,6 @@ for (const product of ['atelier', 'maison', 'carnet']) {
   all.push({ product, summary: { targets: targets.length, capturedTargets: coverage.filter(row => row.hasCapture).length, targetsWithReviewedCapture: coverage.filter(row => row.hasReviewedCapture).length, targetsWithUsableVisualCapture: coverage.filter(row => row.hasUsableVisualCapture).length, targetsWithVerifiedBoundaryCapture:coverage.filter(row=>row.hasVerifiedBoundaryCapture).length,captureRecords: evidence.length, images: images.length, reviewedImages: images.filter(row => row.reviewed).length, missingImages: images.filter(row => !row.exists).length }, missingTargets: coverage.filter(row => !row.hasCapture), pendingReviewTargets: coverage.filter(row => row.hasCapture && !row.hasReviewedCapture), attentionTargets: coverage.filter(row => row.hasReviewedCapture && !row.hasUsableVisualCapture&&!row.hasVerifiedBoundaryCapture), boundaryTargets:coverage.filter(row=>row.hasVerifiedBoundaryCapture), coverage, evidence });
 }
 const report = { version: 1, scope: 'Exact image-hash review coverage. Reviewed images can contain findings or incomplete paint. Coverage never implies layout, interaction, role, theme or responsive conformance; read each recorded verdict and finding.', products: all };
-if (args.includes('--write')) fs.writeFileSync(path.join(root, 'reviews/page-evidence-summary.json'), JSON.stringify(report, null, 2) + '\n');
+if (args.includes('--write')) fs.writeFileSync(path.join(root, 'reviews/page-evidence-summary.json'), JSON.stringify(publishedPageEvidence(report), null, 2) + '\n');
 console.log(JSON.stringify(all.map(({ product, summary }) => ({ product, ...summary })), null, 2));
 if (args.includes('--check') && all.some(p => p.missingTargets.length || p.pendingReviewTargets.length || p.attentionTargets.length || p.summary.missingImages)) process.exitCode = 1;

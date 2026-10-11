@@ -3,33 +3,40 @@
   "records": [
     {
       "path": "app/(auth)/login/page.tsx",
-      "sourceHash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c",
-      "argumentHash": "a44e7607fa2eccd0a23b59e48f03b4417a25e644ee69883d24999e2b0044d660",
       "line": 786,
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.75}",
-      "family": "geometry",
-      "status": "review-required",
-      "originalStatus": "review-required",
+      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
+      "argumentHash": "a44e7607fa2eccd0a23b59e48f03b4417a25e644ee69883d24999e2b0044d660",
       "decision": "compatibility-noop",
-      "ruleId": "phosphor-stroke-compatibility-noop",
-      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "ruleId": "exact-ignored-phosphor-stroke-option",
+      "reason": "The actual JSX tag resolves to the unchanged central Phosphor component. The reviewed factory destructures and discards strokeWidth before forwarding SVG props and sets stroke to none. This exact numeric option cannot change the filled icon outline. Size, color, style, SVG paths and other consumer arguments remain separately inventoried.",
+      "icon": "Fingerprint",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
           "line": 786,
-          "hash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c"
+          "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "patterns/react-icon.tsx",
+          "line": 1,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
         },
         {
           "path": "components/q-design-icons/_icon.tsx",
-          "line": 16,
+          "line": 1,
           "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        },
+        {
+          "path": "components/q-design-icons/Fingerprint.tsx",
+          "line": 1,
+          "hash": "ecb7d4809d162c6fe44180fbe1d9477b153f9f05ad5922ce34c41975b6e14772"
+        },
+        {
+          "path": "dist/react-icons/Fingerprint.tsx",
+          "line": 1,
+          "hash": "ecb7d4809d162c6fe44180fbe1d9477b153f9f05ad5922ce34c41975b6e14772"
         }
-      ],
-      "tag": "Fingerprint",
-      "start": 32637,
-      "consumer": "components/q-design-icons/_icon.tsx"
+      ]
     },
     {
       "path": "app/(auth)/login/page.tsx",
@@ -93,33 +100,40 @@
     },
     {
       "path": "components/ApprovalRoute.tsx",
-      "sourceHash": "cb041352fa049f718bda8ddbc90c4b9e2a75485a077976828c63777146febf95",
-      "argumentHash": "6ed21eb42616dff4aa186f1e54b85828dbba20f6df518d0810e08ac906ee8c6d",
       "line": 48,
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{3}",
-      "family": "geometry",
-      "status": "review-required",
-      "originalStatus": "review-required",
+      "sourceHash": "c44bcd0a1ce87e97fd70f9bb99f6b3d10bfa475953b7b7d5bb0528e6aadc15a7",
+      "argumentHash": "6ed21eb42616dff4aa186f1e54b85828dbba20f6df518d0810e08ac906ee8c6d",
       "decision": "compatibility-noop",
-      "ruleId": "phosphor-stroke-compatibility-noop",
-      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "ruleId": "exact-ignored-phosphor-stroke-option",
+      "reason": "The actual JSX tag resolves to the unchanged central Phosphor component. The reviewed factory destructures and discards strokeWidth before forwarding SVG props and sets stroke to none. This exact numeric option cannot change the filled icon outline. Size, color, style, SVG paths and other consumer arguments remain separately inventoried.",
+      "icon": "Check",
       "evidence": [
         {
           "path": "components/ApprovalRoute.tsx",
           "line": 48,
-          "hash": "cb041352fa049f718bda8ddbc90c4b9e2a75485a077976828c63777146febf95"
+          "hash": "c44bcd0a1ce87e97fd70f9bb99f6b3d10bfa475953b7b7d5bb0528e6aadc15a7"
+        },
+        {
+          "path": "patterns/react-icon.tsx",
+          "line": 1,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
         },
         {
           "path": "components/q-design-icons/_icon.tsx",
-          "line": 16,
+          "line": 1,
           "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        },
+        {
+          "path": "components/q-design-icons/Check.tsx",
+          "line": 1,
+          "hash": "ba6662584d3362aa4f62a59a61e874fcda64cc283543da38521c84c73949912c"
+        },
+        {
+          "path": "dist/react-icons/Check.tsx",
+          "line": 1,
+          "hash": "ba6662584d3362aa4f62a59a61e874fcda64cc283543da38521c84c73949912c"
         }
-      ],
-      "tag": "Check",
-      "start": 2871,
-      "consumer": "components/q-design-icons/_icon.tsx"
+      ]
     },
     {
       "path": "components/ListToolbar.tsx",
@@ -213,33 +227,40 @@
     },
     {
       "path": "components/NotificationBell.tsx",
-      "sourceHash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5",
-      "argumentHash": "39e252a2ec8351a406226ab01381bd74ccab4d5fdc9ff61d02fd88c2b58117c6",
       "line": 194,
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{1.6}",
-      "family": "geometry",
-      "status": "review-required",
-      "originalStatus": "review-required",
+      "sourceHash": "6a665a9e3e27351d76b552f23d1a8120bacd90a10f8be6eb70ebb3ea944e78f3",
+      "argumentHash": "39e252a2ec8351a406226ab01381bd74ccab4d5fdc9ff61d02fd88c2b58117c6",
       "decision": "compatibility-noop",
-      "ruleId": "phosphor-stroke-compatibility-noop",
-      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "ruleId": "exact-ignored-phosphor-stroke-option",
+      "reason": "The actual JSX tag resolves to the unchanged central Phosphor component. The reviewed factory destructures and discards strokeWidth before forwarding SVG props and sets stroke to none. This exact numeric option cannot change the filled icon outline. Size, color, style, SVG paths and other consumer arguments remain separately inventoried.",
+      "icon": "Bell",
       "evidence": [
         {
           "path": "components/NotificationBell.tsx",
           "line": 194,
-          "hash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5"
+          "hash": "6a665a9e3e27351d76b552f23d1a8120bacd90a10f8be6eb70ebb3ea944e78f3"
+        },
+        {
+          "path": "patterns/react-icon.tsx",
+          "line": 1,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
         },
         {
           "path": "components/q-design-icons/_icon.tsx",
-          "line": 16,
+          "line": 1,
           "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        },
+        {
+          "path": "components/q-design-icons/Bell.tsx",
+          "line": 1,
+          "hash": "c23bc2b7d9d3dfc63524046d7e4d151aa8b2d037744583d0aa38024313bf9adb"
+        },
+        {
+          "path": "dist/react-icons/Bell.tsx",
+          "line": 1,
+          "hash": "c23bc2b7d9d3dfc63524046d7e4d151aa8b2d037744583d0aa38024313bf9adb"
         }
-      ],
-      "tag": "Bell",
-      "start": 7300,
-      "consumer": "components/q-design-icons/_icon.tsx"
+      ]
     },
     {
       "path": "components/PasskeyCard.tsx",
@@ -539,6 +560,98 @@
       ],
       "tag": "Icon",
       "start": 59061,
+      "consumer": "components/q-design-icons/_icon.tsx"
+    }
+  ],
+  "supersededRecords": [
+    {
+      "path": "app/(auth)/login/page.tsx",
+      "sourceHash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c",
+      "argumentHash": "a44e7607fa2eccd0a23b59e48f03b4417a25e644ee69883d24999e2b0044d660",
+      "line": 786,
+      "kind": "presentation-attribute",
+      "property": "strokeWidth",
+      "value": "{1.75}",
+      "family": "geometry",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "compatibility-noop",
+      "ruleId": "phosphor-stroke-compatibility-noop",
+      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "evidence": [
+        {
+          "path": "app/(auth)/login/page.tsx",
+          "line": 786,
+          "hash": "ec1db944bd2ebf0bc2071cc5e411abed56d69c2a7c1fced36999b1b03ed89f4c"
+        },
+        {
+          "path": "components/q-design-icons/_icon.tsx",
+          "line": 16,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        }
+      ],
+      "tag": "Fingerprint",
+      "start": 32637,
+      "consumer": "components/q-design-icons/_icon.tsx"
+    },
+    {
+      "path": "components/ApprovalRoute.tsx",
+      "sourceHash": "cb041352fa049f718bda8ddbc90c4b9e2a75485a077976828c63777146febf95",
+      "argumentHash": "6ed21eb42616dff4aa186f1e54b85828dbba20f6df518d0810e08ac906ee8c6d",
+      "line": 48,
+      "kind": "presentation-attribute",
+      "property": "strokeWidth",
+      "value": "{3}",
+      "family": "geometry",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "compatibility-noop",
+      "ruleId": "phosphor-stroke-compatibility-noop",
+      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "evidence": [
+        {
+          "path": "components/ApprovalRoute.tsx",
+          "line": 48,
+          "hash": "cb041352fa049f718bda8ddbc90c4b9e2a75485a077976828c63777146febf95"
+        },
+        {
+          "path": "components/q-design-icons/_icon.tsx",
+          "line": 16,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        }
+      ],
+      "tag": "Check",
+      "start": 2871,
+      "consumer": "components/q-design-icons/_icon.tsx"
+    },
+    {
+      "path": "components/NotificationBell.tsx",
+      "sourceHash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5",
+      "argumentHash": "39e252a2ec8351a406226ab01381bd74ccab4d5fdc9ff61d02fd88c2b58117c6",
+      "line": 194,
+      "kind": "presentation-attribute",
+      "property": "strokeWidth",
+      "value": "{1.6}",
+      "family": "geometry",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "compatibility-noop",
+      "ruleId": "phosphor-stroke-compatibility-noop",
+      "reason": "The exact imported createIcon consumer discards strokeWidth; local Icon slots were traced to the same official icon factory. This argument cannot alter the filled glyph.",
+      "evidence": [
+        {
+          "path": "components/NotificationBell.tsx",
+          "line": 194,
+          "hash": "ae0ca85562c62bd1eac87a84e7c2c73465456407804ba7e815c6aed5402404d5"
+        },
+        {
+          "path": "components/q-design-icons/_icon.tsx",
+          "line": 16,
+          "hash": "9806944d069631219fea036e893de4202322c9b472176f1d77fbe665ee7c8dce"
+        }
+      ],
+      "tag": "Bell",
+      "start": 7300,
       "consumer": "components/q-design-icons/_icon.tsx"
     }
   ]
