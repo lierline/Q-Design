@@ -6,11 +6,12 @@ import path from 'node:path';
 import {hash} from './style-arguments-core.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier';
 export const ts=createRequire(repo+'/package.json')('typescript');
-export function inspectWriteGuard(code){
+export function inspectWriteGuard(code,{allowModuleGate=false}={}){
  const sf=ts.createSourceFile('route.ts',code,ts.ScriptTarget.Latest,true);
  const imports=sf.statements.filter(ts.isImportDeclaration);
- const exactImport=(name,module)=>imports.some(i=>i.moduleSpecifier.text===module&&i.importClause?.namedBindings&&ts.isNamedImports(i.importClause.namedBindings)&&i.importClause.namedBindings.elements.some(s=>s.name.text===name&&(s.propertyName??s.name).text===name));
+ const exactImport=(name,module)=>imports.some(i=>i.moduleSpecifier.text===module&&!i.importClause?.isTypeOnly&&i.importClause?.namedBindings&&ts.isNamedImports(i.importClause.namedBindings)&&i.importClause.namedBindings.elements.some(s=>!s.isTypeOnly&&s.name.text===name&&(s.propertyName??s.name).text===name));
  if(!exactImport('assertWriteRole','@/lib/permissions/create-access')||!exactImport('NextResponse','next/server'))return null;
+ if(allowModuleGate&&!exactImport('moduleGate','@/lib/subscription/module-gate'))return null;
  const bindings=[],uses=[];
  const visit=n=>{if(ts.isIdentifier(n)&&n.text==='w'){
   if(ts.isVariableDeclaration(n.parent)&&n.parent.name===n)bindings.push(n.parent);else uses.push(n);
@@ -20,9 +21,9 @@ export function inspectWriteGuard(code){
  if(!(binding.parent.flags&ts.NodeFlags.Const)||!init||!ts.isAwaitExpression(init)||!ts.isCallExpression(init.expression)||!ts.isIdentifier(init.expression.expression)||init.expression.expression.text!=='assertWriteRole')return null;
  // No same-name declaration or import may shadow either inspected function.
  let shadow=false;const shadowVisit=n=>{
-  if(ts.isIdentifier(n)&&['assertWriteRole','NextResponse'].includes(n.text)){
+  if(ts.isIdentifier(n)&&['assertWriteRole','NextResponse',...(allowModuleGate?['moduleGate']:[])].includes(n.text)){
    const p=n.parent;
-   if((ts.isVariableDeclaration(p)||ts.isParameter(p)||ts.isFunctionDeclaration(p)||ts.isClassDeclaration(p))&&p.name===n)shadow=true;
+   if((ts.isVariableDeclaration(p)||ts.isBindingElement(p)||ts.isParameter(p)||ts.isFunctionDeclaration(p)||ts.isClassDeclaration(p))&&p.name===n)shadow=true;
   }ts.forEachChild(n,shadowVisit);
  };shadowVisit(sf);if(shadow)return null;
  const guarded=n=>{for(let p=n.parent;p;p=p.parent){if(ts.isIfStatement(p)&&p.expression.getText(sf)==='w instanceof NextResponse'&&n.getStart(sf)>=p.thenStatement.getStart(sf)&&n.end<=p.thenStatement.end)return true;}return false;};
@@ -35,6 +36,7 @@ export function inspectWriteGuard(code){
    if(ts.isBinaryExpression(parent)&&[ts.SyntaxKind.ExclamationEqualsEqualsToken,ts.SyntaxKind.EqualsEqualsEqualsToken].includes(parent.operatorToken.kind))continue;
    if(ts.isPropertyAssignment(parent)&&['orgId','org_id'].includes(parent.name.getText(sf))&&parent.initializer===p)continue;
    if(ts.isCallExpression(parent)&&ts.isPropertyAccessExpression(parent.expression)&&parent.expression.name.text==='eq'&&parent.arguments.length===2&&ts.isStringLiteral(parent.arguments[0])&&parent.arguments[0].text==='org_id'&&parent.arguments[1]===p)continue;
+   if(allowModuleGate&&ts.isCallExpression(parent)&&ts.isIdentifier(parent.expression)&&parent.expression.text==='moduleGate'&&parent.arguments.length===3&&parent.arguments[1]===p&&ts.isAwaitExpression(parent.parent))continue;
   }
   return null;
  }

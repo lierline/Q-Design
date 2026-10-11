@@ -1,0 +1,38 @@
+{
+  "scope": "Historical full-report comparison, only three exact data decisions changed. No source, existing decision, rule or inventory metadata was refreshed. Not a certificate for future report or product changes.",
+  "ref": "8ae304c",
+  "path": "reviews/atelier-style-decisions.json",
+  "beforeHash": "1546ac98d03c950a2e58ee16d1d0abc7a66da50e781fbf9de51abae96fbf9c7b",
+  "afterHash": "b8e6efc96fede78cd6e0df7928eeeed8653102dfab51a66ae7fc00dd138661f8",
+  "changed": [
+    {
+      "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+      "line": 36,
+      "argumentHash": "bb4cd47f1aaff4b66fcd5ed7ebd7f9a08c973d4b54897749949cb22825884aee",
+      "sourceHash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-server-module-gate-consumer"
+    },
+    {
+      "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+      "line": 34,
+      "argumentHash": "1bcefdda5b56bb6baac321100044b62abdcc11deeb745ccb736ea76836104ba6",
+      "sourceHash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-server-module-gate-consumer"
+    },
+    {
+      "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+      "line": 31,
+      "argumentHash": "0bf6a721e23adff60edcd71671dcd38954035db961fd5e665ba8a25731c1a893",
+      "sourceHash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d",
+      "from": "unknown",
+      "to": "business-data",
+      "ruleId": "exact-server-module-gate-consumer"
+    }
+  ],
+  "unknownBefore": 900,
+  "unknownAfter": 897
+}

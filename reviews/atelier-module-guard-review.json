@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "scope": "Three exact server data bindings previously left unresolved by the narrower permission-result review. Other variables, server files, the loadSheets call and downstream rendering are not exempted.",
+  "records": [
+    {
+      "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+      "line": 36,
+      "sourceHash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6",
+      "argumentHash": "bb4cd47f1aaff4b66fcd5ed7ebd7f9a08c973d4b54897749949cb22825884aee",
+      "decision": "business-data",
+      "ruleId": "exact-server-module-gate-consumer",
+      "reason": "This exact w binding is a server organization identity or guarded HTTP response. Its organization id is additionally passed as the second argument of the awaited, directly imported and unchanged moduleGate, which queries enabled modules and returns null or an HTTP response. Every use remains an inspected data consumer. Unknown calls, visual arguments, aliases and shadowed imports fail. This does not approve any renderer or caller styling.",
+      "evidence": [
+        {
+          "path": "lib/permissions/create-access.ts",
+          "line": 84,
+          "hash": "60572a48fe4bd68be6599937ecf40247a98ef369e135e783a7534b8ad1ddc026"
+        },
+        {
+          "path": "lib/subscription/module-gate.ts",
+          "line": 44,
+          "hash": "275bf4b79e7e30e5828f17d278c99bb0e67c59ad3669bbb2f8cf1222add1e8ac"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 37,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 37,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 38,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 39,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 45,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        },
+        {
+          "path": "app/api/equipment/[id]/calibrations/[calId]/route.ts",
+          "line": 50,
+          "hash": "e5283ec709d1f9c226db592d30811061cb8966e2240ac3a890cd51a4e6fbe6d6"
+        }
+      ],
+      "consumers": [
+        {
+          "line": 37,
+          "value": "w instanceof NextResponse"
+        },
+        {
+          "line": 37,
+          "value": "fail: w"
+        },
+        {
+          "line": 38,
+          "value": "w.orgId"
+        },
+        {
+          "line": 39,
+          "value": "w.orgId"
+        },
+        {
+          "line": 45,
+          "value": "w.orgId"
+        },
+        {
+          "line": 50,
+          "value": "w.orgId"
+        }
+      ]
+    },
+    {
+      "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+      "line": 34,
+      "sourceHash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701",
+      "argumentHash": "1bcefdda5b56bb6baac321100044b62abdcc11deeb745ccb736ea76836104ba6",
+      "decision": "business-data",
+      "ruleId": "exact-server-module-gate-consumer",
+      "reason": "This exact w binding is a server organization identity or guarded HTTP response. Its organization id is additionally passed as the second argument of the awaited, directly imported and unchanged moduleGate, which queries enabled modules and returns null or an HTTP response. Every use remains an inspected data consumer. Unknown calls, visual arguments, aliases and shadowed imports fail. This does not approve any renderer or caller styling.",
+      "evidence": [
+        {
+          "path": "lib/permissions/create-access.ts",
+          "line": 84,
+          "hash": "60572a48fe4bd68be6599937ecf40247a98ef369e135e783a7534b8ad1ddc026"
+        },
+        {
+          "path": "lib/subscription/module-gate.ts",
+          "line": 44,
+          "hash": "275bf4b79e7e30e5828f17d278c99bb0e67c59ad3669bbb2f8cf1222add1e8ac"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 35,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 35,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 36,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 37,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 43,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        },
+        {
+          "path": "app/api/equipment/[id]/events/[evId]/route.ts",
+          "line": 48,
+          "hash": "0b57ef0684efd9daa78bfd4f65a9a95827d501365e49570cda62ccd78eef7701"
+        }
+      ],
+      "consumers": [
+        {
+          "line": 35,
+          "value": "w instanceof NextResponse"
+        },
+        {
+          "line": 35,
+          "value": "fail: w"
+        },
+        {
+          "line": 36,
+          "value": "w.orgId"
+        },
+        {
+          "line": 37,
+          "value": "w.orgId"
+        },
+        {
+          "line": 43,
+          "value": "w.orgId"
+        },
+        {
+          "line": 48,
+          "value": "w.orgId"
+        }
+      ]
+    },
+    {
+      "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+      "line": 31,
+      "sourceHash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d",
+      "argumentHash": "0bf6a721e23adff60edcd71671dcd38954035db961fd5e665ba8a25731c1a893",
+      "decision": "business-data",
+      "ruleId": "exact-server-module-gate-consumer",
+      "reason": "This exact w binding is a server organization identity or guarded HTTP response. Its organization id is additionally passed as the second argument of the awaited, directly imported and unchanged moduleGate, which queries enabled modules and returns null or an HTTP response. Every use remains an inspected data consumer. Unknown calls, visual arguments, aliases and shadowed imports fail. This does not approve any renderer or caller styling.",
+      "evidence": [
+        {
+          "path": "lib/permissions/create-access.ts",
+          "line": 84,
+          "hash": "60572a48fe4bd68be6599937ecf40247a98ef369e135e783a7534b8ad1ddc026"
+        },
+        {
+          "path": "lib/subscription/module-gate.ts",
+          "line": 44,
+          "hash": "275bf4b79e7e30e5828f17d278c99bb0e67c59ad3669bbb2f8cf1222add1e8ac"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 32,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 32,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 33,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 34,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 40,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        },
+        {
+          "path": "app/api/suppliers/[id]/shipments/[shipId]/route.ts",
+          "line": 45,
+          "hash": "075993740aafa8a40ea77b5e8033f5b9a69a798ed812dc7143e64b071ec6e79d"
+        }
+      ],
+      "consumers": [
+        {
+          "line": 32,
+          "value": "w instanceof NextResponse"
+        },
+        {
+          "line": 32,
+          "value": "fail: w"
+        },
+        {
+          "line": 33,
+          "value": "w.orgId"
+        },
+        {
+          "line": 34,
+          "value": "w.orgId"
+        },
+        {
+          "line": 40,
+          "value": "w.orgId"
+        },
+        {
+          "line": 45,
+          "value": "w.orgId"
+        }
+      ]
+    }
+  ]
+}

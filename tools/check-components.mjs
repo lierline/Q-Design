@@ -12,6 +12,8 @@ const steps=[
   ['--test','tools/atelier-inactive-exports.test.mjs'],
   ['--test','tools/atelier-write-guard-review.test.mjs'],
   ['tools/atelier-write-guard-review.mjs','--check'],
+  ['--test','tools/atelier-module-guard-review.test.mjs'],
+  ['tools/atelier-module-guard-review.mjs','--check'],
   ['--test','tools/atelier-size-renderer-review.test.mjs'],
   ['tools/atelier-size-renderer-review.mjs','--check'],
   ['--test','tools/field-label-spacing-proof.test.mjs'],
