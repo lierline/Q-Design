@@ -73,6 +73,7 @@ const steps=[
   ['--test','tools/component-registry.test.mjs','tools/component-style-contract.test.mjs','tools/palette.test.mjs','tools/maison-palette.test.mjs','tools/maison-email.test.mjs','tools/maison-choice-targets.test.mjs','tools/audit-coverage.test.mjs','tools/audit-coverage-imports.test.mjs','tools/qd-adapter-values.test.mjs','tools/asset-pipeline.test.mjs','tools/foundation.test.mjs','tools/style-arguments.test.mjs','tools/carnet-foundation.test.mjs','tools/sync-html-consumers.test.mjs','tools/icon-defaults.test.mjs'],
   ['--test','tools/app-icon-runtime.test.mjs','tools/carnet-stroke-contract.test.mjs','tools/carnet-style-boundaries.test.mjs','tools/maison-layout-tokens.test.mjs','tools/maison-style-proof.test.mjs','tools/migrate-atelier-grid-values.test.mjs','tools/migrate-atelier-conditional-values.test.mjs'],
   ['--test','tools/atelier-style-proof.test.mjs','tools/build-atelier-simulator.test.mjs','tools/maison-runtime-styles.test.mjs'],
+  ['--test','tools/progress-color-boundary.test.mjs'],
   ['--test','tools/migrate-atelier-style-fragments.test.mjs'],
   ['--test','tools/atelier-html.test.mjs'],
   ['--test','tools/atelier-backgrounds.test.mjs'],

@@ -6422,8 +6422,8 @@
     "central-selector": 1161,
     "structural-behavior": 7114,
     "delegated-renderer-parameter": 419,
-    "unknown": 867,
-    "confirmed-style-composition": 85,
+    "unknown": 859,
+    "confirmed-style-composition": 93,
     "compatibility-noop": 18,
     "business-content": 176,
     "font-resource": 659,
@@ -1217350,14 +1217350,57 @@
       "status": "token-reference",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 243,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
         }
       ]
     },
@@ -1217516,14 +1217559,81 @@
       "family": "behavior-structure",
       "status": "token-reference",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 253,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 446,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-top-4bd122fb0a"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 433,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-right-f379bbffe6"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 535,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-width-b7aa1ec004"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 61,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-height-a237b38548"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
         }
       ]
     },
@@ -1217658,14 +1217768,57 @@
       "status": "token-reference",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 255,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
         }
       ]
     },
@@ -1217680,14 +1217833,140 @@
       "family": "behavior-structure",
       "status": "token-reference",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 261,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 523,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-width-7001be5058"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 506,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-width-21afe5201d"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 54,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-height-7ec4898503"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 53,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-height-7c868067ec"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 19,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-border-radius-f44e751c2d"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 243,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 59,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 20,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-surface2"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 55,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-border-width-2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 281,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-border-style-5ed175bd8d"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 566,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-z-index-8fc771a8bb"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 100,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-space-0-75"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 289,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "reviewedFunctionHash": "97ef1dda07de5bc1d1969b1844ac24f5f56f4e118e8ba936bb02788538eb56a4"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 94,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
         }
       ]
     },
@@ -1217797,14 +1218076,74 @@
       "status": "token-reference",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 263,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 243,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 59,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 20,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-surface2"
         }
       ]
     },
@@ -1217820,14 +1218159,74 @@
       "status": "token-reference",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 263,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 55,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-border-width-2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 281,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-border-style-5ed175bd8d"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 243,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 60,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 21,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-border"
         }
       ]
     },
@@ -1217843,14 +1218242,63 @@
       "status": "token-reference",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/OwnerResearchPipelineClient.tsx",
           "line": 264,
           "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 100,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-space-0-75"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 289,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "reviewedFunctionHash": "97ef1dda07de5bc1d1969b1844ac24f5f56f4e118e8ba936bb02788538eb56a4"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 191,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 94,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
         }
       ]
     },
@@ -1369210,14 +1369658,57 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "proven-composition",
+      "reason": "All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.",
       "evidence": [
         {
           "path": "components/RevisionRowExpandable.tsx",
           "line": 220,
           "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 158,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 64,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 27,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-muted"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4044,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "reviewedFunctionHash": "9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa",
+          "valueKind": "string",
+          "dataGeometryReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 206,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 207,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 208,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
         }
       ]
     },

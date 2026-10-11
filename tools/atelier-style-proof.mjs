@@ -4,6 +4,7 @@ import path from 'node:path';
 // A changed helper is deliberately left unknown until its new semantics are reviewed.
 export const REVIEWED_CSS_SCALE = '81d9f944f8e00439f0b47512610bee5f2e37374c9552387f44f865f5b24e6e1a';
 export const REVIEWED_FETCH_JSON = 'fedb3d8cef45e84d18a55549d1f0e5eb3ee0de8f5bb9bc6cf7196680a3b4e713';
+export const REVIEWED_PROGRESS_COLOR = '9af0e6f9869fb2a551e3df05320e6a5fcc5272931c9b676e5c381c4b681f4ffa';
 const REVIEWED_GRAIN = 'a6756472622e7dc01d571d243bb3966d7e01fa493d786c4e8e4842ce4e83b458';
 const REVIEWED_HANGUL_STYLE = '9ea0e0ff3afb380592818d2e3a16e8be1144ff28f052046e219e699c2784c30e';
 const REVIEWED_LABEL_HELPERS = {
@@ -149,6 +150,20 @@ export function collectAdapterReferences({ ts, files, variables, hash, numericFi
             hash: sourceHash, reviewedFunctionHash: '97ef1dda07de5bc1d1969b1844ac24f5f56f4e118e8ba936bb02788538eb56a4' }]);
         }
       }
+    }
+  }
+  // The progress value is domain data. Only this complete reviewed clamping
+  // and HSL recipe is accepted; its three display settings must be central.
+  const progressCode=files.get('lib/design/components.tsx');
+  if(progressCode){
+    const sf=ts.createSourceFile('lib/design/components.tsx',progressCode,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+    const fn=sf.statements.find(n=>ts.isFunctionDeclaration(n)&&n.name?.text==='batteryColor');
+    const imported=sourceImports(ts,sf).get('QDPresentation');
+    const keys=['maximumHue','saturation','lightness'].map(key=>'lib/design/q-design-runtime.ts::QDPresentation.visual.battery.'+key);
+    if(fn&&hash(ts.createPrinter({removeComments:true}).printNode(ts.EmitHint.Unspecified,fn,sf))===REVIEWED_PROGRESS_COLOR
+      &&imported?.module==='@/lib/design/q-design-runtime'&&imported.exported==='QDPresentation'
+      &&centralFiles.has('lib/design/q-design-runtime.ts')&&keys.every(key=>references.get(key)?.[0]?.valueKind==='number')){
+      references.set('lib/design/components.tsx::batteryColor#progressColor',[{path:'lib/design/components.tsx',line:sf.getLineAndCharacterOfPosition(fn.getStart(sf)).line+1,hash:hash(progressCode),reviewedFunctionHash:REVIEWED_PROGRESS_COLOR,valueKind:'string',dataGeometryReview:true},...keys.flatMap(key=>references.get(key))]);
     }
   }
   const grainCode = files.get('lib/design/grain.ts');
@@ -503,6 +518,7 @@ export function localBindings(ts, sf, hash, references = new Map()) {
     }
     return returns.length ? { fn, returns, evidence: { path: sf.fileName,
       line: sf.getLineAndCharacterOfPosition(fn.getStart(sf)).line + 1, hash: hash(sf.text) } } : null;
+  }, imported(node) { const declarations=symbol(node)?.declarations??[];return declarations.length===1&&ts.isImportSpecifier(declarations[0]);
   }, bound(node) { return Boolean(symbol(node)?.declarations?.length); } };
 }
 
@@ -530,6 +546,8 @@ function primitiveExpression({ts,node,sf,imports,file,references,locals,depth=0}
   }
   if(ts.isIdentifier(node)){const local=locals?.resolve(node,true);return Boolean(local&&primitive(local.node));}
   if(ts.isCallExpression(node)&&ts.isIdentifier(node.expression)){
+    const progress=locals?.imported(node.expression)&&importedCall(node.expression.text,imports,file,references,'#progressColor');
+    if(progress&&node.arguments.length===1&&!ts.isSpreadElement(node.arguments[0]))return true;
     const selector=importedCall(node.expression.text,imports,file,references,'#selector');
     if(selector?.[0]?.valueKind)return true;
     const callable=locals?.callable(node.expression);return Boolean(callable&&callable.returns.every(primitive));
@@ -754,6 +772,13 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
       callable.fn.parameters.forEach((parameter, index) => bindings.set(parameter, node.arguments[index] ?? parameter.initializer));
       const proof = combine(callable.returns.map(result => prove(result, property, bindings)));
       if (proof) return { evidence: [callable.evidence, ...proof.evidence], central: proof.central };
+    }
+    const progressColor=locals?.imported(node.expression)&&importedCall(node.expression.text,imports,file,references,'#progressColor');
+    if(progressColor){
+      if(node.arguments.length!==1||ts.isSpreadElement(node.arguments[0]))return null;
+      // This proves the bounded data-driven color recipe, not ownership or
+      // validity of the business percentage supplied by the caller.
+      return {evidence:progressColor,central:false};
     }
     const visualUnary = importedCall(node.expression.text, imports, file, references, '#visualUnary');
     if (visualUnary) {
