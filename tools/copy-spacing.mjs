@@ -3,6 +3,7 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
+import {implementationOwners} from './build-component-implementations.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const ts=createRequire(path.resolve(root,'../Q-Atelier/package.json'))('typescript');
 export function copyNodes(file,code){
@@ -59,16 +60,21 @@ export function applyBindings(file,code,bindings,terms){
  return {after,changes};
 }
 function files(dir){if(!fs.existsSync(dir))return [];return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?(['engine','__tests__','__fixtures__'].includes(e.name)||(e.name==='design'&&/(?:^|[\\/])lib$/.test(dir))?[]:files(path.join(dir,e.name))):/\.[jt]sx?$/.test(e.name)&&! /\.(?:test|spec)\./.test(e.name)?[path.join(dir,e.name)]:[]);}
+export function copySourceFiles(base,product,owners=new Map()){
+ const explicit=[...owners.keys()].filter(key=>key.startsWith(product+':')).map(key=>path.join(base,key.slice(product.length+1)));
+ return [...new Set([...['app','components','lib'].flatMap(dir=>files(path.join(base,dir))),...explicit])];
+}
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const args=process.argv.slice(2);if(args.length!==1||!['--write','--check'].includes(args[0]))throw Error('Use --write or --check.');
  const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.json','utf8'));
+ const owners=fs.existsSync(root+'/patterns/component-implementations.json')?implementationOwners(root):new Map();
  for(const term of rules.terms)if(!term.from||!term.to||/[\r\n"'`$\\]/.test(term.to))throw Error('Copy terms must be plain single-line text.');
  const out=root+'/dist/q-design.copy-bindings.json';
  const prior=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')).files:[],records=[],baselines=[],pending=[];
  for(const [product,repo] of [['atelier','Q-Atelier'],['maison','Q-Works'],['carnet','DHR']]){
   const base=path.resolve(root,'..',repo);
-  for(const full of ['app','components','lib'].flatMap(dir=>files(path.join(base,dir)))){
-   const file=path.relative(base,full).replaceAll('\\','/'),before=fs.readFileSync(full,'utf8'),old=prior.find(row=>row.product===product&&row.path===file);
+  for(const full of copySourceFiles(base,product,owners)){
+   const file=path.relative(base,full).replaceAll('\\','/'),canonical=owners.get(product+':'+file),before=fs.readFileSync(canonical?path.join(root,canonical):full,'utf8'),old=prior.find(row=>row.product===product&&row.path===file);
    let {after,changes}=applyBindings(file,before,old?.bindings??[],termsForFile(rules.terms,product,file));
    if(!changes.length&&!old)continue;
    const bindings=[...(old?.bindings??[])];
@@ -82,15 +88,15 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
     bindings.splice(0,bindings.length,...relocateCopyBindings(file,after,formatted,bindings));
     after=formatted;
    }
-   records.push({product,path:file,bindings});
-   if(changes.length){pending.push({product,path:file,count:changes.length});baselines.push({product,repo,path:file,before,after,beforeHash:hash(before),afterHash:hash(after),changes});}
+   records.push({product,path:file,bindings,...(canonical?{canonical}:{})});
+   if(changes.length){pending.push({product,path:file,count:changes.length,...(canonical?{canonical}:{})});baselines.push({product,repo,path:file,before,after,beforeHash:hash(before),afterHash:hash(after),changes,...(canonical?{canonical}:{})});}
   }
  }
  if(args[0]==='--check'){
   if(pending.length)throw Error('Unsynchronized authored copy: '+JSON.stringify(pending));
   console.log('Authored copy rules passed: '+records.length+' files.');
  }else{
-  for(const record of baselines)fs.writeFileSync(path.resolve(root,'..',record.repo,record.path),record.after);
+  for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
   fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.json',files:records},null,2)+'\n');
   if(baselines.length){
    fs.writeFileSync(path.resolve(root,'../tmp/qd-copy-spacing-baselines.json'),JSON.stringify(baselines,null,2)+'\n');

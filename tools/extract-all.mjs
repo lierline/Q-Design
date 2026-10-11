@@ -50,6 +50,7 @@ const STEPS = [
   { name: '메종 이메일', file: 'build-maison-email.mjs', why: '이메일의 인라인 색상을 공통 팔레트에서 계산합니다' },
   { name: '아뜰리에 HTML 문서', file: 'build-atelier-html.mjs', why: '이메일과 HTML 내보내기의 색상 및 치수를 공통 규칙에서 계산합니다' },
   { name: '제품 기반', file: 'build-foundation.mjs', why: '배경, 인증, 셸과 전역 규칙을 공통 인자와 조합합니다' },
+  { name: '기본 UI 구현', file: 'build-component-implementations.mjs', extra: [...only], why: '검토한 기본 부품 구현을 큐 디자인 정본과 연결하고 공개 내보내기를 기록합니다' },
   { name: '앱 오프라인', file: 'build-native-offline.mjs', extra: [...only], why: 'Android와 iOS 앱의 독립 화면을 공통 규칙에서 만듭니다' },
   { name: '앱 시작 장면', file: 'build-native-launcher.mjs', extra: [...only], why: 'Android 세 앱의 실제 시작 화면을 하나의 공통 표현 규칙에서 만듭니다' },
   { name: '앱 시작 인자', file: 'native-style-arguments.mjs', why: 'Java 구문 트리로 시작 화면의 리터럴과 실제 표현 인자를 목록화합니다' },
@@ -177,6 +178,9 @@ if (native.code !== 0) process.exit(1);
 const nativeLaunch = run('build-native-launcher.mjs', ['--write', ...only]);
 console.log(nativeLaunch.out.trim());
 if (nativeLaunch.code !== 0) process.exit(1);
+const implementations = run('build-component-implementations.mjs', ['--write', ...only]);
+console.log(implementations.out.trim());
+if (implementations.code !== 0) process.exit(1);
 const nativeArguments = run('native-style-arguments.mjs', ['--check']);
 console.log(nativeArguments.out.trim());
 if (nativeArguments.code !== 0) process.exit(1);

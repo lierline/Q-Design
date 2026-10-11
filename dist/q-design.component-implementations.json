@@ -1,0 +1,936 @@
+{
+  "version": 1,
+  "manifest": "patterns/component-implementations.json",
+  "manifestHash": "004f5fb76034faab874acb2186dc712180953df0fcfe5eeafb42659d044b960a",
+  "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
+  "records": [
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "path": "lib/design/components.tsx",
+      "target": "Q-Atelier/lib/design/components.tsx",
+      "canonical": "patterns/component-implementations/atelier/lib/design/components.tsx",
+      "sourceHash": "04171dbf840569763bc305b0242e13aa9aa9ad4bdf21c356d519a19a68dff5a8",
+      "exports": [
+        {
+          "name": "Lbl",
+          "kind": "value"
+        },
+        {
+          "name": "In",
+          "kind": "value"
+        },
+        {
+          "name": "SelOpt",
+          "kind": "type"
+        },
+        {
+          "name": "Sel",
+          "kind": "value"
+        },
+        {
+          "name": "Txt",
+          "kind": "value"
+        },
+        {
+          "name": "Btn",
+          "kind": "value"
+        },
+        {
+          "name": "IconBtn",
+          "kind": "value"
+        },
+        {
+          "name": "Bx",
+          "kind": "value"
+        },
+        {
+          "name": "Div",
+          "kind": "value"
+        },
+        {
+          "name": "Collapse",
+          "kind": "value"
+        },
+        {
+          "name": "Tag",
+          "kind": "value"
+        },
+        {
+          "name": "ProgressBar",
+          "kind": "value"
+        },
+        {
+          "name": "SectionProgressCard",
+          "kind": "value"
+        },
+        {
+          "name": "Switch",
+          "kind": "value"
+        },
+        {
+          "name": "Checkbox",
+          "kind": "value"
+        },
+        {
+          "name": "FILTER_TAB_ROW",
+          "kind": "value"
+        },
+        {
+          "name": "FilterChip",
+          "kind": "value"
+        },
+        {
+          "name": "En",
+          "kind": "value"
+        },
+        {
+          "name": "InlineStrong",
+          "kind": "value"
+        },
+        {
+          "name": "FldRow",
+          "kind": "value"
+        },
+        {
+          "name": "Field",
+          "kind": "value"
+        },
+        {
+          "name": "FormSection",
+          "kind": "value"
+        },
+        {
+          "name": "FormActions",
+          "kind": "value"
+        },
+        {
+          "name": "EntityCardHeader",
+          "kind": "value"
+        },
+        {
+          "name": "FldError",
+          "kind": "value"
+        },
+        {
+          "name": "PageHd",
+          "kind": "value"
+        },
+        {
+          "name": "Card",
+          "kind": "value"
+        },
+        {
+          "name": "InfoBox",
+          "kind": "value"
+        },
+        {
+          "name": "Alert",
+          "kind": "value"
+        },
+        {
+          "name": "SubmitFailure",
+          "kind": "type"
+        },
+        {
+          "name": "failureFromResponse",
+          "kind": "value"
+        },
+        {
+          "name": "useSubmitFailure",
+          "kind": "value"
+        },
+        {
+          "name": "focusField",
+          "kind": "value"
+        },
+        {
+          "name": "SubmitFailureSummary",
+          "kind": "value"
+        },
+        {
+          "name": "LoadingState",
+          "kind": "value"
+        },
+        {
+          "name": "Skeleton",
+          "kind": "value"
+        },
+        {
+          "name": "SkeletonPanel",
+          "kind": "value"
+        },
+        {
+          "name": "Reveal",
+          "kind": "value"
+        },
+        {
+          "name": "Panel",
+          "kind": "value"
+        },
+        {
+          "name": "EmptyState",
+          "kind": "value"
+        },
+        {
+          "name": "Grid",
+          "kind": "value"
+        },
+        {
+          "name": "foldGrid",
+          "kind": "value"
+        },
+        {
+          "name": "KPI",
+          "kind": "value"
+        },
+        {
+          "name": "TooltipBody",
+          "kind": "value"
+        },
+        {
+          "name": "TooltipRow",
+          "kind": "value"
+        },
+        {
+          "name": "TooltipDivider",
+          "kind": "value"
+        },
+        {
+          "name": "TooltipNote",
+          "kind": "value"
+        },
+        {
+          "name": "POPOVER_GLOW",
+          "kind": "value"
+        },
+        {
+          "name": "infoPopoverStyle",
+          "kind": "value"
+        },
+        {
+          "name": "InfoDot",
+          "kind": "value"
+        },
+        {
+          "name": "NextStep",
+          "kind": "value"
+        },
+        {
+          "name": "LegalNote",
+          "kind": "value"
+        },
+        {
+          "name": "SECTION_TITLE",
+          "kind": "value"
+        },
+        {
+          "name": "SectionTitle",
+          "kind": "value"
+        },
+        {
+          "name": "Section",
+          "kind": "value"
+        },
+        {
+          "name": "SectionCard",
+          "kind": "value"
+        },
+        {
+          "name": "SectionTitleInfo",
+          "kind": "value"
+        },
+        {
+          "name": "CardTitle",
+          "kind": "value"
+        },
+        {
+          "name": "DistributionBars",
+          "kind": "value"
+        },
+        {
+          "name": "SCROLL_TABLE_SQUEEZE",
+          "kind": "value"
+        },
+        {
+          "name": "ScrollTable",
+          "kind": "value"
+        },
+        {
+          "name": "DataTableColumn",
+          "kind": "type"
+        },
+        {
+          "name": "DataTable",
+          "kind": "value"
+        },
+        {
+          "name": "PhoneSwap",
+          "kind": "value"
+        },
+        {
+          "name": "CardRows",
+          "kind": "value"
+        },
+        {
+          "name": "CardRow",
+          "kind": "value"
+        },
+        {
+          "name": "CardFigure",
+          "kind": "value"
+        },
+        {
+          "name": "KpiGrid",
+          "kind": "value"
+        },
+        {
+          "name": "EntityRow",
+          "kind": "value"
+        },
+        {
+          "name": "RiskPill",
+          "kind": "value"
+        },
+        {
+          "name": "Modal",
+          "kind": "value"
+        },
+        {
+          "name": "Drawer",
+          "kind": "value"
+        },
+        {
+          "name": "batteryColor",
+          "kind": "value"
+        },
+        {
+          "name": "ProgressRing",
+          "kind": "value"
+        },
+        {
+          "name": "StageMarker",
+          "kind": "type"
+        },
+        {
+          "name": "StageTimelineNode",
+          "kind": "type"
+        },
+        {
+          "name": "StageTimeline",
+          "kind": "value"
+        },
+        {
+          "name": "Stat",
+          "kind": "value"
+        },
+        {
+          "name": "StatGrid",
+          "kind": "value"
+        },
+        {
+          "name": "DetailRow",
+          "kind": "value"
+        },
+        {
+          "name": "WorkspaceTab",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "path": "lib/design/segmented-choice.tsx",
+      "target": "Q-Atelier/lib/design/segmented-choice.tsx",
+      "canonical": "patterns/component-implementations/atelier/lib/design/segmented-choice.tsx",
+      "sourceHash": "fca3836cc8bf820d70d10bf19511728316d76fa81e686005f4357764962031cd",
+      "exports": [
+        {
+          "name": "choiceLook",
+          "kind": "value"
+        },
+        {
+          "name": "ChoiceCheck",
+          "kind": "value"
+        },
+        {
+          "name": "ChoiceChip",
+          "kind": "value"
+        },
+        {
+          "name": "SegmentedOption",
+          "kind": "type"
+        },
+        {
+          "name": "SegmentedChoiceProps",
+          "kind": "type"
+        },
+        {
+          "name": "nextEnabledIndex",
+          "kind": "value"
+        },
+        {
+          "name": "rovingIndex",
+          "kind": "value"
+        },
+        {
+          "name": "SegmentedChoice",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "path": "lib/design/hangul-text.tsx",
+      "target": "Q-Atelier/lib/design/hangul-text.tsx",
+      "canonical": "patterns/component-implementations/atelier/lib/design/hangul-text.tsx",
+      "sourceHash": "442960d1cd7542d5a92991d61000bd3675379fb61a8f9c9569fe5a5205e6fcff",
+      "exports": [
+        {
+          "name": "codeOrTextFont",
+          "kind": "value"
+        },
+        {
+          "name": "RowMeta",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "path": "components/Toast.tsx",
+      "target": "Q-Atelier/components/Toast.tsx",
+      "canonical": "patterns/component-implementations/atelier/components/Toast.tsx",
+      "sourceHash": "9591aae9d8b9284158328e601bdfca6869fb895f750ddc5867c49a93ce568342",
+      "exports": [
+        {
+          "name": "ToastProvider",
+          "kind": "value"
+        },
+        {
+          "name": "useToast",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/button.tsx",
+      "target": "Q-Works/components/ui/button.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/button.tsx",
+      "sourceHash": "a737bbd7e498fa6d8fc667bfb33fa0a8a363b46cd4c4079d777843873435c03f",
+      "exports": [
+        {
+          "name": "ButtonProps",
+          "kind": "type"
+        },
+        {
+          "name": "Button",
+          "kind": "value"
+        },
+        {
+          "name": "buttonVariants",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/calendar.tsx",
+      "target": "Q-Works/components/ui/calendar.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/calendar.tsx",
+      "sourceHash": "32ba5c123902cf4d97b5f9b3115a2296546a213ffe0865d12135708976a5e693",
+      "exports": [
+        {
+          "name": "Calendar",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/card.tsx",
+      "target": "Q-Works/components/ui/card.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/card.tsx",
+      "sourceHash": "8f46155dd655c63499790f6c054113c74c6bca4654f2b7a3df8a0bebe74fb04a",
+      "exports": [
+        {
+          "name": "Card",
+          "kind": "value"
+        },
+        {
+          "name": "CardHeader",
+          "kind": "value"
+        },
+        {
+          "name": "CardFooter",
+          "kind": "value"
+        },
+        {
+          "name": "CardTitle",
+          "kind": "value"
+        },
+        {
+          "name": "CardDescription",
+          "kind": "value"
+        },
+        {
+          "name": "CardContent",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/checkbox.tsx",
+      "target": "Q-Works/components/ui/checkbox.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/checkbox.tsx",
+      "sourceHash": "c8c4b9d2097cdeef608f9d2645af3ceb984f4bb650fd1828ed7ed56b845a1240",
+      "exports": [
+        {
+          "name": "Checkbox",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/combobox.tsx",
+      "target": "Q-Works/components/ui/combobox.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/combobox.tsx",
+      "sourceHash": "1611edffc9205a84ae8e083571bc4a8d953b2adbc3f93108ac0e86ab99969fd4",
+      "exports": [
+        {
+          "name": "ComboboxOption",
+          "kind": "type"
+        },
+        {
+          "name": "ComboboxProps",
+          "kind": "type"
+        },
+        {
+          "name": "Combobox",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/date-picker.tsx",
+      "target": "Q-Works/components/ui/date-picker.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/date-picker.tsx",
+      "sourceHash": "eddb0b5d7a1bebae6808c7696e86b0f327d06c7e57143ec236a79f25d93ef251",
+      "exports": [
+        {
+          "name": "DatePickerProps",
+          "kind": "type"
+        },
+        {
+          "name": "DatePicker",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/date-range-picker.tsx",
+      "target": "Q-Works/components/ui/date-range-picker.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/date-range-picker.tsx",
+      "sourceHash": "1a6c01c55c68d5783c8025f8dd6b95e49e5afc281af9ff48cc5b56a8ce512150",
+      "exports": [
+        {
+          "name": "DateRangePicker",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/dialog.tsx",
+      "target": "Q-Works/components/ui/dialog.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/dialog.tsx",
+      "sourceHash": "8e2d158c691e8e86b7c05cc5b53f9ce4bb7214a44386f295c0139a678fb843b8",
+      "exports": [
+        {
+          "name": "Dialog",
+          "kind": "value"
+        },
+        {
+          "name": "DialogTrigger",
+          "kind": "value"
+        },
+        {
+          "name": "DialogClose",
+          "kind": "value"
+        },
+        {
+          "name": "DialogPortal",
+          "kind": "value"
+        },
+        {
+          "name": "DialogOverlay",
+          "kind": "value"
+        },
+        {
+          "name": "DialogContent",
+          "kind": "value"
+        },
+        {
+          "name": "DialogHeader",
+          "kind": "value"
+        },
+        {
+          "name": "DialogFooter",
+          "kind": "value"
+        },
+        {
+          "name": "DialogTitle",
+          "kind": "value"
+        },
+        {
+          "name": "DialogDescription",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/field.tsx",
+      "target": "Q-Works/components/ui/field.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/field.tsx",
+      "sourceHash": "c7dcd46530a27cbaf26c4967f209b00b96316fdf2dd48ae6cac6870e39e30e82",
+      "exports": [
+        {
+          "name": "useFieldControl",
+          "kind": "value"
+        },
+        {
+          "name": "Field",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/input.tsx",
+      "target": "Q-Works/components/ui/input.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/input.tsx",
+      "sourceHash": "aeeae2a0c9fa8152bea69db5da19e681fbd32f8ce11be8242caeb2a2f43886be",
+      "exports": [
+        {
+          "name": "Input",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/label.tsx",
+      "target": "Q-Works/components/ui/label.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/label.tsx",
+      "sourceHash": "3764a28c33e7f04bb2a983d18741d24d19386acd7e9acb792770c9d81b02a7dd",
+      "exports": [
+        {
+          "name": "Label",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/money-input.tsx",
+      "target": "Q-Works/components/ui/money-input.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/money-input.tsx",
+      "sourceHash": "1e36c16baac89b8872c4d169067524aa7cddfaf838c57bd4af199a7113adb4ed",
+      "exports": [
+        {
+          "name": "MoneyInput",
+          "kind": "value"
+        },
+        {
+          "name": "plainNumber",
+          "kind": "value"
+        },
+        {
+          "name": "groupDigits",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/password-input.tsx",
+      "target": "Q-Works/components/ui/password-input.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/password-input.tsx",
+      "sourceHash": "0c49b65b0b1a12cb4747ae1357bf5c14b5b85f4b8c09a2da770e27bb32ca153e",
+      "exports": [
+        {
+          "name": "PasswordInput",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/select.tsx",
+      "target": "Q-Works/components/ui/select.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/select.tsx",
+      "sourceHash": "ef95140f3e03b028447b1c86f7890d3d43debde6a0a85e6998c1d7933270e54b",
+      "exports": [
+        {
+          "name": "Select",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/sheet.tsx",
+      "target": "Q-Works/components/ui/sheet.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/sheet.tsx",
+      "sourceHash": "f95db0ba9fb362b7b93208dfb07a69512dbb0ecc764110bfa6a06f2f0232c175",
+      "exports": [
+        {
+          "name": "Sheet",
+          "kind": "value"
+        },
+        {
+          "name": "SheetTrigger",
+          "kind": "value"
+        },
+        {
+          "name": "SheetClose",
+          "kind": "value"
+        },
+        {
+          "name": "SheetContent",
+          "kind": "value"
+        },
+        {
+          "name": "SheetTitle",
+          "kind": "value"
+        },
+        {
+          "name": "SheetDescription",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/sonner.tsx",
+      "target": "Q-Works/components/ui/sonner.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/sonner.tsx",
+      "sourceHash": "de62dedd799a6a4deeda1a588cbaa9b4e87d39677919e4a2908ca505659b8861",
+      "exports": [
+        {
+          "name": "Toaster",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/suggest-input.tsx",
+      "target": "Q-Works/components/ui/suggest-input.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/suggest-input.tsx",
+      "sourceHash": "ef77c981e64efff61cf9108599101791909b6a88ab56c0cbd3c36d3699fd608b",
+      "exports": [
+        {
+          "name": "SuggestInput",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/ui/textarea.tsx",
+      "target": "Q-Works/components/ui/textarea.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/textarea.tsx",
+      "sourceHash": "94082bcf67b4cf080f222ab67c582b9875d589a3ea72a0339e386c5335cb4dc7",
+      "exports": [
+        {
+          "name": "Textarea",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "path": "components/ui.tsx",
+      "target": "DHR/components/ui.tsx",
+      "canonical": "patterns/component-implementations/carnet/components/ui.tsx",
+      "sourceHash": "bb674783bbf3c1e58114bdd87c98a0229c00d8f33bf2ced443525a47e3db6ad6",
+      "exports": [
+        {
+          "name": "Msg",
+          "kind": "value"
+        },
+        {
+          "name": "Panel",
+          "kind": "value"
+        },
+        {
+          "name": "TableWrap",
+          "kind": "value"
+        },
+        {
+          "name": "Empty",
+          "kind": "value"
+        },
+        {
+          "name": "Field",
+          "kind": "value"
+        },
+        {
+          "name": "Stat",
+          "kind": "value"
+        },
+        {
+          "name": "tagHangul",
+          "kind": "value"
+        },
+        {
+          "name": "Tag",
+          "kind": "value"
+        },
+        {
+          "name": "Warnings",
+          "kind": "value"
+        },
+        {
+          "name": "LockMark",
+          "kind": "value"
+        },
+        {
+          "name": "Caution",
+          "kind": "value"
+        },
+        {
+          "name": "Progress",
+          "kind": "value"
+        },
+        {
+          "name": "ListCount",
+          "kind": "value"
+        },
+        {
+          "name": "Truncated",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "path": "components/table.tsx",
+      "target": "DHR/components/table.tsx",
+      "canonical": "patterns/component-implementations/carnet/components/table.tsx",
+      "sourceHash": "83021645093cfb0c600b11d3a672f1ce3be12569ec4a8bbb64337eeaf9cbc094",
+      "exports": [
+        {
+          "name": "Table",
+          "kind": "value"
+        },
+        {
+          "name": "Th",
+          "kind": "value"
+        },
+        {
+          "name": "Td",
+          "kind": "value"
+        },
+        {
+          "name": "IdCell",
+          "kind": "value"
+        },
+        {
+          "name": "TwoLine",
+          "kind": "value"
+        },
+        {
+          "name": "ActionTd",
+          "kind": "value"
+        },
+        {
+          "name": "ActionTh",
+          "kind": "value"
+        },
+        {
+          "name": "RowLink",
+          "kind": "value",
+          "reexportFrom": "components/row-link.tsx"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "path": "components/dialog.tsx",
+      "target": "DHR/components/dialog.tsx",
+      "canonical": "patterns/component-implementations/carnet/components/dialog.tsx",
+      "sourceHash": "75f678d8df971686986b753d2cc1e6459e2ad54669c507607353a79ca53cc46c",
+      "exports": [
+        {
+          "name": "useDialog",
+          "kind": "value"
+        },
+        {
+          "name": "Dialog",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "path": "components/toast.tsx",
+      "target": "DHR/components/toast.tsx",
+      "canonical": "patterns/component-implementations/carnet/components/toast.tsx",
+      "sourceHash": "fed336b16a74b4a608c654f88ad4be34e984e64d9b11458bbc6e63133c366bd8",
+      "exports": [
+        {
+          "name": "default",
+          "localName": "Toasts",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "key": "Q-Forge",
+      "path": "components/row-link.tsx",
+      "target": "DHR/components/row-link.tsx",
+      "canonical": "patterns/component-implementations/carnet/components/row-link.tsx",
+      "sourceHash": "080023f195efb269f42670911afd204a967a9cfffe54eb51338c9ab7667bc67f",
+      "exports": [
+        {
+          "name": "RowLink",
+          "kind": "value"
+        }
+      ]
+    }
+  ]
+}

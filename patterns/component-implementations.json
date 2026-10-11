@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "scope": "Explicit reviewed source-ownership scopes. Full primitive implementations are canonical; product data, callbacks, imported domain labels, preferences and caller overrides remain separate inputs. This registry is not an automatic directory exemption or a complete visual certificate.",
+  "products": [
+    {
+      "key": "Q-Atelier",
+      "product": "atelier",
+      "repo": "Q-Atelier",
+      "files": [
+        "lib/design/components.tsx",
+        "lib/design/segmented-choice.tsx",
+        "lib/design/hangul-text.tsx",
+        "components/Toast.tsx"
+      ]
+    },
+    {
+      "key": "Q-Works",
+      "product": "maison",
+      "repo": "Q-Works",
+      "files": [
+        "components/ui/button.tsx",
+        "components/ui/calendar.tsx",
+        "components/ui/card.tsx",
+        "components/ui/checkbox.tsx",
+        "components/ui/combobox.tsx",
+        "components/ui/date-picker.tsx",
+        "components/ui/date-range-picker.tsx",
+        "components/ui/dialog.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/money-input.tsx",
+        "components/ui/password-input.tsx",
+        "components/ui/select.tsx",
+        "components/ui/sheet.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/suggest-input.tsx",
+        "components/ui/textarea.tsx"
+      ]
+    },
+    {
+      "key": "Q-Forge",
+      "product": "carnet",
+      "repo": "DHR",
+      "files": [
+        "components/ui.tsx",
+        "components/table.tsx",
+        "components/dialog.tsx",
+        "components/toast.tsx",
+        "components/row-link.tsx"
+      ],
+      "defaultExports": {
+        "components/toast.tsx": "Toasts"
+      }
+    }
+  ]
+}

@@ -51,6 +51,8 @@ const steps=[
   ['--test','tools/build-native-launcher.test.mjs'],
   ['tools/build-native-launcher.mjs','--check'],
   ['tools/native-style-arguments.mjs','--check'],
+  ['--test','tools/build-component-implementations.test.mjs'],
+  ['tools/build-component-implementations.mjs','--check'],
   ['tools/build-atelier-simulator.mjs','--check'],
   ['tools/check-style-bindings.mjs'],
   ['tools/component-registry.mjs','--check'],
