@@ -298,6 +298,28 @@ html .qd-skeleton, html .qa-skeleton { animation-duration: var(--qd-skeleton-dur
 :root { --qd-selection-row-height: var(--qd-control-height); --qd-selection-row-padding-y: var(--qd-space-2); --qd-selection-row-padding-x: var(--qd-space-3); }
 html .qd-selection-row { min-height: var(--qd-selection-row-height) !important; padding: var(--qd-selection-row-padding-y) var(--qd-selection-row-padding-x) !important; font-family: var(--qd-font-family-ui); font-size: var(--qd-control-size); }
 
+/* An outlined icon action keeps its outline when the square-control recipe is applied. */
+:root { --qd-secondary-icon-padding: 0px; --qd-secondary-icon-glyph-size: var(--qd-icon-size); }
+html .qd-control-icon.qd-btn--secondary { border-color: var(--qd-ctl) !important; padding: var(--qd-secondary-icon-padding) !important; }
+html .qd-control-icon.qd-btn--secondary > svg { width: var(--qd-secondary-icon-glyph-size) !important; height: var(--qd-secondary-icon-glyph-size) !important; }
+
+/* Delete/remove actions retain their semantic hover color at the shared size. */
+html .qd-control-icon--danger:hover:not(:disabled) { color: var(--qd-danger); }
+
+/* Korean copy wraps between words. Unbroken identifiers can wrap only when
+   they exceed the available width. Scoped tables and print recipes may opt out. */
+:root {
+  --qd-copy-word-break: keep-all;
+  --qd-copy-overflow-wrap: break-word;
+  --qd-copy-word-spacing: normal;
+  --qd-native-wordmark-size: 11px;
+  --qd-native-text-inset: 24px;
+}
+@media screen {
+  body { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); }
+}
+.qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
+
 /* Q-Carnet authored foundation. Q-Design owns screen and exact paper recipes. */
 /* Values unique to the Carnet decorative artwork stay centrally editable here. */
 :root {
@@ -869,8 +891,8 @@ body {
    * 칸보다 긴 낱말은 어쩔 수 없이 끊어야 밖으로 삐져나가지 않으므로
    * overflow-wrap 을 함께 둔다. 평소에는 지키고 정말 안 될 때만 끊는다.
    */
-  word-break: keep-all;
-  overflow-wrap: break-word;
+  word-break: var(--qd-copy-word-break);
+  overflow-wrap: var(--qd-copy-overflow-wrap);
 }
 
 /*
@@ -1240,7 +1262,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     width: 100%;
     height: var(--tap);
     padding: 0 var(--qd-space-3);
-    border: 1px solid var(--color-line-strong);
+    border: 1px solid var(--qd-ctl);
     border-radius: var(--r-md);
     background: var(--color-surface);
     font-size: var(--qd-control-size);
@@ -1316,7 +1338,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   }
   .btn-primary:active:not(:disabled) { box-shadow: none; }
 
-  .btn-ghost { background: var(--color-surface); color: var(--color-ink); border-color: var(--color-line-strong); }
+  .btn-ghost { background: var(--color-surface); color: var(--color-ink); border-color: var(--qd-ctl); }
   .btn-ghost:hover:not(:disabled) { background: var(--color-surface-sub); border-color: var(--color-faint); }
 
   .btn-quiet { background: transparent; color: var(--color-muted); }
@@ -1485,7 +1507,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     align-items: center;
     justify-content: center;
     height: var(--tap-touch);
-    border: 1px solid var(--color-line-strong);
+    border: 1px solid var(--qd-ctl);
     border-radius: var(--r-md);
     background: var(--color-surface);
     color: var(--color-ink);
@@ -1928,7 +1950,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 .login-field {
   font-size: var(--qd-auth-control-size);
   display: flex; align-items: center; gap: 12px; width: 100%; min-height: var(--tap-touch); padding: 0 14px; text-align: left;
-  background: var(--color-surface-sub); border: 1px solid var(--color-line-strong); border-radius: var(--r-md);
+  background: var(--color-surface-sub); border: 1px solid var(--qd-ctl); border-radius: var(--r-md);
   color: var(--color-ink); cursor: pointer; transition: border-color var(--qd-motion-fast) var(--qd-ease), box-shadow var(--qd-motion-fast) var(--qd-ease);
 }
 .login-field[aria-current="true"] { border-color: var(--color-brand); box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-brand) 40%, transparent); }

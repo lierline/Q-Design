@@ -9,7 +9,7 @@
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Q-Atelier | 711 | 1153 | 143 | 87 | 20 | 69 | 624 |
-| Q-Maison | 1106 | 1354 | 156 | 94 | 18 | 365 | 637 |
+| Q-Maison | 1107 | 1355 | 156 | 94 | 18 | 365 | 638 |
 | Q-Carnet | 161 | 272 | 19 | 32 | 15 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
@@ -1597,6 +1597,7 @@
 | [components/layout/rail-search.tsx](../../Q-Works/components/layout/rail-search.tsx) | `RailSearch` (composition, 추론) | qd-class-reference |
 | [components/layout/sidebar-nav.tsx](../../Q-Works/components/layout/sidebar-nav.tsx) | `renderItem` (navigation, 추론), `renderMoveMenu` (navigation, 추론), `SidebarNav` (navigation, 추론) | qd-class-reference |
 | [components/layout/sidebar.tsx](../../Q-Works/components/layout/sidebar.tsx) | `Sidebar` (navigation, 추론) | qd-class-reference |
+| [components/passkey-banner.tsx](../../Q-Works/components/passkey-banner.tsx) | `PasskeyBanner` (feedback, 추론) | product-local |
 | [components/passkey-offer.tsx](../../Q-Works/components/passkey-offer.tsx) | `PasskeyOffer` (composition, 추론) | qd-class-reference |
 | [components/passkey-section.tsx](../../Q-Works/components/passkey-section.tsx) | `PasskeySection` (layout, 추론) | qd-class-reference |
 | [components/planning/planning-stats.tsx](../../Q-Works/components/planning/planning-stats.tsx) | `PlanningStats` (data-display, 추론) | product-local |

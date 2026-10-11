@@ -29,14 +29,22 @@ try{
     const error=document.querySelector('[data-testid=parity-error] .qd-field-error'),errorStyle=getComputedStyle(error);
     result.fieldError=Object.fromEntries(['fontFamily','fontSize','fontWeight','lineHeight','letterSpacing','color'].map(p=>[p,errorStyle[p]]));
     result.fieldError.gap=error.getBoundingClientRect().top-document.querySelector('[data-testid=parity-error] input').getBoundingClientRect().bottom;
-    return {roles:result,overflow:document.documentElement.scrollWidth>innerWidth+1};
+    const viewportWidth=visualViewport?.width??innerWidth;
+    return {roles:result,viewportWidth,layoutWidth:innerWidth,overflow:document.documentElement.scrollWidth>viewportWidth+1};
    });
    if(values.overflow)failures.push({product,theme,width,issue:'Horizontal overflow'});
+   if(Math.abs(values.viewportWidth-width)>1||Math.abs(values.layoutWidth-width)>1)failures.push({product,theme,width,issue:'Viewport differs from requested test width',actual:{visual:values.viewportWidth,layout:values.layoutWidth}});
    await page.evaluate(()=>{document.documentElement.style.setProperty('--qd-field-gap','8px');document.documentElement.style.setProperty('--qd-textarea-min-height','120px');});
    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
    const mutation=await page.evaluate(()=>({textarea:document.querySelector('[data-testid=parity-textarea] textarea').getBoundingClientRect().height,input:document.querySelector('[data-testid=parity-input] input').getBoundingClientRect().height,nameField:document.querySelector('[data-testid=parity-input]').getBoundingClientRect().height,errorGap:document.querySelector('[data-testid=parity-error] .qd-field-error').getBoundingClientRect().top-document.querySelector('[data-testid=parity-error] input').getBoundingClientRect().bottom}));
    if(mutation.textarea!==120||mutation.input!==44||Math.abs(mutation.nameField-values.roles.fieldGroups.input-4)>0.1||Math.abs(mutation.errorGap-8)>0.1)failures.push({product,theme,width,issue:'Field token propagation',mutation});
-   await page.getByTestId('parity-open-dialog').locator('button').click();await page.getByRole('dialog').waitFor();
+   try{await page.getByTestId('parity-open-dialog').locator('button').click();}
+   catch(error){
+    const layout=await page.evaluate(()=>{const e=document.querySelector('[data-testid=parity-open-dialog] button'),r=e.getBoundingClientRect();return {viewport:{width:innerWidth,height:innerHeight,visual:visualViewport&&{width:visualViewport.width,height:visualViewport.height,scale:visualViewport.scale}},scrollY,body:getComputedStyle(document.body).overflow,rect:{x:r.x,y:r.y,width:r.width,height:r.height},hit:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML.slice(0,400)};});
+    await page.screenshot({path:root+'/reviews/parity-dialog-click-failure.png'});
+    console.error(JSON.stringify({product,theme,width,layout},null,2));throw error;
+   }
+   await page.getByRole('dialog').waitFor();
    const overlay=await page.getByRole('dialog').evaluate(e=>{const s=getComputedStyle(e);return {radius:s.borderRadius,font:s.fontSize};});
    await page.keyboard.press('Escape');await page.getByRole('dialog').waitFor({state:'hidden'});
    rows.push({product,...values,mutation,overlay});await context.close();

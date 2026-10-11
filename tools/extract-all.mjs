@@ -42,12 +42,14 @@ parseCoverageArgs(only);
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
+  { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
   { name: '제품 팔레트', file: 'build-palette.mjs', why: '공통 팔레트를 세 제품의 변수 이름과 형식으로 변환합니다' },
   { name: '메종 이메일', file: 'build-maison-email.mjs', why: '이메일의 인라인 색상을 공통 팔레트에서 계산합니다' },
   { name: '아뜰리에 HTML 문서', file: 'build-atelier-html.mjs', why: '이메일과 HTML 내보내기의 색상 및 치수를 공통 규칙에서 계산합니다' },
   { name: '제품 기반', file: 'build-foundation.mjs', why: '배경, 인증, 셸과 전역 규칙을 공통 인자와 조합합니다' },
+  { name: '앱 오프라인', file: 'build-native-offline.mjs', extra: [...only], why: 'Android와 iOS 앱의 독립 화면을 공통 규칙에서 만듭니다' },
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
@@ -80,6 +82,10 @@ if (checkOnly) {
   console.log(tbl.out.trim() || tbl.err || '');
   const palette = run('build-palette.mjs', ['--check']);
   console.log(palette.out.trim());
+  const native = run('build-native-offline.mjs', ['--check', ...only]);
+  console.log(native.out.trim());
+  const copy = run('copy-spacing.mjs', ['--check']);
+  console.log(copy.out.trim());
   const components = run('check-components.mjs');
   console.log(components.out.trim());
   // 종이 문서 v8: 산출물이 규격서와 맞는가 · 변환기와의 차이가 알려진 것뿐인가
@@ -96,7 +102,7 @@ if (checkOnly) {
   // 앱 아이콘: 제품 public 의 아이콘이 지금 원본으로 그린 것과 같은가 (그림 파일이라 지문 머리표 대신 전체 대조)
   const ico = run('app-icons.mjs', ['--check']);
   console.log(ico.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (palette.code ?? 1) || (components.code ?? 1) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
+  process.exit((src.code || 0) || (tbl.code || 0) || (palette.code ?? 1) || (native.code ?? 1) || (copy.code ?? 1) || (components.code ?? 1) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
 }
 
 console.log('산출물 다시 만들기');
@@ -161,3 +167,7 @@ const icons = run('app-icons.mjs', ['--write', ...only]);
 console.log('');
 console.log(icons.out.trim().split('\n').filter((l) => !/그대로/.test(l)).map((l) => '  ' + l).join('\n'));
 if (icons.code !== 0) process.exit(1);
+
+const native = run('build-native-offline.mjs', ['--write', ...only]);
+console.log(native.out.trim());
+if (native.code !== 0) process.exit(1);

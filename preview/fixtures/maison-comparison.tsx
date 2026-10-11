@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { QuoteItemsTable, emptyQuoteItem } from '@/app/(app)/purchasing/quote-items-table';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,6 +13,8 @@ import { AttendeePicker } from '@/components/shared/attendee-picker';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import ComparisonMatrix, { type ComparisonAdapters } from './comparison-matrix';
 const a: ComparisonAdapters = {
+  itemRows: () => <><QuoteItemsTable rows={[emptyQuoteItem()]} onChange={() => {}} /><QuoteItemsTable rows={[emptyQuoteItem()]} onChange={() => {}} withRemark /></>,
+  secondaryIcon: () => <Button variant="outline" className="qd-control-icon" aria-label="아이콘 보조 동작"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" strokeWidth="1.5" /></svg></Button>,
   button: (text, options = {}) => <Button variant={options.secondary ? 'outline' : 'default'} disabled={options.disabled} onClick={options.onClick}>{text}</Button>,
   field: (_id, label, child, error) => <Field label={label} required error={error}>{child}</Field>,
   input: ({ id: _id, ...props }) => <Input {...props} />,

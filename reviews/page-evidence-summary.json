@@ -12844,178 +12844,22 @@
       "summary": {
         "targets": 277,
         "capturedTargets": 277,
-        "targetsWithReviewedCapture": 210,
-        "targetsWithUsableVisualCapture": 202,
+        "targetsWithReviewedCapture": 227,
+        "targetsWithUsableVisualCapture": 213,
         "targetsWithVerifiedBoundaryCapture": 0,
         "captureRecords": 293,
         "images": 855,
-        "reviewedImages": 628,
+        "reviewedImages": 712,
         "missingImages": 0
       },
       "missingTargets": [],
       "pendingReviewTargets": [
-        {
-          "route": "/reviews",
-          "url": "http://127.0.0.1:3601/reviews",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/reviews/agendas/[id]",
-          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
         {
           "route": "/reviews/agendas/[id]/minutes/print",
           "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001/minutes/print",
           "role": "SaaS_Admin",
           "captures": [
             "reviews/maison-pages/screens/_reviews_agendas__id__minutes_print-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/reviews/agendas/[id]/print",
-          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001/print",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews_agendas__id__print-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/reviews/agendas/[id]/report",
-          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001/report",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/reviews/agendas/[id]/report/print",
-          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001/report/print",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews_agendas__id__report_print-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/reviews/agendas/new",
-          "url": "http://127.0.0.1:3601/reviews/agendas/new",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks",
-          "url": "http://127.0.0.1:3601/risks",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks/[id]",
-          "url": "http://127.0.0.1:3601/risks/5a3b1e00-000a-4000-8000-000000000001",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks__id_-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks/[id]/print/[kind]",
-          "url": "http://127.0.0.1:3601/risks/5a3b1e00-000a-4000-8000-000000000001/print/plan",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks__id__print__kind_-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks/import",
-          "url": "http://127.0.0.1:3601/risks/import",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks_import-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks/new",
-          "url": "http://127.0.0.1:3601/risks/new",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks_new-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/risks/print",
-          "url": "http://127.0.0.1:3601/risks/print",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_risks_print-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/safety",
-          "url": "http://127.0.0.1:3601/safety",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_safety-SaaS_Admin.json"
           ],
           "hasCapture": true,
           "hasReviewedCapture": false,
@@ -13035,59 +12879,11 @@
           "hasVerifiedBoundaryCapture": false
         },
         {
-          "route": "/safety/areas",
-          "url": "http://127.0.0.1:3601/safety/areas",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_safety_areas-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/safety/incidents",
-          "url": "http://127.0.0.1:3601/safety/incidents",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_safety_incidents-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
           "route": "/safety/incidents/[id]",
           "url": "http://127.0.0.1:3601/safety/incidents/5a3b1e00-0059-4000-8000-000000000001",
           "role": "SaaS_Admin",
           "captures": [
             "reviews/maison-pages/screens/_safety_incidents__id_-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/safety/incidents/check",
-          "url": "http://127.0.0.1:3601/safety/incidents/check",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin.json"
-          ],
-          "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
-          "hasVerifiedBoundaryCapture": false
-        },
-        {
-          "route": "/safety/incidents/new",
-          "url": "http://127.0.0.1:3601/safety/incidents/new",
-          "role": "SaaS_Admin",
-          "captures": [
-            "reviews/maison-pages/screens/_safety_incidents_new-SaaS_Admin.json"
           ],
           "hasCapture": true,
           "hasReviewedCapture": false,
@@ -13726,6 +13522,78 @@
           "role": "SaaS_Admin",
           "captures": [
             "reviews/maison-pages/screens/_objectives_new-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/reviews",
+          "url": "http://127.0.0.1:3601/reviews",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_reviews-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/reviews/agendas/[id]",
+          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/reviews/agendas/[id]/report",
+          "url": "http://127.0.0.1:3601/reviews/agendas/5a3b1e00-0015-4000-8000-000000000001/report",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/reviews/agendas/new",
+          "url": "http://127.0.0.1:3601/reviews/agendas/new",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/risks",
+          "url": "http://127.0.0.1:3601/risks",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_risks-SaaS_Admin.json"
+          ],
+          "hasCapture": true,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": false,
+          "hasVerifiedBoundaryCapture": false
+        },
+        {
+          "route": "/risks/print",
+          "url": "http://127.0.0.1:3601/risks/print",
+          "role": "SaaS_Admin",
+          "captures": [
+            "reviews/maison-pages/screens/_risks_print-SaaS_Admin.json"
           ],
           "hasCapture": true,
           "hasReviewedCapture": true,
@@ -16166,7 +16034,7 @@
             "reviews/maison-pages/screens/_reviews-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16178,7 +16046,7 @@
             "reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16214,8 +16082,8 @@
             "reviews/maison-pages/screens/_reviews_agendas__id__print-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16226,7 +16094,7 @@
             "reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16238,8 +16106,8 @@
             "reviews/maison-pages/screens/_reviews_agendas__id__report_print-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16250,7 +16118,7 @@
             "reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16262,7 +16130,7 @@
             "reviews/maison-pages/screens/_risks-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16274,8 +16142,8 @@
             "reviews/maison-pages/screens/_risks__id_-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16286,8 +16154,8 @@
             "reviews/maison-pages/screens/_risks__id__print__kind_-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16298,8 +16166,8 @@
             "reviews/maison-pages/screens/_risks_import-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16310,8 +16178,8 @@
             "reviews/maison-pages/screens/_risks_new-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16322,7 +16190,7 @@
             "reviews/maison-pages/screens/_risks_print-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
+          "hasReviewedCapture": true,
           "hasUsableVisualCapture": false,
           "hasVerifiedBoundaryCapture": false
         },
@@ -16334,8 +16202,8 @@
             "reviews/maison-pages/screens/_safety-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16358,8 +16226,8 @@
             "reviews/maison-pages/screens/_safety_areas-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16370,8 +16238,8 @@
             "reviews/maison-pages/screens/_safety_incidents-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16394,8 +16262,8 @@
             "reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -16406,8 +16274,8 @@
             "reviews/maison-pages/screens/_safety_incidents_new-SaaS_Admin.json"
           ],
           "hasCapture": true,
-          "hasReviewedCapture": false,
-          "hasUsableVisualCapture": false,
+          "hasReviewedCapture": true,
+          "hasUsableVisualCapture": true,
           "hasVerifiedBoundaryCapture": false
         },
         {
@@ -22435,15 +22303,15 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_inspections_incoming-SaaS_Admin-horizontal-1.jpg",
               "hash": "92c1bc7bf9d6a2d7f581d2a414be588e2e05736563eb24cb5763eef37e866bfc",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -23015,23 +22883,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_kpi_evaluations-SaaS_Admin-horizontal-0.jpg",
               "hash": "1b3909f9c72cb6fcb8b9df5d7ecb2e1ff53731f2cb5819fcec8ae3db7f5c9311",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_kpi_evaluations-SaaS_Admin-horizontal-1.jpg",
               "hash": "056f6a4ae3785a6881d8c6aa6b872530ceee02696870b7d96d2e9656eb8f3309",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -23873,31 +23741,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_nc-SaaS_Admin-horizontal-0.jpg",
               "hash": "2e11b28c2afe5fab2920923d4e15a930ccf07976fa3ff4efe9cb953e1fa7a90d",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_nc-SaaS_Admin-horizontal-1.jpg",
               "hash": "5d84258a1facc41a472cf0bf566ca7f33655595c916bf545300826b9dbd612bf",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_nc-SaaS_Admin-horizontal-2.jpg",
               "hash": "5d84258a1facc41a472cf0bf566ca7f33655595c916bf545300826b9dbd612bf",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -24377,31 +24245,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_objectives__id_-SaaS_Admin-horizontal-0.jpg",
               "hash": "8b8ce67930b811043be646857904989d94ecbce18d7b4721ecd9ee1cd2e98d5b",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_objectives__id_-SaaS_Admin-horizontal-1.jpg",
               "hash": "1737a48c953b736b79c4b3b8ec26563589e4d49fd8607a84774724a329a1b1dc",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_objectives__id_-SaaS_Admin-horizontal-2.jpg",
               "hash": "17697a1cbaf11e97aa5692fa0cc215a068f6f24757127cd98db4bb5b76ba6e10",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -24677,23 +24545,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_production-SaaS_Admin-horizontal-0.jpg",
               "hash": "88b3b9d0f4d635aca364a2f2167aeb87d64ab35f32bc4c08e074ae4d76f3edb1",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_production-SaaS_Admin-horizontal-1.jpg",
               "hash": "ce0dd3b6639b955bdf664e527e0646757e711bab49b0f2c3bebc687d7bd29199",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -25035,29 +24903,29 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_purchasing_orders_new-SaaS_Admin-horizontal-0.jpg",
               "hash": "5ddab7400088f7aa52156d93cd242a7bb2d92052e25d749bcc17662707e292f3",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_purchasing_orders_new-SaaS_Admin-horizontal-1.jpg",
               "hash": "70017f4ab3c4ec2991515f5846c08c249ee3fa2856abe837d218dc8129df59c6",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_purchasing_orders_new-SaaS_Admin-horizontal-2.jpg",
               "hash": "ec8ffa1370a39e3bc661a47801311d9d904b858344a0c4a5f0e79f4ad1288d13",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -25211,21 +25079,21 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_purchasing_quotes_new-SaaS_Admin-horizontal-0.jpg",
               "hash": "589a9957626bfb78396b45b9bab523528f30864f5d574f3dac5c6102bd1d2bc5",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_purchasing_quotes_new-SaaS_Admin-horizontal-1.jpg",
               "hash": "efd0e81b7a4f344f065ca4c1d29b2354ba3ea9e2e8d3879bdab782955da87529",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -25677,21 +25545,21 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_qc-charts_new-SaaS_Admin-horizontal-0.jpg",
               "hash": "e12f2d3f1d3fcc658a582fd0e8a4611c4cdf93df2742146f7b59a83709ccc846",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_qc-charts_new-SaaS_Admin-horizontal-1.jpg",
               "hash": "075a1d964a4b47e5d9d7c830152cd73fb01156541b0faa10bb12efaf43916ed4",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -25753,29 +25621,29 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_qc-charts__id_-SaaS_Admin-horizontal-0.jpg",
               "hash": "0d2e265658af6383f4de3617c2601c73ede47f66349ebceb7f5da97b1e8084ac",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_qc-charts__id_-SaaS_Admin-horizontal-1.jpg",
               "hash": "52a49fa08337525cdc57eee2e7026e3a29e47528f9902477857e8978f2b151fd",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_qc-charts__id_-SaaS_Admin-horizontal-2.jpg",
               "hash": "52a49fa08337525cdc57eee2e7026e3a29e47528f9902477857e8978f2b151fd",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-needs-current-recapture",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -25845,23 +25713,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_recalls-SaaS_Admin-horizontal-0.jpg",
               "hash": "21fba8a849707cf7ec585238d50cc88e7885359fdf2a21cb80eb9cec17a9ab16",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_recalls-SaaS_Admin-horizontal-1.jpg",
               "hash": "21fba8a849707cf7ec585238d50cc88e7885359fdf2a21cb80eb9cec17a9ab16",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -26381,23 +26249,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_returns-SaaS_Admin-horizontal-0.jpg",
               "hash": "47a08606cb7526a631b05cdff03741ff044e6d637f9d5b377c29425b93d6ae24",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_returns-SaaS_Admin-horizontal-1.jpg",
               "hash": "d0418d3389c1ff6737d6b370c9ce5c6836ff0f2eaba5f3c146db88e75f71b13d",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -26687,21 +26555,21 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews-SaaS_Admin-0.jpg",
               "hash": "f73b265794f7740087510f74ee9a2f3effd5c4ffdaa3c70971910a32f873ce1c",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "minor-label-spacing-candidate",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews-SaaS_Admin-1.jpg",
               "hash": "f73b265794f7740087510f74ee9a2f3effd5c4ffdaa3c70971910a32f873ce1c",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -26725,45 +26593,45 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin-0.jpg",
               "hash": "5ed55cd65229e43be22cad8fcf66b1429bf47fdcbb929f19ea515f77c03ee5db",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin-1.jpg",
               "hash": "dee68195044de5d91057b007c275fb5f317467e19446bf4ef85eee1d2a764852",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin-2.jpg",
               "hash": "e1dff77da1d7e8440e11900edf47472c107d23616a529bd737898f639863cd3a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-current-role-rechecked-copy-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin-3.jpg",
               "hash": "bce75efb8a53ef733371a6a56fe843519d1bdebc1cce381476d5cb0434e33a41",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-current-role-rechecked-copy-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas_new-SaaS_Admin-4.jpg",
               "hash": "bce75efb8a53ef733371a6a56fe843519d1bdebc1cce381476d5cb0434e33a41",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-current-role-rechecked-copy-pending",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -26787,61 +26655,61 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-0.jpg",
               "hash": "7b690ab6560dee8a1de9d9db00c69065bcebba1daf0e91854e58e60928239874",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-1.jpg",
               "hash": "2dac93ac12fbd7d40e6ae79df62e58088a49b8868bc2ede68e9cc37c5e521750",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-2.jpg",
               "hash": "39bcc8e751626378fdf3e5603957cc351e3c8703d6c62abd696bc5fc10687cc6",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-3.jpg",
               "hash": "d68ffc4cc1d5025c4861b5f5480a3c2ee7277f56517edd2b86ebf057c2b2fc12",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-4.jpg",
               "hash": "84dc8a2109116a1004e19621263ccd69a773683816115799b3e2a7761c8e64b8",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-5.jpg",
               "hash": "2edbb0ed89164a3e13944239f5954e3498f6709903d60b2c079c2af4ac742717",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id_-SaaS_Admin-6.jpg",
               "hash": "2edbb0ed89164a3e13944239f5954e3498f6709903d60b2c079c2af4ac742717",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -26957,31 +26825,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__print-SaaS_Admin-0.jpg",
               "hash": "dcfc26067648e5169b0ded2d293ca9bfb56880e16b2e1a10984e1b566927add1",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__print-SaaS_Admin-1.jpg",
               "hash": "76932c40261604a333dbb634c9925b76e262a96951f8bccbb14c4d67ae1724c2",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__print-SaaS_Admin-2.jpg",
               "hash": "a2be564523c2114485c92d83cfe772ff078e5811c1bff684a7d160480462b561",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27003,61 +26871,61 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-0.jpg",
               "hash": "d5f4635ce87f352adda58e7d7e20436b033b4f8a5059969a05e985c70f21c2e3",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-1.jpg",
               "hash": "d5dc50cde59bb622053e9d72b1a156f5ea351560814ee155d9a7256f5113fb07",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-2.jpg",
               "hash": "97417c26d5aa3249a8cba2ff6b7433eebd810828bb4e341aea7d44e40fd91467",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-3.jpg",
               "hash": "05e1ab7925e073124d24180722cf35b5ffa291c9d7a0a9200a73da46d062e7aa",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-4.jpg",
               "hash": "25001af1ca152ea2de385ba35b4d889810d8eafc24c79b29e416286bf3178cf4",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-5.jpg",
               "hash": "aa397886f98475cffd615a0564afb8fcc005c36b1f2a60b9f6467a656b2aa17f",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report-SaaS_Admin-6.jpg",
               "hash": "aa397886f98475cffd615a0564afb8fcc005c36b1f2a60b9f6467a656b2aa17f",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -27081,31 +26949,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report_print-SaaS_Admin-0.jpg",
               "hash": "ca951ad3da5f8c95e7e29c25ce58ed69e10e10e55d6b1f731e7ca973bf5f0ba8",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report_print-SaaS_Admin-1.jpg",
               "hash": "6ee2fa0511a229823099ec0a517ba261ee091ebfd78097985188c1a239b9912f",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_reviews_agendas__id__report_print-SaaS_Admin-2.jpg",
               "hash": "c627f768c41a8e57514dddfeb1d326032f4ecbae108a986b975cb0699eaf542a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27127,37 +26995,37 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks-SaaS_Admin-0.jpg",
               "hash": "6c7b2dee8f64e166320cbeedd6e4dedf484df73d6bef7bda9c4537eff6bf0a02",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks-SaaS_Admin-1.jpg",
               "hash": "5dd569bd17461f4f337b00ae840b5e9548bc557611620fb5424d9532e220534b",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks-SaaS_Admin-2.jpg",
               "hash": "ae0b8494ec9cd781c5473e84c4704236ccb79b6fa2bc911e335c9607414dfc0a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks-SaaS_Admin-3.jpg",
               "hash": "ae0b8494ec9cd781c5473e84c4704236ccb79b6fa2bc911e335c9607414dfc0a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -27181,23 +27049,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_import-SaaS_Admin-0.jpg",
               "hash": "28cef19c6198b50645956a35b2ddff05f74955519e8d4b0b9c8d5d1b99be5ef1",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_import-SaaS_Admin-1.jpg",
               "hash": "f73066611f7fb3b60e5a4d49c098ccd8ed9defca9ef46af3c66ae62dfcddd18e",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27219,23 +27087,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_new-SaaS_Admin-0.jpg",
               "hash": "e62e36a29fe553840f77b2a547afbca454cf9ad6f96ae42258da45993aed1f91",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_new-SaaS_Admin-1.jpg",
               "hash": "3b971fc5d25991adc38e49c8a346f2687831f877a01344dfe2641bfcf0b0f51b",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27257,37 +27125,37 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_print-SaaS_Admin-0.jpg",
               "hash": "ccb0d75db0569cff925bd73b04d7bcb0d61689028777b42bc13c0485e5b01d5f",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_print-SaaS_Admin-1.jpg",
               "hash": "5e9547c76f79afc568a344821b334fef7f27857845e249b3f061ba427f460907",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_print-SaaS_Admin-2.jpg",
               "hash": "b449c31632ccd8691672f3b8e6de51de62689f5580ba41b09696c1a4b430ef20",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks_print-SaaS_Admin-3.jpg",
               "hash": "94071d01bb3fc231fe72278f5e7cc1bb444e038d14da4a5931952489d9713833",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
+              "reviewed": true,
+              "verdict": "finding-present-document-recapture-pending",
               "needsAttention": true
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
           "usableVisualCapture": false,
           "verifiedBoundaryCapture": false
@@ -27311,39 +27179,39 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id_-SaaS_Admin-0.jpg",
               "hash": "1fdb6f945c745a056034244a7f82d3036d9678e9bdebfaf169013bcd94c82c1e",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id_-SaaS_Admin-1.jpg",
               "hash": "a20b22ee620866534dc51379e08f43f665bd212e9521cf1ffdc053380a2c231d",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id_-SaaS_Admin-2.jpg",
               "hash": "dcb446388b262333f3285d8416532580d4724a619978639f684e5c56b15ae8db",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id_-SaaS_Admin-3.jpg",
               "hash": "dcb446388b262333f3285d8416532580d4724a619978639f684e5c56b15ae8db",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27365,23 +27233,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id__print__kind_-SaaS_Admin-0.jpg",
               "hash": "663ab4dc72cf2337e6c8e1f22719ee407d03b463792c89e7c5aa663e56e2b603",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_risks__id__print__kind_-SaaS_Admin-1.jpg",
               "hash": "57bb05983bb46d4ea311a833b0506342c200827dbbe0fa83035f76d39d83e903",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27403,23 +27271,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety-SaaS_Admin-0.jpg",
               "hash": "acf3478a12d350b7d08ec7a917bf66071fe4b9bfd8e4b5edd903ed0f85af9afc",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety-SaaS_Admin-1.jpg",
               "hash": "e7be95da34fb2409bb694cd1affc00a50aa9bf44b3158e25e79106fc8ef584fc",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27441,23 +27309,23 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_areas-SaaS_Admin-0.jpg",
               "hash": "1b5522d29fa7ea9b1c5cd624bb2652df89dd48c1977655b3868eea75213ff130",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_areas-SaaS_Admin-1.jpg",
               "hash": "967d1304ef8595cb55465eeba538ea45b3109fd5b06cc607a015370d5b11665d",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27479,31 +27347,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents-SaaS_Admin-0.jpg",
               "hash": "7b8ca538185a300e18a495e3787df890856dcf0b78953b3f1ef057ae7884c687",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents-SaaS_Admin-1.jpg",
               "hash": "b6b1937889d686e4f5b50562d4cecc164ac9b0c5c52ae273952b0cc3eb164b43",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents-SaaS_Admin-2.jpg",
               "hash": "b6b1937889d686e4f5b50562d4cecc164ac9b0c5c52ae273952b0cc3eb164b43",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27525,39 +27393,39 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin-0.jpg",
               "hash": "918b01535e181466bd44cfd11fbb15a41bf637a54ea9829de54e6b2fc1aecd4a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin-1.jpg",
               "hash": "79a44e49bda08e37da9551ffedd81e6ff7cf8c8043df084094ef4f7949ce7d7c",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin-2.jpg",
               "hash": "8fc296e3ba362c01ee2b7ef8f335b571ed7d00ebd36af458923232455454add0",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_check-SaaS_Admin-3.jpg",
               "hash": "5ded5c5f06d31c418c85bb6e22ecab2a365f18f32da158a257aecae1a57c638b",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-desktop-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {
@@ -27579,31 +27447,31 @@
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_new-SaaS_Admin-0.jpg",
               "hash": "3ae48312dad7ed9f6f702d2078a54a0562a6f4fa3a6697c0dc3481f1bd077b76",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_new-SaaS_Admin-1.jpg",
               "hash": "a7962ffeabd82885832f0f9cb74f8cc89522f90debd6cfd98593a46098d6e90a",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             },
             {
               "path": "D:/Claude/Q-Design/reviews/maison-pages/screens/_safety_incidents_new-SaaS_Admin-2.jpg",
               "hash": "2ab7ef2df3ef239b149648da1f5863570db613f565c8f3e9dce8e1581a6ca9be",
               "exists": true,
-              "reviewed": false,
-              "verdict": "pending-image-review",
-              "needsAttention": true
+              "reviewed": true,
+              "verdict": "reviewed-mobile-visible-range",
+              "needsAttention": false
             }
           ],
           "routeBoundary": null,
-          "allImagesReviewed": false,
+          "allImagesReviewed": true,
           "viewportMatches": true,
-          "usableVisualCapture": false,
+          "usableVisualCapture": true,
           "verifiedBoundaryCapture": false
         },
         {

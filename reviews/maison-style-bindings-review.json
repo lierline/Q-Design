@@ -44,7 +44,7 @@
         {
           "path": "patterns/foundation/maison.css",
           "line": 1,
-          "hash": "b860801b19065ce582d88240ff20d8a6f0a1409e77ebf942d2968c07c4d49ef4"
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
         }
       ],
       "reviewedExpression": "ok\n    ? \"text-state-green\"\n    : warn\n      ? \"text-state-copper\"\n      : \"text-destructive\"",
@@ -125,7 +125,7 @@
     },
     {
       "argumentHash": "e72c676746bea97ed092ff226a23a8506b8ed7929f8cc92913870c91b8446d3b",
-      "sourceHash": "781c146f07364aa4bc6a04a19f18d755615318ed986836654ecf7b481587ee69",
+      "sourceHash": "26412fb75383695eb151d7ea14c626936ea2e84f93ea526ecc3f2056fcd76901",
       "path": "app/(app)/audits/body-form.tsx",
       "line": 267,
       "decision": "business-data",
@@ -135,12 +135,12 @@
         {
           "path": "app/(app)/audits/body-form.tsx",
           "line": 267,
-          "hash": "781c146f07364aa4bc6a04a19f18d755615318ed986836654ecf7b481587ee69"
+          "hash": "26412fb75383695eb151d7ea14c626936ea2e84f93ea526ecc3f2056fcd76901"
         },
         {
           "path": "app/(app)/audits/body-form.tsx",
           "line": 268,
-          "hash": "781c146f07364aa4bc6a04a19f18d755615318ed986836654ecf7b481587ee69"
+          "hash": "26412fb75383695eb151d7ea14c626936ea2e84f93ea526ecc3f2056fcd76901"
         }
       ],
       "reviewedExpression": "parseInt(e.target.value, 10)",
@@ -591,7 +591,7 @@
     },
     {
       "argumentHash": "6dde5a4988a8131194f08b44c90158b76685b24f8af8defeb2b198b7496c2edc",
-      "sourceHash": "6b33a04a0304b612893a50662dfa82ba9fb5ffd396f534324c136bd861716adc",
+      "sourceHash": "ded04882827e87dbd09c81de91974335e0fd2de500573a0cca2d8ca0660e099d",
       "path": "app/(app)/change-requests/[id]/cr-detail-client.tsx",
       "line": 155,
       "decision": "business-data",
@@ -601,22 +601,22 @@
         {
           "path": "app/(app)/change-requests/[id]/cr-detail-client.tsx",
           "line": 155,
-          "hash": "6b33a04a0304b612893a50662dfa82ba9fb5ffd396f534324c136bd861716adc"
+          "hash": "ded04882827e87dbd09c81de91974335e0fd2de500573a0cca2d8ca0660e099d"
         },
         {
           "path": "app/(app)/change-requests/[id]/cr-detail-client.tsx",
           "line": 162,
-          "hash": "6b33a04a0304b612893a50662dfa82ba9fb5ffd396f534324c136bd861716adc"
+          "hash": "ded04882827e87dbd09c81de91974335e0fd2de500573a0cca2d8ca0660e099d"
         },
         {
           "path": "app/(app)/change-requests/[id]/cr-detail-client.tsx",
           "line": 164,
-          "hash": "6b33a04a0304b612893a50662dfa82ba9fb5ffd396f534324c136bd861716adc"
+          "hash": "ded04882827e87dbd09c81de91974335e0fd2de500573a0cca2d8ca0660e099d"
         },
         {
           "path": "app/(app)/change-requests/[id]/cr-detail-client.tsx",
           "line": 169,
-          "hash": "6b33a04a0304b612893a50662dfa82ba9fb5ffd396f534324c136bd861716adc"
+          "hash": "ded04882827e87dbd09c81de91974335e0fd2de500573a0cca2d8ca0660e099d"
         }
       ],
       "reviewedExpression": "docById.get(id)",
@@ -715,7 +715,7 @@
     },
     {
       "argumentHash": "eb108a36297f08ba162ccb4c9c00c23acd35818eefa29c3761c1d47cbd221e63",
-      "sourceHash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03",
+      "sourceHash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233",
       "path": "app/(app)/complaints/actions.ts",
       "line": 97,
       "decision": "business-data",
@@ -725,22 +725,22 @@
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 97,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 103,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 104,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 105,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         }
       ],
       "reviewedExpression": "parsed.data",
@@ -841,7 +841,7 @@
     },
     {
       "argumentHash": "26d5ff9790a8bbc782a9a8efa405ccf058a83ecd65534c1d853fd77b09e84295",
-      "sourceHash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03",
+      "sourceHash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233",
       "path": "app/(app)/complaints/actions.ts",
       "line": 682,
       "decision": "business-data",
@@ -851,22 +851,22 @@
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 682,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 695,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 699,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         },
         {
           "path": "app/(app)/complaints/actions.ts",
           "line": 700,
-          "hash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03"
+          "hash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233"
         }
       ],
       "reviewedExpression": "parsed.data.report",
@@ -967,7 +967,7 @@
     },
     {
       "argumentHash": "b28c207b2a40c13195f7e99d6961e12911c27f477bf59cafd24fd36286193d8a",
-      "sourceHash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069",
+      "sourceHash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53",
       "path": "app/(app)/concessions/actions.ts",
       "line": 1031,
       "decision": "business-data",
@@ -977,22 +977,22 @@
         {
           "path": "app/(app)/concessions/actions.ts",
           "line": 1031,
-          "hash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069"
+          "hash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53"
         },
         {
           "path": "app/(app)/concessions/actions.ts",
           "line": 1039,
-          "hash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069"
+          "hash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53"
         },
         {
           "path": "app/(app)/concessions/actions.ts",
           "line": 1040,
-          "hash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069"
+          "hash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53"
         },
         {
           "path": "app/(app)/concessions/actions.ts",
           "line": 1046,
-          "hash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069"
+          "hash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53"
         }
       ],
       "reviewedExpression": "await softDeleteRow(\r\n      supabase,\r\n      input.sheet === \"request\" ? \"concessions\" : \"concession_reports\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
@@ -1013,7 +1013,7 @@
     },
     {
       "argumentHash": "18c589954f965ebc006a34cfab21783a42ad8385df60c626dbd669f4d1935955",
-      "sourceHash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f",
+      "sourceHash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483",
       "path": "app/(app)/concessions/approval-ui.tsx",
       "line": 67,
       "decision": "structural-behavior",
@@ -1023,22 +1023,22 @@
         {
           "path": "app/(app)/concessions/approval-ui.tsx",
           "line": 67,
-          "hash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f"
+          "hash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483"
         },
         {
           "path": "app/(app)/concessions/approval-ui.tsx",
           "line": 73,
-          "hash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f"
+          "hash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483"
         },
         {
           "path": "app/(app)/concessions/approval-ui.tsx",
           "line": 81,
-          "hash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f"
+          "hash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483"
         },
         {
           "path": "app/(app)/concessions/approval-ui.tsx",
           "line": 95,
-          "hash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f"
+          "hash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483"
         }
       ],
       "reviewedExpression": "stepCursor([\"submitted\", \"reviewed\", \"approved\"], p.status)",
@@ -1643,7 +1643,7 @@
     },
     {
       "argumentHash": "f3110f7b58dd3782a8bfa95ed0197410f89b499fd075c17f2818d59606ff5610",
-      "sourceHash": "eb3a9ab49faf704f674636d49c1de5c72993883d09e948fb1465f3891358b2d2",
+      "sourceHash": "4035f3004059ce240f84524ed845efe178e28c35a56572b3da0ec036bbe52592",
       "path": "app/(app)/design/[id]/stage-editor.tsx",
       "line": 107,
       "decision": "business-data",
@@ -1653,17 +1653,17 @@
         {
           "path": "app/(app)/design/[id]/stage-editor.tsx",
           "line": 107,
-          "hash": "eb3a9ab49faf704f674636d49c1de5c72993883d09e948fb1465f3891358b2d2"
+          "hash": "4035f3004059ce240f84524ed845efe178e28c35a56572b3da0ec036bbe52592"
         },
         {
           "path": "app/(app)/design/[id]/stage-editor.tsx",
           "line": 119,
-          "hash": "eb3a9ab49faf704f674636d49c1de5c72993883d09e948fb1465f3891358b2d2"
+          "hash": "4035f3004059ce240f84524ed845efe178e28c35a56572b3da0ec036bbe52592"
         },
         {
           "path": "app/(app)/design/[id]/stage-editor.tsx",
           "line": 120,
-          "hash": "eb3a9ab49faf704f674636d49c1de5c72993883d09e948fb1465f3891358b2d2"
+          "hash": "4035f3004059ce240f84524ed845efe178e28c35a56572b3da0ec036bbe52592"
         }
       ],
       "reviewedExpression": "await saveDesignStage({\n        id,\n        inputs: inputs.filter((i) => i.requirement.trim() !== \"\"),\n        outputs: outputs.filter((o) => o.name.trim() !== \"\"),\n        reviews: reviews.filter((r) => r.held_on.trim() !== \"\"),\n        verifications: verifications.filter((v) => v.item.trim() !== \"\"),\n        validations: validations.filter((v) => v.item.trim() !== \"\"),\n        completion_note: completion.trim() || null,\n        open_issues: issues.trim() || null,\n        dhf_no: dhf.trim() || null,\n        dmr_no: dmr.trim() || null,\n      })",
@@ -1850,7 +1850,7 @@
     },
     {
       "argumentHash": "15cf4e2ae50dfb9ff84f86be4ec13e75628aef669c32240f1a297ee4ac2a1b54",
-      "sourceHash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3",
+      "sourceHash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e",
       "path": "app/(app)/document-dispatch/actions.ts",
       "line": 259,
       "decision": "business-data",
@@ -1860,22 +1860,22 @@
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 259,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 262,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 263,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 264,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         }
       ],
       "reviewedExpression": "byId.get(ref.id)!",
@@ -1904,7 +1904,7 @@
     },
     {
       "argumentHash": "4320982bb01cc94be88e69913583b119419fa2666ff818bc78c4f243f9a9105e",
-      "sourceHash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3",
+      "sourceHash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e",
       "path": "app/(app)/document-dispatch/actions.ts",
       "line": 311,
       "decision": "business-data",
@@ -1914,12 +1914,12 @@
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 311,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 317,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         }
       ],
       "reviewedExpression": "input.sheet === \"request\"\r\n        ? \"id, approval_status, created_by, department_id, request_no\"\r\n        : \"id, approval_status, created_by, department_id, request_id, report_no\"",
@@ -1932,7 +1932,7 @@
     },
     {
       "argumentHash": "1efcfb234fc3e3c2f8d9b45bf29d7f895782c96c62b8789ed31863756dd2f20a",
-      "sourceHash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3",
+      "sourceHash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e",
       "path": "app/(app)/document-dispatch/actions.ts",
       "line": 526,
       "decision": "business-data",
@@ -1942,22 +1942,22 @@
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 526,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 534,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 535,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         },
         {
           "path": "app/(app)/document-dispatch/actions.ts",
           "line": 541,
-          "hash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3"
+          "hash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e"
         }
       ],
       "reviewedExpression": "await softDeleteRow(\r\n      supabase,\r\n      TABLE[input.sheet],\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
@@ -1978,7 +1978,7 @@
     },
     {
       "argumentHash": "c4d69a3da0b698c6f63bf6a69b19c50351a058f04596d4d00c940ef111b6fa7a",
-      "sourceHash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd",
+      "sourceHash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07",
       "path": "app/(app)/document-dispatch/approval-ui.tsx",
       "line": 62,
       "decision": "structural-behavior",
@@ -1988,22 +1988,22 @@
         {
           "path": "app/(app)/document-dispatch/approval-ui.tsx",
           "line": 62,
-          "hash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd"
+          "hash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07"
         },
         {
           "path": "app/(app)/document-dispatch/approval-ui.tsx",
           "line": 68,
-          "hash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd"
+          "hash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07"
         },
         {
           "path": "app/(app)/document-dispatch/approval-ui.tsx",
           "line": 76,
-          "hash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd"
+          "hash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07"
         },
         {
           "path": "app/(app)/document-dispatch/approval-ui.tsx",
           "line": 94,
-          "hash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd"
+          "hash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07"
         }
       ],
       "reviewedExpression": "stepCursor([\"submitted\", \"reviewed\", \"approved\"], p.status)",
@@ -2085,7 +2085,7 @@
     },
     {
       "argumentHash": "adca8a75f02b664f0c034c15245b468999f7bbc53951874d4c4f136b3b7633c2",
-      "sourceHash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de",
+      "sourceHash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89",
       "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
       "line": 104,
       "decision": "business-data",
@@ -2095,22 +2095,22 @@
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 104,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 107,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 107,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 108,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         }
       ],
       "reviewedExpression": "departments.map((d) => d.id)",
@@ -2139,7 +2139,7 @@
     },
     {
       "argumentHash": "b65329256b73acb263ad5048e5db92a932f787b2e20bd3470558f99a09087dc7",
-      "sourceHash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de",
+      "sourceHash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89",
       "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
       "line": 124,
       "decision": "structural-behavior",
@@ -2149,12 +2149,12 @@
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 124,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 126,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         }
       ],
       "reviewedExpression": "members.every((m) => next.has(m.id))",
@@ -2167,7 +2167,7 @@
     },
     {
       "argumentHash": "5cad1a19346d6246db5f7b49ad6e69b6b86fe9d56e8f3e7f32fb8a5015f1f694",
-      "sourceHash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de",
+      "sourceHash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89",
       "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
       "line": 299,
       "decision": "structural-behavior",
@@ -2177,17 +2177,17 @@
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 299,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 306,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         },
         {
           "path": "app/(app)/documents/[id]/acknowledgement-panel.tsx",
           "line": 309,
-          "hash": "f7a292d249cb389fcbb165d2dc35eeab03d6f1015060da2699de07f30c02c1de"
+          "hash": "c94f747bbd19f6a75b9ee6652ec0146b9726417a9a18509fa94d06302fcd6d89"
         }
       ],
       "reviewedExpression": "g.members.every((m) => selected.has(m.id))",
@@ -2519,7 +2519,7 @@
     },
     {
       "argumentHash": "bcdca8d4ff20d1df792045549186b45e9fbc569b213dc1582d605b63c36090ef",
-      "sourceHash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e",
+      "sourceHash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1",
       "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
       "line": 79,
       "decision": "structural-behavior",
@@ -2529,22 +2529,22 @@
         {
           "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
           "line": 79,
-          "hash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e"
+          "hash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1"
         },
         {
           "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
           "line": 88,
-          "hash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e"
+          "hash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1"
         },
         {
           "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
           "line": 96,
-          "hash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e"
+          "hash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1"
         },
         {
           "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
           "line": 114,
-          "hash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e"
+          "hash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1"
         }
       ],
       "reviewedExpression": "stepCursor(\n    [\"submitted\", \"reviewed\", \"approved\"],\n    approved ? \"approved\" : p.status,\n  )",
@@ -3197,7 +3197,7 @@
     },
     {
       "argumentHash": "ae33606952a80e45d088adb6c29715145f98713b8296bd15a2a7f8f047c6519e",
-      "sourceHash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d",
+      "sourceHash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a",
       "path": "app/(app)/inspections/[id]/judge-panel.tsx",
       "line": 155,
       "decision": "business-data",
@@ -3207,22 +3207,22 @@
         {
           "path": "app/(app)/inspections/[id]/judge-panel.tsx",
           "line": 155,
-          "hash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d"
+          "hash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a"
         },
         {
           "path": "app/(app)/inspections/[id]/judge-panel.tsx",
           "line": 160,
-          "hash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d"
+          "hash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a"
         },
         {
           "path": "app/(app)/inspections/[id]/judge-panel.tsx",
           "line": 160,
-          "hash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d"
+          "hash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a"
         },
         {
           "path": "app/(app)/inspections/[id]/judge-panel.tsx",
           "line": 168,
-          "hash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d"
+          "hash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a"
         }
       ],
       "reviewedExpression": "await updateInspectionStatus({\n            id,\n            status: next as never,\n            notes: appended.notes,\n          })",
@@ -4089,7 +4089,7 @@
     },
     {
       "argumentHash": "1ef8e080d8d05307c0e10569ae7fe927c1828683df280a19145408bef5f0c6a8",
-      "sourceHash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3",
+      "sourceHash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1",
       "path": "app/(app)/purchasing/order-actions.ts",
       "line": 581,
       "decision": "business-data",
@@ -4099,22 +4099,22 @@
         {
           "path": "app/(app)/purchasing/order-actions.ts",
           "line": 581,
-          "hash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3"
+          "hash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1"
         },
         {
           "path": "app/(app)/purchasing/order-actions.ts",
           "line": 589,
-          "hash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3"
+          "hash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1"
         },
         {
           "path": "app/(app)/purchasing/order-actions.ts",
           "line": 590,
-          "hash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3"
+          "hash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1"
         },
         {
           "path": "app/(app)/purchasing/order-actions.ts",
           "line": 596,
-          "hash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3"
+          "hash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1"
         }
       ],
       "reviewedExpression": "await softDeleteRow(\r\n      supabase,\r\n      \"purchase_orders\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
@@ -4135,7 +4135,7 @@
     },
     {
       "argumentHash": "8a80432038d2878ecdde2643f2ba3ea0f182cde99e4b16dd4e2133a1dfe8a24c",
-      "sourceHash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165",
+      "sourceHash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5",
       "path": "app/(app)/purchasing/orders/order-approval.tsx",
       "line": 50,
       "decision": "structural-behavior",
@@ -4145,22 +4145,22 @@
         {
           "path": "app/(app)/purchasing/orders/order-approval.tsx",
           "line": 50,
-          "hash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165"
+          "hash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5"
         },
         {
           "path": "app/(app)/purchasing/orders/order-approval.tsx",
           "line": 55,
-          "hash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165"
+          "hash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5"
         },
         {
           "path": "app/(app)/purchasing/orders/order-approval.tsx",
           "line": 63,
-          "hash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165"
+          "hash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5"
         },
         {
           "path": "app/(app)/purchasing/orders/order-approval.tsx",
           "line": 81,
-          "hash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165"
+          "hash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5"
         }
       ],
       "reviewedExpression": "stepCursor([\"submitted\", \"reviewed\", \"approved\"], p.status)",
@@ -4274,7 +4274,7 @@
     },
     {
       "argumentHash": "ad395248526eb34ed42213868af460055d7932f4ce8ee6ab2163648892af86a8",
-      "sourceHash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716",
+      "sourceHash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a",
       "path": "app/(app)/purchasing/purchase-form.tsx",
       "line": 284,
       "decision": "business-data",
@@ -4284,17 +4284,17 @@
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 284,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         },
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 285,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         },
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 286,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         }
       ],
       "reviewedExpression": "await updatePurchaseRequest({ id: existing.id, ...payload })",
@@ -4311,7 +4311,7 @@
     },
     {
       "argumentHash": "757afd13cc00211427c6ef6d3c5fcda8218cdbf03f1f7fbf0a4e0c9ccb964a91",
-      "sourceHash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716",
+      "sourceHash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a",
       "path": "app/(app)/purchasing/purchase-form.tsx",
       "line": 295,
       "decision": "business-data",
@@ -4321,22 +4321,22 @@
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 295,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         },
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 296,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         },
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 297,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         },
         {
           "path": "app/(app)/purchasing/purchase-form.tsx",
           "line": 300,
-          "hash": "8af274814a92497201bacb846984e62912dde86974d0c34cfb810ec6c929a716"
+          "hash": "7a4dc90f7fc7b4595e101a1ad50cf70f98cd383247d256a6f1543d5cf7d5038a"
         }
       ],
       "reviewedExpression": "await createPurchaseRequest(payload)",
@@ -4464,7 +4464,7 @@
     },
     {
       "argumentHash": "81dd65849e27d0df0f05e291d6668dc5af2c646ffd9095b0f5fbcc990f29accf",
-      "sourceHash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42",
+      "sourceHash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1",
       "path": "app/(app)/purchasing/specs/spec-approval.tsx",
       "line": 55,
       "decision": "structural-behavior",
@@ -4474,22 +4474,22 @@
         {
           "path": "app/(app)/purchasing/specs/spec-approval.tsx",
           "line": 55,
-          "hash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42"
+          "hash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1"
         },
         {
           "path": "app/(app)/purchasing/specs/spec-approval.tsx",
           "line": 61,
-          "hash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42"
+          "hash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1"
         },
         {
           "path": "app/(app)/purchasing/specs/spec-approval.tsx",
           "line": 69,
-          "hash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42"
+          "hash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1"
         },
         {
           "path": "app/(app)/purchasing/specs/spec-approval.tsx",
           "line": 87,
-          "hash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42"
+          "hash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1"
         }
       ],
       "reviewedExpression": "stepCursor([\"submitted\", \"reviewed\", \"active\"], p.status)",
@@ -4565,7 +4565,7 @@
     },
     {
       "argumentHash": "f0534219f5557b53028a06cef2a2287bcb9254610403b81facb46e123c155d3a",
-      "sourceHash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b",
+      "sourceHash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1",
       "path": "app/(app)/recalls/actions.ts",
       "line": 364,
       "decision": "business-data",
@@ -4575,12 +4575,12 @@
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 364,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         },
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 365,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         }
       ],
       "reviewedExpression": "found.get(`${w.kind}:${w.id}`)",
@@ -4593,7 +4593,7 @@
     },
     {
       "argumentHash": "6b9b668b81566a59770a850454c10db60ffdc992d5ee6c44b2eaf39c7f07b208",
-      "sourceHash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b",
+      "sourceHash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1",
       "path": "app/(app)/recalls/actions.ts",
       "line": 1043,
       "decision": "business-data",
@@ -4603,22 +4603,22 @@
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 1043,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         },
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 1051,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         },
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 1052,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         },
         {
           "path": "app/(app)/recalls/actions.ts",
           "line": 1060,
-          "hash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b"
+          "hash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1"
         }
       ],
       "reviewedExpression": "await softDeleteRow(\r\n      supabase,\r\n      DELETE_TABLE[input.sheet],\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
@@ -4639,7 +4639,7 @@
     },
     {
       "argumentHash": "81d4ff2d8b669a319819f0247c1ffdb7583af5be6620ce60691bd9f4166be87d",
-      "sourceHash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5",
+      "sourceHash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31",
       "path": "app/(app)/recalls/approval-ui.tsx",
       "line": 70,
       "decision": "structural-behavior",
@@ -4649,22 +4649,22 @@
         {
           "path": "app/(app)/recalls/approval-ui.tsx",
           "line": 70,
-          "hash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5"
+          "hash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31"
         },
         {
           "path": "app/(app)/recalls/approval-ui.tsx",
           "line": 79,
-          "hash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5"
+          "hash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31"
         },
         {
           "path": "app/(app)/recalls/approval-ui.tsx",
           "line": 89,
-          "hash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5"
+          "hash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31"
         },
         {
           "path": "app/(app)/recalls/approval-ui.tsx",
           "line": 104,
-          "hash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5"
+          "hash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31"
         }
       ],
       "reviewedExpression": "stepCursor(\n    review ? [\"submitted\", \"reviewed\", \"approved\"] : [\"submitted\", \"approved\"],\n    p.status,\n  )",
@@ -5487,7 +5487,7 @@
     },
     {
       "argumentHash": "ceaed04083bfec621d2de675843a38a41e8b071d350d02227d7cb50f052ba489",
-      "sourceHash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92",
+      "sourceHash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d",
       "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
       "line": 88,
       "decision": "business-data",
@@ -5497,17 +5497,17 @@
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 88,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 89,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 90,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         }
       ],
       "reviewedExpression": "await saveRiskApprovalChain({ riskId, chain })",
@@ -5524,7 +5524,7 @@
     },
     {
       "argumentHash": "dddb54b8dbe79f502a69c772965a92590991f494d40aec9abe8b4bbac419e708",
-      "sourceHash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92",
+      "sourceHash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d",
       "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
       "line": 94,
       "decision": "business-data",
@@ -5534,17 +5534,17 @@
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 94,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 98,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 99,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         }
       ],
       "reviewedExpression": "await submitRiskForReview({\n        riskId,\n        effectiveDate: effectiveDate || null,\n      })",
@@ -5561,7 +5561,7 @@
     },
     {
       "argumentHash": "7651298849556138201bfcd6da5377b9290196361c42dc53ba1a73a53e325f03",
-      "sourceHash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92",
+      "sourceHash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d",
       "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
       "line": 103,
       "decision": "business-data",
@@ -5571,17 +5571,17 @@
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 103,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 107,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 113,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         }
       ],
       "reviewedExpression": "await approveRiskStep({\n        riskId,\n        comment: comment.trim() || null,\n      })",
@@ -5598,7 +5598,7 @@
     },
     {
       "argumentHash": "fdb75be99bd3349d71cca7d2902b2f5c842b336b3da5b85e91119906f3f21511",
-      "sourceHash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92",
+      "sourceHash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d",
       "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
       "line": 118,
       "decision": "business-data",
@@ -5608,17 +5608,17 @@
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 118,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 122,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         },
         {
           "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
           "line": 123,
-          "hash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92"
+          "hash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d"
         }
       ],
       "reviewedExpression": "await rejectRiskStep({\n        riskId,\n        comment: comment.trim() || null,\n      })",
@@ -6235,7 +6235,7 @@
     },
     {
       "argumentHash": "32df5e4629d1927f0e5cee5edefc27570aa1f3e7464cbb4017d366cfaa0e4674",
-      "sourceHash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2",
+      "sourceHash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c",
       "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
       "line": 103,
       "decision": "structural-behavior",
@@ -6245,22 +6245,22 @@
         {
           "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
           "line": 103,
-          "hash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2"
+          "hash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c"
         },
         {
           "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
           "line": 127,
-          "hash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2"
+          "hash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c"
         },
         {
           "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
           "line": 133,
-          "hash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2"
+          "hash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c"
         },
         {
           "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
           "line": 143,
-          "hash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2"
+          "hash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c"
         }
       ],
       "reviewedExpression": "(code: string) =>\n    !DECIDED.includes(status) && status !== \"on_hold\" && status === code",
@@ -7188,39 +7188,40 @@
       ]
     },
     {
-      "argumentHash": "ddf19adc89fb0d74704412897c518b030123ff03a2b7e05e26f3a02861154f07",
-      "sourceHash": "6b61302ab75858d3b944caba4edbcb83fb862b73c592e04f73779be81d634392",
       "path": "components/passkey-offer.tsx",
+      "sourceHash": "64fa88b0e5ea906402b13742a153202d35573e82fb8655d2032622adf07aa834",
+      "argumentHash": "ddf19adc89fb0d74704412897c518b030123ff03a2b7e05e26f3a02861154f07",
       "line": 24,
+      "kind": "named-style-value",
+      "property": "r",
+      "value": "await registerThisDevice()",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate default or local binding; follow its consumers before classifying",
+      "originalStatus": "review-required",
       "decision": "business-data",
-      "ruleId": "reviewed-lexical-data-binding",
-      "reason": "The exact lexical binding and consumers shown below carry a domain/API result, date, query projection, record collection or business calculation. They do not supply a CSS declaration or a visual default. Consumer: if (r.ok) onDone(); else toast.error(r.message); | toast.error(r.message);",
+      "ruleId": "passkey-registration-result",
+      "reason": "The exact awaited result is the discriminated RegisterResult with ok/message. This consumer only branches on ok and passes message to the error toast; r does not enter CSS, SVG radius or component geometry.",
       "evidence": [
         {
           "path": "components/passkey-offer.tsx",
           "line": 24,
-          "hash": "6b61302ab75858d3b944caba4edbcb83fb862b73c592e04f73779be81d634392"
+          "hash": "64fa88b0e5ea906402b13742a153202d35573e82fb8655d2032622adf07aa834"
         },
         {
           "path": "components/passkey-offer.tsx",
           "line": 26,
-          "hash": "6b61302ab75858d3b944caba4edbcb83fb862b73c592e04f73779be81d634392"
+          "hash": "64fa88b0e5ea906402b13742a153202d35573e82fb8655d2032622adf07aa834"
         },
         {
-          "path": "components/passkey-offer.tsx",
-          "line": 27,
-          "hash": "6b61302ab75858d3b944caba4edbcb83fb862b73c592e04f73779be81d634392"
-        }
-      ],
-      "reviewedExpression": "await registerThisDevice()",
-      "consumerContext": [
-        {
-          "line": 26,
-          "text": "if (r.ok) onDone(); else toast.error(r.message);"
+          "path": "lib/auth/passkey-register.ts",
+          "line": 11,
+          "hash": "c2d9d5c996995754743874e43d9b6d5e5b67bbfc7aa0f498bbc5575b3a7645cd"
         },
         {
-          "line": 27,
-          "text": "toast.error(r.message);"
+          "path": "lib/auth/passkey-register.ts",
+          "line": 13,
+          "hash": "c2d9d5c996995754743874e43d9b6d5e5b67bbfc7aa0f498bbc5575b3a7645cd"
         }
       ]
     },
@@ -7423,7 +7424,7 @@
     },
     {
       "argumentHash": "9b74e0fba029c51568557f16ac4ea32702c0a1bd6a4412a4c367a14aaa275e6f",
-      "sourceHash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e",
+      "sourceHash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9",
       "path": "components/shared/list-stats.tsx",
       "line": 70,
       "decision": "structural-behavior",
@@ -7433,22 +7434,22 @@
         {
           "path": "components/shared/list-stats.tsx",
           "line": 70,
-          "hash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e"
+          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
         },
         {
           "path": "components/shared/list-stats.tsx",
           "line": 88,
-          "hash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e"
+          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
         },
         {
           "path": "components/shared/list-stats.tsx",
           "line": 118,
-          "hash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e"
+          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
         },
         {
           "path": "components/shared/list-stats.tsx",
           "line": 197,
-          "hash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e"
+          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
         }
       ],
       "reviewedExpression": "(label: string, hint: string): Card => ({\r\n  label,\r\n  hint,\r\n  accent: \"cobalt\",\r\n})",
@@ -7803,7 +7804,7 @@
         {
           "path": "patterns/foundation/maison.css",
           "line": 1,
-          "hash": "b860801b19065ce582d88240ff20d8a6f0a1409e77ebf942d2968c07c4d49ef4"
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
         }
       ],
       "reviewedExpression": "STAT_ACCENT[accent]",

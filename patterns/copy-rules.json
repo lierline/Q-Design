@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "scope": "Authored interface labels, help, errors and notifications. Business state codes, user input, identifiers, comments and regulatory source content are excluded.",
+  "terms": [
+    { "id": "draft", "from": "작성중", "to": "작성 중" },
+    { "id": "review", "from": "검토중", "to": "검토 중" },
+    { "id": "approval", "from": "결재중", "to": "결재 중" },
+    { "id": "audit-type", "from": "심사구분", "to": "심사 구분" },
+    { "id": "quality-scope-activity-list", "from": "[설계·개발  생산  보관  유통  설치  서비스]", "to": "[설계·개발 · 생산 · 보관 · 유통 · 설치 · 서비스]" },
+    { "id": "risk-severity-spacing", "from": "어느정도 피해 예상", "to": "어느 정도 피해 예상" },
+    { "id": "risk-response-spacing", "from": "개선 검토 및 필요시 대응 계획 수립", "to": "개선 검토 및 필요 시 대응 계획 수립" }
+  ],
+  "layout": [
+    "문장은 한국어 단어 단위로 줄바꿈하고, 한 줄보다 긴 식별자는 자신의 영역에서만 나눈다.",
+    "표의 열은 내부 가로 스크롤을 허용한다. 화면 전체 폭을 늘려 문장을 숨기지 않는다.",
+    "생략한 글자가 업무 판단에 필요하면 상세 화면이나 접근 가능한 전체 내용으로 확인할 수 있어야 한다.",
+    "좁은 화면, 큰 글꼴, 늘린 글자·단어 간격에서 내용이 조작부와 겹치거나 잘리지 않아야 한다.",
+    "문서의 명시적 줄바꿈, 주소·코드·수식, 공식 명칭과 사용자 입력을 자동으로 고치지 않는다."
+  ]
+}

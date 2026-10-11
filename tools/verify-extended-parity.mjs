@@ -17,9 +17,16 @@ try{
    const context=await browser.newContext({viewport:{width,height:1000},isMobile:width<500&&touch,hasTouch:touch,reducedMotion:'no-preference'});
    const page=await context.newPage();await page.goto(`http://127.0.0.1:4823/preview/components/${product}/?theme=${theme}&view=matched`);
    await page.getByTestId('parity-empty').waitFor();await page.evaluate(()=>document.fonts.ready);
+   const viewport=await page.evaluate(()=>({visual:visualViewport?.width??innerWidth,layout:innerWidth,scroll:document.documentElement.scrollWidth}));
+   if(!before&&(Math.abs(viewport.visual-width)>1||Math.abs(viewport.layout-width)>1||viewport.scroll>width+1))failures.push({product,theme,width,touch,kind:'viewport-or-page-overflow',actual:viewport});
    const measure=()=>page.evaluate(()=>{
     const style=e=>{if(!e)throw Error('Missing rendered role');const s=getComputedStyle(e),r=e.getBoundingClientRect();return {...Object.fromEntries(['fontFamily','fontSize','fontWeight','lineHeight','letterSpacing','borderRadius','paddingTop','paddingRight','paddingBottom','paddingLeft'].map(k=>[k,s[k]])),height:r.height};};
     const result={};
+    const icon=document.querySelector('[data-testid=parity-secondary-icon] button'),iconStyle=getComputedStyle(icon),iconRect=icon.getBoundingClientRect();
+    const glyph=icon.querySelector('svg').getBoundingClientRect();
+    result.secondaryIcon={width:iconRect.width,height:iconRect.height,radius:iconStyle.borderRadius,padding:iconStyle.padding,borderWidth:iconStyle.borderWidth,borderStyle:iconStyle.borderStyle,borderColor:iconStyle.borderColor,glyphWidth:glyph.width,glyphHeight:glyph.height};
+    const itemActions=[...document.querySelectorAll('[data-testid=parity-item-rows] .qd-control-icon')];
+    if(itemActions.length)result.itemActions=itemActions.map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height,radius:getComputedStyle(e).borderRadius}));
     for(const [name,compact] of [['empty',false],['empty-compact',true]]){
      const host=document.querySelector(`[data-testid=parity-${name}]`),panel=host.firstElementChild;
      const title=panel.querySelector('.qd-empty-title')||panel.firstElementChild.firstElementChild;
@@ -44,20 +51,40 @@ try{
     return result;
    });
    const baseline=await measure();
+   const wrapping=await page.evaluate(()=>{const s=getComputedStyle(document.body);return {wordBreak:s.wordBreak,overflowWrap:s.overflowWrap};});
+   if(!before&&(wrapping.wordBreak!=='keep-all'||wrapping.overflowWrap!=='break-word'))failures.push({product,theme,width,kind:'copy-wrap-default',actual:wrapping});
+   const deleteAction=page.locator('[data-testid=parity-item-rows] .qd-control-icon--danger').first();
+   if(await deleteAction.count()){
+    await deleteAction.hover();
+    await page.evaluate(()=>Promise.all(document.getAnimations().filter(animation=>animation instanceof CSSTransition).map(animation=>animation.finished.catch(()=>{}))));
+    const semantic=await deleteAction.evaluate(e=>{const expected=document.createElement('span');expected.style.color='var(--qd-danger)';document.body.append(expected);const values={actual:getComputedStyle(e).color,expected:getComputedStyle(expected).color};expected.remove();return values;});
+    if(semantic.actual!==semantic.expected)failures.push({product,theme,width,kind:'remove-hover',...semantic});
+   }
    if(width<500&&baseline.choice.height<44)failures.push({product,theme,width,touch,kind:'mobile-target',expected:44,actual:baseline.choice.height});
+   if(baseline.itemActions?.some(action=>action.width<44||action.height<44||action.radius!=='10px'))failures.push({product,theme,width,touch,kind:'purchase-item-target',actual:baseline.itemActions});
    if(baseline.selectionRow&&Object.entries(baseline.selectionRow).filter(([k])=>k!=='paddingLeft').some(([,v])=>v<44))failures.push({product,theme,width,touch,kind:'person-selection-target',expected:44,actual:baseline.selectionRow});
    await page.evaluate(()=>{
     const r=document.documentElement.style;
     for(const [n,v]of Object.entries({'--qd-font-weight-semibold':'650','--qd-empty-padding-y':'80px','--qd-empty-padding-y-compact':'24px','--qd-empty-title-size':'24px','--qd-empty-title-size-compact':'18px','--qd-empty-description-size':'14px','--qd-empty-description-leading':'1.8','--qd-empty-description-max-width':'420px','--qd-empty-description-gap':'12px','--qd-skeleton-duration':'2.4s','--qd-tab-padding-x':'22px','--qd-choice-padding-x':'18px','--qd-empty-action-gap':'20px','--qd-empty-description-action-gap':'24px','--qd-empty-action-hint-gap':'20px'}))r.setProperty(n,v);
    });
    await page.evaluate(()=>{document.documentElement.style.setProperty('--qd-selection-row-height','52px');document.documentElement.style.setProperty('--qd-selection-row-padding-x','20px');});
+   await page.evaluate(()=>{document.documentElement.style.setProperty('--qd-ctl','rgb(90, 100, 110)');document.documentElement.style.setProperty('--qd-secondary-icon-padding','2px');document.documentElement.style.setProperty('--qd-secondary-icon-glyph-size','18px');});
+   await page.evaluate(()=>{document.documentElement.style.setProperty('--qd-control-icon','52px');document.documentElement.style.setProperty('--qd-control-height','52px');});
+   await page.evaluate(()=>{document.documentElement.style.setProperty('--qd-copy-word-break','normal');document.documentElement.style.setProperty('--qd-copy-overflow-wrap','anywhere');});
    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+   // The real Atelier icon button transitions border color. Observe its settled
+   // value without waiting on the skeleton's intentionally infinite animation.
+   await page.evaluate(()=>Promise.all(document.getAnimations().filter(animation=>animation instanceof CSSTransition).map(animation=>animation.finished.catch(()=>{}))));
    const mutation=await measure();rows.push({product,baseline,mutation});
+   const copyMutation=await page.evaluate(()=>{const s=getComputedStyle(document.body);return {wordBreak:s.wordBreak,overflowWrap:s.overflowWrap};});
+   if(!before&&(copyMutation.wordBreak!=='normal'||copyMutation.overflowWrap!=='anywhere'))failures.push({product,theme,width,kind:'copy-wrap-propagation',actual:copyMutation});
    if(!before){
     const checks=[['empty','paddingTop','80px'],['empty-compact','paddingTop','24px'],['empty-title','fontSize','24px'],['empty-compact-title','fontSize','18px'],['empty-description','fontSize','14px'],['empty-description','lineHeight','25.2px'],['empty-gap','maxWidth','420px'],['empty-gap','gap',12],['skeleton','duration','2.4s'],['activeTab','fontWeight','650'],['selectedChoice','fontWeight','650'],['activeTab','paddingLeft','22px'],['choice','paddingLeft','18px']];
     for(const[role,property,expected]of checks){const actual=mutation[role][property];if(actual!==expected)failures.push({product,theme,width,kind:'propagation',role,property,expected,actual});}
     for(const[role,expected]of [['empty-action',24],['empty-title-action',20],['emptyHints',20]])if(mutation[role]&&Math.abs(mutation[role].gap-expected)>0.1)failures.push({product,theme,width,kind:'propagation',role,expected,actual:mutation[role].gap});
     if(mutation.selectionRow&&(mutation.selectionRow.height!==52||mutation.selectionRow.paddingLeft!=='20px'))failures.push({product,theme,width,kind:'person-selection-propagation',actual:mutation.selectionRow});
+    for(const[property,expected]of [['borderColor','rgb(90, 100, 110)'],['padding','2px'],['glyphWidth',18],['glyphHeight',18]])if(mutation.secondaryIcon[property]!==expected)failures.push({product,theme,width,kind:'icon-secondary-propagation',property,expected,actual:mutation.secondaryIcon[property]});
+    if(mutation.itemActions?.some(action=>action.width!==52||action.height!==52))failures.push({product,theme,width,touch,kind:'purchase-item-propagation',actual:mutation.itemActions});
    }
    await page.emulateMedia({reducedMotion:'reduce'});
    const reduced=await page.locator('[data-testid=parity-skeleton] .qd-skeleton').evaluate(e=>getComputedStyle(e).animationName);

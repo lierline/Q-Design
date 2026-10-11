@@ -1,0 +1,12 @@
+{
+ "scope":"Read-only review of the new safety incident form. No input, checkbox selection, save or submission.",
+ "route":"/safety/incidents/new",
+ "deploymentCommit":"e336dab016ec078a217f6db9e1dfb3c82b887293",
+ "viewportWidth":375,
+ "documentScrollWidth":375,
+ "headerControls":[{"role":"menu","width":44,"height":44,"radius":"10px","outline":"rgb(122, 115, 100)"},{"role":"notifications","width":44,"height":44,"radius":"10px","outline":"rgb(122, 115, 100)"}],
+ "singleLineFields":{"count":7,"height":44,"radius":"10px"},
+ "paragraphFields":{"count":3,"height":80,"radius":"10px","wordBreak":"keep-all","overflowWrap":"break-word"},
+ "visualObservation":"Viewed the form top and bottom. Long reference text and the immediate-action explanation wrap within their areas. Placeholder copy stays within the paragraph field. Bottom actions remain distinct.",
+ "boundary":"This is the blank form at its initial state. Validation messages, submitted state, larger fonts, other themes and physical devices require separate checks."
+}

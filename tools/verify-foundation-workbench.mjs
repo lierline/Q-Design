@@ -13,6 +13,10 @@ await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.o
 const browser=await chromium.launch({channel:'msedge',headless:true});
 const failures=[],findings=[],editorFindings=[];
 const check=(condition,message)=>{if(!condition)failures.push(message);};
+const contrast=(a,b)=>{
+ const lightness=color=>{const match=/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)$/.exec(color);if(!match||match[4]&&Number(match[4])!==1)throw new Error('Opaque RGB outline evidence required: '+color);return match.slice(1,4).map(Number).map(n=>n/255).map(n=>n<=.04045?n/12.92:((n+.055)/1.055)**2.4).reduce((sum,n,i)=>sum+n*[.2126,.7152,.0722][i],0);};
+ const x=lightness(a),y=lightness(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);
+};
 const previewCss='body{overflow:hidden}.qd-audit-shell{visibility:hidden}[data-testid="foundation-auth"]{display:block;visibility:visible;position:fixed!important;inset:0!important;z-index:20000;width:100%;height:100dvh;max-width:none!important;margin:0!important;overflow:auto;background:var(--qd-auth-background)}[data-testid="foundation-auth"] *{visibility:visible}';
 const changes={
   '--qd-auth-title-size':'42px','--qd-auth-card-padding':'32px',
@@ -31,11 +35,12 @@ try{
   await page.addStyleTag({content:previewCss});
   const measure=()=>page.evaluate(()=>{
    const auth=document.querySelector('[data-testid=foundation-auth]'),title=auth.querySelector('[data-testid=foundation-auth-title]'),input=auth.querySelector('[data-testid=foundation-auth-input],#fixture-auth-email'),card=auth.querySelector('.qa-auth-card,.qm-auth-card,.login-card');
-   const style=e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return{font:s.fontSize,family:s.fontFamily,padding:s.padding,bg:s.backgroundColor,radius:s.borderRadius,x:r.x,right:r.right,width:r.width,height:r.height};};
+   const style=e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return{font:s.fontSize,family:s.fontFamily,padding:s.padding,bg:s.backgroundColor,border:s.borderColor,radius:s.borderRadius,x:r.x,right:r.right,width:r.width,height:r.height};};
    const ribbon=auth.querySelector('.qa-ribbon-layer-1,.qm-ribbon-1,.carnet-ribbon-primary');
    return{auth:style(auth),title:style(title),input:style(input),card:style(card),ribbonOpacity:ribbon?getComputedStyle(ribbon).opacity:null,scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,motion:[...auth.querySelectorAll('*')].flatMap(e=>{const s=getComputedStyle(e);return s.animationName!=='none'&&parseFloat(s.animationDuration)>.001?[{name:s.animationName,duration:s.animationDuration}]:[];})};
   });
   const before=await measure();check(before.scrollWidth<=width+1,`${key}: horizontal overflow ${before.scrollWidth}`);
+  check(contrast(before.input.border,before.input.bg)>=3,`${key}: auth input outline has less than 3:1 contrast`);
   check(before.input.width>100&&before.input.x>=0&&before.input.right<=width+1,`${key}: auth field outside viewport`);
   check(before.input.height>=43.5,`${key}: auth field below44`);
   check(!before.motion.length,`${key}: reduced motion still animates ${JSON.stringify(before.motion)}`);

@@ -1,0 +1,1894 @@
+{
+  "scope": "Authored interface labels, help, errors and notifications. Business state codes, user input, identifiers, comments and regulatory source content are excluded.",
+  "files": [
+    {
+      "product": "atelier",
+      "repo": "Q-Atelier",
+      "path": "components/QmsStatusWidget.tsx",
+      "beforeHash": "69085dbbe29da558ae03615fe7c62f417c1336d9a3775d705f0dbd4b8160f198",
+      "afterHash": "b9261273012ddd0b942191a58f4fe4da6b0dfdcea339668e0beb23bd6f3f05c3",
+      "changes": [
+        {
+          "line": 66,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "'작성중'",
+          "emitted": "'작성 중'",
+          "original": "'작성중'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "repo": "Q-Atelier",
+      "path": "lib/export/doc-sections.ts",
+      "beforeHash": "0d14b4b9662e4eb8eaf210aba70576f8afef245a4b341661c10d842b55c94e05",
+      "afterHash": "cc46703ee1d5372b9f5caafe772ef28153e2a0cf81306e8f85fc918eeeedc26b",
+      "changes": [
+        {
+          "line": 898,
+          "kind": "FirstTemplateToken",
+          "ordinal": 0,
+          "raw": "`## 1. 문서 정보\n\n| 항목 | 내용 |\n|------|------|\n| 문서번호 | [MQ-QM-001] |\n| 조직명 | [회사명] |\n| 버전 | 1.0 |\n| 승인일 | [YYYY-MM-DD] |\n\n## 2. 품질경영시스템 적용 범위 (§4.2.2a)\n\n| 항목 | 내용 |\n|------|------|\n| 대상 제품 | [의료기기 품목·등급] |\n| 사업장 | [주소 / 사업장] |\n| 적용 활동 | [설계·개발  생산  보관  유통  설치  서비스] |\n\n**적용 제외 및 비적용 조항 (정당화 필수):**\n\n| 조항 | 제외 / 비적용 | 정당화 근거 |\n|------|------|------|\n| [예: §7.5.5 멸균] | 비적용 | [비멸균 제품이므로 해당 없음] |\n| [예: §7.3 설계·개발] | 제외 | [위탁 설계: 해당 없음] |\n\n> ISO 13485 에서 §6·§7·§8 의 요구사항이 적용 불가한 경우에만 제외/비적용할 수 있으며, 각각 정당화를 기술해야 한다.\n\n## 3. 조직 및 품질경영시스템 구조\n\n[조직의 역할(제조자/수입자/판매자 등)과 QMS 의 전반적 구조를 기술한다.]\n\n## 4. 품질 방침 및 품질 목표\n\n- **품질 방침**: 품질 방침 문서 [MQ-QP-001] 참조 (§5.3)\n- **품질 목표**: 품질 목표 문서 [MQ-QO-001] 참조 (§5.4)\n\n## 5. 프로세스 상호작용 (§4.2.2c)\n\n[QMS 의 주요 프로세스와 그 상호작용(순서·연계)을 기술하거나 프로세스 맵으로 첨부한다.]\n\n| 프로세스 | 입력 | 출력 | 연계 프로세스 |\n|------|------|------|------|\n| 설계·개발 | 시장·규제 요구 | 설계 출력·DHF | 생산·구매 |\n| 구매 | 자재 요구 | 검증된 자재 | 생산 |\n| 생산 | 설계 출력·자재 | 완제품 | 출하·PMS |\n| 측정·개선 | 모니터링 데이터 | CAPA·개선 | 경영검토 |\n\n## 6. 문서 체계 구조 (§4.2.2b)\n\n| 단계 | 문서 유형 | 예시 |\n|------|------|------|\n| 1단계 | 품질 매뉴얼 | 본 문서 |\n| 2단계 | 절차서 (SOP) | 문서관리·기록관리·CAPA 절차서 |\n| 3단계 | 지침서 / 작업표준 | 작업 지시서·검사 기준서 |\n| 4단계 | 양식 / 기록 | 각종 기록 양식 |\n\n## 7. 문서화된 절차 목록 (§4.2.2b)\n\n| 절차서 | 문서번호 | 관련 조항 |\n|------|------|------|\n| 문서 관리 절차서 | [MQ-SOP-] | §4.2.4 |\n| 기록 관리 절차서 | [MQ-SOP-] | §4.2.5 |\n| 경영 검토 절차서 | [MQ-SOP-] | §5.6 |\n| 내부 감사 절차서 | [MQ-SOP-] | §8.2.4 |\n| 부적합 관리 절차서 | [MQ-SOP-] | §8.3 |\n| CAPA 절차서 | [MQ-SOP-] | §8.5 |\n\n## 8. 경영 책임\n\n[최고경영자의 책임, 품질책임자(관리대리인) 지정, 책임·권한·의사소통 체계를 기술한다 (§5.5).]\n\n## 9. 관련 문서\n\n- 품질 방침 / 품질 목표\n- 각 절차서 (SOP)\n- 조직도\n\n## 개정 이력\n\n| 버전 | 일자 | 변경 내용 | 작성자 | 승인자 |\n|------|------|------|------|------|\n| 1.0 | | 최초 제정 | | |`",
+          "emitted": "`## 1. 문서 정보\n\n| 항목 | 내용 |\n|------|------|\n| 문서번호 | [MQ-QM-001] |\n| 조직명 | [회사명] |\n| 버전 | 1.0 |\n| 승인일 | [YYYY-MM-DD] |\n\n## 2. 품질경영시스템 적용 범위 (§4.2.2a)\n\n| 항목 | 내용 |\n|------|------|\n| 대상 제품 | [의료기기 품목·등급] |\n| 사업장 | [주소 / 사업장] |\n| 적용 활동 | [설계·개발 · 생산 · 보관 · 유통 · 설치 · 서비스] |\n\n**적용 제외 및 비적용 조항 (정당화 필수):**\n\n| 조항 | 제외 / 비적용 | 정당화 근거 |\n|------|------|------|\n| [예: §7.5.5 멸균] | 비적용 | [비멸균 제품이므로 해당 없음] |\n| [예: §7.3 설계·개발] | 제외 | [위탁 설계: 해당 없음] |\n\n> ISO 13485 에서 §6·§7·§8 의 요구사항이 적용 불가한 경우에만 제외/비적용할 수 있으며, 각각 정당화를 기술해야 한다.\n\n## 3. 조직 및 품질경영시스템 구조\n\n[조직의 역할(제조자/수입자/판매자 등)과 QMS 의 전반적 구조를 기술한다.]\n\n## 4. 품질 방침 및 품질 목표\n\n- **품질 방침**: 품질 방침 문서 [MQ-QP-001] 참조 (§5.3)\n- **품질 목표**: 품질 목표 문서 [MQ-QO-001] 참조 (§5.4)\n\n## 5. 프로세스 상호작용 (§4.2.2c)\n\n[QMS 의 주요 프로세스와 그 상호작용(순서·연계)을 기술하거나 프로세스 맵으로 첨부한다.]\n\n| 프로세스 | 입력 | 출력 | 연계 프로세스 |\n|------|------|------|------|\n| 설계·개발 | 시장·규제 요구 | 설계 출력·DHF | 생산·구매 |\n| 구매 | 자재 요구 | 검증된 자재 | 생산 |\n| 생산 | 설계 출력·자재 | 완제품 | 출하·PMS |\n| 측정·개선 | 모니터링 데이터 | CAPA·개선 | 경영검토 |\n\n## 6. 문서 체계 구조 (§4.2.2b)\n\n| 단계 | 문서 유형 | 예시 |\n|------|------|------|\n| 1단계 | 품질 매뉴얼 | 본 문서 |\n| 2단계 | 절차서 (SOP) | 문서관리·기록관리·CAPA 절차서 |\n| 3단계 | 지침서 / 작업표준 | 작업 지시서·검사 기준서 |\n| 4단계 | 양식 / 기록 | 각종 기록 양식 |\n\n## 7. 문서화된 절차 목록 (§4.2.2b)\n\n| 절차서 | 문서번호 | 관련 조항 |\n|------|------|------|\n| 문서 관리 절차서 | [MQ-SOP-] | §4.2.4 |\n| 기록 관리 절차서 | [MQ-SOP-] | §4.2.5 |\n| 경영 검토 절차서 | [MQ-SOP-] | §5.6 |\n| 내부 감사 절차서 | [MQ-SOP-] | §8.2.4 |\n| 부적합 관리 절차서 | [MQ-SOP-] | §8.3 |\n| CAPA 절차서 | [MQ-SOP-] | §8.5 |\n\n## 8. 경영 책임\n\n[최고경영자의 책임, 품질책임자(관리대리인) 지정, 책임·권한·의사소통 체계를 기술한다 (§5.5).]\n\n## 9. 관련 문서\n\n- 품질 방침 / 품질 목표\n- 각 절차서 (SOP)\n- 조직도\n\n## 개정 이력\n\n| 버전 | 일자 | 변경 내용 | 작성자 | 승인자 |\n|------|------|------|------|------|\n| 1.0 | | 최초 제정 | | |`",
+          "original": "`## 1. 문서 정보\n\n| 항목 | 내용 |\n|------|------|\n| 문서번호 | [MQ-QM-001] |\n| 조직명 | [회사명] |\n| 버전 | 1.0 |\n| 승인일 | [YYYY-MM-DD] |\n\n## 2. 품질경영시스템 적용 범위 (§4.2.2a)\n\n| 항목 | 내용 |\n|------|------|\n| 대상 제품 | [의료기기 품목·등급] |\n| 사업장 | [주소 / 사업장] |\n| 적용 활동 | [설계·개발  생산  보관  유통  설치  서비스] |\n\n**적용 제외 및 비적용 조항 (정당화 필수):**\n\n| 조항 | 제외 / 비적용 | 정당화 근거 |\n|------|------|------|\n| [예: §7.5.5 멸균] | 비적용 | [비멸균 제품이므로 해당 없음] |\n| [예: §7.3 설계·개발] | 제외 | [위탁 설계: 해당 없음] |\n\n> ISO 13485 에서 §6·§7·§8 의 요구사항이 적용 불가한 경우에만 제외/비적용할 수 있으며, 각각 정당화를 기술해야 한다.\n\n## 3. 조직 및 품질경영시스템 구조\n\n[조직의 역할(제조자/수입자/판매자 등)과 QMS 의 전반적 구조를 기술한다.]\n\n## 4. 품질 방침 및 품질 목표\n\n- **품질 방침**: 품질 방침 문서 [MQ-QP-001] 참조 (§5.3)\n- **품질 목표**: 품질 목표 문서 [MQ-QO-001] 참조 (§5.4)\n\n## 5. 프로세스 상호작용 (§4.2.2c)\n\n[QMS 의 주요 프로세스와 그 상호작용(순서·연계)을 기술하거나 프로세스 맵으로 첨부한다.]\n\n| 프로세스 | 입력 | 출력 | 연계 프로세스 |\n|------|------|------|------|\n| 설계·개발 | 시장·규제 요구 | 설계 출력·DHF | 생산·구매 |\n| 구매 | 자재 요구 | 검증된 자재 | 생산 |\n| 생산 | 설계 출력·자재 | 완제품 | 출하·PMS |\n| 측정·개선 | 모니터링 데이터 | CAPA·개선 | 경영검토 |\n\n## 6. 문서 체계 구조 (§4.2.2b)\n\n| 단계 | 문서 유형 | 예시 |\n|------|------|------|\n| 1단계 | 품질 매뉴얼 | 본 문서 |\n| 2단계 | 절차서 (SOP) | 문서관리·기록관리·CAPA 절차서 |\n| 3단계 | 지침서 / 작업표준 | 작업 지시서·검사 기준서 |\n| 4단계 | 양식 / 기록 | 각종 기록 양식 |\n\n## 7. 문서화된 절차 목록 (§4.2.2b)\n\n| 절차서 | 문서번호 | 관련 조항 |\n|------|------|------|\n| 문서 관리 절차서 | [MQ-SOP-] | §4.2.4 |\n| 기록 관리 절차서 | [MQ-SOP-] | §4.2.5 |\n| 경영 검토 절차서 | [MQ-SOP-] | §5.6 |\n| 내부 감사 절차서 | [MQ-SOP-] | §8.2.4 |\n| 부적합 관리 절차서 | [MQ-SOP-] | §8.3 |\n| CAPA 절차서 | [MQ-SOP-] | §8.5 |\n\n## 8. 경영 책임\n\n[최고경영자의 책임, 품질책임자(관리대리인) 지정, 책임·권한·의사소통 체계를 기술한다 (§5.5).]\n\n## 9. 관련 문서\n\n- 품질 방침 / 품질 목표\n- 각 절차서 (SOP)\n- 조직도\n\n## 개정 이력\n\n| 버전 | 일자 | 변경 내용 | 작성자 | 승인자 |\n|------|------|------|------|------|\n| 1.0 | | 최초 제정 | | |`"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "beforeHash": "4094be54ebfca3476763b984846f3ad4d9e56684b6aae6ecde3538d5c4b96d07",
+      "afterHash": "08bf9ec118cb638fa9ccfa8f2331864650bb2b6d75bb6a8b103488ce4905f561",
+      "changes": [
+        {
+          "line": 194,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 195,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        },
+        {
+          "line": 285,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/audits/body-form.tsx",
+      "beforeHash": "781c146f07364aa4bc6a04a19f18d755615318ed986836654ecf7b481587ee69",
+      "afterHash": "26412fb75383695eb151d7ea14c626936ea2e84f93ea526ecc3f2056fcd76901",
+      "changes": [
+        {
+          "line": 232,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "심사구분\n            ",
+          "emitted": "심사 구분\n            ",
+          "original": "심사구분\n            "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "beforeHash": "73acd7e4de8610e6ab889c3c4a7a51137ade321acdb86ba04197e330276ce051",
+      "afterHash": "99ee95890bf86d2a43989a1cf3f7a3f1999fba45943d1098d47e95b9f38568bc",
+      "changes": [
+        {
+          "line": 189,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 190,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        },
+        {
+          "line": 281,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/capa/plans/[id]/page.tsx",
+      "beforeHash": "1b038c44b74d6748273d199db9d56925c7750a2155e3d65b672831551c163dbb",
+      "afterHash": "e4bf58f29c321c116691a3796a597977323cec4b10a6937c06170f61154fa38e",
+      "changes": [
+        {
+          "line": 312,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "작성중",
+          "emitted": "작성 중",
+          "original": "작성중"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/capa/sheet-flow.tsx",
+      "beforeHash": "68d8a14974e026d0e1bc48e93ef8368c678612a5d1b1eec4fe080eef15ae8338",
+      "afterHash": "5fb7ad6c96a3875ddb79c9afd48490278f5e536393e5c280e2bfd0ad55431e91",
+      "changes": [
+        {
+          "line": 23,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "beforeHash": "71c355afa35e6b02093c0c1b27ef104affa7b91b680be7908b1dce050e9fd848",
+      "afterHash": "651b66b3a77ccf09569d054cbd89c3d7e9c71fb326868ccb6885c470bea492bc",
+      "changes": [
+        {
+          "line": 109,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`",
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 120,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`",
+          "original": "} 반려: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 157,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 158,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/change-requests/[id]/next-sheets.tsx",
+      "beforeHash": "19161bb75e87b0dbf4e803ec2914c7421011da4e55f99494c9986e4029232954",
+      "afterHash": "b982e202f7e00aa5193bb5b68afd1d4823a0894ae8026eb1c2957b6fc94b5f9c",
+      "changes": [
+        {
+          "line": 17,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 62,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/complaints/actions.ts",
+      "beforeHash": "92ca124e9ea26c9997b17522723bcb2ba26fd1d3ad521958f62f7a7afe47bd03",
+      "afterHash": "6454856742a98016f3a8d91bdc8642935f942657baa1a687416869daf578c233",
+      "changes": [
+        {
+          "line": 175,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"승급에 실패했습니다. 이미 승급되었거나 작성중 상태가 아닙니다.\"",
+          "emitted": "\"승급에 실패했습니다. 이미 승급되었거나 작성 중 상태가 아닙니다.\"",
+          "original": "\"승급에 실패했습니다. 이미 승급되었거나 작성중 상태가 아닙니다.\""
+        },
+        {
+          "line": 303,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\"",
+          "emitted": "\"작성 중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\"",
+          "original": "\"작성중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "beforeHash": "06e509191baa93cf6e37e58ea7ab6260f5e7b6ef88384294e6a203d0dec8d4c4",
+      "afterHash": "34f5e073f087be0ff06c7d7bfb1447d9af4f2ae8ba12df0b7aa2235db2ba5e82",
+      "changes": [
+        {
+          "line": 202,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\"",
+          "emitted": "\"작성 중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\"",
+          "original": "\"작성중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\""
+        },
+        {
+          "line": 504,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중으로 저장\"",
+          "emitted": "\"작성 중으로 저장\"",
+          "original": "\"작성중으로 저장\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/concessions/actions.ts",
+      "beforeHash": "79da27dc18f9fe5ed53eeaa5872716e690b1c6c976b7a8abd05688ceb9e4d069",
+      "afterHash": "3354fc1e79dec426f3e30e0fffbb5b907410766b9de7d32bbb8f13ab60e12b53",
+      "changes": [
+        {
+          "line": 534,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\"",
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "beforeHash": "5a19c7288419f14e91ac22d192827fafd1e08f894e64f28cef4775bd8632981f",
+      "afterHash": "9bb36e3d2930ed8841adc68171c76a9b8b0db466f608c7f5c560b8859d2ee483",
+      "changes": [
+        {
+          "line": 76,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 151,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 232,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/contracts/approval-actions.ts",
+      "beforeHash": "50dad64e375a978808f0fcecdf573d451851f5fb45d2ba8ac1d2cefdf6eeb247",
+      "afterHash": "f56a166e3137a662b9d87a73f1dc36a8a33291c84103ace1ef33b1baebb11d6f",
+      "changes": [
+        {
+          "line": 325,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중인 검토서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 검토서는 반려할 수 없습니다.\"",
+          "original": "\"작성중인 검토서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "beforeHash": "8732a3b848de09fa12fd3e5f3ff53a3be94ac35cd1c4c83cff458727fbeec245",
+      "afterHash": "5c2422dbd4867e5b3947d44519562f621fba46350fa4b67ad26135e75d819d2f",
+      "changes": [
+        {
+          "line": 100,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\"",
+          "original": "\"상신 취소: 작성중으로 되돌렸습니다\""
+        },
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"반려: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"반려: 작성 중으로 되돌렸습니다\"",
+          "original": "\"반려: 작성중으로 되돌렸습니다\""
+        },
+        {
+          "line": 141,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+        },
+        {
+          "line": 142,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/design/approval-ui.tsx",
+      "beforeHash": "21f4ff461c18787e3ea0f4354b30eb50c610cb3117c0b2c49cfdfd441bebab40",
+      "afterHash": "29037e8c04ecbb435557b30f4b23c991c60574c56ae3e5835d93db9a7799da59",
+      "changes": [
+        {
+          "line": 184,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 185,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        },
+        {
+          "line": 306,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "제안서를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "emitted": "제안서를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "original": "제안서를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/document-dispatch/actions.ts",
+      "beforeHash": "58411f61332507ea8f5e364aff50c33e750d2b0e137128ddd534cf88613ebdc3",
+      "afterHash": "69f67fd9b78ac97db82248df00c01d79331715067c4d5663c4f2911142fcbf2e",
+      "changes": [
+        {
+          "line": 352,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\"",
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "beforeHash": "7689d2985e988991d2d07bf53eb07c836e644b50ea58b97261ff9e7307e3d8dd",
+      "afterHash": "968d1b37774dbc4e77b3d732510a0ec2b14e1ec6799a2a337633a90121a78f07",
+      "changes": [
+        {
+          "line": 71,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 148,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 229,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/document-dispatch/new/page.tsx",
+      "beforeHash": "e53eda26c012cdd88a4207bed205bd55d310e06902b26fd4f65650abf6569b1a",
+      "afterHash": "07adea52f4b98e44f2cd207451e864c2e56c8cd3859b88f85bf1127c3a1b999e",
+      "changes": [
+        {
+          "line": 76,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "저장하면 번호가 붙고 작성중으로 남습니다. 다 적었으면 결재 칸에서\n        상신하세요.\n      ",
+          "emitted": "저장하면 번호가 붙고 작성 중으로 남습니다. 다 적었으면 결재 칸에서\n        상신하세요.\n      ",
+          "original": "저장하면 번호가 붙고 작성중으로 남습니다. 다 적었으면 결재 칸에서\n        상신하세요.\n      "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/documents/actions.ts",
+      "beforeHash": "e98724374bec3b08f25667e7c5d2d67e760e18a9284b9e65221e9b1597c56313",
+      "afterHash": "a089586d36c1a86491ada39a584cb49b841b8c827c2ee67d788ed074c77a774e",
+      "changes": [
+        {
+          "line": 487,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중·반려됨 상태에서만 개정을 만들 수 있습니다.\"",
+          "emitted": "\"작성 중·반려됨 상태에서만 개정을 만들 수 있습니다.\"",
+          "original": "\"작성중·반려됨 상태에서만 개정을 만들 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/documents/attachment-actions.ts",
+      "beforeHash": "243d4c3ec229f6edc2bfeac07259f2527e3fe170bb3e0206e50ea41af545f07f",
+      "afterHash": "163ed237dbb62a5147549abe308ad9e85ef4e495c24a5cf93e6aaa2604047ca3",
+      "changes": [
+        {
+          "line": 123,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 상태에서는 첨부를 추가할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`",
+          "emitted": "} 상태에서는 첨부를 추가할 수 없습니다. 작성 중·반려됨 상태에서만 가능합니다.`",
+          "original": "} 상태에서는 첨부를 추가할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`"
+        },
+        {
+          "line": 240,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 상태에서는 첨부를 삭제할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`",
+          "emitted": "} 상태에서는 첨부를 삭제할 수 없습니다. 작성 중·반려됨 상태에서만 가능합니다.`",
+          "original": "} 상태에서는 첨부를 삭제할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/documents/[id]/approval-panel.tsx",
+      "beforeHash": "6e811d099bcb35aca8b7e2d107b5e223de442668c69420107bec42ef1f7d03ec",
+      "afterHash": "90f8ffd5ceb9c57c723fba32b64aeab8a19accf3e08a8d672583cc003413cc8d",
+      "changes": [
+        {
+          "line": 88,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"검토자에게 결재를 요청합니다 (검토중).\"",
+          "emitted": "\"검토자에게 결재를 요청합니다 (검토 중).\"",
+          "original": "\"검토자에게 결재를 요청합니다 (검토중).\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/documents/[id]/attachments-panel.tsx",
+      "beforeHash": "4cdccb0945ef9d5225afd3dbcb33629fa355027f8b22bb2b7836c18c10be671e",
+      "afterHash": "52d0eb72d23f6b77bfe05a2ea7792dde23a84628e9c194412ab137d331db639b",
+      "changes": [
+        {
+          "line": 200,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중·반려됨\n            ",
+          "emitted": "작성 중·반려됨\n            ",
+          "original": "작성중·반려됨\n            "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "beforeHash": "c1f7f668996f1cff738257b3f8496b198f715ea587b4ced45e39338dd600791e",
+      "afterHash": "87ca1a1af946d128288c367f79a362b6ab6b9ec41080497ce130d2f828aa9cc1",
+      "changes": [
+        {
+          "line": 91,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 172,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\""
+        },
+        {
+          "line": 297,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/drawings/[id]/page.tsx",
+      "beforeHash": "fdd38124eb3c6fcfcaaa0ed133d1b5e2e8597c50fb19410fb65c3b8c71323905",
+      "afterHash": "3c6a72b83c2f5f726556123facc3ea8d5569df1a57e6a267a0fa1982c8df45b7",
+      "changes": [
+        {
+          "line": 451,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성중으로 되돌리세요.\"",
+          "emitted": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성 중으로 되돌리세요.\"",
+          "original": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성중으로 되돌리세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/help/content.ts",
+      "beforeHash": "7bac3c219e4d73a21b4075b5c1074b73e28bd7ab0d8f1af4aa0e2649e1f9f411",
+      "afterHash": "7dfded6ae4577c4697e6846e1efd3826fc204c84f7bc7c0399504abe9ccc88d3",
+      "changes": [
+        {
+          "line": 228,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"**계획서**: 「내부심사」 의 「신규 심사」 를 누르면 빈 계획서가 한 장 서고, 그 한 장에 심사구분·범위·일정·심사원과 본문 열한 항목을 적습니다\"",
+          "emitted": "\"**계획서**: 「내부심사」 의 「신규 심사」 를 누르면 빈 계획서가 한 장 서고, 그 한 장에 심사 구분·범위·일정·심사원과 본문 열한 항목을 적습니다\"",
+          "original": "\"**계획서**: 「내부심사」 의 「신규 심사」 를 누르면 빈 계획서가 한 장 서고, 그 한 장에 심사구분·범위·일정·심사원과 본문 열한 항목을 적습니다\""
+        },
+        {
+          "line": 452,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"**Q. 문서를 잘못 썼습니다. 지울 수 있나요?** → 결재 전 작성중이면 지울 수 있습니다. 발행된 문서는 지우지 않고 「폐기」로 내립니다. 이력은 남아야 하니까요.\"",
+          "emitted": "\"**Q. 문서를 잘못 썼습니다. 지울 수 있나요?** → 결재 전 작성 중이면 지울 수 있습니다. 발행된 문서는 지우지 않고 「폐기」로 내립니다. 이력은 남아야 하니까요.\"",
+          "original": "\"**Q. 문서를 잘못 썼습니다. 지울 수 있나요?** → 결재 전 작성중이면 지울 수 있습니다. 발행된 문서는 지우지 않고 「폐기」로 내립니다. 이력은 남아야 하니까요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/improvements/actions.ts",
+      "beforeHash": "3cdf4bde270bbc46f6d65726fd6363f18b768c1a914f9b1c5512d4250ffffe25",
+      "afterHash": "f4a0f9b46194d8e61b5ad9207934d2fe9ed3e3457b02b7e0e96c4abf1f4711cc",
+      "changes": [
+        {
+          "line": 483,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성중으로 되돌린 뒤에 지울 수 있습니다.\"",
+          "emitted": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성 중으로 되돌린 뒤에 지울 수 있습니다.\"",
+          "original": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성중으로 되돌린 뒤에 지울 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/improvements/approval-actions.ts",
+      "beforeHash": "00f2cc100af4e9fc2f3ea81aa99ab93b8de49fb2dde0402f99850df1f080cf80",
+      "afterHash": "66655280704c24161be88c91f2f059bab7cd062963ae6ea977cc3b3360647f01",
+      "changes": [
+        {
+          "line": 398,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중인 문서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 문서는 반려할 수 없습니다.\"",
+          "original": "\"작성중인 문서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "beforeHash": "2fe8881f84d03dafc0cef1ca355062d8e2fbfd3e30f16b8a3add173874870cd4",
+      "afterHash": "c92ad61c0dd26cea728b9e7e134f1fb9bfcb5976bf7abf09c44e75c4098addbb",
+      "changes": [
+        {
+          "line": 100,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`",
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 111,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`",
+          "original": "} 반려: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 141,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 ${",
+          "emitted": "`작성 중입니다. 상신하면 ${",
+          "original": "`작성중입니다. 상신하면 ${"
+        },
+        {
+          "line": 142,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/inbound/export-actions.ts",
+      "beforeHash": "f13034791bb1af8477c5da665c4fb7e066e5471ea44826281e16f141c63615e0",
+      "afterHash": "dcab7aa8403bb677bfa4221921188e0da5f241c41cff81932f2904fb34aa1221",
+      "changes": [
+        {
+          "line": 48,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/inbound/page.tsx",
+      "beforeHash": "4a11dcc1ea4ed0b8b923d7a6a1de0f49c29db00814c1cb7a517d262983560377",
+      "afterHash": "10975ef237b5307764207ca9271ddeb100c4f2c87ed8fa415759a4eee9baf4b5",
+      "changes": [
+        {
+          "line": 446,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/inbound/[id]/escalate-to-complaint-dialog.tsx",
+      "beforeHash": "79aebf7f182245795fb2acfbf422cd6d3ef59e2a2ff6d0bf669f84dba0756799",
+      "afterHash": "4de112084fc6c7cf5715bf68f9617f40ac2938f307a6333f7c6391b0e0a2f066",
+      "changes": [
+        {
+          "line": 138,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "이 상담을 근거로 고객 불만을 «작성중» 상태로 만듭니다. 정식 번호는\n            불만 화면에서 「정식 접수로 승급」을 눌러야 발급되고, 그 뒤 부적합 ·\n            시정 및 예방 조치까지 이어집니다.\n          ",
+          "emitted": "이 상담을 근거로 고객 불만을 «작성 중» 상태로 만듭니다. 정식 번호는\n            불만 화면에서 「정식 접수로 승급」을 눌러야 발급되고, 그 뒤 부적합 ·\n            시정 및 예방 조치까지 이어집니다.\n          ",
+          "original": "이 상담을 근거로 고객 불만을 «작성중» 상태로 만듭니다. 정식 번호는\n            불만 화면에서 「정식 접수로 승급」을 눌러야 발급되고, 그 뒤 부적합 ·\n            시정 및 예방 조치까지 이어집니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+      "beforeHash": "dd17ceab8743d4789256a8f33ac080cf1bb580482e82e6b7686436df7dbf954d",
+      "afterHash": "116bf33f7a1002bb6faab5e0535d50e46483491031b82cd708b6a9d87717a94a",
+      "changes": [
+        {
+          "line": 131,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"합격 처리와 동시에 출하승인 요청(작성중)이 자동 생성됩니다.\"",
+          "emitted": "\"합격 처리와 동시에 출하승인 요청(작성 중)이 자동 생성됩니다.\"",
+          "original": "\"합격 처리와 동시에 출하승인 요청(작성중)이 자동 생성됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "beforeHash": "28ca5ca8d90cea7742b4ff8feca65023d9b078b951e848334dd59bbfee94f178",
+      "afterHash": "c627d8f04c95c5688f09c52b5822718bb9714b4a5f9f57928cc4654a4a23f37c",
+      "changes": [
+        {
+          "line": 102,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`",
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 113,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "raw": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`",
+          "original": "} 반려: 작성중으로 되돌렸습니다`"
+        },
+        {
+          "line": 151,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 152,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/kpi/evaluations/evaluation-list.tsx",
+      "beforeHash": "7afefbb275e408c6a40ac0f0ee0903a074dfa05c657f8bdf78e6bc2363ed1e66",
+      "afterHash": "ab88df4fb2d6d9ba92ea8efcb247d380c2197a43e90581a4d3a5ae7338b0a7b7",
+      "changes": [
+        {
+          "line": 148,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/kpi/evaluations/next-sheets.tsx",
+      "beforeHash": "ded050aae96ab45ddfe2d8317c019e25c974fae21f1ca49825f771df959871cc",
+      "afterHash": "06500d761339797a448f50418f5ed5a6aedf2482a96d9ee0e7cde5ffde8e006f",
+      "changes": [
+        {
+          "line": 18,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/meetings/meeting-form.tsx",
+      "beforeHash": "519211bb9129f43886928ba7da76f2164b2f144e71c7329a92c7599c7dd400a4",
+      "afterHash": "65b59ea25ebac75ebd82264b3bd05ba1697a11e5b16f432d69c3e0574fd7f572",
+      "changes": [
+        {
+          "line": 424,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "명단은 작성중일 때만 고칠 수 있습니다.\n          ",
+          "emitted": "명단은 작성 중일 때만 고칠 수 있습니다.\n          ",
+          "original": "명단은 작성중일 때만 고칠 수 있습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "beforeHash": "5a06bc56031c8a930c48e51f062973e899bacf561f009ce119a5215e15b522a8",
+      "afterHash": "3e229508353615a8ba7fa3b36baebf1d6e38fd95a066b6c128ddba5f804c3db3",
+      "changes": [
+        {
+          "line": 90,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"반려했습니다. 작성중으로 돌아갑니다.\"",
+          "emitted": "\"반려했습니다. 작성 중으로 돌아갑니다.\"",
+          "original": "\"반려했습니다. 작성중으로 돌아갑니다.\""
+        },
+        {
+          "line": 101,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신을 취소하고 작성중으로 되돌립니다. 검토 도장과 참석자 확인이 \"",
+          "emitted": "\"상신을 취소하고 작성 중으로 되돌립니다. 검토 도장과 참석자 확인이 \"",
+          "original": "\"상신을 취소하고 작성중으로 되돌립니다. 검토 도장과 참석자 확인이 \""
+        },
+        {
+          "line": 116,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신을 취소했습니다. 작성중으로 돌아갑니다.\"",
+          "emitted": "\"상신을 취소했습니다. 작성 중으로 돌아갑니다.\"",
+          "original": "\"상신을 취소했습니다. 작성중으로 돌아갑니다.\""
+        },
+        {
+          "line": 227,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "상신 취소 (작성중으로)\n          ",
+          "emitted": "상신 취소 (작성 중으로)\n          ",
+          "original": "상신 취소 (작성중으로)\n          "
+        },
+        {
+          "line": 278,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "반려 (작성중으로)\n            ",
+          "emitted": "반려 (작성 중으로)\n            ",
+          "original": "반려 (작성중으로)\n            "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/notices/notice-form.tsx",
+      "beforeHash": "7bccb9cf4c04e9bcb48e685072c8f36ff211b40eed6ae7626addd75e52665594",
+      "afterHash": "c530d51d69b3d20cc6fd7add65b0ccf7cc6eb3b25e8e0a4755d938feb401ce46",
+      "changes": [
+        {
+          "line": 144,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"비워 두면 작성중: 전사에 보이지 않습니다\"",
+          "emitted": "\"비워 두면 작성 중: 전사에 보이지 않습니다\"",
+          "original": "\"비워 두면 작성중: 전사에 보이지 않습니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "beforeHash": "35ad14d6b1898fe54fe1a26525f713ad7c2e684caa2ad7089aaacc5b2cde68d3",
+      "afterHash": "5ce3dcd7352676d45abe29d064b4740d37c3e91326afcdbe2ab8ec4b627b24e1",
+      "changes": [
+        {
+          "line": 300,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\"",
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "beforeHash": "937f90104419243d79de35fc67de701de21bf2d574371adf87738b0f0dd71165",
+      "afterHash": "79ff6ed52d881048886fff232c9eebceeb7d24bc6ba3e413b811a319d14967f5",
+      "changes": [
+        {
+          "line": 58,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 127,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 205,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/purchasing/quote-form.tsx",
+      "beforeHash": "191acb0fa29c0d518fe2c9eb2ca29608536a294f971e2d67c2476f67ba3c1af3",
+      "afterHash": "642ad1c459844b6907a8a4f631f594851580ffd275b13fc9308bd9ded717d771",
+      "changes": [
+        {
+          "line": 118,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"요청서 없이 받은 견적이면 비워 둡니다. 고를 수 있는 것은 발주 전(요청 · 검토중) 요청서입니다\"",
+          "emitted": "\"요청서 없이 받은 견적이면 비워 둡니다. 고를 수 있는 것은 발주 전(요청 · 검토 중) 요청서입니다\"",
+          "original": "\"요청서 없이 받은 견적이면 비워 둡니다. 고를 수 있는 것은 발주 전(요청 · 검토중) 요청서입니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "beforeHash": "fd5ca42ef482e95a494172e3d4e1e4db186af3e0328162622e68a56f8178cd42",
+      "afterHash": "e7f620b49a4e73425a69db2d2eac81c5dd1b0b98eac63fe2d4e4dc994563bff1",
+      "changes": [
+        {
+          "line": 64,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 140,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 223,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/recalls/actions.ts",
+      "beforeHash": "fc8c405c225aa5bb2fff1dbd553b74909826f61b5a4fefc588054d0c8ca4262b",
+      "afterHash": "43aaa4e0f30be8eb8a9989a330ea4bf572623f8d3655d2374039eaff9d904df1",
+      "changes": [
+        {
+          "line": 687,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성자(품질 책임자 · 품질 팀장)만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자(품질 책임자 · 품질 팀장)만, 작성 중일 때 상신할 수 있습니다.\"",
+          "original": "\"작성자(품질 책임자 · 품질 팀장)만, 작성중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "beforeHash": "46fb4679bf96c984acce68cfe38102be6b318494eb63765a0bb1b95b7191efa5",
+      "afterHash": "99c357d3e4cc7f3687cb09efdc32d6036f5f18f7bdcb7aeb0f6628bd2882db31",
+      "changes": [
+        {
+          "line": 82,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중 · ${",
+          "emitted": "`작성 중 · ${",
+          "original": "`작성중 · ${"
+        },
+        {
+          "line": 156,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 237,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+          "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "beforeHash": "18019a9a22eaa951c2b3932fb6b3998fd52d86e168ce659933df7fc0d92c4e06",
+      "afterHash": "120ff29264fd6cb0eaf626e433ea89a549151a83ab07491fc2edb13a432473b5",
+      "changes": [
+        {
+          "line": 231,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${"
+        },
+        {
+          "line": 232,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        },
+        {
+          "line": 330,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/risks/approval-actions.ts",
+      "beforeHash": "81b820b607c5d46c471e4351ff68833cad1b6f28f3923ae114795fc59c5d3797",
+      "afterHash": "63365d78878f37ffcc7db8e3a4acd20a956700375df391d7e9f34d2337c2e39b",
+      "changes": [
+        {
+          "line": 86,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\"",
+          "emitted": "\"작성 중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\"",
+          "original": "\"작성중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/risks/import-actions.ts",
+      "beforeHash": "459cafd3417b5093030baa9d83553a82249dfd58213fd0cfc14d7f64e5ecc626",
+      "afterHash": "f9243dc2547d2fb5a13b78fd66f2df39e42264b99eaf819cb435de402807204a",
+      "changes": [
+        {
+          "line": 285,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중인 위험입니다. 고르면 파일 내용으로 바꿉니다\"",
+          "emitted": "\"작성 중인 위험입니다. 고르면 파일 내용으로 바꿉니다\"",
+          "original": "\"작성중인 위험입니다. 고르면 파일 내용으로 바꿉니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "beforeHash": "de09548cc1276963d307f9007a572e562daeb1801d624904af78b2b304118d92",
+      "afterHash": "2104dfbbeb101849b37fa11a37519233dc9dbb9885f4070231011bf8acd94f9d",
+      "changes": [
+        {
+          "line": 194,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중인 위험평가입니다. 결재선 설정·상신 권한이 없습니다.\n        ",
+          "emitted": "작성 중인 위험평가입니다. 결재선 설정·상신 권한이 없습니다.\n        ",
+          "original": "작성중인 위험평가입니다. 결재선 설정·상신 권한이 없습니다.\n        "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/safety/actions.ts",
+      "beforeHash": "0e383d84c1b6ec8e6613c6cd42c951a10d417b66c292400bdc381fc7430cd806",
+      "afterHash": "0f86fc1bef0ea79a2f797fa8f4ac61414527ed5ce73dc25726fbc1eb87a9f6c9",
+      "changes": [
+        {
+          "line": 144,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\"",
+          "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/safety/incidents/actions.ts",
+      "beforeHash": "3dea58aae61fbb06bb2d3c3fc0f50f7ad0e2f96ba567c15df4cbcddc917b7715",
+      "afterHash": "6fda2a1c3efa385d6c6d4f25a63a447e87de274343ad12db2444b5b17b454f1b",
+      "changes": [
+        {
+          "line": 91,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\"",
+          "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/safety/incidents/checks-tab.tsx",
+      "beforeHash": "9717e7a801af5ea34b26416343d25046e213e1015903fe51d7987995d10c4573",
+      "afterHash": "a7c59c36aea5e46b74da26bee54101970825cddc7c3f8e22f5419c9e368bf435",
+      "changes": [
+        {
+          "line": 27,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/safety/monthly/month-approval.tsx",
+      "beforeHash": "ca043773fb0d90c23526215487ed025df61bc6bdb9eb4509ac639be18f2442d4",
+      "afterHash": "d68c1c7ee792260cbb794233850d9ea9c0fa78e60e8841b730809dbfa8752d7d",
+      "changes": [
+        {
+          "line": 138,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\"",
+          "original": "\"작성중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\""
+        },
+        {
+          "line": 259,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "raw": "작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          ",
+          "emitted": "작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          ",
+          "original": "작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
+      "beforeHash": "b49530a3099fe72f78f6da74dc7287cb2d8e1925b1110d03e0634a125248c9d2",
+      "afterHash": "af4dce6d399b5759d2beda6d6a1eff374993981c59f3d2901ec6f9a08a7b247c",
+      "changes": [
+        {
+          "line": 188,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\"",
+          "emitted": "\"작성 중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\"",
+          "original": "\"작성중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/suppliers/reports/actions.ts",
+      "beforeHash": "30813ea5d737488a51c0b8aeb2b52b11cb74f696f3fe7e8f13c4405fe8ba4851",
+      "afterHash": "0eddb3db64839084a1c97c2ecfb64b89ddfa68063d569407bc3246441cd5fd70",
+      "changes": [
+        {
+          "line": 537,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중인 보고서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 보고서는 반려할 수 없습니다.\"",
+          "original": "\"작성중인 보고서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "beforeHash": "c19e1438e16a887f433491e14a4a81db616eb7d4e4ccc8789727e309a03a8d1a",
+      "afterHash": "3ac2de6f91cf0fde850fd64354a02591270a91a5d3bae30c6c214d60bf07ea43",
+      "changes": [
+        {
+          "line": 100,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\"",
+          "original": "\"상신 취소: 작성중으로 되돌렸습니다\""
+        },
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"반려: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"반려: 작성 중으로 되돌렸습니다\"",
+          "original": "\"반려: 작성중으로 되돌렸습니다\""
+        },
+        {
+          "line": 141,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+        },
+        {
+          "line": 142,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "app/(app)/training/approval-ui.tsx",
+      "beforeHash": "5351aa37a33a679ebe77b10576e3f6befa1ff4acbb242779473daef8f0b6b348",
+      "afterHash": "203b157b186b70ef1f86fb2604ff42eb4695328a276cbfe3e4a1718075cab777",
+      "changes": [
+        {
+          "line": 190,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "raw": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 191,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        },
+        {
+          "line": 278,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "raw": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+          "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "components/shared/attendee-picker.tsx",
+      "beforeHash": "18b6c22587989c4266a38e8651eb354ab35d70f8b8439d07c5c281a056d85b94",
+      "afterHash": "33305bfa8626ffd2758ec65f5f6af944406cceb6ad4ca576233958be75e39a54",
+      "changes": [
+        {
+          "line": 34,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"검토가 끝나면 여기 있는 사람들이 각자 확인해야 승인으로 넘어갑니다. 명단은 작성중일 때만 고칠 수 있습니다.\"",
+          "emitted": "\"검토가 끝나면 여기 있는 사람들이 각자 확인해야 승인으로 넘어갑니다. 명단은 작성 중일 때만 고칠 수 있습니다.\"",
+          "original": "\"검토가 끝나면 여기 있는 사람들이 각자 확인해야 승인으로 넘어갑니다. 명단은 작성중일 때만 고칠 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "components/shared/list-stats.tsx",
+      "beforeHash": "6ba30257db28c4e3f168e1bc7a0f2df6215b4b3b226a1fc55a9a3f527ced096e",
+      "afterHash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9",
+      "changes": [
+        {
+          "line": 90,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 120,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 199,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 230,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 236,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 288,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 307,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 357,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 486,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성 · 결재중\"",
+          "emitted": "\"작성 · 결재 중\"",
+          "original": "\"작성 · 결재중\""
+        },
+        {
+          "line": 547,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"결재중\"",
+          "emitted": "\"결재 중\"",
+          "original": "\"결재중\""
+        },
+        {
+          "line": 572,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"결재중\"",
+          "emitted": "\"결재 중\"",
+          "original": "\"결재중\""
+        },
+        {
+          "line": 809,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1097,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1498,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/audits/sheets.ts",
+      "beforeHash": "5ac22cb92fe873f82bdfec31f83167dc7f067f54a2557cf02e4e2d5faaa642fc",
+      "afterHash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a",
+      "changes": [
+        {
+          "line": 80,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/concessions/rules.ts",
+      "beforeHash": "6e2a363b5e17d40b4b4f319318cb00dea75f28ee2166c050cee9e19aaa3c4e80",
+      "afterHash": "110832985e93651b1e531290a4289e0b8cbc573b7b12a634bf2f87a94a6962d5",
+      "changes": [
+        {
+          "line": 386,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/doc-dispatch/rules.ts",
+      "beforeHash": "fb157ad242bb304c2762f1e38ed794f33fe920378315513a07ee4d1f7b911b84",
+      "afterHash": "98f1030cad8a4f0b77e71d4152f57615b741e3e69550f350dbe3cf863e7d885c",
+      "changes": [
+        {
+          "line": 174,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/help/page-help.ts",
+      "beforeHash": "0554c55fddf6298fd48d4400328b1ce555e633432da3060cea783f6da30e9621",
+      "afterHash": "e9c6861734f0ca0726ac05f8a4caee667cab89827fdaf854d62bb54b57efe266",
+      "changes": [
+        {
+          "line": 192,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"「공지 작성」 → 제목·구분·본문을 적고 「게시하기」. 게시일이 비어 있으면 작성중이라 전사에 보이지 않습니다. 그때는 「임시저장」입니다.\"",
+          "emitted": "\"「공지 작성」 → 제목·구분·본문을 적고 「게시하기」. 게시일이 비어 있으면 작성 중이라 전사에 보이지 않습니다. 그때는 「임시저장」입니다.\"",
+          "original": "\"「공지 작성」 → 제목·구분·본문을 적고 「게시하기」. 게시일이 비어 있으면 작성중이라 전사에 보이지 않습니다. 그때는 「임시저장」입니다.\""
+        },
+        {
+          "line": 208,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"게시일이 비어 있거나(작성중) 아직 오지 않았을(게시 예정) 수 있습니다. 상세 화면의 제목 위 표시를 확인하세요. 작성자와 공지 권한자에게만 보이는 상태입니다.\"",
+          "emitted": "\"게시일이 비어 있거나(작성 중) 아직 오지 않았을(게시 예정) 수 있습니다. 상세 화면의 제목 위 표시를 확인하세요. 작성자와 공지 권한자에게만 보이는 상태입니다.\"",
+          "original": "\"게시일이 비어 있거나(작성중) 아직 오지 않았을(게시 예정) 수 있습니다. 상세 화면의 제목 위 표시를 확인하세요. 작성자와 공지 권한자에게만 보이는 상태입니다.\""
+        },
+        {
+          "line": 528,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\"",
+          "emitted": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성 중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\"",
+          "original": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\""
+        },
+        {
+          "line": 663,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"기준일은 발주일입니다. 상태 칩은 발주 완료·입고 완료·종결 세 가지뿐: 요청·검토중·취소는 매입 실적이 아니라 애초에 집계에서 빠집니다.\"",
+          "emitted": "\"기준일은 발주일입니다. 상태 칩은 발주 완료·입고 완료·종결 세 가지뿐: 요청·검토 중·취소는 매입 실적이 아니라 애초에 집계에서 빠집니다.\"",
+          "original": "\"기준일은 발주일입니다. 상태 칩은 발주 완료·입고 완료·종결 세 가지뿐: 요청·검토중·취소는 매입 실적이 아니라 애초에 집계에서 빠집니다.\""
+        },
+        {
+          "line": 1852,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\"",
+          "emitted": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성 중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\"",
+          "original": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\""
+        },
+        {
+          "line": 1857,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\"",
+          "emitted": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성 중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\"",
+          "original": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/meetings/notify.ts",
+      "beforeHash": "da8a1315962ea2be634fc0971e7bddd27141263c2aefb97c361f615d2a4ba034",
+      "afterHash": "4436e37b1b501b0d27d4f65d0587b38316827da638c1ecbd39d73e3eb653ff6b",
+      "changes": [
+        {
+          "line": 125,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"회의록이 작성중으로 되돌아왔습니다.\"",
+          "emitted": "\"회의록이 작성 중으로 되돌아왔습니다.\"",
+          "original": "\"회의록이 작성중으로 되돌아왔습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/monitoring/approval-statuses.ts",
+      "beforeHash": "e409162cedd6edae3c0899e41935c3de12881dc436007ad07e57858bde7022a4",
+      "afterHash": "daf7fe6f33eb031675c0b33e4d63f556c71a981e9bd9beed5ba12895afaf3052",
+      "changes": [
+        {
+          "line": 9,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/notices/categories.ts",
+      "beforeHash": "dee306c440cc88fb74422617f4dd7980ad1b7dfba2484158ae5398f6cfc36645",
+      "afterHash": "c376539979d794238ed96c6d14492ed2ed83bb4aef51e13a35d494c1195a6c10",
+      "changes": [
+        {
+          "line": 52,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/purchasing/order-rules.ts",
+      "beforeHash": "871a26c12086132934566d544dac42e26d3dc112e92149966db07c428c4d6609",
+      "afterHash": "30c2e25ae0e7ed27a10c96d32b86ceebf8d337472770e66292d542ba539d3d9a",
+      "changes": [
+        {
+          "line": 56,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/recalls/rules.ts",
+      "beforeHash": "321f3c9f8a1e378f0498429077414ab56f8ab74f50041ee988d58fc5649f0a2c",
+      "afterHash": "2dac80f98d5f338f1a7d8d5740e2afbc6452b1003d33d3b7dbccfe97cb3b3566",
+      "changes": [
+        {
+          "line": 302,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/reviews/sheets.ts",
+      "beforeHash": "927ff574597f4ed4ff00c3860826b6311569dd1cb3e3349d7e672c8c97fb8006",
+      "afterHash": "aae9c932c7ba66c68d52fecc75ea452a0ffb6dfea1fafd35078a86739016bcee",
+      "changes": [
+        {
+          "line": 41,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/risks/matrix.ts",
+      "beforeHash": "0d69a82ad61a6fac28364b2d7e325bff13d9340537b2f886cfc77de8f63dfbae",
+      "afterHash": "caf3807f223795d7692a4e149ba6d35f0a260ee8456cabb00eb49be3be390090",
+      "changes": [
+        {
+          "line": 38,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"어느정도 피해 예상\"",
+          "emitted": "\"어느 정도 피해 예상\"",
+          "original": "\"어느정도 피해 예상\""
+        },
+        {
+          "line": 97,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "raw": "\"개선 검토 및 필요시 대응 계획 수립\"",
+          "emitted": "\"개선 검토 및 필요 시 대응 계획 수립\"",
+          "original": "\"개선 검토 및 필요시 대응 계획 수립\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/supabase/types.ts",
+      "beforeHash": "c8d6ca5697a15d4e669247e36251b18958b6f19c947ffd20b0f78205902c6cb2",
+      "afterHash": "f457a877bd2b7de402720712aed21d72e8b11dff34c3cc0c70f34b711a1181d0",
+      "changes": [
+        {
+          "line": 441,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 442,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 907,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 942,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 1032,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1320,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 1359,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 1392,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1427,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1649,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1650,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 1662,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1707,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 1750,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        },
+        {
+          "line": 1999,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"검토중\"",
+          "emitted": "\"검토 중\"",
+          "original": "\"검토중\""
+        },
+        {
+          "line": 2074,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/suppliers/evaluation-report.ts",
+      "beforeHash": "607966cd8ed08b3d723ec9a014ec9510245765417ac50953dba82a364d7321bf",
+      "afterHash": "504744b221cfdb5031e5ac74c08c28e3b233ca753d230dd336d7be8d3498326f",
+      "changes": [
+        {
+          "line": 245,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "repo": "Q-Works",
+      "path": "lib/training/sheets.ts",
+      "beforeHash": "c52f85d36fb6d8b4e8718b014f673add0645bd3188923c3f687a6a891c3b0f4b",
+      "afterHash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081",
+      "changes": [
+        {
+          "line": 101,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "raw": "\"작성중\"",
+          "emitted": "\"작성 중\"",
+          "original": "\"작성중\""
+        }
+      ]
+    }
+  ]
+}

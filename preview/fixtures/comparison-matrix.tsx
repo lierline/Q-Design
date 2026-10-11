@@ -19,6 +19,8 @@ export type ComparisonAdapters = {
   tabs: () => ReactNode;
   choice: (selected: boolean) => ReactNode;
   skeleton: () => ReactNode;
+  secondaryIcon: () => ReactNode;
+  itemRows?: () => ReactNode;
 };
 
 // Only the comparison layout is shared here. Every specimen uses its product adapter.
@@ -51,6 +53,8 @@ export default function ComparisonMatrix({ adapters: a }: { adapters: Comparison
     {a.emptyAction && <section><h2>08 빈 화면의 다음 동작</h2><div data-testid="parity-empty-action">{a.emptyAction(true)}</div><div data-testid="parity-empty-title-action">{a.emptyAction(false)}</div></section>}
     {a.emptyHints && <section><h2>09 빈 화면의 안내</h2><div data-testid="parity-empty-hints">{a.emptyHints()}</div></section>}
     {a.selectionRows && <section><h2>10 사람 선택</h2><div data-testid="selection-rows">{a.selectionRows()}</div></section>}
+    <section><h2>11 아이콘 보조 동작</h2><span data-testid="parity-secondary-icon">{a.secondaryIcon()}</span></section>
+    {a.itemRows && <section><h2>12 구매 품목</h2><div data-testid="parity-item-rows">{a.itemRows()}</div></section>}
     {a.dialog(dialog, () => setDialog(false), a.field('parity-dialog-note', '검토 의견', a.textarea(control('parity-dialog-note', note, setNote))))}
   </div>;
 }

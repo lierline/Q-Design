@@ -739,8 +739,8 @@
      * 「한 / 국 표준시」 처럼 낱말 가운데서 꺾였다. 칸보다 긴 낱말만 넘칠 때
      * 끊는다(break-word 는 칸의 최소 폭을 줄이지 않아 표 열이 짜부라지지 않는다).
      */
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    word-break: var(--qd-copy-word-break);
+    overflow-wrap: var(--qd-copy-overflow-wrap);
   }
 
   /*

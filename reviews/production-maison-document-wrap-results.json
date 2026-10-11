@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "scope": "Read-only production review of the management review agenda, before the final copy-spacing deployment. The old mobile captures remain historical evidence. No save, deletion, confirmation or signature action was performed.",
+ "route": "/reviews/agendas/[id]",
+ "viewport": {"width":375,"visualWidth":375,"documentScrollWidth":375},
+ "document": {"paperWidth":793.6875,"paperMaxWidth":"none","scrollAreaClientWidth":333,"scrollAreaScrollWidth":794,"overflowX":"auto","rightmostScrollLeft":461},
+ "approvalDates": {"cells":3,"clientWidth":81,"scrollWidth":81,"whiteSpace":"nowrap","visualResult":"All three dates remain inside distinct cells when the document is scrolled right."},
+ "attendeeSignatures": {"cells":5,"clientWidth":108,"scrollWidth":108,"visualResult":"All five confirmation dates remain inside their cells. Document footer and bottom delete action were viewed, without interaction."},
+ "report": {"route":"/reviews/agendas/[id]/report","viewportWidth":375,"documentScrollWidth":375,"scrollAreaClientWidth":333,"scrollAreaScrollWidth":794,"rightmostScrollLeft":461,"approvalDateCells":3,"approvalDateClientWidth":81,"approvalDateScrollWidth":81,"signatureCells":5,"signatureClientWidth":108,"signatureScrollWidth":108,"visualResult":"Viewed the left and right document content and the footer. Dates remain inside distinct cells, with no page overflow."},
+ "riskIdentification": {"route":"/risks/print","deploymentCommit":"e336dab016ec078a217f6db9e1dfb3c82b887293","viewportWidth":375,"documentScrollWidth":375,"scrollAreaClientWidth":333,"scrollAreaScrollWidth":1123,"visualResult":"Viewed the landscape document at its left and right edges. Matrix headings, counts and risk table columns occupy distinct cells; the document scrolls internally."},
+ "copyReview": {"preserved":"있음 직함","reason":"The National Institute of Korean Language confirms spaced 있음 직하다 is the primary spelling; this inherited form label is not a spelling error.","source":"https://www.korean.go.kr/front/mcfaq/mcfaqView.do?mcfaq_seq=9189&mn_id=97&pageIndex=1","corrections":["어느 정도 피해 예상","개선 검토 및 필요 시 대응 계획 수립"]},
+ "boundary": "This reviews one agenda and report in their approved states and one risk identification print preview. Minutes, other documents, font overrides and other workflow states require their own checks. Screen preview is not a physical print or device certificate."
+}

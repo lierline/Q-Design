@@ -298,6 +298,28 @@ html .qd-skeleton, html .qa-skeleton { animation-duration: var(--qd-skeleton-dur
 :root { --qd-selection-row-height: var(--qd-control-height); --qd-selection-row-padding-y: var(--qd-space-2); --qd-selection-row-padding-x: var(--qd-space-3); }
 html .qd-selection-row { min-height: var(--qd-selection-row-height) !important; padding: var(--qd-selection-row-padding-y) var(--qd-selection-row-padding-x) !important; font-family: var(--qd-font-family-ui); font-size: var(--qd-control-size); }
 
+/* An outlined icon action keeps its outline when the square-control recipe is applied. */
+:root { --qd-secondary-icon-padding: 0px; --qd-secondary-icon-glyph-size: var(--qd-icon-size); }
+html .qd-control-icon.qd-btn--secondary { border-color: var(--qd-ctl) !important; padding: var(--qd-secondary-icon-padding) !important; }
+html .qd-control-icon.qd-btn--secondary > svg { width: var(--qd-secondary-icon-glyph-size) !important; height: var(--qd-secondary-icon-glyph-size) !important; }
+
+/* Delete/remove actions retain their semantic hover color at the shared size. */
+html .qd-control-icon--danger:hover:not(:disabled) { color: var(--qd-danger); }
+
+/* Korean copy wraps between words. Unbroken identifiers can wrap only when
+   they exceed the available width. Scoped tables and print recipes may opt out. */
+:root {
+  --qd-copy-word-break: keep-all;
+  --qd-copy-overflow-wrap: break-word;
+  --qd-copy-word-spacing: normal;
+  --qd-native-wordmark-size: 11px;
+  --qd-native-text-inset: 24px;
+}
+@media screen {
+  body { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); }
+}
+.qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
+
 /* Q-Maison foundation adapter. Author here; the product imports the generated copy.
    Layer and media ordering preserve legacy screen/print and shell behavior. */
 :root {
@@ -1039,8 +1061,8 @@ html .qd-selection-row { min-height: var(--qd-selection-row-height) !important; 
      * 「한 / 국 표준시」 처럼 낱말 가운데서 꺾였다. 칸보다 긴 낱말만 넘칠 때
      * 끊는다(break-word 는 칸의 최소 폭을 줄이지 않아 표 열이 짜부라지지 않는다).
      */
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    word-break: var(--qd-copy-word-break);
+    overflow-wrap: var(--qd-copy-overflow-wrap);
   }
 
   /*

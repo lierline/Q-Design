@@ -17216,12 +17216,15 @@
             "qa-welcome-backdrop",
             "qa-welcome-card",
             "qd-btn",
+            "qd-btn--secondary",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
             "qd-combobox-option",
             "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-control-label",
+            "qd-copy",
             "qd-dialog-close",
             "qd-dialog-title",
             "qd-drawer-title",
@@ -17333,6 +17336,9 @@
             "--qd-control-pad-x",
             "--qd-control-pad-y",
             "--qd-control-size",
+            "--qd-copy-overflow-wrap",
+            "--qd-copy-word-break",
+            "--qd-copy-word-spacing",
             "--qd-ctl",
             "--qd-danger",
             "--qd-date-picker-filter",
@@ -17368,6 +17374,7 @@
             "--qd-font-weight-bold",
             "--qd-font-weight-medium",
             "--qd-font-weight-semibold",
+            "--qd-icon-size",
             "--qd-info",
             "--qd-leading-heading",
             "--qd-leading-loose",
@@ -17388,6 +17395,8 @@
             "--qd-ribbon-full-opacity-1",
             "--qd-ribbon-full-opacity-2",
             "--qd-root-size",
+            "--qd-secondary-icon-glyph-size",
+            "--qd-secondary-icon-padding",
             "--qd-section-size",
             "--qd-selection-row-height",
             "--qd-selection-row-padding-x",
@@ -34413,13 +34422,13 @@
       "repo": "Q-Works",
       "syncKey": "Q-Works",
       "summary": {
-        "modules": 1106,
-        "components": 1354,
+        "modules": 1107,
+        "components": 1355,
         "iconModules": 156,
         "roleMappedComponents": 94,
         "canonicalCopies": 18,
         "qdClassModules": 365,
-        "productLocalModules": 637
+        "productLocalModules": 638
       },
       "publicCoverage": {
         "failures": [],
@@ -34704,6 +34713,7 @@
             "app/(app)/account/profile-form.tsx",
             "app/(app)/account/signature-form.tsx",
             "app/(app)/account/withdraw-section.tsx",
+            "components/passkey-banner.tsx",
             "components/passkey-section.tsx",
             "components/shared/page-head.tsx",
             "components/shared/page-help.tsx",
@@ -36829,6 +36839,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -38964,6 +38976,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-section-title",
             "qd-section-title--flush"
           ],
@@ -40434,6 +40448,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [],
@@ -41934,6 +41950,8 @@
           ],
           "classes": [
             "qd-choice",
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-section-title",
             "qd-section-title--flush"
           ],
@@ -47110,6 +47128,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label",
             "qd-table",
             "qd-table--hangul"
@@ -49929,6 +49949,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-field-label",
             "qd-label",
             "qd-selection-row"
@@ -51740,6 +51762,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -52943,6 +52967,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -53062,6 +53088,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -53989,6 +54017,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -59691,6 +59721,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [
@@ -64436,12 +64468,15 @@
             "qa-touch-44",
             "qa-touch-44sq",
             "qd-btn",
+            "qd-btn--secondary",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
             "qd-combobox-option",
             "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-control-label",
+            "qd-copy",
             "qd-dialog-close",
             "qd-dialog-title",
             "qd-drawer-title",
@@ -64521,6 +64556,10 @@
             "--qd-control-height",
             "--qd-control-height-sm",
             "--qd-control-size",
+            "--qd-copy-overflow-wrap",
+            "--qd-copy-word-break",
+            "--qd-copy-word-spacing",
+            "--qd-ctl",
             "--qd-danger",
             "--qd-document-title-size",
             "--qd-empty-action-gap",
@@ -64549,6 +64588,7 @@
             "--qd-font-weight-normal",
             "--qd-font-weight-semibold",
             "--qd-hangul-word-space",
+            "--qd-icon-size",
             "--qd-info",
             "--qd-main-band-height",
             "--qd-main-band-height-desktop",
@@ -64573,6 +64613,8 @@
             "--qd-root-size",
             "--qd-scrollbar-inset",
             "--qd-scrollbar-size",
+            "--qd-secondary-icon-glyph-size",
+            "--qd-secondary-icon-padding",
             "--qd-section-size",
             "--qd-selection-row-height",
             "--qd-selection-row-padding-x",
@@ -65187,6 +65229,8 @@
             }
           ],
           "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [],
@@ -66307,6 +66351,33 @@
           "ruleAssignment": "name-and-path-inference",
           "owner": "product",
           "evidence": "qd-class-reference",
+          "reviewScope": "product-composition-or-review-candidate"
+        },
+        {
+          "path": "components/passkey-banner.tsx",
+          "kind": "component-module",
+          "components": [
+            {
+              "name": "PasskeyBanner",
+              "family": "feedback",
+              "kind": "function",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/Fingerprint.tsx",
+            "lib/auth/passkey-register.ts",
+            "lib/auth/passkey.ts"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
           "reviewScope": "product-composition-or-review-candidate"
         },
         {
@@ -70861,6 +70932,7 @@
           ],
           "classes": [
             "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label",
             "qd-selection-row"
           ],
@@ -78211,12 +78283,15 @@
             "qa-touch-44",
             "qa-touch-44sq",
             "qd-btn",
+            "qd-btn--secondary",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
             "qd-combobox-option",
             "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-control-label",
+            "qd-copy",
             "qd-dialog-close",
             "qd-dialog-title",
             "qd-drawer-title",
@@ -78355,6 +78430,11 @@
             "--qd-control-height",
             "--qd-control-icon",
             "--qd-control-size",
+            "--qd-copy-overflow-wrap",
+            "--qd-copy-word-break",
+            "--qd-copy-word-spacing",
+            "--qd-ctl",
+            "--qd-danger",
             "--qd-date-control-min-width",
             "--qd-detail-max",
             "--qd-ease",
@@ -78393,6 +78473,7 @@
             "--qd-font-weight-normal",
             "--qd-font-weight-semibold",
             "--qd-hangul-word-space",
+            "--qd-icon-size",
             "--qd-install-transition",
             "--qd-leading-heading",
             "--qd-line-height-normal",
@@ -78405,6 +78486,8 @@
             "--qd-ribbon-width-1",
             "--qd-ribbon-width-2",
             "--qd-scrollbar-size",
+            "--qd-secondary-icon-glyph-size",
+            "--qd-secondary-icon-padding",
             "--qd-selection-row-height",
             "--qd-selection-row-padding-x",
             "--qd-selection-row-padding-y",

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PRODUCT_NAME}}</title>
+<style>{{STYLES}}</style>
+<script>
+  (function () {
+    var theme = location.hash.slice(1);
+    if (theme !== 'dark' && theme !== 'light') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
+  })();
+</script>
+</head>
+<body class="qd-offline">
+<main class="qd-offline-card">
+  <h1>서버에 연결할 수 없습니다</h1>
+  <p>인터넷 연결을 확인한 뒤 다시 시도해 주십시오.</p>
+  <a class="qd-offline-action" href="{{RETRY_SCHEME}}://retry">다시 시도</a>
+</main>
+</body>
+</html>

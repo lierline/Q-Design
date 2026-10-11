@@ -4,6 +4,7 @@ import { Table, Th, Td } from '@/components/table';
 import { Dialog } from '@/components/dialog';
 import ComparisonMatrix, { type ComparisonAdapters } from './comparison-matrix';
 const a: ComparisonAdapters = {
+  secondaryIcon: () => <button type="button" className="qd-btn qd-btn--secondary qd-control-icon" aria-label="아이콘 보조 동작"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" strokeWidth="1.5" /></svg></button>,
   button: (text, options = {}) => <button className={`qd-btn qd-btn--${options.secondary ? 'secondary' : 'primary'}`} type="button" disabled={options.disabled} onClick={options.onClick}>{text}</button>,
   field: (id, label, child, error) => <div><label className="qd-field-label" htmlFor={id} data-hangul="">{label}<span aria-hidden="true" style={{ color: 'var(--qd-danger)', marginLeft: 2 }}>*</span></label>{error ? React.cloneElement(child as React.ReactElement<any>, { 'aria-invalid': true, 'aria-describedby': `${id}-error` }) : child}{error && <p className="qd-field-error" id={`${id}-error`} role="alert">{error}</p>}</div>,
   input: props => <input className="qd-input" {...props} />,
