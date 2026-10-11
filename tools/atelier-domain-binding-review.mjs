@@ -24,10 +24,19 @@ export const expectedBindings=[
  ['lib/compliance/scoring.ts',147,'w','scoreAssessment'],
  ['lib/engine/paraphrase.ts',109,'h','estimateDeriveCostUsd'],
 ];
-export function inspectDomainBinding(record,code){
+export const runtimeBindings=[
+ ['app/(app)/research/[code]/page.tsx',791,'w','computeNextAction'],
+ ['app/api/admin/mfds-changes/route.ts',44,'w','GET'],
+ ['app/api/sheets/[kind]/[parentId]/route.ts',110,'w','guardWrite'],
+ ['components/admin/DocsetActivateSheet.tsx',147,'w','DocsetActivateSheet'],
+ ['components/SessionExpiryGate.tsx',54,'w','anonymous'],
+ ['lib/crypto/vault-enroll.ts',440,'w','buildRecoveryCode'],
+ ['lib/crypto/vault.ts',459,'h','keyFingerprint'],
+];
+function inspectExactBinding(record,code,bindings){
  assert.equal(hash(code),record.sourceHash,'Complete current consumer source must match');
  assert.equal(record.kind,'named-style-value');assert.equal(record.decision,'business-data');assert.equal(record.ruleId,'exact-domain-data-binding');
- assert(expectedBindings.some(b=>JSON.stringify(b)===JSON.stringify([record.path,record.line,record.property,record.inspectedConsumer])));
+ assert(bindings.some(b=>JSON.stringify(b)===JSON.stringify([record.path,record.line,record.property,record.inspectedConsumer])));
  const actual=scanArguments(record.path,code,{ts,postcss,properties}).filter(argument=>hash(JSON.stringify(argument))===record.argumentHash);
  assert.equal(actual.length,1,'Exact fresh lexical argument must match its pinned fingerprint');
  assert.deepEqual([actual[0].line,actual[0].kind,actual[0].property,actual[0].value],[record.line,record.kind,record.property,record.reviewedExpression]);
@@ -46,6 +55,8 @@ export function inspectDomainBinding(record,code){
  assert.deepEqual(record.evidence,[{path:record.path,line:record.line,hash:record.sourceHash},{path:record.path,line:record.consumerLine,hash:record.sourceHash}]);
  return true;
 }
+export const inspectDomainBinding=(record,code)=>inspectExactBinding(record,code,expectedBindings);
+export const inspectRuntimeBinding=(record,code)=>inspectExactBinding(record,code,runtimeBindings);
 export function verifyDomainBindings(){
  const review=JSON.parse(fs.readFileSync(root+'/reviews/atelier-domain-binding-review.json','utf8'));
  assert.equal(review.version,1);assert.deepEqual(review.records.map(r=>[r.path,r.line,r.property,r.inspectedConsumer]),expectedBindings);
