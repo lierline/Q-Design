@@ -97,6 +97,10 @@ export function PrintStyles({
   .print-paper{ max-width:none; }
 }
 
+/* Short vocabulary labels keep Latin words and their parentheses together.
+   Long identifiers retain the ordinary wrapping rules in other cells. */
+.print-paper td.qd-copy-phrase{ word-break:keep-all; overflow-wrap:normal; }
+
 /* ── 지면은 한 서체로 간다 ───────────────────────────────────────────────
    화면에서는 기록번호·Lot 을 등폭(font-mono)으로 눌러 «식별자»임을 드러냈다.
    그런데 종이에서는 두 가지가 어긋난다.

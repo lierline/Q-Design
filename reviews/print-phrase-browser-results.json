@@ -1,0 +1,142 @@
+{
+  "scope": "Canonical PrintStyles, exact risk treatment consumer, screen and print media, narrow phrase columns and larger type. Separate long-identifier tests retain their own wrapping.",
+  "cases": [
+    {
+      "mode": "screen",
+      "fontSize": 12.6667,
+      "phrase": "완화 (Reduce)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 149.078125,
+        "cellRight": 205.390625,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 196.9375,
+        "cellRight": 205.390625,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "screen",
+      "fontSize": 12.6667,
+      "phrase": "수용 (Accept)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 149.078125,
+        "cellRight": 200.46875,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 192,
+        "cellRight": 200.46875,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "screen",
+      "fontSize": 24,
+      "phrase": "완화 (Reduce)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 152.859375,
+        "cellRight": 252.03125,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 243.578125,
+        "cellRight": 252.03125,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "screen",
+      "fontSize": 24,
+      "phrase": "수용 (Accept)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 152.859375,
+        "cellRight": 242.6875,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 234.21875,
+        "cellRight": 242.6875,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "print",
+      "fontSize": 12.6667,
+      "phrase": "완화 (Reduce)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 21.65625,
+        "cellRight": 77.96875,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 69.515625,
+        "cellRight": 77.96875,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "print",
+      "fontSize": 12.6667,
+      "phrase": "수용 (Accept)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 21.65625,
+        "cellRight": 73.046875,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 64.578125,
+        "cellRight": 73.046875,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "print",
+      "fontSize": 24,
+      "phrase": "완화 (Reduce)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 25.4375,
+        "cellRight": 124.609375,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 116.15625,
+        "cellRight": 124.609375,
+        "overflowWrap": "normal"
+      }
+    },
+    {
+      "mode": "print",
+      "fontSize": 24,
+      "phrase": "수용 (Accept)",
+      "before": {
+        "wordLines": 2,
+        "lastGlyphRight": 25.4375,
+        "cellRight": 115.265625,
+        "overflowWrap": "break-word"
+      },
+      "after": {
+        "wordLines": 1,
+        "lastGlyphRight": 106.796875,
+        "cellRight": 115.265625,
+        "overflowWrap": "normal"
+      }
+    }
+  ],
+  "failures": 0
+}

@@ -38,6 +38,12 @@ test('expanded font padding and label alignment are central presentation policie
  assert.deepEqual([alignment(0,3),alignment(1,3),alignment(2,3),alignment(0,1)],['start','center','end','center']);
 });
 
+test('axis styles reject missing or invalid data positions',()=>{
+ const {chartLabelStyle:style}=load();
+ for(const args of [[[],0,0],[[0],1,1],[[3],0,2],[[NaN],0,4]])assert.throws(()=>style(...args,'8px'),/existing data point/);
+ assert.equal(style([0],0,1,'8px').marginLeft,'50%');
+});
+
 test('the responsive change reverses exactly and preserves each data calculation initializer',()=>{
  const current=fs.readFileSync(path.join(product,'components/TimeSeriesChart.tsx'),'utf8').replaceAll('\r\n','\n');
  const original=reverseResponsiveChart('components/TimeSeriesChart.tsx',current).replaceAll('\r\n','\n');

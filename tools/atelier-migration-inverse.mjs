@@ -21,6 +21,7 @@ const choiceContract=readManifest('atelier-choice-contract-migration.json');
 const componentParity=readManifest('atelier-component-parity-migration.json');
 const extendedParity=readManifest('atelier-extended-parity-migration.json');
 const responsiveChart=readManifest('atelier-responsive-chart-migration.json');
+const followupControls=readManifest('atelier-followup-controls-migration.json');
 const hash=source=>createHash('sha256').update(source.replaceAll('\r\n','\n')).digest('hex');
 // Preserve earlier migration proofs after the later, separately reviewed pass.
 // Each individual inverse is exact, and both snapshots remain hash-checked.
@@ -41,6 +42,15 @@ function reverseManifest(path,source,manifest){
  return source;
 }
 export function reverseResponsiveChart(path,source){
+ const followup=followupControls.records.find(record=>record.path===path);
+ if(followup&&hash(source)!==followup.beforeHash){
+  source=reverseManifest(path,source.replaceAll('\r\n','\n'),followupControls);
+  if(followup.beforeLineEnding==='crlf'){
+   const lines=source.split('\n'),lfOnly=new Set(followup.beforeLFOnlyLines);
+   source=lines.map((line,i)=>i<lines.length-1&&!lfOnly.has(i)?line+'\r':line).join('\n');
+  }
+  assert.equal(createHash('sha256').update(source).digest('hex'),followup.beforeRawHash,path+': exact historical line endings');
+ }
  if(!responsiveChart.records.some(record=>record.path===path))return source;
  const restored=reverseManifest(path,source.replaceAll('\r\n','\n'),responsiveChart);
  const record=responsiveChart.records.find(record=>record.path===path);

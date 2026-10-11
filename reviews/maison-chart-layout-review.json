@@ -1,0 +1,2892 @@
+{
+  "version": 1,
+  "scope": "Both exact KPI chart sources. Central typography/geometry and data/measurement boundaries are distinct. Twelve browser cases include resize, large type, keyboard tooltip, negative/single values and empty remount. This is not whole-product certification.",
+  "records": [
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 58,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "bfd440f2cfae192dbe25f93131baeb179e715d2179ec4fa67e5b46295164a87e",
+      "kind": "named-style-value",
+      "property": "padding",
+      "reviewedExpression": "chartPadding(viewport.fontSize, {\n    top: qdMaison.chart.period.paddingTop,\n    bottom: qdMaison.chart.period.paddingBottom,\n    left: qdMaison.chart.period.paddingX,\n    right: qdMaison.chart.period.rightInset,\n  })",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 58,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 133,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "4a22cc21029d3470ea8aec8500b749a52f12986d076cf457bb602d124f0780d2",
+      "kind": "object-property",
+      "property": "height",
+      "reviewedExpression": "H",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 133,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 133,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "70946316c68499342983a7438426c9dc5340a95a5f61a6d85c94e1ce9e3f866f",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{ height: H }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 133,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 145,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "93b902f0f1628c604a092412302e4f83be1aef46bdb21c36da79cd90413be48c",
+      "kind": "presentation-attribute",
+      "property": "stroke",
+      "reviewedExpression": "\"currentColor\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "The exact SVG grid inherits the theme currentColor, or the hit target is deliberately transparent. It does not author a palette value.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 145,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 170,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "6ca9b7ebb5c63654222767e8054390790ee0ca867cbf66cfe6d9cc70dfa519f4",
+      "kind": "presentation-attribute",
+      "property": "stroke",
+      "reviewedExpression": "\"currentColor\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "The exact SVG grid inherits the theme currentColor, or the hit target is deliberately transparent. It does not author a palette value.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 170,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 221,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "155ed5a40373d9f6c9cbb5926c92cedeac81043a3364b2d9454dbc8f48d69151",
+      "kind": "named-style-value",
+      "property": "top",
+      "reviewedExpression": "Math.min(yOf(b.value), zeroY)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 221,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 222,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "4ee2318b21d06632e0ed3839b87a4f75cc47bdd563b99c01ada6f276a190001d",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "Math.abs(zeroY - yOf(b.value))",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 222,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 228,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "121b59c67887978e57f03392fee80579c1b5ac0a0d35a30e73c013b5f17e8f59",
+      "kind": "presentation-attribute",
+      "property": "width",
+      "reviewedExpression": "{barW}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 228,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 229,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "8993b70a9314fbafc2dc108b8eb185c11eb66a10f084de630b2af719c9adfe24",
+      "kind": "presentation-attribute",
+      "property": "height",
+      "reviewedExpression": "{Math.max(h, qdMaison.chart.period.barMinHeight)}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 229,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 240,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "2f137fb786bb28911ed94eda8ef1b383ec6675bc7ac38568a9ff4472cdfffc70",
+      "kind": "presentation-attribute",
+      "property": "width",
+      "reviewedExpression": "{slot}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 240,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 241,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "097f4b87f6483464547b4bbab058b919e01545c3b921428bcd4fb1feba93a3de",
+      "kind": "presentation-attribute",
+      "property": "height",
+      "reviewedExpression": "{H}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 241,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 242,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "4e9ef7ac8cacb59fbca0596c179e669fa17520dea1c7390e020ab3ab568f801d",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "reviewedExpression": "\"transparent\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "The exact SVG grid inherits the theme currentColor, or the hit target is deliberately transparent. It does not author a palette value.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 242,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 260,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "f18d129651404089a5da3782c4e404a2553a9636cfb9f3a6ced8b587b8162af2",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n              ...(xOf(hover) > W / 2\n                ? {\n                    right: `${100 - ((xOf(hover) + barW / 2) / W) * 100}%`,\n                    marginRight: \"var(--qd-space-2)\",\n                  }\n                : {\n                    left: `${((xOf(hover) + barW / 2) / W) * 100}%`,\n                    marginLeft: \"var(--qd-space-2)\",\n                  }),\n              top: `${hoveredTop * 100}%`,\n              transform: flipDown\n                ? undefined\n                : qdMaison.chart.period.tooltipTransform,\n              marginTop: flipDown ? \"var(--qd-space-1)\" : undefined,\n            }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 260,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 261,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "4fccd084ab485e39b640d3c0ce6ee8aded8671b8883aaffb83566baf055de3df",
+      "kind": "object-spread",
+      "property": "...",
+      "reviewedExpression": "(xOf(hover) > W / 2\n                ? {\n                    right: `${100 - ((xOf(hover) + barW / 2) / W) * 100}%`,\n                    marginRight: \"var(--qd-space-2)\",\n                  }\n                : {\n                    left: `${((xOf(hover) + barW / 2) / W) * 100}%`,\n                    marginLeft: \"var(--qd-space-2)\",\n                  })",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 261,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 263,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "615a3d7abdeb2e5102f8cf5dfd16664d197cb06b9f82aa45c8cc15a803975b2c",
+      "kind": "object-property",
+      "property": "right",
+      "reviewedExpression": "`${100 - ((xOf(hover) + barW / 2) / W) * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 263,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 267,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "87c8418a00294351bb2be26412fba342b3990a15788f46d731c29f8760bed196",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "`${((xOf(hover) + barW / 2) / W) * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 267,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 270,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "ffae7a948ff9159b95557d0ecc88f84c697198926b7f22272d0a1acfb0571d23",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "`${hoveredTop * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 270,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 301,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "925451f13fef221bd31769c5c21aab09193635a1cb18865e8f86c84a69799022",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n          gridTemplateColumns: CHART_LABEL_LAYOUT.axisColumns,\n          marginLeft: PAD_X + (bars.length > 1 ? slot / 2 : 0),\n          marginRight: padding.right + (bars.length > 1 ? slot / 2 : 0),\n        }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 301,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 303,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "26fc2d42b194026f5d284f3d3f4ccef4d597e6ffccef507eb0a2d0b053e22092",
+      "kind": "object-property",
+      "property": "marginLeft",
+      "reviewedExpression": "PAD_X + (bars.length > 1 ? slot / 2 : 0)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 303,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 304,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "22dfd3ccdbe0df945490383d595099163852c2c725642c486e6250a56515be3a",
+      "kind": "object-property",
+      "property": "marginRight",
+      "reviewedExpression": "padding.right + (bars.length > 1 ? slot / 2 : 0)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 304,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/period-chart.tsx",
+      "line": 310,
+      "sourceHash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd",
+      "argumentHash": "3e1fb95bb187ad2795b71db0fad6e62bb9f3416d3278772a2b63fc33093f22fb",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{chartLabelStyle(\n              labelIndices,\n              position,\n              bars.length,\n              \"var(--qd-space-2)\",\n            )}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/period-chart.tsx",
+          "line": 310,
+          "hash": "c746a57260021a17bfcf94e213885339a9fede33fc7017ca9e4a38735e6a05cd"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 53,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "69ae60886a18df15e455b825eeb7ce45d8df94752ab5202bb488ba009ec90d64",
+      "kind": "named-style-value",
+      "property": "padding",
+      "reviewedExpression": "chartPadding(viewport.fontSize, {\n    top: qdMaison.chart.trend.paddingY,\n    bottom: qdMaison.chart.trend.paddingY,\n    left: qdMaison.chart.trend.paddingX,\n    right: qdMaison.chart.trend.paddingX,\n  })",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 53,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 102,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "d6811b0300b490a2b94cf236b7df3e7c7e55e23f7d55ac344a833c686010ae8a",
+      "kind": "object-property",
+      "property": "y",
+      "reviewedExpression": "H -\n      PAD_Y -\n      ((v - axis.min) / (axis.max - axis.min || 1)) * (H - PAD_Y * 2)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 102,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 142,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "f4d1d604c39c59e4d9423fb34e15c5337376c1bcdc6a4c7840475ef41833d7fe",
+      "kind": "object-property",
+      "property": "height",
+      "reviewedExpression": "H",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 142,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 142,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "a261542770a91c8f6dfddfb50ad6624fbd4c054660b4411d8f7be98b4b26eb23",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{ height: H }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 142,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 156,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "63b744c248cfa05319ce51739efb11dcb10ff9a4538096fdc76d85ed08104d05",
+      "kind": "presentation-attribute",
+      "property": "stroke",
+      "reviewedExpression": "\"currentColor\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "The exact SVG grid inherits the theme currentColor, or the hit target is deliberately transparent. It does not author a palette value.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 156,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 263,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "df4d4db42dfcd724e327a7c351632d8c37d4610ae61748feb7f772cc20f5788a",
+      "kind": "named-style-value",
+      "property": "x",
+      "reviewedExpression": "data.xOf(i) - half",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 263,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 269,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "e586699feb4a8a1a42f45d583e5534943f845c1728608178761404702964765e",
+      "kind": "presentation-attribute",
+      "property": "width",
+      "reviewedExpression": "{Math.min(half * 2, W - Math.max(0, x))}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 269,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 270,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "021a82633879059c365c5a636841bed49d58d64aa31ca760b2c2cafdd9f39aaf",
+      "kind": "presentation-attribute",
+      "property": "height",
+      "reviewedExpression": "{H}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 270,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 271,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "e059f2022a81fcea6ea0cffefcd8498202fb198b011c3906508fb7d2bfbef07b",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "reviewedExpression": "\"transparent\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "The exact SVG grid inherits the theme currentColor, or the hit target is deliberately transparent. It does not author a palette value.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 271,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 302,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "7066461a321119b49c5788aa388fc0a07c34187f3d006637d4c21bcc419163db",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n              ...(data.xOf(hover) > W / 2\n                ? {\n                    right: `${100 - (data.xOf(hover) / W) * 100}%`,\n                    marginRight: \"var(--qd-space-3)\",\n                  }\n                : {\n                    left: `${(data.xOf(hover) / W) * 100}%`,\n                    marginLeft: \"var(--qd-space-3)\",\n                  }),\n              top: `${hoveredTop * 100}%`,\n              transform: clampTop\n                ? undefined\n                : qdMaison.chart.trend.tooltipTransform,\n            }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 302,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 303,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "6ee24255874529c45f8b41e0e2e90e18a8f4a4fb25e71e41ceb8d28664226330",
+      "kind": "object-spread",
+      "property": "...",
+      "reviewedExpression": "(data.xOf(hover) > W / 2\n                ? {\n                    right: `${100 - (data.xOf(hover) / W) * 100}%`,\n                    marginRight: \"var(--qd-space-3)\",\n                  }\n                : {\n                    left: `${(data.xOf(hover) / W) * 100}%`,\n                    marginLeft: \"var(--qd-space-3)\",\n                  })",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 303,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 305,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "6814ddb957a253b8b2d06527ff5a0957d25a9481382699acdc775b5b1f6cb937",
+      "kind": "object-property",
+      "property": "right",
+      "reviewedExpression": "`${100 - (data.xOf(hover) / W) * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 305,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 309,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "ebf109863dc6d2863b0619217d9d90ed5613f4d4e94c8245838fbb78ad0240d3",
+      "kind": "object-property",
+      "property": "left",
+      "reviewedExpression": "`${(data.xOf(hover) / W) * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 309,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 312,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "2744e2f30d43449e055bd3d7c1cebdc5a80b7b0b59dc08ca019661d44ad3a1e3",
+      "kind": "object-property",
+      "property": "top",
+      "reviewedExpression": "`${hoveredTop * 100}%`",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 312,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 344,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "ee764674007aa3546f52e3c7d881e10d11c713b039a2ce98a695e9351ad5cd31",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n          gridTemplateColumns: CHART_LABEL_LAYOUT.axisColumns,\n          marginLeft: PAD_X,\n          marginRight: PAD_X,\n        }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 344,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 346,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "bc755e42e83236a2be4ab26efd9f19ef8abe2135755647eedec0089307b71aeb",
+      "kind": "object-property",
+      "property": "marginLeft",
+      "reviewedExpression": "PAD_X",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 346,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 347,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "244d2510e94bdc14cd04341cab1238c62659c6356b5e1710bdcbd77ab083cb72",
+      "kind": "object-property",
+      "property": "marginRight",
+      "reviewedExpression": "PAD_X",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Exact data-to-chart geometry: values, domains, bar count and hover index remain business data; viewport and font size are DOM measurements. Baseline height, plot padding, bar limits and tooltips come from verified central sources.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 347,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+      "line": 353,
+      "sourceHash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72",
+      "argumentHash": "ad6ce130dba0ffeee24408f4f8758596a4f5dce77ea165fb58f7b99215966ffe",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{chartLabelStyle(\n              labelIndices,\n              position,\n              points.length,\n              \"var(--qd-space-2)\",\n            )}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-maison-responsive-chart-layout",
+      "reason": "Every authored font, spacing, height, anchor and transform is centrally defined. The exact viewport/font observation, selected label positions and hovered data coordinate are measured or domain data. No arbitrary caller style or visual default is accepted.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
+          "line": 353,
+          "hash": "51c051a646e3aa144b35063a16d6d55a509960d31a815be50d8dd410421c2e72"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "0d6ff42881f08c9fcb6fcedbe4634d29751af8e1107910365dfb301923d5cc25"
+        },
+        {
+          "path": "source/design/chart-viewport.ts",
+          "line": 1,
+          "hash": "c1658b07982d4f3669b0eac2ff7a9d9619cae8468fce9b6f74efe08333a889e8"
+        },
+        {
+          "path": "patterns/foundation/maison-runtime.ts",
+          "line": 1,
+          "hash": "660c2e0ef35431f0219afcb938feec928fa71896d9d1a77d3b89cf9e84dcfc39"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/maison.css",
+          "line": 1,
+          "hash": "e6de655451d4675115782b567b746a286b41ef849e19647d99781588b3f714a2"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "f5be2de1992972ee2cef9dcefd75ed90342a6baeef12f27423f0471d701f277a"
+        },
+        {
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "line": 1,
+          "hash": "5816ffb113e18b10156985594102fa8989717284e3a27b6f1b070912685edde1"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "bae57bf786917f11439cfd2e79c9498ce98140dcd3851fdc29c5be6990128622"
+        },
+        {
+          "path": "lib/kpi/period.ts",
+          "line": 1,
+          "hash": "7b4b70cd859662236db7b5928b4818e40767b89e1777eef4fa93f0d145383580"
+        },
+        {
+          "path": "lib/kpi/scale.ts",
+          "line": 1,
+          "hash": "2ebba888ce78a2e8476cfa9ebca404ef4b2e8176ec0dcf49302ec214a9cb598f"
+        },
+        {
+          "path": "lib/kpi/achievement.ts",
+          "line": 1,
+          "hash": "06d2bcf009bb7f9c10434ac4b0838c3e7fb93c324d5cc1b2a06e930c23665184"
+        }
+      ]
+    }
+  ]
+}

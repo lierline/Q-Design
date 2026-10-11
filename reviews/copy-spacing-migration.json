@@ -4,84 +4,17 @@
     {
       "product": "maison",
       "repo": "Q-Works",
-      "path": "app/(app)/inventory/actions.ts",
-      "beforeHash": "a5f0737805509bbe574657f21751ec9067b221785a72087196cc00e1b5b61698",
-      "afterHash": "508aa0d53e119ff757d4400a8c839833a4f42e796672598a1243f49320222875",
-      "changes": [
-        {
-          "line": 37,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"사용중인 창고만 선택할 수 있습니다.\"",
-          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\"",
-          "original": "\"사용중인 창고만 선택할 수 있습니다.\""
-        }
-      ]
-    },
-    {
-      "product": "maison",
-      "repo": "Q-Works",
-      "path": "app/(app)/returns/actions.ts",
-      "beforeHash": "2df39a8908c753934895687e8ae89489826ae443e3964aa3076bbab295ad08fb",
-      "afterHash": "a25e1beddcf89513c43d0f9e536f474c4ed6fd3a3907f92bd3e6161d8ad30a54",
-      "changes": [
-        {
-          "line": 78,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"사용중인 창고만 선택할 수 있습니다.\"",
-          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\"",
-          "original": "\"사용중인 창고만 선택할 수 있습니다.\""
-        },
-        {
-          "line": 401,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"사용중인 창고만 선택할 수 있습니다.\"",
-          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\"",
-          "original": "\"사용중인 창고만 선택할 수 있습니다.\""
-        }
-      ]
-    },
-    {
-      "product": "maison",
-      "repo": "Q-Works",
-      "path": "app/(app)/shipping/actions.ts",
-      "beforeHash": "9890c51551b574f0255fda571ca63dc1d6f09e646f72c25e3439fb36c21309bb",
-      "afterHash": "24382eac43d50ee00133d64cad9a8cbb69c43c528cbeb6ea8246581692f8370a",
-      "changes": [
-        {
-          "line": 346,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"사용중인 창고만 선택할 수 있습니다.\"",
-          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\"",
-          "original": "\"사용중인 창고만 선택할 수 있습니다.\""
-        }
-      ]
-    },
-    {
-      "product": "maison",
-      "repo": "Q-Works",
       "path": "lib/supabase/types.ts",
-      "beforeHash": "f457a877bd2b7de402720712aed21d72e8b11dff34c3cc0c70f34b711a1181d0",
-      "afterHash": "12b651738ebf945c56bd469e1960259753f8352bd6f6e1a24ab39985853bee4f",
+      "beforeHash": "12b651738ebf945c56bd469e1960259753f8352bd6f6e1a24ab39985853bee4f",
+      "afterHash": "a3f705a06232cdd207a463e0dc4778529c22dafa6c935ac766af0a6123d2ed96",
       "changes": [
         {
-          "line": 1211,
+          "line": 625,
           "kind": "StringLiteral",
           "ordinal": 1,
-          "raw": "\"사용중\"",
-          "emitted": "\"사용 중\"",
-          "original": "\"사용중\""
-        },
-        {
-          "line": 2109,
-          "kind": "StringLiteral",
-          "ordinal": 1,
-          "raw": "\"사용중\"",
-          "emitted": "\"사용 중\"",
-          "original": "\"사용중\""
+          "raw": "\"대응완료\"",
+          "emitted": "\"대응 완료\"",
+          "original": "\"대응완료\""
         }
       ]
     }

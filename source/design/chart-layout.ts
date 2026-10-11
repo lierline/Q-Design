@@ -30,10 +30,11 @@ export function chartPadding(fontSize: number, base: { top: number; right: numbe
 }
 
 export function chartLabelStyle(indices: number[], position: number, length: number, gap: string) {
+  if (length < 1 || !Number.isInteger(position) || position < 0 || position >= indices.length || indices.some(index => !Number.isInteger(index) || index < 0 || index >= length)) throw new RangeError('Chart label must reference an existing data point');
   const anchors = indices.map(index => length === 1 ? 50 : index * 100 / (length - 1));
-  const anchor = anchors[position];
+  const anchor = anchors[position]!;
   const first = position === 0, last = position === indices.length - 1;
-  const slot = indices.length === 1 ? 100 : first ? (anchors[1] - anchor) / 2 : last ? (anchor - anchors[position - 1]) / 2 : Math.min(anchor - anchors[position - 1], anchors[position + 1] - anchor);
+  const slot = indices.length === 1 ? 100 : first ? (anchors[1]! - anchor) / 2 : last ? (anchor - anchors[position - 1]!) / 2 : Math.min(anchor - anchors[position - 1]!, anchors[position + 1]! - anchor);
   return {
     gridArea: '1 / 1',
     minWidth: 0,

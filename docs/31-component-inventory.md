@@ -9,7 +9,7 @@
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Q-Atelier | 711 | 1153 | 143 | 87 | 21 | 70 | 623 |
-| Q-Maison | 1107 | 1355 | 156 | 94 | 18 | 366 | 637 |
+| Q-Maison | 1107 | 1355 | 156 | 94 | 21 | 367 | 637 |
 | Q-Carnet | 161 | 272 | 19 | 32 | 15 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
@@ -1347,7 +1347,7 @@
 | [app/(app)/risks/new/page.tsx](../../Q-Works/app/(app)/risks/new/page.tsx) | `NewRiskPage` (screen, 추론) | product-local |
 | [app/(app)/risks/page.tsx](../../Q-Works/app/(app)/risks/page.tsx) | `RisksPage` (screen, 추론), `SortHead` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/print/loading.tsx](../../Q-Works/app/(app)/risks/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/risks/print/page.tsx](../../Q-Works/app/(app)/risks/print/page.tsx) | `cell` (document, 추론), `PrintRiskMatrix` (document, 추론), `RiskRegisterPrintPage` (document, 추론) | imports-canonical-module |
+| [app/(app)/risks/print/page.tsx](../../Q-Works/app/(app)/risks/print/page.tsx) | `cell` (document, 추론), `PrintRiskMatrix` (document, 추론), `RiskRegisterPrintPage` (document, 추론) | qd-class-reference |
 | [app/(app)/safety/[id]/action-panel.tsx](../../Q-Works/app/(app)/safety/%5Bid%5D/action-panel.tsx) | `EnvActionPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/safety/[id]/loading.tsx](../../Q-Works/app/(app)/safety/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/safety/[id]/page.tsx](../../Q-Works/app/(app)/safety/%5Bid%5D/page.tsx) | `EnvironmentCheckDetailPage` (screen, 추론) | qd-class-reference |

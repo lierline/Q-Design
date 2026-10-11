@@ -8,7 +8,7 @@
     "failures": 0
   },
   "styleUnknowns": {
-    "atelier": 1006,
+    "atelier": 963,
     "maison": 0,
     "carnet": 0
   },
@@ -16,13 +16,13 @@
     {
       "product": "atelier",
       "targets": 201,
-      "capturedTargets": 200,
-      "targetsWithReviewedCapture": 200,
-      "targetsWithUsableVisualCapture": 169,
-      "targetsWithVerifiedBoundaryCapture": 2,
-      "captureRecords": 212,
-      "images": 661,
-      "reviewedImages": 661,
+      "capturedTargets": 201,
+      "targetsWithReviewedCapture": 201,
+      "targetsWithUsableVisualCapture": 193,
+      "targetsWithVerifiedBoundaryCapture": 8,
+      "captureRecords": 244,
+      "images": 1002,
+      "reviewedImages": 1002,
       "missingImages": 0
     },
     {
@@ -30,11 +30,11 @@
       "targets": 277,
       "capturedTargets": 277,
       "targetsWithReviewedCapture": 277,
-      "targetsWithUsableVisualCapture": 245,
-      "targetsWithVerifiedBoundaryCapture": 0,
-      "captureRecords": 293,
-      "images": 855,
-      "reviewedImages": 855,
+      "targetsWithUsableVisualCapture": 270,
+      "targetsWithVerifiedBoundaryCapture": 7,
+      "captureRecords": 328,
+      "images": 998,
+      "reviewedImages": 998,
       "missingImages": 0
     },
     {
@@ -206,22 +206,8 @@
     {
       "product": "atelier",
       "kind": "unresolved-style-arguments",
-      "count": 1006,
+      "count": 963,
       "note": "Unclassified source arguments are not automatically visual defects or approved exceptions."
-    },
-    {
-      "product": "atelier",
-      "kind": "incomplete-screen-evidence",
-      "remainingImages": 0,
-      "remainingTargets": 30,
-      "missingCaptureTargets": 1
-    },
-    {
-      "product": "maison",
-      "kind": "incomplete-screen-evidence",
-      "remainingImages": 0,
-      "remainingTargets": 32,
-      "missingCaptureTargets": 0
     }
   ]
 }

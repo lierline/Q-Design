@@ -9,6 +9,17 @@ export function routeChanged(capture){
   const requested=url(capture.url),actual=url(capture.actualURL);
   return !!requested&&!!actual&&(requested.origin!==actual.origin||requested.pathname!==actual.pathname);
 }
+// Fixed app shells scroll their MAIN, while the root's scrollHeight can include
+// clipped descendant overflow. Accept that model only with measured bounds.
+export function scrollCoverageComplete(capture){
+  const end=capture.end, height=capture.viewport?.[1];
+  if(!end||!Number.isFinite(height)||height<=0)return null;
+  const mains=(end.scrolls??[]).filter(s=>s.id==='main-content'||s.tag==='MAIN');
+  if(!mains.every(s=>Number.isFinite(s.top)&&Number.isFinite(s.height)&&Number.isFinite(s.total)&&s.top+s.height>=s.total-3))return false;
+  if(Number.isFinite(end.documentHeight)&&Number.isFinite(end.windowY)&&end.documentHeight<=end.windowY+height+3)return true;
+  const bounds=end.rootBounds;
+  return !!bounds&&['hidden','clip'].includes(bounds.rootOverflowY)&&['hidden','clip'].includes(bounds.bodyOverflowY)&&end.windowY===0&&bounds.rootClientHeight===height&&bounds.bodyTop===0&&bounds.bodyBottom<=height+3&&bounds.bodyScrollHeight<=height+3&&mains.some(s=>s.id==='main-content'&&s.rect?.y>=0&&s.rect.y+s.rect.height<=height+3);
+}
 // A guard is approved by a human source review. Reuse that approval only while
 // its exact source, expression, role and observed destination still agree.
 export function verifiedRouteBoundary(capture,records,readSource){
@@ -30,7 +41,7 @@ export function verifiedRouteBoundary(capture,records,readSource){
   return null;
 }
 export function captureDecision(capture,images,scrollComplete,boundary){
-  const reviewed=images.length>0&&images.every(i=>i.reviewed),clean=reviewed&&images.every(i=>!i.needsAttention);
+  const reviewed=images.length>0&&images.every(i=>i.reviewed),clean=reviewed&&images.every(i=>!i.needsAttention)&&capture.loadingTextPresent!==true;
   const redirect=routeChanged(capture)||images.some(i=>/redirect/.test(i.verdict??''));
   const namedWidth=/(?:mobile|frame|phone)[-_]?(\d{3,4})(?:\b|$)/.exec(capture.role??'');
   const expected=capture.requestedViewport?.[0]??(namedWidth?Number(namedWidth[1]):null);

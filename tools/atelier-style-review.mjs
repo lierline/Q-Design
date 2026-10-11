@@ -8,6 +8,7 @@ import { hash, runtimeFiles, cssProperties, scanArguments, jsxStyleAttributes } 
 import { collectAdapterReferences, expressionProof, classExpressionProof, importedReference, localBindings, namedValueBoundary, primaryVariables, reviewedLeafProof, sourceImports } from './atelier-style-proof.mjs';
 import { verifiedConsumerReview } from './atelier-style-manual.mjs';
 import { verifiedParameterLeaves } from './atelier-parameter-leaves-review.mjs';
+import { inactiveExportGroup } from './atelier-inactive-exports.mjs';
 const ROOT='D:/Claude/Q-Design', PRODUCT='D:/Claude/Q-Atelier';
 const req=createRequire(path.join(PRODUCT,'package.json')),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -61,6 +62,7 @@ const rules={
   'css-structure':'A proven JSX style/CSSProperties object contains a reviewed dimensionless layout, alignment, text wrapping or reset value.',
   'expert-count-data':'The exact spread builds an expert id/email/count record, then sorts it by count; it is not style composition.',
   'data-envelope':'The exact complete binding is a native Date, native HTTP Response or fingerprint-reviewed JSON success/failure envelope. Descendant values and subsequent visual uses are still separately inventoried.',
+  'inactive-export-graph':'The explicitly named compatibility exports have no runtime consumers in the freshly parsed application graph. Aliases, namespace escapes, dynamic module loading and indirect references invalidate this proof. This is not central ownership of visible styles.',
   'unknown':'No sufficient exact-source proof exists in this review. Further inspection or centralization is required.',
 };
 const records=[],fileHashes=[];
@@ -85,7 +87,9 @@ for (const name of ['atelier-style-spread-review.json', 'atelier-style-bindings-
 const parameterFile=path.join(ROOT,'reviews/atelier-parameter-leaves-review.json');
 const parameterFlows=fs.existsSync(parameterFile)?JSON.parse(fs.readFileSync(parameterFile,'utf8')).flows:[];
 const decide=(decision,ruleId,reason,evidence=[])=>({decision,ruleId,reason,evidence});
-for(const file of runtimeFiles(PRODUCT)){
+const applicationFiles=runtimeFiles(PRODUCT);
+const inactiveCompatibility=inactiveExportGroup({ts,root:PRODUCT,files:applicationFiles,target:'lib/design/tokens.ts',names:['TYPE','typeStyle','goldTextStyle']});
+for(const file of applicationFiles){
   const code=fs.readFileSync(path.join(PRODUCT,file),'utf8'),sourceHash=hash(code),part=copies.get(file);
   let activeClasses=scopedClasses.get(file)??classes;
   if(file==='lib/export/org-export.ts'){
@@ -192,11 +196,12 @@ for(const file of runtimeFiles(PRODUCT)){
     }
     if(!result&&file==='app/(app)/admin/activity/page.tsx'&&kind==='object-spread'&&value==='v'&&code.includes('.map(([id, v]) => ({ id, ...v }))'))result=decide('business-data','expert-count-data','Spread composes expert id/email/count, followed by count sorting; never passed as a style object.',own);
     if(!result)result=verifiedConsumerReview({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),line},manualReviews.get(JSON.stringify([file,line,hash(JSON.stringify(argument))])),currentHash);
+    if(!result&&kind!=='parse-error'&&file==='lib/design/tokens.ts'&&inactiveCompatibility.inactive&&inactiveCompatibility.ranges.some(range=>line>=range.start&&line<=range.end))result=decide('inactive-compatibility-export','inactive-export-graph','This exact argument is within an unused compatibility export. Its runtime-use graph is rechecked on every review; the immutable token source is preserved.',own);
     if(!result)result=decide('unknown','unknown','No broad filename, numeric-value or single-token exemption is applied.',own);
     records.push({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),...argument,originalStatus:argument.status,...result});
   }
 }
 const counts={};for(const record of records)counts[record.decision]=(counts[record.decision]??0)+1;
-const report={version:1,product:'atelier',scope:'Exact static-source argument review. This is not a whole-screen visual conformance certificate. Unknown records remain actionable and no whitelist is inferred.',fileHashes,rules,counts,records};
+const report={version:1,product:'atelier',scope:'Exact static-source argument review. This is not a whole-screen visual conformance certificate. Unknown records remain actionable and no whitelist is inferred.',fileHashes,inactiveCompatibility,rules,counts,records};
 fs.writeFileSync(path.join(ROOT,'reviews/atelier-style-decisions.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({files:fileHashes.length,records:records.length,counts},null,2));

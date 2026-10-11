@@ -895,6 +895,72 @@
     },
     {
       "product": "maison",
+      "path": "app/(app)/reviews/agendas/new/page.tsx",
+      "bindings": [
+        {
+          "line": 50,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "경영검토\n      ",
+          "emitted": "경영 검토\n      "
+        },
+        {
+          "line": 55,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+      "bindings": [
+        {
+          "line": 181,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 191,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        },
+        {
+          "line": 203,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "경영검토\n          ",
+          "emitted": "경영 검토\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/report/page.tsx",
+      "bindings": [
+        {
+          "line": 201,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
       "path": "app/(app)/reviews/approval-ui.tsx",
       "bindings": [
         {
@@ -917,6 +983,26 @@
           "ordinal": 1,
           "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
           "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/page.tsx",
+      "bindings": [
+        {
+          "line": 31,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        },
+        {
+          "line": 159,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
         }
       ]
     },
@@ -1120,6 +1206,19 @@
     },
     {
       "product": "maison",
+      "path": "components/layout/nav-groups.ts",
+      "bindings": [
+        {
+          "line": 272,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
       "path": "components/shared/attendee-picker.tsx",
       "bindings": [
         {
@@ -1232,6 +1331,20 @@
           "ordinal": 0,
           "original": "\"작성중\"",
           "emitted": "\"작성 중\""
+        },
+        {
+          "line": 596,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 724,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
         }
       ]
     },
@@ -1350,6 +1463,19 @@
     },
     {
       "product": "maison",
+      "path": "lib/navigation/menus.ts",
+      "bindings": [
+        {
+          "line": 135,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
       "path": "lib/notices/categories.ts",
       "bindings": [
         {
@@ -1358,6 +1484,19 @@
           "ordinal": 1,
           "original": "\"작성중\"",
           "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/permissions/clause-groups.ts",
+      "bindings": [
+        {
+          "line": 194,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
         }
       ]
     },
@@ -1549,6 +1688,13 @@
           "ordinal": 1,
           "original": "\"사용중\"",
           "emitted": "\"사용 중\""
+        },
+        {
+          "line": 625,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"대응완료\"",
+          "emitted": "\"대응 완료\""
         }
       ]
     },

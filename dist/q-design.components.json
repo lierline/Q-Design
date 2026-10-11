@@ -12549,6 +12549,8 @@
           ],
           "classes": [
             "qa-input",
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-input"
           ],
           "tokens": [
@@ -12570,7 +12572,7 @@
             "select",
             "textarea"
           ],
-          "inlineStyles": 42,
+          "inlineStyles": 41,
           "imports": [
             "components/Confirm.tsx",
             "components/DesignReviewPanel.tsx",
@@ -16949,6 +16951,8 @@
             "--qd-body-size",
             "--qd-border",
             "--qd-border-src",
+            "--qd-border-width",
+            "--qd-border-width-2",
             "--qd-borderHi",
             "--qd-borderHi-src",
             "--qd-caption-size",
@@ -16968,6 +16972,8 @@
             "--qd-dialog-width",
             "--qd-ease",
             "--qd-field-gap",
+            "--qd-focus-outline-width",
+            "--qd-font-family-ui",
             "--qd-icon-size",
             "--qd-icon-size-sm",
             "--qd-info",
@@ -16986,6 +16992,7 @@
             "--qd-overlay-title-size",
             "--qd-progress-height",
             "--qd-radius",
+            "--qd-radius-control",
             "--qd-section-size",
             "--qd-select-end-padding",
             "--qd-shadow-overlay",
@@ -17396,6 +17403,7 @@
             "--qd-leading-relaxed",
             "--qd-leading-snug",
             "--qd-leading-tight",
+            "--qd-line-height-normal",
             "--qd-mobile-header-height",
             "--qd-motion-fast",
             "--qd-muted",
@@ -19575,6 +19583,8 @@
           ],
           "classes": [
             "qa-input",
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-input"
           ],
           "tokens": [
@@ -19602,7 +19612,7 @@
             "button",
             "textarea"
           ],
-          "inlineStyles": 33,
+          "inlineStyles": 32,
           "imports": [
             "components/Confirm.tsx",
             "components/TextAction.tsx",
@@ -34443,8 +34453,8 @@
         "components": 1355,
         "iconModules": 156,
         "roleMappedComponents": 94,
-        "canonicalCopies": 18,
-        "qdClassModules": 366,
+        "canonicalCopies": 21,
+        "qdClassModules": 367,
         "productLocalModules": 637
       },
       "publicCoverage": {
@@ -34455,6 +34465,30 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "권한 설명 문구",
+          "source": "dist/q-design.permission-copy.maison.ts",
+          "path": "lib/design/q-design-permission-copy.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
+        {
+          "name": "차트 축 문장 배치",
+          "source": "source/design/chart-layout.ts",
+          "path": "lib/design/q-design-chart-layout.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
+        {
+          "name": "차트 실제 표시 폭",
+          "source": "source/design/chart-viewport.ts",
+          "path": "lib/design/q-design-chart-viewport.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "메종 수치 규칙",
           "source": "patterns/foundation/maison-runtime.ts",
@@ -48335,9 +48369,11 @@
             "--qd-space-2"
           ],
           "nativeControls": [],
-          "inlineStyles": 5,
+          "inlineStyles": 8,
           "imports": [
             "app/(app)/kpi/[id]/tier-legend.tsx",
+            "lib/design/q-design-chart-layout.ts",
+            "lib/design/q-design-chart-viewport.ts",
             "lib/design/q-design-runtime.ts",
             "lib/kpi/achievement.ts",
             "lib/kpi/period.ts",
@@ -48438,12 +48474,15 @@
             "--qd-chart-stroke-width",
             "--qd-chart-target-dash",
             "--qd-chart-target-width",
+            "--qd-space-2",
             "--qd-space-3"
           ],
           "nativeControls": [],
-          "inlineStyles": 7,
+          "inlineStyles": 10,
           "imports": [
             "app/(app)/kpi/[id]/tier-legend.tsx",
+            "lib/design/q-design-chart-layout.ts",
+            "lib/design/q-design-chart-viewport.ts",
             "lib/design/q-design-runtime.ts",
             "lib/kpi/achievement.ts",
             "lib/kpi/scale.ts",
@@ -56896,7 +56935,9 @@
               "roles": []
             }
           ],
-          "classes": [],
+          "classes": [
+            "qd-copy-phrase"
+          ],
           "tokens": [],
           "nativeControls": [
             "table"
@@ -56923,7 +56964,7 @@
           "reachable": true,
           "ruleAssignment": "name-and-path-inference",
           "owner": "product",
-          "evidence": "imports-canonical-module",
+          "evidence": "qd-class-reference",
           "reviewScope": "product-composition-or-review-candidate"
         },
         {
@@ -59290,6 +59331,7 @@
             "components/q-design-icons/Save.tsx",
             "components/ui/button.tsx",
             "components/ui/checkbox.tsx",
+            "lib/design/q-design-permission-copy.ts",
             "lib/utils/cn.ts"
           ],
           "reachable": true,
@@ -63362,6 +63404,8 @@
             "qd-btn",
             "qd-btn--primary",
             "qd-btn--sm",
+            "qd-control-icon",
+            "qd-control-icon--danger",
             "qd-label"
           ],
           "tokens": [],
@@ -64400,6 +64444,8 @@
             "--qd-body-size",
             "--qd-border",
             "--qd-border-src",
+            "--qd-border-width",
+            "--qd-border-width-2",
             "--qd-borderHi",
             "--qd-borderHi-src",
             "--qd-caption-size",
@@ -64419,6 +64465,8 @@
             "--qd-dialog-width",
             "--qd-ease",
             "--qd-field-gap",
+            "--qd-focus-outline-width",
+            "--qd-font-family-ui",
             "--qd-icon-size",
             "--qd-icon-size-sm",
             "--qd-info",
@@ -64437,6 +64485,7 @@
             "--qd-overlay-title-size",
             "--qd-progress-height",
             "--qd-radius",
+            "--qd-radius-control",
             "--qd-section-size",
             "--qd-select-end-padding",
             "--qd-shadow-overlay",
@@ -66648,7 +66697,9 @@
               "roles": []
             }
           ],
-          "classes": [],
+          "classes": [
+            "qd-copy-phrase"
+          ],
           "tokens": [
             "--muted-foreground"
           ],
@@ -71266,9 +71317,8 @@
             }
           ],
           "classes": [
-            "qd-btn",
-            "qd-btn--danger",
-            "qd-btn--secondary"
+            "qd-control-icon",
+            "qd-control-icon--danger"
           ],
           "tokens": [],
           "nativeControls": [
@@ -78223,6 +78273,8 @@
             "--qd-body-size",
             "--qd-border",
             "--qd-border-src",
+            "--qd-border-width",
+            "--qd-border-width-2",
             "--qd-borderHi",
             "--qd-borderHi-src",
             "--qd-caption-size",
@@ -78242,6 +78294,8 @@
             "--qd-dialog-width",
             "--qd-ease",
             "--qd-field-gap",
+            "--qd-focus-outline-width",
+            "--qd-font-family-ui",
             "--qd-icon-size",
             "--qd-icon-size-sm",
             "--qd-info",
@@ -78260,6 +78314,7 @@
             "--qd-overlay-title-size",
             "--qd-progress-height",
             "--qd-radius",
+            "--qd-radius-control",
             "--qd-section-size",
             "--qd-select-end-padding",
             "--qd-shadow-overlay",

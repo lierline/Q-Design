@@ -5,7 +5,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { reviewVerdict, needsVisualAttention } from './page-evidence-verdict.mjs';
-import { verifiedRouteBoundary, captureDecision } from './page-evidence-boundaries.mjs';
+import { verifiedRouteBoundary, captureDecision, scrollCoverageComplete } from './page-evidence-boundaries.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -44,8 +44,7 @@ for (const product of ['atelier', 'maison', 'carnet']) {
       const needsAttention = needsVisualAttention(reviewed);
       return { path: file, hash, exists, reviewed: Boolean(reviewed), verdict, needsAttention };
     });
-    const end = capture.end;
-    const scrollComplete = end ? end.documentHeight <= (end.windowY + capture.viewport[1] + 3) && (end.scrolls ?? []).filter(s => s.id === 'main-content' || s.tag === 'MAIN').every(s => s.top + s.height >= s.total - 3) : null;
+    const scrollComplete = scrollCoverageComplete(capture);
     const routeBoundary=verifiedRouteBoundary(capture,boundaries,readBoundarySource);
     return { metadata: capture.metadata, route: capture.route, url: capture.url, actualURL: capture.actualURL, role: capture.role, theme: capture.theme, viewport: capture.viewport, capturedAt: capture.capturedAt, mode: capture.captureMode ?? 'legacy', scrollComplete, images, routeBoundary, ...captureDecision(capture,images,scrollComplete,routeBoundary) };
   });

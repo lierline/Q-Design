@@ -6,7 +6,10 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/build-permission-copy.mjs','--check'],
+  ['--test','tools/permission-copy.test.mjs'],
   ['--test','tools/chart-layout.test.mjs','tools/atelier-chart-layout-review.test.mjs'],
+  ['--test','tools/atelier-inactive-exports.test.mjs'],
   ['--test','tools/copy-spacing.test.mjs'],
   ['tools/copy-spacing.mjs','--check'],
   ['--test','tools/extract-ramp.test.mjs'],
@@ -32,7 +35,7 @@ const steps=[
   ['--test','tools/migrate-atelier-style-fragments.test.mjs'],
   ['--test','tools/atelier-html.test.mjs'],
   ['--test','tools/atelier-backgrounds.test.mjs'],
-  ['--test','tools/atelier-presentation.test.mjs'],
+  ['--test','tools/atelier-presentation.test.mjs','tools/followup-controls-proof.test.mjs'],
   ['--test','tools/migrate-atelier-typography.test.mjs'],
   ['--test','tools/maison-style-manual.test.mjs'],
   ['--test','tools/maison-style-output.test.mjs'],
@@ -61,7 +64,7 @@ const steps=[
   ['tools/maison-style-review.mjs','--check'],
   ['tools/carnet-style-review.mjs','--check'],
 ];
-if(args.includes('--browser'))steps.push(['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs']);
+if(args.includes('--browser'))steps.push(['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs'],['tools/verify-native-file-control.mjs'],['tools/verify-print-phrase.mjs'],['tools/verify-maison-chart-responsive.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

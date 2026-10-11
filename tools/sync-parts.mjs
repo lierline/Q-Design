@@ -28,8 +28,12 @@
 export const HOLD = {};  // 2026-10-10 오너가 Q-Sonar 묶음을 풀었다(구역 제목 C안 반영 때 «정본 전부 받기» 선택). 12px · 대비 4.5 규칙도 Sonar 에 들어간다.
 
 export const PARTS = [
+  { name: '권한 설명 문구', src: 'dist/q-design.permission-copy.maison.ts', lang: 'ts',
+    to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-permission-copy.ts' } },
   { name: '차트 축 문장 배치', src: 'source/design/chart-layout.ts', lang: 'ts',
-    to: { 'Q-Atelier': 'D:/Claude/Q-Atelier/lib/design/q-design-chart-layout.ts' } },
+    to: { 'Q-Atelier': 'D:/Claude/Q-Atelier/lib/design/q-design-chart-layout.ts', 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-chart-layout.ts' } },
+  { name: '차트 실제 표시 폭', src: 'source/design/chart-viewport.ts', lang: 'ts',
+    to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-chart-viewport.ts' } },
   { name: '아뜰리에 설명서 출력 규칙', src: 'patterns/foundation/atelier-manual.ts', lang: 'ts',
     to: { 'Q-Atelier': 'D:/Claude/Q-Atelier/lib/manual/q-design-styles.ts' } },
   { name: '아뜰리에 출력 규칙', src: 'source/design/atelier-output.ts', lang: 'ts',

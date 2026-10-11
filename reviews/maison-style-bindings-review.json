@@ -3390,68 +3390,6 @@
       ]
     },
     {
-      "argumentHash": "f5961ec57431d56ffac98d19a2f9bb6cb314cfa57ec01f7c0b8c35452589af4f",
-      "sourceHash": "44b3c0ed6938a7212b125d2f7b1680a7aef7ebca5432e26afa514da2e2a6fc97",
-      "path": "app/(app)/kpi/[id]/period-chart.tsx",
-      "line": 197,
-      "decision": "coordinate-boundary",
-      "ruleId": "reviewed-data-chart-coordinate",
-      "reason": "This value is derived from measured business values and chart scale functions, then used as bar width or x/y coordinates. Authored chart dimensions and colors are separate candidates. Consumer: y={top}",
-      "evidence": [
-        {
-          "path": "app/(app)/kpi/[id]/period-chart.tsx",
-          "line": 197,
-          "hash": "44b3c0ed6938a7212b125d2f7b1680a7aef7ebca5432e26afa514da2e2a6fc97"
-        },
-        {
-          "path": "app/(app)/kpi/[id]/period-chart.tsx",
-          "line": 203,
-          "hash": "44b3c0ed6938a7212b125d2f7b1680a7aef7ebca5432e26afa514da2e2a6fc97"
-        }
-      ],
-      "reviewedExpression": "Math.min(yOf(b.value), zeroY)",
-      "consumerContext": [
-        {
-          "line": 197,
-          "text": "y={top}"
-        }
-      ],
-      "value": "Math.min(yOf(b.value), zeroY)",
-      "kind": "named-style-value",
-      "property": "top"
-    },
-    {
-      "argumentHash": "e8da3c4fb63a129e3843d99581f690c9eb7fe3bbc27a3e4b891ca91062ac50fc",
-      "sourceHash": "4cbaa6bf1d06b3a35ac214ab92ba953b53981454ccb0a4cd003e662848856714",
-      "path": "app/(app)/kpi/[id]/trend-chart.tsx",
-      "line": 260,
-      "decision": "coordinate-boundary",
-      "ruleId": "reviewed-data-chart-coordinate",
-      "reason": "This value is derived from measured business values and chart scale functions, then used as bar width or x/y coordinates. Authored chart dimensions and colors are separate candidates. Consumer: x={Math.max(0, x)}",
-      "evidence": [
-        {
-          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
-          "line": 260,
-          "hash": "4cbaa6bf1d06b3a35ac214ab92ba953b53981454ccb0a4cd003e662848856714"
-        },
-        {
-          "path": "app/(app)/kpi/[id]/trend-chart.tsx",
-          "line": 264,
-          "hash": "4cbaa6bf1d06b3a35ac214ab92ba953b53981454ccb0a4cd003e662848856714"
-        }
-      ],
-      "reviewedExpression": "data.xOf(i) - half",
-      "consumerContext": [
-        {
-          "line": 252,
-          "text": "x={Math.max(0, x)}"
-        }
-      ],
-      "value": "data.xOf(i) - half",
-      "kind": "named-style-value",
-      "property": "x"
-    },
-    {
       "argumentHash": "9ac0b8fc8ce5cef130e7724d3671618442544ec5479161a64687e5010776bb6a",
       "sourceHash": "c721d0ac9df209d94128f13eca3747fc624257cefeffc458f90830dcb09fc36f",
       "path": "app/(app)/kpi/[id]/value-panel.tsx",
@@ -6148,28 +6086,28 @@
       ]
     },
     {
-      "argumentHash": "f480fec3e8f89e45bc6f89d1379009c6eed7eace7d1521381c923af0ffe04eda",
-      "sourceHash": "00b1c0e6b4e8cf18292a2e55e72ca33ddc4d6777a81baf911ddb9e9a600110cb",
+      "argumentHash": "48f7a46d3534781987de872be674238ad2870ff22285f28eecea2d19ae3f0106",
+      "sourceHash": "bbb5ea14a24b1cf5c9269630dbb25294858e9fe3bc198495280f163fa65a4c48",
       "path": "app/(app)/settings/roles/permission-matrix.tsx",
-      "line": 103,
+      "line": 104,
       "decision": "business-data",
       "ruleId": "reviewed-lexical-data-binding",
       "reason": "The exact lexical binding and consumers shown below carry a domain/API result, date, query projection, record collection or business calculation. They do not supply a CSS declaration or a visual default. Consumer: for (const c of d) if (!b.has(c)) diff += 1; | if (!d.has(c)) diff += 1;",
       "evidence": [
         {
           "path": "app/(app)/settings/roles/permission-matrix.tsx",
-          "line": 103,
-          "hash": "00b1c0e6b4e8cf18292a2e55e72ca33ddc4d6777a81baf911ddb9e9a600110cb"
-        },
-        {
-          "path": "app/(app)/settings/roles/permission-matrix.tsx",
-          "line": 105,
-          "hash": "00b1c0e6b4e8cf18292a2e55e72ca33ddc4d6777a81baf911ddb9e9a600110cb"
+          "line": 104,
+          "hash": "bbb5ea14a24b1cf5c9269630dbb25294858e9fe3bc198495280f163fa65a4c48"
         },
         {
           "path": "app/(app)/settings/roles/permission-matrix.tsx",
           "line": 106,
-          "hash": "00b1c0e6b4e8cf18292a2e55e72ca33ddc4d6777a81baf911ddb9e9a600110cb"
+          "hash": "bbb5ea14a24b1cf5c9269630dbb25294858e9fe3bc198495280f163fa65a4c48"
+        },
+        {
+          "path": "app/(app)/settings/roles/permission-matrix.tsx",
+          "line": 107,
+          "hash": "bbb5ea14a24b1cf5c9269630dbb25294858e9fe3bc198495280f163fa65a4c48"
         }
       ],
       "reviewedExpression": "draft.get(r.id) ?? new Set<string>()",
@@ -7424,211 +7362,22 @@
     },
     {
       "argumentHash": "9b74e0fba029c51568557f16ac4ea32702c0a1bd6a4412a4c367a14aaa275e6f",
-      "sourceHash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9",
+      "sourceHash": "92497fdd09f70426276bdc1f4719f9eaa8c4da35fac884564b6337488316d4b8",
       "path": "components/shared/list-stats.tsx",
       "line": 70,
       "decision": "structural-behavior",
       "ruleId": "reviewed-render-metadata",
-      "reason": "This function/list combines semantic labels, domain kinds and named accent choices for existing renderers. It supplies content/selection metadata; actual accent colors are separately linked to central tokens. Consumer: cards: () => [ all(\"전체 회의록\", \"등록된 회의록\"), { label: \"작성중\", hint: \"아직 상신하지 않은 회의록\", accent: \"gray\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토 · 참석자 확인 · 승인 대기\", accent: \"copper\", where: [{ col: \"status\", in: [\"subm | cards: () => [ all(\"전체 안건서\", \"등록된 경영 검토 회차\"), { label: \"작성중\", hint: \"아직 상신하지 않은 회차\", accent: \"copper\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토·확인·승인을 기다리는 회차\", accent: \"violet\", /* `confirmed`(승인 대기)를 | cards: () => [ all(\"전체 변경요청\", \"등록된 변경 요청서\"), { label: \"작성중\", hint: \"아직 상신하지 않은 요청서\", accent: \"gray\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토 · 승인 대기\", accent: \"copper\", where: [{ col: \"approval_status",
+      "reason": "Fresh review after the two label spacing corrections. all(label,hint) returns the typed Card metadata fields label, hint and the finite accent identity cobalt. It does not emit CSS. Actual cobalt paint remains separately controlled by STAT_ACCENT and its central --qa-state-cobalt variable.",
       "evidence": [
         {
           "path": "components/shared/list-stats.tsx",
           "line": 70,
-          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
+          "hash": "92497fdd09f70426276bdc1f4719f9eaa8c4da35fac884564b6337488316d4b8"
         },
         {
-          "path": "components/shared/list-stats.tsx",
-          "line": 88,
-          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
-        },
-        {
-          "path": "components/shared/list-stats.tsx",
-          "line": 118,
-          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
-        },
-        {
-          "path": "components/shared/list-stats.tsx",
-          "line": 197,
-          "hash": "0126631f3929f688221aafd0cd45356e8447fe51c19dc9f306ee308ddef916e9"
-        }
-      ],
-      "reviewedExpression": "(label: string, hint: string): Card => ({\r\n  label,\r\n  hint,\r\n  accent: \"cobalt\",\r\n})",
-      "consumerContext": [
-        {
-          "line": 88,
-          "text": "cards: () => [ all(\"전체 회의록\", \"등록된 회의록\"), { label: \"작성중\", hint: \"아직 상신하지 않은 회의록\", accent: \"gray\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토 · 참석자 확인 · 승인 대기\", accent: \"copper\", where: [{ col: \"status\", in: [\"subm"
-        },
-        {
-          "line": 118,
-          "text": "cards: () => [ all(\"전체 안건서\", \"등록된 경영 검토 회차\"), { label: \"작성중\", hint: \"아직 상신하지 않은 회차\", accent: \"copper\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토·확인·승인을 기다리는 회차\", accent: \"violet\", /* `confirmed`(승인 대기)를"
-        },
-        {
-          "line": 197,
-          "text": "cards: () => [ all(\"전체 변경요청\", \"등록된 변경 요청서\"), { label: \"작성중\", hint: \"아직 상신하지 않은 요청서\", accent: \"gray\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토 · 승인 대기\", accent: \"copper\", where: [{ col: \"approval_status"
-        },
-        {
-          "line": 228,
-          "text": "cards: () => [ all(\"전체 검토서\", \"계약 검토 · 변경 요청 전부\"), { label: \"작성중\", hint: \"아직 판정 전인 검토서\", accent: \"copper\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"검토중\", hint: \"판정을 기다리는 검토서\", accent: \"violet\", where: [{ col: \"status\", eq: \"revi"
-        },
-        {
-          "line": 256,
-          "text": "cards: () => [ all(\"전체 견적서\", \"받아 둔 견적\"), { label: \"검토 대기\", hint: \"아직 고르지 않은 견적\", accent: \"copper\", where: [{ col: \"status\", eq: \"received\" }], }, { label: \"선정\", hint: \"발주로 고른 견적\", accent: \"violet\", where: [{ col: \"status\", eq: \"selected\" }]"
-        },
-        {
-          "line": 280,
-          "text": "cards: () => [ all(\"전체 요청서\", \"등록된 구매 요청\"), { label: \"요청\", hint: \"검토를 기다리는 건\", accent: \"copper\", where: [{ col: \"status\", eq: \"requested\" }], }, { label: \"검토중\", hint: \"발주 전 검토하는 건\", accent: \"violet\", where: [{ col: \"status\", eq: \"reviewing\" "
-        },
-        {
-          "line": 305,
-          "text": "cards: () => [ all(\"전체 발주서\", \"쓴 발주서\"), { label: \"작성중\", hint: \"아직 상신하지 않은 발주서\", accent: \"copper\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"부서장 검토 · 대표 승인 대기\", accent: \"violet\", where: [{ col: \"status\", in: [\"submit"
-        },
-        {
-          "line": 331,
-          "text": "cards: () => [ all(\"전체 실적\", \"발주 이후 단계의 건\"), { label: \"입고 대기\", hint: \"발주했는데 아직 안 들어온 건\", accent: \"copper\", where: [{ col: \"status\", eq: \"ordered\" }], }, { label: \"입고 완료\", hint: \"받은 건\", accent: \"violet\", where: [{ col: \"status\", eq: \"received"
-        },
-        {
-          "line": 355,
-          "text": "cards: () => [ all(\"전체 시방서\", \"등록된 구매 시방서\"), { label: \"작성중\", hint: \"아직 발효하지 않은 것\", accent: \"gray\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"발효\", hint: \"지금 쓰는 시방서\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { "
-        },
-        {
-          "line": 388,
-          "text": "cards: () => [ all(\"전체 변경\", \"등록된 설계 변경\"), { label: \"검토 중\", hint: \"요청 · 검토 단계\", accent: \"copper\", where: [{ col: \"status\", in: [\"requested\", \"reviewing\"] }], }, { label: \"반영 완료\", hint: \"승인되어 설계에 반영된 변경\", accent: \"green\", where: [{ col: \"stat"
-        },
-        {
-          "line": 417,
-          "text": "cards: () => [ all(\"전체 프로젝트\", \"등록된 제품 개발 프로젝트\"), { label: \"진행 중\", hint: \"계획 ~ 유효성 확인\", accent: \"copper\", where: [ { col: \"stage\", in: [ \"proposed\", \"planning\", \"input\", \"output\", \"verification\", \"validation\", ], }, ], }, { label: \"완료 · 이관\","
-        },
-        {
-          "line": 458,
-          "text": "cards: () => [ all(\"전체 과제\", \"등록된 R&D 사업 과제\"), { label: \"수행 중\", hint: \"선정 · 협약 후 진행 중\", accent: \"copper\", where: [{ col: \"status\", in: [\"selected\", \"ongoing\"] }], }, { label: \"완료\", hint: \"최종 평가까지 끝난 과제\", accent: \"green\", where: [{ col: \"stat"
-        },
-        {
-          "line": 484,
-          "text": "cards: () => [ all(\"전체 도면\", \"등록된 도면\"), { label: \"작성 · 결재중\", hint: \"아직 승인 전인 도면\", accent: \"copper\", /* 상신(submitted)은 마이그 345 부터. 승인 전 셋을 함께 센다 */ where: [{ col: \"status\", in: [\"draft\", \"submitted\", \"reviewed\"] }], }, { label: \"승인 (사용 가능)\", "
-        },
-        {
-          "line": 513,
-          "text": "cards: () => [ all(\"전체 반출\", \"반출 대장에 적힌 건\"), { label: \"반납 대기\", hint: \"회수 대상인데 아직 안 돌아온 건\", accent: \"copper\", where: [ { col: \"returnable\", eq: true }, { col: \"returned_on\", isNull: true }, ], }, { label: \"반납 완료\", hint: \"돌아온 건\", accent: \"gree"
-        },
-        {
-          "line": 545,
-          "text": "cards: () => [ all(\"전체 신청\", \"이 탭의 신청서\"), { label: \"결재중\", hint: \"상신 뒤 검토 · 승인을 기다리는 신청\", accent: \"copper\", where: [{ col: \"approval_status\", in: [\"submitted\", \"reviewed\"] }], }, { label: \"승인\", hint: \"내보낼 수 있는 신청\", accent: \"green\", where: [{ "
-        },
-        {
-          "line": 570,
-          "text": "cards: () => [ all(\"전체 신청\", \"이 탭의 신청서\"), { label: \"결재중\", hint: \"상신 뒤 검토 · 승인을 기다리는 신청\", accent: \"copper\", where: [{ col: \"approval_status\", in: [\"submitted\", \"reviewed\"] }], }, { label: \"승인\", hint: \"내보낼 수 있는 신청\", accent: \"green\", where: [{ "
-        },
-        {
-          "line": 594,
-          "text": "cards: () => [ all(\"전체 바코드\", \"등록된 제품 바코드\"), { label: \"사용중\", hint: \"지금 붙는 바코드\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"정지\", hint: \"잠시 멈춘 바코드\", accent: \"copper\", where: [{ col: \"status\", eq: \"suspended\" }], },"
-        },
-        {
-          "line": 620,
-          "text": "cards: (d) => [ all(\"전체 품목\", \"등록된 품목 코드\"), { label: \"사용 중\", hint: \"지금 쓰는 품목\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"폐지\", hint: \"더 이상 쓰지 않는 품목\", accent: \"gray\", where: [{ col: \"status\", eq: \"obsolete\" }], },"
-        },
-        {
-          "line": 648,
-          "text": "cards: (d) => [ all(\"전체 원/부자재\", \"등록된 원/부자재 코드\"), { label: \"운용중\", hint: \"지금 쓰는 품목\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"폐지\", hint: \"더 이상 쓰지 않는 품목\", accent: \"gray\", where: [{ col: \"status\", eq: \"obsolete\" }"
-        },
-        {
-          "line": 673,
-          "text": "cards: (d) => [ all(\"전체 반제품\", \"등록된 반제품 코드\"), { label: \"운용중\", hint: \"지금 쓰는 품목\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"폐지\", hint: \"더 이상 쓰지 않는 품목\", accent: \"gray\", where: [{ col: \"status\", eq: \"obsolete\" }], }"
-        },
-        {
-          "line": 698,
-          "text": "cards: (d) => [ all(\"전체 완제품\", \"등록된 완제품 코드\"), { label: \"운용중\", hint: \"지금 쓰는 품목\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"폐지\", hint: \"더 이상 쓰지 않는 품목\", accent: \"gray\", where: [{ col: \"status\", eq: \"obsolete\" }], }"
-        },
-        {
-          "line": 722,
-          "text": "cards: (d) => [ all(\"전체 창고\", \"등록된 창고·구역\"), { label: \"사용중\", hint: \"입출고가 도는 창고\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"미사용\", hint: \"닫아 둔 창고\", accent: \"gray\", where: [{ col: \"status\", eq: \"inactive\" }], }, { l"
-        },
-        {
-          "line": 751,
-          "text": "cards: () => [ all(\"재고 있는 로트\", \"잔고가 남은 줄\"), { label: \"정상\", hint: \"바로 쓸 수 있는 재고\", accent: \"green\", where: [{ col: \"item_status\", eq: \"normal\" }], }, { label: \"보류 · 부적합\", hint: \"판정을 기다리는 재고\", accent: \"copper\", where: [{ col: \"item_status\", in"
-        },
-        {
-          "line": 775,
-          "text": "cards: () => [ all(\"전체 판매\", \"등록된 매장 판매\"), { label: \"배송 준비\", hint: \"아직 안 나간 건\", accent: \"copper\", where: [{ col: \"status\", eq: \"ready\" }], }, { label: \"배송 완료\", hint: \"고객에게 넘긴 건\", accent: \"green\", where: [{ col: \"status\", eq: \"delivered\" }], "
-        },
-        {
-          "line": 807,
-          "text": "cards: () => [ all(\"전체 공정도\", \"등록된 QC 공정도\"), { label: \"작성중\", hint: \"아직 쓰기 전\", accent: \"gray\", where: [{ col: \"status\", eq: \"draft\" }], }, { label: \"사용 중\", hint: \"현장이 따르는 공정도\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { l"
-        },
-        {
-          "line": 831,
-          "text": "cards: () => [ all(\"전체 출하\", \"등록된 출하 승인 요청\"), { /* 마이그 320: 작성 > 확인자 서명 > 검토 > 승인. 가운데 둘이 한 칸이다 */ label: \"확인 · 검토 대기\", hint: \"품질이 물건과 서류를 볼 차례\", accent: \"cobalt\", where: [ { col: \"status\", in: [\"confirming\", \"reviewing\", \"reviewing2\"] }, ],"
-        },
-        {
-          "line": 864,
-          "text": "cards: () => [ all(\"전체 부적합품\", \"등록된 부적합품\"), { /* 오빠가 정한 이름 그대로 (2026-09-20) */ label: \"처리 중 부적합품\", hint: \"아직 닫히지 않은 건\", accent: \"red\", where: [{ col: \"status\", notIn: [\"closed\", \"rejected\"] }], }, { label: \"시정조치 연계 필요\", hint: \"시정 및 예방 조치로 넘겨"
-        },
-        {
-          "line": 907,
-          "text": "cards: (d) => [ all(\"전체\", \"등록된 시정·예방 조치\"), { label: \"진행 중\", hint: \"보고서 승인 전인 건\", accent: \"copper\", where: [{ col: \"closed\", eq: false }], }, { label: \"기한 임박\", hint: \"7일 내 효과성 확인 예정\", accent: \"violet\", where: [ { col: \"closed\", eq: false }, "
-        },
-        {
-          "line": 942,
-          "text": "cards: () => [ all(\"전체 특채\", \"등록된 특채 건\"), { label: \"요청서 결재\", hint: \"요청서 작성 · 검토 · 승인 중\", accent: \"copper\", where: [{ col: \"stage\", eq: \"request\" }], }, { label: \"생산 작업\", hint: \"승인되어 생산부가 작업 중\", accent: \"violet\", where: [{ col: \"stage\", eq: \""
-        },
-        {
-          "line": 975,
-          "text": "cards: () => [ all(\"전체 재작업\", \"등록된 재작업 건\"), { label: \"요청서 결재\", hint: \"요청서 작성 · 검토 · 승인 중\", accent: \"copper\", where: [{ col: \"stage\", eq: \"request\" }], }, { label: \"생산 작업\", hint: \"승인되어 생산부가 작업 중\", accent: \"violet\", where: [{ col: \"stage\", eq:"
-        },
-        {
-          "line": 1016,
-          "text": "cards: () => [ all(\"전체 리콜\", \"등록된 리콜 건\"), { label: \"진행 중\", hint: \"승인서 결재 ~ 회수 중\", accent: \"copper\", where: [ { col: \"stage\", in: [\"review\", \"notice\", \"distribute\", \"report\", \"recovering\"], }, ], }, { label: \"미회수\", hint: \"배포 뒤 못 걷은 수량이 남은 건\","
-        },
-        {
-          "line": 1059,
-          "text": "cards: () => [ all(\"전체 이상\", \"보고된 안전·건강 이상\"), { label: \"작업 중지\", hint: \"작업을 멈춘 건\", accent: \"violet\", where: [{ col: \"work_stopped\", eq: true }], }, { label: \"중대\", hint: \"중대 사고 · 작업 중지 대상\", accent: \"red\", where: [{ col: \"severity\", eq: \"seriou"
-        },
-        {
-          "line": 1095,
-          "text": "cards: () => [ all(\"전체 점검표\", \"달마다 한 장\"), { label: \"작성중\", hint: \"아직 상신하지 않은 달\", accent: \"violet\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"결재 중\", hint: \"검토 · 승인을 기다리는 달\", accent: \"copper\", where: [{ col: \"approval_statu"
-        },
-        {
-          "line": 1120,
-          "text": "cards: () => [ all(\"전체 제조기록\", \"등록된 생산 기록\"), { label: \"작업중\", hint: \"작성 ~ 작업중\", accent: \"copper\", where: [{ col: \"status\", in: [\"draft\", \"prepared\", \"in_progress\"] }], }, { label: \"작업 완료\", hint: \"확인 전 기록\", accent: \"cobalt\", where: [{ col: \"st"
-        },
-        {
-          "line": 1151,
-          "text": "cards: () => [ all(\"전체 배포\", \"배포·반출 기록\"), { label: \"배포 중\", hint: \"아직 회수 전\", accent: \"copper\", where: [{ col: \"status\", eq: \"issued\" }], }, { label: \"회수 완료\", hint: \"돌려받은 건\", accent: \"green\", where: [{ col: \"status\", eq: \"returned\" }], }, { la"
-        },
-        {
-          "line": 1176,
-          "text": "cards: (d) => [ all(\"전체 문서\", \"등록된 외부출처·법규\"), { label: \"유효\", hint: \"지금 쓰는 판\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"검토 기한 임박\", hint: \"다음 검토일이 30일 안이거나 지난 문서\", accent: \"copper\", where: [ { col: \"status\", eq: "
-        },
-        {
-          "line": 1221,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"등록된 설비 전부\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_serv"
-        },
-        {
-          "line": 1266,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"이 종류로 등록된 설비\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_s"
-        },
-        {
-          "line": 1311,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"이 종류로 등록된 설비\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_s"
-        },
-        {
-          "line": 1356,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"이 종류로 등록된 설비\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_s"
-        },
-        {
-          "line": 1401,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"이 종류로 등록된 설비\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_s"
-        },
-        {
-          "line": 1446,
-          "text": "cards: (d) => [ all(\"전체 설비\", \"이 종류로 등록된 설비\"), { label: \"정상\", hint: \"지금 돌아가는 설비\", accent: \"green\", where: [{ col: \"status\", eq: \"in_service\" }], }, { label: \"유휴\", hint: \"지금은 쓰지 않는 설비\", accent: \"copper\", where: [{ col: \"status\", eq: \"out_of_s"
-        },
-        {
-          "line": 1496,
-          "text": "cards: () => [ all(\"전체 점검표\", \"달마다 한 장\"), { label: \"작성중\", hint: \"아직 상신하지 않은 달\", accent: \"gray\", where: [{ col: \"approval_status\", eq: \"draft\" }], }, { label: \"검토 대기\", hint: \"검토를 기다리는 달\", accent: \"copper\", where: [{ col: \"approval_status\", eq"
-        },
-        {
-          "line": 1526,
-          "text": "cards: (d) => [ all(\"전체 지식\", \"등록된 기술·지식 자산\"), { label: \"유지중\", hint: \"지금 관리하는 지식\", accent: \"green\", where: [{ col: \"status\", eq: \"active\" }], }, { label: \"보관\", hint: \"현행은 아니지만 남긴 것\", accent: \"gray\", where: [{ col: \"status\", eq: \"archived\" }]"
+          "path": "lib/ui/stat-accent.ts",
+          "line": 48,
+          "hash": "7d6131824cf0e689a16bb59b4152b6e6efd62c68ee25db4613673ff8fe052f48"
         }
       ]
     },

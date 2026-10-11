@@ -39,7 +39,7 @@ generated.walkRules(rule=>{
 const verifiedCache=new Map();
 const verifiedPart=file=>{if(!verifiedCache.has(file)){const part=copies.get(file);verifiedCache.set(file,Boolean(part&&copyProblems(part,fs.readFileSync(path.join(ROOT,part.src),'utf8'),fs.readFileSync(path.join(PRODUCT,file),'utf8')).length===0));}return verifiedCache.get(file);};
 const presetVerified=verifiedPart('lib/design/q-design-tailwind.ts');
-const adapterExports={qdMaison:['lib/design/q-design-runtime.ts','@/lib/design/q-design-runtime'],qdPrint:['lib/design/q-design-print.ts','@/lib/design/q-design-print'],qdPrintDocumentCss:['lib/design/q-design-print.ts','@/lib/design/q-design-print'],EMAIL_STYLES:['lib/design/q-design-email.ts','@/lib/design/q-design-email'],EMAIL_LAYOUT:['lib/design/q-design-email.ts','@/lib/design/q-design-email']};
+const adapterExports={CHART_LABEL_LAYOUT:['lib/design/q-design-chart-layout.ts','@/lib/design/q-design-chart-layout'],qdMaison:['lib/design/q-design-runtime.ts','@/lib/design/q-design-runtime'],qdPrint:['lib/design/q-design-print.ts','@/lib/design/q-design-print'],qdPrintDocumentCss:['lib/design/q-design-print.ts','@/lib/design/q-design-print'],EMAIL_STYLES:['lib/design/q-design-email.ts','@/lib/design/q-design-email'],EMAIL_LAYOUT:['lib/design/q-design-email.ts','@/lib/design/q-design-email']};
 const adapterMembers=new Map(Object.values(adapterExports).map(([copy])=>[copy,exportedMemberPaths(ts.createSourceFile(copy,fs.readFileSync(path.join(PRODUCT,copy),'utf8'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TS),ts)]));
 function adapterReference(value,imports){
   const segments=value.split('.'),binding=imports.get(segments[0]);
@@ -68,7 +68,7 @@ for(const name of ['maison-style-manual-review.json','maison-style-spread-review
 const manualHashCache=new Map(sources.map(source=>[source.file,source.sourceHash]));
 const currentManualHash=file=>{
   if(manualHashCache.has(file))return manualHashCache.get(file);
-  const base=/^(?:patterns|dist)\//.test(file)?ROOT:PRODUCT,full=path.resolve(base,file);
+  const base=/^(?:source|patterns|dist)\//.test(file)?ROOT:PRODUCT,full=path.resolve(base,file);
   if(!full.startsWith(base+path.sep)||!fs.existsSync(full))return null;
   const value=hash(fs.readFileSync(full,'utf8'));manualHashCache.set(file,value);return value;
 };

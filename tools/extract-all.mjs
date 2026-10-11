@@ -42,6 +42,7 @@ parseCoverageArgs(only);
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
+  { name: '권한 설명 문구', file: 'build-permission-copy.mjs', why: '저장된 권한 설명의 표시 문구도 중앙 규칙에서 만듭니다' },
   { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },

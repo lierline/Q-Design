@@ -5472,3 +5472,23 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
 @media (prefers-reduced-motion: reduce) {
   .animate-spin { animation: none; }
 }
+
+/* Boxed expert form controls use one explicit density. Native input and select
+   intrinsic line boxes previously produced different 49 px and 51 px heights.
+   Editorial auth fields keep their separate, centrally defined luxe recipe. */
+.expert-portal-root form :is(input[type='text'], input[type='email'], input[type='password'], input[type='number'], input[type='date'], select):not(.luxe-input) {
+  box-sizing: border-box;
+  height: var(--qd-control-height);
+  min-height: var(--qd-control-height);
+  padding: var(--qd-control-pad-y) var(--qd-control-pad-x);
+  font-size: var(--qd-control-size);
+  line-height: var(--qd-line-height-normal);
+  border-radius: var(--qd-radius-control);
+}
+
+.expert-portal-root form textarea:not(.luxe-input) {
+  font-size: var(--qd-control-size);
+  line-height: var(--qd-line-height-normal);
+  padding: var(--qd-control-pad-y) var(--qd-control-pad-x);
+  border-radius: var(--qd-radius-control);
+}
