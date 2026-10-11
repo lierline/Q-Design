@@ -1,47 +1,59 @@
 {
-  "scope": "Exact embedded offline asset in three compiled debug APKs and the three existing signed releases. Existing releases remain unchanged and require a new signed build to receive bundled assets.",
+  "scope": "Exact embedded offline assets in three rebuilt debug APKs. Generated sources are checked by the scoped canonical sync gate. Line endings are normalized for content comparison. Existing signed releases are observed separately and remain unchanged.",
   "results": [
     {
       "product": "atelier",
       "kind": "current-debug-build",
       "apk": "Q-Atelier-App/app/build/outputs/apk/debug/app-debug.apk",
-      "offlineSha256": "598978f4600c574e5ac42bc898ab2bdf39a43888f06825978f377176679b87d0",
-      "matchesCanonical": true
+      "offlineSha256": "260b49e6266356de18cce3cde004b3c0af75d050082402196c0f0d2458eefaf2",
+      "matchesCanonical": true,
+      "normalizedOfflineSha256": "260b49e6266356de18cce3cde004b3c0af75d050082402196c0f0d2458eefaf2",
+      "generatedSourceSha256": "260b49e6266356de18cce3cde004b3c0af75d050082402196c0f0d2458eefaf2"
     },
     {
       "product": "atelier",
       "kind": "existing-signed-release",
       "apk": "Q-Atelier-App/Q-Atelier-2.10.0.apk",
       "offlineSha256": "99196c115d503ab8cbf47b51e991ef6a89a5f320cd6fe9b00cb5dff6d8772f0b",
-      "matchesCanonical": false
+      "matchesCanonical": false,
+      "normalizedOfflineSha256": "99196c115d503ab8cbf47b51e991ef6a89a5f320cd6fe9b00cb5dff6d8772f0b",
+      "generatedSourceSha256": "260b49e6266356de18cce3cde004b3c0af75d050082402196c0f0d2458eefaf2"
     },
     {
       "product": "maison",
       "kind": "current-debug-build",
       "apk": "Q-Maison-App/app/build/outputs/apk/debug/app-debug.apk",
-      "offlineSha256": "6dd97af4d1d18e3cb8d95179e749c76818c1102b4c02a4d4d5795b3382a4202d",
-      "matchesCanonical": true
+      "offlineSha256": "5aa310cd5275dbd889a76961505f2cabcfad620097b529b0e730b27157f41a17",
+      "matchesCanonical": true,
+      "normalizedOfflineSha256": "5aa310cd5275dbd889a76961505f2cabcfad620097b529b0e730b27157f41a17",
+      "generatedSourceSha256": "5aa310cd5275dbd889a76961505f2cabcfad620097b529b0e730b27157f41a17"
     },
     {
       "product": "maison",
       "kind": "existing-signed-release",
       "apk": "Q-Maison-App/Q-Maison-1.2.0.apk",
-      "offlineSha256": "4b924fd150aba0c8162e68f17202c84dc9256af2025b1d7a30f7cd3eedcf6292",
-      "matchesCanonical": false
+      "offlineSha256": "02ff247ec88f4a9e295221a20ceebd042f76b5ff4531973f4900744f18e2b68a",
+      "matchesCanonical": false,
+      "normalizedOfflineSha256": "4b924fd150aba0c8162e68f17202c84dc9256af2025b1d7a30f7cd3eedcf6292",
+      "generatedSourceSha256": "5aa310cd5275dbd889a76961505f2cabcfad620097b529b0e730b27157f41a17"
     },
     {
       "product": "carnet",
       "kind": "current-debug-build",
       "apk": "Q-Carnet-App/app/build/outputs/apk/debug/app-debug.apk",
-      "offlineSha256": "2a83740c751a61d7af1c0fdc3c3f16c2a5234fb5fc3b0d1cb7eaaa594ab5cbd8",
-      "matchesCanonical": true
+      "offlineSha256": "856ebf39542d0c981be6ebe9073bc3d4560554c0f899eb1ea3256a752a4f1b78",
+      "matchesCanonical": true,
+      "normalizedOfflineSha256": "856ebf39542d0c981be6ebe9073bc3d4560554c0f899eb1ea3256a752a4f1b78",
+      "generatedSourceSha256": "856ebf39542d0c981be6ebe9073bc3d4560554c0f899eb1ea3256a752a4f1b78"
     },
     {
       "product": "carnet",
       "kind": "existing-signed-release",
       "apk": "Q-Carnet-App/Q-Carnet-1.1.0.apk",
-      "offlineSha256": "6d36355be35a9492fb74e06dc6a8a498c0d36536a3a31f4d93ad1ad3990c2949",
-      "matchesCanonical": false
+      "offlineSha256": "b4a6c077982a5ca25bda596f8834c9a2d37eec0d8a1f62505fcf9493c12b4165",
+      "matchesCanonical": false,
+      "normalizedOfflineSha256": "6d36355be35a9492fb74e06dc6a8a498c0d36536a3a31f4d93ad1ad3990c2949",
+      "generatedSourceSha256": "856ebf39542d0c981be6ebe9073bc3d4560554c0f899eb1ea3256a752a4f1b78"
     }
   ]
 }

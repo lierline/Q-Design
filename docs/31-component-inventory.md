@@ -8,8 +8,8 @@
 
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Q-Atelier | 711 | 1153 | 143 | 87 | 20 | 69 | 624 |
-| Q-Maison | 1107 | 1355 | 156 | 94 | 18 | 365 | 638 |
+| Q-Atelier | 711 | 1153 | 143 | 87 | 21 | 70 | 623 |
+| Q-Maison | 1107 | 1355 | 156 | 94 | 18 | 366 | 637 |
 | Q-Carnet | 161 | 272 | 19 | 32 | 15 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
@@ -502,7 +502,7 @@
 | [components/SupplementRequestButton.tsx](../../Q-Atelier/components/SupplementRequestButton.tsx) | `SupplementRequestButton` (action, 추론) | qd-class-reference |
 | [components/TeamActivityFeed.tsx](../../Q-Atelier/components/TeamActivityFeed.tsx) | `TeamActivityFeed` (composition, 추론) | product-local |
 | [components/TextAction.tsx](../../Q-Atelier/components/TextAction.tsx) | `TextAction` (text-action), `TextLinkAction` (text-action) | qd-class-reference |
-| [components/TimeSeriesChart.tsx](../../Q-Atelier/components/TimeSeriesChart.tsx) | `TimeSeriesChart` (chart, 추론) | product-local |
+| [components/TimeSeriesChart.tsx](../../Q-Atelier/components/TimeSeriesChart.tsx) | `TimeSeriesChart` (chart, 추론) | qd-class-reference |
 | [components/Toast.tsx](../../Q-Atelier/components/Toast.tsx) | `ToastBubble` (composition, 추론), `ToastProvider` (toast), `Viewport` (composition, 추론) | qd-class-reference |
 | [components/TodayQueue.tsx](../../Q-Atelier/components/TodayQueue.tsx) | `TodayQueue` (composition, 추론) | product-local |
 | [components/TopHeaderBand.tsx](../../Q-Atelier/components/TopHeaderBand.tsx) | `TopHeaderBand` (composition, 추론) | product-local |
@@ -1448,7 +1448,7 @@
 | [app/(app)/store/new/loading.tsx](../../Q-Works/app/(app)/store/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/store/new/page.tsx](../../Q-Works/app/(app)/store/new/page.tsx) | `NewStoreSalePage` (screen, 추론) | product-local |
 | [app/(app)/store/page.tsx](../../Q-Works/app/(app)/store/page.tsx) | `StorePage` (screen, 추론) | qd-class-reference |
-| [app/(app)/store/sale-items-table.tsx](../../Q-Works/app/(app)/store/sale-items-table.tsx) | `SaleItemsTable` (data-display, 추론) | product-local |
+| [app/(app)/store/sale-items-table.tsx](../../Q-Works/app/(app)/store/sale-items-table.tsx) | `SaleItemsTable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/store/store-form.tsx](../../Q-Works/app/(app)/store/store-form.tsx) | `StoreSaleForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/suppliers/[id]/attachments-panel.tsx](../../Q-Works/app/(app)/suppliers/%5Bid%5D/attachments-panel.tsx) | `SupplierAttachmentsPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/suppliers/[id]/delete-supplier-button.tsx](../../Q-Works/app/(app)/suppliers/%5Bid%5D/delete-supplier-button.tsx) | `DeleteSupplierButton` (action, 추론) | product-local |

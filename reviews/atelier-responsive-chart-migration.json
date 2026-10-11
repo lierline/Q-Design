@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "scope": "Responsive chart label layout only. DOM width replaces horizontal SVG squeezing; the existing series path calculations, data values, y-scale and legend are preserved. Axis labels retain original strings in wrapping HTML cells. Not a business-data or all-screen certificate.",
+  "records": [
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "beforeHash": "9e222a189241d777c9390c9554878577f018245c375708957f431cb5b74202a0",
+      "afterHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "edits": [
+        {
+          "before": "import { useMemo } from 'react';",
+          "after": "import { useEffect, useMemo, useRef, useState } from 'react';\nimport { chartLabelAlignment, chartLabelColumns, chartLabelIndices, CHART_LABEL_LAYOUT } from '@/lib/design/q-design-chart-layout';",
+          "start": 189
+        },
+        {
+          "before": "const W = QDPresentation.chartGeometry.width;\n",
+          "after": "",
+          "start": 768
+        },
+        {
+          "before": "  const H = height;",
+          "after": "  const H = height;\n  const host = useRef<HTMLDivElement>(null);\n  const [viewport, setViewport] = useState({ width: QDPresentation.chartGeometry.width as number, fontSize: CHART_LABEL_LAYOUT.fontBaseline as number });\n  const W = viewport.width;\n\n  useEffect(() => {\n    const node = host.current;\n    if (!node) return;\n    const measure = () => {\n      const width = node.getBoundingClientRect().width;\n      const fontSize = parseFloat(getComputedStyle(node).fontSize);\n      if (width <= 0 || !Number.isFinite(fontSize)) return;\n      setViewport(previous => previous.width === width && previous.fontSize === fontSize ? previous : { width, fontSize });\n    };\n    const resize = new ResizeObserver(measure);\n    resize.observe(node);\n    const fonts = new MutationObserver(measure);\n    fonts.observe(document.documentElement, { attributes: true, attributeFilter: ['style', 'class', 'data-theme'] });\n    measure();\n    return () => { resize.disconnect(); fonts.disconnect(); };\n  }, []);\n\n  const labelIndices = chartLabelIndices(labels.length, W, viewport.fontSize, QDPresentation.chartGeometry.maxLabels);",
+          "start": 937
+        },
+        {
+          "before": "  }, [labels, series, height]);",
+          "after": "  }, [labels, series, height, W]);",
+          "start": 3583
+        },
+        {
+          "before": "      <div\n        style={{\n          height,",
+          "after": "      <div\n        ref={host}\n        style={{\n          height,",
+          "start": 3661
+        },
+        {
+          "before": "    <div style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\" }}>",
+          "after": "    <div ref={host} style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\", fontSize: QDScale.font[12] }}>",
+          "start": 4047
+        },
+        {
+          "before": "        {/* X labels */}\n        {labels.map((l, i) => {\n          const x =\n            padding.left +\n            (labels.length === 1\n              ? (W - padding.left - padding.right) / 2\n              : (i / (labels.length - 1)) * (W - padding.left - padding.right));\n          // show every Nth label to avoid clutter\n          const step = Math.ceil(labels.length / QDPresentation.chartGeometry.maxLabels);\n          if (i % step !== 0 && i !== labels.length - 1) return null;\n          // 끝 글자가 그림 밖으로 잘렸다(«27-03-» · 화면 검토 A78 · 2026-09-27). 양 끝은 안쪽으로 붙인다\n          const anchor = labels.length > 1 && i === 0 ? 'start' : labels.length > 1 && i === labels.length - 1 ? 'end' : 'middle';\n          return (\n            <text\n              key={i}\n              x={x}\n              y={H - QDPresentation.chartGeometry.xLabelInset}\n              fontSize={QDScale.font[12]}\n              fill={T.muted}\n              textAnchor={anchor}\n              fontFamily={QDScale.family.mono}\n            >\n              {l}\n            </text>\n          );\n        })}\n\n",
+          "after": "",
+          "start": 5058
+        },
+        {
+          "before": "      </svg>\n\n      {/* Legend */}",
+          "after": "      </svg>\n      <div className=\"qd-chart-axis-labels\" style={{ display: 'grid', gridTemplateColumns: chartLabelColumns(labelIndices.length), gap: QDScale.space[2], marginTop: -padding.bottom, fontFamily: QDScale.family.mono, color: T.muted }}>\n        {labelIndices.map((labelIndex, i) => (\n          <span key={labelIndex} style={{ minWidth: 0, overflowWrap: 'anywhere', textAlign: chartLabelAlignment(i, labelIndices.length) }}>\n            {labels[labelIndex]}\n          </span>\n        ))}\n      </div>\n\n      {/* Legend */}",
+          "start": 5682
+        },
+        {
+          "before": "chartLabelIndices, CHART_LABEL_LAYOUT",
+          "after": "chartLabelIndices, chartPadding, CHART_LABEL_LAYOUT",
+          "start": 300
+        },
+        {
+          "before": "const padding = QDPresentation.chartGeometry.padding;\n",
+          "after": "",
+          "start": 782
+        },
+        {
+          "before": "  const W = viewport.width;",
+          "after": "  const W = viewport.width;\n  const padding = chartPadding(viewport.fontSize, QDPresentation.chartGeometry.padding);",
+          "start": 1116
+        },
+        {
+          "before": "chartLabelIndices(labels.length, W, viewport.fontSize,",
+          "after": "chartLabelIndices(labels.length, W - padding.left - padding.right, viewport.fontSize,",
+          "start": 2004
+        },
+        {
+          "before": "  }, [labels, series, height, W]);",
+          "after": "  }, [labels, series, height, W, padding.top, padding.bottom, padding.left, padding.right]);",
+          "start": 3663
+        },
+        {
+          "before": "marginTop: -padding.bottom, fontFamily:",
+          "after": "marginTop: -padding.bottom, paddingLeft: padding.left, paddingRight: padding.right, boxSizing: 'border-box', fontFamily:",
+          "start": 5987
+        },
+        {
+          "before": "preserveAspectRatio=\"none\"",
+          "after": "preserveAspectRatio={CHART_LABEL_LAYOUT.aspectRatio}",
+          "start": 4343
+        },
+        {
+          "before": "textAnchor=\"end\"",
+          "after": "textAnchor={CHART_LABEL_LAYOUT.yAnchor}",
+          "start": 5072
+        },
+        {
+          "before": "stroke=\"none\"",
+          "after": "stroke={CHART_LABEL_LAYOUT.emptyPaint}",
+          "start": 5398
+        },
+        {
+          "before": "fill=\"none\"",
+          "after": "fill={CHART_LABEL_LAYOUT.emptyPaint}",
+          "start": 5466
+        },
+        {
+          "before": "chartLabelAlignment, chartLabelColumns, chartLabelIndices",
+          "after": "chartLabelStyle, chartLabelIndices",
+          "start": 260
+        },
+        {
+          "before": "gridTemplateColumns: chartLabelColumns(labelIndices.length), gap: QDScale.space[2],",
+          "after": "gridTemplateColumns: CHART_LABEL_LAYOUT.axisColumns,",
+          "start": 5979
+        },
+        {
+          "before": "style={{ minWidth: 0, overflowWrap: 'anywhere', textAlign: chartLabelAlignment(i, labelIndices.length) }}",
+          "after": "style={chartLabelStyle(labelIndices, i, labels.length, QDScale.space[2])}",
+          "start": 6273
+        }
+      ],
+      "beforeLineEnding": "crlf",
+      "afterLineEnding": "lf",
+      "beforeLFOnlyImports": [
+        "import { QDText } from '@/lib/design/q-design-labels';",
+        "import { QDPresentation } from '@/lib/design/q-design-runtime';"
+      ]
+    }
+  ]
+}

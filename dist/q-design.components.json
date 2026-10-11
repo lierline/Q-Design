@@ -2139,9 +2139,9 @@
         "components": 1153,
         "iconModules": 143,
         "roleMappedComponents": 87,
-        "canonicalCopies": 20,
-        "qdClassModules": 69,
-        "productLocalModules": 624
+        "canonicalCopies": 21,
+        "qdClassModules": 70,
+        "productLocalModules": 623
       },
       "publicCoverage": {
         "failures": [],
@@ -2151,6 +2151,14 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "차트 축 문장 배치",
+          "source": "source/design/chart-layout.ts",
+          "path": "lib/design/q-design-chart-layout.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "아뜰리에 설명서 출력 규칙",
           "source": "patterns/foundation/atelier-manual.ts",
@@ -17219,6 +17227,7 @@
             "qa-welcome-card",
             "qd-btn",
             "qd-btn--secondary",
+            "qd-calendar-day",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
@@ -17244,6 +17253,7 @@
             "qd-input",
             "qd-mobile-menu",
             "qd-pager-btn",
+            "qd-popover",
             "qd-selection-row",
             "qd-skeleton",
             "qd-tab",
@@ -17330,6 +17340,7 @@
             "--qd-body-size",
             "--qd-border",
             "--qd-border-width",
+            "--qd-border-width-2",
             "--qd-caption-size",
             "--qd-choice-line-height",
             "--qd-choice-padding-x",
@@ -17390,6 +17401,7 @@
             "--qd-muted",
             "--qd-ok",
             "--qd-radius",
+            "--qd-radius-control",
             "--qd-ribbon-ambient-opacity-1",
             "--qd-ribbon-ambient-opacity-2",
             "--qd-ribbon-duration-1",
@@ -26250,15 +26262,18 @@
               "roles": []
             }
           ],
-          "classes": [],
+          "classes": [
+            "qd-chart-axis-labels"
+          ],
           "tokens": [
             "--qd-atelier-height-a237b38548",
             "--qd-atelier-width-7001be5058",
             "--qd-atelier-width-b7aa1ec004"
           ],
           "nativeControls": [],
-          "inlineStyles": 8,
+          "inlineStyles": 10,
           "imports": [
+            "lib/design/q-design-chart-layout.ts",
             "lib/design/q-design-labels.ts",
             "lib/design/q-design-runtime.ts",
             "lib/design/q-design-scale.ts",
@@ -26267,7 +26282,7 @@
           "reachable": true,
           "ruleAssignment": "name-and-path-inference",
           "owner": "product",
-          "evidence": "product-local",
+          "evidence": "qd-class-reference",
           "reviewScope": "product-composition-or-review-candidate"
         },
         {
@@ -34429,8 +34444,8 @@
         "iconModules": 156,
         "roleMappedComponents": 94,
         "canonicalCopies": 18,
-        "qdClassModules": 365,
-        "productLocalModules": 638
+        "qdClassModules": 366,
+        "productLocalModules": 637
       },
       "publicCoverage": {
         "failures": [],
@@ -60542,7 +60557,10 @@
               "roles": []
             }
           ],
-          "classes": [],
+          "classes": [
+            "qd-control-icon",
+            "qd-control-icon--danger"
+          ],
           "tokens": [
             "--qd-maison-min-width-960px"
           ],
@@ -60560,7 +60578,7 @@
           "reachable": true,
           "ruleAssignment": "name-and-path-inference",
           "owner": "product",
-          "evidence": "product-local",
+          "evidence": "qd-class-reference",
           "reviewScope": "product-composition-or-review-candidate"
         },
         {
@@ -64476,6 +64494,7 @@
             "qa-touch-44sq",
             "qd-btn",
             "qd-btn--secondary",
+            "qd-calendar-day",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
@@ -64506,6 +64525,7 @@
             "qd-page-head-text",
             "qd-pager",
             "qd-pager-btn",
+            "qd-popover",
             "qd-selection-row",
             "qd-skeleton",
             "qd-tab",
@@ -64553,6 +64573,7 @@
             "--qd-bg",
             "--qd-body-size",
             "--qd-border",
+            "--qd-border-width-2",
             "--qd-borderHi",
             "--qd-caption-size",
             "--qd-chart-label-size",
@@ -64562,6 +64583,8 @@
             "--qd-command-list-height",
             "--qd-control-height",
             "--qd-control-height-sm",
+            "--qd-control-pad-x",
+            "--qd-control-pad-y",
             "--qd-control-size",
             "--qd-copy-overflow-wrap",
             "--qd-copy-word-break",
@@ -64584,6 +64607,7 @@
             "--qd-empty-title-size",
             "--qd-empty-title-size-compact",
             "--qd-field-control-height",
+            "--qd-focus-outline-width",
             "--qd-font-family-brand",
             "--qd-font-family-display",
             "--qd-font-family-mono",
@@ -78293,6 +78317,7 @@
             "qa-touch-44sq",
             "qd-btn",
             "qd-btn--secondary",
+            "qd-calendar-day",
             "qd-card-title",
             "qd-choice",
             "qd-choice--selected",
@@ -78325,6 +78350,7 @@
             "qd-page-head-title",
             "qd-pager-btn",
             "qd-panel",
+            "qd-popover",
             "qd-section-title",
             "qd-selection-row",
             "qd-skeleton",
@@ -78413,6 +78439,7 @@
             "--qd-body-size",
             "--qd-border",
             "--qd-border-width",
+            "--qd-border-width-2",
             "--qd-borderHi",
             "--qd-caption-size",
             "--qd-carnet-field-body-size",
@@ -78438,6 +78465,8 @@
             "--qd-choice-padding-y",
             "--qd-control-height",
             "--qd-control-icon",
+            "--qd-control-pad-x",
+            "--qd-control-pad-y",
             "--qd-control-size",
             "--qd-copy-overflow-wrap",
             "--qd-copy-word-break",
@@ -78464,6 +78493,7 @@
             "--qd-field-control-height",
             "--qd-field-key-size",
             "--qd-field-value-size",
+            "--qd-focus-outline-width",
             "--qd-focus-ring-alpha",
             "--qd-focus-ring-width",
             "--qd-font-family-brand",
@@ -78491,6 +78521,7 @@
             "--qd-motion-normal",
             "--qd-muted",
             "--qd-radius",
+            "--qd-radius-control",
             "--qd-radius-full",
             "--qd-ribbon-width-1",
             "--qd-ribbon-width-2",

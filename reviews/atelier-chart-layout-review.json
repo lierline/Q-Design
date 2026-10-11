@@ -1,0 +1,3147 @@
+{
+  "version": 1,
+  "scope": "Exact chart arguments and all current symbol-traced height/color callers. Data geometry, central presentation and structural observation are distinct. Every other argument stays separately inventoried. Not an all-screen visual certificate.",
+  "palette": [
+    {
+      "path": "components/dashboard/ExecDashboardView.tsx",
+      "colors": [
+        "T.champagne",
+        "T.red"
+      ],
+      "evidence": {
+        "path": "components/dashboard/ExecDashboardView.tsx",
+        "line": 182,
+        "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+      }
+    },
+    {
+      "path": "app/(app)/quality-objectives/[id]/client.tsx",
+      "colors": [
+        "T.blue",
+        "T.green"
+      ],
+      "evidence": {
+        "path": "app/(app)/quality-objectives/[id]/client.tsx",
+        "line": 356,
+        "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+      }
+    }
+  ],
+  "records": [
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 34,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "c5752493a576f6c9a9b7005a7b9b1ef5497ca3400eb9fe0177e0f02a1351bc17",
+      "kind": "named-style-value",
+      "property": "padding",
+      "reviewedExpression": "chartPadding(viewport.fontSize, QDPresentation.chartGeometry.padding)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 34,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 40,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "5c391d07e6ef36420ada82593b73438c7e2c876be0c5e3e98c4c27830a6ed49a",
+      "kind": "named-style-value",
+      "property": "width",
+      "reviewedExpression": "node.getBoundingClientRect().width",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 40,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 41,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "5da20e51738c55420b5fc3e9071fa4f59b3ef2912e55e6c49f731044da57906d",
+      "kind": "named-style-value",
+      "property": "fontSize",
+      "reviewedExpression": "parseFloat(getComputedStyle(node).fontSize)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 41,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 45,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "74f35f1aa553723023db26d5a65258a9a8b48a1752545ec7211f8364b30e25af",
+      "kind": "named-style-value",
+      "property": "resize",
+      "reviewedExpression": "new ResizeObserver(measure)",
+      "decision": "structural-behavior",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact ResizeObserver measures the host; its subscription and MutationObserver are disconnected by effect cleanup. It is not a motion default.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 45,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 66,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "1fdd2d5e8bb506abcc0fb15e2dc3259ca4c68a0c860f8e1a0ce67f374bf23fa2",
+      "kind": "named-style-value",
+      "property": "w",
+      "reviewedExpression": "W - padding.left - padding.right",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 66,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 67,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "15756c91f348151805e4f6bfc27f3d24e0413b932d62c63fa8adb5c037f554c7",
+      "kind": "named-style-value",
+      "property": "h",
+      "reviewedExpression": "height - padding.top - padding.bottom",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 67,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 79,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "42b057180a811a187e3b22684fa5221d0dbefaf21fd77f100b35f4da3407decf",
+      "kind": "object-property",
+      "property": "x",
+      "reviewedExpression": "x(i)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 79,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 79,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "04bb8cebcf89844a24acda5b2a28af897bbe802a13fdfe1d381164e24b95480e",
+      "kind": "object-property",
+      "property": "y",
+      "reviewedExpression": "y(v)",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 79,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 80,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "c1be606cd051e9bc995ae4003feb968106b822badc8be96b834a179aacda5b76",
+      "kind": "object-property",
+      "property": "color",
+      "reviewedExpression": "s.color",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "All actual symbol-traced TimeSeriesChart callers pass only the reviewed central T palette roles. The path/point/legend colors forward those exact values; area tint reads QDRuntime.alpha.tint0_08.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 80,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 86,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "e2a93195201dfff8351a7eb4da9bfb1cb475d50fabcd9f81cc8bc898ead55419",
+      "kind": "object-property",
+      "property": "y",
+      "reviewedExpression": "padding.top + h - p * h",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 86,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 97,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "deb437d353101e8ca9d18f44ebe45cfb745a40881bcd4f8dcd605c4e6a1d9fe8",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n          height,\n          display: 'flex',\n          alignItems: 'center',\n          justifyContent: 'center',\n          color: T.muted,\n          fontSize: QDScale.font[12],\n          fontFamily: QDScale.family.ui,\n          fontStyle: QDText.fontStyle.v2cd63dd677,\n        }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 97,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 116,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "fc930cefb53813200c3032c6e32954b5579fdac29fd8424cf9e2dd1550f70799",
+      "kind": "svg-geometry",
+      "property": "viewBox",
+      "reviewedExpression": "{`0 0 ${W} ${H}`}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 116,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 118,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "b51df6db842c540c2fbe6b28ff6dd6337fabdd3840e331ca0bebfae590e03f2c",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{ width: \"var(--qd-atelier-width-b7aa1ec004)\", height, display: 'block' }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 118,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 124,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "858244a66ba42e038a4a08bab2582c77f62e5a8d6aee0bb52e1f6bc7504f6f94",
+      "kind": "svg-geometry",
+      "property": "x1",
+      "reviewedExpression": "{padding.left}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 124,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 125,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "2993242b325cf029c40d20ee74f3f13a9502a316717375b9fe9cec6eb6f95e1c",
+      "kind": "svg-geometry",
+      "property": "y1",
+      "reviewedExpression": "{t.y}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 125,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 126,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "441a248b2889c58147a5a23ed8ac678295e81a5e0df9c0ae7727eb6573c88a7f",
+      "kind": "svg-geometry",
+      "property": "x2",
+      "reviewedExpression": "{W - padding.right}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 126,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 127,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "5934182817e830adbf955548ead0ce3439a574196fca554ffb989e061587e0fb",
+      "kind": "svg-geometry",
+      "property": "y2",
+      "reviewedExpression": "{t.y}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 127,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 132,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "18c28546f27f1181d6ec7d49e19c166bffbb2791cd304693b90b2506103e167b",
+      "kind": "svg-geometry",
+      "property": "x",
+      "reviewedExpression": "{padding.left - QDPresentation.chartGeometry.tickLabelOffsetX}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 132,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 133,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "82ffe7b2185a93dcd2653bf9369fbdfe157d3315103e7cc2f046fee94930d522",
+      "kind": "svg-geometry",
+      "property": "y",
+      "reviewedExpression": "{t.y + QDPresentation.chartGeometry.tickLabelOffsetY}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 133,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 147,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "37537b134dbca280e3c27ce5c8678c399f88d44d709bfd2abb227983333d66fb",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "reviewedExpression": "{alpha(p.color, QDRuntime.alpha.tint0_08)}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "All actual symbol-traced TimeSeriesChart callers pass only the reviewed central T palette roles. The path/point/legend colors forward those exact values; area tint reads QDRuntime.alpha.tint0_08.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 147,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 147,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "39cf5ace276ab017a9ecf39ed4e9a30ac96634c4b8e571db5cb5826ded6142fe",
+      "kind": "svg-geometry",
+      "property": "d",
+      "reviewedExpression": "{p.area}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 147,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 148,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "1921355492857be64ef29ed54fe89ca69833abc342faa93731698991fee1916f",
+      "kind": "presentation-attribute",
+      "property": "stroke",
+      "reviewedExpression": "{p.color}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "All actual symbol-traced TimeSeriesChart callers pass only the reviewed central T palette roles. The path/point/legend colors forward those exact values; area tint reads QDRuntime.alpha.tint0_08.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 148,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 148,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "0ec4f4c50b4929af2b42ed646fc1731711be2a76109bc353b2ca9cdde5d755ab",
+      "kind": "svg-geometry",
+      "property": "d",
+      "reviewedExpression": "{p.d}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 148,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 152,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "8dafc4b59d9c3cdbcf0258893ad8a9979c408a2122245fb8667b24f85630389e",
+      "kind": "svg-geometry",
+      "property": "cx",
+      "reviewedExpression": "{pt.x}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 152,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 153,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "9fa17f62764fbc4eed9ab7a28a0107b5619bf802c9cadd4ca830a855652f54fd",
+      "kind": "svg-geometry",
+      "property": "cy",
+      "reviewedExpression": "{pt.y}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 153,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 155,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "44940bdd7826246e47ab2b10edd8257c69d61d3a79425c8f03743dbf8d035d47",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "reviewedExpression": "{p.color}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "All actual symbol-traced TimeSeriesChart callers pass only the reviewed central T palette roles. The path/point/legend colors forward those exact values; area tint reads QDRuntime.alpha.tint0_08.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 155,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "ff0db5e36a222fb2c4d051fdb12491b13296e98d2abeebca9ca1d56e818a3f68",
+      "kind": "class-utility",
+      "property": "className",
+      "reviewedExpression": "qd-chart-axis-labels",
+      "decision": "structural-behavior",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact axis container marker names the browser-test target. It does not supply any authored CSS declaration; layout is independently reviewed.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "6c58344410876e193fb0787894d3e37acdc5f35a37e4d277abb2ea55f0c8609c",
+      "kind": "object-property",
+      "property": "gridTemplateColumns",
+      "reviewedExpression": "CHART_LABEL_LAYOUT.axisColumns",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "d81822738a48abc22e763d69a94616a816d45f596347f28802920ef09448599a",
+      "kind": "object-property",
+      "property": "marginTop",
+      "reviewedExpression": "-padding.bottom",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "bf0d8e8f0c15a5b12f3476c3dd12fc161e6d648929004a84a2ad01b42bc449a5",
+      "kind": "object-property",
+      "property": "paddingLeft",
+      "reviewedExpression": "padding.left",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "d913981fc65692d53f1aa76fb445402688783541cd68f2d921869ae6a3340b7e",
+      "kind": "object-property",
+      "property": "paddingRight",
+      "reviewedExpression": "padding.right",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "Exact point/path/tick coordinates derive from unchanged data calculations, measured chart width, the symbol-traced central height input, and central font/padding/offset rules. No authored local pixel offset is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 161,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "9058079e1ac4a533af7610f4b9baa75e573e896360fb3e823f1aab555cf8c3e0",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{ display: 'grid', gridTemplateColumns: CHART_LABEL_LAYOUT.axisColumns, marginTop: -padding.bottom, paddingLeft: padding.left, paddingRight: padding.right, boxSizing: 'border-box', fontFamily: QDScale.family.mono, color: T.muted }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 161,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 163,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "0170840cd011d34d1ba5ecfa9910aae625383f827aca4d3249d0b1b37772eef1",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{chartLabelStyle(labelIndices, i, labels.length, QDScale.space[2])}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 163,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 193,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "7b8d2c8809d2698ace5515f23c05e6d45a95322f649b9f7d62b092a14580ffdd",
+      "kind": "style-expression",
+      "property": "style",
+      "reviewedExpression": "{{\n                  display: 'inline-block',\n                  width: \"var(--qd-atelier-width-7001be5058)\",\n                  height: \"var(--qd-atelier-height-a237b38548)\",\n                  background: s.color,\n                }}",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "This complete expression was inspected: dimensions come from the measured viewport or symbol-traced central height; label count/alignment and exact selected data-position anchors from canonical chart-layout; font, gap, width, margin and palette from central roles. Zero min-width and wrapping are structural. No arbitrary caller style or hardcoded visual default is accepted.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 193,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "line": 197,
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "argumentHash": "ee4f3ce6a4a87af956d3b94c721cf1857fae7e3a0d83221151eb4b4c5af28af2",
+      "kind": "object-property",
+      "property": "background",
+      "reviewedExpression": "s.color",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-responsive-chart-layout-and-input-flow",
+      "reason": "All actual symbol-traced TimeSeriesChart callers pass only the reviewed central T palette roles. The path/point/legend colors forward those exact values; area tint reads QDRuntime.alpha.tint0_08.",
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 1,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "source/design/chart-layout.ts",
+          "line": 1,
+          "hash": "75ad93b42df2efa29678222e391054fb6c29b243bc630508bcbff77b30fd49de"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-chart-layout.ts",
+          "line": 1,
+          "hash": "aebcab77108fc5b3e83a0319d52bce1a3baa32ab457038d4001a6c275f522176"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 1,
+          "hash": "fe46331e5588bd915e06435f50e5a740fba3f25ebbed1c946b29779169f6568b"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 1,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "line": 1,
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 197,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        }
+      ]
+    }
+  ]
+}

@@ -20,6 +20,7 @@ const rendererInputs=readManifest('atelier-renderer-input-migration.json');
 const choiceContract=readManifest('atelier-choice-contract-migration.json');
 const componentParity=readManifest('atelier-component-parity-migration.json');
 const extendedParity=readManifest('atelier-extended-parity-migration.json');
+const responsiveChart=readManifest('atelier-responsive-chart-migration.json');
 const hash=source=>createHash('sha256').update(source.replaceAll('\r\n','\n')).digest('hex');
 // Preserve earlier migration proofs after the later, separately reviewed pass.
 // Each individual inverse is exact, and both snapshots remain hash-checked.
@@ -39,15 +40,25 @@ function reverseManifest(path,source,manifest){
  assert.equal(hash(source),entry.beforeHash,path+': finite3 inverse');
  return source;
 }
-export function reverseExtendedParity(path,source){return reverseManifest(path,source,extendedParity);}
+export function reverseResponsiveChart(path,source){
+ if(!responsiveChart.records.some(record=>record.path===path))return source;
+ const restored=reverseManifest(path,source.replaceAll('\r\n','\n'),responsiveChart);
+ const record=responsiveChart.records.find(record=>record.path===path);
+ if(record.beforeLineEnding!=='crlf')return restored;
+ let original=restored.replaceAll('\n','\r\n');
+ for(const line of record.beforeLFOnlyImports??[]){assert.equal(original.split(line+'\r\n').length,2,'Exact historical import line');original=original.replace(line+'\r\n',line+'\n');}
+ return original;
+}
+export function reverseExtendedParity(path,source){return reverseManifest(path,reverseResponsiveChart(path,source),extendedParity);}
 export function reverseComponentParity(path,source){return reverseManifest(path,reverseExtendedParity(path,source),componentParity);}
 export function reverseChoiceContract(path,source){return reverseManifest(path,reverseComponentParity(path,source),choiceContract);}
 export function reverseRendererInputs(path,source){return reverseManifest(path,reverseChoiceContract(path,source),rendererInputs);}
 export function reverseFinalVisualRules(path,source){return reverseManifest(path,reverseRendererInputs(path,source),finalVisualRules);}
-export function reversePostNativeControls(path,source){for(const manifest of [extendedParity,componentParity,choiceContract,rendererInputs,finalVisualRules,ruleTableScroll,permissionScroll,finalOutputLayout])source=reverseManifest(path,source,manifest);return source;}
-export function reversePostFinalPresentation(path,source){for(const manifest of [extendedParity,componentParity,choiceContract,rendererInputs,finalVisualRules,ruleTableScroll,permissionScroll,finalOutputLayout,nativeControls,tableDensity,collapse])source=reverseManifest(path,source,manifest);return source;}
+export function reversePostNativeControls(path,source){source=reverseResponsiveChart(path,source);for(const manifest of [extendedParity,componentParity,choiceContract,rendererInputs,finalVisualRules,ruleTableScroll,permissionScroll,finalOutputLayout])source=reverseManifest(path,source,manifest);return source;}
+export function reversePostFinalPresentation(path,source){source=reverseResponsiveChart(path,source);for(const manifest of [extendedParity,componentParity,choiceContract,rendererInputs,finalVisualRules,ruleTableScroll,permissionScroll,finalOutputLayout,nativeControls,tableDensity,collapse])source=reverseManifest(path,source,manifest);return source;}
 export function reverseLayers(path,source){return reverseManifest(path,source,layers);}
 export function reverseLaterVisualChanges(path,source){
+ source=reverseResponsiveChart(path,source);
  for(const manifest of [extendedParity,componentParity,choiceContract,rendererInputs,finalVisualRules,ruleTableScroll,permissionScroll,finalOutputLayout,nativeControls,tableDensity,collapse,finalPresentation,researchInput,templates,grid,widget,layers])source=reverseManifest(path,source,manifest);
  return source;
 }

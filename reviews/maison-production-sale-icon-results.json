@@ -1,0 +1,39 @@
+{
+  "scope": "Read-only production blank sale form. The sole-row delete control remains disabled. No rows added/deleted, no consent, no save. Enabled deletion and final-row guard tested in separate actual-component fixture.",
+  "commit": "a74d7ab64bba6b2f2bd7dbcbf6ba7fc7c8f60f1c",
+  "deployment": "dpl_2T8mxk1pUbCFcm2qejodrND3tbWB",
+  "observedAt": "2026-10-11T06:24:49.158Z",
+  "measurements": {
+    "button": {
+      "class": "qd-control-icon qd-control-icon--danger disabled:opacity-30",
+      "disabled": true,
+      "glyph": 20,
+      "height": 44,
+      "radius": "10px",
+      "width": 44
+    },
+    "main": [
+      {
+        "scrollWidth": 365,
+        "top": 528,
+        "width": 365
+      }
+    ],
+    "table": [
+      {
+        "left": 671,
+        "total": 960,
+        "width": 289
+      }
+    ],
+    "url": "https://maison.medqraft.app/store/new",
+    "viewport": [
+      375,
+      812
+    ]
+  },
+  "image": {
+    "path": "maison-pages/store-new-production-375-icon-after.png",
+    "sha256": "ff742416b469910588b54c95071e5386435757e59394f969211aa7ee184d4845"
+  }
+}

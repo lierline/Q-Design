@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import {createRequire} from 'node:module';
 import {hash} from './style-arguments-core.mjs';
 import {readRuntimeValues,readRuntimeTemplate} from './atelier-runtime-values.mjs';
-import {reverseRendererInputs} from './atelier-migration-inverse.mjs';
+import {reverseRendererInputs,reverseResponsiveChart} from './atelier-migration-inverse.mjs';
 const root='D:/Claude/Q-Design',qa='D:/Claude/Q-Atelier',require=createRequire(qa+'/package.json');
 const ts=require('typescript'),React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
 const read=path=>fs.readFileSync(path,'utf8');
@@ -61,13 +61,14 @@ test('actual tag arithmetic and battery paint preserve defaults and react to cen
  assert.equal(battery(50),'hsl(120, 50%, 40%)');assert.equal(battery(-1),'hsl(0, 50%, 40%)');assert.equal(battery(120),'hsl(240, 50%, 40%)');
 });
 
-test('actual chart preserves all original paths and ticks, then consumes changed tick fractions and line join',()=>{
+test('historical chart migration preserves exact markup and current responsive chart still consumes central ticks and line join',()=>{
  const file='components/TimeSeriesChart.tsx';
  const renderer=(source,rt)=>load(source,{require:n=>n==='react'?{...React,useMemo:fn=>fn()}:n==='@/lib/design/q-design-runtime'?rt:n==='@/lib/design/q-design-scale'?{QDScale:scale}:n==='@/lib/design/tokens'?tokens:n==='@/lib/design/q-design-labels'?labels:require(n)}).TimeSeriesChart;
- const before=renderer(original(file),runtime),after=renderer(read(qa+'/'+file),runtime);
+ const before=renderer(original(file),runtime),after=renderer(reverseResponsiveChart(file,read(qa+'/'+file)),runtime);
  for(const data of [[],[1,2],[2,8]]){const props={labels:data.map((_,i)=>'D'+i),series:[{label:'검토',color:'#123456',data}]};assert.equal(renderToStaticMarkup(after(props)),renderToStaticMarkup(before(props)));}
  const rt=mutated(v=>{v.visual.chart.sparseThreshold=10;v.visual.chart.sparseTicks=[0,.25,.75,1];v.visual.chart.lineJoin='bevel';});
- const html=renderToStaticMarkup(renderer(read(qa+'/'+file),rt)({labels:['A','B'],series:[{label:'검토',color:'#123456',data:[2,8]}]}));assert.match(html,/stroke-linejoin="bevel"/);assert.match(html,/>6<\/text>/);assert.match(html,/>2<\/text>/);
+ const current=load(read(qa+'/'+file),{require:n=>n==='react'?React:n==='@/lib/design/q-design-chart-layout'?load(read(root+'/source/design/chart-layout.ts')):n==='@/lib/design/q-design-runtime'?rt:n==='@/lib/design/q-design-scale'?{QDScale:scale}:n==='@/lib/design/tokens'?tokens:n==='@/lib/design/q-design-labels'?labels:require(n)}).TimeSeriesChart;
+ const html=renderToStaticMarkup(React.createElement(current,{labels:['A','B'],series:[{label:'검토',color:'#123456',data:[2,8]}]}));assert.match(html,/stroke-linejoin="bevel"/);assert.match(html,/>6<\/text>/);assert.match(html,/>2<\/text>/);
 });
 
 test('paper allocation derives the data columns from the central number column instead of independent 94 percent',()=>{

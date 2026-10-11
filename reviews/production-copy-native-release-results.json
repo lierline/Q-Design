@@ -4,24 +4,26 @@
   "products": [
     {
       "product": "atelier",
-      "commit": "39123ed2c8d9cfca9cd9edeee8c7f2badf7d8fdd",
-      "deployment": "dpl_8bS4pTKeA1zSs2fkoUp14MShHs7h",
+      "commit": "3c7eaa201063937200e939ca3ce488eeceb5801c",
+      "deployment": "dpl_EwHck14rSN2XcHm3V7Jz3p2RUcEU",
       "state": "READY",
       "productionAlias": "atelier.medqraft.app",
       "additionalAliases": [
         "www.qatelier.co.kr",
         "qatelier.co.kr"
       ],
-      "currentScope": "Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.",
+      "currentScope": "Current reviewed release commit and production aliases verified. Earlier login and copy observations retain their original recorded scope.",
       "earlierControlObservations": [
         "375px login fields, theme control and primary action are at least 44px with 10px radius.",
         "Body word-break keep-all and overflow-wrap break-word are applied. Underline tabs retain their own presentation."
-      ]
+      ],
+      "chartEvidence": "chart-responsive-browser-results.json",
+      "chartScope": "Actual mounted product component with example data, 12 width/font/theme combinations. Authenticated production dashboard chart was not recaptured."
     },
     {
       "product": "maison",
-      "commit": "5d61279e29a5431b9c1cfffaed7be8b2246df172",
-      "deployment": "dpl_CczxsHMorSaf31cGR7JVpYsudTki",
+      "commit": "a74d7ab64bba6b2f2bd7dbcbf6ba7fc7c8f60f1c",
+      "deployment": "dpl_2T8mxk1pUbCFcm2qejodrND3tbWB",
       "state": "READY",
       "productionAlias": "maison.medqraft.app",
       "currentEvidence": "production-copy-layout-results.json",
@@ -38,15 +40,21 @@
       ],
       "additionalAliases": [
         "q-maison.vercel.app"
-      ]
+      ],
+      "currentScope": "Current reviewed release commit and production aliases verified. Earlier login and copy observations retain their original recorded scope.",
+      "controlEvidence": [
+        "maison-production-calendar-file-results.json",
+        "maison-production-sale-icon-results.json"
+      ],
+      "controlScope": "Calendar and file controls were visually measured on production commit 876d05b1; their source is unchanged in the latest icon-only release. Sale icon is separately measured after a74d7ab6."
     },
     {
       "product": "carnet",
-      "commit": "a1f7f2ab2f01ebc57476ebb73eaeaa92d1881e57",
-      "deployment": "dpl_6CCkPhBvcbUkJQePAjgz6GMuVjw8",
+      "commit": "3610286e47c982ef4e8c1afad43cbb404b483b36",
+      "deployment": "dpl_EfCaeCJ2UXazH5biy6TRdy1QgSm2",
       "state": "READY",
       "productionAlias": "carnet.medqraft.app",
-      "currentScope": "Latest commit, production aliases and canonical copies verified. Login measurements below were observed during the preceding unchanged control-rule phase.",
+      "currentScope": "Current reviewed release commit and production aliases verified. Earlier login and copy observations retain their original recorded scope.",
       "earlierControlObservations": [
         "375px login controls use 10px radius and rgb(122,115,100) outline; body uses keep-all and break-word.",
         "The theme control measures 44px and login field controls and keypad controls measure 56px."
@@ -73,21 +81,46 @@
     "clauseOrderTestsPassed": 8,
     "maisonTypecheckExitCode": 0,
     "riskAndPrintTestsPassed": 32,
-    "scopedReleaseLog": "D:/Claude/tmp/qd-audit-label-release-final.log",
-    "browserScope": "Shared rules and browser cases verified before subsequent view-only clause order and audit dictionary additions; those additions have targeted regression and production UI evidence."
+    "scopedReleaseLog": "D:/Claude/tmp/qd-sale-icon-release-final.log",
+    "browserScope": "Full shared browser gate passed at chart release. Subsequent shared calendar/file CSS passed mounted actual calendar/file/range/sale cases, refreshed 18 component parity cases, 408 propagation checks, 36 palette checks and 36 offline cases. Final sale icon also passed the same 12 actual-component cases, Maison typecheck, normal lint/format hook and final scoped release gate.",
+    "chartBrowserCases": 12,
+    "calendarFileAndSaleBrowserCases": 12,
+    "calendarCentralMutation": {
+      "controlHeight": 48,
+      "radius": 14,
+      "passed": true
+    },
+    "calendarShortViewportHeight": 480,
+    "saleLastRowGuardPassed": true,
+    "sharedControlBrowserLog": "D:/Claude/tmp/qd-calendar-browser-propagation.log",
+    "saleIconBrowserLog": "D:/Claude/tmp/qd-sale-icon-browser-final.log"
   },
   "native": {
     "androidDebugBuilds": 3,
     "offlineBrowserCases": 36,
     "installedBundleRelease": "not performed",
-    "iosCompilation": "not available on this Windows host"
+    "iosCompilation": "not available on this Windows host",
+    "debugBuildScope": "All three Android debug APKs rebuilt after latest shared offline CSS and embedded generated assets matched.",
+    "sourceCommits": {
+      "atelierAndroid": "feb1ce21aac854181770d947f045e5dbe39d1645",
+      "maisonAndroid": "c5be24376a3b9d9e2006618c33fc592f42a1aaa0",
+      "carnetAndroid": "561ccc7f29301237c8be1b182ecbf2e108fa89cb",
+      "atelierIOS": "bee77d25246b0a576b1eae572686c79449c79b43"
+    },
+    "sourceCommitScope": "Local only. No native repository push or signed app release."
   },
   "screenReview": {
     "atelierImages": 661,
     "maisonImages": 855,
     "carnetImages": 295,
     "allExistingImagesReviewed": true,
-    "allStatesCertified": false
+    "allStatesCertified": false,
+    "newProductionEvidence": [
+      "maison-production-supplier-review.json",
+      "maison-production-calendar-file-results.json",
+      "maison-production-store-review.json",
+      "maison-production-sale-icon-results.json"
+    ]
   },
-  "remaining": "Unusable or partial screen evidence and 1036 unresolved Atelier style arguments remain tracked in design-readiness.json. All existing image review coverage is not an all-state, all-role or all-device certificate. Existing signed app releases and iOS compilation remain pending."
+  "remaining": "1006 unresolved Atelier source arguments and 63 incomplete/missing local screen targets remain in design-readiness.json. New production default form reviews do not certify local role fixtures or all states. Signed app releases and iOS compilation remain pending."
 }

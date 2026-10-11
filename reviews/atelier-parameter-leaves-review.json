@@ -16430,6 +16430,80 @@
       "unindexed": [],
       "unresolvedSpreads": [],
       "unresolvedReferences": []
+    },
+    {
+      "path": "components/TimeSeriesChart.tsx",
+      "component": "TimeSeriesChart",
+      "prop": "height",
+      "sourceHash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa",
+      "declarationLine": 29,
+      "binding": "height = QDPresentation.chartHeight[200]",
+      "defaultValue": "QDPresentation.chartHeight[200]",
+      "leaves": [
+        {
+          "start": 886,
+          "end": 892,
+          "text": "height",
+          "line": 30
+        },
+        {
+          "start": 2615,
+          "end": 2621,
+          "text": "height",
+          "line": 67
+        },
+        {
+          "start": 3662,
+          "end": 3668,
+          "text": "height",
+          "line": 91
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "sourceHash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59",
+          "attributeLine": 356,
+          "value": "{QDPresentation.chartHeight[220]}",
+          "argumentHashes": [
+            "f50d725d382b13aadb4d3e7ab272e4ceab2fc31ea449e9fbaa9c03fe87f6a339"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 182,
+          "sourceHash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783",
+          "attributeLine": 188,
+          "value": "{QDPresentation.chartHeight[220]}",
+          "argumentHashes": [
+            "0c179745b3c4c699dd3334cb1ce83fb1bba5e4264120a1dc85167c1f32f04f1f"
+          ],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "components/TimeSeriesChart.tsx",
+          "line": 29,
+          "hash": "45ea3ce62474eb2569d56d83ab8831232fc36299a3d07a42ef2dbcf9ec5de1fa"
+        },
+        {
+          "path": "app/(app)/quality-objectives/[id]/client.tsx",
+          "line": 356,
+          "hash": "2586176ed09203f04ef5d518036b1b28ae1eaaab638ff9f9ca1a335ff033de59"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 188,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
     }
   ]
 }

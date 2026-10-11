@@ -12,6 +12,7 @@ const require=createRequire(resolve(QA,'package.json')), ts=require('typescript'
 const read=p=>fs.readFileSync(resolve(ROOT,p),'utf8');
 function load(source, globals={}) { const module={exports:{}};runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText,{module,exports:module.exports,require,...globals});return module.exports; }
 const runtime=load(read('source/design/atelier-runtime.ts'));
+const chartLayout=load(read('source/design/chart-layout.ts'));
 const engineTokens=load(fs.readFileSync(resolve(QA,'lib/design/tokens.ts'),'utf8'));
 const textRules=load(fs.readFileSync(resolve(QA,'lib/design/q-design-labels.ts'),'utf8'),{require:name=>name==='@/lib/design/tokens'?engineTokens:require(name)});
 const scaleRules=load(fs.readFileSync(resolve(QA,'lib/design/q-design-scale.ts'),'utf8'),{require:name=>name==='./tokens'?engineTokens:require(name)});
@@ -88,7 +89,7 @@ test('central numeric progress dimensions still produce finite SVG geometry afte
 
 test('chart presentation mutation changes geometry without changing source data values',()=>{
  const s=fs.readFileSync(resolve(QA,'components/TimeSeriesChart.tsx'),'utf8');
- const render=p=>{const {TimeSeriesChart}=load(s,{require:name=>name==='@/lib/design/q-design-labels'?textRules:name==='@/lib/design/q-design-runtime'?{...runtime,QDPresentation:p}:name==='@/lib/design/q-design-scale'?{QDScale:{space:{1.5:'6px',2:'8px',4.5:'18px'},font:{12:'12px'},family:{mono:'monospace',ui:'sans-serif'}}}:name==='@/lib/design/tokens'?{T:{border:'#ddd',muted:'#666',subtle:'#333'},alpha:c=>c}:require(name)});return renderToStaticMarkup(React.createElement(TimeSeriesChart,{labels:['First','Last'],series:[{label:'Fixture',color:'#123456',data:[10,20]}]}));};
+ const render=p=>{const {TimeSeriesChart}=load(s,{require:name=>name==='@/lib/design/q-design-labels'?textRules:name==='@/lib/design/q-design-chart-layout'?chartLayout:name==='@/lib/design/q-design-runtime'?{...runtime,QDPresentation:p}:name==='@/lib/design/q-design-scale'?{QDScale:{space:{1.5:'6px',2:'8px',4.5:'18px'},font:{12:'12px'},family:{mono:'monospace',ui:'sans-serif'}}}:name==='@/lib/design/tokens'?{T:{border:'#ddd',muted:'#666',subtle:'#333'},alpha:c=>c}:require(name)});return renderToStaticMarkup(React.createElement(TimeSeriesChart,{labels:['First','Last'],series:[{label:'Fixture',color:'#123456',data:[10,20]}]}));};
  const original=render(runtime.QDPresentation),p=structuredClone(runtime.QDPresentation);p.chartGeometry.width=1200;p.chartHeight[200]=240;p.chartGeometry.pointRadius=4;
  const changed=render(p);assert.match(original,/viewBox="0 0 1000 200"/);assert.match(changed,/viewBox="0 0 1200 240"/);assert.match(changed,/r="4"/);assert.doesNotMatch(changed,/NaN|undefinedpx/);for(const label of ['First','Last','>20<'])assert.ok(changed.includes(label),label);
 });

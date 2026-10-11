@@ -6,6 +6,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['--test','tools/chart-layout.test.mjs','tools/atelier-chart-layout-review.test.mjs'],
   ['--test','tools/copy-spacing.test.mjs'],
   ['tools/copy-spacing.mjs','--check'],
   ['--test','tools/extract-ramp.test.mjs'],
@@ -60,7 +61,7 @@ const steps=[
   ['tools/maison-style-review.mjs','--check'],
   ['tools/carnet-style-review.mjs','--check'],
 ];
-if(args.includes('--browser'))steps.push(['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs']);
+if(args.includes('--browser'))steps.push(['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});
