@@ -10,11 +10,17 @@
 
 ### 기본 UI 구현 정본 (2026-10-12)
 
-검토한 기본 UI 구현 27개 파일은 `patterns/component-implementations/`가 정본이다. 아뜰리에의 기본 부품·선택·한글 표시·알림 4개 파일, 메종 `components/ui`의 18개 파일, 카르넷 기본 UI·표·대화상자·알림·행 링크 5개 파일이 해당한다. 범위는 `patterns/component-implementations.json`, 실제 공개 내보내기와 제품 연결은 `dist/q-design.component-implementations.json`에서 확인한다. 153개 값 내보내기와 11개 타입 내보내기는 부품뿐 아니라 보조 함수·타입을 포함한다.
+검토한 기본 UI 구현 28개 파일은 `patterns/component-implementations/`가 정본이다. 아뜰리에의 기본 부품·선택·한글 표시·알림·로딩 묶음 5개 파일, 메종 `components/ui`의 18개 파일, 카르넷 기본 UI·표·대화상자·알림·행 링크 5개 파일이 해당한다. 범위는 `patterns/component-implementations.json`, 실제 공개 내보내기와 제품 연결은 `dist/q-design.component-implementations.json`에서 확인한다. 154개 값 내보내기와 11개 타입 내보내기는 부품뿐 아니라 보조 함수·타입을 포함한다. Skeleton의 다섯 부속 렌더러는 별도 항목으로 기록한다.
 
 제품 사본의 전체 본문을 정본과 대조하며 새 메종 UI 파일, 목록 밖 정본 파일과 검토되지 않은 재내보내기를 거부한다. 생성 전에 모든 정본 구문과 선택된 대상 경로를 확인해 앞 제품만 먼저 고치는 것을 막는다. 문구 교정도 이 범위에서는 정본을 수정한 뒤 생성으로 제품에 전달한다. 기존 `lib/design` 제외를 풀 때는 명시된 세 UI 파일만 추가하고 검증 엔진·토큰 원문은 제외한다.
 
 가족 전체의 외형은 공통 CSS·팔레트·표시 인자를 수정한다. 제품별 마크업·접근성·입력 부품 구현을 바꿀 때는 해당 구현 정본을 수정한다. `extract-all --sync --only=Q-Atelier,Q-Works,Q-Forge`와 최종 `--check`, 제품 검사·빌드·배포를 수행한다. 업무 데이터, 콜백, 기기 설정, 호출부의 `style`·`className`과 외부 도메인 라벨은 별도 입력이다. 구현 파일의 정본 소유를 이유로 미분류 표시 인자나 모든 화면 상태를 자동 승인하지 않는다.
+
+### 로딩 묶음의 현재 규칙 (2026-10-12)
+
+아뜰리에 `components/Skeleton.tsx`의 기본형과 `Row`, `Card`, `KPIGrid`, `PageHd`, `Table`은 같은 정본 파일에서 생성한다. 면은 `--qd-surface2`, 모서리는 `--qd-radius`, 반복 시간은 `--qd-skeleton-duration`을 읽는다. 현재 공통 효과는 투명도를 바꾸는 pulse이며, 움직임 줄이기 설정에서는 애니메이션을 멈춘다. 아래 초기 실측 표의 champagne shimmer는 현재 구현 규칙이 아니다.
+
+기본 높이·간격·반복 개수는 중앙 `QDPresentation`에서 전달한다. 명시한 폭·높이·행·열 개수와 호출부 스타일은 별도 입력이다. 다섯 부속 렌더러의 공개 이름과 실제 함수 이름을 명시적으로 등록했고, 이름 변경·누락·추가·계산된 속성·중첩 대입을 생성 전에 거부한다. React `displayName` 문자열은 표시용 메타데이터이므로 부품으로 세지 않는다.
 
 ### Android 시작 화면 정본 (2026-10-12)
 

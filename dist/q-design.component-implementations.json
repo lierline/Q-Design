@@ -1,7 +1,7 @@
 {
   "version": 1,
   "manifest": "patterns/component-implementations.json",
-  "manifestHash": "004f5fb76034faab874acb2186dc712180953df0fcfe5eeafb42659d044b960a",
+  "manifestHash": "cc5febca3f76e4c4c34d2dda62eaa0d1a90ec750b119136522f2aef7085cf67b",
   "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
   "records": [
     {
@@ -413,6 +413,52 @@
         {
           "name": "useToast",
           "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "key": "Q-Atelier",
+      "path": "components/Skeleton.tsx",
+      "target": "Q-Atelier/components/Skeleton.tsx",
+      "canonical": "patterns/component-implementations/atelier/components/Skeleton.tsx",
+      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "exports": [
+        {
+          "name": "Skeleton",
+          "kind": "value"
+        }
+      ],
+      "attachedRenderers": [
+        {
+          "owner": "Skeleton",
+          "member": "Row",
+          "localName": "SkeletonRow",
+          "line": 37
+        },
+        {
+          "owner": "Skeleton",
+          "member": "Card",
+          "localName": "SkeletonCard",
+          "line": 60
+        },
+        {
+          "owner": "Skeleton",
+          "member": "KPIGrid",
+          "localName": "SkeletonKPIGrid",
+          "line": 68
+        },
+        {
+          "owner": "Skeleton",
+          "member": "PageHd",
+          "localName": "SkeletonPageHd",
+          "line": 116
+        },
+        {
+          "owner": "Skeleton",
+          "member": "Table",
+          "localName": "SkeletonTable",
+          "line": 129
         }
       ]
     },

@@ -10,8 +10,18 @@
         "lib/design/components.tsx",
         "lib/design/segmented-choice.tsx",
         "lib/design/hangul-text.tsx",
-        "components/Toast.tsx"
-      ]
+        "components/Toast.tsx",
+        "components/Skeleton.tsx"
+      ],
+      "attachedRenderers": {
+        "components/Skeleton.tsx": [
+          { "owner": "Skeleton", "member": "Row", "localName": "SkeletonRow" },
+          { "owner": "Skeleton", "member": "Card", "localName": "SkeletonCard" },
+          { "owner": "Skeleton", "member": "KPIGrid", "localName": "SkeletonKPIGrid" },
+          { "owner": "Skeleton", "member": "PageHd", "localName": "SkeletonPageHd" },
+          { "owner": "Skeleton", "member": "Table", "localName": "SkeletonTable" }
+        ]
+      }
     },
     {
       "key": "Q-Works",
