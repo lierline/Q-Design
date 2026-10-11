@@ -11,11 +11,18 @@ export const IOS_COMPONENTS=Object.freeze([
  {key:'Q-Atelier',product:'atelier',component:'ToastView',canonical:'patterns/native/ios/ToastView.swift',generated:'dist/native-components/ios/ToastView.swift',target:'Q-Atelier-iOS/QAtelier/Sources/ToastView.swift'},
 ].map(Object.freeze));
 const norm=text=>text.replaceAll('\r\n','\n');
+export function assertIosSharedRadiusConsumer(text){
+ const code=text.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\/\/[^\r\n]*/g,'');
+ const assignments=[...code.matchAll(/\blayer\s*\.\s*cornerRadius\s*=\s*([^\r\n;]+)/g)];
+ assert.equal(assignments.length,1,'One native toast corner radius consumer required');
+ assert.equal(assignments[0][1].trim(),'QDesignGeometry.cornerRadius','Native toast must use the shared corner radius');
+}
 export function iosComponentSource(text,config){
  assert(IOS_COMPONENTS.includes(config),'Only registered existing iOS components');
  assert(text.includes('import UIKit')&&text.includes(`final class ${config.component}: UIView {`),'Wrong UIKit component identity');
  assert(![...text].some(ch=>[0x2013,0x2014,0x2015].includes(ch.codePointAt(0))),'Forbidden punctuation in native presentation source');
  assert(!text.includes('{{'),'No unresolved source substitutions');
+ if(config.component==='ToastView')assertIosSharedRadiusConsumer(text);
  return norm(text);
 }
 function writePreservingEndings(file,expected){

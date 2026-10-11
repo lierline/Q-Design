@@ -45,7 +45,7 @@ test('native sp/dp resources are derived from mutable central roles',()=>{
   fs.writeFileSync(path.join(fixture,'patterns/native-text-rules.json'),JSON.stringify({...nativeRules,androidHintBreakStrategy:'balanced'}));
   const components=fs.readFileSync(path.join(root,'patterns/components.css'),'utf8');
   assert.ok(components.includes('--qd-control-size: 13px;'));
-  fs.writeFileSync(path.join(fixture,'patterns/components.css'),components.replace('--qd-control-size: 13px;','--qd-control-size: 15px;'));
+  fs.writeFileSync(path.join(fixture,'patterns/components.css'),components.replace('--qd-control-size: 13px;','--qd-control-size: 15px;').replace('--qd-radius: 10px;','--qd-radius: 14px;'));
   const before=fs.readFileSync(path.join(root,'patterns/foundation.css'),'utf8');
   const after=before.replace('--qd-native-wordmark-size: 11px;','--qd-native-wordmark-size: 12px;').replace('--qd-native-text-inset: 24px;','--qd-native-text-inset: 28px;');
   fs.writeFileSync(path.join(fixture,'patterns/foundation.css'),after);
@@ -58,6 +58,7 @@ test('native sp/dp resources are derived from mutable central roles',()=>{
   assert.match(swift,/hintPointSize: CGFloat = 15/);
   assert.match(swift,/wordmarkPointSize: CGFloat = 12/);
   assert.match(swift,/textInset: CGFloat = 28/);
+  assert.match(swift,/cornerRadius: CGFloat = 14/);
   fs.writeFileSync(path.join(fixture,'patterns/native-text-rules.json'),JSON.stringify({...nativeRules,androidHintBreakStrategy:'unsupported'}));
   assert.throws(()=>nativeTypographyXml(fixture),/Unsupported native hint break strategy/);
  }finally{

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import os from 'node:os';
 import path from 'node:path';
-import {IOS_COMPONENTS,iosComponentSource,buildIosComponents} from './build-ios-components.mjs';
+import {IOS_COMPONENTS,iosComponentSource,buildIosComponents,assertIosSharedRadiusConsumer} from './build-ios-components.mjs';
 const root='D:/Claude/Q-Design';
 test('both existing UIKit components match the full canonical source and external platform boundaries remain visible',()=>{
  assert.equal(buildIosComponents(root,{check:true}).records.length,2);
@@ -12,6 +12,10 @@ test('both existing UIKit components match the full canonical source and externa
  assert(launch.includes('UIAccessibility.isReduceMotionEnabled'));assert(launch.includes('QDesignTypography.hintPointSize'));assert(launch.includes('Palette.mutedOnDark'));assert(launch.includes('CTLineCreateWithAttributedString'));
  const toast=fs.readFileSync(root+'/'+IOS_COMPONENTS[1].canonical,'utf8');
  assert(toast.includes('label.adjustsFontForContentSizeCategory = true'));assert(toast.includes('UIAccessibility.post(notification: .announcement, argument: text)'));
+});
+test('native toast cannot replace the shared radius with a literal, a duplicate override or a comment-only reference',()=>{
+ const source=fs.readFileSync(root+'/'+IOS_COMPONENTS[1].canonical,'utf8');assertIosSharedRadiusConsumer(source);
+ for(const bad of [source.replace('layer.cornerRadius = QDesignGeometry.cornerRadius','layer.cornerRadius = 10'),source.replace('layer.cornerRadius = QDesignGeometry.cornerRadius','// layer.cornerRadius = QDesignGeometry.cornerRadius'),source+'\nlayer.cornerRadius = 11\n'])assert.throws(()=>assertIosSharedRadiusConsumer(bad));
 });
 test('unknown component identities, incomplete source and forbidden punctuation are rejected',()=>{
  const config=IOS_COMPONENTS[0],source=fs.readFileSync(root+'/'+config.canonical,'utf8');
@@ -32,7 +36,7 @@ test('canonical style edits reach their exact UIKit source, stale source fails a
  try{
   for(const config of IOS_COMPONENTS){
    const source=fs.readFileSync(root+'/'+config.canonical,'utf8').replaceAll('\r\n','\n');
-   const edited=config.component==='ToastView'?source.replace('layer.cornerRadius = 10','layer.cornerRadius = 12'):source.replace('static let introMs = 1200.0','static let introMs = 1250.0');
+   const edited=config.component==='ToastView'?source.replace('label.topAnchor.constraint(equalTo: topAnchor, constant: 10)','label.topAnchor.constraint(equalTo: topAnchor, constant: 12)'):source.replace('static let introMs = 1200.0','static let introMs = 1250.0');
    assert.notEqual(edited,source);write(path.join(fixtureRoot,config.canonical),edited);write(path.join(workspace,config.target),source.replaceAll('\n','\r\n'));
    files.push(path.join(fixtureRoot,config.generated));let dir=path.dirname(path.join(fixtureRoot,config.generated));while(dir!==workspace){dirs.add(dir);dir=path.dirname(dir);}
   }

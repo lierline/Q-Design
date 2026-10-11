@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "sourceRef": "b3f93283a467c649d908be949a48c27a02d9c18e",
+  "scope": "Exactly one UIKit radius consumer and one generated metric. Default radius remains 10 logical points. The producer resolves the same --qd-radius used by web and native offline controls. No Swift compile, simulation, installation, signing or distribution certificate.",
+  "producer": "tools/build-native-offline.mjs#nativeTypographySwift",
+  "inputs": [
+    {
+      "path": "patterns/components.css",
+      "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+    },
+    {
+      "path": "patterns/foundation.css",
+      "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839"
+    }
+  ],
+  "records": [
+    {
+      "path": "QAtelier/Sources/ToastView.swift",
+      "beforeHash": "d86aea72ac70ddba4bfed812d6067817ea9260ec342e721fcd123304dcb9742e",
+      "afterHash": "3f4ad0f89195729795903042870aa5b9604e79489619ea565b24f4ed7c101599",
+      "changes": "One cornerRadius assignment replaced with the shared generated CGFloat. Every other source character is preserved."
+    },
+    {
+      "path": "QAtelier/Sources/QDesignTypography.swift",
+      "beforeHash": "51c40e9df3c1c393b3325d196062aad86232dc86c94ebfedef17d51d45aeb112",
+      "afterHash": "da6628bf5e224ebd58ae82c1af91b2ae2f3e81f84a20853b860730e980c4bc45",
+      "changes": "One generated QDesignGeometry enum appended. Existing typography fields are identical."
+    }
+  ]
+}
