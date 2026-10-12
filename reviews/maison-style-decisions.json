@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T16:50:46.310Z",
+  "generatedAt": "2026-10-12T17:33:49.149Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6781,8 +6781,8 @@
     "composed-classes": 831,
     "central-selector": 2456,
     "compatibility-noop": 77,
-    "business-data": 818,
-    "unknown": 864,
+    "business-data": 844,
+    "unknown": 838,
     "business-condition": 54,
     "token-reference-verified": 1217,
     "structural-behavior": 399,
@@ -6792,7 +6792,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3843
   },
-  "unknownCount": 864,
+  "unknownCount": 838,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -1184747,14 +1184747,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 653,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184770,14 +1184785,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 654,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184793,14 +1184823,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 675,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184816,14 +1184861,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 676,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184839,14 +1184899,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 699,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184862,14 +1184937,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 699,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184885,14 +1184975,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 714,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184908,14 +1185013,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 715,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184931,14 +1185051,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 736,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184954,14 +1185089,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 737,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1184977,14 +1185127,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 760,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185000,14 +1185165,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 761,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185023,14 +1185203,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 783,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185046,14 +1185241,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 784,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185069,14 +1185279,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 805,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185092,14 +1185317,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 842,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185115,14 +1185355,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 843,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185138,14 +1185393,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 864,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185161,14 +1185431,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 865,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185184,14 +1185469,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 884,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185207,14 +1185507,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 885,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185230,14 +1185545,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 904,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185253,14 +1185583,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 944,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185276,14 +1185621,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 945,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185299,14 +1185659,29 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 968,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
@@ -1185322,14 +1185697,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "typed-inbox-database-column-map",
+      "reason": "This exact cols object or APPROVAL_COLS spread is under the typed RULE_KINDS registry and has precisely the thirteen readonly RuleColumns fields. Its values are column-name strings, null or readonly lists of column names. Every registry symbol reference in the complete runtime program is inventoried. The two exact inspected consumers use these names for database projection, raw document-field lookup and workflow filters, never grid/CSS widths. Changed consumers, escaped registry values and additional appearance fields are rejected. No business record or permission is changed.",
       "evidence": [
         {
           "path": "lib/approvals/inbox-kinds.ts",
-          "line": 968,
+          "line": 1,
           "hash": "5cf90ce37fa775bb0b3c97e4a984ee518713c76c2ae85c3720e073fb20d96545"
+        },
+        {
+          "path": "lib/approvals/inbox.ts",
+          "line": 1,
+          "hash": "de978525480ac84dff2f370e87152bd43c7d55ba92afc56459238748f76e5402"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-inbox-columns-review.mjs",
+          "line": 1,
+          "hash": "20bf96618deb246506e2d4a3ef5d2afc3ec08b596c857456d79f73817b03df8f"
         }
       ]
     },
