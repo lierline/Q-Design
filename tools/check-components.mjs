@@ -6,6 +6,11 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/extract-pull-presentation.mjs','--check'],
+  ['tools/maison-pull-presentation-migration.mjs','--check'],
+  ['tools/maison-pull-presentation-review.mjs','--check'],
+  ['tools/maison-pull-style-evidence.mjs','--check'],
+  ['--test','tools/maison-pull-presentation.test.mjs'],
   ['tools/maison-production-copy.mjs','--check'],
   ['tools/maison-production-copy-bindings.mjs','--check'],
   ['tools/maison-production-copy-style-review.mjs','--check'],

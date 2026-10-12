@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "productRef": "324c1c7c5592bc35b07aa37b17259d609d24d347",
+  "path": "components/shared/pull-to-refresh.tsx",
+  "beforeHash": "41f1d33ff3e6df42cbb812f58695e3d754649fa86d50083373596605f64dffce",
+  "afterHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+  "edits": [
+    [
+      "import { cn }",
+      "import { qdPull } from \"@/lib/design/q-design-pull\";\nimport { cn }"
+    ],
+    [
+      "top: \"env(safe-area-inset-top)\"",
+      "top: qdPull.safeAreaTop"
+    ],
+    [
+      "shown - 44",
+      "shown - qdPull.restOffset"
+    ],
+    [
+      "shown / 40",
+      "shown / qdPull.fadeDistance"
+    ],
+    [
+      "size={18}",
+      "size={qdPull.iconSize}"
+    ],
+    [
+      "pull * 4",
+      "pull * qdPull.degreesPerPixel"
+    ]
+  ],
+  "canonical": {
+    "path": "dist/q-design.pull.ts",
+    "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+  },
+  "scope": "Five complete authored presentation expressions read the existing canonical Atelier offsets, fade, rotation, icon size and safe-area top. Gesture recognition, app gating, touch listeners and reload logic remain exact."
+}

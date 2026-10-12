@@ -34487,7 +34487,7 @@
         "components": 1442,
         "iconModules": 164,
         "roleMappedComponents": 98,
-        "canonicalCopies": 24,
+        "canonicalCopies": 25,
         "qdClassModules": 474,
         "productLocalModules": 600
       },
@@ -34499,6 +34499,14 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "공통 당겨서 새로고침 표시",
+          "source": "dist/q-design.pull.ts",
+          "path": "lib/design/q-design-pull.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "메종 생산 준비 표",
           "source": "patterns/foundation/maison-prep-table.css",
@@ -74806,6 +74814,7 @@
           "imports": [
             "components/q-design-icons/RefreshCw.tsx",
             "lib/app-shell/pull-to-refresh.ts",
+            "lib/design/q-design-pull.ts",
             "lib/utils/cn.ts"
           ],
           "reachable": true,

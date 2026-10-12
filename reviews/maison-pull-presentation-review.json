@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "scope": "Two touch coordinates and five exact dynamic display compositions. No whole renderer or property-name exemption.",
+  "records": [
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 55,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "cdac15bcf1b0397443e4317c30c9c51889c3dde60b136ea4b54e25f38996c605",
+      "value": "t.clientX",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "This exact start.current field samples a TouchEvent client coordinate. It is subtracted from the next touch to determine gesture intent and pull distance, never an authored position or size. The complete source inverse preserves the original gesture handlers.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 55,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 55,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "c537a107b222fb3649c78926ab92c54d8fa79c725dc596f2398e7054fc399566",
+      "value": "t.clientY",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "This exact start.current field samples a TouchEvent client coordinate. It is subtracted from the next touch to determine gesture intent and pull distance, never an authored position or size. The complete source inverse preserves the original gesture handlers.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 55,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 118,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "f364b71e29b3c9efc3f3206d556c2409af80311616ab39dfd5de25416c4549f4",
+      "value": "{{\n        top: qdPull.safeAreaTop,\n        transform: `translateY(${shown - qdPull.restOffset}px)`,\n        opacity: Math.min(1, shown / qdPull.fadeDistance),\n      }}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "The complete exact display expression combines measured pull state with the fingerprint-verified canonical presentation adapter. The original arithmetic and refreshing/dragging conditions are unchanged. Source inverse and real component render tests reject unreviewed branches or authored fallbacks.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 118,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 120,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "d71397293e50ca8fdbaff6f19a3e344b22588acb57416aeb8241b644a1bcdca2",
+      "value": "`translateY(${shown - qdPull.restOffset}px)`",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "The complete exact display expression combines measured pull state with the fingerprint-verified canonical presentation adapter. The original arithmetic and refreshing/dragging conditions are unchanged. Source inverse and real component render tests reject unreviewed branches or authored fallbacks.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 120,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 121,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "2b33bfa50d9e3bd5811cde6d579244927f803406eea2f8c3530079b93fb26f86",
+      "value": "Math.min(1, shown / qdPull.fadeDistance)",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "The complete exact display expression combines measured pull state with the fingerprint-verified canonical presentation adapter. The original arithmetic and refreshing/dragging conditions are unchanged. Source inverse and real component render tests reject unreviewed branches or authored fallbacks.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 121,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 136,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "f0cf3fb755cef3569950dc004ded267c042794885f72c881e35e512df31c47f0",
+      "value": "{\n            refreshing\n              ? undefined\n              : {\n                  transform: `rotate(${Math.round(pull * qdPull.degreesPerPixel)}deg)`,\n                }\n          }",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "The complete exact display expression combines measured pull state with the fingerprint-verified canonical presentation adapter. The original arithmetic and refreshing/dragging conditions are unchanged. Source inverse and real component render tests reject unreviewed branches or authored fallbacks.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 136,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    },
+    {
+      "path": "components/shared/pull-to-refresh.tsx",
+      "line": 140,
+      "sourceHash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6",
+      "argumentHash": "2649c633190f79032ee27ff9100c58fc87d2ec938d720705c41661943eb5f3d8",
+      "value": "`rotate(${Math.round(pull * qdPull.degreesPerPixel)}deg)`",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-pull-presentation-consumer",
+      "reason": "The complete exact display expression combines measured pull state with the fingerprint-verified canonical presentation adapter. The original arithmetic and refreshing/dragging conditions are unchanged. Source inverse and real component render tests reject unreviewed branches or authored fallbacks.",
+      "evidence": [
+        {
+          "path": "components/shared/pull-to-refresh.tsx",
+          "line": 140,
+          "hash": "22738e7982b7e091d3dcdec02a3fbe602797c21224bf7c66a08b8c1922896ea6"
+        },
+        {
+          "path": "dist/q-design.pull.ts",
+          "line": 1,
+          "hash": "099fc6e307f46c81d4c0212d1cadff94e8238d4a6106b24fc039a2c206d2a6dd"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 1,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b"
+        },
+        {
+          "path": "tools/maison-pull-presentation-review.mjs",
+          "line": 1,
+          "hash": "902a21625c40e18926d927ae8ff749511f4e2c252e429c4ad02b3c0ae73ef926"
+        },
+        {
+          "path": "tools/maison-pull-presentation-migration.mjs",
+          "line": 1,
+          "hash": "7950dfc442d77f372cde24d32a46bed376d7174287148bb73c2502814c9dd33c"
+        },
+        {
+          "path": "tools/extract-pull-presentation.mjs",
+          "line": 1,
+          "hash": "9d192f3062072a93300d9d134ce541ea60b7dc0c1d8f059b33352470ac1907f4"
+        },
+        {
+          "path": "lib/design/q-design-pull.ts",
+          "line": 1,
+          "hash": "49489b2fd9b8164bf2dcfd042ddb2a9df1d4e3da9db8f831cca623cc964d6bef"
+        }
+      ]
+    }
+  ]
+}

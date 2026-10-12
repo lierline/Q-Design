@@ -28,6 +28,8 @@
 export const HOLD = {};  // 2026-10-10 오너가 Q-Sonar 묶음을 풀었다(구역 제목 C안 반영 때 «정본 전부 받기» 선택). 12px · 대비 4.5 규칙도 Sonar 에 들어간다.
 
 export const PARTS = [
+  { name: '공통 당겨서 새로고침 표시', src: 'dist/q-design.pull.ts', lang: 'ts',
+    to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-pull.ts' } },
   { name: '메종 생산 준비 표', src: 'patterns/foundation/maison-prep-table.css', layer: false,
     to: { 'Q-Works': 'D:/Claude/Q-Works/app/q-design.prep-table.css' } },
   { name: '메종 안전관리 인쇄 규칙', src: 'patterns/foundation/maison-safety-print.ts', lang: 'ts',
