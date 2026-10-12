@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "scope": "Nine exact ProductProfileWizard RadioGrid column inputs only. The renderer and every other source expression retain their prior behavior.",
+  "records": [
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 655,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "b4148ffcd00e67263fc02f9cf93c017661bbc8a3f80ff91f91861fc5a0ca99d5",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[2]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 665,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "34b2ebb1607ac07ec871eeb54355348b2ef54f0dd100c4edcfce6edd20bd7a35",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[3]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 675,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "92ad1e8dbb18c8f839fa492bbbdd6e8470dcdecb2ac104e2185dd46b7c655ef3",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[3]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 686,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "c97f0720db1416025fb837d06a98385aef262f11f5e515c7522407e205778916",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[3]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 720,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "54338e357e77a206e3c7232cde3dd8d9eeb3d54fffad504f8bc8935a80747709",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[2]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 735,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "fa7b8161655c9d23dd1e78d344ec3574b09ef54e47420d19444fa4b8ab70cb4b",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[2]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 745,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "294fd1f555c405e3faead0e3e5e716fe0233c0a39172739542f8d00df544f674",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[2]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 763,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "73a89bd5c157d5ca11bf959b1a4ef9aecbbbf6bfaed1af2b8614fd4f265146b7",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[2]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    },
+    {
+      "path": "components/ProductProfileWizard.tsx",
+      "line": 800,
+      "sourceHash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca",
+      "argumentHash": "5928527fba8e302b13e31f593e0e26bf1a6ff58bfd3a32772634470c5c2e540b",
+      "property": "cols",
+      "value": "{QDPresentation.rendererInputs.gridColumns[4]}",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-profile-choice-columns",
+      "reason": "This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.",
+      "evidence": [
+        {
+          "path": "components/ProductProfileWizard.tsx",
+          "line": 1048,
+          "hash": "a127ace202b41ff884f0f13e29b42ceb8059e1492a9f389e55a7d290f83458ca"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 104,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        }
+      ]
+    }
+  ]
+}

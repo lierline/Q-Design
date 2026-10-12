@@ -3,6 +3,7 @@ import fs from 'node:fs';import assert from 'node:assert/strict';import {execFil
 import {hash} from './style-arguments-core.mjs';
 import {beforeSocialFoundation,beforeSocialDist,beforeSocialCopy,socialTouchAppendix} from './atelier-social-touch-foundation.mjs';
 import {readRuntimeValues,resolveAtelierMedia} from './atelier-runtime-values.mjs';
+import {beforeProfileGridReview} from './atelier-profile-grid-review-inverse.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='12a8e0dfbc52455b360f7025d7b8a5860d0e72d8';
 const normalize=s=>s.replaceAll('\r\n','\n'),serialize=j=>JSON.stringify(j,null,2)+'\n',read=p=>normalize(fs.readFileSync(p,'utf8'));
 const names=['atelier-color-flow-review.json','atelier-fold-grid-review.json','atelier-renderer-enum-review.json','atelier-size-renderer-review.json','atelier-style-bindings-review.json','atelier-widget-width-review.json'];
@@ -44,5 +45,5 @@ for(const name of names){
 assert.equal(total,458,'236 central CSS references and 222 generated product-copy references only');
 const proof={version:2,ref,scope:'458 unchanged record declaration references across six current review reports, including 222 product-copy references, plus exact repeated flow-output dependencies. Whole consumers and every prior review field remain unchanged except these exact dependency hashes and the eight-line compiled insertion offset. No new argument or decision is approved.',dependencies:definitions.map(({before,after,...d})=>d),reports:proofs};
 if(process.argv.includes('--write')){const prior=JSON.parse(read(root+'/reviews/atelier-social-touch-revalidation.json'));for(const p of prepared){const original=prior.reports.find(r=>r.name===p.name);assert.equal(prior.ref,ref);assert.equal(original.beforeHash,hash(serialize(p.before)));const currentHash=hash(read(root+'/reviews/'+p.name));assert(currentHash===original.beforeHash||currentHash===original.afterHash,'Write requires the whole previously verified report');}for(const p of prepared)fs.writeFileSync(root+'/reviews/'+p.name,serialize(p.after));fs.writeFileSync(root+'/reviews/atelier-social-touch-revalidation.json',serialize(proof));}
-else{for(const p of prepared)assert(hash(read(root+'/reviews/'+p.name))===hash(serialize(p.after)),'Current report differs outside reviewed evidence: '+p.name);assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-social-touch-revalidation.json')),proof);}
+else{for(const p of prepared)assert(hash(serialize(beforeProfileGridReview(p.name,JSON.parse(read(root+'/reviews/'+p.name)))))===hash(serialize(p.after)),'Current report differs outside reviewed evidence: '+p.name);assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-social-touch-revalidation.json')),proof);}
 console.log(JSON.stringify({reports:prepared.length,references:total,flowReferences:proofs.reduce((n,p)=>n+p.flowChanges.length,0)}));

@@ -1,6 +1,8 @@
 // Restore exact pre-append review reports for immutable historical proofs.
 import fs from 'node:fs';import assert from 'node:assert/strict';import {hash} from './style-arguments-core.mjs';
+import {beforeProfileGridReview} from './atelier-profile-grid-review-inverse.mjs';
 export function beforeSocialTouchReview(name,current){
+ current=beforeProfileGridReview(name,current);
  const proof=JSON.parse(fs.readFileSync('D:/Claude/Q-Design/reviews/atelier-social-touch-revalidation.json','utf8')),report=proof.reports.find(p=>p.name===name),serialize=j=>JSON.stringify(j,null,2)+'\n';
  if(!report)return current;
  if(hash(serialize(current))===report.beforeHash)return current;
