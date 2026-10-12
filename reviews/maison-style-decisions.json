@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T18:52:26.788Z",
+  "generatedAt": "2026-10-12T19:01:59.922Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -3098,7 +3098,7 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+      "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
     },
     {
       "path": "app/(app)/safety/incidents/incidents-tab.tsx",
@@ -3138,7 +3138,7 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+      "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
     },
     {
       "path": "app/(app)/safety/monthly/page.tsx",
@@ -5613,6 +5613,10 @@
       "hash": "df176c6395b228ede63adb2da7c5257c7e3f38d41f7e0652c540b69b10387f46"
     },
     {
+      "path": "lib/design/q-design-safety-print.ts",
+      "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+    },
+    {
       "path": "lib/design/q-design-tailwind.ts",
       "hash": "f38d3764c53fb1a82a8643d26dd214693d35a9949a91d2dbbdea0d04ea6c70d9"
     },
@@ -6776,23 +6780,23 @@
   "counts": {
     "delegated-renderer-parameter": 462,
     "central-live-utility": 20477,
-    "confirmed-style-composition": 810,
+    "confirmed-style-composition": 834,
     "central-build-utility": 12075,
     "composed-classes": 831,
     "central-selector": 2485,
     "compatibility-noop": 77,
     "business-data": 872,
-    "unknown": 701,
+    "unknown": 653,
     "business-condition": 54,
-    "token-reference-verified": 1247,
-    "structural-behavior": 403,
+    "token-reference-verified": 1264,
+    "structural-behavior": 408,
     "coordinate-boundary": 122,
     "business-content": 49,
     "dependency-entry": 12,
     "platform-metadata": 17,
-    "central-source-verified": 3884
+    "central-source-verified": 3887
   },
-  "unknownCount": 701,
+  "unknownCount": 653,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -756559,55 +756563,60 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "b1e7cc7583d614fb81662f26f9e4eb304e8402f253913efac98684f493e1ee16",
-      "line": 70,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "a8ddc771760d541bf49e5c436fb4156541167bfd30e5ba920851a858d9ec43dd",
+      "line": 72,
       "kind": "object-property",
       "property": "textAlign",
-      "value": "\"center\" as const",
+      "value": "\"center\"",
       "family": "typography",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 70,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "6d6ab6d8f9e71ec6ad2be858757fae7e00e00713f5ec5cfc0ac5472e30a70941",
-      "line": 71,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "ffb76e246fe2e66368a01bbebaa28452d47cefb95b0d6c50447f88916d0e6b82",
+      "line": 73,
       "kind": "object-property",
       "property": "height",
-      "value": "\"13mm\"",
+      "value": "qdPrint.height.v13mm",
       "family": "geometry",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 71,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 73,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "8e867e0357580b67f3c5cad42f98a11af0cef72de228c0397dae86d14b1912a2",
-      "line": 74,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "2a13147717e7b4ada73b7104b82bc631a751d0b7f96e23354735fc6c029f04eb",
+      "line": 77,
       "kind": "class-utility",
       "property": "className",
       "value": "form-grid",
@@ -756628,9 +756637,9 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "ddb35c8939637db70622404ec656668aa2d5ae892370880d8d0843972804b62b",
-      "line": 74,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "e023b8245cff53b245d610a301522354b3a6fec7e90ae767211838a4f95aa444",
+      "line": 77,
       "kind": "class-utility",
       "property": "className",
       "value": "w-full",
@@ -756651,9 +756660,9 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "c262ada24a22b73961f17247db1e0e1bc076554b69a6c5a3faae32423c1c0fce",
-      "line": 74,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "680208615e11979ce9d8afaff4c1bed7b42d2aa876d5ebfd8c1a1bf35a73d4b9",
+      "line": 77,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -756686,369 +756695,449 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "b710bab97cb0da68dc778923636eeab36e957090e7a2724b3aae848274129864",
-      "line": 74,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "f7c0cb145916b2cf3054dfafd8760f2b0db132a68b00063fe17d36447c013476",
+      "line": 78,
       "kind": "object-property",
       "property": "marginTop",
-      "value": "\"3mm\"",
+      "value": "qdPrint.marginTop.v3mm",
       "family": "position-layer",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
         {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 74,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "197a163a37cffa2912c115caf963869d42ceacf0d948d7e8c77b68e21eb65c4a",
-      "line": 74,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ marginTop: \"3mm\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 74,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "4e94f8ab2d9c0edf656baeceeb2cd739430e4a5cb488d3b1f66f53b5e414e2d7",
-      "line": 76,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"7%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 76,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "195cbb7d7698da13dd728163457aaabe7ea99fbd5b83e4d99a937adc7313f5f4",
-      "line": 76,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"7%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 76,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "d0b08a95b9ad72acb9ae7d70fb0ecc63fb752909cdc544f06ce03019d9b6ceb7",
-      "line": 77,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"13%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 77,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "04bbc1862271cdb1a1872a4314a7c2e9194109c9ca5e3a7e982ba9086497fd53",
-      "line": 77,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"13%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 77,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "14f0333f27cd4b18d526b4aba0c74fbfe4d04341a6481322203584f0b8067a3b",
-      "line": 78,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"29%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
           "line": 78,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "c39019a0c0811448eb62d1297e85cc4a7e39eceeed383352c85debb81827f691",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "b7e0d2967416ee8888f36eeccd46a7c8ae4d7dde23801b8e950300b4eb89ecc9",
       "line": 78,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ width: \"29%\" }}",
+      "value": "{{ marginTop: qdPrint.marginTop.v3mm }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
           "line": 78,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "3f2c513445180f4934a52aa2c5593e2ce124480fa6e711bb8f1c124973c1e7e5",
-      "line": 79,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"21%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 79,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "86de28fbb9245303db4217bf53ad6f08aaa90a9037178b8ace3021d5c8375337",
-      "line": 79,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"21%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 79,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "3614cebc98bf2360d6f704ee4e3964dd51e78cdf35918682341834a7f522d406",
-      "line": 80,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"15%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 80,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "842eeba423257bf3e48e49e6c60def42ba12f34165f64e811a888b45943fcb4e",
-      "line": 80,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"15%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 80,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "99f4107469e1c1497e5d15688e2ce3e2ef15c289d3f1fe434a3254d6e4d9e754",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "11698b7c2a72f29ac4da505915b28f584ab317d7a137fc387e88174658a0804d",
       "line": 81,
       "kind": "object-property",
       "property": "width",
-      "value": "\"15%\"",
+      "value": "qdPrint.width.v7",
       "family": "geometry",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
           "line": 81,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "6c24cd93daf6ba5cf3c2c8ea5369bc495718057761a32d4f30652ff4aa18106d",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "c0a861b5af2e979687e58e78b6bf9123dc8605f6d90338da9dc2c7d195ec5214",
       "line": 81,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ width: \"15%\" }}",
+      "value": "{{ width: qdPrint.width.v7 }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
           "line": 81,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "de0f7c433ba930b903aaa69372b9a0d918bc7ac52ca6dd24fe5672ab18aacef3",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "d54f10b23341cec2bf2d2495598fc3a024ea4df14cbbac69cb867526aac5a08c",
+      "line": 82,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v13",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 82,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "2e3e04e1210342969984b30a9e689799e644b4ebbcb8c1e39c04374ebfe97c4f",
+      "line": 82,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v13 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 82,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "feff8e020186c50042f0945a3860f07e1bcae937b462967bef729c4d83c06b3a",
+      "line": 83,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v29",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 83,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "d363e385573d822970c03a6111dd8c06f42c0ce5ddc794a6caab398e993afd32",
+      "line": 83,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v29 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 83,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "6a6864175e7a2d10e32510406d963dd2471beec38ed4f045958d6bc9a2fd5dec",
+      "line": 84,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v21",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 84,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "47a3337761686b9e43b8feb2f42a0c7d502bdc3a14c40023cae3b55b1eb28b99",
+      "line": 84,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v21 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 84,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "c5dbd6598c0354c2c3d52700c6fa31a320ff4372e96d15fd96a12d449cc0bf81",
       "line": 85,
       "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v15",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 85,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "cbe1ae3b7c0638f24f19d117d06e7fed293a74044ea70f12cb286f3f51dd24a9",
+      "line": 85,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v15 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 85,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "bd0aa8bb7a06c34e1e49329c25c6100cf84d8492ca469c7bfc4d302e77bd680e",
+      "line": 86,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v15",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 86,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "9c0e9956dd5537ad85e89aee85c2b0c6dfe511ad58d529e78a0a4fca30246042",
+      "line": 86,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v15 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 86,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "ab9700b185e5a0b8a327b8a865e86023469025a5a622abbdbbb868266ba8e891",
+      "line": 90,
+      "kind": "object-property",
       "property": "fontSize",
-      "value": "\"11pt\"",
+      "value": "qdPrint.fontSize.v11pt",
       "family": "typography",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 85,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 90,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "fbdb97ac4b88f311f6e505dc66b173c03a43b5f11a178ba1f3028641231237df",
-      "line": 85,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "7c3d3728715bcab23ddab08248d308457f53d0bbf54becda1105fe94a7324d12",
+      "line": 90,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ fontSize: \"11pt\" }}",
+      "value": "{{ fontSize: qdPrint.fontSize.v11pt }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 85,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 90,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "1f888fe051cca09b12f9375a321b6f519daf8e14dfd9224eb5b3e1fef76b0ad1",
-      "line": 107,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "fefbcd13fd6c91d211185d5101befd197a363ac2daaef717c35ebcc9855cc71a",
+      "line": 112,
       "kind": "class-utility",
       "property": "className",
       "value": "avoid-break",
@@ -757069,53 +757158,58 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "4c7d76a68ff873f21583d9a1a75acb932b5e9d774a22985841325220af067682",
-      "line": 107,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "a9302c71d6b667c9c4ad8e8b861806e8ca59a0c2f2036adde854e39f0e24c08f",
+      "line": 112,
       "kind": "style-expression",
       "property": "style",
       "value": "{rowStyle}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 107,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 73,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "fa36c6b958af42abc2ca16d672ea045d2ef62015e84bc0af584143ecc407a6e4",
-      "line": 108,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "756c7a1c859ecc7f9c273cddd5f42a62b6ab0fa0482cbcd1b82249e259653485",
+      "line": 113,
       "kind": "style-expression",
       "property": "style",
       "value": "{center}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 108,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "6848ccc1cb4b9654a6618c21696db505de079f5ab885190eec97642a854f667a",
-      "line": 109,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "9d89437bf06e7f14d895589dc7940ba080c98d53e2d4bcaf213848595ad49f40",
+      "line": 114,
       "kind": "object-property",
       "property": "whiteSpace",
       "value": "\"nowrap\"",
@@ -757129,16 +757223,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 109,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 114,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "d26d40dd9460068803628bedd55058a9ee2708925027d18cfd6eb71485557a2c",
-      "line": 109,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "f29b963d22d45bb977eb1d4fe2716a2016cb9d51db4824af8d707325fb0a560f",
+      "line": 114,
       "kind": "object-spread",
       "property": "...",
       "value": "center",
@@ -757146,202 +757240,240 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 109,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "00779dd3ce3dda846798daf3f0f07418ad26e5d1ed7d59f68d1f9e058757629f",
-      "line": 109,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "0f85772579897799e91115cc009db1dc7c4bf29da5e10e93cdddcdd6e49d66cd",
+      "line": 114,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ ...center, whiteSpace: \"nowrap\" }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 109,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 114,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "2fbbe6dcac5150bef609476c2ad97787ac772d3cb72106042d213f29724c8b3d",
-      "line": 112,
-      "kind": "object-property",
-      "property": "whiteSpace",
-      "value": "\"pre-wrap\"",
-      "family": "typography",
-      "status": "structural-literal",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "structural-literal",
-      "decision": "structural-behavior",
-      "ruleId": "confirmed-css-structure",
-      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 112,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "69716763779cd58a15def1f096a3efc85aeee2f941a9b744b106c427c1090d71",
-      "line": 112,
-      "kind": "object-property",
-      "property": "wordBreak",
-      "value": "\"break-word\"",
-      "family": "typography",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 112,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "fe41a92edeb1ceb36371e3c3f2c446c97634dca71b762ef6bf88f896bcfb34de",
-      "line": 112,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ whiteSpace: \"pre-wrap\", wordBreak: \"break-word\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 112,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "472f3e38ab12128df86b25e3794f1a947e08007c8a44e4a2b47a3f63f8a4fc92",
-      "line": 115,
-      "kind": "object-property",
-      "property": "whiteSpace",
-      "value": "\"pre-wrap\"",
-      "family": "typography",
-      "status": "structural-literal",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "structural-literal",
-      "decision": "structural-behavior",
-      "ruleId": "confirmed-css-structure",
-      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 115,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "69c3284caaa3fba4bd40a14f16d440bc72d8b7e0824e91dad9c7d4a28ae3c3af",
-      "line": 115,
-      "kind": "object-property",
-      "property": "wordBreak",
-      "value": "\"break-word\"",
-      "family": "typography",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 115,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "a2c9a8b7f9a269f5846cb7ada835c094ff5e64a93bd07157f6480c3fddf683fc",
-      "line": 115,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ whiteSpace: \"pre-wrap\", wordBreak: \"break-word\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 115,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "951ac00b1e861acbfb6620a6ff489a07d85452e955228bb41fc44d085415ec30",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "13124b81ce5ab817aabc80363c644026b630b9c2f323677aedd624be54a504b3",
       "line": 118,
+      "kind": "object-property",
+      "property": "overflowWrap",
+      "value": "\"break-word\"",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 118,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "507a51bfe766e42b538c539806f6b48fcd8d9eb32f75fba97ad89be064d5db5d",
+      "line": 118,
+      "kind": "object-property",
+      "property": "whiteSpace",
+      "value": "\"pre-wrap\"",
+      "family": "typography",
+      "status": "structural-literal",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "structural-literal",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 118,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "71a6f511181bb8cbb685835b341cb68615e9f0c971fe8fafa27da16c30e3cbc2",
+      "line": 118,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ whiteSpace: \"pre-wrap\", overflowWrap: \"break-word\" }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 118,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 118,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "f76ba0955b810cdd38f4a75f59cd11a7f9c820b103e9e16045bc0aaeb6daf968",
+      "line": 123,
+      "kind": "object-property",
+      "property": "overflowWrap",
+      "value": "\"break-word\"",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 123,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "ed92af98deb45d33045b3126afc0f84f23edb2df02fd31ed0014f804b39a3f1b",
+      "line": 123,
+      "kind": "object-property",
+      "property": "whiteSpace",
+      "value": "\"pre-wrap\"",
+      "family": "typography",
+      "status": "structural-literal",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "structural-literal",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 123,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "227ed22669f793f635ace085955d3eca4fe395a02f302927b702bd79736ed08e",
+      "line": 123,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ whiteSpace: \"pre-wrap\", overflowWrap: \"break-word\" }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 123,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 123,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "781bda44025c524646e9c65ed85e4860ab9902403f768901359d7430c56b8b58",
+      "line": 127,
       "kind": "style-expression",
       "property": "style",
       "value": "{center}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 118,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "7fc2c7c804f69fa47e996af3e03bc00c18380564169e6911bd86e12d28f7c304",
-      "line": 119,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "74d07468a24a98b87b1536d335d94940957f2d222e6b8fc4c03f619dbc06b667",
+      "line": 129,
+      "kind": "object-property",
+      "property": "overflowWrap",
+      "value": "\"break-word\"",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "structural-behavior",
+      "ruleId": "confirmed-css-structure",
+      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 129,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "4b8beb5550e89a7f4319c8b478a7e54a2086582e60839031e2974c9fba2b3073",
+      "line": 129,
       "kind": "object-property",
       "property": "whiteSpace",
       "value": "\"pre-wrap\"",
@@ -757355,61 +757487,43 @@
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 119,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 129,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "63d7cbb243ebffc3eb5dc27cdb194ef77a408a7b8a0fc9828d3912460836ff4a",
-      "line": 119,
-      "kind": "object-property",
-      "property": "wordBreak",
-      "value": "\"break-word\"",
-      "family": "typography",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 119,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "32afb879f259420fb74be4ae8532024906aab52ee4ce811953d6669fbf0fbb8b",
-      "line": 119,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "3796a637195094b77f5ccb1c3cb2837f0281b47189ebd7284bd87664f384cead",
+      "line": 129,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ whiteSpace: \"pre-wrap\", wordBreak: \"break-word\" }}",
+      "value": "{{ whiteSpace: \"pre-wrap\", overflowWrap: \"break-word\" }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 119,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 129,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+          "line": 129,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "f6dcfd986c67b15e0c6ce9f670acfb59dd711db1248cb2c000679dbce69e874e",
-      "line": 125,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "9c00b46cdea005b0a4abe43d826f9b650e98c2f95a3ece0a32c84635f21951e6",
+      "line": 136,
       "kind": "object-property",
       "property": "length",
       "value": "blanks",
@@ -757417,22 +757531,52 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-safety-paper-consumer",
+      "reason": "This exact builtin Array.from first argument generates the original blank incident rows or calendar day rows. It is a record count, not CSS length. The whole pinned source inverse preserves the original seven-slot minimum and lastDay input.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 125,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 136,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
+        },
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
+        {
+          "path": "lib/design/q-design-safety-print.ts",
+          "line": 1,
+          "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "tools/maison-safety-print-review.mjs",
+          "line": 1,
+          "hash": "02ae3acbca8e37733918faea068dffa26940d82e9d4cf82fb1690c650d670c8b"
+        },
+        {
+          "path": "tools/maison-safety-print-migration.mjs",
+          "line": 1,
+          "hash": "56040a90a66d2d037d7a2e5f82a477ce25e2fded92601a32905a0c05077021a6"
+        },
+        {
+          "path": "tools/maison-safety-print.test.mjs",
+          "line": 1,
+          "hash": "e78cf1e907fcf3f4d94c5fcc87f74b0b8ce5098a4da973bf21c2ff51666d5812"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "c57f17c29e23430f2e6247f6eca7fbc5cd4f49c22526ede3ac69dd4ad98fbaad",
-      "line": 126,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "da5ad277995b4687ab7a2ed73aed037b8614c81b5f02342c38e7bfc1bd54dc16",
+      "line": 137,
       "kind": "class-utility",
       "property": "className",
       "value": "avoid-break",
@@ -757453,67 +757597,72 @@
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "c0090267b3afbbcad59a3dd4d593454723ac1530893e819340cc463fc73a3aec",
-      "line": 126,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "eb911e7fddedbdbce52cb494ec55cf62ae3160aa9d6ab984ddc4b59347ea6183",
+      "line": 137,
       "kind": "style-expression",
       "property": "style",
       "value": "{rowStyle}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 126,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 73,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "781bda44025c524646e9c65ed85e4860ab9902403f768901359d7430c56b8b58",
-      "line": 127,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "504c49f1ea3a82d38d866736f5c6ccf4b906523942e54b25ac0931708888203e",
+      "line": 138,
       "kind": "style-expression",
       "property": "style",
       "value": "{center}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 127,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
     {
       "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-      "sourceHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
-      "argumentHash": "6a4cf6e174d10f551274decf1e4e770f0dd7d717bd8f67859d540136d2a9d7f7",
-      "line": 128,
+      "sourceHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "argumentHash": "791c089074939722f07ae063a59cbacf591fb8b8c16973a821e33e95897461fd",
+      "line": 139,
       "kind": "style-expression",
       "property": "style",
       "value": "{center}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-sheet.tsx",
-          "line": 128,
-          "hash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a"
+          "line": 72,
+          "hash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa"
         }
       ]
     },
@@ -764854,55 +765003,9 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "f7bf7a2ba6869a55790d5c0ec139856e92f5a3d6a3b27c3d6533bd4a461bac6e",
-      "line": 45,
-      "kind": "object-property",
-      "property": "backgroundImage",
-      "value": "\"linear-gradient(to top right, transparent calc(50% - 0.12mm), #000 50%, transparent calc(50% + 0.12mm))\"",
-      "family": "surface-color-effect",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 45,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "579299eeb8d2ede84772f125745c5951970ff848be84fd5ef76f57a71e0bc7c1",
-      "line": 48,
-      "kind": "object-property",
-      "property": "printColorAdjust",
-      "value": "\"exact\"",
-      "family": "surface-color-effect",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "structural-behavior",
-      "ruleId": "confirmed-css-structure",
-      "reason": "Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 48,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "679bf73524132ed79ad57752eea3298b1e1be8970573141f1009f04268603912",
-      "line": 99,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "ec84e780bfb5ea1694d37117b83cba3f2108d00d9bcc567588e710285b022bfa",
+      "line": 95,
       "kind": "object-property",
       "property": "length",
       "value": "data.lastDay",
@@ -764910,44 +765013,104 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-safety-paper-consumer",
+      "reason": "This exact builtin Array.from first argument generates the original blank incident rows or calendar day rows. It is a record count, not CSS length. The whole pinned source inverse preserves the original seven-slot minimum and lastDay input.",
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 99,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 95,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        },
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
+        {
+          "path": "lib/design/q-design-safety-print.ts",
+          "line": 1,
+          "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "tools/maison-safety-print-review.mjs",
+          "line": 1,
+          "hash": "02ae3acbca8e37733918faea068dffa26940d82e9d4cf82fb1690c650d670c8b"
+        },
+        {
+          "path": "tools/maison-safety-print-migration.mjs",
+          "line": 1,
+          "hash": "56040a90a66d2d037d7a2e5f82a477ce25e2fded92601a32905a0c05077021a6"
+        },
+        {
+          "path": "tools/maison-safety-print.test.mjs",
+          "line": 1,
+          "hash": "e78cf1e907fcf3f4d94c5fcc87f74b0b8ce5098a4da973bf21c2ff51666d5812"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "bb312a9bce564b9a07c27e2c7e4c0c9fdfe773f6b3011bdff59c35346d584cf7",
-      "line": 108,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "06844f7a13236c49c34eef8ffa8a1ac670d499d06ca330a5c5a26487bd4340bd",
+      "line": 104,
       "kind": "style-expression",
       "property": "style",
       "value": "{SLASH}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-safety-paper-consumer",
+      "reason": "This exact td style reads the local immutable alias of the synchronized central unmeasured-cell recipe. Whole-source verification rejects other alias initializers or changed consumers. The physical slash, black ink and exact print color behavior remain owned by the central safety adapter.",
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 108,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 104,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        },
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
+        {
+          "path": "lib/design/q-design-safety-print.ts",
+          "line": 1,
+          "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "tools/maison-safety-print-review.mjs",
+          "line": 1,
+          "hash": "02ae3acbca8e37733918faea068dffa26940d82e9d4cf82fb1690c650d670c8b"
+        },
+        {
+          "path": "tools/maison-safety-print-migration.mjs",
+          "line": 1,
+          "hash": "56040a90a66d2d037d7a2e5f82a477ce25e2fded92601a32905a0c05077021a6"
+        },
+        {
+          "path": "tools/maison-safety-print.test.mjs",
+          "line": 1,
+          "hash": "e78cf1e907fcf3f4d94c5fcc87f74b0b8ce5098a4da973bf21c2ff51666d5812"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "1e4cdf3f0b63fea35fcf40bb7a351a2213eabfc110e62ebc03493b87c7b2fa53",
-      "line": 112,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "f9e759c5910b3918fc3778bfaf8b555ae95f6089f66e818c7c4a397b6fda4a86",
+      "line": 108,
       "kind": "object-property",
       "property": "textAlign",
       "value": "\"center\"",
@@ -764961,16 +765124,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 112,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 108,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "6e1fd749aa36a36e7610ca63973956f25372784ffb51dc07e95ca8b10ad4838c",
-      "line": 112,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "43253c3411ae637d3dcb87d38de8a4cba873e69011799cfb325e83e6e6d18612",
+      "line": 108,
       "kind": "object-property",
       "property": "whiteSpace",
       "value": "\"nowrap\"",
@@ -764984,16 +765147,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 112,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 108,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "17916c8d8909f22fbc940c2de60c8d14e446d0db0fbeca285f73640fd465ec90",
-      "line": 112,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "1dd241b9a755aac8485c3eec262e839a62f1970f595d1c27213d6dd6a72bb1d2",
+      "line": 108,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ textAlign: \"center\", whiteSpace: \"nowrap\" }}",
@@ -765006,21 +765169,21 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 112,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 108,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         },
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 112,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 108,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "f34ad99396ea02f680b695bf57e00e33be068b42cbc37490cfeda03b193177ee",
-      "line": 122,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "8fe6d29df9b292986ec24a913348550f99723b131aa33716b25f185cb563031f",
+      "line": 119,
       "kind": "class-utility",
       "property": "className",
       "value": "form-grid",
@@ -765041,9 +765204,9 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "250211b3e1a23cde90f6553ae213fc9e61d5dfec977613c285393a27216b0a81",
-      "line": 122,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "b89df5552bcf0947ec926f37c867b3af7c12518a7863a9924228cd08e5fc8609",
+      "line": 119,
       "kind": "class-utility",
       "property": "className",
       "value": "w-full",
@@ -765064,9 +765227,9 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "c5afcfd11a78e9a4f0119659eaa27dc455e9779d34f6b335ce22d41ed0da8ca8",
-      "line": 122,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "9fde94457b53976d807ed0b97fe5982c24c7fd01e427df931c5fcfc19d534cb4",
+      "line": 119,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -765099,52 +765262,62 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "d35e976b60d6b42e13631c0845c10c6fe003b0f67f24fa33580986c952e33153",
-      "line": 122,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "75b370a448ed42efc5e1b606e18f21280ecd49920a02cdbae5ad9a371fce53d3",
+      "line": 120,
       "kind": "object-property",
       "property": "marginTop",
-      "value": "\"3mm\"",
+      "value": "qdPrint.marginTop.v3mm",
       "family": "position-layer",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 122,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 120,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "dda2638b83320a19bd7d7cd5d49f4070c81d9dd859356009288f31d93c5c30d5",
-      "line": 122,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "594038ef9c735aaba615e5b954b0514944c4ff4291e00138d74bc873fdc4b012",
+      "line": 120,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ marginTop: \"3mm\" }}",
+      "value": "{{ marginTop: qdPrint.marginTop.v3mm }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 122,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 120,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
       "argumentHash": "08fdf3dd73eaec2d823720abab14c4cecafa200fbaa0cae268453410e2ff0499",
       "line": 133,
       "kind": "class-utility",
@@ -765167,7 +765340,7 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
       "argumentHash": "64b9a4c33385d6cdca3546cf51e08058142c53404abc3dbc0ab7d9ef162c13ef",
       "line": 133,
       "kind": "class-utility",
@@ -765190,7 +765363,7 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
       "argumentHash": "fc338e39983a51bb2e14cba278cd7e654b94d8a22b206a7b694fa37261c050ed",
       "line": 133,
       "kind": "class-utility",
@@ -765225,189 +765398,229 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "afbbf39caf9cedf10cb20f0651b24bbf2f190e0e5396e20a7493f2a49053ce5a",
-      "line": 133,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "fa7d4246389a94830b292701f10ee002c79fa6c87600860cb8aa3b487c7917a0",
+      "line": 134,
       "kind": "object-property",
       "property": "marginTop",
-      "value": "\"3mm\"",
+      "value": "qdPrint.marginTop.v3mm",
       "family": "position-layer",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 133,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 134,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "55d504302ae9d08c1b513ea3a55afd7273a43215f2d5d136530d872e1f18153f",
-      "line": 133,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "8d4e21d6281f446be2e9f822ad0bccca0f4a236aeb9571033f96bd765cd2c4a2",
+      "line": 134,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ marginTop: \"3mm\" }}",
+      "value": "{{ marginTop: qdPrint.marginTop.v3mm }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
         {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 133,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 134,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "22d00766b29e8d616abfa99610c6c3ec28250bb557275b3c2ef3afa0ac14d259",
-      "line": 135,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"5%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 135,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "c75cbe8097d7a7a3def12159bf8ea95d86c0b5b320645df674de9d9bf1322e4d",
-      "line": 135,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"5%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 135,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "00aa3301516d7938ba0d64e6ca9938fdf50bdbb258123e164dd6a58dc57e0bf6",
-      "line": 136,
-      "kind": "object-property",
-      "property": "width",
-      "value": "\"6%\"",
-      "family": "geometry",
-      "status": "review-required",
-      "context": "candidate: includes style maps and data objects; inspect context",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 136,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "22ce26ae48a3932a7f7cdfc6b60ae452b418c19f7dbacc27f82293d6671bb89f",
-      "line": 136,
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ width: \"6%\" }}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-      "evidence": [
-        {
-          "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 136,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "8bd4744903feec965b6dad509f53cfb0eff97e0c587b99330f07f9ea364a089b",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "15ea24f66aa9ce8dc081158070c041f91ddfc345ca2c504691c18e26d799414e",
       "line": 137,
       "kind": "object-property",
       "property": "width",
-      "value": "\"7%\"",
+      "value": "qdSafetyPrint.dayWidth",
       "family": "geometry",
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
       "evidence": [
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
           "line": 137,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "d4105b693dcdef16ce4bd9091299f7ba630f43f27db03c41a455e0fb730d9226",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "07124cd2a081b7f817b080fabb8129d51459cd21fbfaf1c0630faeae8f69e09f",
       "line": 137,
       "kind": "style-expression",
       "property": "style",
-      "value": "{{ width: \"7%\" }}",
+      "value": "{{ width: qdSafetyPrint.dayWidth }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
       "evidence": [
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
           "line": 137,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "14035aae9c09c8b2f07547b2f9a5717760b2dd6db111c7e178323dcddd47f022",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "76514b551b5d1d7a012a913fb0bb85a597ea363c5392d6f565edff149c5f8d02",
+      "line": 138,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v6",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/monthly/month-sheet.tsx",
+          "line": 138,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-sheet.tsx",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "0b4bab76b8feb0021837f87e44e03bfdb61ff60eb49694c7c4fa88a74cfb5f11",
+      "line": 138,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v6 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/monthly/month-sheet.tsx",
+          "line": 138,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-sheet.tsx",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "c8f23c0f57b3fa2712aad318e172e9968f8de978538ed64e9b046b1d8b55fbe3",
       "line": 139,
+      "kind": "object-property",
+      "property": "width",
+      "value": "qdPrint.width.v7",
+      "family": "geometry",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "originalStatus": "review-required",
+      "decision": "token-reference-verified",
+      "ruleId": "verified-ts-adapter",
+      "reason": "Exact named import and declared member read the fingerprint-verified central appearance adapter; shadowed bindings and nonexistent members remain unresolved.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/monthly/month-sheet.tsx",
+          "line": 139,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-sheet.tsx",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "74ee617dddb14d6fedf1c0459d0c15ccd3335cfae26a6b2745d7ff118e3fb2e9",
+      "line": 139,
+      "kind": "style-expression",
+      "property": "style",
+      "value": "{{ width: qdPrint.width.v7 }}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "confirmed-style-composition",
+      "ruleId": "resolved-style-object",
+      "reason": "Every member of this exact inline or unique const CSSProperties object has separate central, structural or coordinate evidence. Unknown spreads or members prevent this classification.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "app/(app)/safety/monthly/month-sheet.tsx",
+          "line": 139,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-sheet.tsx",
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "92ce3c239354b9d38553eb727d3170454adbb4dd3bcf45e37c15de6a3f281e7b",
+      "line": 141,
       "kind": "object-property",
       "property": "width",
       "value": "areaWidth",
@@ -765415,44 +765628,104 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-safety-paper-consumer",
+      "reason": "The exact month-table col width divides the central area-width share by the original area count with the original minimum-one denominator. The enclosing style object contains only this width. Changed source, fallback values or additional style members cannot inherit the proof. Actual central mutation tests preserve all recorded text and cell counts.",
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 139,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 141,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        },
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
+        {
+          "path": "lib/design/q-design-safety-print.ts",
+          "line": 1,
+          "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "tools/maison-safety-print-review.mjs",
+          "line": 1,
+          "hash": "02ae3acbca8e37733918faea068dffa26940d82e9d4cf82fb1690c650d670c8b"
+        },
+        {
+          "path": "tools/maison-safety-print-migration.mjs",
+          "line": 1,
+          "hash": "56040a90a66d2d037d7a2e5f82a477ce25e2fded92601a32905a0c05077021a6"
+        },
+        {
+          "path": "tools/maison-safety-print.test.mjs",
+          "line": 1,
+          "hash": "e78cf1e907fcf3f4d94c5fcc87f74b0b8ce5098a4da973bf21c2ff51666d5812"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "9ef4d4d3fc62193d243f74e4a04c8819127630067ee1758584e58de7629fc894",
-      "line": 139,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "c3bfc24eaf64f4d10bf08a30f665b0ef3cd1f023ca80630aa99b40844d07edfd",
+      "line": 141,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ width: areaWidth }}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "exact-safety-paper-consumer",
+      "reason": "The exact month-table col width divides the central area-width share by the original area count with the original minimum-one denominator. The enclosing style object contains only this width. Changed source, fallback values or additional style members cannot inherit the proof. Actual central mutation tests preserve all recorded text and cell counts.",
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 139,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 141,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
+        },
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        },
+        {
+          "path": "lib/design/q-design-safety-print.ts",
+          "line": 1,
+          "hash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "tools/maison-safety-print-review.mjs",
+          "line": 1,
+          "hash": "02ae3acbca8e37733918faea068dffa26940d82e9d4cf82fb1690c650d670c8b"
+        },
+        {
+          "path": "tools/maison-safety-print-migration.mjs",
+          "line": 1,
+          "hash": "56040a90a66d2d037d7a2e5f82a477ce25e2fded92601a32905a0c05077021a6"
+        },
+        {
+          "path": "tools/maison-safety-print.test.mjs",
+          "line": 1,
+          "hash": "e78cf1e907fcf3f4d94c5fcc87f74b0b8ce5098a4da973bf21c2ff51666d5812"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "5fd90ab5ffd4dd6863dfea73bffb49a2c354b6cd9432015c75b623c100895e84",
-      "line": 148,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "f97df4d0da27e253500a69b56eb90a2d18fcdb9f95a4024deddbee4807c0bd0d",
+      "line": 150,
       "kind": "object-property",
       "property": "wordBreak",
       "value": "\"keep-all\"",
@@ -765466,16 +765739,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 148,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 150,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "a905337a994b1d4f7eb58d5372a0dfab73ec09690be708da21d5add1350fa63b",
-      "line": 148,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "76dec1c7d0747887d1bb7645a6fb953aeb5526b543e1ad5a6e7e43c02da4c4d4",
+      "line": 150,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ wordBreak: \"keep-all\" }}",
@@ -765488,16 +765761,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 148,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 150,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "ac55d9e0581478cfb4b2e2baedad65f410e0689fad2ac29affc4d033698a58d9",
-      "line": 156,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "3d9e357d670d0a758f77a13e2a4aa4baf0d330bde002f0609251ea4c0850435a",
+      "line": 158,
       "kind": "class-utility",
       "property": "className",
       "value": "avoid-break",
@@ -765518,9 +765791,9 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "57bf38411616cc5f5baeac65e1dcb99338c37f9f34053e04aaf639c05723c5db",
-      "line": 161,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "f5c1bdc307e6c4af38f551cdd4b6b3f0eb674583a924d56ca09db029465bdf88",
+      "line": 163,
       "kind": "object-property",
       "property": "textAlign",
       "value": "\"center\"",
@@ -765534,16 +765807,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 161,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 163,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "534bce0e8acc84aba071af9110f00492819eb3a8a348aa4357c4604b3b23ebe7",
-      "line": 161,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "5cf9418307962be344ccacfea247a6ff2902f962f31db9edb9293e65793349dc",
+      "line": 163,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ textAlign: \"center\" }}",
@@ -765556,16 +765829,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 161,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 163,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "178261118fffe0818062e010160377cf40045c47b03d5dadc7fb6be183b47c73",
-      "line": 166,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "3b6769b289f4000b9d3956d31a294f150cb47b5c9bcd7c6db2aed4c72e2fe8ca",
+      "line": 168,
       "kind": "object-property",
       "property": "textAlign",
       "value": "\"center\"",
@@ -765579,16 +765852,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 166,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 168,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "5498fa145a5afb9165d0a190e9c0a190bb6637697a172d5acc1fe4c7d805b518",
-      "line": 166,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "8d957e791c8d7e66b60014689fd0390591c52bd20a268c2bafc3933e1ac2572b",
+      "line": 168,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ textAlign: \"center\" }}",
@@ -765601,16 +765874,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 166,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 168,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "cd6a0b72ddad02c81f5f665b9ecf2e194a1632065dcbd9ffa9ac8063ecae42d0",
-      "line": 170,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "6567957bb02d19e3c39e13f781d3391c83ba560b3bb8b0dd124b0e637cf58f59",
+      "line": 172,
       "kind": "class-utility",
       "property": "className",
       "value": "shaded",
@@ -765631,9 +765904,9 @@
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "3b78c09b22de3d9a1e76537a7b55cf806999b78bd7b46283bd76c731826e9380",
-      "line": 170,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "4313a4ba074871a67018379d4df90b9a55858dd11057d42430874b36c10e2871",
+      "line": 172,
       "kind": "object-property",
       "property": "textAlign",
       "value": "\"center\"",
@@ -765647,16 +765920,16 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 170,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 172,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
     {
       "path": "app/(app)/safety/monthly/month-sheet.tsx",
-      "sourceHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
-      "argumentHash": "6d0b1934bf5c78f7838caf626073e3dda2a90699ac44252de61fa00c1ce5e6b1",
-      "line": 170,
+      "sourceHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "argumentHash": "2ab938a6fa19a52b2e53d633b1751178f9647e68e44be6d01059cbad2f2b8354",
+      "line": 172,
       "kind": "style-expression",
       "property": "style",
       "value": "{{ textAlign: \"center\" }}",
@@ -765669,8 +765942,8 @@
       "evidence": [
         {
           "path": "app/(app)/safety/monthly/month-sheet.tsx",
-          "line": 170,
-          "hash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846"
+          "line": 172,
+          "hash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8"
         }
       ]
     },
@@ -1191725,6 +1191998,78 @@
           "path": "patterns/foundation/maison-runtime.ts",
           "line": 1,
           "hash": "715bac7df1779c62dd508f21f4c033ce70bf4e81967fa12fd47f803f924b68b1"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/q-design-safety-print.ts",
+      "sourceHash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409",
+      "argumentHash": "ddd53b59a8300847d58d6ef0b995d60fc23675d6d4cf2279e17edf51cc655b5a",
+      "line": 20,
+      "kind": "object-property",
+      "property": "areaWidthPercent",
+      "value": "82",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "owner": "patterns/foundation/maison-safety-print.ts",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/q-design-safety-print.ts",
+      "sourceHash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409",
+      "argumentHash": "f3405637873978f94fa01afb76334ca02dae704a392fbe8496dc1cb3b15dba77",
+      "line": 22,
+      "kind": "object-property",
+      "property": "backgroundImage",
+      "value": "\"linear-gradient(to top right, transparent calc(50% - 0.12mm), #000 50%, transparent calc(50% + 0.12mm))\"",
+      "family": "surface-color-effect",
+      "status": "central-source",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "owner": "patterns/foundation/maison-safety-print.ts",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/q-design-safety-print.ts",
+      "sourceHash": "cb17a5de45279f5b9f1f1226cb7e8aa5cedc1d7523fedc16ee85de13dc05c409",
+      "argumentHash": "489e56bf58e7c6cef1401bd5118ca889b9f9d884bf47a318bd5ab47ae72001af",
+      "line": 25,
+      "kind": "object-property",
+      "property": "printColorAdjust",
+      "value": "\"exact\"",
+      "family": "surface-color-effect",
+      "status": "central-source",
+      "context": "candidate: includes style maps and data objects; inspect context",
+      "owner": "patterns/foundation/maison-safety-print.ts",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-safety-print.ts",
+          "line": 1,
+          "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
         }
       ]
     },

@@ -28,6 +28,8 @@
 export const HOLD = {};  // 2026-10-10 오너가 Q-Sonar 묶음을 풀었다(구역 제목 C안 반영 때 «정본 전부 받기» 선택). 12px · 대비 4.5 규칙도 Sonar 에 들어간다.
 
 export const PARTS = [
+  { name: '메종 안전관리 인쇄 규칙', src: 'patterns/foundation/maison-safety-print.ts', lang: 'ts',
+    to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-safety-print.ts' } },
   { name: '카르넷 기록 유형 명칭', src: 'dist/q-design.carnet-record-labels.ts', lang: 'ts',
     to: { 'Q-Forge': 'D:/Claude/DHR/lib/design/q-design-record-labels.ts' } },
   { name: '공통 모노 글꼴', src: 'dist/q-design.mono-fonts.css', layer: false,

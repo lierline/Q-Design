@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "productRef": "7e5bd9be53fb61bb15fca676fde3e9400fdd377a",
+  "canonical": {
+    "path": "patterns/foundation/maison-safety-print.ts",
+    "hash": "ec67cece0fd7a74f357bc5b34e75d776b1a08114234454d046201d5e603607a9"
+  },
+  "files": [
+    {
+      "path": "app/(app)/safety/incidents/incident-sheet.tsx",
+      "beforeHash": "266c3b5a7a115ec96d1f4f095a8bb03109e67833a9a604c57aabe16d4685da0a",
+      "afterHash": "3cf10d69897241fbbc9f4595eddbe88ef435567b90e7419ee60d6b700eee62fa",
+      "edits": [
+        {
+          "from": "import { printStamp }",
+          "to": "import { qdPrint } from \"@/lib/design/q-design-print\";\nimport { printStamp }",
+          "sites": 1
+        },
+        {
+          "from": "import { qdPrint }",
+          "to": "import type { CSSProperties } from \"react\";\nimport { qdPrint }",
+          "sites": 1
+        },
+        {
+          "from": "const center = { textAlign: \"center\" as const };",
+          "to": "const center: CSSProperties = { textAlign: \"center\" };",
+          "sites": 1
+        },
+        {
+          "from": "const rowStyle = { height: \"13mm\" };",
+          "to": "const rowStyle: CSSProperties = { height: qdPrint.height.v13mm };",
+          "sites": 1
+        },
+        {
+          "from": "marginTop: \"3mm\"",
+          "to": "marginTop: qdPrint.marginTop.v3mm",
+          "sites": 1
+        },
+        {
+          "from": "width: \"7%\"",
+          "to": "width: qdPrint.width.v7",
+          "sites": 1
+        },
+        {
+          "from": "width: \"13%\"",
+          "to": "width: qdPrint.width.v13",
+          "sites": 1
+        },
+        {
+          "from": "width: \"29%\"",
+          "to": "width: qdPrint.width.v29",
+          "sites": 1
+        },
+        {
+          "from": "width: \"21%\"",
+          "to": "width: qdPrint.width.v21",
+          "sites": 1
+        },
+        {
+          "from": "width: \"15%\"",
+          "to": "width: qdPrint.width.v15",
+          "sites": 2
+        },
+        {
+          "from": "fontSize: \"11pt\"",
+          "to": "fontSize: qdPrint.fontSize.v11pt",
+          "sites": 1
+        },
+        {
+          "from": "wordBreak: \"break-word\"",
+          "to": "overflowWrap: \"break-word\"",
+          "sites": 3
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-sheet.tsx",
+      "beforeHash": "c11b842f0f64333dd801e0e55b054850019daa95f21547ab524384454f775846",
+      "afterHash": "5275bf902413122e916a0507493838a015597fcf80d5d5f1f95c221a2a7bc0a8",
+      "edits": [
+        {
+          "from": "import { printStamp }",
+          "to": "import { qdPrint } from \"@/lib/design/q-design-print\";\nimport { printStamp }",
+          "sites": 1
+        },
+        {
+          "from": "import type { CSSProperties } from \"react\";",
+          "to": "import { qdSafetyPrint } from \"@/lib/design/q-design-safety-print\";",
+          "sites": 1
+        },
+        {
+          "from": "const SLASH: CSSProperties = {\n  backgroundImage:\n    \"linear-gradient(to top right, transparent calc(50% - 0.12mm), #000 50%, transparent calc(50% + 0.12mm))\",\n  WebkitPrintColorAdjust: \"exact\",\n  printColorAdjust: \"exact\",\n};",
+          "to": "const SLASH = qdSafetyPrint.unmeasured;",
+          "sites": 1
+        },
+        {
+          "from": "`${82 / Math.max(data.areas.length, 1)}%`",
+          "to": "`${qdSafetyPrint.areaWidthPercent / Math.max(data.areas.length, 1)}%`",
+          "sites": 1
+        },
+        {
+          "from": "marginTop: \"3mm\"",
+          "to": "marginTop: qdPrint.marginTop.v3mm",
+          "sites": 2
+        },
+        {
+          "from": "width: \"5%\"",
+          "to": "width: qdSafetyPrint.dayWidth",
+          "sites": 1
+        },
+        {
+          "from": "width: \"6%\"",
+          "to": "width: qdPrint.width.v6",
+          "sites": 1
+        },
+        {
+          "from": "width: \"7%\"",
+          "to": "width: qdPrint.width.v7",
+          "sites": 1
+        }
+      ]
+    }
+  ],
+  "scope": "Twenty-four exact source edit positions preserve the two official safety forms. Three legacy word-break values become standard overflow-wrap values. All record fields, row generation, approval arguments and form wording remain unchanged."
+}
