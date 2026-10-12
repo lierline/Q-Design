@@ -85,6 +85,14 @@ for (const name of ['atelier-icon-compatibility-review.json','atelier-size-rende
   }
 }
 const parameterFile=path.join(ROOT,'reviews/atelier-parameter-leaves-review.json');
+// Fresh native glyph evidence is separate from archived pre-migration records.
+// The normal exact source and evidence checks still apply to each replacement.
+const socialGlyphReviews=new Map();
+for(const name of ['atelier-social-glyph-review.json','atelier-ring-geometry-review.json'])for(const entry of JSON.parse(fs.readFileSync(path.join(ROOT,'reviews',name),'utf8')).records){
+ const key=JSON.stringify([entry.path,entry.line,entry.argumentHash]);
+ if(socialGlyphReviews.has(key))throw new Error(`Duplicate social glyph review: ${key}`);
+ socialGlyphReviews.set(key,entry);
+}
 const parameterFlows=fs.existsSync(parameterFile)?JSON.parse(fs.readFileSync(parameterFile,'utf8')).flows:[];
 const decide=(decision,ruleId,reason,evidence=[])=>({decision,ruleId,reason,evidence});
 const applicationFiles=runtimeFiles(PRODUCT);
@@ -196,6 +204,7 @@ for(const file of applicationFiles){
     }
     if(!result&&file==='app/(app)/admin/activity/page.tsx'&&kind==='object-spread'&&value==='v'&&code.includes('.map(([id, v]) => ({ id, ...v }))'))result=decide('business-data','expert-count-data','Spread composes expert id/email/count, followed by count sorting; never passed as a style object.',own);
     if(!result)result=verifiedConsumerReview({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),line},manualReviews.get(JSON.stringify([file,line,hash(JSON.stringify(argument))])),currentHash);
+    if(!result)result=verifiedConsumerReview({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),line},socialGlyphReviews.get(JSON.stringify([file,line,hash(JSON.stringify(argument))])),currentHash);
     if(!result&&kind!=='parse-error'&&file==='lib/design/tokens.ts'&&inactiveCompatibility.inactive&&inactiveCompatibility.ranges.some(range=>line>=range.start&&line<=range.end))result=decide('inactive-compatibility-export','inactive-export-graph','This exact argument is within an unused compatibility export. Its runtime-use graph is rechecked on every review; the immutable token source is preserved.',own);
     if(!result)result=decide('unknown','unknown','No broad filename, numeric-value or single-token exemption is applied.',own);
     records.push({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),...argument,originalStatus:argument.status,...result});

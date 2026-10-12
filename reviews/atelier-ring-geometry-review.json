@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "scope": "Only nine native circle attributes in the exact ProgressRing renderer. No approval of caller sizes, stroke widths, colors, caption styles or other SVG geometry.",
+  "functionHash": "eed76db0253b069ca0e0fbb5c013dfbf5b6630bb7442c5ff99e1b137e7cb61ec",
+  "evidence": [
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4055,
+      "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+    },
+    {
+      "path": "reviews/atelier-dimension-flow-review.json",
+      "line": 1,
+      "hash": "1c3649daceefc6ff451fa01ec2e2f83b230625ef50a154ef5f0633dd906d808b"
+    },
+    {
+      "path": "components/OwnerResearchPipelineClient.tsx",
+      "line": 208,
+      "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+    },
+    {
+      "path": "components/RevisionRowExpandable.tsx",
+      "line": 220,
+      "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+    }
+  ],
+  "records": [
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4078,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "a74dd0e6d4292d20b48751d89c52b204cf611f377ecce2c70eb78c1f177d1e82",
+      "kind": "svg-geometry",
+      "property": "cx",
+      "value": "{size / 2}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4078,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "874d0026a44ed282432e3296297f5cb34e8fa19038039ec873fd88c5b030bbf8",
+      "kind": "svg-geometry",
+      "property": "cy",
+      "value": "{size / 2}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4078,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "3a801666cf9218090b6034286c96bd5858515e6d5bb77dc262981a205f411338",
+      "kind": "svg-geometry",
+      "property": "r",
+      "value": "{r}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4078,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "d46e80510501082293eb495da31994bdd38bd855c2afccde776a6c08306f8daa",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "value": "\"none\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "The inspected stroked circle disables its fill with none. Track and progress stroke colors are separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4080,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "21ff45c01346c8bb71ba89a7e61a8c2cd6e6e9435199e79135fe5564a575a1eb",
+      "kind": "svg-geometry",
+      "property": "cx",
+      "value": "{size / 2}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4081,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "afb8aa4ce7634578a8ada735a44171e52b0b6f26f113e86c8c068427b7b29cad",
+      "kind": "svg-geometry",
+      "property": "cy",
+      "value": "{size / 2}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4082,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "fcf861aca2407003107303fbad8583f46e90d18a975c00f2ed25ddfedc483fd5",
+      "kind": "svg-geometry",
+      "property": "r",
+      "value": "{r}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4083,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "0df69203f3f34aa603a5fdf9c95ff41e9daed5c789689d5027984c42fc09d5b4",
+      "kind": "presentation-attribute",
+      "property": "fill",
+      "value": "\"none\"",
+      "decision": "structural-behavior",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "The inspected stroked circle disables its fill with none. Track and progress stroke colors are separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 4087,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "1bf69053f2f56bcfc82384a9a9b3a238fe579980b5f3a12f14017c94df26d322",
+      "kind": "presentation-attribute",
+      "property": "strokeDasharray",
+      "value": "{`${dash} ${c - dash}`}",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ]
+    }
+  ]
+}

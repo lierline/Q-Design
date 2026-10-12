@@ -6420,15 +6420,15 @@
     "business-data": 1158,
     "token-reference-verified": 33184,
     "central-selector": 1161,
-    "structural-behavior": 7114,
+    "structural-behavior": 7121,
     "delegated-renderer-parameter": 427,
-    "unknown": 851,
+    "unknown": 823,
     "confirmed-style-composition": 93,
     "compatibility-noop": 18,
     "business-content": 176,
+    "coordinate-boundary": 63,
     "font-resource": 659,
     "central-source-verified": 9060,
-    "coordinate-boundary": 42,
     "inactive-compatibility-export": 42,
     "platform-metadata": 1
   },
@@ -729005,14 +729005,39 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact native SVG paint value is none or currentColor. The inspected link inherits T.muted and changes to T.champagne on hover. This is paint transport or a reset, not an independently authored color.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1053,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729073,14 +729098,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1053,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729095,14 +729145,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1054,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729117,14 +729192,39 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact native SVG paint value is none or currentColor. The inspected link inherits T.muted and changes to T.champagne on hover. This is paint transport or a reset, not an independently authored color.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1062,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729162,14 +729262,39 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact native SVG paint value is none or currentColor. The inspected link inherits T.muted and changes to T.champagne on hover. This is paint transport or a reset, not an independently authored color.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1062,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729230,14 +729355,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1062,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729252,14 +729402,39 @@
       "family": "geometry",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1063,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729274,14 +729449,39 @@
       "family": "geometry",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1063,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729296,14 +729496,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1063,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729318,14 +729543,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1063,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729340,14 +729590,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1063,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729362,14 +729637,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1064,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729384,14 +729684,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1064,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729406,14 +729731,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1064,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729428,14 +729778,39 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact native SVG paint value is none or currentColor. The inspected link inherits T.muted and changes to T.champagne on hover. This is paint transport or a reset, not an independently authored color.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1065,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729450,14 +729825,39 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact native SVG paint value is none or currentColor. The inspected link inherits T.muted and changes to T.champagne on hover. This is paint transport or a reset, not an independently authored color.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1065,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729472,14 +729872,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1065,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729494,14 +729919,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1065,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -729516,14 +729966,39 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-authored-social-glyph",
+      "reason": "This exact attribute is an internal coordinate of the inspected 24-unit authored SVG glyph. Displayed size and stroke use QDPresentation; the link radius uses QDScale. The glyph coordinate is not the screen control radius.",
       "evidence": [
         {
           "path": "app/(auth)/login/page.tsx",
-          "line": 1065,
+          "line": 1043,
           "hash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 1,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774"
+        },
+        {
+          "path": "lib/design/q-design-scale.ts",
+          "line": 1,
+          "hash": "1d1451b98ff3777fc26f141ea8f3342c3fc029ee596b9618c0e4339d5dabb57a"
+        },
+        {
+          "path": "lib/design/q-design-labels.ts",
+          "line": 1,
+          "hash": "7e08105ab4dca01bc86d36d064316c27dbd88d73173e3a51933ceceed3c43863"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 1,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+        },
+        {
+          "path": "source/design/atelier-runtime.ts",
+          "line": 1,
+          "hash": "2a40dfed35b661d48bf4ab509fe0c222f4f14c18a3eff5986bcd3969ac345d43"
         }
       ]
     },
@@ -1755684,14 +1756159,24 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "The inspected stroked circle disables its fill with none. Track and progress stroke colors are separately inventoried.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4078,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755782,14 +1756267,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4078,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755804,14 +1756299,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4078,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755826,14 +1756331,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4078,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755848,14 +1756363,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4080,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755870,14 +1756395,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4081,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755892,14 +1756427,24 @@
       "family": "behavior-structure",
       "status": "asset-or-data-boundary",
       "originalStatus": "asset-or-data-boundary",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4082,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755914,14 +1756459,24 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "The inspected stroked circle disables its fill with none. Track and progress stroke colors are separately inventoried.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4083,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1756040,14 +1756595,24 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-progress-ring-arithmetic",
+      "reason": "This exact SVG coordinate or dash is derived from the inspected size and stroke parameters and clamped pct. cx=cy=size/2, r=(size-stroke)/2, circumference=2πr and dash=pct/100×circumference. Current size/stroke callers and defaults remain independent obligations; this is not central ownership of their values.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4087,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
