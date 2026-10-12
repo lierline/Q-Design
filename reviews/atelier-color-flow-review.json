@@ -1436,6 +1436,47 @@
     },
     {
       "path": "lib/design/components.tsx",
+      "line": 4084,
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "a82c48c88fa3fb8055adbbe2cc96bf631bad34b0e10aba190ba01a6ff2364109",
+      "value": "{ring}",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "exact-color-forwarding",
+      "reason": "The exact lexical color parameter reaches this rendered color property. Any alternative branch is a verified central token. All actual symbol-resolved callers, defaults and remaining renderer arguments are separately inventoried; this record does not approve caller colors or full styles. Raw fallback colors and unverified transformations are rejected.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4055,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 65,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 28,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-champagne"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
+        }
+      ],
+      "component": "ProgressRing",
+      "prop": "color"
+    },
+    {
+      "path": "lib/design/components.tsx",
       "line": 4341,
       "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
       "argumentHash": "f665aeff28635dfaed9104dc8aa627ebcd11d25822c39c956d789bd480b89fa9",
@@ -6721,6 +6762,377 @@
           "attributeLine": null,
           "value": null,
           "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "independentBodyArguments": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4057,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "28d406d54f6161c3b3cb67b59eee1c7e2328d30c9ad1a183730caccc787b7819",
+          "kind": "named-style-value",
+          "property": "size"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4058,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a714208d81606b70f874021cda805d4cbbdda81d71bfc618030929c9ead89a45",
+          "kind": "named-style-value",
+          "property": "stroke"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4071,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "0b10ed2528d7085fb9ee8db407f5a4c174b0862d4b47c01bb8f2f73251e480dc",
+          "kind": "named-style-value",
+          "property": "r"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4076,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "ca2ad5f6c54ac0b571bcc86a42ed5a94fc7c9550d76c3a5f91c70e5865c26eb3",
+          "kind": "object-property",
+          "property": "flexShrink"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4076,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "12c8d6b01126ef939c81f52dc8cce8ffa55de97aadcaa1920365dae1d065e3ba",
+          "kind": "object-property",
+          "property": "height"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4076,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "ab1777d66d3e2b67730ac3249b282d4e6fc302ce728555a13a82eae73ee04bcf",
+          "kind": "object-property",
+          "property": "position"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4076,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a869572d9dadd0964c15f003b9f28330f705d4a06f74d899421d8c62ff6ec9cf",
+          "kind": "object-property",
+          "property": "width"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4076,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "adeab5439f1da439ad721c8f379935389f244fc7ba0f845cc0b95396fa2a87fa",
+          "kind": "style-expression",
+          "property": "style"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4077,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "fb5cd124ddcb784727e3a940c8e7c569ab3e3bdf5fa4bc07f7b89a4b99cb08f9",
+          "kind": "object-property",
+          "property": "transform"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4077,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a86523e6a5db009547930ccfd2eb74f79de22eb505c9791013e1d814ba4b886f",
+          "kind": "presentation-attribute",
+          "property": "height"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4077,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "57bc36d6c8cf67f5b07523d12eab5415488b5537f4bbc5fddf814abd5f39023b",
+          "kind": "presentation-attribute",
+          "property": "width"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4077,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "522cfed9184495ec3df8e18f63fe5b6cc938f1b6c897c0d90c1eb086733be142",
+          "kind": "style-expression",
+          "property": "style"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "d46e80510501082293eb495da31994bdd38bd855c2afccde776a6c08306f8daa",
+          "kind": "presentation-attribute",
+          "property": "fill"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "9a10b9172f9aeb7037ea6c8da10707a2ae3c41a19077e28bbaa4eb01174e6e6c",
+          "kind": "presentation-attribute",
+          "property": "stroke"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a4f1feaf820762cb043361c7cef0594442bbe4fa5df98f0222a8ec58dd2600ab",
+          "kind": "presentation-attribute",
+          "property": "strokeWidth"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a74dd0e6d4292d20b48751d89c52b204cf611f377ecce2c70eb78c1f177d1e82",
+          "kind": "svg-geometry",
+          "property": "cx"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "874d0026a44ed282432e3296297f5cb34e8fa19038039ec873fd88c5b030bbf8",
+          "kind": "svg-geometry",
+          "property": "cy"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4078,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "3a801666cf9218090b6034286c96bd5858515e6d5bb77dc262981a205f411338",
+          "kind": "svg-geometry",
+          "property": "r"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4080,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "21ff45c01346c8bb71ba89a7e61a8c2cd6e6e9435199e79135fe5564a575a1eb",
+          "kind": "svg-geometry",
+          "property": "cx"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4081,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "afb8aa4ce7634578a8ada735a44171e52b0b6f26f113e86c8c068427b7b29cad",
+          "kind": "svg-geometry",
+          "property": "cy"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4082,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "fcf861aca2407003107303fbad8583f46e90d18a975c00f2ed25ddfedc483fd5",
+          "kind": "svg-geometry",
+          "property": "r"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4083,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "0df69203f3f34aa603a5fdf9c95ff41e9daed5c789689d5027984c42fc09d5b4",
+          "kind": "presentation-attribute",
+          "property": "fill"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4084,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "a82c48c88fa3fb8055adbbe2cc96bf631bad34b0e10aba190ba01a6ff2364109",
+          "kind": "presentation-attribute",
+          "property": "stroke"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4085,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "2f0a582ac281637c2895b2aa0ea9ade748a469788b18ad1457523c0ecac32e0d",
+          "kind": "presentation-attribute",
+          "property": "strokeWidth"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4086,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "c2c5c24a7ebe2e5552a3832a2341e8141f14104e14df57cee56c2082b79ea00f",
+          "kind": "presentation-attribute",
+          "property": "strokeLinecap"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4087,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "1bf69053f2f56bcfc82384a9a9b3a238fe579980b5f3a12f14017c94df26d322",
+          "kind": "presentation-attribute",
+          "property": "strokeDasharray"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4088,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "60bef2e8357789217cfa468920179964a0fe2e49bda9d93e822439029114ead9",
+          "kind": "object-property",
+          "property": "transition"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4088,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "959698ebde9e932a52b2245b720f26e0a48569f6ddcfdf40edc14da3831bc309",
+          "kind": "style-expression",
+          "property": "style"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4092,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "936bdb29fad18719a74985b89c468f1bca39c04fd4f6c84368aea699980ed108",
+          "kind": "style-expression",
+          "property": "style"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4093,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "99a2112bac940b8a6bbc426ab14205c16d11f7e9454fad5915d4f32469bf3726",
+          "kind": "object-property",
+          "property": "position"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4094,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "592e8164c7f8d3a13e47b1652b595ed6e78520c27a0e0a07f1530feff5e2d7e4",
+          "kind": "object-property",
+          "property": "inset"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4095,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "1b20424a7b6806e7fa60af89789f0b6af5b5f47adefb47d116d8622823debddf",
+          "kind": "object-property",
+          "property": "display"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4096,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "0423ad6586262d3c47e2c7db4841216db72c214a48b5f98555affef8b32c85ec",
+          "kind": "object-property",
+          "property": "alignItems"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4097,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "5b03decc1c9aefe422bdc18508bac41acadff33c6898efd7eaa056a8da369b5f",
+          "kind": "object-property",
+          "property": "justifyContent"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4098,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "507abe82461e32cc97057b355dd78e07fed32426435a9ff7606f3ccb446a9c29",
+          "kind": "object-property",
+          "property": "fontFamily"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4099,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "96068c7bc4b651bb93c5840f0b2360889b9138c299ff0a20657aefa2c97b7b75",
+          "kind": "object-property",
+          "property": "fontSize"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4100,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "09cff793ab3e9ac5cc6799a928f1dde1d3e19af09c3d65685c6d8a9c2238c323",
+          "kind": "object-property",
+          "property": "fontWeight"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4101,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "d25a38925b771bc732e7917022fc481ee25d08ca51f2f2c980956362ed46878f",
+          "kind": "object-property",
+          "property": "color"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4102,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "argumentHash": "1ab01e0dceeb09506a0ddfe71549052bcf4a67e3ed83d59e17969dbb5649397b",
+          "kind": "object-property",
+          "property": "letterSpacing"
+        }
+      ]
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "component": "ProgressRing",
+      "prop": "color",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "declarationLine": 4055,
+      "binding": "color",
+      "outputs": [
+        {
+          "line": 4084,
+          "kind": "presentation-attribute",
+          "property": "stroke",
+          "value": "{ring}",
+          "evidence": [
+            {
+              "path": "lib/design/tokens.ts",
+              "line": 65,
+              "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+              "valueKind": "primitive"
+            },
+            {
+              "path": "patterns/foundation/atelier.css",
+              "line": 28,
+              "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+              "variable": "--qa-champagne"
+            }
+          ]
+        }
+      ],
+      "callers": [
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "sourceHash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87",
+          "tag": "ProgressRing",
+          "attributeLine": 208,
+          "value": "{ringColor}",
+          "argumentHashes": [
+            "d2607e18aeafd75a0acdaf221677fad372fec0e471789e6533308eafb160bf83"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "sourceHash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+          "tag": "ProgressRing",
+          "attributeLine": 220,
+          "value": "{ringColor}",
+          "argumentHashes": [
+            "7e20df595bf34e5aaefabeb42b626933825110f5651584cf2431bbc3326dfed4"
+          ],
           "jsxSpreads": []
         }
       ],

@@ -18,7 +18,8 @@ test('a delegated color branch cannot conceal a raw fallback, transformation or 
 });
 test('all real color callers stay separately inventoried and no complete style is approved by a transport record',()=>{
  const actual=createColorFlowReview(),saved=JSON.parse(fs.readFileSync(new URL('../reviews/atelier-color-flow-review.json',import.meta.url),'utf8'));
- assert.deepEqual(actual,saved);assert.equal(actual.flows.length,12);assert.equal(actual.records.length,12);
+ assert.deepEqual(actual,saved);assert.equal(actual.flows.length,13);assert.equal(actual.records.length,13);
+ const ring=actual.flows.find(f=>f.component==='ProgressRing'&&f.prop==='color');assert.equal(ring.outputs.length,1);assert.equal(ring.callers.length,2);assert.ok(ring.callers.every(c=>c.argumentHashes.length));
  assert.ok(actual.records.every(r=>r.decision==='delegated-renderer-parameter'));
  for(const flow of actual.flows){
   assert.ok(flow.independentBodyArguments.length);

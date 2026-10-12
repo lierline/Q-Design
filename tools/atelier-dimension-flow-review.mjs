@@ -16,6 +16,7 @@ export const dimensionTargets=[
  ['lib/design/components.tsx','Panel','height',['height']],
  ['lib/design/components.tsx','DataTable','minWidth',['minWidth']],
  ['lib/design/components.tsx','ProgressRing','size',['width','height']],
+ ['lib/design/components.tsx','ProgressRing','stroke',['strokeWidth']],
  ['components/ListToolbar.tsx','ListToolbar','size',['size']],
 ];
 
@@ -55,13 +56,12 @@ export function createDimensionFlowReview(product=path.resolve(path.dirname(file
   if(assignment){if(!ts.isBinaryExpression(fn.parent)||fn.parent.left.getText(sf)!==assignment)throw Error('Missing member assignment '+assignment);symbol=resolved(fn.parent.left);}
   const first=line(sf,fn),last=sf.getLineAndCharacterOfPosition(fn.end).line+1;
   const flow={path:file,component:name,prop,sourceHash:hash(texts.get(file)),declarationLine:first,binding:binding.getText(sf),outputs,callers:[],otherReferences:[],independentBodyArguments:(byFile.get(file)??[]).filter(r=>r.line>=first&&r.line<=last).map(r=>({path:r.path,line:r.line,sourceHash:r.sourceHash,argumentHash:r.argumentHash,kind:r.kind,property:r.property}))};
-  flows.push(flow);symbols.set(symbol,flow);
+  flows.push(flow);const known=symbols.get(symbol)??[];known.push(flow);symbols.set(symbol,known);
  }
  for(const file of files){const sf=program.getSourceFile(path.join(product,file)),fileHash=hash(texts.get(file));
   const visit=n=>{
    if(ts.isJsxOpeningElement(n)||ts.isJsxSelfClosingElement(n)){
-    const flow=symbols.get(resolved(n.tagName));
-    if(flow){const attrs=n.attributes.properties.filter(p=>ts.isJsxAttribute(p)&&p.name.getText(sf)===flow.prop),spreads=n.attributes.properties.filter(ts.isJsxSpreadAttribute);
+    for(const flow of symbols.get(resolved(n.tagName))??[]){const attrs=n.attributes.properties.filter(p=>ts.isJsxAttribute(p)&&p.name.getText(sf)===flow.prop),spreads=n.attributes.properties.filter(ts.isJsxSpreadAttribute);
      if(attrs.length>1)throw Error('Duplicate dimension prop');
      const attr=attrs[0],at=attr?line(sf,attr):null,value=attr?.initializer?.getText(sf)??null;
      const matches=attr?(byFile.get(file)??[]).filter(r=>r.sourceHash===fileHash&&r.line===at&&r.property===flow.prop&&r.value===value):[];
@@ -69,8 +69,7 @@ export function createDimensionFlowReview(product=path.resolve(path.dirname(file
     }
    }
    if(ts.isIdentifier(n)||ts.isPropertyAccessExpression(n)){
-    const flow=symbols.get(resolved(n));
-    if(flow){const p=n.parent;const ignored=((ts.isFunctionDeclaration(p)||ts.isFunctionExpression(p))&&p.name===n)||ts.isImportSpecifier(p)||ts.isImportClause(p)||ts.isExportSpecifier(p)||ts.isJsxOpeningElement(p)||ts.isJsxSelfClosingElement(p)||ts.isJsxClosingElement(p)||(ts.isBinaryExpression(p)&&p.left===n)||(ts.isPropertyAccessExpression(p)&&p.name===n);
+    for(const flow of symbols.get(resolved(n))??[]){const p=n.parent;const ignored=((ts.isFunctionDeclaration(p)||ts.isFunctionExpression(p))&&p.name===n)||ts.isImportSpecifier(p)||ts.isImportClause(p)||ts.isExportSpecifier(p)||ts.isJsxOpeningElement(p)||ts.isJsxSelfClosingElement(p)||ts.isJsxClosingElement(p)||(ts.isBinaryExpression(p)&&p.left===n)||(ts.isPropertyAccessExpression(p)&&p.name===n);
      if(!ignored)flow.otherReferences.push({path:file,line:line(sf,n),sourceHash:fileHash,consumer:p.getText(sf)});
     }
    }

@@ -12,7 +12,10 @@ export const parameterTargets=[...dimensionTargets.filter(t=>t[1]!=='ListToolbar
  ...[['IconBtn','size'],['ProgressBar','height'],['ProgressBar','trackColor'],['Checkbox','size'],['Skeleton','w'],['Skeleton','h'],['Skeleton','radius'],['SkeletonPanel','height'],['Card','minHeight'],['Tag','color'],['Grid','gap'],['Grid','minCol'],['Grid','cols']].map(t=>[core,...t]),
  ['components/Skeleton.tsx','Skeleton','width'],['components/Skeleton.tsx','Skeleton','height'],
  [core,'Reveal','style'],[core,'Panel','style'],
- ['components/TimeSeriesChart.tsx','TimeSeriesChart','height']];
+ ['components/TimeSeriesChart.tsx','TimeSeriesChart','height'],
+ // These exact renderers and consumers were inspected together. Every caller
+ // value is still independently inventoried, and any escape invalidates proof.
+ ...[['Collapse','durationMs'],['Collapse','style'],['IconBtn','style'],['Bx','style'],['Card','style'],['InfoBox','style'],['InfoBox','color'],['Alert','style'],['NextStep','style'],['LegalNote','style'],['KpiGrid','style'],['Modal','maxWidth'],['StatGrid','minCol']].map(t=>[core,...t])];
 
 export function parameterLeaves(ts,checker,fn,binding,sf){
  const symbol=checker.getSymbolAtLocation(binding.name),leaves=[];

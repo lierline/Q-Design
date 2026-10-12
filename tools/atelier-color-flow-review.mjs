@@ -16,6 +16,7 @@ export const colorTargets=[
  ['lib/design/components.tsx','TooltipRow','dotColor'],
  ['lib/design/components.tsx','CardFigure','color'],
  ['lib/design/components.tsx','ProgressRing','trackColor'],
+ ['lib/design/components.tsx','ProgressRing','color'],
  ['lib/design/components.tsx','Stat','color'],
  ['lib/design/segmented-choice.tsx','ChoiceCheck','color'],
  ['lib/design/segmented-choice.tsx','ChoiceChip','color'],

@@ -32,6 +32,7 @@ test('source, caller, indexing, spread and non-JSX consumer changes invalidate l
 });
 test('all current prop leaves retain independent caller values and exact source positions',()=>{
  const actual=createParameterLeafReview(),saved=JSON.parse(fs.readFileSync(new URL('../reviews/atelier-parameter-leaves-review.json',import.meta.url),'utf8'));assert.deepEqual(actual,saved);
- assert.equal(actual.flows.length,40);assert.ok(actual.flows.some(f=>f.component==='IconBtn'&&f.prop==='size'));
+ assert.equal(actual.flows.length,55);assert.ok(actual.flows.some(f=>f.component==='IconBtn'&&f.prop==='size'));
+ const collapse=actual.flows.find(f=>f.component==='Collapse'&&f.prop==='durationMs');assert.equal(collapse.callers.length,14);assert.ok(collapse.callers.every(c=>c.value===null));
  for(const flow of actual.flows){assert.equal(flow.unindexed.length,0);assert.equal(flow.unresolvedSpreads.length,0);assert.equal(flow.unresolvedReferences.length,0);const code=fs.readFileSync('D:/Claude/Q-Atelier/'+flow.path,'utf8');for(const leaf of flow.leaves)assert.equal(code.slice(leaf.start,leaf.end),leaf.text);for(const caller of flow.callers)if(caller.value)assert.ok(caller.argumentHashes.length);}
 });

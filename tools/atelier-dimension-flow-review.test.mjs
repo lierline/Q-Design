@@ -22,7 +22,9 @@ test('the reviewed last-line selection retains its independently reviewed fallba
 test('current exact caller inventory preserves defaults and nested appearance as separate candidates',()=>{
  const actual=createDimensionFlowReview(),saved=JSON.parse(fs.readFileSync(new URL('../reviews/atelier-dimension-flow-review.json',import.meta.url),'utf8'));
  assert.deepEqual(actual,saved);
- assert.equal(actual.records.length,15);assert.equal(actual.flows.length,11);
+ assert.equal(actual.records.length,17);assert.equal(actual.flows.length,12);
+ const ring=actual.flows.find(f=>f.component==='ProgressRing'&&f.prop==='stroke');assert.equal(ring.outputs.length,2);assert.ok(ring.binding.includes('QDPresentation.progressStroke[5]'));assert.equal(ring.callers.length,2);
+ const ringSize=actual.flows.find(f=>f.component==='ProgressRing'&&f.prop==='size');assert.equal(ringSize.callers.length,2);assert.deepEqual(ringSize.callers.map(c=>[c.path,c.line]),ring.callers.map(c=>[c.path,c.line]));assert.ok(ringSize.callers.every(c=>c.argumentHashes.length));
  for(const flow of actual.flows){
   assert.ok(flow.independentBodyArguments.length);
   assert.equal(flow.otherReferences.length,0,flow.component+' has an unreviewed non-JSX consumer');

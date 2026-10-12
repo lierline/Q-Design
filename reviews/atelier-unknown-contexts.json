@@ -1,14 +1,14 @@
 {
-  "createdAt": "2026-10-11T23:33:03.003Z",
+  "createdAt": "2026-10-11T23:52:18.903Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 859,
-  "confirmedStyleArguments": 518,
+  "unknown": 851,
+  "confirmedStyleArguments": 513,
   "confirmedStylePercent": 60.3,
   "kinds": {
-    "object-property": 379,
-    "style-expression": 239,
-    "presentation-attribute": 105,
+    "object-property": 376,
+    "style-expression": 237,
+    "presentation-attribute": 102,
     "dynamic-style": 36,
     "class-utility": 13,
     "svg-geometry": 20,
@@ -20,10 +20,10 @@
     "html-attribute": 3
   },
   "counts": {
-    "confirmed-style-object": 266,
-    "direct-jsx-style": 239,
+    "confirmed-style-object": 263,
+    "direct-jsx-style": 237,
     "unresolved-consumer": 182,
-    "component-prop-needs-consumer-trace": 105,
+    "component-prop-needs-consumer-trace": 102,
     "dom-style-write": 13,
     "selector-or-variant": 34,
     "svg-artwork-or-data-geometry": 20
@@ -7357,50 +7357,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 664,
-      "argumentHash": "924dde6b705d6e7b07aa9384970d3771daec30067346705bbfd1c1b7be76dcfa",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        display: 'grid',\n        gridTemplateRows: open ? \"var(--qd-atelier-grid-template-rows-11f1d87b5a)\" : \"var(--qd-atelier-grid-template-rows-83f858e009)\",\n        transition: `grid-template-rows ${dur}ms ${easing}`,\n        ...style,\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 667,
-      "argumentHash": "ad8aa86883f2b76d09dc95869d01dbe5c4b5ef007ced702ae130ebdfa44b3f8c",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "transition",
-      "value": "`grid-template-rows ${dur}ms ${easing}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 673,
-      "argumentHash": "09b90259239942d08698de383fb9aa9b7cdd6b345f64f9a28a5d1af1be94efb9",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            opacity: open ? \"var(--qd-atelier-opacity-dc43f5a623)\" : \"var(--qd-atelier-opacity-b53823ac50)\",\n            transform: open ? 'translateY(0)' : 'var(--qd-atelier-collapse-hidden-transform)',\n            transition: `opacity ${dur}ms ${easing}, transform ${dur}ms ${easing}`,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 676,
-      "argumentHash": "71ec8b615956de05b20a06b16a6f1303da36abd4abd4c558317061f7118df5a3",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "transition",
-      "value": "`opacity ${dur}ms ${easing}, transform ${dur}ms ${easing}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 740,
       "argumentHash": "5ee2e543f09a5cd661bd9a35bafc2bd4ffdcece87fdc031cb141549e85019308",
       "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
@@ -8270,17 +8226,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 3787,
-      "argumentHash": "2e4015b3ff5d00de78e5ba7fb72f7350ecd86c95dba677f220415890aef5a2a1",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "maxWidth",
-      "value": "maxWidth ?? QD.dialogWidth",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 3788,
       "argumentHash": "0a01956d3c5ec1f81e374c9989cff7f63edb10da1873cc200877f279c3b105f0",
       "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
@@ -8343,17 +8288,6 @@
       "kind": "presentation-attribute",
       "property": "fill",
       "value": "\"none\"",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 4078,
-      "argumentHash": "a4f1feaf820762cb043361c7cef0594442bbe4fa5df98f0222a8ec58dd2600ab",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{stroke}",
       "context": "component-prop-needs-consumer-trace"
     },
     {
@@ -8431,28 +8365,6 @@
       "kind": "presentation-attribute",
       "property": "fill",
       "value": "\"none\"",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 4084,
-      "argumentHash": "a82c48c88fa3fb8055adbbe2cc96bf631bad34b0e10aba190ba01a6ff2364109",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "presentation-attribute",
-      "property": "stroke",
-      "value": "{ring}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 4085,
-      "argumentHash": "2f0a582ac281637c2895b2aa0ea9ade748a469788b18ad1457523c0ecac32e0d",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "presentation-attribute",
-      "property": "strokeWidth",
-      "value": "{stroke}",
       "context": "component-prop-needs-consumer-trace"
     },
     {

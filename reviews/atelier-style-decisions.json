@@ -6421,8 +6421,8 @@
     "token-reference-verified": 33184,
     "central-selector": 1161,
     "structural-behavior": 7114,
-    "delegated-renderer-parameter": 419,
-    "unknown": 859,
+    "delegated-renderer-parameter": 427,
+    "unknown": 851,
     "confirmed-style-composition": 93,
     "compatibility-noop": 18,
     "business-content": 176,
@@ -1686076,14 +1686076,150 @@
       "family": "behavior-structure",
       "status": "token-reference",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 664,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 183,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-grid-template-rows-11f1d87b5a"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 184,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-grid-template-rows-83f858e009"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 651,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 629,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/FinalJudgmentPanel.tsx",
+          "line": 256,
+          "hash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MatchedRulesList.tsx",
+          "line": 148,
+          "hash": "ede468e4ec66fbcb0cf28442e9a7b7a8e079e371473897677c0ef664e81dd0e8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MedqraftTemplateListClient.tsx",
+          "line": 349,
+          "hash": "62cd100a1283fca69a6635e961c20a11c34e29ab0f1275e5f2826d04e8af7c41",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 172,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/PendingResearchDocs.tsx",
+          "line": 250,
+          "hash": "832ca4660e8c59920ba37be3ff91365b644e9d238b078bcd7bb6b20d7a46802e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ProjectComplianceScore.tsx",
+          "line": 215,
+          "hash": "41fc40e18443c5d29ea46e3504e621fd18cb7c044b0b9f56b309419da4784fbb",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ReferenceSection.tsx",
+          "line": 98,
+          "hash": "e950d3efe0949b70ca26eef9d918831aeb45e2cd13a26de1b4fe19d618ed024d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 501,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 1365,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ResearchChangeRequestsPanel.tsx",
+          "line": 919,
+          "hash": "4a9a880bdfae9f8695037f0939ad6c92d81783c83ffa17d831e13051389d443f",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 333,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RoleProjectCard.tsx",
+          "line": 210,
+          "hash": "a01ae8c8ebde49bc042a946f96539ce907546742d77a3aa0c3ba13888549c89e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/DocsetStructurePanel.tsx",
+          "line": 282,
+          "hash": "27523e27e712fc6312a476a97a750d54f522b00d3c0d9a9bcd0d6a0c14bc9ac8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/qms/DefaultDocsPanel.tsx",
+          "line": 385,
+          "hash": "59be1abbd83b412eb7880eb42ca857cad85e7f0df8c7bdfaad8057bc761e58d9",
+          "delegatedReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 469,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 470,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 652,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 420,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-open-easing"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 421,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-close-easing"
         }
       ]
     },
@@ -1686157,14 +1686293,138 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 667,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 651,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 629,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/FinalJudgmentPanel.tsx",
+          "line": 256,
+          "hash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MatchedRulesList.tsx",
+          "line": 148,
+          "hash": "ede468e4ec66fbcb0cf28442e9a7b7a8e079e371473897677c0ef664e81dd0e8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MedqraftTemplateListClient.tsx",
+          "line": 349,
+          "hash": "62cd100a1283fca69a6635e961c20a11c34e29ab0f1275e5f2826d04e8af7c41",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 172,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/PendingResearchDocs.tsx",
+          "line": 250,
+          "hash": "832ca4660e8c59920ba37be3ff91365b644e9d238b078bcd7bb6b20d7a46802e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ProjectComplianceScore.tsx",
+          "line": 215,
+          "hash": "41fc40e18443c5d29ea46e3504e621fd18cb7c044b0b9f56b309419da4784fbb",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ReferenceSection.tsx",
+          "line": 98,
+          "hash": "e950d3efe0949b70ca26eef9d918831aeb45e2cd13a26de1b4fe19d618ed024d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 501,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 1365,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ResearchChangeRequestsPanel.tsx",
+          "line": 919,
+          "hash": "4a9a880bdfae9f8695037f0939ad6c92d81783c83ffa17d831e13051389d443f",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 333,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RoleProjectCard.tsx",
+          "line": 210,
+          "hash": "a01ae8c8ebde49bc042a946f96539ce907546742d77a3aa0c3ba13888549c89e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/DocsetStructurePanel.tsx",
+          "line": 282,
+          "hash": "27523e27e712fc6312a476a97a750d54f522b00d3c0d9a9bcd0d6a0c14bc9ac8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/qms/DefaultDocsPanel.tsx",
+          "line": 385,
+          "hash": "59be1abbd83b412eb7880eb42ca857cad85e7f0df8c7bdfaad8057bc761e58d9",
+          "delegatedReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 469,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 470,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 652,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 420,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-open-easing"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 421,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-close-easing"
         }
       ]
     },
@@ -1686347,14 +1686607,156 @@
       "family": "behavior-structure",
       "status": "token-reference",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 673,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-values.css",
+          "line": 278,
+          "hash": "e0737f33778a7118db7cbf24a98849c17758f3ad67054a6a725a140c16fc401b",
+          "variable": "--qd-atelier-opacity-dc43f5a623"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 260,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-opacity-b53823ac50"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 422,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-hidden-transform"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 651,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 629,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/FinalJudgmentPanel.tsx",
+          "line": 256,
+          "hash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MatchedRulesList.tsx",
+          "line": 148,
+          "hash": "ede468e4ec66fbcb0cf28442e9a7b7a8e079e371473897677c0ef664e81dd0e8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MedqraftTemplateListClient.tsx",
+          "line": 349,
+          "hash": "62cd100a1283fca69a6635e961c20a11c34e29ab0f1275e5f2826d04e8af7c41",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 172,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/PendingResearchDocs.tsx",
+          "line": 250,
+          "hash": "832ca4660e8c59920ba37be3ff91365b644e9d238b078bcd7bb6b20d7a46802e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ProjectComplianceScore.tsx",
+          "line": 215,
+          "hash": "41fc40e18443c5d29ea46e3504e621fd18cb7c044b0b9f56b309419da4784fbb",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ReferenceSection.tsx",
+          "line": 98,
+          "hash": "e950d3efe0949b70ca26eef9d918831aeb45e2cd13a26de1b4fe19d618ed024d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 501,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 1365,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ResearchChangeRequestsPanel.tsx",
+          "line": 919,
+          "hash": "4a9a880bdfae9f8695037f0939ad6c92d81783c83ffa17d831e13051389d443f",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 333,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RoleProjectCard.tsx",
+          "line": 210,
+          "hash": "a01ae8c8ebde49bc042a946f96539ce907546742d77a3aa0c3ba13888549c89e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/DocsetStructurePanel.tsx",
+          "line": 282,
+          "hash": "27523e27e712fc6312a476a97a750d54f522b00d3c0d9a9bcd0d6a0c14bc9ac8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/qms/DefaultDocsPanel.tsx",
+          "line": 385,
+          "hash": "59be1abbd83b412eb7880eb42ca857cad85e7f0df8c7bdfaad8057bc761e58d9",
+          "delegatedReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 469,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 470,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 652,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 420,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-open-easing"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 421,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-close-easing"
         }
       ]
     },
@@ -1686434,14 +1686836,138 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 676,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 651,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 629,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/FinalJudgmentPanel.tsx",
+          "line": 256,
+          "hash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MatchedRulesList.tsx",
+          "line": 148,
+          "hash": "ede468e4ec66fbcb0cf28442e9a7b7a8e079e371473897677c0ef664e81dd0e8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/MedqraftTemplateListClient.tsx",
+          "line": 349,
+          "hash": "62cd100a1283fca69a6635e961c20a11c34e29ab0f1275e5f2826d04e8af7c41",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 172,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/PendingResearchDocs.tsx",
+          "line": 250,
+          "hash": "832ca4660e8c59920ba37be3ff91365b644e9d238b078bcd7bb6b20d7a46802e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ProjectComplianceScore.tsx",
+          "line": 215,
+          "hash": "41fc40e18443c5d29ea46e3504e621fd18cb7c044b0b9f56b309419da4784fbb",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ReferenceSection.tsx",
+          "line": 98,
+          "hash": "e950d3efe0949b70ca26eef9d918831aeb45e2cd13a26de1b4fe19d618ed024d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 501,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequirementsDashboard.tsx",
+          "line": 1365,
+          "hash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/ResearchChangeRequestsPanel.tsx",
+          "line": 919,
+          "hash": "4a9a880bdfae9f8695037f0939ad6c92d81783c83ffa17d831e13051389d443f",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 333,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RoleProjectCard.tsx",
+          "line": 210,
+          "hash": "a01ae8c8ebde49bc042a946f96539ce907546742d77a3aa0c3ba13888549c89e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/DocsetStructurePanel.tsx",
+          "line": 282,
+          "hash": "27523e27e712fc6312a476a97a750d54f522b00d3c0d9a9bcd0d6a0c14bc9ac8",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/qms/DefaultDocsPanel.tsx",
+          "line": 385,
+          "hash": "59be1abbd83b412eb7880eb42ca857cad85e7f0df8c7bdfaad8057bc761e58d9",
+          "delegatedReview": true
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 469,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/q-design-runtime.ts",
+          "line": 470,
+          "hash": "3b06fcb224fb41730dd5343372ed87ffd06ac88df77df5eaa121b0bcce63d774",
+          "valueKind": "number"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 652,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 420,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-open-easing"
+        },
+        {
+          "path": "patterns/foundation/atelier-core-values.css",
+          "line": 421,
+          "hash": "896b614586f26e9e0a7dbb8524ef0b5bc2b4880e9c20a51bb8d4011bd12c955b",
+          "variable": "--qd-atelier-collapse-close-easing"
         }
       ]
     },
@@ -1751003,14 +1751529,182 @@
       "status": "token-reference",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "token-reference",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "proven-composition",
+      "reason": "All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
           "line": 3787,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 3724,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/audits/[id]/client.tsx",
+          "line": 468,
+          "hash": "f0d53d538f3d036849c1fa1ad1559a42e6410a7cb08ef0d769f68d410f0fe68b",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/capa/[id]/client.tsx",
+          "line": 604,
+          "hash": "7207e37725e0cf89bc10d5a028ac3d55b757f266a417c2eda22bb9fab3c57d2d",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/management-reviews/[id]/client.tsx",
+          "line": 507,
+          "hash": "cfb1fba27dc393ced1ba21c6cac9084e5f21d034097ada4d6b2818cd195a77fb",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/messages/page.tsx",
+          "line": 823,
+          "hash": "0dcd77272f0751f41e5ab0b9446c68c122876fd00d38bb48b2d768552cbccf0e",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 881,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 946,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 964,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 988,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1018,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1060,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1271,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "delegatedReview": true
+        },
+        {
+          "path": "app/(app)/settings/members/solo-mode-toggle.tsx",
+          "line": 139,
+          "hash": "8573b4855eb94b1781ac26d8be47adb6808e692d08def5879e404990dfe4590d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/AssigneeDialog.tsx",
+          "line": 112,
+          "hash": "1b843584b3fd9fbbdd8d237d5e3c27808b42a60f7eb8fcef51ce1d08c75037ae",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/CancelAssessmentButton.tsx",
+          "line": 186,
+          "hash": "b7c646f50cbbe7f111814d339c21c7f39134aba6c4a095786acfb9214b77b145",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/DocChecklistPanel.tsx",
+          "line": 663,
+          "hash": "f32a3ccf443a954cd73611bf076880bfb920c8a048357fcf3aba3426e8b2889d",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/DocContentViewer.tsx",
+          "line": 68,
+          "hash": "46872c45e41d8a366f874e59762db1db2f41d587667600ce0394de0947ac024f",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/InquiryButton.tsx",
+          "line": 123,
+          "hash": "dba8c432f44a336f2d2f18279ab4dc8c21023eeb30cec96d01354dc8db4b0d54",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/NotificationQuickReply.tsx",
+          "line": 160,
+          "hash": "dd91c78fec84acfc1d9d570336d921c18a9670f1dfecb33bf602b957ff53c69e",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/RequestReviewButton.tsx",
+          "line": 196,
+          "hash": "ab26a984a0fa6a42b2647c378181414f6b3123aa75db2c98e621abbed619cae6",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/SuggestionDetailModal.tsx",
+          "line": 231,
+          "hash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/DocsetActivateSheet.tsx",
+          "line": 174,
+          "hash": "349fd4b66c5c6ef0098fa365e426f68938407d3ac67bcde6d939bb15009bc6ff",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/MemberHandoverDialog.tsx",
+          "line": 124,
+          "hash": "699939315852be64912f118dad722e7842e1a0808e864d137290fd40686f5806",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/MemberHandoverDialog.tsx",
+          "line": 183,
+          "hash": "699939315852be64912f118dad722e7842e1a0808e864d137290fd40686f5806",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/admin/TransferMemberDialog.tsx",
+          "line": 108,
+          "hash": "214fe4f770b27302cac2ef2bcfddb80216d92bd343e6593befb47d0b05f0e977",
+          "delegatedReview": true
+        },
+        {
+          "path": "components/calendar/MeetingComposeDialog.tsx",
+          "line": 203,
+          "hash": "af330e7a94be79bc4f2de494a86cb3e09bed67a7144825be1bf6b14607809672",
+          "delegatedReview": true
+        },
+        {
+          "path": "lib/design/q-design-contract.ts",
+          "line": 19,
+          "hash": "4cbd909dee477b4ca8eeee6872e3ac991aaf891ff50576f5fc6d6c8abaa2c53d",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/components.css",
+          "line": 49,
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147",
+          "variable": "--qd-dialog-width"
         }
       ]
     },
@@ -1755056,14 +1755750,24 @@
       "family": "geometry",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "exact-dimension-forwarding",
+      "reason": "This exact lexical component parameter is forwarded to the shown native/renderer dimension attribute. Current symbol-resolved JSX callers, explicit argument hashes, defaults and the renderer body arguments remain independently inventoried. This approves transport only, not the central ownership of any default, caller value, conditional fallback or resulting style.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4078,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755232,14 +1755936,36 @@
       "family": "surface-color-effect",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "exact-color-forwarding",
+      "reason": "The exact lexical color parameter reaches this rendered color property. Any alternative branch is a verified central token. All actual symbol-resolved callers, defaults and remaining renderer arguments are separately inventoried; this record does not approve caller colors or full styles. Raw fallback colors and unverified transformations are rejected.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4084,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/tokens.ts",
+          "line": 65,
+          "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9",
+          "valueKind": "primitive"
+        },
+        {
+          "path": "patterns/foundation/atelier.css",
+          "line": 28,
+          "hash": "cea2fde6dbdda62b01d68c493472a1959fb67d3a3c8ab5f0891bb1bea091a69a",
+          "variable": "--qa-champagne"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
@@ -1755254,14 +1755980,24 @@
       "family": "geometry",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "unknown",
-      "reason": "No broad filename, numeric-value or single-token exemption is applied.",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "exact-dimension-forwarding",
+      "reason": "This exact lexical component parameter is forwarded to the shown native/renderer dimension attribute. Current symbol-resolved JSX callers, explicit argument hashes, defaults and the renderer body arguments remain independently inventoried. This approves transport only, not the central ownership of any default, caller value, conditional fallback or resulting style.",
       "evidence": [
         {
           "path": "lib/design/components.tsx",
-          "line": 4085,
+          "line": 4055,
           "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "components/OwnerResearchPipelineClient.tsx",
+          "line": 208,
+          "hash": "6a8a353b99f344aff0a0d86eea7ce981833f14e665ae590b7b9922175583fb87"
+        },
+        {
+          "path": "components/RevisionRowExpandable.tsx",
+          "line": 220,
+          "hash": "4e1067bba04e1402cb7ef874dae0a2b15643b9f52f322d2b092020da03ba4679"
         }
       ]
     },
