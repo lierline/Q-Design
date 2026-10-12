@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {createPrepDataReview} from './maison-prep-data-review.mjs';
 import {createBoxAliasReview} from './maison-docx-box-alias-review.mjs';
 import {beforeRemainingFields} from './maison-remaining-field-ledger.mjs';
+import {beforeMeetingData} from './maison-meeting-data-ledger.mjs';
 const root='D:/Claude/Q-Design';
 test('preparation fields and DOCX aliases reproduce exact independently verified evidence',()=>{
  for(const [name,factory,count] of [['maison-prep-data-review',createPrepDataReview,17],['maison-docx-box-alias-review',createBoxAliasReview,4]]){
@@ -12,7 +13,7 @@ test('preparation fields and DOCX aliases reproduce exact independently verified
  }
 });
 test('only twenty-one reviewed decisions reduce the whole Maison ledger',()=>{
- const current=JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8'));
+ const current=beforeMeetingData(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8')));
  const old=beforeRemainingFields(current);assert.equal(old.counts.unknown,607);assert.equal(current.counts.unknown,586);
  for(const field of ['value','decision','sourceHash']){
   const wrong=structuredClone(current);wrong.records[0][field]='unreviewed';assert.throws(()=>beforeRemainingFields(wrong));

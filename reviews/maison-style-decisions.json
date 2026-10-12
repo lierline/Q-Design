@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T23:28:43.493Z",
+  "generatedAt": "2026-10-12T23:43:03.352Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6793,8 +6793,8 @@
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
-    "business-data": 889,
-    "unknown": 586,
+    "business-data": 904,
+    "unknown": 571,
     "business-condition": 54,
     "token-reference-verified": 1275,
     "structural-behavior": 411,
@@ -6804,7 +6804,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3931
   },
-  "unknownCount": 586,
+  "unknownCount": 571,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -506287,14 +506287,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed action meeting record fields (done, due_date, owner, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 167,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506310,14 +506330,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed action meeting record fields (done, due_date, owner, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 167,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506333,14 +506373,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 172,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506356,14 +506416,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 172,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506379,14 +506459,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 180,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506402,14 +506502,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed follow meeting record fields (department_ids, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 182,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506425,14 +506545,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed follow meeting record fields (department_ids, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 182,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506448,14 +506588,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 193,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506471,14 +506631,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 202,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506494,14 +506674,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 211,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506517,14 +506717,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 221,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506540,14 +506760,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed follow meeting record fields (department_ids, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 224,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506563,14 +506803,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed agenda meeting record fields (department_ids, detail, discussion, follow_ups, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 254,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506586,14 +506846,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed follow meeting record fields (department_ids, task). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 260,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
@@ -506637,14 +506917,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-meeting-record-data",
+      "reason": "This exact spread composes typed common meeting record fields (action_items, agenda_items, attendee_user_ids, department_id, held_on, issued_on, location, meeting_type, notes, overview_topics, special_notes, title). The same form submits its common record to symbol-resolved createMeeting and updateMeeting actions, whose pinned schemas and handlers consume the agenda, follow-up and action fields. It does not construct an element style. No other source or spread is approved.",
       "evidence": [
         {
           "path": "app/(app)/meetings/meeting-form.tsx",
-          "line": 266,
+          "line": 1,
           "hash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+        },
+        {
+          "path": "lib/validators/registers.ts",
+          "line": 1,
+          "hash": "25b5ab02a7d43ea2d80e8e78ab3d49d00fbbefb105b52a28963429893df09cac"
+        },
+        {
+          "path": "app/(app)/meetings/actions.ts",
+          "line": 1,
+          "hash": "8d529c9c49dfa2ff7e37fe8528747a3cd68ff666fbb12e8fedb46f4e0ebcf541"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-meeting-data-review.mjs",
+          "line": 1,
+          "hash": "2c2fdd8ff610ba2fdcd18148574f0b05fcf59f3ffaf4a07de7b03c9d207c181b"
         }
       ]
     },
