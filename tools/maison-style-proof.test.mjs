@@ -79,10 +79,17 @@ test('mutable, shadowed and explicitly mutated style objects cannot serve as dep
 test('awaited result envelopes are distinguished from an actual SVG radius or escaped style value',()=>{
   const good=ts.createSourceFile('x.tsx','async function save(){const r=await updateRecord(); if(r.error)notify(r.error.message); return r.data.id;}',ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
   assert.ok(businessResultBindings(good,ts).has('1:r:await updateRecord()'));
-  for(const source of ['async function x(){const r=await radius();return <circle r={r}/>;}','async function x(){const r=await styles(); return <div style={r}/>;}','async function x(){const r=await result();if(r.error)notify(r.error); consume(r);}','async function x(){const r=await result();if(r.error)notify(r.error); function child(r){return r.data}}']){
+  for(const source of ['async function x(){const r=await radius();return <circle r={r}/>;}','async function x(){const r=await styles(); return <div style={r}/>;}','async function x(){const r=await result();if(r.error)notify(r.error); consume(r);}','async function x(){const r=await result();const r=await result();return r.data;}','async function x(){let r=await result();notify(r.error);r=styles;}']){
     const sf=ts.createSourceFile('x.tsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
     assert.equal(businessResultBindings(sf,ts).size,0,source);
   }
+});
+test('independent branch result symbols do not collide with sibling results or a shadowed parameter',()=>{
+ const source='async function save(){if(isNew){const r=await create();notify(r.error);go(r.data.id);}const r=await update();notify(r.error);function child(r){return r.width;}}';
+ const sf=ts.createSourceFile('result.tsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX),proof=businessResultBindings(sf,ts);
+ assert.deepEqual([...proof].sort(),['1:r:await create()','1:r:await update()']);
+ const escaped=ts.createSourceFile('result.tsx',source.replace('notify(r.error);go','consume(r);go'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+ assert.deepEqual([...businessResultBindings(escaped,ts)],['1:r:await update()']);
 });
 test('ignored-prop proof fails when a renderer starts consuming or forwarding the value',()=>{
   const sf=code=>ts.createSourceFile('x.tsx',code,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);

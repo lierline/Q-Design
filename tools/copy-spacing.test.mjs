@@ -1,7 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {applyBindings,normalizeCopy,termsForFile,relocateCopyBindings,formatProductCopy} from './copy-spacing.mjs';
+import {applyBindings,normalizeCopy,termsForFile,relocateCopyBindings,formatProductCopy,mergeCopyBindings} from './copy-spacing.mjs';
 const terms=[{from:'작성중',to:'작성 중'}];
+test('a scoped copy build preserves every unselected product binding',()=>{
+ const prior=['atelier','maison','carnet'].map(product=>({product,path:'copy.ts',bindings:[{original:product,emitted:product}]}));
+ for(const product of ['atelier','maison','carnet']){
+  const updated={product,path:'copy.ts',bindings:[{original:product,emitted:'updated'}]};
+  const current=mergeCopyBindings(prior,[updated],[product]);
+  assert.deepEqual(current.filter(r=>r.product!==product),prior.filter(r=>r.product!==product));
+  assert.deepEqual(current.find(r=>r.product===product),updated);
+ }
+});
 
 test('a product without Prettier preserves source whitespace and explicit line breaks',async()=>{
  const code='const label = "경력 (년)";\r\nconst help = "첫 줄\\n둘째 줄";\r\n';
@@ -25,6 +34,16 @@ test('formatter line breaks relocate exact bindings and reject literal mutations
  assert.equal(relocated[0].line,3);
  assert.equal(applyBindings('copy.ts',formatted,relocated,[{from:'사용중인',to:'운영 중인'}]).after,formatted.replace('사용 중인','운영 중인'));
  assert.throws(()=>relocateCopyBindings('copy.ts',before,formatted.replace('ErrorCodes.VALIDATION','ErrorCodes.UNKNOWN').replace('사용 중인','수정된'),[binding]),/changed authored literal/);
+});
+test('JSX formatter wrapping preserves rendered spaces while central text edits still propagate',()=>{
+ const before='const view=<p>회의 · 출장 · 고객 방문 일정을 등록합니다.\n  기한은 자동으로 표시합니다.</p>;',after='const view=<p>회의 · 출장 · 고객 방문 일정을\n  등록합니다. 기한은 자동으로 표시합니다.</p>;';
+ const binding={line:1,kind:'JsxText',ordinal:0,original:'회의 · 출장 · 고객 방문 사람이 아는 일을 달력에 적습니다.\n  기한은 자동으로 표시합니다.',emitted:'회의 · 출장 · 고객 방문 일정을 등록합니다.\n  기한은 자동으로 표시합니다.'};
+ const relocated=relocateCopyBindings('copy.tsx',before,after,[binding]);
+ const rules=[{from:'사람이 아는 일을 달력에 적습니다.',to:'일정을 등록합니다.'}];
+ assert.equal(applyBindings('copy.tsx',after,relocated,rules).after,after);
+ assert.match(applyBindings('copy.tsx',after,relocated,[{...rules[0],to:'일정을 관리합니다.'}]).after,/일정을 관리합니다/);
+ assert.throws(()=>relocateCopyBindings('copy.tsx',before,after.replace('고객 방문','고객방문'),[binding]),/changed authored literal/);
+ assert.throws(()=>relocateCopyBindings('copy.tsx',before,after.replace('기한은','기한 은'),[binding]),/changed authored literal/);
 });
 test('domain labels only change inside their explicitly reviewed product and paths',()=>{
  const scoped=[{from:'사용중',to:'사용 중',products:['maison'],paths:['lib/supabase/types.ts']}];

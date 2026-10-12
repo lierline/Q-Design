@@ -68,10 +68,10 @@ export function createGlobalTypographyLedger(current,ref=JSON.parse(fs.readFileS
 }
 
 export function beforeGlobalTypographyLedger(current){
-  current=beforeChoiceColumnsLedger(current);
   if(!fs.existsSync(manifest))return current;
   const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),before=JSON.parse(show(saved.ref,'reviews/atelier-style-decisions.json'));
   if(hash(serialize(current))===hash(serialize(before)))return current;
+  current=beforeChoiceColumnsLedger(current);
   assert.deepEqual(createGlobalTypographyLedger(current,saved.ref),saved);
   return before;
 }

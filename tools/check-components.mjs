@@ -6,6 +6,15 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/choice-glyph-revalidation.mjs','--check'],
+  ['--test','tools/choice-glyph-revalidation.test.mjs'],
+  ['tools/maison-caption-roles.mjs','--check'],
+  ['--test','tools/maison-caption-roles.test.mjs'],
+  ['tools/maison-professional-copy-evidence.mjs','--check'],
+  ['--test','tools/maison-nonvisual-handoff-review.test.mjs'],
+  ['tools/maison-nonvisual-handoff-review.mjs','--check'],
+  ['tools/atelier-professional-copy-revalidation.mjs','--check'],
+  ['--test','tools/atelier-professional-copy.test.mjs'],
   ['tools/atelier-choice-columns-review.mjs','--check'],
   ['tools/atelier-choice-columns-ledger.mjs','--check'],
   ['--test','tools/atelier-choice-columns.test.mjs'],
@@ -48,6 +57,7 @@ const steps=[
   ['--test','tools/maison-loading-control-proof.test.mjs'],
   ['tools/maison-loading-control-proof.mjs','--check'],
   ['--test','tools/maison-back-navigation.test.mjs','tools/mobile-navigation-evidence.test.mjs'],
+  ['--test','tools/maison-current-navigation.test.mjs'],
   ['tools/maison-back-navigation.mjs','--check'],
   ['tools/maison-back-navigation-evidence.mjs','--check'],
   ['tools/carnet-toast-copy-proof.mjs','--check'],
@@ -161,6 +171,10 @@ if(args.includes('--browser'))steps.push(['tools/verify-profile-responsive.mjs']
 if(args.includes('--browser'))steps.push(['tools/verify-expert-fonts.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-typography-links.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-mono-fonts.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-maison-time-controls.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-maison-caption-roles.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-maison-selection-controls.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-choice-glyph-family.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

@@ -14,6 +14,8 @@ import { isCompiledWorkbench } from './audit-coverage-core.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['source', 'node_modules', '.git']);
 const EXT = /\.(md|html|css|json|mjs|js|ts|tsx|swift)$/;
+// Private local authentication fixtures are outside authored design artifacts.
+const PRIVATE = new Set(['reviews/atelier-onboarding-preview-fixture.json']);
 
 // 코드포인트로 지목합니다. 리터럴로 적으면 이 파일 자신이 검사에 걸립니다.
 const BANNED = [
@@ -30,6 +32,7 @@ function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     if (SKIP.has(name)) continue;
     const p = join(dir, name);
+    if (PRIVATE.has(relative(ROOT,p).replaceAll('\\','/'))) continue;
     if (isCompiledWorkbench(relative(ROOT, p))) continue;
     if (statSync(p).isDirectory()) walk(p, out);
     else if (EXT.test(name)) out.push(p);

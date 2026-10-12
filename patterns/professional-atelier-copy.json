@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "scope": "Reviewed Atelier interface labels, notices and error messages only. Preserve business codes, authorization, user content and regulatory quotations.",
+  "terms": [
+    {"id":"atelier-disabled-module-message","from":"이 화면은 아직 켜지 않은 업무에 속합니다. 켜면 차림표와 화면이 함께 열립니다.","to":"이 화면의 업무 기능이 비활성화되어 있습니다. 기능을 활성화하면 메뉴와 화면을 이용할 수 있습니다.","products":["atelier"],"paths":["app/(app)/layout.tsx"]},
+    {"id":"atelier-main-menu-label","from":"주 차림표","to":"주 메뉴","products":["atelier"],"paths":["components/Sidebar.tsx"]},
+    {"id":"atelier-disposition-workflow-summary","from":"처분 하나가 한 줄 · 추가 → 승인 → 실행 완료","to":"처분별 실행 이력 · 등록 → 승인 → 실행 완료","products":["atelier"],"paths":["app/(app)/nonconformances/[id]/dispositions-section.tsx"]},
+    {"id":"atelier-disposition-workflow-help","from":"처분 하나가 한 줄입니다. 추가하고, 승인받고, 실행을 마치면 그 줄이 잠깁니다. 실행이 끝나지 않은 처분이 있으면 부적합을 종결할 수 없습니다. 위의 처분 결정은 대표 처분이고, 실제 수량과 실행은 여기에 한 줄씩 남깁니다.","to":"처분별 등록·승인·실행 이력을 관리합니다. 실행이 완료되면 기록이 잠깁니다. 미완료 처분이 있으면 부적합을 종결할 수 없습니다. 상단의 처분 결정은 대표 처분이며, 실제 수량과 실행 이력은 개별 등록합니다.","products":["atelier"],"paths":["app/(app)/nonconformances/[id]/dispositions-section.tsx"]},
+    {"id":"atelier-quality-future-period-help","from":"아직 끝나지 않은 기간입니다. 측정 기간이 끝난 뒤(그 기간의 마지막 날부터) 기록하십시오.","to":"미래의 측정 기준일에는 실적을 기록할 수 없습니다. 해당 측정 기간의 마지막 날부터 기록하십시오.","products":["atelier"],"paths":["app/(app)/quality-objectives/[id]/client.tsx"]},
+    {"id":"atelier-quality-future-period-error","from":"아직 끝나지 않은 기간의 실적은 기록할 수 없습니다. 측정 기간이 끝난 뒤(그 기간의 마지막 날부터) 기록하십시오.","to":"미래의 측정 기준일에는 실적을 기록할 수 없습니다. 해당 측정 기간의 마지막 날부터 기록하십시오.","products":["atelier"],"paths":["app/api/quality-objectives/[id]/measurements/route.ts"]},
+    {"id":"atelier-deadline-escalation-label","from":"기한 지남 보고","to":"기한 경과 보고","products":["atelier"],"paths":["lib/notifications/kind-display.ts","lib/notifications/messages/ops.ts"]},
+    {"id":"atelier-deadline-escalation-help","from":"담당 직무가 기한을 넘겼습니다. ","to":"담당 직무의 처리 기한이 경과했습니다. ","products":["atelier"],"paths":["lib/notifications/messages/ops.ts"]},
+    {"id":"atelier-disposition-completion-error","from":"실행이 끝나지 않은 처분이 있습니다","to":"미완료 처분이 있습니다","products":["atelier"],"paths":["lib/qms/nc-disposition.ts"]},
+    {"id":"atelier-paper-approval-pending-notice","from":"결재가 끝나지 않은 사본입니다. 승인 뒤 다시 출력하십시오.","to":"결재 미완료 사본입니다. 승인 후 다시 출력하십시오.","products":["atelier"],"paths":["lib/qms/sheets/paper.ts"]}
+  ]
+}

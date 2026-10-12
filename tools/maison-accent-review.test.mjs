@@ -17,7 +17,11 @@ test('semantic KPI selectors require a complete central variable map, not fixed 
 
 test('all current exact accent arguments resolve through the inspected KPI or tag consumer',()=>{
  const actual=createAccentReview(),saved=JSON.parse(fs.readFileSync(new URL('../reviews/maison-accent-review.json',import.meta.url),'utf8'));
- assert.deepEqual(actual,saved);assert.equal(actual.records.length,260);assert.equal(actual.rejected.length,0);
+ assert.deepEqual(actual,saved);assert.equal(actual.rejected.length,0);
+ const current=JSON.parse(fs.readFileSync(new URL('../reviews/maison-style-decisions.json',import.meta.url),'utf8'));
+ const candidates=current.records.filter(r=>r.property==='accent'&&r.decision!=='central-source-verified');
+ assert.deepEqual(actual.records.map(r=>r.argumentHash).sort(),candidates.map(r=>r.argumentHash).sort());
+ assert.equal(new Set(actual.records.map(r=>r.argumentHash)).size,actual.records.length);
  assert.ok(actual.records.every(r=>r.consumer&&r.evidence.length>=6));
  assert.equal(actual.records.filter(r=>r.consumer==='TONE_CLASS.accent -> Badge.className').length,1);
 });

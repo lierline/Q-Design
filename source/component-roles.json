@@ -282,7 +282,7 @@
     },
     {
       "id": "date",
-      "label": "날짜·달력",
+      "label": "날짜·시각·달력",
       "canon": {
         "status": "css-canon",
         "evidence": [
@@ -310,6 +310,14 @@
         {
           "product": "maison",
           "kind": "component",
+          "file": "components/ui/time-picker.tsx",
+          "symbols": [
+            "TimePicker"
+          ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
           "file": "components/ui/date-range-picker.tsx",
           "symbols": [
             "DateRangePicker"
@@ -324,7 +332,7 @@
           ]
         }
       ],
-      "differences": "Maison Calendar·DatePicker·DateRangePicker는 중앙 날짜 칸·팝오버·행동 규칙을 사용한다. 날짜 계산과 키보드·값 전달은 유지한다. Atelier와 Carnet의 native 날짜 입력을 같은 달력 구현으로 간주하지 않는다. 7열 날짜 격자는 44px 클릭 영역을 보존한다."
+      "differences": "Maison Calendar·DatePicker·DateRangePicker·TimePicker는 중앙 입력칸·팝오버·선택 항목·행동 규칙을 사용한다. 날짜·시각 계산과 키보드·값 전달은 유지한다. 7열 날짜 격자는 44px 클릭 영역을 보존한다. Atelier·Carnet의 native 입력은 각 제품의 실제 구현으로 검수한다."
     },
     {
       "id": "check-toggle",
@@ -367,7 +375,7 @@
     },
     {
       "id": "choice-chip",
-      "label": "선택 칩·분할 선택",
+      "label": "선택 칩·분할 선택·라디오 묶음",
       "canon": {
         "status": "css-canon",
         "evidence": [
@@ -401,6 +409,18 @@
           "symbols": [
             "FilterChip"
           ]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/choice-boxes.tsx",
+          "symbols": ["ChoiceBoxes", "ChoiceGrid"]
+        },
+        {
+          "product": "maison",
+          "kind": "component",
+          "file": "components/shared/check-chip.tsx",
+          "symbols": ["CheckChip"]
         }
       ],
       "differences": "Maison CHOICE_ON·CHIP와 FilterChip은 중앙 qd-choice 선택 규칙을 사용한다. 최신 결정에 따라 선택 상태는 옅은 면과 굵은 글자로 표현한다. Atelier 분할 선택과 Carnet ActionChip의 업무 의미는 각각 유지한다."

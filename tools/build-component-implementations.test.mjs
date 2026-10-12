@@ -83,9 +83,10 @@ test('actual Skeleton variants render their central defaults and preserve explic
  assert.match(render(current.Card,{height:121}),/height:121px/);assert.equal(count(render(current.Table,{rows:3,cols:4})),12);
 });
 test('all reviewed actual primitive bodies and export catalogs match, including partial selection',()=>{
- const report=buildComponentImplementations(root,{check:true});assert.equal(report.records.length,29);assert.equal(new Set(report.records.map(r=>r.product)).size,3);
- assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Atelier'])}).records.length,29);
- assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Sonar'])}).records.length,29);
+ const expected=implementationOwners(root).size;
+ const report=buildComponentImplementations(root,{check:true});assert.equal(report.records.length,expected);assert.equal(new Set(report.records.map(r=>r.product)).size,3);
+ assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Atelier'])}).records.length,expected);
+ assert.equal(buildComponentImplementations(root,{check:true,only:new Set(['Q-Sonar'])}).records.length,expected);
  for(const invalid of ['../outside.tsx','components/../outside.tsx','C:/outside.tsx','components\\wrong.tsx'])assert.throws(()=>checkedImplementationPath(invalid));
  assert.throws(()=>buildComponentImplementations(root,{check:true,only:new Set(['unknown'])}));
 });

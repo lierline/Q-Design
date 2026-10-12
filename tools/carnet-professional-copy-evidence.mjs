@@ -24,6 +24,13 @@ export function inspectProfessionalCopy(){
  }
  return {product:'carnet',ref,scope:'Whole-source comparison. Reviewed literals plus exactly one display-label import and lookup; no database or state-code changes.',records};
 }
+export function beforeCarnetProfessionalSource(file,code){
+ if(!files.includes(file))return code;
+ const proof=inspectProfessionalCopy(),record=proof.records.find(r=>r.path===file);
+ assert.equal(hash(code),record.afterHash,'Only the reviewed current copy may be restored');
+ const before=execFileSync('git',['show',ref+':'+file],{cwd:base,encoding:'utf8'}).replaceAll('\r\n','\n');
+ assert.equal(hash(before),record.beforeHash);return before;
+}
 export function rebindFormsImport(){
  const file=root+'/dist/q-design.copy-bindings.json',report=JSON.parse(read(file)),row=report.files.find(r=>r.product==='carnet'&&r.path==='lib/forms.ts');
  assert(row);

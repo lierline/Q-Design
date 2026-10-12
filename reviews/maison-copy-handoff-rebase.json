@@ -1,0 +1,2560 @@
+{
+  "version": 1,
+  "productRef": "0b7e83970ce52dc170efbf25e950f310ee338693",
+  "scope": "Exact current authored literal relocation only. No style approval, changed wording inheritance or product source mutation. Absent old literals are explicitly retired; ambiguous matches block the write. Other product bindings are preserved byte-for-byte as JSON values.",
+  "beforeHash": "134c3db0a15d7a2e89f5c60d0c4dbeddabc93f39f385d8bc31bd30ce8b09dbde",
+  "afterHash": "2b64531974f8eedff037c7c24505f387bf6f6b10403cde5fadcda138b0c35ba9",
+  "sources": [
+    {
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "sourceHash": "f855392fcccbbb1eec7675bf2528169e30c008e2cbc4a5d52a26ddd70a761873"
+    },
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "sourceHash": "b545602025761aa7d4fe7c90fff946e66311f5e215fdbff365fae6d3ba3d2f2e"
+    },
+    {
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "sourceHash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+    },
+    {
+      "path": "app/(app)/capa/plans/[id]/page.tsx",
+      "sourceHash": "90d9131ad24b3f27bf722164a4ec0c56b7181e225f30c1bb8865aa7f914315c4"
+    },
+    {
+      "path": "app/(app)/capa/sheet-flow.tsx",
+      "sourceHash": "5fb7ad6c96a3875ddb79c9afd48490278f5e536393e5c280e2bfd0ad55431e91"
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "sourceHash": "391a48c5ba1d74524cc8cfec6f036eb1e4e408ff3fd85b07981ab8817300defa"
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/next-sheets.tsx",
+      "sourceHash": "b982e202f7e00aa5193bb5b68afd1d4823a0894ae8026eb1c2957b6fc94b5f9c"
+    },
+    {
+      "path": "app/(app)/complaints/actions.ts",
+      "sourceHash": "1ffd23c4053ec8432b9226bfbdae8cfae2b3b35d990200a80f53f87c006edd4c"
+    },
+    {
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "sourceHash": "7bb0d8c05ad0fe4406f65b86bfcb58fdf23fa57d679a1fa6fa9321bb77f35887"
+    },
+    {
+      "path": "app/(app)/concessions/actions.ts",
+      "sourceHash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+    },
+    {
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "sourceHash": "cfb628334a55d1e8ada79807ceacf6dda7cc50ca02577e149f7719955363b395"
+    },
+    {
+      "path": "app/(app)/contracts/approval-actions.ts",
+      "sourceHash": "ae4a7a5da7a1c1fb97abe9583928472e92f50035e88eccc3b03f3b89b7a8de15"
+    },
+    {
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "sourceHash": "1e3ed34d8710de937823ab856883b8cdba06bb75136f129a7d50dabfef1e2717"
+    },
+    {
+      "path": "app/(app)/design/approval-ui.tsx",
+      "sourceHash": "6df2fd1d2b3d4b7f8156704a3c051c642043964f742d0450570642aceb91a958"
+    },
+    {
+      "path": "app/(app)/document-dispatch/actions.ts",
+      "sourceHash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+    },
+    {
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "sourceHash": "623268e3efa65ecaa5d170b6ca6deadb10baca817052fdfa1503c35a5ad26fc8"
+    },
+    {
+      "path": "app/(app)/document-dispatch/new/page.tsx",
+      "sourceHash": "953325cc84084d56a112e33c53ee86d6ff5e5f2f7dba60fd4f5121ad52e7885e"
+    },
+    {
+      "path": "app/(app)/documents/actions.ts",
+      "sourceHash": "51a8c7662e581133aadcb3b83f6edfa68c88fd51ea9cb4da98087dbbd99b3671"
+    },
+    {
+      "path": "app/(app)/documents/attachment-actions.ts",
+      "sourceHash": "163ed237dbb62a5147549abe308ad9e85ef4e495c24a5cf93e6aaa2604047ca3"
+    },
+    {
+      "path": "app/(app)/documents/[id]/approval-panel.tsx",
+      "sourceHash": "7e5c8b0684598572d0134104915de6a2cbff95d47f21806984991756e812a6ba"
+    },
+    {
+      "path": "app/(app)/documents/[id]/attachments-panel.tsx",
+      "sourceHash": "52d0eb72d23f6b77bfe05a2ea7792dde23a84628e9c194412ab137d331db639b"
+    },
+    {
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "sourceHash": "94bb29c8a0d330f409b7f967764d23648c5d72d7286608e3b130dd561e3408f3"
+    },
+    {
+      "path": "app/(app)/drawings/[id]/page.tsx",
+      "sourceHash": "2dd43a2d70fe79e02922b5d4cb242bfeb3b7514b000657c1ceadac4c82f751fa"
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "sourceHash": "88746802505b551ee733c7a6fc7f6b1bb7c13575fce6085239b5cfa95d4d917a"
+    },
+    {
+      "path": "app/(app)/improvements/actions.ts",
+      "sourceHash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3"
+    },
+    {
+      "path": "app/(app)/improvements/approval-actions.ts",
+      "sourceHash": "f7035437ac8a2b9f285d604691660bf7a17ad72cd0ce6131073a3151a292bacb"
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "sourceHash": "fd8dc9c800b62de95c4e6e7bcf7567b8cb82a5191728a6d02f90da9a3a35d3fa"
+    },
+    {
+      "path": "app/(app)/inbound/export-actions.ts",
+      "sourceHash": "dcab7aa8403bb677bfa4221921188e0da5f241c41cff81932f2904fb34aa1221"
+    },
+    {
+      "path": "app/(app)/inbound/page.tsx",
+      "sourceHash": "10975ef237b5307764207ca9271ddeb100c4f2c87ed8fa415759a4eee9baf4b5"
+    },
+    {
+      "path": "app/(app)/inbound/[id]/escalate-to-complaint-dialog.tsx",
+      "sourceHash": "4de112084fc6c7cf5715bf68f9617f40ac2938f307a6333f7c6391b0e0a2f066"
+    },
+    {
+      "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+      "sourceHash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+    },
+    {
+      "path": "app/(app)/inventory/actions.ts",
+      "sourceHash": "508aa0d53e119ff757d4400a8c839833a4f42e796672598a1243f49320222875"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "sourceHash": "3b5c463c9920f1e191df98fe1b2562f9806751dd377ac69edded7d6921a66820"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/evaluation-list.tsx",
+      "sourceHash": "ab88df4fb2d6d9ba92ea8efcb247d380c2197a43e90581a4d3a5ae7338b0a7b7"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/next-sheets.tsx",
+      "sourceHash": "06500d761339797a448f50418f5ed5a6aedf2482a96d9ee0e7cde5ffde8e006f"
+    },
+    {
+      "path": "app/(app)/meetings/meeting-form.tsx",
+      "sourceHash": "9d9f95d822091b659ae6c74559a16b8af5a4d8c932abcbc4db99363cd4416ae2"
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "sourceHash": "0ec4ba30e5fa44db786924de01836c819108426e27b02c05bdeb1207839da7a7"
+    },
+    {
+      "path": "app/(app)/notices/notice-form.tsx",
+      "sourceHash": "4a94c8db4ce76203ab798527cb9a01cf103c73e7bd309fe390fd62d86b9b2d3d"
+    },
+    {
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "sourceHash": "d2857cfa44e9ebc7e5b626d427094d9a406e458d97fdb60f1f3f9fbef9fb3037"
+    },
+    {
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "sourceHash": "3cdb09d8e15cde2c57474fc7f1cfc3ba7b5fe54e119192e1ad63d5037187afae"
+    },
+    {
+      "path": "app/(app)/purchasing/quote-form.tsx",
+      "sourceHash": "642ad1c459844b6907a8a4f631f594851580ffd275b13fc9308bd9ded717d771"
+    },
+    {
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "sourceHash": "435d3a3c9db1d9369c39cf0583e93a545efadf8b84ab1979cbdd0d4b2dae2dd0"
+    },
+    {
+      "path": "app/(app)/recalls/actions.ts",
+      "sourceHash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+    },
+    {
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "sourceHash": "d3727d94417bda71ecfc630e3465b25f03dec6e1cbaed7a2c1086c60c81fc83f"
+    },
+    {
+      "path": "app/(app)/returns/actions.ts",
+      "sourceHash": "0ed0c2f8cf47506910de1872d248795c98d608f3146f1ad9c52a61a40565e6d1"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/new/page.tsx",
+      "sourceHash": "927d652afe1d33cb74a6dcf25ee983258a5593a3761a0b9dc041af912a22ca45"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+      "sourceHash": "63948a58714958c61e1772b9f73c3c8340cb57971d0794995c4ba801a8190d3f"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "sourceHash": "f986360ef2a37bab52117f4cdab3fd7dd8f65a1a86ecef24c5774ccf1a1315c6"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/report/page.tsx",
+      "sourceHash": "ddf1880b91638672503066933cbc6bf286caea324cd7b5b42d0b671ee1fe6453"
+    },
+    {
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "sourceHash": "ed7aeafb978b7be9bcf66d2adf000512c64631ce259f1ae64919acf54dad63d7"
+    },
+    {
+      "path": "app/(app)/reviews/page.tsx",
+      "sourceHash": "d61c5c5b3ec0ae618afe943b26f579b69f9364c6749278e71b19876c7a4ada0d"
+    },
+    {
+      "path": "app/(app)/risks/approval-actions.ts",
+      "sourceHash": "45c698fc90c18437ac990505434cb63e5f19b3359b56a37232b0854181aea886"
+    },
+    {
+      "path": "app/(app)/risks/import-actions.ts",
+      "sourceHash": "96752b9e2582e7675a34d8892824853438de855c84444ca771f9e749a1c545f3"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "sourceHash": "6556bc1682f5ef7332cff93670c1420d3f7e86101fe75fcd1de56c5e9b2cc521"
+    },
+    {
+      "path": "app/(app)/safety/actions.ts",
+      "sourceHash": "d9a159f9de501596b60dcddf97d3fbcf819072b8cdef71613910f16733bf4c35"
+    },
+    {
+      "path": "app/(app)/safety/incidents/actions.ts",
+      "sourceHash": "6fda2a1c3efa385d6c6d4f25a63a447e87de274343ad12db2444b5b17b454f1b"
+    },
+    {
+      "path": "app/(app)/safety/incidents/checks-tab.tsx",
+      "sourceHash": "a7c59c36aea5e46b74da26bee54101970825cddc7c3f8e22f5419c9e368bf435"
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-approval.tsx",
+      "sourceHash": "a004195283938913d174e3c041f9b3d0b5f6ba309cfd4e111269b8b14def2bc1"
+    },
+    {
+      "path": "app/(app)/shipping/actions.ts",
+      "sourceHash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+    },
+    {
+      "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
+      "sourceHash": "080e4064f588d99641468705790747dfe62b2e666a5db966d5c445213ed35cbe"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/actions.ts",
+      "sourceHash": "7d31b70b9b71a25ad08157bd583f188b55dbe61795edb4da87ddfd0bf4dfa189"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "sourceHash": "e7e27daf827c84730ac97e774e4cd3a41756cecef27d1abacc945535013d8c70"
+    },
+    {
+      "path": "app/(app)/training/approval-ui.tsx",
+      "sourceHash": "7e29b62fc79d0871ced49037bfaa5371dbd0da2527a445230a611a8be12c2055"
+    },
+    {
+      "path": "components/layout/nav-groups.ts",
+      "sourceHash": "fae80b1539b16cefde2b2792789f757cfc2d160399b1ec50e4236a7465ca1e79"
+    },
+    {
+      "path": "components/shared/attendee-picker.tsx",
+      "sourceHash": "33305bfa8626ffd2758ec65f5f6af944406cceb6ad4ca576233958be75e39a54"
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "sourceHash": "9c8ef25e09888c59573abbeebd7c8ce24e699ff794fe16e6faf8a5283d0e76f6"
+    },
+    {
+      "path": "lib/audits/sheets.ts",
+      "sourceHash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+    },
+    {
+      "path": "lib/concessions/rules.ts",
+      "sourceHash": "0c8566b75cca3cb64e9c13db61c9b215d0bcf32289762a38483d8d220f8e51b3"
+    },
+    {
+      "path": "lib/doc-dispatch/rules.ts",
+      "sourceHash": "0d6486926c767a5a55a87bd1a1993f39e75d07262374d4cc15777f95241a400e"
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "sourceHash": "a23fbeb19913a9c5de6ddaddfbc10aa0fcab0ab723577c93a1ce90ebcc6e3381"
+    },
+    {
+      "path": "lib/meetings/notify.ts",
+      "sourceHash": "b0bd1b5515bb4ca9d79cd81167213b75c90089f12c681613548eff20a80acbe7"
+    },
+    {
+      "path": "lib/monitoring/approval-statuses.ts",
+      "sourceHash": "daf7fe6f33eb031675c0b33e4d63f556c71a981e9bd9beed5ba12895afaf3052"
+    },
+    {
+      "path": "lib/navigation/menus.ts",
+      "sourceHash": "ce386c02eded288bbef48a4960f16657e27edf61a18fea4d199169b0e5143673"
+    },
+    {
+      "path": "lib/notices/categories.ts",
+      "sourceHash": "c376539979d794238ed96c6d14492ed2ed83bb4aef51e13a35d494c1195a6c10"
+    },
+    {
+      "path": "lib/permissions/clause-groups.ts",
+      "sourceHash": "b92dca0e6aee0f37256c4400f43f31c07159f000ab93aafca84581053e0ce7a0"
+    },
+    {
+      "path": "lib/purchasing/order-rules.ts",
+      "sourceHash": "e4a224ed91ee46d992714b13a805a0ff1795f1eee6dd02ff961c5a4c17672b53"
+    },
+    {
+      "path": "lib/recalls/rules.ts",
+      "sourceHash": "48e000d7bbe4413ac3bf266affda7167d549c471c084e84925bfa1fce9a90f46"
+    },
+    {
+      "path": "lib/reviews/sheets.ts",
+      "sourceHash": "a761ff17604ca56bca365d0d5d6f01e83958f5b3b3fd26859954caac9b11a398"
+    },
+    {
+      "path": "lib/risks/matrix.ts",
+      "sourceHash": "caf3807f223795d7692a4e149ba6d35f0a260ee8456cabb00eb49be3be390090"
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "sourceHash": "d40af6fc17125bf64f367908c4c001d107542834428e4ae656befe42416bc33e"
+    },
+    {
+      "path": "lib/suppliers/evaluation-report.ts",
+      "sourceHash": "200113af2128fb3664f08dd82fa3db45ade022c5fc67fa2b9b36ab0afcc5e5af"
+    },
+    {
+      "path": "lib/training/sheets.ts",
+      "sourceHash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+    }
+  ],
+  "actions": [
+    {
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 194,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 219,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 195,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 220,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 285,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+        "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 232,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "심사구분\n            ",
+        "emitted": "심사 구분\n            "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 189,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 242,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 190,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 243,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 281,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+        "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/capa/plans/[id]/page.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 312,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "작성중",
+        "emitted": "작성 중"
+      },
+      "after": {
+        "line": 350,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "작성중",
+        "emitted": "작성 중"
+      }
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 109,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 119,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 120,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 130,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 157,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 176,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 158,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 177,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/complaints/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 175,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"승급에 실패했습니다. 이미 승급되었거나 작성중 상태가 아닙니다.\"",
+        "emitted": "\"승급에 실패했습니다. 이미 승급되었거나 작성 중 상태가 아닙니다.\""
+      },
+      "after": {
+        "line": 301,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"승급에 실패했습니다. 이미 승급되었거나 작성중 상태가 아닙니다.\"",
+        "emitted": "\"승급에 실패했습니다. 이미 승급되었거나 작성 중 상태가 아닙니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/complaints/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 303,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\"",
+        "emitted": "\"작성 중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\""
+      },
+      "after": {
+        "line": 429,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\"",
+        "emitted": "\"작성 중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 202,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\"",
+        "emitted": "\"작성 중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\""
+      },
+      "after": {
+        "line": 212,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\"",
+        "emitted": "\"작성 중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 504,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중으로 저장\"",
+        "emitted": "\"작성 중으로 저장\""
+      },
+      "after": {
+        "line": 508,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중으로 저장\"",
+        "emitted": "\"작성 중으로 저장\""
+      }
+    },
+    {
+      "path": "app/(app)/concessions/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 534,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      },
+      "after": {
+        "line": 496,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 76,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 96,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 151,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 254,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 232,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/contracts/approval-actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 325,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 검토서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 검토서는 반려할 수 없습니다.\""
+      },
+      "after": {
+        "line": 378,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 검토서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 검토서는 반려할 수 없습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 100,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+      },
+      "after": {
+        "line": 117,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+      }
+    },
+    {
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 111,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+      },
+      "after": {
+        "line": 128,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+      }
+    },
+    {
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 141,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 169,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 142,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 170,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/design/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 184,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 223,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/design/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 185,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 224,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/design/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 306,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "제안서를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+        "emitted": "제안서를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/document-dispatch/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 352,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      },
+      "after": {
+        "line": 399,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 71,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 85,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 148,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 200,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 229,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/document-dispatch/new/page.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 76,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "저장하면 번호가 붙고 작성중으로 남습니다. 다 적었으면 결재 칸에서\n        상신하세요.\n      ",
+        "emitted": "저장하면 번호가 붙고 작성 중으로 남습니다. 다 적었으면 결재 칸에서\n        상신하세요.\n      "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/documents/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 487,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중·반려됨 상태에서만 개정을 만들 수 있습니다.\"",
+        "emitted": "\"작성 중·반려됨 상태에서만 개정을 만들 수 있습니다.\""
+      },
+      "after": {
+        "line": 496,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중·반려됨 상태에서만 개정을 만들 수 있습니다.\"",
+        "emitted": "\"작성 중·반려됨 상태에서만 개정을 만들 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/documents/[id]/approval-panel.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 88,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"검토자에게 결재를 요청합니다 (검토중).\"",
+        "emitted": "\"검토자에게 결재를 요청합니다 (검토 중).\""
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 91,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 105,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 172,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 247,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 297,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/drawings/[id]/page.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 451,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성중으로 되돌리세요.\"",
+        "emitted": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성 중으로 되돌리세요.\""
+      },
+      "after": {
+        "line": 572,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성중으로 되돌리세요.\"",
+        "emitted": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성 중으로 되돌리세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/improvements/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 483,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성중으로 되돌린 뒤에 지울 수 있습니다.\"",
+        "emitted": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성 중으로 되돌린 뒤에 지울 수 있습니다.\""
+      },
+      "after": {
+        "line": 494,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성중으로 되돌린 뒤에 지울 수 있습니다.\"",
+        "emitted": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성 중으로 되돌린 뒤에 지울 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 398,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 문서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 문서는 반려할 수 없습니다.\""
+      },
+      "after": {
+        "line": 482,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 문서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 문서는 반려할 수 없습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 100,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 110,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 111,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 121,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "status": "reviewed-exact-display-branch",
+      "before": {
+        "line": 141,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 ${",
+        "emitted": "`작성 중입니다. 상신하면 ${"
+      },
+      "after": {
+        "line": 161,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 ${",
+        "emitted": "`작성 중입니다. 상신하면 ${"
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "status": "reviewed-exact-display-branch",
+      "before": {
+        "line": 141,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 ${",
+        "emitted": "`작성 중입니다. 상신하면 ${"
+      },
+      "after": {
+        "line": 162,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 ${",
+        "emitted": "`작성 중입니다. 상신하면 ${"
+      }
+    },
+    {
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 142,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 163,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 102,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 112,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+        "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 113,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      },
+      "after": {
+        "line": 123,
+        "kind": "LastTemplateToken",
+        "ordinal": 0,
+        "original": "} 반려: 작성중으로 되돌렸습니다`",
+        "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+      }
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 151,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 172,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 152,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 173,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/meetings/meeting-form.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 424,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "명단은 작성중일 때만 고칠 수 있습니다.\n          ",
+        "emitted": "명단은 작성 중일 때만 고칠 수 있습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 90,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려했습니다. 작성중으로 돌아갑니다.\"",
+        "emitted": "\"반려했습니다. 작성 중으로 돌아갑니다.\""
+      },
+      "after": {
+        "line": 129,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려했습니다. 작성중으로 돌아갑니다.\"",
+        "emitted": "\"반려했습니다. 작성 중으로 돌아갑니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 101,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신을 취소하고 작성중으로 되돌립니다. 검토 도장과 참석자 확인이 \"",
+        "emitted": "\"상신을 취소하고 작성 중으로 되돌립니다. 검토 도장과 참석자 확인이 \""
+      },
+      "after": {
+        "line": 140,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신을 취소하고 작성중으로 되돌립니다. 검토 도장과 참석자 확인이 \"",
+        "emitted": "\"상신을 취소하고 작성 중으로 되돌립니다. 검토 도장과 참석자 확인이 \""
+      }
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 116,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신을 취소했습니다. 작성중으로 돌아갑니다.\"",
+        "emitted": "\"상신을 취소했습니다. 작성 중으로 돌아갑니다.\""
+      },
+      "after": {
+        "line": 155,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신을 취소했습니다. 작성중으로 돌아갑니다.\"",
+        "emitted": "\"상신을 취소했습니다. 작성 중으로 돌아갑니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 227,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "상신 취소 (작성중으로)\n          ",
+        "emitted": "상신 취소 (작성 중으로)\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 278,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "반려 (작성중으로)\n            ",
+        "emitted": "반려 (작성 중으로)\n            "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/notices/notice-form.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 144,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"비워 두면 작성중: 전사에 보이지 않습니다\"",
+        "emitted": "\"비워 두면 작성 중: 전사에 보이지 않습니다\""
+      },
+      "after": {
+        "line": 146,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"비워 두면 작성중: 전사에 보이지 않습니다\"",
+        "emitted": "\"비워 두면 작성 중: 전사에 보이지 않습니다\""
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 300,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      },
+      "after": {
+        "line": 433,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 58,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 69,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 127,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 187,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 205,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 64,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 75,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 140,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 187,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 223,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/recalls/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 687,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자(품질 책임자 · 품질 팀장)만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자(품질 책임자 · 품질 팀장)만, 작성 중일 때 상신할 수 있습니다.\""
+      },
+      "after": {
+        "line": 754,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성자(품질 책임자 · 품질 팀장)만, 작성중일 때 상신할 수 있습니다.\"",
+        "emitted": "\"작성자(품질 책임자 · 품질 팀장)만, 작성 중일 때 상신할 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 82,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      },
+      "after": {
+        "line": 105,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중 · ${",
+        "emitted": "`작성 중 · ${"
+      }
+    },
+    {
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 156,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 290,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 237,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 검토 도장도 함께 지워지고, 사유는 기록에\n            남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/reviews/agendas/new/page.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 50,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "경영검토\n      ",
+        "emitted": "경영 검토\n      "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 181,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      },
+      "after": {
+        "line": 196,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      }
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 191,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      },
+      "after": {
+        "line": 209,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      }
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 203,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "경영검토\n          ",
+        "emitted": "경영 검토\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/report/page.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 201,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      },
+      "after": {
+        "line": 216,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "경영검토 ·",
+        "emitted": "경영 검토 ·"
+      }
+    },
+    {
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 231,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${"
+      },
+      "after": {
+        "line": 344,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${"
+      }
+    },
+    {
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 232,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 345,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 330,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+        "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/risks/approval-actions.ts",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 86,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\"",
+        "emitted": "\"작성 중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\""
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 194,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중인 위험평가입니다. 결재선 설정·상신 권한이 없습니다.\n        ",
+        "emitted": "작성 중인 위험평가입니다. 결재선 설정·상신 권한이 없습니다.\n        "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/safety/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 144,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+        "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+      },
+      "after": {
+        "line": 141,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+        "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 138,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\""
+      },
+      "after": {
+        "line": 172,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\"",
+        "emitted": "\"작성 중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\""
+      }
+    },
+    {
+      "path": "app/(app)/safety/monthly/month-approval.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 259,
+        "kind": "JsxText",
+        "ordinal": 0,
+        "original": "작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          ",
+        "emitted": "작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게 보입니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "app/(app)/shipping/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 348,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+        "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+      },
+      "after": {
+        "line": 353,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+        "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 188,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\"",
+        "emitted": "\"작성 중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\""
+      },
+      "after": {
+        "line": 237,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\"",
+        "emitted": "\"작성 중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/suppliers/reports/actions.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 537,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 보고서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 보고서는 반려할 수 없습니다.\""
+      },
+      "after": {
+        "line": 640,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중인 보고서는 반려할 수 없습니다.\"",
+        "emitted": "\"작성 중인 보고서는 반려할 수 없습니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 100,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+      },
+      "after": {
+        "line": 111,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+      }
+    },
+    {
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 111,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+      },
+      "after": {
+        "line": 122,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"반려: 작성중으로 되돌렸습니다\"",
+        "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+      }
+    },
+    {
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 141,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 159,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 142,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 160,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/training/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 190,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      },
+      "after": {
+        "line": 215,
+        "kind": "TemplateHead",
+        "ordinal": 0,
+        "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+        "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+      }
+    },
+    {
+      "path": "app/(app)/training/approval-ui.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 191,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      },
+      "after": {
+        "line": 216,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+        "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+      }
+    },
+    {
+      "path": "app/(app)/training/approval-ui.tsx",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 278,
+        "kind": "JsxText",
+        "ordinal": 1,
+        "original": "를 작성중으로 되돌립니다. 사유는 기록에 남습니다.\n          ",
+        "emitted": "를 작성 중으로 되돌립니다. 사유는 기록에 남습니다.\n          "
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 307,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 317,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 357,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 366,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 486,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성 · 결재중\"",
+        "emitted": "\"작성 · 결재 중\""
+      },
+      "after": {
+        "line": 495,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성 · 결재중\"",
+        "emitted": "\"작성 · 결재 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 547,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"결재중\"",
+        "emitted": "\"결재 중\""
+      },
+      "after": {
+        "line": 556,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"결재중\"",
+        "emitted": "\"결재 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 572,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"결재중\"",
+        "emitted": "\"결재 중\""
+      },
+      "after": {
+        "line": 581,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"결재중\"",
+        "emitted": "\"결재 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 809,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 744,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1097,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1032,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1498,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1433,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 596,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      },
+      "after": {
+        "line": 605,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      }
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 724,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      },
+      "after": {
+        "line": 659,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      }
+    },
+    {
+      "path": "lib/concessions/rules.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 386,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 565,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/doc-dispatch/rules.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 174,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 289,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 528,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\"",
+        "emitted": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성 중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\""
+      },
+      "after": {
+        "line": 547,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\"",
+        "emitted": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성 중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\""
+      }
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "status": "retired-absent-literal",
+      "before": {
+        "line": 663,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"기준일은 발주일입니다. 상태 칩은 발주 완료·입고 완료·종결 세 가지뿐: 요청·검토중·취소는 매입 실적이 아니라 애초에 집계에서 빠집니다.\"",
+        "emitted": "\"기준일은 발주일입니다. 상태 칩은 발주 완료·입고 완료·종결 세 가지뿐: 요청·검토 중·취소는 매입 실적이 아니라 애초에 집계에서 빠집니다.\""
+      },
+      "reason": "The previous exact emitted literal no longer exists after the completed feature migration. It cannot inherit an old binding. Fresh current authored text still receives the normal central copy scan."
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1852,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\"",
+        "emitted": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성 중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\""
+      },
+      "after": {
+        "line": 1906,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\"",
+        "emitted": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성 중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\""
+      }
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1857,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\"",
+        "emitted": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성 중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\""
+      },
+      "after": {
+        "line": 1911,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\"",
+        "emitted": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성 중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\""
+      }
+    },
+    {
+      "path": "lib/meetings/notify.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 125,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"회의록이 작성중으로 되돌아왔습니다.\"",
+        "emitted": "\"회의록이 작성 중으로 되돌아왔습니다.\""
+      },
+      "after": {
+        "line": 131,
+        "kind": "StringLiteral",
+        "ordinal": 0,
+        "original": "\"회의록이 작성중으로 되돌아왔습니다.\"",
+        "emitted": "\"회의록이 작성 중으로 되돌아왔습니다.\""
+      }
+    },
+    {
+      "path": "lib/purchasing/order-rules.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 56,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 184,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/recalls/rules.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 302,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 461,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/reviews/sheets.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 41,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 42,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 441,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 407,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 442,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 408,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 907,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 873,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 942,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 908,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1032,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 998,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1320,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 1286,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1359,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 1325,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1392,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1358,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1427,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1393,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1649,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1615,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1650,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 1616,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1662,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1628,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1707,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 1673,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1750,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 1727,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1999,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      },
+      "after": {
+        "line": 1976,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"검토중\"",
+        "emitted": "\"검토 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 2074,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 2051,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 1211,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      },
+      "after": {
+        "line": 1177,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 2109,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      },
+      "after": {
+        "line": 2086,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"사용중\"",
+        "emitted": "\"사용 중\""
+      }
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 625,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"대응완료\"",
+        "emitted": "\"대응 완료\""
+      },
+      "after": {
+        "line": 591,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"대응완료\"",
+        "emitted": "\"대응 완료\""
+      }
+    },
+    {
+      "path": "lib/suppliers/evaluation-report.ts",
+      "status": "relocated-exact-literal",
+      "before": {
+        "line": 245,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      },
+      "after": {
+        "line": 248,
+        "kind": "StringLiteral",
+        "ordinal": 1,
+        "original": "\"작성중\"",
+        "emitted": "\"작성 중\""
+      }
+    }
+  ],
+  "ambiguous": []
+}

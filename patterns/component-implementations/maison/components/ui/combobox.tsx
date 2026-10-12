@@ -26,7 +26,9 @@ import { filterOptions, type SearchableOption } from "@/lib/ui/option-search";
  * 흉내 내면 호출부가 없는 DOM 을 믿게 된다).
  *
  * 키보드: ↓↑ 이동 · Enter 선택 · Esc 닫기 · Home/End 처음·끝.
- * **닫힌 상태의 Enter 는 막지 않는다**: 그대로 폼 제출로 흘러가야 손이 안 멈춘다.
+ * 닫힌 상태의 Enter 는 여기서 막지 않는다. 폼 쪽에서 판단한다. 저장하는 폼은
+ * `preventEnterSubmit` 로 Enter 제출을 막는다(2026-10-05 「엔터 눌러도 문서 저장되면서
+ * 발행되는 걸 막아주세요」), 검색 폼은 그대로 제출된다.
  */
 export type ComboboxOption = SearchableOption;
 

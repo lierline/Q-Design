@@ -7,10 +7,12 @@ import {createAtelierProofContext,compositionNodes} from './atelier-proof-contex
 import {expressionProof,localBindings,sourceImports} from './atelier-style-proof.mjs';
 import {addChoiceColumnsNodes} from './atelier-choice-columns-review.mjs';
 import {hash} from './style-arguments-core.mjs';
+import {beforeAtelierProfessionalReview} from './atelier-professional-copy-revalidation.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',ref='cb5789de1676125fb2336e6fb46a0321d727afa2';
 const manifest=root+'/reviews/atelier-choice-columns-ledger.json',serialize=j=>JSON.stringify(j,null,2)+'\n';
 const baseline=()=>JSON.parse(execFileSync('git',['show',ref+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));
 export function inspectChoiceLedger(current){
+ current=beforeAtelierProfessionalReview('atelier-style-decisions.json',current);
  const before=baseline(),file='app/(app)/m/field-ui.tsx',context=createAtelierProofContext({expanded:true}),{ts,references,variables}=context;
  const code=fs.readFileSync(product+'/'+file,'utf8'),sf=ts.createSourceFile(file,code,99,true,4),locals=localBindings(ts,sf,hash,references),imports=sourceImports(ts,sf);
  const nodes=addChoiceColumnsNodes(ts,sf,new Map());
@@ -37,6 +39,7 @@ export function inspectChoiceLedger(current){
 export function beforeChoiceColumnsLedger(current){
  if(!fs.existsSync(manifest))return current;
  const before=baseline();if(hash(serialize(current))===hash(serialize(before)))return current;
+ current=beforeAtelierProfessionalReview('atelier-style-decisions.json',current);
  assert.deepEqual(inspectChoiceLedger(current),JSON.parse(fs.readFileSync(manifest,'utf8')));return before;
 }
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){

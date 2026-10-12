@@ -19,6 +19,15 @@ export function copyNodes(file,code){
  };visit(ast);return nodes;
 }
 export function normalizeCopy(raw,terms){return terms.reduce((text,{from,to})=>text.replaceAll(from,to),raw);}
+export function jsxDisplayText(raw){
+ const code=ts.transpileModule('const view=<p>'+raw+'</p>;',{compilerOptions:{jsx:ts.JsxEmit.React,module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+ const sf=ts.createSourceFile('jsx.js',code,ts.ScriptTarget.Latest,true,ts.ScriptKind.JS),values=[];
+ const visit=n=>{if(ts.isCallExpression(n)&&n.expression.getText(sf)==='React.createElement'){
+  if(n.arguments.length!==3||!ts.isStringLiteral(n.arguments[2]))throw Error('Expected one literal JSX text child');
+  values.push(n.arguments[2].text);
+ }ts.forEachChild(n,visit);};visit(sf);
+ if(values.length!==1)throw Error('Expected one JSX text element');return values[0];
+}
 export function termsForFile(terms,product,file){return terms.filter(term=>(!term.products||term.products.includes(product))&&(!term.paths||term.paths.includes(file)));}
 export async function formatProductCopy(base,file,code){
  const require=createRequire(path.join(base,'package.json')),full=path.join(base,file);
@@ -36,11 +45,11 @@ export async function formatProductCopy(base,file,code){
 }
 export function relocateCopyBindings(file,before,after,bindings){
  const oldNodes=copyNodes(file,before),newNodes=copyNodes(file,after);
- if(oldNodes.length!==newNodes.length||oldNodes.some((node,i)=>node.kind!==newNodes[i].kind||node.raw!==newNodes[i].raw))throw Error('Formatting changed authored literal content: '+file);
+ if(oldNodes.length!==newNodes.length||oldNodes.some((node,i)=>node.kind!==newNodes[i].kind||(node.raw!==newNodes[i].raw&&(node.kind!=='JsxText'||jsxDisplayText(node.raw)!==jsxDisplayText(newNodes[i].raw)))))throw Error('Formatting changed authored literal content: '+file);
  return bindings.map(binding=>{
   const index=oldNodes.findIndex(node=>node.line===binding.line&&node.kind===binding.kind&&node.ordinal===binding.ordinal&&node.raw===binding.emitted);
   if(index<0)throw Error('Cannot relocate changed copy binding: '+file+':'+binding.line);
-  const node=newNodes[index];return {...binding,line:node.line,kind:node.kind,ordinal:node.ordinal};
+  const node=newNodes[index];return {...binding,line:node.line,kind:node.kind,ordinal:node.ordinal,emitted:node.raw};
  });
 }
 export function applyBindings(file,code,bindings,terms){
@@ -49,7 +58,7 @@ export function applyBindings(file,code,bindings,terms){
   const node=nodes.find(n=>n.line===binding.line&&n.kind===binding.kind&&n.ordinal===binding.ordinal);
   if(!node||node.raw!==binding.emitted)throw Error('Copy binding changed outside Q-Design: '+file+':'+binding.line);
   used.add(node.start);const emitted=normalizeCopy(binding.original,terms);
-  if(node.raw!==emitted)changes.push({...node,emitted,original:binding.original});
+  if(node.raw!==emitted&&(node.kind!=='JsxText'||jsxDisplayText(node.raw)!==jsxDisplayText(emitted)))changes.push({...node,emitted,original:binding.original});
  }
  for(const node of nodes)if(!used.has(node.start)){
   const emitted=normalizeCopy(node.raw,terms);
@@ -58,6 +67,11 @@ export function applyBindings(file,code,bindings,terms){
  let after=code;
  for(const change of [...changes].sort((a,b)=>b.start-a.start))after=after.slice(0,change.start)+change.emitted+after.slice(change.end);
  return {after,changes};
+}
+export function mergeCopyBindings(prior,records,selected){
+ const byKey=new Map(records.map(r=>[r.product+':'+r.path,r])),merged=[];
+ for(const row of prior){const key=row.product+':'+row.path;if(!selected.includes(row.product))merged.push(row);else if(byKey.has(key)){merged.push(byKey.get(key));byKey.delete(key);}}
+ merged.push(...byKey.values());return merged;
 }
 function files(dir){if(!fs.existsSync(dir))return [];return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?(['engine','__tests__','__fixtures__'].includes(e.name)||(e.name==='design'&&/(?:^|[\\/])lib$/.test(dir))?[]:files(path.join(dir,e.name))):/\.[jt]sx?$/.test(e.name)&&! /\.(?:test|spec)\./.test(e.name)?[path.join(dir,e.name)]:[]);}
 export function copySourceFiles(base,product,owners=new Map()){
@@ -108,9 +122,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   console.log('Authored copy rules passed: '+records.length+' files. Scope: '+selected.join(', '));
  }else{
   for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
-  const byKey=new Map(records.map(r=>[r.product+':'+r.path,r])),merged=[];
-  for(const row of prior){const key=row.product+':'+row.path;if(!selected.includes(row.product))merged.push(row);else if(byKey.has(key)){merged.push(byKey.get(key));byKey.delete(key);}}
-  merged.push(...byKey.values());
+  const merged=mergeCopyBindings(prior,records,selected);
   fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.json',files:merged},null,2)+'\n');
   if(baselines.length){
    fs.writeFileSync(path.resolve(root,'../tmp/qd-copy-spacing-baselines.json'),JSON.stringify(baselines,null,2)+'\n');

@@ -1651,7 +1651,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 134,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "94327bdbd065fc6cf695301fc51b846f5d0c122e4afa46ee4806e787d6e95f52",
       "value": "r",
       "decision": "business-data",
@@ -1661,7 +1661,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 134,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "const merged = { ...r, ...exec, post_inspection_result: exec.post_inspection_result || null, evidence: exec.evidence || null };"
@@ -1669,7 +1669,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 134,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "c1a9a12c0cbf44db66f4ce165e82d73af0451f381db52236144ada2bcba94230",
       "value": "exec",
       "decision": "business-data",
@@ -1679,7 +1679,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 134,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "const merged = { ...r, ...exec, post_inspection_result: exec.post_inspection_result || null, evidence: exec.evidence || null };"
@@ -1687,7 +1687,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 150,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "a71ea7a2851f3bd6e6b89bc5865e37832857c385e7faa990840047f67fa14271",
       "value": "draft",
       "decision": "business-data",
@@ -1697,7 +1697,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 150,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "(k: keyof NewDraft) => (e: { target: { value: string } }) => setDraft({ ...draft, [k]: e.target.value })"
@@ -1705,7 +1705,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 151,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "1494d73ebeb28d84ad58de25f3ae00b31eefda4ab92d49ba836152ba744f990b",
       "value": "exec",
       "decision": "business-data",
@@ -1715,7 +1715,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 151,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "(k: keyof ExecDraft) => (e: { target: { value: string } }) => setExec({ ...exec, [k]: e.target.value })"
@@ -1723,7 +1723,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 215,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "215ff6af03b6aeb8959248867b57aa27847ffdd6c98a976ed51a28a83c7d3f04",
       "value": "rel",
       "decision": "business-data",
@@ -1733,7 +1733,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 215,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "{(e) => setRel({ ...rel, status_before: e.target.value })}"
@@ -1741,7 +1741,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 219,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "7fa3ab100dda2f426f4bad96118ab054c39174c4b5da346867d9666d402d9432",
       "value": "rel",
       "decision": "business-data",
@@ -1751,7 +1751,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 219,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "{(e) => setRel({ ...rel, status_after: e.target.value })}"
@@ -1759,7 +1759,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 224,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "0785029775874594c012aa7b0ccbe77fe859cdfd58ae70c2e7b95139ee2f27fd",
       "value": "rel",
       "decision": "business-data",
@@ -1769,7 +1769,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 224,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "{(e) => setRel({ ...rel, release_scope: e.target.value })}"
@@ -1777,7 +1777,7 @@
     {
       "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
       "line": 228,
-      "sourceHash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a",
+      "sourceHash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3",
       "argumentHash": "e73ee58577aed16b903b29e5608ba108e842cd70cd033aea2deb4d2ab31dc551",
       "value": "rel",
       "decision": "business-data",
@@ -1787,7 +1787,7 @@
         {
           "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
           "line": 228,
-          "hash": "23896da051290f4e737c4fc33ab1c4a124a0df0b7a6090174dc51e71f61f8b9a"
+          "hash": "3a39bcf5d38b66971b2f213b360e5dd26d921556bc0db54b15fd6a69fe2edeb3"
         }
       ],
       "consumer": "call(`release:${r.id}`, `${base}/${r.id}`, 'PATCH', { action: 'release', ...rel },\r\n                        `처분 ${r.seq}의 제품 상태 전환을 기록했습니다.`).then((ok) => ok && setRelFor(null))"
@@ -10594,7 +10594,7 @@
     {
       "path": "components/Sidebar.tsx",
       "line": 502,
-      "sourceHash": "45528f706868e5a29b71acb9d8e2d72ca655cbfa41c90336d051c56d862df5e4",
+      "sourceHash": "a3d68f05a18561cd05abac714f7f47e49f08770c3a2fed2530ace3b33b6cce79",
       "argumentHash": "e14e8d48212cfc73e1cc9cdc1ec8a9006dfa78df4721da61d5629bff158cfb05",
       "value": "d",
       "decision": "structural-behavior",
@@ -10604,7 +10604,7 @@
         {
           "path": "components/Sidebar.tsx",
           "line": 501,
-          "hash": "45528f706868e5a29b71acb9d8e2d72ca655cbfa41c90336d051c56d862df5e4"
+          "hash": "a3d68f05a18561cd05abac714f7f47e49f08770c3a2fed2530ace3b33b6cce79"
         }
       ],
       "consumer": "DEPT_META.map((d) => ({\n    ...d,\n    modules: leftoverModules.filter((m) => NAV_ITEMS[m]?.group === d.group),\n  }))"
@@ -10612,7 +10612,7 @@
     {
       "path": "components/Sidebar.tsx",
       "line": 787,
-      "sourceHash": "45528f706868e5a29b71acb9d8e2d72ca655cbfa41c90336d051c56d862df5e4",
+      "sourceHash": "a3d68f05a18561cd05abac714f7f47e49f08770c3a2fed2530ace3b33b6cce79",
       "argumentHash": "4e5c2a9e761450b16fe68d1186402817ef5da06e0e9bbcf440a8eae7ba95b1a9",
       "value": "d",
       "decision": "structural-behavior",
@@ -10622,7 +10622,7 @@
         {
           "path": "components/Sidebar.tsx",
           "line": 786,
-          "hash": "45528f706868e5a29b71acb9d8e2d72ca655cbfa41c90336d051c56d862df5e4"
+          "hash": "a3d68f05a18561cd05abac714f7f47e49f08770c3a2fed2530ace3b33b6cce79"
         }
       ],
       "consumer": "return {\n                    ...d,\n                    mineDept,\n                    modules: mineDept || !hasHubMenu ? mods : [d.hub, ...mods],\n                  };"

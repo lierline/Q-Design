@@ -38,7 +38,7 @@
         },
         {
           "file": "app/q-design.components.css",
-          "hash": "360ab098767fd4687aea6d3e80598b4a41dedb8854d98391b779624e3d8ed8b0"
+          "hash": "489377a3b938de020248ed4946094add318df097b79c80a7e7170e8ffe36fdb9"
         },
         {
           "file": "app/q-design.palette.css",
@@ -2260,14 +2260,14 @@
     {
       "product": "maison",
       "scope": "All App Router pages and UI conventions, including explicit CSS on global-error which replaces the root layout. API HTML, email, print and offline outputs require their separate output contracts.",
-      "surfaces": 485,
-      "pages": 277,
-      "connected": 485,
+      "surfaces": 493,
+      "pages": 281,
+      "connected": 493,
       "missing": [],
       "roots": [
         {
           "file": "app/layout.tsx",
-          "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
+          "hash": "ae2823fbf93412bb8bbfb8a2da158d1694ddc1a3a2c1501d6d8daf9f0e687587"
         }
       ],
       "cssEvidence": [
@@ -2297,7 +2297,7 @@
         },
         {
           "file": "app/q-design.components.css",
-          "hash": "360ab098767fd4687aea6d3e80598b4a41dedb8854d98391b779624e3d8ed8b0"
+          "hash": "489377a3b938de020248ed4946094add318df097b79c80a7e7170e8ffe36fdb9"
         },
         {
           "file": "app/q-design.foundation.css",
@@ -4734,6 +4734,26 @@
           "connected": true
         },
         {
+          "file": "app/(app)/nc/[id]/report/loading.tsx",
+          "kind": "loading",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/nc/[id]/report/page.tsx",
+          "kind": "page",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
           "file": "app/(app)/notices/loading.tsx",
           "kind": "loading",
           "layoutChain": [
@@ -5115,6 +5135,26 @@
         },
         {
           "file": "app/(app)/purchasing/orders/new/page.tsx",
+          "kind": "page",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/purchasing/orders/[id]/agreement/loading.tsx",
+          "kind": "loading",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/purchasing/orders/[id]/agreement/page.tsx",
           "kind": "page",
           "layoutChain": [
             "app/(app)/layout.tsx",
@@ -5984,6 +6024,26 @@
           "connected": true
         },
         {
+          "file": "app/(app)/safety/incidents/[id]/print/loading.tsx",
+          "kind": "loading",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/safety/incidents/[id]/print/page.tsx",
+          "kind": "page",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
           "file": "app/(app)/safety/loading.tsx",
           "kind": "loading",
           "layoutChain": [
@@ -5995,6 +6055,26 @@
         },
         {
           "file": "app/(app)/safety/monthly/page.tsx",
+          "kind": "page",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/safety/monthly/print/loading.tsx",
+          "kind": "loading",
+          "layoutChain": [
+            "app/(app)/layout.tsx",
+            "app/layout.tsx"
+          ],
+          "cssOwner": "app/layout.tsx",
+          "connected": true
+        },
+        {
+          "file": "app/(app)/safety/monthly/print/page.tsx",
           "kind": "page",
           "layoutChain": [
             "app/(app)/layout.tsx",
@@ -7197,7 +7277,7 @@
         },
         {
           "file": "app/q-design.components.css",
-          "hash": "360ab098767fd4687aea6d3e80598b4a41dedb8854d98391b779624e3d8ed8b0"
+          "hash": "489377a3b938de020248ed4946094add318df097b79c80a7e7170e8ffe36fdb9"
         },
         {
           "file": "app/q-design.palette.css",

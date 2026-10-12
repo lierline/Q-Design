@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "role": "--qd-caption-size",
+  "paths": [
+    "app/(app)/inspections/receipt-dialog.tsx",
+    "app/(app)/purchasing/analysis/delivery-tab.tsx",
+    "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+    "app/(app)/purchasing/analysis/savings-tab.tsx",
+    "app/(app)/purchasing/specs/[id]/page.tsx",
+    "app/(app)/safety/incidents/[id]/page.tsx",
+    "app/(app)/specs/page.tsx",
+    "app/(app)/traceability/[id]/page.tsx"
+  ],
+  "scope": "Reviewed secondary metadata, identifiers, hints and urgency captions share the central 12px caption role. Other font classes, data and business conditions are unchanged.",
+  "records": [
+    {
+      "path": "app/(app)/inspections/receipt-dialog.tsx",
+      "beforeHash": "a9bf7e4018d468247824bf6993839514745c8bf8b1e3205e0596eed9cc0150f5",
+      "afterHash": "357cca67cee4c12d2c6a8c9cc429649c868e5057f697b971b5024fd1d55d2f9c",
+      "literalCount": 1,
+      "changes": [
+        {
+          "line": 329,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "5e4f3d3edf87f63418a4812ef53e5aecfebd01523930b7e51268e372a0ee6e51",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/delivery-tab.tsx",
+      "beforeHash": "c5c99e266864fe70fd4b54a37366ad56389aec31ba7bb2f6eb00539b1410dc59",
+      "afterHash": "55b52169b01730a0b6a99db9920ea208efcba6331790fa8879239f3b9268b876",
+      "literalCount": 2,
+      "changes": [
+        {
+          "line": 473,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        },
+        {
+          "line": 528,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "55b52169b01730a0b6a99db9920ea208efcba6331790fa8879239f3b9268b876",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+      "beforeHash": "38411002ce609a3e0c545da48f9a9f298c0ee152ed3fdb35b1345ec227bcc559",
+      "afterHash": "fc66be2d9d19b5e5b7964d28224e63c31fefccd2f3672b7ef6b7c61d5dc526f1",
+      "literalCount": 2,
+      "changes": [
+        {
+          "line": 148,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        },
+        {
+          "line": 157,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "fc66be2d9d19b5e5b7964d28224e63c31fefccd2f3672b7ef6b7c61d5dc526f1",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
+      "beforeHash": "6407c212f032cce78476fe9cab998e653d2adb950638d0a0fb98c6daa987945a",
+      "afterHash": "0504d6a32ff9db81ed74d208f1f27acf890992e466512c5e10d6fd2d211ade07",
+      "literalCount": 2,
+      "changes": [
+        {
+          "line": 438,
+          "before": "text-[10px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        },
+        {
+          "line": 559,
+          "before": "text-[10px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "0504d6a32ff9db81ed74d208f1f27acf890992e466512c5e10d6fd2d211ade07",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/purchasing/specs/[id]/page.tsx",
+      "beforeHash": "e16887e50962584bdcf943382aab1df10a9dce2dc16d94753b5a9dc3604e80cf",
+      "afterHash": "7312e1a2bcace04acc431622588444f62e334e2c4e477eb5733a0d40b4f03e0e",
+      "literalCount": 1,
+      "changes": [
+        {
+          "line": 399,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "7312e1a2bcace04acc431622588444f62e334e2c4e477eb5733a0d40b4f03e0e",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/safety/incidents/[id]/page.tsx",
+      "beforeHash": "80c075b50bbb4fb478816ec11b8e875c77c7a06ba75849d2d6eabe4ff15a1f96",
+      "afterHash": "8a1138b052619fbf511743d1d469a53e7d012daf6849c931b5f70e5fede7e91e",
+      "literalCount": 1,
+      "changes": [
+        {
+          "line": 159,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "8a1138b052619fbf511743d1d469a53e7d012daf6849c931b5f70e5fede7e91e",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/specs/page.tsx",
+      "beforeHash": "d4b7ebd5fde5f9967344e6bf02646afd06420c0bd8be99b56462feb54814fcc5",
+      "afterHash": "a362b661d2ac3b8f2c1017e374655fd6d9f371ca3fda281d4176f931ae7824c6",
+      "literalCount": 1,
+      "changes": [
+        {
+          "line": 420,
+          "before": "text-[10px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "a362b661d2ac3b8f2c1017e374655fd6d9f371ca3fda281d4176f931ae7824c6",
+      "formatted": true
+    },
+    {
+      "path": "app/(app)/traceability/[id]/page.tsx",
+      "beforeHash": "64e9f4269cb1e3500cafbadaddad176115896e1b93d33ebd456200df34505ba8",
+      "afterHash": "f82bf25cb28f4d6427ee6f8808c1dede0aed410535346f4155c8d3774a5eae53",
+      "literalCount": 1,
+      "changes": [
+        {
+          "line": 143,
+          "before": "text-[11px]",
+          "after": "text-[length:var(--qd-caption-size)]"
+        }
+      ],
+      "literalAfterHash": "f82bf25cb28f4d6427ee6f8808c1dede0aed410535346f4155c8d3774a5eae53",
+      "formatted": true
+    }
+  ]
+}

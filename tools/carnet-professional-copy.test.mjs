@@ -34,14 +34,14 @@ test('demo confirmation rejects unauthorized, empty, old and incorrect phrases b
  assert.equal(calls,1);assert.equal(revalidations,1);
  // withActor is a stub. No actual database or purge function is called.
 });
-test('shared labels reject identifier drift and preserve the other product copy bindings',()=>{
+test('shared labels reject identifier drift and retain the reviewed Carnet bindings after other product updates',()=>{
  buildRecordLabels({check:true});
  assert.throws(()=>recordLabelsSource({link_connection:'연동',extra:'추가'}),/identifiers/);
  assert.throws(()=>recordLabelsSource({link_connection:'연동\n연결',link_inbox:'수신'}),/single-line/);
- const prior=JSON.parse(execFileSync('git',['show','63372ef3622c9ae2eb7f2584fc058f0d0167704b:dist/q-design.copy-bindings.json'],{cwd:root,encoding:'utf8'}));
  const current=JSON.parse(read(root+'/dist/q-design.copy-bindings.json'));
  const rows=(report,product)=>report.files.filter(r=>r.product===product).sort((a,b)=>a.path.localeCompare(b.path));
- for(const product of ['atelier','maison'])assert.deepEqual(rows(current,product),rows(prior,product));
+ const reviewed=JSON.parse(execFileSync('git',['show','cb5789de1676125fb2336e6fb46a0321d727afa2:dist/q-design.copy-bindings.json'],{cwd:root,encoding:'utf8'}));
+ assert.deepEqual(rows(current,'carnet'),rows(reviewed,'carnet'));
 });
 test('a future central terminology edit changes the already migrated homepage without changing its layout',()=>{
  const file='app/(admin)/page.tsx',code=read(base+'/'+file);

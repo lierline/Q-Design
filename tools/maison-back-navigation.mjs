@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
+import {createCurrentMaisonNavigation} from './maison-current-navigation.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),product=path.resolve(root,'../Q-Works');
 const ts=createRequire(product+'/package.json')('typescript');
 export const beforeClass='inline-flex w-fit items-center gap-1 text-xs text-muted-foreground hover:text-brand-forestDark';
@@ -55,9 +56,12 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  }else{
   const manifest=JSON.parse(fs.readFileSync(manifestFile,'utf8'));assert.equal(manifest.baseline,baseline);assert.equal(manifest.records.length,144);
   for(const r of manifest.records){assert(/^app\/[^\\]+\.tsx$/.test(r.path)&&!r.path.split('/').includes('..'));
-   const before=original(r.path),after=norm(fs.readFileSync(product+'/'+r.path,'utf8'));assert.equal(hash(before),r.beforeHash);assert.equal(hash(after),r.afterHash);
+   const before=original(r.path),after=norm(execFileSync('git',['show','160c7731e05400259ee75cc49274625b3a667e1a601e:'+r.path],{cwd:product,encoding:'utf8',maxBuffer:10*1024*1024}));assert.equal(hash(before),r.beforeHash);assert.equal(hash(after),r.afterHash);
    const edit=verifyBackNavigation(before,after,r.path);for(const key of ['line','start','before','after','href'])assert.equal(edit[key],r[key]);
   }
  }
- console.log('144 exact parent-navigation links use the central text-action recipe.');
+ if(mode[0]==='--check'){
+  const report=createCurrentMaisonNavigation();assert.deepEqual(JSON.parse(fs.readFileSync(root+'/reviews/maison-current-navigation-review.json','utf8')),report);
+  console.log('Historical migration: 144 exact class edits. Current handoff source: '+report.records.length+' exact shared navigation consumers.');
+ }else console.log('144 exact parent-navigation links use the central text-action recipe.');
 }

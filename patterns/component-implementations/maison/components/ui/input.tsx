@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils/cn";
 import { useFieldControl } from "@/components/ui/field";
 import { DatePicker } from "@/components/ui/date-picker";
+import { TimePicker } from "@/components/ui/time-picker";
 
 /**
  * 날짜 칸은 **우리 달력**으로 바꿔 끼운다.
@@ -17,7 +18,10 @@ import { DatePicker } from "@/components/ui/date-picker";
  * `onChange(e.target.value)` 를 기존과 **같은 모양**으로 주고받으므로 호출부는
  * 손대지 않는다. 진짜 `<input>` 을 쓰기 때문에 `required` 도 그대로 산다.
  *
- * 날짜가 아닌 나머지 타입은 종전 그대로다.
+ * 시각 칸(`type="time"`)도 같은 까닭으로 우리 고르개(`TimePicker`)로 바꿔 끼운다
+ * (오빠 지시 2026-10-12 「시계를 눌렀을때 디자인 변경 필요합니다」).
+ *
+ * 날짜 · 시각이 아닌 나머지 타입은 종전 그대로다.
  */
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, id, "aria-describedby": describedBy, ...props }, ref) => {
@@ -28,6 +32,24 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
     if (type === "date") {
       return (
         <DatePicker
+          {...props}
+          ref={ref}
+          id={id}
+          aria-describedby={describedBy}
+          className={className}
+          value={typeof props.value === "string" ? props.value : ""}
+          onChange={
+            props.onChange as unknown as (e: {
+              target: { value: string; name?: string };
+            }) => void
+          }
+        />
+      );
+    }
+
+    if (type === "time") {
+      return (
+        <TimePicker
           {...props}
           ref={ref}
           id={id}

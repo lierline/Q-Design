@@ -1,0 +1,1184 @@
+{
+  "version": 1,
+  "scope": "Current exact parent-navigation text-action consumers after the Maison feature handoff. Complete app source inventory is bound. New PageHead and delegated controls retain their own component contracts; this does not approve unrelated routes or business destinations.",
+  "inventoryHash": "d39d1bf7a27d235f6db35d35f6b49c8acf0ae1c016baaf7ad93a24f8dc886ff4",
+  "centralHash": "c5550258b9712e46549b620cf6eaf619475e752de82d86cef878e7bca8e4ede4",
+  "records": [
+    {
+      "path": "app/(app)/audits/[id]/checklist/page.tsx",
+      "line": 172,
+      "sourceHash": "a29632893ac1a5b4ab1c78c1eaf9fcfba8da261e053776643ac873af96d5c477",
+      "href": "{`/audits/${auditId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/audits/[id]/page.tsx",
+      "line": 202,
+      "sourceHash": "6fd1d8a11b8a719386f101a8adfc5fdd929b8912974708c875bd513879230703",
+      "href": "\"/audits\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/audits/[id]/report/page.tsx",
+      "line": 163,
+      "sourceHash": "b9145faa79834512cc100edeb8fed9614bc9eaeb79591ea7557d5d0ec8f28e9f",
+      "href": "{`/audits/${auditId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/audits/new/page.tsx",
+      "line": 62,
+      "sourceHash": "df9f779e91a7ce8bf144b3e987aef4c43db674d1d3363b4d24efa799c8e3a829",
+      "href": "\"/audits\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/capa/new/page.tsx",
+      "line": 83,
+      "sourceHash": "555a484314a8bb1bb7771e0aeb80f632a237f60a32441717cfc594278dc53a0d",
+      "href": "\"/capa\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/capa/plans/[id]/checklist/page.tsx",
+      "line": 181,
+      "sourceHash": "eb600a760a4cc4f8bab61629d9280b242a7cb8cf1062353a0b32f5c5103176e0",
+      "href": "{`/capa/plans/${planId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/capa/plans/[id]/page.tsx",
+      "line": 213,
+      "sourceHash": "90d9131ad24b3f27bf722164a4ec0c56b7181e225f30c1bb8865aa7f914315c4",
+      "href": "\"/capa\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/capa/plans/[id]/report/page.tsx",
+      "line": 199,
+      "sourceHash": "87a6e97a93e6d0287028a30559c1c5171075a9456a1f2b0cbd3eec8b45537b38",
+      "href": "{`/capa/plans/${planId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/examine/page.tsx",
+      "line": 165,
+      "sourceHash": "a1885de7531c5b531feee53309b4e805a39799762557c13249408db9b30472f4",
+      "href": "{`/change-requests/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/page.tsx",
+      "line": 252,
+      "sourceHash": "ff560a80c8a845e3e67ac973396e21fb207137f4711a26320b91197839618d11",
+      "href": "\"/change-requests\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/change-requests/[id]/report/page.tsx",
+      "line": 136,
+      "sourceHash": "8376f6477d3098ea9c4d53352d15c1bf19ad5f9d8c8c2aa61be60ba6fc20095c",
+      "href": "{`/change-requests/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/change-requests/new/page.tsx",
+      "line": 34,
+      "sourceHash": "c6e4801d9e1978cf43b42bd841b63bfc5022525d6c95c858e21386841e522c64",
+      "href": "\"/change-requests\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/complaints/[id]/page.tsx",
+      "line": 433,
+      "sourceHash": "8991c524cdc19732219e56d57b9c9761ab8a0c63ed2e4982bafd55cd0acfb92f",
+      "href": "\"/complaints\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/complaints/new/page.tsx",
+      "line": 55,
+      "sourceHash": "16c981788a298c53ac1b475ad50c1bcf04f8912166dddcd1b66bf1448046d7eb",
+      "href": "\"/complaints\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/concessions/[id]/page.tsx",
+      "line": 160,
+      "sourceHash": "d6b2702c6b6ce7c57d562f01db906ad8f8c19545e2ed839961e08071ac43934e",
+      "href": "{backHref}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/concessions/[id]/report/page.tsx",
+      "line": 228,
+      "sourceHash": "ed3c6bc40b8b8b3851bb3997a53d4023239ce2c4fb78625554895f7b53bb204f",
+      "href": "{`/concessions/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/concessions/new/page.tsx",
+      "line": 199,
+      "sourceHash": "579f1c2b784982574a79f053a33a47cb17283b6c19c1a74ec7307063e73f15b4",
+      "href": "{`/concessions${kind === \"rework\" ? \"?tab=rework\" : \"\"}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/contracts/[id]/edit/page.tsx",
+      "line": 89,
+      "sourceHash": "88a4c0bfa76f42f9bbd9bd7f5043d86bfd08768ebb1e04c75f65727a60ec4091",
+      "href": "{`/contracts/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/contracts/[id]/page.tsx",
+      "line": 279,
+      "sourceHash": "d0b213034e7efe52cd4dfd2505bf72fb9da8fbd858bacbbb5d8968ee08227f95",
+      "href": "\"/contracts\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/contracts/new/page.tsx",
+      "line": 37,
+      "sourceHash": "c4ffda4b3361dd9109f883fb6e074265424d6a7c465f95f6574e26820100c420",
+      "href": "\"/contracts\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/customer/surveys/[id]/edit/page.tsx",
+      "line": 57,
+      "sourceHash": "72d032511143f7e80dd886e1bb93aef6bac37affa06cb05842e3e89038ed83e0",
+      "href": "{`/customer/surveys/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/customer/surveys/[id]/page.tsx",
+      "line": 98,
+      "sourceHash": "3e4aa603667459f0f583d7c1711c20aad59ba7b95ea176153d8c9e618a8540e0",
+      "href": "\"/customer\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/customer/surveys/new/page.tsx",
+      "line": 20,
+      "sourceHash": "05bd367c482026dde6395c790e0d5b3d3f3003774ba1fb94d4bc5c0cb63488b6",
+      "href": "\"/customer\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/[id]/page.tsx",
+      "line": 185,
+      "sourceHash": "1dc94fae64163b67752e7e73e48395d43084f8d414a0c0675863f356d854a52b",
+      "href": "\"/design\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/changes/[id]/page.tsx",
+      "line": 131,
+      "sourceHash": "e5780d182864b8ba76326a601d44f18368bdb1da99b281aa51407c41b3c98bcc",
+      "href": "\"/design/changes\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/changes/new/page.tsx",
+      "line": 50,
+      "sourceHash": "1f6c21c46734a2befdbf1c50974afe73223658641d9670ab22073814599ed349",
+      "href": "\"/design?view=changes\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/changes/page.tsx",
+      "line": 37,
+      "sourceHash": "00b5079b70b31002c61fcfb5cea45cf37d30278e84d3d675a1e1d02d740c4f78",
+      "href": "\"/design\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/new/page.tsx",
+      "line": 21,
+      "sourceHash": "3dd886d5e0ae8dd52b4a727209284aaaf7c6fc381a535b1ff8272dee92f1e818",
+      "href": "\"/design\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/programs/[id]/edit/page.tsx",
+      "line": 68,
+      "sourceHash": "c8b59dc9a1ae1ae5d7c95798fd47921c53d580b7274e0a202921715f88090725",
+      "href": "{`/design/programs/${data.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/programs/[id]/page.tsx",
+      "line": 89,
+      "sourceHash": "71c590d066b8f7bc70d7a9a68cb269c18303fbbbc0d7913393e0206b6774082b",
+      "href": "\"/design?view=programs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/programs/new/page.tsx",
+      "line": 26,
+      "sourceHash": "d4d1dbb1b5f5bf12db4a6bcbe13ec743d1002b37c04f73d6d89db707035a33fe",
+      "href": "\"/design?view=programs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/design/programs/page.tsx",
+      "line": 32,
+      "sourceHash": "1cd8d5f3a55457d3e51152d9471b8fc41aaec94d0292431764550c452ab43c6a",
+      "href": "\"/design\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/document-dispatch/[id]/page.tsx",
+      "line": 256,
+      "sourceHash": "97db49772802eb3df333cab7f6775dd014ad81e730dde0fe43f4a60c8f4e7dcb",
+      "href": "\"/document-dispatch\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/document-dispatch/[id]/report/page.tsx",
+      "line": 248,
+      "sourceHash": "e71556540e0ebab5849ca9bf1919dd264ac2786ace4ebcb0a117945d139ffe00",
+      "href": "{`/document-dispatch/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/document-dispatch/new/page.tsx",
+      "line": 70,
+      "sourceHash": "953325cc84084d56a112e33c53ee86d6ff5e5f2f7dba60fd4f5121ad52e7885e",
+      "href": "\"/document-dispatch\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/distribution/[id]/page.tsx",
+      "line": 129,
+      "sourceHash": "0763b984734e528ef85f5a0e48b86ddfb3a1f96deb28d5b59181dba80479dfe6",
+      "href": "\"/documents/distribution\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/distribution/disposals/[id]/page.tsx",
+      "line": 124,
+      "sourceHash": "a6dde3c1ab12e92271647ae5f7b1f2dc96cdcf8977e7ed7eaaeed71418475c95",
+      "href": "\"/documents/distribution?tab=disposal\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/distribution/import/page.tsx",
+      "line": 36,
+      "sourceHash": "a7a44d188467b83a3fcd04ed0dd30411168bf5b1ec52d62aa8af8e2a0be2c171",
+      "href": "\"/documents/distribution\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/distribution/page.tsx",
+      "line": 405,
+      "sourceHash": "2c618fdae1ac90d538659d7bf69d99af1c85ed146dfbd461f38d0ab6533efc19",
+      "href": "\"/documents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/external/[id]/edit/page.tsx",
+      "line": 48,
+      "sourceHash": "4edda29ed766f87cf6e3ef0ad4f0a0c1c6d4d98acc63b0dc3943d1e37292c757",
+      "href": "{`/documents/external/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/external/[id]/page.tsx",
+      "line": 130,
+      "sourceHash": "db1d0dd280267d249d3ba01b0d57ed103c08fc477c158d0cb5b70f09760ceca8",
+      "href": "\"/documents/external\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/external/new/page.tsx",
+      "line": 24,
+      "sourceHash": "970ab749c95a59d6172a77b52054cfe7d05b63b33a4095b3c9c3ceafba8f1cf9",
+      "href": "\"/documents/external\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/external/page.tsx",
+      "line": 166,
+      "sourceHash": "57603278817627b53df9bc8e2ac361b1a42d7722a43cc047226a6cfc5650f48c",
+      "href": "\"/documents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/forms/page.tsx",
+      "line": 253,
+      "sourceHash": "f5bcc4191a63baa96af8eb2874ff77704813553c15781c7141d60bd845d3005e",
+      "href": "\"/documents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/documents/registers/page.tsx",
+      "line": 257,
+      "sourceHash": "ba865c186d1f2c7313d660c8787eaae7dc55b6ac879f2714d7aa4d90bc58448a",
+      "href": "\"/documents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/drawings/[id]/edit/page.tsx",
+      "line": 86,
+      "sourceHash": "d4396ffe0c7dc95384b6108eb4e7ada93f282c3d4e430e0740bbada9ecbea8dd",
+      "href": "{`/drawings/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/drawings/[id]/page.tsx",
+      "line": 345,
+      "sourceHash": "2dd43a2d70fe79e02922b5d4cb242bfeb3b7514b000657c1ceadac4c82f751fa",
+      "href": "\"/drawings\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/drawings/new/page.tsx",
+      "line": 48,
+      "sourceHash": "17826217b24ec3d0ecedb7b9e85c88aa1708180aef32359a48329e4b1a727a04",
+      "href": "\"/drawings\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/environmental/aspects/new/page.tsx",
+      "line": 20,
+      "sourceHash": "2314ae986c8a6cce08a9f961c1df1369892e6a7b7a7961b93b8d09ec08e92319",
+      "href": "\"/environmental\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/environmental/legal/new/page.tsx",
+      "line": 20,
+      "sourceHash": "260bed7529af198c5a72ed3c91fdf6a01d6986356c62e775ade4551ae59f4ba6",
+      "href": "\"/environmental\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/equipment/[id]/edit/page.tsx",
+      "line": 64,
+      "sourceHash": "31efe1482c1369f9cf7a07ccbec2f2a8e8535636ea74299ef4deedd7bbe68c35",
+      "href": "{`/equipment/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/equipment/[id]/page.tsx",
+      "line": 178,
+      "sourceHash": "0ad78051c8eb1976f02c9fc29ccf0644fb7cbfa978f7654edac00540616d29e0",
+      "href": "\"/equipment\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/equipment/new/page.tsx",
+      "line": 24,
+      "sourceHash": "de417ecc6abeb94a6461abf37ba4b1b5b43e2814eb1fffcefefcf2c79a49eb82",
+      "href": "\"/equipment\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/improvements/[id]/edit/page.tsx",
+      "line": 97,
+      "sourceHash": "04cc26d27e41f5be3ee26307cff561eee7596e635d2862bda60ce1ed90910e9f",
+      "href": "{`/improvements/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/improvements/[id]/page.tsx",
+      "line": 282,
+      "sourceHash": "995a8c4849219c0f305cf0b10c0eb961fe04e73b362877fc8e31c98d49466a53",
+      "href": "\"/improvements\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/improvements/[id]/report/page.tsx",
+      "line": 284,
+      "sourceHash": "b14c96c8c8a96a8673c087414ca9eccd495fac29c79ae6bff2edd0dbe2fd7975",
+      "href": "{`/improvements/${imp.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/improvements/new/page.tsx",
+      "line": 23,
+      "sourceHash": "9306b83e33eba3817b9ff97f7b9adbbb206bccc5fb941e605c79de9c5b14ed18",
+      "href": "\"/improvements\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inbound/[id]/edit/page.tsx",
+      "line": 91,
+      "sourceHash": "0060eebd8f4911f8cd29e85a3cffd8366fb5ce091fde2edf623b5341953fb50c",
+      "href": "{`/inbound/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inbound/[id]/page.tsx",
+      "line": 118,
+      "sourceHash": "c1393d74c4e85d4e19980100f767ddca3ff440bf7949c4fb9522bbf853f83a9a",
+      "href": "\"/inbound\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inbound/import/page.tsx",
+      "line": 21,
+      "sourceHash": "b2d67fcf23a57174427b8bcada76966e8e5aa2357143f2f6f137e35cce95bfe7",
+      "href": "\"/inbound\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inbound/new/page.tsx",
+      "line": 32,
+      "sourceHash": "6e676a6d853a46bf79372ade08f5b66776f84605d7c35abf51ea5d502184fc21",
+      "href": "\"/inbound\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inspections/[id]/page.tsx",
+      "line": 334,
+      "sourceHash": "4d616822ecb1e8d3ac482d282819b33c4027e27c13fb1bd978f2698e7e16616c",
+      "href": "\"/inspections\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inspections/new/page.tsx",
+      "line": 162,
+      "sourceHash": "606e009578ef76616f04c86e969cdb01b20906dba6450bdc1118adf0bfd70f88",
+      "href": "\"/inspections\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/inventory/new/page.tsx",
+      "line": 85,
+      "sourceHash": "ed013a2ed95fd11ba70972b81dd046176d35ee106b248a9d91decf695a004b59",
+      "href": "\"/inventory\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/knowledge/[id]/page.tsx",
+      "line": 66,
+      "sourceHash": "22a66d614c76492cc2bd4f0022205855de91a85fcb5cda4669a7095291d9ce38",
+      "href": "\"/knowledge\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/knowledge/new/page.tsx",
+      "line": 23,
+      "sourceHash": "226745c28fddf9d8f04a4880c3f44db404ce319cbfacc3a52c0ac35179a756f9",
+      "href": "\"/knowledge\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/[id]/edit/page.tsx",
+      "line": 70,
+      "sourceHash": "0a6352dbab0497b6518d12ab9c4a8cc36e0606f2aba78d51ae3fd1f3e66b2e7a",
+      "href": "{`/kpi/${id}${fromQuery}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/[id]/page.tsx",
+      "line": 235,
+      "sourceHash": "f13805045830c1e9d40ac3c8cf1bb1598e4d722b1802c49a23d19195333009f5",
+      "href": "{back.href}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/[id]/checklist/page.tsx",
+      "line": 242,
+      "sourceHash": "2808b614d739d4510fda22ab6614b07ae35cd318a11dbf8a02b38136b2746c0f",
+      "href": "{`/kpi/evaluations/${planId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/[id]/page.tsx",
+      "line": 184,
+      "sourceHash": "edb773579fd3bfa343416669f2792be62bfa9f872baf1aea215a34ac42617685",
+      "href": "{cls?.menu ?? \"/kpi\"}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/[id]/report/page.tsx",
+      "line": 158,
+      "sourceHash": "24eb57b767f8bd4dd183bee2d8fcdecf7e02153346cce627f20f0cbfad426095",
+      "href": "{`/kpi/evaluations/${planId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/new/page.tsx",
+      "line": 54,
+      "sourceHash": "bc252694cc3d7bfaa74da0ee5f4675527e1a444d090b12610c724be11fb50dc9",
+      "href": "\"/kpi\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/kpi/new/page.tsx",
+      "line": 61,
+      "sourceHash": "17e1101a82aaa87e140e07809df177c14247b5217565900af188d59ef28cf5db",
+      "href": "{fromObjectives ? \"/objectives\" : \"/kpi\"}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/meetings/[id]/page.tsx",
+      "line": 296,
+      "sourceHash": "5735fdf7064971dd37a31f6626d4dc0e1df45ff7c8c488e659ae6bd1705d48a0",
+      "href": "\"/meetings\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/meetings/new/page.tsx",
+      "line": 38,
+      "sourceHash": "a9830609a1c10b66fe34bf2ed5c05970b8fc61be8518f316c53f1f57ea53e3c1",
+      "href": "\"/meetings\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/nc/[id]/page.tsx",
+      "line": 181,
+      "sourceHash": "f8314833ed39c6d18f957d9d1aaaf026d77fb565af175228f0f112c1531759c8",
+      "href": "\"/nc\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/nc/[id]/report/page.tsx",
+      "line": 174,
+      "sourceHash": "647e262e0042383f92eacc04db6854ee791ee2f313d553ce01f73b31de03619a",
+      "href": "{`/nc/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/nc/new/page.tsx",
+      "line": 45,
+      "sourceHash": "03e7262156f1d71f69cad4aa5dca045b3fe8460ca0c497deb2805334a503863d",
+      "href": "\"/nc\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/notices/[id]/edit/page.tsx",
+      "line": 51,
+      "sourceHash": "4e397077bd150f1445f8a188c712125e95fb6253b7fcb268ab05018c664f7b67",
+      "href": "{`/notices/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/notices/[id]/page.tsx",
+      "line": 84,
+      "sourceHash": "adc35f869c880ffe087fd796d17788acb5d4a05c44791dc4a2c70d00e36199e3",
+      "href": "\"/notices\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/notices/new/page.tsx",
+      "line": 20,
+      "sourceHash": "32fc8dc58073f3badcb2b6fe06567b97d56bd2d303981f41c4cf3dfdaddafca4",
+      "href": "\"/notices\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/production/[id]/page.tsx",
+      "line": 322,
+      "sourceHash": "d6e54828163069836ea65c81fd85e5bfdd90342abc59ebe958a96be4ff283efa",
+      "href": "\"/production\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/production/new/page.tsx",
+      "line": 169,
+      "sourceHash": "823d504ba41dbc4d870398d6295376741438fb069a60bdaf7822b6b1fefb1e15",
+      "href": "\"/production\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/[id]/edit/page.tsx",
+      "line": 93,
+      "sourceHash": "26034cdeac773dc761c3283b6087217608948e37e0afc5eec52044dff3b48049",
+      "href": "{`/purchasing/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/[id]/page.tsx",
+      "line": 192,
+      "sourceHash": "95436e4882471a97823177b2fede772d65c8b54129f902e2e1ae5f67031ae8b6",
+      "href": "\"/purchasing?view=requests\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/new/page.tsx",
+      "line": 52,
+      "sourceHash": "f954470762687bc88c9acd7b67a03f7d277181c5fffcca1920afdbbec53e52db",
+      "href": "\"/purchasing\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/orders/[id]/agreement/page.tsx",
+      "line": 118,
+      "sourceHash": "245309e8f1f2d61fd2600e5879dc85fe538d53f816944bffaf456acaeaed3838",
+      "href": "{`/purchasing/orders/${order.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/orders/[id]/page.tsx",
+      "line": 190,
+      "sourceHash": "1c04ac170acfa80c703d934f7983cb6e3e43c7cf2ee7dff88ef73d2788bec155",
+      "href": "\"/purchasing?view=orders\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/orders/new/page.tsx",
+      "line": 50,
+      "sourceHash": "9392c5e398c6f183dfaa8f749f676da447c7cc9dfea95d85fb5eef0676a78fd7",
+      "href": "\"/purchasing?view=orders\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/quotes/[id]/page.tsx",
+      "line": 194,
+      "sourceHash": "6295734dc7fe2ce438e3c2b4d5c05356ce72147a67f3133e7948938d70a11077",
+      "href": "\"/purchasing\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/quotes/new/page.tsx",
+      "line": 54,
+      "sourceHash": "eda32582a4f67a7d9fdf493d6cb291db2b7679a8171ae4c8ff6bc3db9785e86f",
+      "href": "{pre ? `/purchasing/${pre}` : \"/purchasing\"}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/specs/[id]/page.tsx",
+      "line": 240,
+      "sourceHash": "7312e1a2bcace04acc431622588444f62e334e2c4e477eb5733a0d40b4f03e0e",
+      "href": "\"/purchasing/specs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/specs/new/page.tsx",
+      "line": 29,
+      "sourceHash": "f384d639d62850a2fe347d1b779fd470878c4e55ca93ea03298cf0842097216a",
+      "href": "\"/purchasing/specs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/purchasing/specs/page.tsx",
+      "line": 98,
+      "sourceHash": "a376e22738a5a3e8d543bf46a705b60ffaf791bcf677883d6e0fe6dcf1d54797",
+      "href": "\"/purchasing\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/qc-charts/[id]/page.tsx",
+      "line": 63,
+      "sourceHash": "eb2fc00de09fa607f975943c4764f3f85c90268817a638a3d0bc103d8a3e3f34",
+      "href": "\"/qc-charts\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/qc-charts/new/page.tsx",
+      "line": 21,
+      "sourceHash": "312b6d968dae49a3e3d7b6cf7f981a5719f262b7c5bba513294606d462f84398",
+      "href": "\"/qc-charts\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/recalls/[id]/notice/page.tsx",
+      "line": 151,
+      "sourceHash": "1261c55328901d0167f9829ba7d8df133fc7dd3879178db820503ea61e28088f",
+      "href": "{`/recalls/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/recalls/[id]/page.tsx",
+      "line": 160,
+      "sourceHash": "57649f44eee602cfac03e9bda2e2bb5803dbb6726574c8012f7ab0bafed36a3b",
+      "href": "\"/recalls\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/recalls/[id]/report/page.tsx",
+      "line": 158,
+      "sourceHash": "ad9627b46d70c0cd882b09be6f8f16fdeefa75fe79dcd32eafed3b0f087f3747",
+      "href": "{`/recalls/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/recalls/new/page.tsx",
+      "line": 55,
+      "sourceHash": "21b98b81688dabdf954c35cbbb6eb5711e552ac440ce903f9abef6feaad2c2b0",
+      "href": "\"/recalls\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/returns/[id]/edit/page.tsx",
+      "line": 147,
+      "sourceHash": "51c79d07d920f8019b103d4e820da4b9ed9a3831319925937804624d9a55b977",
+      "href": "{`/returns/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/returns/[id]/page.tsx",
+      "line": 190,
+      "sourceHash": "0151157a777d42d935b6a499fc7ecca7a8549b1786058519d1246c098131c47a",
+      "href": "\"/returns\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/returns/import/page.tsx",
+      "line": 21,
+      "sourceHash": "791e5c104f1cbc5ee2e9a2fd838d52ad796021b9b67474ebb9f8b94e0b9230dd",
+      "href": "\"/returns\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/returns/new/page.tsx",
+      "line": 71,
+      "sourceHash": "c9c4a5e689241990915762eb61e35e5eef686c2ec115c1396bfd7a25daf03715",
+      "href": "\"/returns\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/returns/print/page.tsx",
+      "line": 129,
+      "sourceHash": "8ae413068d61adb6759dbc296a78b0c0dd136ad21fc18366018630cde9ad8774",
+      "href": "{{ pathname: \"/returns\", query: returnQueryWith(sp, {}) }}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+      "line": 206,
+      "sourceHash": "63948a58714958c61e1772b9f73c3c8340cb57971d0794995c4ba801a8190d3f",
+      "href": "{`/reviews/agendas/${agendaId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "line": 219,
+      "sourceHash": "f986360ef2a37bab52117f4cdab3fd7dd8f65a1a86ecef24c5774ccf1a1315c6",
+      "href": "\"/reviews\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/[id]/report/page.tsx",
+      "line": 226,
+      "sourceHash": "ddf1880b91638672503066933cbc6bf286caea324cd7b5b42d0b671ee1fe6453",
+      "href": "{`/reviews/agendas/${agendaId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/reviews/agendas/new/page.tsx",
+      "line": 48,
+      "sourceHash": "927d652afe1d33cb74a6dcf25ee983258a5593a3761a0b9dc041af912a22ca45",
+      "href": "\"/reviews\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/risks/[id]/page.tsx",
+      "line": 290,
+      "sourceHash": "faa7376609f1af9db7be14f352cdb5bbcff4baaa8609d2b3bdbe55338ef057ab",
+      "href": "\"/risks\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/risks/import/page.tsx",
+      "line": 37,
+      "sourceHash": "dcc76a0ec8da917a6013f9866d4df18d6b3ae0d6b27ad8bb039facb30a1b3158",
+      "href": "\"/risks\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/risks/new/page.tsx",
+      "line": 24,
+      "sourceHash": "cf8b258275b2804b3e77dcc0dc71ca36daaa21278d3f8f599d3a930d8f722dd2",
+      "href": "\"/risks\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/[id]/page.tsx",
+      "line": 95,
+      "sourceHash": "e41855bb45f81f3880c05deb114a4e11422d4b62dbc9d5f72c6ac367cb21fa6f",
+      "href": "\"/safety\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/areas/page.tsx",
+      "line": 37,
+      "sourceHash": "5c0d23df1ecdf5180e0938a1fb1bf0dbb605bf456c60b66e4e93426b55276704",
+      "href": "\"/safety\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/incidents/[id]/page.tsx",
+      "line": 124,
+      "sourceHash": "8a1138b052619fbf511743d1d469a53e7d012daf6849c931b5f70e5fede7e91e",
+      "href": "\"/safety/incidents?tab=incidents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/incidents/check/page.tsx",
+      "line": 210,
+      "sourceHash": "c5026d2a201e1b14d4004576628bd1755048dd7c0f6e19f81c1759a902b8c107",
+      "href": "\"/safety/incidents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/incidents/new/page.tsx",
+      "line": 56,
+      "sourceHash": "7ae7442886ec7d0b0ddb090e3f23736db3fb509c50c36d8f80d23f59a7476545",
+      "href": "\"/safety/incidents?tab=incidents\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/safety/monthly/page.tsx",
+      "line": 228,
+      "sourceHash": "3899bbb2d9e0a3f3ac962fd3b3407e7c115b7d2d3adddf4f337941f60c902632",
+      "href": "\"/safety\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/settings/audit-logs/[id]/page.tsx",
+      "line": 279,
+      "sourceHash": "50c5a63b51a3afde4ef49ad71e6cb0b3b0bef34fa31a6c2032836978541b0f84",
+      "href": "\"/settings/audit-logs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/shipping/[id]/page.tsx",
+      "line": 227,
+      "sourceHash": "3bd2e75ede49369514a68173d6eafb3e21f9636ab96548276f6f1ba45c322049",
+      "href": "\"/shipping\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/shipping/new/page.tsx",
+      "line": 45,
+      "sourceHash": "ad4b8d407c8d95ac20f30b0aa06ddfd1b7e20ae296cdbed4ab675857519ac9fb",
+      "href": "\"/shipping\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/specs/[id]/edit/page.tsx",
+      "line": 126,
+      "sourceHash": "a630a14e62feba1f8d96e3260a5870174c6a014008fffe6875de959ff2800e29",
+      "href": "{detailHref}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/specs/[id]/page.tsx",
+      "line": 122,
+      "sourceHash": "99c3fec582af1ae61d92740b1e206561c5731da284c2eff637ff03432052adca",
+      "href": "{backHref}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/specs/new/page.tsx",
+      "line": 64,
+      "sourceHash": "f9d8f070a892acc7e730f31ae1ea8c037c052218f31295972c8046dd4604d48d",
+      "href": "\"/specs\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/store/[id]/page.tsx",
+      "line": 135,
+      "sourceHash": "e306678c88ea5ad29432a330094986b05851f88e99acb962814088bab1c32a8a",
+      "href": "\"/store\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/store/new/page.tsx",
+      "line": 21,
+      "sourceHash": "a0ab55989b157ed440c968348e399e2e269da1de37d0ae7912df84c99205df47",
+      "href": "\"/store\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/[id]/page.tsx",
+      "line": 251,
+      "sourceHash": "6875ebd1ac9eb551dc4431432be163f86350d8bebd41dfd044378d1dd5e1ff44",
+      "href": "\"/suppliers\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/import/page.tsx",
+      "line": 20,
+      "sourceHash": "73588de8d7aebb4f4f758ed8c24233c36d1b85f946be51c77396bd6d4e731cdf",
+      "href": "\"/suppliers\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/new/page.tsx",
+      "line": 21,
+      "sourceHash": "2ff83225b7b0852118aebbb795389f4135a1242a3bcb8186c05f339eb865ec7a",
+      "href": "\"/suppliers\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/[id]/edit/page.tsx",
+      "line": 87,
+      "sourceHash": "048db86cbae8248538f0f342b384d728f586211e91787f71ca40b0212384de39",
+      "href": "{`/suppliers/reports/${id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/[id]/page.tsx",
+      "line": 156,
+      "sourceHash": "4740907d2e90738c57fc582a2237feee6a730b373cdbb4b61199a41bf1c8eb5d",
+      "href": "\"/suppliers?view=eval\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/suppliers/reports/new/page.tsx",
+      "line": 114,
+      "sourceHash": "31badfdc4fc1d92486a9cccbf79b7d5ca2c82609c14e3786d89fb8a861739981",
+      "href": "{\r\n              contractId\r\n                ? `/contracts/${contractId}`\r\n                : supplierId\r\n                  ? `/suppliers/${supplierId}`\r\n                  : \"/suppliers?view=eval\"\r\n            }",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/traceability/[id]/page.tsx",
+      "line": 121,
+      "sourceHash": "f82bf25cb28f4d6427ee6f8808c1dede0aed410535346f4155c8d3774a5eae53",
+      "href": "\"/traceability\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/traceability/import/page.tsx",
+      "line": 28,
+      "sourceHash": "720be8d24e74a715602fc5573ee3f62bd5ca4d27694940734e2151dd65868cea",
+      "href": "\"/traceability\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/traceability/lot/page.tsx",
+      "line": 393,
+      "sourceHash": "a563b4bdb7ef863b817f600d618c431deae3241bb1e5ceee2d476759ea925557",
+      "href": "\"/traceability\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/traceability/new/page.tsx",
+      "line": 59,
+      "sourceHash": "552fcf038d3fdd4d565960fc9f94647d31eede3de2360dad9ee87c94ddf4b352",
+      "href": "\"/traceability\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/[id]/edit/page.tsx",
+      "line": 63,
+      "sourceHash": "4217c7e32e3e744707a442dae6274a6dd0ede081c648046c362648995232e2da",
+      "href": "{`/training/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/[id]/page.tsx",
+      "line": 150,
+      "sourceHash": "d14683c5247a7bd76daee1ae9d858fe6fca3270c6ca44aa69110b1eeb7294fb8",
+      "href": "\"/training\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/new/page.tsx",
+      "line": 20,
+      "sourceHash": "e2721f8bb75861763609d923821afc9d1cc84c1a5992f7a9d94e4a85a41088bb",
+      "href": "\"/training\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/plans/[id]/page.tsx",
+      "line": 176,
+      "sourceHash": "ccc6830867620d26ee5eee46ee8f4004d91c524d180ed539d3630e251cf3dec2",
+      "href": "\"/training\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/plans/[id]/report/page.tsx",
+      "line": 168,
+      "sourceHash": "560b2a1c35d03a6d82e0ecbf6fa881f3b66e60e061d8d866f02e727036f28968",
+      "href": "{`/training/plans/${planId}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/plans/new/page.tsx",
+      "line": 66,
+      "sourceHash": "697e044a555f503ba58d6811c5f6d6488637aa78624c52c65a6c9e0f833b7b9d",
+      "href": "\"/training\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/training/record/page.tsx",
+      "line": 53,
+      "sourceHash": "4e8b3d5c1cec90bdb6cdb72de1d6b91df5a5730b6e15da2383b72d624e890fd8",
+      "href": "\"/training\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/warehouses/[id]/edit/page.tsx",
+      "line": 61,
+      "sourceHash": "bd2a5f944c8f483885de56d4db9302e8697ff1b9e260cbd571ac2a9c84e4f479",
+      "href": "{`/warehouses/${row.id}`}",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/warehouses/[id]/page.tsx",
+      "line": 78,
+      "sourceHash": "8b897c3368d3cf77ca33992d653a69bde1df48afa622ba654b44dcf9d148cb23",
+      "href": "\"/warehouses\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(app)/warehouses/new/page.tsx",
+      "line": 20,
+      "sourceHash": "d5d29de95784eec983ae71ba607403c80f2c9c40701c357716bfa61ae8a387d4",
+      "href": "\"/warehouses\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    },
+    {
+      "path": "app/(floor)/floor/manage/manage-client.tsx",
+      "line": 258,
+      "sourceHash": "401afc526567a0377926801047e39706229b95e87f0c09cd489f6aec7929de5c",
+      "href": "\"/floor\"",
+      "className": "qd-text-action qd-text-action--regular w-fit",
+      "consumer": "next/link with ArrowLeft and a visible label"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "manifest": "patterns/component-implementations.json",
-  "manifestHash": "2c8377f6a37caccb72514991ca77525909684cea8e79738dc9103cf7343b4026",
+  "manifestHash": "a20b5f1a5836860b1c28e285cf48acec3edefcf277bf28337917c3fe9077d134",
   "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
   "records": [
     {
@@ -552,7 +552,7 @@
       "path": "components/ui/combobox.tsx",
       "target": "Q-Works/components/ui/combobox.tsx",
       "canonical": "patterns/component-implementations/maison/components/ui/combobox.tsx",
-      "sourceHash": "1611edffc9205a84ae8e083571bc4a8d953b2adbc3f93108ac0e86ab99969fd4",
+      "sourceHash": "a4ec5964a614df69a2091ef23265f345b531c5969d34a408329ae36fcbb7c0ce",
       "exports": [
         {
           "name": "ComboboxOption",
@@ -674,7 +674,7 @@
       "path": "components/ui/input.tsx",
       "target": "Q-Works/components/ui/input.tsx",
       "canonical": "patterns/component-implementations/maison/components/ui/input.tsx",
-      "sourceHash": "aeeae2a0c9fa8152bea69db5da19e681fbd32f8ce11be8242caeb2a2f43886be",
+      "sourceHash": "8495f5306d0884f85d6b7e37f9c1f57b192a2b6db72622d01569c9b6d3a66e56",
       "exports": [
         {
           "name": "Input",
@@ -825,6 +825,24 @@
     {
       "product": "maison",
       "key": "Q-Works",
+      "path": "components/ui/time-picker.tsx",
+      "target": "Q-Works/components/ui/time-picker.tsx",
+      "canonical": "patterns/component-implementations/maison/components/ui/time-picker.tsx",
+      "sourceHash": "cd1974ec2c385094f6a730b97f492f7305c53bac5fa044bed93e29d1779c41bd",
+      "exports": [
+        {
+          "name": "TimePickerProps",
+          "kind": "type"
+        },
+        {
+          "name": "TimePicker",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
       "path": "components/shared/page-skeleton.tsx",
       "target": "Q-Works/components/shared/page-skeleton.tsx",
       "canonical": "patterns/component-implementations/maison/components/shared/page-skeleton.tsx",
@@ -856,6 +874,42 @@
         },
         {
           "name": "BoardSkeleton",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/shared/choice-boxes.tsx",
+      "target": "Q-Works/components/shared/choice-boxes.tsx",
+      "canonical": "patterns/component-implementations/maison/components/shared/choice-boxes.tsx",
+      "sourceHash": "8ecb90a3ddc02aa2b8dc347bc5a8f77782883655f46f1e664eef2bfe0cd8617e",
+      "exports": [
+        {
+          "name": "ChoiceBoxes",
+          "kind": "value"
+        },
+        {
+          "name": "yesNoOptions",
+          "kind": "value"
+        },
+        {
+          "name": "ChoiceGrid",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/shared/check-chip.tsx",
+      "target": "Q-Works/components/shared/check-chip.tsx",
+      "canonical": "patterns/component-implementations/maison/components/shared/check-chip.tsx",
+      "sourceHash": "cfed570b1992e3deb5fd64b94f94aba8c74f7ee39fe53c30456204bb82dcb75e",
+      "exports": [
+        {
+          "name": "CheckChip",
           "kind": "value"
         }
       ]

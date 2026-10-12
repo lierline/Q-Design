@@ -58,20 +58,23 @@ const discardedIconProps=new Set(['strokeWidth','absoluteStrokeWidth'].filter(na
 const decide=(decision,ruleId,reason,proof=[])=>({decision,ruleId,reason,evidence:proof});
 const records=[],fileHashes=[],styleGroups=new Map(),typedGroups=new Map();
 const manualReviews=new Map();
-for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json']){
-  const file=path.join(ROOT,'reviews',name);if(!fs.existsSync(file))continue;
-  for(const entry of JSON.parse(fs.readFileSync(file,'utf8')).records??[]){
-    if(manualReviews.has(entry.argumentHash))throw new Error('Duplicate manual candidate: '+entry.argumentHash);
-    manualReviews.set(entry.argumentHash,entry);
-  }
-}
 const manualHashCache=new Map(sources.map(source=>[source.file,source.sourceHash]));
 const currentManualHash=file=>{
   if(manualHashCache.has(file))return manualHashCache.get(file);
-  const base=/^(?:source|patterns|dist)\//.test(file)?ROOT:PRODUCT,full=path.resolve(base,file);
+  const base=/^(?:source|patterns|dist|tools)\//.test(file)?ROOT:PRODUCT,full=path.resolve(base,file);
   if(!full.startsWith(base+path.sep)||!fs.existsSync(full))return null;
   const value=hash(fs.readFileSync(full,'utf8'));manualHashCache.set(file,value);return value;
 };
+for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json']){
+  const file=path.join(ROOT,'reviews',name);if(!fs.existsSync(file))continue;
+  for(const entry of JSON.parse(fs.readFileSync(file,'utf8')).records??[]){
+    // Keep historical reports intact. They cannot claim a changed current source
+    // or consumer, and must not collide with a fresh exact-source review.
+    if(!verifiedManualReview(entry,entry,currentManualHash))continue;
+    if(manualReviews.has(entry.argumentHash))throw new Error('Duplicate current manual candidate: '+entry.argumentHash);
+    manualReviews.set(entry.argumentHash,entry);
+  }
+}
 for(const {file,code,sourceHash,part,args}of sources){
   fileHashes.push({path:file,hash:sourceHash});
   const verified=part&&copyProblems(part,fs.readFileSync(path.join(ROOT,part.src),'utf8'),code).length===0;
@@ -142,7 +145,7 @@ for(const {file,code,sourceHash,part,args}of sources){
       if(allowed[property]?.test(scalar)||arg.status==='structural-literal')result=decide('structural-behavior','confirmed-css-structure','Dimensionless alignment, text flow or reset value in a confirmed JSX/CSSProperties style object.',own);
     }
     if(!result&&dataKeys.has(`${line}:${property}:${value}`))result=decide('business-data','explicit-data-call','AST ancestor is a schema, JSON serialization or database operation; this is not a CSS argument.',own);
-    if(!result&&kind==='named-style-value'&&resultBindings.has(`${line}:${property}:${value}`))result=decide('business-data','result-envelope-consumers','Every use of this unique awaited binding reads only data/error/success/ok/status result fields. No direct style, SVG or escaped use was found in its lexical scope.',own);
+    if(!result&&kind==='named-style-value'&&resultBindings.has(`${line}:${property}:${value}`))result=decide('business-data','result-envelope-symbol-consumers','Every use of the exact awaited local symbol reads only data/error/success/ok/status result fields. Sibling and shadowed symbols are independently resolved. Duplicate declarations, direct style, SVG and escaped uses prevent this proof.',[...own,evidence('tools/maison-style-proof.mjs')]);
     if(!result&&kind==='presentation-attribute'){
       const target=attributeTargets.get(`${line}:${property}:${value}`);
       if(target?.module==='@/components/ui/button'&&target.exported==='Button'&&property==='size'&&['sm','default','lg','icon'].includes(scalar))result=decide('delegated-renderer-parameter','button-named-size','Named size selects the actual imported Button adapter. Its class definitions and styles are separately inventoried; this records delegation, not a blanket approval of that renderer.',[...own,{path:'components/ui/button.tsx',line:36,hash:hash(fs.readFileSync(path.join(PRODUCT,'components/ui/button.tsx'),'utf8'))}]);

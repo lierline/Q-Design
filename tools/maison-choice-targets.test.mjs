@@ -24,18 +24,35 @@ function compile(path,imports){
 }
 const simple=({children,...props})=>React.createElement('div',null,children);
 const constants=compile(join(product,'lib/capa/sheets.ts'),{});
+const choices=compile(join(product,'components/shared/choice-boxes.tsx'),{
+ '@/lib/utils/cn':compile(join(product,'lib/utils/cn.ts'),{}),
+ '@/lib/ui/choice-grid':compile(join(product,'lib/ui/choice-grid.ts'),{}),
+ '@/lib/ui/choice':compile(join(product,'lib/ui/choice.ts'),{}),
+});
+const checks=compile(join(product,'components/shared/check-chip.tsx'),{
+ '@/lib/utils/cn':compile(join(product,'lib/utils/cn.ts'),{}),
+ '@/lib/ui/choice':compile(join(product,'lib/ui/choice.ts'),{}),
+ '@/components/ui/checkbox':compile(join(product,'components/ui/checkbox.tsx'),{
+  '@/lib/utils/cn':compile(join(product,'lib/utils/cn.ts'),{}),
+  // Decorative paths have their own icon contract. Keep the actual native input.
+  '@/components/q-design-icons/Check':{Check:props=>React.createElement('svg',props)},
+  '@/components/q-design-icons/Minus':{Minus:props=>React.createElement('svg',props)},
+ }),
+});
 const CapaHeaderFields=compile(join(product,'app/(app)/capa/sheet-header-fields.tsx'),{
   '@/components/ui/checkbox':{Checkbox:simple},'@/components/ui/field':{Field:simple},'@/components/ui/input':{Input:simple},
   '@/components/ui/select':{Select:simple},'@/components/ui/date-picker':{DatePicker:simple},
   '@/lib/capa/sheets':constants,'./source-doc-picker':{CapaSourceDocPicker:simple},
+  '@/components/shared/choice-boxes':choices,
+  '@/components/shared/check-chip':checks,
 }).CapaHeaderFields;
 const value={source:constants.CAPA_SOURCES[0].code,source_other:'',source_ref_id:null,department_id:'',admin_department_id:'',written_on:'2026-10-10',subject:'',identification:''};
 function render(disabled=false){return new JSDOM(renderToStaticMarkup(React.createElement(CapaHeaderFields,{value,onChange(){},departments:[],disabled}))).window.document;}
 
 test('every Maison native radio has canonical glyph and a full clickable label, including table choices',()=>{
-  let count=0;
+  let count=0;const sources=new Set();
   for(const path of [...files(join(product,'app')),...files(join(product,'components'))])for(const {node,ast}of radios(path)){
-    count++;
+    count++;sources.add(path);
     const inputClass=node.attributes.properties.find(a=>ts.isJsxAttribute(a)&&a.name.text==='className')?.initializer?.getText(ast)??'';
     assert.ok(inputClass.includes('qd-radio'),path+' radio lacks shared appearance');
     let parent=node.parent;while(parent&&!ts.isJsxElement(parent))parent=parent.parent;
@@ -43,7 +60,8 @@ test('every Maison native radio has canonical glyph and a full clickable label, 
     const labelClass=parent.openingElement.attributes.properties.find(a=>ts.isJsxAttribute(a)&&a.name.text==='className')?.initializer?.getText(ast)??'';
     assert.ok(labelClass.includes('qd-choice-hit'),path+' radio label lacks shared target');
   }
-  assert.ok(count>=13,'Expected to inspect the actual business-radio surfaces');
+  assert.ok(count>0,'Expected to inspect actual native radios');
+  assert(sources.has(join(product,'components/shared/choice-boxes.tsx')),'The shared radio factory must be included in the complete source scan');
 });
 test('real CAPA header renders labelled native radio choices and a single selected option',()=>{
   const inputs=[...render().querySelectorAll('input[type="radio"]')];

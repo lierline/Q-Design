@@ -11,7 +11,7 @@ const src = readSource('components/Sidebar.tsx');
 
 describe('폰 서랍 손가락 스크롤', () => {
   it('nav 의 overscroll 막기는 데스크톱에서만 건다', () => {
-    const nav = src.slice(src.indexOf('aria-label="주 차림표"'));
+    const nav = src.slice(src.indexOf('aria-label="주 메뉴"'));
     const style = nav.slice(0, nav.indexOf('}}'));
     expect(style).toMatch(/overscrollBehavior:\s*isMobile\s*\?\s*'auto'\s*:\s*'contain'/);
     expect(style).not.toMatch(/overscrollBehavior:\s*'contain'/);

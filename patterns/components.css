@@ -300,8 +300,8 @@ select.qd-input { appearance: auto !important; background-image: none !important
 .qd-choice-hit:has(> .qd-radio:disabled) { cursor: not-allowed; }
 .qd-choice { min-height: var(--qd-control-height-sm); border: 1px solid var(--qd-ctl); border-radius: var(--qd-radius); background: var(--qd-surface); color: var(--qd-text); font-size: var(--qd-control-size); padding: var(--qd-space-2) var(--qd-space-3); }
 .qd-choice[aria-pressed='true'], .qd-choice[data-state='checked'], .qd-choice--selected { color: var(--qd-text); background: var(--qd-surface2); border-color: var(--qd-accent); font-weight: 600; }
-.qd-checkbox { width: 16px; height: 16px; border: 1px solid var(--qd-ctl); accent-color: var(--qd-accent); }
-.qd-checkbox-mark { width: 16px; height: 16px; border: 1px solid var(--qd-ctl); border-radius: 4px; background: var(--qd-surface); color: var(--qd-text); }
+.qd-checkbox { width: var(--qd-choice-glyph-size); height: var(--qd-choice-glyph-size); border: 1px solid var(--qd-ctl); accent-color: var(--qd-accent); }
+.qd-checkbox-mark { width: var(--qd-choice-glyph-size); height: var(--qd-choice-glyph-size); border: 1px solid var(--qd-ctl); border-radius: 4px; background: var(--qd-surface); color: var(--qd-text); }
 .qd-checkbox:checked + .qd-checkbox-mark, .qd-checkbox-mark[data-state='checked'] { background: var(--qd-accent); border-color: var(--qd-accent); color: var(--qd-bg); }
 .qd-checkbox:indeterminate + .qd-checkbox-mark { background: var(--qd-accent); border-color: var(--qd-accent); color: var(--qd-bg); }
 .qd-checkbox:not(:checked):not(:indeterminate) + .qd-checkbox-mark .qd-checkbox-icon { visibility: hidden; }
@@ -310,7 +310,7 @@ select.qd-input { appearance: auto !important; background-image: none !important
 .qd-checkbox:focus-visible + .qd-checkbox-mark { outline: 2px solid var(--qd-accent); outline-offset: 2px; }
 .qd-checkbox:disabled + .qd-checkbox-mark { background: var(--qd-bg); color: var(--qd-muted); }
 .qd-choice-hit > .qd-checkbox:disabled { cursor: not-allowed; }
-.qd-checkbox-icon { width: 12px; height: 12px; }
+.qd-checkbox-icon { width: calc(var(--qd-choice-glyph-size) * .75); height: calc(var(--qd-choice-glyph-size) * .75); }
 .qd-calendar-day {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--qd-control-height); min-height: var(--qd-control-height);

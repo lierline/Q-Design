@@ -603,7 +603,7 @@ function SidebarBody({
         // 이름표가 없으면 낭독기가 「탐색」 이라고만 읽는다. 이 화면에는 nav 가
         // 둘 이상인 곳이 있어 어느 것인지 못 고른다 (2026-09-09 감사 · 세 제품에서
         // 잰 28개가 전부 이름이 없었다).
-        aria-label="주 차림표"
+        aria-label="주 메뉴"
         style={{
           flex: isMobile ? "var(--qd-atelier-flex-824afcc06b)" : "var(--qd-atelier-flex-7fff97ee23)",
           minHeight: "var(--qd-atelier-min-height-558c2060a3)",

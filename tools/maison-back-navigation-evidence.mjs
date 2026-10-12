@@ -6,6 +6,7 @@ import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {baseline,verifyBackNavigation} from './maison-back-navigation.mjs';
+import {beforeMonoRootReport} from './mono-root-revalidation.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),product=path.resolve(root,'../Q-Works');
 const req=createRequire(product+'/package.json'),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -16,7 +17,7 @@ const id=(file,a)=>hash(JSON.stringify([file,a.line,a.kind,a.property,a.value]))
 function bodies(){
  const migration=read(root+'/reviews/maison-back-navigation-migration.json');assert.equal(migration.baseline,baseline);assert.equal(migration.records.length,144);
  return new Map(migration.records.map(r=>{
-  const before=execFileSync('git',['show',baseline+':'+r.path],{cwd:product,encoding:'utf8',maxBuffer:10*1024*1024}),after=fs.readFileSync(product+'/'+r.path,'utf8');
+  const before=execFileSync('git',['show',baseline+':'+r.path],{cwd:product,encoding:'utf8',maxBuffer:10*1024*1024}),after=execFileSync('git',['show','160c7731e05400259ee75cc49274625b3a667e1a601e:'+r.path],{cwd:product,encoding:'utf8',maxBuffer:10*1024*1024});
   verifyBackNavigation(before.replaceAll('\r\n','\n'),after.replaceAll('\r\n','\n'),r.path);
   assert.equal(hash(before.replaceAll('\r\n','\n')),r.beforeHash);assert.equal(hash(after.replaceAll('\r\n','\n')),r.afterHash);
   const scan=code=>new Map(scanArguments(r.path,code,{ts,postcss,properties}).map(a=>[id(r.path,a),a]));
@@ -43,6 +44,7 @@ export function retainNavigationEvidence(input,sources){
  return output;
 }
 export function beforeNavigationReport(name,current){
+ current=beforeMonoRootReport(name+'.json',current);
  if(!fs.existsSync(proofFile))return current;
  const p=read(proofFile).reports.find(r=>r.name===name);if(!p)return current;
  assert.equal(hash(serialize(current)),p.afterHash);const before=structuredClone(current);
@@ -58,7 +60,8 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   fs.writeFileSync(proofFile,serialize({version:1,baseline,scope:'Exactly 75 unchanged arguments and unchanged evidence lines revalidated against the approved 144 class-only navigation edits.',reports:reports.map(({after,...r})=>r)}));
  }else{
   const proof=read(proofFile);assert.equal(proof.baseline,baseline);assert.deepEqual(proof.reports.map(r=>r.records.length),[24,27,11,13]);
-  for(const name of names){const current=read(root+'/reviews/'+name+'.json');assert.deepEqual(retainNavigationEvidence(beforeNavigationReport(name,current),sources),current);}
+  for(const name of names){const current=JSON.parse(execFileSync('git',['show','63372ef3622c9ae2eb7f2584fc058f0d0167704b:reviews/'+name+'.json'],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024}));assert.deepEqual(retainNavigationEvidence(beforeNavigationReport(name,current),sources),current);}
+  const {createCurrentMaisonNavigation}=await import('./maison-current-navigation.mjs');assert.deepEqual(read(root+'/reviews/maison-current-navigation-review.json'),createCurrentMaisonNavigation(),'The completed handoff also requires fresh exact current navigation evidence');
  }
- console.log('75 exact unchanged manual decisions revalidated across 144 navigation class-only edits.');
+ console.log('Historical 75 decisions and 144 class edits revalidated. Current Maison navigation evidence checked separately.');
 }

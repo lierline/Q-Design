@@ -168,18 +168,21 @@ export function typedStyleDependencies(sf, ts) {
 }
 
 // A scanner candidate such as `const r = await action()` is not an SVG radius
-// when every lexical use reads a result-envelope field. Unknown direct uses,
-// shadowing, escaped values and any other property prevent this classification.
+// when every use of its exact local symbol reads a result-envelope field.
+// Independent same-name bindings are resolved separately. Direct uses,
+// duplicate declarations, escaped values and other properties remain unresolved.
 export function businessResultBindings(sf,ts){
   const result=new Set();
+  const file=sf.fileName,host={getSourceFile:n=>n===file?sf:undefined,getDefaultLibFileName:()=>'',writeFile(){},getCurrentDirectory:()=>'',getDirectories:()=>[],fileExists:n=>n===file,readFile:()=>sf.text,getCanonicalFileName:n=>n,useCaseSensitiveFileNames:()=>true,getNewLine:()=> '\n'};
+  const checker=ts.createProgram([file],{noLib:true,noResolve:true},host).getTypeChecker();
   const awaited=node=>ts.isAwaitExpression(node)||(ts.isParenthesizedExpression(node)&&awaited(node.expression))||(ts.isConditionalExpression(node)&&awaited(node.whenTrue)&&awaited(node.whenFalse));
   const visit=node=>{
     if(ts.isVariableDeclaration(node)&&ts.isIdentifier(node.name)&&node.initializer&&awaited(node.initializer)){
-      const name=node.name.text;let scope=node.parent,valid=true,references=0,bindings=0;
+      const name=node.name.text,symbol=checker.getSymbolAtLocation(node.name);let scope=node.parent,valid=Boolean(symbol&&symbol.declarations?.length===1),references=0;
       while(scope.parent&&!ts.isFunctionLike(scope)&&!ts.isSourceFile(scope))scope=scope.parent;
       const inspect=current=>{
-        if((ts.isVariableDeclaration(current)||ts.isParameter(current))&&ts.isIdentifier(current.name)&&current.name.text===name)bindings++;
-        if(ts.isIdentifier(current)&&current.text===name&&current!==node.name){
+        if(ts.isVariableDeclaration(current)&&current!==node&&ts.isIdentifier(current.name)&&current.name.text===name&&current.parent.parent.parent===node.parent.parent.parent)valid=false;
+        if(ts.isIdentifier(current)&&current.text===name&&current!==node.name&&checker.getSymbolAtLocation(current)===symbol){
           const parent=current.parent;
           if(ts.isPropertyAccessExpression(parent)&&parent.name===current){/* unrelated obj.r key */}
           else if(ts.isPropertyAccessExpression(parent)&&parent.expression===current&&['data','error','success','ok','status'].includes(parent.name.text))references++;
@@ -187,7 +190,7 @@ export function businessResultBindings(sf,ts){
         }
         ts.forEachChild(current,inspect);
       };inspect(scope);
-      if(valid&&references&&bindings===1)result.add(`${sf.getLineAndCharacterOfPosition(node.name.getStart(sf)).line+1}:${name}:${node.initializer.getText(sf)}`);
+      if(valid&&references)result.add(`${sf.getLineAndCharacterOfPosition(node.name.getStart(sf)).line+1}:${name}:${node.initializer.getText(sf)}`);
     }
     ts.forEachChild(node,visit);
   };visit(sf);return result;
