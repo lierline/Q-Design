@@ -6,6 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 import {formatProductCopy} from './copy-spacing.mjs';
+import {beforeBatchPrintCanon} from './maison-batch-print-migration.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works';
 export const inspectionProductRef='854d0bf3c65940853c624fed48afe0b74a9a5242',inspectionDesignRef='78b978664582369de850f1335bb824278ca3aad7';
 export const inspectionPrintPath='app/(app)/inspections/[id]/record-sheet.tsx';
@@ -50,7 +51,7 @@ if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
   }else{assert.equal(hash(fs.readFileSync(repo+'/'+plan.file,'utf8')),hash(plan.before));assert.equal(hash(fs.readFileSync(root+'/'+plan.canonical.path,'utf8')),hash(plan.canonical.before));}
   fs.writeFileSync(root+'/'+plan.canonical.path,plan.canonical.after);fs.writeFileSync(repo+'/'+plan.file,plan.after);fs.writeFileSync(manifest,JSON.stringify(proof,null,2)+'\n');
  }else{
-  assert.deepEqual(JSON.parse(fs.readFileSync(manifest,'utf8')),proof);assert.equal(hash(fs.readFileSync(repo+'/'+plan.file,'utf8')),hash(plan.after));assert.equal(hash(fs.readFileSync(root+'/'+plan.canonical.path,'utf8')),hash(plan.canonical.after));
+  assert.deepEqual(JSON.parse(fs.readFileSync(manifest,'utf8')),proof);assert.equal(hash(fs.readFileSync(repo+'/'+plan.file,'utf8')),hash(plan.after));assert.equal(hash(beforeBatchPrintCanon(fs.readFileSync(root+'/'+plan.canonical.path,'utf8'))),hash(plan.canonical.after));
  }
  console.log(JSON.stringify({sites:plan.edits.length,passed:true}));
 }

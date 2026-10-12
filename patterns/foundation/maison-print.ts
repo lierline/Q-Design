@@ -1,6 +1,124 @@
 /** Q-Maison document appearance canon. Exact existing mm/pt values are preserved.
  * Screen themes do not substitute these paper values. Edit here, then sync. */
 export const qdPrint = {
+  batchColumns: {
+  "stageHeading": [
+    46,
+    12,
+    15,
+    15,
+    12
+  ],
+  "pairHeading": [
+    46,
+    30,
+    24
+  ],
+  "materials": [
+    15,
+    25,
+    20,
+    30,
+    10
+  ],
+  "pairedMaterials": [
+    12,
+    16,
+    9,
+    12.5,
+    6.5,
+    16,
+    9,
+    12.5,
+    6.5
+  ],
+  "semiProducts": [
+    13,
+    5,
+    25,
+    6,
+    14,
+    14,
+    13,
+    10
+  ],
+  "quantity": [
+    15,
+    24,
+    29,
+    32
+  ],
+  "identity": [
+    26,
+    74
+  ],
+  "documentHeader": [
+    15,
+    21,
+    13,
+    16,
+    21,
+    14
+  ],
+  "bending": [
+    15,
+    24,
+    18,
+    25,
+    18
+  ],
+  "processConditions": [
+    15,
+    40,
+    45
+  ],
+  "polishingAgency": [
+    13,
+    38,
+    49
+  ],
+  "polishingQuantity": [
+    23,
+    21,
+    28,
+    28
+  ],
+  "storage": [
+    15,
+    24,
+    28.5,
+    32.5
+  ],
+  "disposalWithLot": [
+    15,
+    15,
+    17,
+    13,
+    28,
+    12
+  ],
+  "disposalWithoutLot": [
+    15,
+    21,
+    21,
+    31,
+    12
+  ],
+  "confirmation": [
+    46,
+    54
+  ],
+  "polishingLots": [
+    5,
+    7,
+    15,
+    23,
+    5,
+    7,
+    15,
+    23
+  ]
+},
   inspectionMeasurements: { groupValueWidthPercent: 43.4 },
   ink: "#000",
   markJpegMatte: "#ffffff",
@@ -10,7 +128,7 @@ export const qdPrint = {
   productionColumns: { description: { expiry: "44%", regular: "52%" }, lot: { expiry: "26%", regular: "30%" }, quantity: { expiry: "16%", regular: "18%" } },
   companyMark: { fontSizePt: 15, compactFontSizePt: 11, drawingFontSizePt: 13, maxHeightMm: 14, headerMaxHeightMm: 16, bandMaxHeightMm: 11 },
   documentQrSize: 88,
-  signatures: { approval: { w: 28, h: 16 }, attendee: { w: 30, h: 14 } },
+  signatures: { batch: { w: 26, h: 12 }, approval: { w: 28, h: 16 }, attendee: { w: 30, h: 14 } },
   docxBoxes: { logo: { w: 32, h: 16 }, photo: { w: 60, h: 45 } },
   specificationValueAreaPercent: 66,
   qr: { dark: "#1c1a16", light: "#faf9f6" },
@@ -247,3 +365,6 @@ export const qdPrint = {
 
 /** TipTap document tables retain their own scoped grid, without affecting form tables. */
 export const qdPrintDocumentCss = "\n        .print-paper .prose h2 { font-size: 1.1rem; font-weight: 700; margin: 1em 0 0.4em; }\n        .print-paper .prose h3 { font-size: 1rem; font-weight: 700; margin: 0.8em 0 0.3em; }\n        .print-paper .prose p { margin: 0.4em 0; }\n        .print-paper .prose ul, .print-paper .prose ol { padding-left: 1.4em; margin: 0.4em 0; }\n        .print-paper .prose blockquote { border-left: 3px solid #71717a; padding-left: 0.8em; color: #3f3f46; }\n        .print-paper .prose table { border-collapse: collapse; margin: 0.6em 0; width: 100%; }\n        .print-paper .prose th, .print-paper .prose td { border: 0.25mm solid #666; padding: 0.3em 0.6em; vertical-align: top; }\n        .print-paper .prose th:first-child, .print-paper .prose td:first-child { padding-left: 0.6em; }\n        .print-paper .prose th:last-child, .print-paper .prose td:last-child { padding-right: 0.6em; }\n        /* 배경색은 기본적으로 인쇄되지 않는다. 표 머리 음영은 명시적으로 강제한다 */\n        .print-paper .prose th { background: #ececec; font-weight: 600; -webkit-print-color-adjust: exact; print-color-adjust: exact; }\n      ";
+
+/** Manufacturing sheet styles retain their original paper-only scope. */
+export const qdPrintBatchCss = "\n.print-paper.batch .form-grid td{ text-align:center; }\n/* 낱말 한가운데서 자르지 않는다(「전해 연마 정 / 보」): 긴 번호는 .wrap 이 칸 안에서 접는다 */\n.print-paper.batch .form-grid th,\n.print-paper.batch .form-grid td{ word-break:keep-all; padding-top:1mm; padding-bottom:1mm; }\n.print-paper.batch .form-grid td.l{ text-align:left; }\n.print-paper.batch .form-grid td.r{ text-align:right; }\n.print-paper.batch .form-grid td.b{ font-weight:700; }\n.print-paper.batch .form-grid td.sec{ font-size:11pt; font-weight:700; }\n.print-paper.batch .form-grid td.sign{ height:11mm; }\n.print-paper.batch .form-grid th.inverse{\n  background:#000; color:#fff;\n  -webkit-print-color-adjust:exact; print-color-adjust:exact;\n}\n/* 반제품 Lot 의 접두 칸과 그 뒤 칸 사이는 점선: 한 값이 두 칸에 나뉘어 있다 */\n.print-paper.batch .form-grid td.pfx{ border-right-style:dotted; padding-left:1mm; padding-right:0.5mm; }\n.print-paper.batch .form-grid td.pfx + td{ border-left-style:dotted; padding-left:1mm; }\n.print-paper.batch .form-grid td.slash{ position:relative; padding:0; }\n.print-paper.batch .form-grid td.slash svg{ position:absolute; inset:0; width:100%; height:100%; }\n/* 원본 머리글의 공정 띠 (NC · PW · EP · QMN) */\n.print-paper.batch .flow-strip{ width:100%; table-layout:fixed; border-collapse:collapse; margin-bottom:2mm; }\n.print-paper.batch .flow-strip td{\n  border:0; border-top:0.2mm solid #888; border-bottom:0.2mm solid #888;\n  padding:0.6mm 2mm; font-size:8.5pt; color:#555; letter-spacing:0.04em;\n}\n.print-paper.batch .flow-strip td + td{ border-left:0.2mm dotted #888; }\n.print-paper.batch .flow-strip td.on{ color:#000; font-weight:700; }\n";

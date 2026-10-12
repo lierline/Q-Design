@@ -1,0 +1,314 @@
+{
+  "version": 1,
+  "productRef": "82ecf5576f81c9b1cf922620a3a6d0a3e16b3415",
+  "designRef": "b456d17d667c8b9654a4c70dcb7fbcce8781283b",
+  "path": "app/(app)/production/print/batch-record-sheet.tsx",
+  "beforeHash": "387692756dc262b0aab3424ccb0c6dc2afd82928ee1bcb748a93040f057017e5",
+  "afterHash": "e52f35e5630073b1f35ef253e06510d0b68477f80e52da32c2c485929fa69669",
+  "canonical": {
+    "path": "patterns/foundation/maison-print.ts",
+    "beforeHash": "47bd73bc056f3e472bb84e4389386bfbdef3cbb6736d17a81cb175022940a204",
+    "afterHash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+  },
+  "scope": "Exact existing manufacturing paper appearance values, sixteen Grid calls selecting seventeen original percentage layouts, one signature box, paper stroke and scoped stylesheet. Defaults, text, checked marks, form structure, data and workflows remain unchanged. No code executes during planning.",
+  "sites": [
+    {
+      "start": 18474,
+      "end": 20048,
+      "from": "`\n.print-paper.batch .form-grid td{ text-align:center; }\n/* 낱말 한가운데서 자르지 않는다(「전해 연마 정 / 보」): 긴 번호는 .wrap 이 칸 안에서 접는다 */\n.print-paper.batch .form-grid th,\n.print-paper.batch .form-grid td{ word-break:keep-all; padding-top:1mm; padding-bottom:1mm; }\n.print-paper.batch .form-grid td.l{ text-align:left; }\n.print-paper.batch .form-grid td.r{ text-align:right; }\n.print-paper.batch .form-grid td.b{ font-weight:700; }\n.print-paper.batch .form-grid td.sec{ font-size:11pt; font-weight:700; }\n.print-paper.batch .form-grid td.sign{ height:11mm; }\n.print-paper.batch .form-grid th.inverse{\n  background:#000; color:#fff;\n  -webkit-print-color-adjust:exact; print-color-adjust:exact;\n}\n/* 반제품 Lot 의 접두 칸과 그 뒤 칸 사이는 점선: 한 값이 두 칸에 나뉘어 있다 */\n.print-paper.batch .form-grid td.pfx{ border-right-style:dotted; padding-left:1mm; padding-right:0.5mm; }\n.print-paper.batch .form-grid td.pfx + td{ border-left-style:dotted; padding-left:1mm; }\n.print-paper.batch .form-grid td.slash{ position:relative; padding:0; }\n.print-paper.batch .form-grid td.slash svg{ position:absolute; inset:0; width:100%; height:100%; }\n/* 원본 머리글의 공정 띠 (NC · PW · EP · QMN) */\n.print-paper.batch .flow-strip{ width:100%; table-layout:fixed; border-collapse:collapse; margin-bottom:2mm; }\n.print-paper.batch .flow-strip td{\n  border:0; border-top:0.2mm solid #888; border-bottom:0.2mm solid #888;\n  padding:0.6mm 2mm; font-size:8.5pt; color:#555; letter-spacing:0.04em;\n}\n.print-paper.batch .flow-strip td + td{ border-left:0.2mm dotted #888; }\n.print-paper.batch .flow-strip td.on{ color:#000; font-weight:700; }\n`",
+      "text": "qdPrintBatchCss"
+    },
+    {
+      "start": 17973,
+      "end": 18001,
+      "from": "[5, 7, 15, 23, 5, 7, 15, 23]",
+      "text": "qdPrint.batchColumns.polishingLots"
+    },
+    {
+      "start": 16735,
+      "end": 16743,
+      "from": "[46, 54]",
+      "text": "qdPrint.batchColumns.confirmation"
+    },
+    {
+      "start": 15912,
+      "end": 15982,
+      "from": "spec.waste.lotColumn ? [15, 15, 17, 13, 28, 12] : [15, 21, 21, 31, 12]",
+      "text": "spec.waste.lotColumn ? qdPrint.batchColumns.disposalWithLot : qdPrint.batchColumns.disposalWithoutLot"
+    },
+    {
+      "start": 15137,
+      "end": 15157,
+      "from": "[15, 24, 28.5, 32.5]",
+      "text": "qdPrint.batchColumns.storage"
+    },
+    {
+      "start": 14088,
+      "end": 14104,
+      "from": "[23, 21, 28, 28]",
+      "text": "qdPrint.batchColumns.polishingQuantity"
+    },
+    {
+      "start": 13616,
+      "end": 13628,
+      "from": "[13, 38, 49]",
+      "text": "qdPrint.batchColumns.polishingAgency"
+    },
+    {
+      "start": 13075,
+      "end": 13087,
+      "from": "[15, 40, 45]",
+      "text": "qdPrint.batchColumns.processConditions"
+    },
+    {
+      "start": 12299,
+      "end": 12319,
+      "from": "[15, 24, 18, 25, 18]",
+      "text": "qdPrint.batchColumns.bending"
+    },
+    {
+      "start": 9865,
+      "end": 9889,
+      "from": "[15, 21, 13, 16, 21, 14]",
+      "text": "qdPrint.batchColumns.documentHeader"
+    },
+    {
+      "start": 9604,
+      "end": 9607,
+      "from": "1.2",
+      "text": "qdPrint.lineHeight.n1_2"
+    },
+    {
+      "start": 9566,
+      "end": 9574,
+      "from": "\"0.02em\"",
+      "text": "qdPrint.letterSpacing.v0_02em"
+    },
+    {
+      "start": 9530,
+      "end": 9533,
+      "from": "400",
+      "text": "qdPrint.fontWeight.n400"
+    },
+    {
+      "start": 9493,
+      "end": 9500,
+      "from": "\"9.5pt\"",
+      "text": "qdPrint.fontSize.v9_5pt"
+    },
+    {
+      "start": 9334,
+      "end": 9338,
+      "from": "1.25",
+      "text": "qdPrint.lineHeight.n1_25"
+    },
+    {
+      "start": 9261,
+      "end": 9269,
+      "from": "\"0.05em\"",
+      "text": "qdPrint.letterSpacing.v0_05em"
+    },
+    {
+      "start": 9227,
+      "end": 9230,
+      "from": "700",
+      "text": "qdPrint.fontWeight.n700"
+    },
+    {
+      "start": 9191,
+      "end": 9199,
+      "from": "\"12.5pt\"",
+      "text": "qdPrint.fontSize.v12_5pt"
+    },
+    {
+      "start": 8907,
+      "end": 8914,
+      "from": "\"1.5mm\"",
+      "text": "qdPrint.padding.v1_5mm"
+    },
+    {
+      "start": 8845,
+      "end": 8853,
+      "from": "[26, 74]",
+      "text": "qdPrint.batchColumns.identity"
+    },
+    {
+      "start": 8328,
+      "end": 8346,
+      "from": "{{ w: 26, h: 12 }}",
+      "text": "{qdPrint.signatures.batch}"
+    },
+    {
+      "start": 7531,
+      "end": 7538,
+      "from": "\"0.2mm\"",
+      "text": "qdPrint.strokeWidth.v0_2mm"
+    },
+    {
+      "start": 7492,
+      "end": 7498,
+      "from": "\"#000\"",
+      "text": "{qdPrint.ink}"
+    },
+    {
+      "start": 6665,
+      "end": 6681,
+      "from": "[15, 24, 29, 32]",
+      "text": "qdPrint.batchColumns.quantity"
+    },
+    {
+      "start": 5802,
+      "end": 5832,
+      "from": "[13, 5, 25, 6, 14, 14, 13, 10]",
+      "text": "qdPrint.batchColumns.semiProducts"
+    },
+    {
+      "start": 4799,
+      "end": 4839,
+      "from": "[12, 16, 9, 12.5, 6.5, 16, 9, 12.5, 6.5]",
+      "text": "qdPrint.batchColumns.pairedMaterials"
+    },
+    {
+      "start": 3860,
+      "end": 3880,
+      "from": "[15, 25, 20, 30, 10]",
+      "text": "qdPrint.batchColumns.materials"
+    },
+    {
+      "start": 3058,
+      "end": 3070,
+      "from": "[46, 30, 24]",
+      "text": "qdPrint.batchColumns.pairHeading"
+    },
+    {
+      "start": 2324,
+      "end": 2344,
+      "from": "[46, 12, 15, 15, 12]",
+      "text": "qdPrint.batchColumns.stageHeading"
+    },
+    {
+      "start": 1865,
+      "end": 1870,
+      "from": "\"3mm\"",
+      "text": "qdPrint.marginTop.v3mm"
+    }
+  ],
+  "columns": {
+    "stageHeading": [
+      46,
+      12,
+      15,
+      15,
+      12
+    ],
+    "pairHeading": [
+      46,
+      30,
+      24
+    ],
+    "materials": [
+      15,
+      25,
+      20,
+      30,
+      10
+    ],
+    "pairedMaterials": [
+      12,
+      16,
+      9,
+      12.5,
+      6.5,
+      16,
+      9,
+      12.5,
+      6.5
+    ],
+    "semiProducts": [
+      13,
+      5,
+      25,
+      6,
+      14,
+      14,
+      13,
+      10
+    ],
+    "quantity": [
+      15,
+      24,
+      29,
+      32
+    ],
+    "identity": [
+      26,
+      74
+    ],
+    "documentHeader": [
+      15,
+      21,
+      13,
+      16,
+      21,
+      14
+    ],
+    "bending": [
+      15,
+      24,
+      18,
+      25,
+      18
+    ],
+    "processConditions": [
+      15,
+      40,
+      45
+    ],
+    "polishingAgency": [
+      13,
+      38,
+      49
+    ],
+    "polishingQuantity": [
+      23,
+      21,
+      28,
+      28
+    ],
+    "storage": [
+      15,
+      24,
+      28.5,
+      32.5
+    ],
+    "disposalWithLot": [
+      15,
+      15,
+      17,
+      13,
+      28,
+      12
+    ],
+    "disposalWithoutLot": [
+      15,
+      21,
+      21,
+      31,
+      12
+    ],
+    "confirmation": [
+      46,
+      54
+    ],
+    "polishingLots": [
+      5,
+      7,
+      15,
+      23,
+      5,
+      7,
+      15,
+      23
+    ]
+  }
+}

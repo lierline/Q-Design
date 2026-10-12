@@ -8,6 +8,6 @@ patterns/professional-maison-workflow-copy.json을 공통 문구 규칙에 포�
 
 전체 스타일 인자를 같은 순서로 비교해 문구 외의 값이 바뀌지 않았음을 확인했다. 포맷터의 CRLF·LF와 줄 위치 차이만 따로 처리했다. 기존 스타일·데이터 근거 150곳은 정확한 후보와 다른 근거가 같은 경우에만 다시 대조했으며 기존 미분류는 그대로 남겼다. 관련 문구·현재 소스·구매 카드 테스트 22개, 메종 전체 TypeScript와 정상 커밋 훅이 통과했다. 공통 문구 검사도 138개 파일에서 통과했다.
 
-메종 82ecf5576f81c9b1cf922620a3a6d0a3e16b3415는 푸시했으며 dpl_FHNPNUWcjGSb8rHcjpf68VqgJnDg에서 운영 빌드 중이다. 앞선 검사 지면 28ccbd4e 배포는 운영 READY다. 병행 작업의 lib/app-version.ts와 다른 작업 파일은 포함하지 않았다.
+메종 82ecf5576f81c9b1cf922620a3a6d0a3e16b3415의 dpl_FHNPNUWcjGSb8rHcjpf68VqgJnDg 배포는 READY와 정확한 커밋·운영 별칭을 확인했다. 검사 개요와 공문서함의 실제 새 문구도 확인했다. 운영 390px 검사 화면은 문서 폭 390px로 가로 넘침이 없고 주요 조작부가 높이 44px·모서리 10px이었다. 공문 등록 양식은 폭 358px·모서리 10px이며 입력창과 버튼은 44px, 본문 입력은 80px였다. 등록·업로드 없이 취소하고 뷰포트를 복원했다. 캡처는 D:/Claude/tmp/qd-phase89-inspection-mobile-production.png와 D:/Claude/tmp/qd-phase89-official-document-mobile-production.png다. 병행 작업의 lib/app-version.ts와 다른 작업 파일은 포함하지 않았다.
 
 전체 릴리스의 마지막 완료 실행은 D:/Claude/tmp/qd-phase87-full-release2.log다. 단위 검사 634개 통과·0개 실패, 앱 아이콘 32/32 일치 후 당시 메종 미분류 864건에서 엄격 검증이 실패했다. 현재 미분류 838건의 전체 검사는 아직 완료로 기록하지 않는다. 현재 변경 관련 검사는 별도로 실행했고 다른 제품의 글꼴·문구 이력도 추가 대조 중이다. 아뜰리에의 마지막 검증 580건, 카르넷 0건과 합한 잔여 후보는 1,418건이다. 최신 계정 사용량은 38%이며 50% 상한을 유지한다.

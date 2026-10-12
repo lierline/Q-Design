@@ -27,7 +27,7 @@ export function embeddedStyleSheets(code, ts, filename) {
     if (ts.isJsxElement(node) && node.openingElement.tagName.getText(sf) === 'style') {
       for (const child of node.children) if (ts.isJsxExpression(child) && child.expression) add(child.expression);
     }
-    if (ts.isVariableDeclaration(node) && node.name.getText(sf) === 'qdPrintDocumentCss' && node.initializer) add(node.initializer);
+    if (ts.isVariableDeclaration(node) && ['qdPrintDocumentCss','qdPrintBatchCss'].includes(node.name.getText(sf)) && node.initializer) add(node.initializer);
     ts.forEachChild(node, visit);
   };
   visit(sf);
