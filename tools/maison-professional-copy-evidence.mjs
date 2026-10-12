@@ -7,6 +7,8 @@ import {fileURLToPath} from 'node:url';
 import {applyBindings,termsForFile,formatProductCopy,normalizeCopy} from './copy-spacing.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {beforeMaisonCaptionRoles} from './maison-caption-roles.mjs';
+import {beforeMaisonProductionCopy} from './maison-production-copy.mjs';
+import {beforeProductionCopyRules} from './maison-production-copy-bindings.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Works';
 export const maisonCopyProductRef='0b7e83970ce52dc170efbf25e950f310ee338693';
 export const maisonCopyReviewedPaths=[
@@ -42,14 +44,14 @@ export const maisonCopyReviewedPaths=[
   "lib/validators/calendar-events.ts"
 ];
 export async function inspectMaisonProfessionalSources(){
- const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.json','utf8'));
+ const rules=beforeProductionCopyRules(JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.json','utf8')));
  const terms=[...rules.terms,...rules.additionalRuleFiles.flatMap(file=>JSON.parse(fs.readFileSync(root+'/'+file,'utf8')).terms)];
  const req=createRequire(product+'/package.json'),ts=req('typescript'),postcss=req('postcss');
  const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
  const records=[];
  for(const file of maisonCopyReviewedPaths){
   const before=execFileSync('git',['show',maisonCopyProductRef+':'+file],{cwd:product,encoding:'utf8'});
-  const after=beforeMaisonCaptionRoles(file,fs.readFileSync(product+'/'+file,'utf8')),result=applyBindings(file,before,[],termsForFile(terms,'maison',file));
+  const after=beforeMaisonCaptionRoles(file,beforeMaisonProductionCopy(file,fs.readFileSync(product+'/'+file,'utf8'))),result=applyBindings(file,before,[],termsForFile(terms,'maison',file));
   const expected=await formatProductCopy(product,file,result.after);
   assert.equal(hash(after),hash(expected),'Only inspected display literals and product formatting may change: '+file);
   const normalized=code=>code.replaceAll('\r\n','\n');
@@ -68,7 +70,7 @@ export async function inspectMaisonProfessionalSources(){
  return {version:1,productRef:maisonCopyProductRef,scope:'Exact whole-source proof for reviewed display copy. Complete styling arguments, business codes, control flow, permissions and database operations remain unchanged.',records};
 }
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
- const proof=await inspectMaisonProfessionalSources(),file=root+'/reviews/maison-professional-copy-evidence.json';
+ const proof=await inspectMaisonProfessionalSources().catch(e=>{console.error(e.message);process.exit(1)}),file=root+'/reviews/maison-professional-copy-evidence.json';
  if(process.argv.includes('--write'))fs.writeFileSync(file,JSON.stringify(proof,null,2)+'\n');
  else assert.deepEqual(JSON.parse(fs.readFileSync(file,'utf8')),proof);
  console.log(JSON.stringify({files:proof.records.length,literals:proof.records.reduce((n,r)=>n+r.literalChanges,0),styleArguments:proof.records.reduce((n,r)=>n+r.styleArguments,0)}));

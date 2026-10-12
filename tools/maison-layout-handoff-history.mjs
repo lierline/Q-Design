@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
+import {beforeMaisonProductionCopy} from './maison-production-copy.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works';
 export const layoutHistoryRefs={before:'160c7731e05400259ee75cc49274625b3a667e1a601e',after:'f121284520f8a3b033c63e8e11f0b493fb3fede1'};
 const reviewed=[
@@ -26,7 +27,7 @@ export function createLayoutHandoffHistory(){
   const entries=plan.entries.filter(e=>e.sites.some(s=>s.path===file&&s.line===line));assert.equal(entries.length,1);
   const entry=entries[0],before=git(layoutHistoryRefs.before,file);assert(before.includes(entry.replacement),'The exact prior migration must have shipped');
   const exists=fs.existsSync(repo+'/'+file);let afterHash=null;
-  if(exists){const after=git(layoutHistoryRefs.after,file);assert.equal(hash(fs.readFileSync(repo+'/'+file,'utf8')),hash(after));assert(!after.includes(entry.original)&&!after.includes(entry.replacement),'A remaining visual argument cannot be retired');afterHash=hash(after);}
+  if(exists){const after=git(layoutHistoryRefs.after,file);assert.equal(hash(beforeMaisonProductionCopy(file,fs.readFileSync(repo+'/'+file,'utf8'))),hash(after));assert(!after.includes(entry.original)&&!after.includes(entry.replacement),'A remaining visual argument cannot be retired');afterHash=hash(after);}
   else assert.equal(execFileSync('git',['ls-tree',layoutHistoryRefs.after,'--',file],{cwd:repo,encoding:'utf8'}).trim(),'','Deleted path cannot exist');
   const replacement=file==='app/(app)/nc/new/new-nc-form.tsx'?{path:'app/(app)/nc/new/page.tsx',hash:hash(git(layoutHistoryRefs.after,'app/(app)/nc/new/page.tsx'))}:undefined;
   return {path:file,line,original:entry.original,replacement:entry.replacement,beforeHash:hash(before),afterHash,reason,...(replacement?{replacementConsumer:replacement}:{})};

@@ -78,7 +78,7 @@ const STEPS = [
 function run(file, extra = []) {
   const p = join(HERE, file);
   if (!existsSync(p)) return { skipped: true };
-  const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8', ...(file==='check-components.mjs'?{stdio:'inherit'}:{}) });
   return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
 }
 

@@ -6,6 +6,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['--test','tools/release-history-refresh.test.mjs'],
   ['tools/maison-docx-image-review.mjs','--check'],
   ['--test','tools/maison-docx-image-review.test.mjs'],
   ['tools/extract-pull-presentation.mjs','--check'],
@@ -41,7 +42,7 @@ const steps=[
   ['tools/maison-purchasing-docs-role.mjs','--check'],
   ['--test','tools/maison-purchasing-docs-role.test.mjs'],
   ['--test','tools/maison-list-stats-columns-review.test.mjs'],
-  ['tools/maison-list-stats-columns-review.mjs','--check'],
+  ['tools/maison-list-stats-current-review.mjs','--check'],
   ['--test','tools/atelier-offline-cache-inventory.test.mjs'],
   ['--test','tools/maison-handoff-roles.test.mjs'],
   ['tools/maison-handoff-roles.mjs','--check'],
@@ -213,6 +214,7 @@ const steps=[
   ['--test','tools/atelier-choice-contract.test.mjs'],
   ['--test','tools/atelier-data-ratio-review.test.mjs','tools/atelier-measured-coordinate-review.test.mjs','tools/atelier-rule-table-scroll.test.mjs','tools/atelier-expert-input.test.mjs','tools/atelier-final-visual-rules.test.mjs'],
   ['--test','tools/carnet-style-report.test.mjs','tools/atelier-finite-defaults.test.mjs','tools/atelier-output.test.mjs','tools/atelier-opaque-surfaces.test.mjs'],
+  ['tools/atelier-style-review.mjs','--check'],
   ['tools/maison-style-review.mjs','--check'],
   ['tools/carnet-style-review.mjs','--check'],
 ];

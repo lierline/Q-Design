@@ -233,5 +233,6 @@ for(const file of applicationFiles){
 }
 const counts={};for(const record of records)counts[record.decision]=(counts[record.decision]??0)+1;
 const report={version:1,product:'atelier',scope:'Exact static-source argument review. This is not a whole-screen visual conformance certificate. Unknown records remain actionable and no whitelist is inferred.',fileHashes,inactiveCompatibility,rules,counts,records};
-fs.writeFileSync(path.join(ROOT,'reviews/atelier-style-decisions.json'),JSON.stringify(report,null,2)+'\n');
+const output=JSON.stringify(report,null,2)+'\n';
+if(process.argv.includes('--check')){if(fs.readFileSync(path.join(ROOT,'reviews/atelier-style-decisions.json'),'utf8').replaceAll('\r\n','\n')!==output){console.error('Stale exact-source Atelier review');process.exitCode=1;}if(counts.unknown){console.error('Unresolved Atelier design arguments: '+counts.unknown);process.exitCode=1;}}else fs.writeFileSync(path.join(ROOT,'reviews/atelier-style-decisions.json'),output);
 console.log(JSON.stringify({files:fileHashes.length,records:records.length,counts},null,2));

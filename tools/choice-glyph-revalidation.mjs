@@ -1,3 +1,5 @@
+import {beforePublicFingerprints} from './atelier-public-contract-refresh.mjs';
+import {beforeNavigationInventory} from './maison-navigation-inventory-refresh.mjs';
 // The six central glyph dimensions change representation, not their default size.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -68,6 +70,8 @@ function changesFor(name,before,sources){
  return {name,beforeHash:hash(serialize(before)),afterHash:hash(serialize(after)),changes,after};
 }
 export function beforeChoiceGlyphReview(name,current){
+ if(name==='atelier-style-decisions.json')current=beforePublicFingerprints(current);
+ if(name==='maison-current-navigation-review.json')current=beforeNavigationInventory(current);
  if(!fs.existsSync(manifest))return current;
  const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),record=saved.reports.find(r=>r.name===name);if(!record||hash(serialize(current))===record.beforeHash)return current;
  assert.deepEqual(inspectChoiceGlyphSources(),saved.sources);assert.equal(hash(serialize(current)),record.afterHash,'Unexpected report content (choice glyph): '+name);
