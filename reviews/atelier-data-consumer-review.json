@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "scope": "Explicit source-pinned domain data, gesture inputs and platform metadata. Property names do not establish exemptions. Appearance, caller values and downstream style uses remain independent obligations.",
+  "records": [
+    {
+      "path": "app/(app)/admin/default-templates/page.tsx",
+      "line": 66,
+      "property": "fill",
+      "kind": "object-property",
+      "sourceHash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7",
+      "argumentHash": "66612b5529741e01facec027404f568e73fcb846b0910024e089e5188ff950d9",
+      "value": "{\n    name: '비어 있는 양식 채우기',\n    safe: '가장 안전',\n    text: 'Word 파일이 없는 양식과 목록에 아직 없는 양식만 회사 기본 양식으로 채웁니다. 이미 파일이 있는 양식은 건드리지 않습니다. 새 문서 종류를 더한 뒤에도 이것을 눌러야 목록에 나타납니다.',\n  }",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "Button help text used by BUTTON_HELP.fill.text and Object.values(BUTTON_HELP); it is neither an SVG fill nor a background rule.",
+      "evidence": [
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 66,
+          "hash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7"
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 65,
+          "hash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7"
+        }
+      ],
+      "proof": {
+        "category": "button-help",
+        "consumer": "BUTTON_HELP = {\n  fill: {\n    name: '비어 있는 양식 채우기',\n    safe: '가장 안전',\n    text: 'Word 파일이 없는 양식과 목록에 아직 없는 양식만 회사 기본 양식으로 채웁니다. 이미 파일이 있는 양식은 건드리지 않습니다. 새 문서 종류를 더한 뒤에도 이것을 눌러야 목록에 나타납니다.',\n  },\n  upload: {\n    name: '업로드 · 교체',\n    safe: '교체는 되돌릴 수 없음',\n    text: '고른 .docx 파일(최대 5MB)을 그 문서 코드의 기본 양식으로 올립니다. 올리면 바로 적용됩니다. 이미 파일이 있는 줄은 「교체」 이며, 파일을 고르면 확인 창이 한 번 뜹니다. 교체하면 이전 파일은 지워져 되돌릴 수 없습니다. 교체하기 전에 「내려받기」 로 받아 두십시오. 파일이 없던 줄의 「업로드」 는 확인 창 없이 바로 올라갑니다.',\n  },\n  download: {\n    name: '내려받기',\n    safe: '아무것도 안 바뀜',\n    text: '올라가 있는 Word 파일을 PC 로 받습니다. 교체하거나 지우기 전에 받아 두면 되돌릴 길이 남습니다.',\n  },\n  remove: {\n    name: '삭제',\n    safe: '되돌릴 수 없음',\n    text: 'Word 파일만 지웁니다. 이름 · 색 · 결재선은 남습니다. 지우면 그 문서는 곧바로 파일 없는 양식으로 고객에게 나가고, 일부 서류 카드에서는 빈 양식을 받지 못합니다.',\n  },\n  regenerate: {\n    name: '전체 재생성',\n    safe: '되돌릴 수 없음',\n    text: '모든 기본 양식을 새로 만들어 덮어씁니다. 옛 파일은 이 화면에서 되돌릴 수 없고, 직접 올린 양식은 모두 코드 기본으로 돌아갑니다. 회사 디자인이 바뀌었을 때만, 한가한 때 한 번만 누르십시오.',\n  },\n  cleanup: {\n    name: '보관 양식 정리',\n    safe: '되돌릴 수 없음',\n    text: '조직들이 새 양식으로 갈아타며 「보관」 으로 넘긴 옛 양식 중 30일이 지난 것의 기록과 파일을 지웁니다. 사용 중인 양식과 MedQraft 기본 양식은 건드리지 않습니다. 기록은 운영진 대시보드를 열 때 먼저 지워질 수 있고, 그러면 파일만 저장소에 남아 이 단추가 「정리할 것이 없었습니다」 라고 할 수 있습니다.',\n  },\n  metaOnly: {\n    name: '「메타만」 상태',\n    safe: '',\n    text: '그 문서 종류의 줄(이름 · 색 · 결재선)은 있지만 Word 파일은 없다는 뜻입니다. 이때 고객은 색과 결재선만 얹은 일반 빈 양식을 받습니다.',\n  },\n  docset: {\n    name: '「문서세트」 꼬리표',\n    safe: '손대지 말 것',\n    text: DOCSET_ROW_NOTE,\n  },\n} as const",
+        "consumerLine": 65
+      }
+    },
+    {
+      "path": "components/RegulatoryWatchWidget.tsx",
+      "line": 45,
+      "property": "transition",
+      "kind": "object-property",
+      "sourceHash": "64053ef3c87ae09e4309ae69411ac73262e5fd5cab69389e92becd7919813a2b",
+      "argumentHash": "be1d2f4ac5ce69d4f952774a654c8080ed8f3ff8c7d8a789ad4f2172d1690dd0",
+      "value": "'전환기한'",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "Regulatory alert kind label consumed as KIND_LABEL[a.kind] JSX text; motion remains independently inventoried.",
+      "evidence": [
+        {
+          "path": "components/RegulatoryWatchWidget.tsx",
+          "line": 45,
+          "hash": "64053ef3c87ae09e4309ae69411ac73262e5fd5cab69389e92becd7919813a2b"
+        },
+        {
+          "path": "components/RegulatoryWatchWidget.tsx",
+          "line": 43,
+          "hash": "64053ef3c87ae09e4309ae69411ac73262e5fd5cab69389e92becd7919813a2b"
+        }
+      ],
+      "proof": {
+        "category": "label",
+        "consumer": "KIND_LABEL: Record<string, string> = {\n  in_effect: '시행',\n  transition: '전환기한',\n  guidance: '가이던스',\n  edition_gap: '표준 구버전',\n}",
+        "consumerLine": 43
+      }
+    },
+    {
+      "path": "app/(app)/device-licenses/new/client.tsx",
+      "line": 160,
+      "property": "d",
+      "kind": "object-property",
+      "sourceHash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4",
+      "argumentHash": "d7356566bf24742fcf5484ac19fc0e55a72270217713763438c8476ffc5d2f8a",
+      "value": "'지금부터 받아 갑니다'",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "Registration option description consumed as o.d JSX text; it is not SVG path geometry.",
+      "evidence": [
+        {
+          "path": "app/(app)/device-licenses/new/client.tsx",
+          "line": 160,
+          "hash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4"
+        },
+        {
+          "path": "app/(app)/device-licenses/new/client.tsx",
+          "line": 159,
+          "hash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4"
+        }
+      ],
+      "proof": {
+        "category": "choice-help",
+        "consumer": "([\r\n              { v: 'tracking' as const, l: '허가 추진 시작', d: '지금부터 받아 갑니다' },\r\n              { v: 'already_approved' as const, l: '이미 허가받은 제품', d: '허가번호가 있습니다' },\r\n            ]).map((o) => {\r\n              const on = mode === o.v;\r\n              return (\r\n                <button\r\n                  key={o.v}\r\n                  type=\"button\"\r\n                  onClick={() => switchMode(o.v)}\r\n                  style={{\r\n                    padding: `${QDScale.space[3]} ${QDScale.space[3.5]}`,\r\n                    minHeight: \"var(--qd-atelier-min-height-b64833b6dc)\",\r\n                    textAlign: 'left',\r\n                    fontFamily: QDScale.family.serif,\r\n                    background: on ? alpha(T.champagne, QDRuntime.alpha.tint0_12) : 'transparent',\r\n                    color: T.text,\r\n                    border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${on ? T.champagne : T.border}`,\r\n                    borderRadius: QDScale.radius,\r\n                    cursor: 'pointer',\r\n                    transition: `background ${QD.motionFast}, border-color ${QD.motionFast}`,\r\n                  }}\r\n                >\r\n                  <span style={{ display: 'block', fontSize: QDScale.font[14], fontWeight: \"var(--qd-font-weight-semibold)\" }}>{o.l}</span>\r\n                  <span style={{ display: 'block', fontSize: QDScale.font[12], color: T.subtle, marginTop: QDScale.space[0.5] }}>{o.d}</span>\r\n                </button>\r\n              );\r\n            })",
+        "consumerLine": 159
+      }
+    },
+    {
+      "path": "app/(app)/device-licenses/new/client.tsx",
+      "line": 161,
+      "property": "d",
+      "kind": "object-property",
+      "sourceHash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4",
+      "argumentHash": "f97e7e94ba93d7aeea9a9689849edaf7e974dce46957f585ae8b272f8391a187",
+      "value": "'허가번호가 있습니다'",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "Registration option description consumed as o.d JSX text; it is not SVG path geometry.",
+      "evidence": [
+        {
+          "path": "app/(app)/device-licenses/new/client.tsx",
+          "line": 161,
+          "hash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4"
+        },
+        {
+          "path": "app/(app)/device-licenses/new/client.tsx",
+          "line": 159,
+          "hash": "0462463b787920e754273fac2a41756f7b8afbcd25b4e8cc5942031a6305ebc4"
+        }
+      ],
+      "proof": {
+        "category": "choice-help",
+        "consumer": "([\r\n              { v: 'tracking' as const, l: '허가 추진 시작', d: '지금부터 받아 갑니다' },\r\n              { v: 'already_approved' as const, l: '이미 허가받은 제품', d: '허가번호가 있습니다' },\r\n            ]).map((o) => {\r\n              const on = mode === o.v;\r\n              return (\r\n                <button\r\n                  key={o.v}\r\n                  type=\"button\"\r\n                  onClick={() => switchMode(o.v)}\r\n                  style={{\r\n                    padding: `${QDScale.space[3]} ${QDScale.space[3.5]}`,\r\n                    minHeight: \"var(--qd-atelier-min-height-b64833b6dc)\",\r\n                    textAlign: 'left',\r\n                    fontFamily: QDScale.family.serif,\r\n                    background: on ? alpha(T.champagne, QDRuntime.alpha.tint0_12) : 'transparent',\r\n                    color: T.text,\r\n                    border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${on ? T.champagne : T.border}`,\r\n                    borderRadius: QDScale.radius,\r\n                    cursor: 'pointer',\r\n                    transition: `background ${QD.motionFast}, border-color ${QD.motionFast}`,\r\n                  }}\r\n                >\r\n                  <span style={{ display: 'block', fontSize: QDScale.font[14], fontWeight: \"var(--qd-font-weight-semibold)\" }}>{o.l}</span>\r\n                  <span style={{ display: 'block', fontSize: QDScale.font[12], color: T.subtle, marginTop: QDScale.space[0.5] }}>{o.d}</span>\r\n                </button>\r\n              );\r\n            })",
+        "consumerLine": 159
+      }
+    },
+    {
+      "path": "components/ItemClassificationPreview.tsx",
+      "line": 1266,
+      "property": "top",
+      "kind": "object-property",
+      "sourceHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
+      "argumentHash": "1bc61c5a9439ddefa181d1d5d445010fcb3206bb88ae001ed00614697ca24b91",
+      "value": "top ?? null",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "The top classification result is passed to shouldAutoFill for domain matching; it is not a CSS top position.",
+      "evidence": [
+        {
+          "path": "components/ItemClassificationPreview.tsx",
+          "line": 1266,
+          "hash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d"
+        },
+        {
+          "path": "components/ItemClassificationPreview.tsx",
+          "line": 1263,
+          "hash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d"
+        }
+      ],
+      "proof": {
+        "category": "classification-input",
+        "consumer": "shouldAutoFill({\n          isCodeSearch,\n          isNameSearch,\n          top: top ?? null,\n          nameKr,\n          code,\n          lastAutoFilled: lastAutoFilledRef.current,\n        })",
+        "consumerLine": 1263
+      }
+    },
+    {
+      "path": "components/suppliers/SupplierShipmentsPanel.tsx",
+      "line": 31,
+      "property": "direction",
+      "kind": "object-property",
+      "sourceHash": "add8d1c0f5f4cf483965915403c5806a587ceff15c7d8dd949e87ca826ed0cae",
+      "argumentHash": "b07dff44996960b054de8b603d4e438b75e7e64f8a64331f6c5b33b169c4fb70",
+      "value": "''",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Empty shipment direction in the typed Draft state, bound to the direction selector and shipment request data; it is not CSS writing direction.",
+      "evidence": [
+        {
+          "path": "components/suppliers/SupplierShipmentsPanel.tsx",
+          "line": 31,
+          "hash": "add8d1c0f5f4cf483965915403c5806a587ceff15c7d8dd949e87ca826ed0cae"
+        },
+        {
+          "path": "components/suppliers/SupplierShipmentsPanel.tsx",
+          "line": 30,
+          "hash": "add8d1c0f5f4cf483965915403c5806a587ceff15c7d8dd949e87ca826ed0cae"
+        }
+      ],
+      "proof": {
+        "category": "shipment-state",
+        "consumer": "EMPTY: Draft = {\r\n  direction: '', moved_on: '', item: '', lot_number: '', quantity: '', condition: '', specs_sent: '',\r\n  qty_difference_reason: '', records_received: '', conditions_review: '',\r\n}",
+        "consumerLine": 30
+      }
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "line": 49,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "argumentHash": "31d66a1eee0e39393509d2f643b465ee8af45229dd5dfb33722a532f82b8fa68",
+      "value": "count",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from record count controls how many placeholders are produced. Item dimensions and grid layout remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "components/Skeleton.tsx",
+          "line": 49,
+          "hash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68"
+        }
+      ],
+      "proof": {
+        "category": "repeat-count",
+        "consumer": "Array.from({ length: count })",
+        "consumerLine": 49
+      }
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "line": 86,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "argumentHash": "2d684d7344c23e43d19a70e33c4012b40caf025933a789a21639ffd270efed3f",
+      "value": "cols",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from record count controls how many placeholders are produced. Item dimensions and grid layout remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "components/Skeleton.tsx",
+          "line": 86,
+          "hash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68"
+        }
+      ],
+      "proof": {
+        "category": "repeat-count",
+        "consumer": "Array.from({ length: cols })",
+        "consumerLine": 86
+      }
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "line": 145,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "argumentHash": "5f44f35daa4d5ce529843173a7cf572c2a17f4f1125f70eba773b67c90eeff1e",
+      "value": "rows",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from record count controls how many placeholders are produced. Item dimensions and grid layout remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "components/Skeleton.tsx",
+          "line": 145,
+          "hash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68"
+        }
+      ],
+      "proof": {
+        "category": "repeat-count",
+        "consumer": "Array.from({ length: rows })",
+        "consumerLine": 145
+      }
+    },
+    {
+      "path": "components/Skeleton.tsx",
+      "line": 156,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "argumentHash": "1e8d7954f0f7e9390bba9d6d37dfb1ced780b9a59c5644105d09e5b57ed4ffe5",
+      "value": "cols",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from record count controls how many placeholders are produced. Item dimensions and grid layout remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "components/Skeleton.tsx",
+          "line": 156,
+          "hash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68"
+        }
+      ],
+      "proof": {
+        "category": "repeat-count",
+        "consumer": "Array.from({ length: cols })",
+        "consumerLine": 156
+      }
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "line": 1996,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "argumentHash": "349c2c4a820dbe65052ccdff34ceb624fe6140a8115ade952542bba442bd3ec9",
+      "value": "lines",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from count produces skeleton lines; it does not specify any rendered line length.",
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 1996,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        }
+      ],
+      "proof": {
+        "category": "repeat-count",
+        "consumer": "Array.from({ length: lines })",
+        "consumerLine": 1996
+      }
+    },
+    {
+      "path": "components/qms/SheetPaper.tsx",
+      "line": 36,
+      "property": "length",
+      "kind": "object-property",
+      "sourceHash": "a32ca49bb2c7947e2c0d6771f7c2bfe8bc32dcc76bbadc45a9e32ac0376e901b",
+      "argumentHash": "4304332dee5e9f56056afb1ad2d7a6a587d94e3aa086dd17f278723b4b8f0b87",
+      "value": "Math.ceil(m.head.length / 2)",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Native Array.from groups document header data into pairs. The actual paper dimensions remain in the central paper stylesheet.",
+      "evidence": [
+        {
+          "path": "components/qms/SheetPaper.tsx",
+          "line": 36,
+          "hash": "a32ca49bb2c7947e2c0d6771f7c2bfe8bc32dcc76bbadc45a9e32ac0376e901b"
+        }
+      ],
+      "proof": {
+        "category": "head-row-count",
+        "consumer": "Array.from({ length: Math.ceil(m.head.length / 2) }, (_, i) => m.head.slice(i * 2, i * 2 + 2))",
+        "consumerLine": 36
+      }
+    },
+    {
+      "path": "components/qms/SheetPrintView.tsx",
+      "line": 81,
+      "property": "cols",
+      "kind": "object-property",
+      "sourceHash": "41b24063d95c8bfd0cb2fa1406a05f2fe0a8ee5f1b2c6d9fa355b81b8e577ac1",
+      "argumentHash": "3ef9d205bb68bc1a6b635c1e0dbaf558b2641a99f033ccf8926cf8c7ca7c70c9",
+      "value": "rf.map((f) => f.label)",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "PaperBlock.cols contains table column labels; SheetPaper renders their text and separately computes the column widths.",
+      "evidence": [
+        {
+          "path": "components/qms/SheetPrintView.tsx",
+          "line": 81,
+          "hash": "41b24063d95c8bfd0cb2fa1406a05f2fe0a8ee5f1b2c6d9fa355b81b8e577ac1"
+        },
+        {
+          "path": "components/qms/SheetPrintView.tsx",
+          "line": 78,
+          "hash": "41b24063d95c8bfd0cb2fa1406a05f2fe0a8ee5f1b2c6d9fa355b81b8e577ac1"
+        }
+      ],
+      "proof": {
+        "category": "table-labels",
+        "consumer": "blocks.push({\r\n      kind: 'table',\r\n      title: spec.rows.title,\r\n      cols: rf.map((f) => f.label),\r\n      rows: rows.map((r) => rf.map((f) => (visible(f, r) ? shownValue(f, r[f.k]) : ''))),\r\n      // 「줄이 없습니다」 는 서류에 쓰기 어색한 말이었다(화면 검토 A86)\r\n      empty: '적은 항목이 없습니다.',\r\n    })",
+        "consumerLine": 78
+      }
+    },
+    {
+      "path": "components/capa/CapaPrintView.tsx",
+      "line": 60,
+      "property": "cols",
+      "kind": "object-property",
+      "sourceHash": "3372f88dcf3b16384cab6eb39b2307a2aa0d7e96b1e0533d52856b64fa837a56",
+      "argumentHash": "95ec7d944b5ef1e4767dfbd960c8eceee89fa5b1de0b23a6f0954e1a8a3608ef",
+      "value": "['조치 내용', '담당', '기한', '영향 사전 평가', '변경 관리 연계', '완료 · 실행 결과']",
+      "decision": "business-content",
+      "ruleId": "exact-data-consumer",
+      "reason": "CAPA print table column labels are document content, not CSS columns or dimensions.",
+      "evidence": [
+        {
+          "path": "components/capa/CapaPrintView.tsx",
+          "line": 60,
+          "hash": "3372f88dcf3b16384cab6eb39b2307a2aa0d7e96b1e0533d52856b64fa837a56"
+        },
+        {
+          "path": "components/capa/CapaPrintView.tsx",
+          "line": 57,
+          "hash": "3372f88dcf3b16384cab6eb39b2307a2aa0d7e96b1e0533d52856b64fa837a56"
+        }
+      ],
+      "proof": {
+        "category": "table-labels",
+        "consumer": "blocks.push({\r\n          kind: 'table',\r\n          title: '3. 조치 (조치마다 담당과 기한)',\r\n          cols: ['조치 내용', '담당', '기한', '영향 사전 평가', '변경 관리 연계', '완료 · 실행 결과'],\r\n          rows: actions.map((a) => [\r\n            a.content, a.owner_name ?? '', a.due_date ?? '', a.impact_precheck ?? '', a.change_control ?? '',\r\n            a.done_on ? `${a.done_on} · ${a.done_note ?? ''}` : '',\r\n          ]),\r\n          empty: '조치가 없습니다.',\r\n        })",
+        "consumerLine": 57
+      }
+    },
+    {
+      "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+      "line": 123,
+      "property": "order",
+      "kind": "object-property",
+      "sourceHash": "8688c57513808e02c77d86222e048ce1072e5d1dd5fdbaaa0e20e6c2ca584ce6",
+      "argumentHash": "e9c4dca0184a5fe1cc46c9f0c950bb9ee2e1f2d108f8748e7a877f5dda4685fb",
+      "value": "nextOrder",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "JSON.stringify stores widget ids in SavedLayout.order in localStorage; this is saved user ordering, not a CSS order number.",
+      "evidence": [
+        {
+          "path": "components/dashboard/CustomizableWidgetBoard.tsx",
+          "line": 123,
+          "hash": "8688c57513808e02c77d86222e048ce1072e5d1dd5fdbaaa0e20e6c2ca584ce6"
+        }
+      ],
+      "proof": {
+        "category": "saved-widget-order",
+        "consumer": "JSON.stringify({ order: nextOrder, hidden: Array.from(nextHidden) } satisfies SavedLayout)",
+        "consumerLine": 123
+      }
+    },
+    {
+      "path": "public/__sim.js",
+      "line": 117,
+      "property": "w",
+      "kind": "object-property",
+      "sourceHash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac",
+      "argumentHash": "8ceff4102c6566d95c6ed5879bebd65d26d56f4354a653999a8322350232bf22",
+      "value": "0",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Menu permission counters are incremented by statusOf and shown as counts. Their width chart is separately inventoried.",
+      "evidence": [
+        {
+          "path": "public/__sim.js",
+          "line": 117,
+          "hash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac"
+        }
+      ],
+      "proof": {
+        "category": "permission-count",
+        "consumer": "cnt = {w:0,r:0,n:0,x:0}",
+        "consumerLine": 117
+      }
+    },
+    {
+      "path": "public/__sim.js",
+      "line": 117,
+      "property": "r",
+      "kind": "object-property",
+      "sourceHash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac",
+      "argumentHash": "67fda1b3ca2ef692c9c2f4c10bb7075ea6c847c049364f01b1c939d1a4014676",
+      "value": "0",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Menu permission counters are incremented by statusOf and shown as counts. Their width chart is separately inventoried.",
+      "evidence": [
+        {
+          "path": "public/__sim.js",
+          "line": 117,
+          "hash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac"
+        }
+      ],
+      "proof": {
+        "category": "permission-count",
+        "consumer": "cnt = {w:0,r:0,n:0,x:0}",
+        "consumerLine": 117
+      }
+    },
+    {
+      "path": "public/__sim.js",
+      "line": 117,
+      "property": "x",
+      "kind": "object-property",
+      "sourceHash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac",
+      "argumentHash": "687bc54427aed6b5ac4697e69ff37acacce22b9d9a3038a76369757b79de209e",
+      "value": "0",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "Menu permission counters are incremented by statusOf and shown as counts. Their width chart is separately inventoried.",
+      "evidence": [
+        {
+          "path": "public/__sim.js",
+          "line": 117,
+          "hash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac"
+        }
+      ],
+      "proof": {
+        "category": "permission-count",
+        "consumer": "cnt = {w:0,r:0,n:0,x:0}",
+        "consumerLine": 117
+      }
+    },
+    {
+      "path": "public/__sim.js",
+      "line": 198,
+      "property": "h",
+      "kind": "named-style-value",
+      "sourceHash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac",
+      "argumentHash": "ae19c2f39103afdb5a7853bd6c6889f2ceadf563c7b2522e4380d1a19f6c18b5",
+      "value": "el('div','dethd')",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "The h binding is a native element returned by el(div,dethd), appended as the detail heading container; it is not a height scalar.",
+      "evidence": [
+        {
+          "path": "public/__sim.js",
+          "line": 198,
+          "hash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac"
+        }
+      ],
+      "proof": {
+        "category": "dom-container",
+        "consumer": "h = el('div','dethd')",
+        "consumerLine": 198
+      }
+    },
+    {
+      "path": "public/__sim.js",
+      "line": 204,
+      "property": "h",
+      "kind": "named-style-value",
+      "sourceHash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac",
+      "argumentHash": "9bf98ebecf312995899d5c62fd7877920192e52885cf85fb67d6973e50f569d8",
+      "value": "el('div','dethd')",
+      "decision": "business-data",
+      "ruleId": "exact-data-consumer",
+      "reason": "The h binding is a native element returned by el(div,dethd), appended as the detail heading container; it is not a height scalar.",
+      "evidence": [
+        {
+          "path": "public/__sim.js",
+          "line": 204,
+          "hash": "4f5aaa9333eabeba5b523dffda16a1801de00b36ce3761959289296c14babbac"
+        }
+      ],
+      "proof": {
+        "category": "dom-container",
+        "consumer": "h = el('div','dethd')",
+        "consumerLine": 204
+      }
+    },
+    {
+      "path": "app/experts/layout.tsx",
+      "line": 24,
+      "property": "display",
+      "kind": "object-property",
+      "sourceHash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2",
+      "argumentHash": "1a67ff246020fa721022a0afcd30bbd38a198f0f111dca508aa188c9cad32b94",
+      "value": "'swap'",
+      "decision": "platform-metadata",
+      "ruleId": "exact-data-consumer",
+      "reason": "The swap option configures next/font/google loading behavior. Central family selection and generated selectors remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 24,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        },
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 19,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        }
+      ],
+      "proof": {
+        "category": "font-loading",
+        "consumer": "Cormorant_Garamond({\n  subsets: ['latin'],\n  weight: ['400', '500', '600'],\n  style: ['normal'],\n  variable: '--font-cormorant',\n  display: 'swap',\n})",
+        "consumerLine": 19
+      }
+    },
+    {
+      "path": "app/experts/layout.tsx",
+      "line": 32,
+      "property": "display",
+      "kind": "object-property",
+      "sourceHash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2",
+      "argumentHash": "228a61715a0ca475d2c48b47f873cbc0cc3463bda7228769db1a0dd49133c353",
+      "value": "'swap'",
+      "decision": "platform-metadata",
+      "ruleId": "exact-data-consumer",
+      "reason": "The swap option configures next/font/google loading behavior. Central family selection and generated selectors remain independently inventoried.",
+      "evidence": [
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 32,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        },
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 28,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        }
+      ],
+      "proof": {
+        "category": "font-loading",
+        "consumer": "Noto_Sans_KR({\n  subsets: ['latin'],\n  weight: ['400', '500', '700'],\n  variable: '--font-noto-sans-kr',\n  display: 'swap',\n})",
+        "consumerLine": 28
+      }
+    },
+    {
+      "path": "app/experts/layout.tsx",
+      "line": 44,
+      "property": "width",
+      "kind": "object-property",
+      "sourceHash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2",
+      "argumentHash": "70ea8300784ad116a49d8c18ad19531bcb9c792da2305abfeac1bf3f374630fb",
+      "value": "'device-width'",
+      "decision": "platform-metadata",
+      "ruleId": "exact-data-consumer",
+      "reason": "Next Viewport metadata selects device-width. It is browser viewport metadata, not a component width override.",
+      "evidence": [
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 44,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        },
+        {
+          "path": "app/experts/layout.tsx",
+          "line": 43,
+          "hash": "d7d6bcc8c059823723c51531f1f688940662345f98d6709b0c27666832dd34d2"
+        }
+      ],
+      "proof": {
+        "category": "viewport",
+        "consumer": "viewport: Viewport = {\n  width: 'device-width',\n  initialScale: 1,\n  maximumScale: 5,\n  themeColor: '#393939',\n}",
+        "consumerLine": 43
+      }
+    },
+    {
+      "path": "app/layout.tsx",
+      "line": 59,
+      "property": "width",
+      "kind": "object-property",
+      "sourceHash": "625264e060cc8a94a3cdf9971093c0cbbe89a70511a1cf40b90e38bc193ee0b7",
+      "argumentHash": "4fadf086704f875dacd744f4ad7d1f1a96e12741bce4499ae89d0f26a0de9f18",
+      "value": "'device-width'",
+      "decision": "platform-metadata",
+      "ruleId": "exact-data-consumer",
+      "reason": "Next Viewport metadata selects device-width. It is browser viewport metadata, not a component width override.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 59,
+          "hash": "625264e060cc8a94a3cdf9971093c0cbbe89a70511a1cf40b90e38bc193ee0b7"
+        },
+        {
+          "path": "app/layout.tsx",
+          "line": 57,
+          "hash": "625264e060cc8a94a3cdf9971093c0cbbe89a70511a1cf40b90e38bc193ee0b7"
+        }
+      ],
+      "proof": {
+        "category": "viewport",
+        "consumer": "viewport: Viewport = {\n  themeColor: '#393939',\n  width: 'device-width',\n  initialScale: 1,\n  viewportFit: 'cover',\n}",
+        "consumerLine": 57
+      }
+    },
+    {
+      "path": "app/layout.tsx",
+      "line": 73,
+      "property": "className",
+      "kind": "class-expression",
+      "sourceHash": "625264e060cc8a94a3cdf9971093c0cbbe89a70511a1cf40b90e38bc193ee0b7",
+      "argumentHash": "8a10716b2674a9b01a3a531794894e8eaf43f7c14e18bcccdc62e302b6bb2a57",
+      "value": "{cormorant.variable}",
+      "decision": "platform-metadata",
+      "ruleId": "exact-data-consumer",
+      "reason": "The generated cormorant.variable selector registers a shipped next/font resource; the display family is selected independently by the central token.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 73,
+          "hash": "625264e060cc8a94a3cdf9971093c0cbbe89a70511a1cf40b90e38bc193ee0b7"
+        },
+        {
+          "path": "lib/fonts.ts",
+          "line": 33,
+          "hash": "5a2cb91112c2806902ec89276d04abea44f8ea6e62de31d30f7862bae0ef2ab5"
+        }
+      ],
+      "proof": {
+        "category": "font-resource",
+        "consumer": "className={cormorant.variable}",
+        "consumerLine": 73
+      }
+    },
+    {
+      "path": "components/PullToRefresh.tsx",
+      "line": 46,
+      "property": "x",
+      "kind": "object-property",
+      "sourceHash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48",
+      "argumentHash": "e54e84b8aaf2e592a2d70a7c75875adc0b898f85192be0cef7bbb708aca45d4d",
+      "value": "e.touches[0].clientX",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-data-consumer",
+      "reason": "TouchEvent client coordinates are captured as gesture input. Pull thresholds, visible displacement and motion remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "components/PullToRefresh.tsx",
+          "line": 46,
+          "hash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48"
+        },
+        {
+          "path": "components/PullToRefresh.tsx",
+          "line": 40,
+          "hash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48"
+        }
+      ],
+      "proof": {
+        "category": "touch-input",
+        "consumer": "onStart = (e: TouchEvent) => {\n      start.current = null;\n      active.current = false;\n      if (e.touches.length !== 1) return;\n      const ok = ptrCanStart(e.target instanceof Element ? e.target : null, document, (el) => getComputedStyle(el).overflowY);\n      if (!ok) return;\n      start.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };\n    }",
+        "consumerLine": 40
+      }
+    },
+    {
+      "path": "components/PullToRefresh.tsx",
+      "line": 46,
+      "property": "y",
+      "kind": "object-property",
+      "sourceHash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48",
+      "argumentHash": "88201afdf758a4444673037be7c295f3c7898a092add77f3ba4b58faf46e67b3",
+      "value": "e.touches[0].clientY",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-data-consumer",
+      "reason": "TouchEvent client coordinates are captured as gesture input. Pull thresholds, visible displacement and motion remain separately inventoried.",
+      "evidence": [
+        {
+          "path": "components/PullToRefresh.tsx",
+          "line": 46,
+          "hash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48"
+        },
+        {
+          "path": "components/PullToRefresh.tsx",
+          "line": 40,
+          "hash": "72376b7f40fad9c1c559c36189696871542cecbbcf7d76e8956e708d5ad23c48"
+        }
+      ],
+      "proof": {
+        "category": "touch-input",
+        "consumer": "onStart = (e: TouchEvent) => {\n      start.current = null;\n      active.current = false;\n      if (e.touches.length !== 1) return;\n      const ok = ptrCanStart(e.target instanceof Element ? e.target : null, document, (el) => getComputedStyle(el).overflowY);\n      if (!ok) return;\n      start.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };\n    }",
+        "consumerLine": 40
+      }
+    }
+  ]
+}

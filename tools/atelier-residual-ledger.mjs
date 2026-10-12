@@ -17,7 +17,7 @@ export function proveStyleOriginRecord(record,code){
  return {kind:'immutable-style-origin',consumers};
 }
 export function createResidualLedger(current){
- current=beforeImportLedger(current);
+ if(hash(serialize(current))!==hash(serialize(residualBaseline())))current=beforeImportLedger(current);
  const before=residualBaseline();assert.equal(before.records.length,53991);assert.equal(before.counts.unknown,811);assert.equal(current.records.length,before.records.length);
  const source=new Map(),changes=[];for(const [index,old]of before.records.entries()){
   const row=current.records[index];if(JSON.stringify(old)===JSON.stringify(row))continue;
@@ -32,8 +32,8 @@ export function createResidualLedger(current){
  return {version:1,ref:residualRef,scope:'Fresh immutable JSX style origins with independently structural leaves and explicitly reviewed exact business consumers only. Every source, argument and other full record remains identical. No implementation, default, dimension, color or caller override is approved by context alone.',beforeReportHash:hash(serialize(before)),afterReportHash:hash(serialize(current)),records:current.records.length,unchanged:current.records.length-changes.length,beforeUnknown:811,afterUnknown:current.counts.unknown,changes};
 }
 export function beforeResidualLedger(current){
- current=beforeImportLedger(current);
  const before=residualBaseline();if(hash(serialize(current))===hash(serialize(before)))return current;
+ current=beforeImportLedger(current);
  const file=root+'/reviews/atelier-residual-ledger.json';if(!fs.existsSync(file))return current;
  const saved=JSON.parse(fs.readFileSync(file,'utf8'));assert.deepEqual(createResidualLedger(current),saved,'Current closure decisions must match fresh semantic proofs');return before;
 }

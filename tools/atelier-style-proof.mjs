@@ -535,9 +535,10 @@ export function localBindings(ts, sf, hash, references = new Map()) {
 // separate type-shape proof never approves its value, and excludes unknown
 // calls, object aliases, property reads without central scalar metadata and all
 // written bindings. The regular value proof still runs independently.
-function primitiveExpression({ts,node,sf,imports,file,references,locals,depth=0}) {
+function primitiveExpression({ts,node,sf,imports,file,references,locals,reviewedNodes,depth=0}) {
   if(!node||depth>12)return false;
-  const primitive=child=>primitiveExpression({ts,node:child,sf,imports,file,references,locals,depth:depth+1});
+  if(['string','number','boolean','mixed'].includes(reviewedNodes?.get(node)?.primitiveType))return true;
+  const primitive=child=>primitiveExpression({ts,node:child,sf,imports,file,references,locals,reviewedNodes,depth:depth+1});
   if(ts.isAsExpression(node)||ts.isSatisfiesExpression(node)||ts.isParenthesizedExpression(node))return primitive(node.expression);
   if(ts.isStringLiteralLike(node)||ts.isNumericLiteral(node)||ts.isTemplateExpression(node))return true;
   if(ts.isConditionalExpression(node))return primitive(node.whenTrue)&&primitive(node.whenFalse);
@@ -603,10 +604,10 @@ function numericExpression({ts,node,sf,imports,file,references,locals,depth=0}) 
   return false;
 }
 
-export function expressionProof({ ts, node, sf, property, imports, file, references, variables, locals, reviewedNodes, parameters = new Map(), depth = 0 }) {
+export function expressionProof({ ts, node, sf, property, imports, file, references, variables, locals, reviewedNodes, extendedAliases = false, parameters = new Map(), depth = 0 }) {
   if (!node || depth > 15) return null;
   const reviewed=reviewedNodes?.get(node);if(reviewed)return reviewed;
-  const prove = (child, childProperty = property, bindings = parameters) => expressionProof({ ts, node: child, sf, property: childProperty, imports, file, references, variables, locals, reviewedNodes, parameters: bindings, depth: depth + 1 });
+  const prove = (child, childProperty = property, bindings = parameters) => expressionProof({ ts, node: child, sf, property: childProperty, imports, file, references, variables, locals, reviewedNodes, extendedAliases, parameters: bindings, depth: depth + 1 });
   if (ts.isParenthesizedExpression(node) || ts.isAsExpression(node) || ts.isSatisfiesExpression(node)) return prove(node.expression);
   const direct = importedReference(node.getText(sf), imports, file, references);
   if (direct) return { evidence: direct, central: true };
@@ -614,11 +615,11 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
   if (ts.isIdentifier(node) && locals) {
     const parameter = locals.parameter(node);
     if (parameter && parameters.has(parameter)) return prove(parameters.get(parameter));
-    const local = locals.resolve(node) ?? (primitiveExpression({ts,node,sf,imports,file,references,locals}) ? locals.resolve(node,true) : null);
+    const local = locals.resolve(node) ?? (primitiveExpression({ts,node,sf,imports,file,references,locals,reviewedNodes:extendedAliases?reviewedNodes:undefined}) ? locals.resolve(node,true) : null);
     const proven = local && prove(local.node);
     if (proven) return { evidence: [local.evidence, ...proven.evidence], central: proven.central };
     const destructured=locals.destructuredValues?.(node);
-    if(destructured&&(!destructured.escaped||destructured.values.every(node=>primitiveExpression({ts,node,sf,imports,file,references,locals})))){const proofs=destructured.values.map(value=>prove(value));if(proofs.every(Boolean))return {evidence:[destructured.evidence,...proofs.flatMap(proof=>proof.evidence)],central:proofs.some(proof=>proof.central)};}
+    if(destructured&&(!destructured.escaped||destructured.values.every(node=>primitiveExpression({ts,node,sf,imports,file,references,locals,reviewedNodes:extendedAliases?reviewedNodes:undefined})))){const proofs=destructured.values.map(value=>prove(value));if(proofs.every(Boolean))return {evidence:[destructured.evidence,...proofs.flatMap(proof=>proof.evidence)],central:proofs.some(proof=>proof.central)};}
   }
   if (ts.isPropertyAccessExpression(node) || ts.isElementAccessExpression(node)) {
     const aliases=importedValueCandidates({ts,node,sf,imports,file,references,locals});
@@ -641,6 +642,12 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
     const candidates=importedPaths(node);
     if(indexed&&candidates){const proofs=candidates.map(value=>importedReference(value,imports,file,references));if(proofs.every(Boolean))return {central:true,evidence:proofs.flat()};}
     const local = ts.isIdentifier(node.expression) && locals?.resolve(node.expression);
+    // The receiver must be an immutable, unescaped imported selector result.
+    // Provider member proof covers every returned color branch independently.
+    if(extendedAliases&&local&&ts.isCallExpression(local.node)&&ts.isIdentifier(local.node.expression)&&locals.imported(local.node.expression)&&ts.isPropertyAccessExpression(node)&&!local.node.arguments.some(ts.isSpreadElement)){
+      const selected=importedCall(local.node.expression.text,imports,file,references,'#member:'+node.name.text);
+      if(selected)return {central:true,evidence:[local.evidence,...selected]};
+    }
     let object = local?.node;
     while (object && (ts.isAsExpression(object) || ts.isSatisfiesExpression(object) || ts.isParenthesizedExpression(object))) object = object.expression;
     if (object && ts.isObjectLiteralExpression(object)) {

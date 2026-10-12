@@ -10,6 +10,22 @@ const variables = new Map(['--qd-text', '--qd-radius', '--qd-space-2', '--qd-fon
   .map(variable => [variable, { path: 'central.css', line: 2, variable, hash: 'verified-css' }]));
 const source = code => ts.createSourceFile('components/example.tsx', code, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 
+test('imported selector aliases require a closed provider member and an immutable unescaped receiver',()=>{
+ const provider='export function choose(data){return data?{label:unknown,color:"var(--qd-text)"}:{label:other,color:"var(--qd-text)"};}',refs=code=>collectAdapterReferences({ts,variables,hash,files:new Map([['lib/choice.ts',code]])});
+ const prove=(body,code=provider,enabled=true)=>{const sf=source('import {choose}from"@/lib/choice";'+body);return expressionProof({ts,node:sf.statements.at(-1).declarationList.declarations[0].initializer,sf,property:'color',imports:sourceImports(ts,sf),file:sf.fileName,references:refs(code),variables,locals:localBindings(ts,sf,hash),extendedAliases:enabled});};
+ assert(prove('const selected=choose(remote);const result=selected.color;')?.central);
+ assert.equal(prove('const selected=choose(remote);const result=selected.color;',provider,false),null);
+ for(const body of ['const selected=choose(remote);selected.color="red";const result=selected.color;','const selected=choose(remote);consume(selected);const result=selected.color;','const selected=choose(remote);const alias=selected;consume(alias);const result=selected.color;','const selected=choose(...external);const result=selected.color;','const selected=choose(remote);const result=selected.missing;','function choose(){return {color:"red"};}const selected=choose();const result=selected.color;'])assert.equal(prove(body),null);
+ assert.equal(prove('const selected=choose("var(--qd-text)");const result=selected.color;','export function choose(color){return {color};}'),null);
+ assert.equal(prove('const selected=choose(remote);const result=selected.color;',provider.replace('label:other,color:"var(--qd-text)"','label:other,color:"red"')),null);
+});
+
+test('a typed reviewed primitive may escape but its authored fallback and callers stay independently required',()=>{
+ const prove=(fallback,attach=true,typed=true,mutation='')=>{const sf=source('function Item({color}:{color:string}){const ink=color||'+fallback+';consume(ink);'+mutation+'const result=ink;}'),reviewedNodes=new WeakMap();let target;const visit=n=>{if(ts.isIdentifier(n)&&n.text==='color'&&ts.isBinaryExpression(n.parent))if(attach)reviewedNodes.set(n,{central:false,primitiveType:typed?'string':null,evidence:[{path:sf.fileName,line:1,hash:hash(sf.text),delegatedReview:true}]});if(ts.isVariableDeclaration(n)&&n.name.getText(sf)==='result')target=n.initializer;ts.forEachChild(n,visit);};visit(sf);return expressionProof({ts,node:target,sf,property:'color',imports:sourceImports(ts,sf),file:sf.fileName,references:new Map(),variables,locals:localBindings(ts,sf,hash),reviewedNodes,extendedAliases:true});};
+ const passed=prove('"var(--qd-text)"');assert(passed?.central);assert(passed.evidence.some(e=>e.delegatedReview));
+ assert.equal(prove('"red"'),null);assert.equal(prove('"var(--qd-text)"',false),null);assert.equal(prove('"var(--qd-text)"',true,false),null);assert.equal(prove('"var(--qd-text)"',true,true,'ink="red";'),null);
+});
+
 test('destructured local selector returns prove all scalar color branches even when the primitive escapes',()=>{
  const prove=code=>{const sf=source(code);return expressionProof({ts,node:sf.statements.at(-1).declarationList.declarations[0].initializer,sf,property:'color',imports:sourceImports(ts,sf),file:sf.fileName,references:new Map(),variables,locals:localBindings(ts,sf,hash)});};
  assert(prove('function choose(data){if(data)return {label:unknown,color:"var(--qd-text)"};return {label:other,color:"var(--qd-text)"};}const {color}=choose(remote);external(color);const value=color;')?.central);

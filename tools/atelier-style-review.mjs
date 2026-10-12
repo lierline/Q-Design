@@ -11,6 +11,8 @@ import { verifiedParameterLeaves } from './atelier-parameter-leaves-review.mjs';
 import { inactiveExportGroup } from './atelier-inactive-exports.mjs';
 import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
 import {createAtelierProofContext} from './atelier-proof-context.mjs';
+import {primitiveFlowType} from './atelier-primitive-leaves.mjs';
+import {consumerReviewFiles} from './atelier-consumer-review-files.mjs';
 const ROOT='D:/Claude/Q-Design', PRODUCT='D:/Claude/Q-Atelier';
 const req=createRequire(path.join(PRODUCT,'package.json')),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -77,7 +79,7 @@ const currentHash = file => {
   }
   return currentHashes.get(file);
 };
-for (const name of ['atelier-residual-business-review.json','atelier-profile-responsive-review.json','atelier-profile-grid-review.json','atelier-icon-compatibility-review.json','atelier-size-renderer-review.json','atelier-write-guard-review.json','atelier-module-guard-review.json', 'atelier-nonvisual-binding-review.json', 'atelier-domain-binding-review.json', 'atelier-runtime-binding-review.json', 'atelier-style-spread-review.json', 'atelier-style-bindings-review.json', 'atelier-style-consumer-review.json','atelier-style-prop-flow-review.json','atelier-fold-grid-review.json','atelier-widget-width-review.json','atelier-final-presentation-boundaries.json','atelier-renderer-enum-review.json','atelier-renderer-slot-review.json','atelier-html-content-review.json','atelier-dimension-flow-review.json','atelier-api-output-consumer-review.json','atelier-data-ratio-review.json','atelier-measured-coordinate-review.json','atelier-semantic-palette-review.json','atelier-color-flow-review.json','atelier-watermark-content-review.json','atelier-chart-layout-review.json']) {
+for (const name of consumerReviewFiles) {
   const file = path.join(ROOT, 'reviews', name);
   if (!fs.existsSync(file)) continue;
   for (const entry of JSON.parse(fs.readFileSync(file, 'utf8')).records ?? []) {
@@ -154,7 +156,7 @@ for(const file of applicationFiles){
   const argumentsFound=scanArguments(file,code,{ts,postcss,properties,owner:part?.src}),reviewedNodes=new WeakMap();
   if(sf){
     const leaves=new Map();
-    for(const flow of parameterFlows.filter(flow=>flow.path===file))for(const leaf of verifiedParameterLeaves(flow,currentHash)??[])leaves.set(`${leaf.start}:${leaf.end}:${leaf.text}`,leaf.proof);
+    for(const flow of parameterFlows.filter(flow=>flow.path===file))for(const leaf of verifiedParameterLeaves(flow,currentHash)??[])leaves.set(`${leaf.start}:${leaf.end}:${leaf.text}`,{...leaf.proof,primitiveType:primitiveFlowType(ts,sf,flow)});
     const bind=node=>{if(ts.isIdentifier(node)){const proof=leaves.get(`${node.getStart(sf)}:${node.end}:${node.text}`);if(proof)reviewedNodes.set(node,proof);}ts.forEachChild(node,bind);};bind(sf);
   }
   for(const argument of argumentsFound){
@@ -216,8 +218,8 @@ for(const file of applicationFiles){
     // decisions. Every new value still needs the complete lexical proof.
     if(!result&&sf&&['object-property','style-expression','presentation-attribute'].includes(kind)&&proofNodes.has(`${kind}:${line}:${property}:${value}`)){
       expandedLocals??=localBindings(ts,sf,hash,expandedContext.references);
-      const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property,imports,file,references:expandedContext.references,variables,locals:expandedLocals});
-      if(proof?.central)result=decide('token-reference-verified','proven-composition','Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.',[...new Map([...own,...proof.evidence].map(e=>[JSON.stringify(e),e])).values()]);
+      const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property,imports,file,references:expandedContext.references,variables,locals:expandedLocals,reviewedNodes,extendedAliases:true});
+      if(proof?.central){const evidence=[...new Map([...own,...proof.evidence].map(e=>[JSON.stringify(e),e])).values()],delegated=evidence.some(e=>e.delegatedReview);result=decide(delegated?'delegated-renderer-parameter':'token-reference-verified','proven-composition',delegated?'All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.':'Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.',evidence);}
     }
     if(!result)result=decide('unknown','unknown','No broad filename, numeric-value or single-token exemption is applied.',own);
     records.push({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),...argument,originalStatus:argument.status,...result});

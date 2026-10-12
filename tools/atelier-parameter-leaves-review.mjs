@@ -24,7 +24,7 @@ export function parameterLeaves(ts,checker,fn,binding,sf){
   leaves.push({start:n.getStart(sf),end:n.end,text:n.text,line:sf.getLineAndCharacterOfPosition(n.getStart(sf)).line+1});
  }ts.forEachChild(n,visit);};visit(fn.body);return leaves;
 }
-export function createParameterLeafReview(product='D:/Claude/Q-Atelier'){
+export function createParameterLeafReview(product='D:/Claude/Q-Atelier',targets=parameterTargets){
  const root=path.resolve(product,'../Q-Design'),ts=createRequire(path.join(product,'package.json'))('typescript');
  const files=runtimeFiles(product).filter(p=>/\.[jt]sx?$/.test(p)),texts=new Map(files.map(p=>[p,fs.readFileSync(path.join(product,p),'utf8')]));
  const cfg=ts.readConfigFile(path.join(product,'tsconfig.json'),ts.sys.readFile),opts=ts.parseJsonConfigFileContent(cfg.config,ts.sys,product);
@@ -35,7 +35,7 @@ export function createParameterLeafReview(product='D:/Claude/Q-Atelier'){
  const resolved=n=>{let s=checker.getSymbolAtLocation(n);while(s?.flags&ts.SymbolFlags.Alias)s=checker.getAliasedSymbol(s);return s;};
  const evidence=(file,at)=>({path:file,line:at,hash:hash(texts.get(file))});
  const flows=[],symbols=new Map();
- for(const [file,name,prop] of parameterTargets){
+ for(const [file,name,prop] of targets){
   const sf=program.getSourceFile(path.join(product,file)),functions=[];
   const seek=n=>{if((ts.isFunctionDeclaration(n)||ts.isFunctionExpression(n))&&n.name?.text===name)functions.push(n);ts.forEachChild(n,seek);};seek(sf);
   if(functions.length!==1)throw Error('Exact renderer missing '+file+'#'+name);

@@ -1,5 +1,6 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';import {expressionProof,localBindings,sourceImports} from './atelier-style-proof.mjs';import {createAtelierProofContext,compositionNodes} from './atelier-proof-context.mjs';
+import {beforeForwardedLedger} from './atelier-forwarded-ledger.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',serialize=v=>JSON.stringify(v,null,2)+'\n';
 export const importRef='f3b4ee8bed831e3cf0ba111fd0cac53d372bdbc0';let baseline;
 export function importBaseline(){return baseline??=JSON.parse(execFileSync('git',['show',importRef+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));}
@@ -14,6 +15,7 @@ export function proveImportedComposition(record,code,context=createAtelierProofC
  return {kind:'exact-import-composition',evidence:expected};
 }
 export function createImportLedger(current){
+ if(hash(serialize(current))!==hash(serialize(importBaseline())))current=beforeForwardedLedger(current);
  const before=importBaseline();assert.equal(before.records.length,53991);assert.equal(before.counts.unknown,736);assert.equal(current.records.length,before.records.length);
  const context=createAtelierProofContext({expanded:true}),source=new Map(),changes=[];
  for(const [index,old]of before.records.entries()){
@@ -28,6 +30,7 @@ export function createImportLedger(current){
 }
 export function beforeImportLedger(current){
  const before=importBaseline();if(hash(serialize(current))===hash(serialize(before)))return current;
+ current=beforeForwardedLedger(current);
  const file=root+'/reviews/atelier-import-ledger.json';if(!fs.existsSync(file))return current;
  assert.deepEqual(createImportLedger(current),JSON.parse(fs.readFileSync(file,'utf8')),'Current import closure requires fresh source proofs');return before;
 }

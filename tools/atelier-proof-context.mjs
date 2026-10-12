@@ -21,6 +21,8 @@ export function compositionNodes(ts,sf,record){
  const nodes=[];const visit=n=>{const line=sf.getLineAndCharacterOfPosition(n.getStart(sf)).line+1;
   if(record.kind==='object-property'&&ts.isPropertyAssignment(n)&&line===record.line&&n.name.getText(sf).replace(/^['"]|['"]$/g,'')===record.property&&n.initializer.getText(sf)===record.value)nodes.push(n.initializer);
   if(['style-expression','presentation-attribute'].includes(record.kind)&&ts.isJsxAttribute(n)&&line===record.line&&n.name.getText(sf)===record.property&&n.initializer&&ts.isJsxExpression(n.initializer)&&n.initializer.getText(sf)===record.value&&n.initializer.expression)nodes.push(n.initializer.expression);
+  if(record.kind==='named-style-value'&&ts.isVariableDeclaration(n)&&line===record.line&&n.name.getText(sf)===record.property&&n.initializer?.getText(sf)===record.value)nodes.push(n.initializer);
+  if(record.kind==='object-spread'&&ts.isSpreadAssignment(n)&&line===record.line&&record.property==='...'&&n.expression.getText(sf)===record.value)nodes.push(n.expression);
   ts.forEachChild(n,visit);
  };visit(sf);return nodes;
 }
