@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {beforeProfileGrid,profileGridPath} from './atelier-profile-grid-source.mjs';
+import {beforeExpertFonts,expertFontPath} from './atelier-expert-font-source.mjs';
 const readManifest=file=>JSON.parse(fs.readFileSync(new URL('../reviews/'+file,import.meta.url),'utf8'));
 const layers=readManifest('atelier-mobile-layers-migration.json');
 const finite=readManifest('atelier-finite-defaults-3-migration.json');
@@ -47,6 +48,7 @@ function reverseManifest(path,source,manifest){
  return source;
 }
 export function reverseResponsiveChart(path,source){
+ if(path===expertFontPath)source=beforeExpertFonts(source);
  if(path===profileGridPath)source=beforeProfileGrid(source);
  const skeleton=skeletonParity.records.find(record=>record.path===path);
  if(skeleton&&hash(source)!==skeleton.beforeHash)source=reverseManifest(path,source.replaceAll('\r\n','\n'),skeletonParity);

@@ -1,3 +1,4 @@
+import {beforeExpertFontReview} from './atelier-expert-font-evidence.mjs';
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {createRequire} from 'node:module';
 import {responsiveProfilePath as profileGridPath,responsiveProfileSources as profileGridSources,normalizeResponsiveProfile as normalizeProfileGrid,responsiveDesignRef as ref} from './atelier-profile-responsive-source.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
@@ -46,5 +47,5 @@ for(const name of [...new Set(names)]){
 }
 const proof={version:2,ref,path:profileGridPath,beforeHash:bodies.beforeHash,afterHash:bodies.afterHash,scope:'One exact responsive layout expression and one copy spacing correction only. Existing arguments, complete consumer AST contexts and referenced declarations must remain identical. Repeated caller metadata also requires identical complete JSX. No new decision is approved.',reports:prepared.map(p=>({name:p.name,beforeHash:hash(serialize(p.before)),afterHash:hash(serialize(p.after)),changes:[...p.changes.map(c=>({location:['records',c.index],before:c.before,after:c.after})),...p.metadataChanges]}))};
 if(process.argv.includes('--write')){assert.equal(hash(read(repo+'/'+profileGridPath)),bodies.afterHash);for(const p of prepared)assert.equal(hash(read(root+'/reviews/'+p.name)),hash(serialize(p.before)),'Only exact pinned reports may be rebound');for(const p of prepared)fs.writeFileSync(root+'/reviews/'+p.name,serialize(p.after));fs.writeFileSync(root+'/reviews/atelier-profile-responsive-revalidation.json',serialize(proof));}
-else if(process.argv.includes('--check')){for(const p of prepared)assert.equal(hash(read(root+'/reviews/'+p.name)),hash(serialize(p.after)));assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-profile-responsive-revalidation.json')),proof);}
+else if(process.argv.includes('--check')){for(const p of prepared)assert.equal(hash(serialize(beforeExpertFontReview(p.name,JSON.parse(read(root+'/reviews/'+p.name))))),hash(serialize(p.after)));assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-profile-responsive-revalidation.json')),proof);}
 console.log(JSON.stringify({reports:prepared.length,records,evidence,callerMetadata:prepared.reduce((n,p)=>n+p.metadataChanges.length,0)}));

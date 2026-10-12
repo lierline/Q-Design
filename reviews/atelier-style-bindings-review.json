@@ -8269,18 +8269,18 @@
     },
     {
       "argumentHash": "cd8aecf8e4009d06a97030339149ee2a8b3df567c9c820ca227c66094ce5f868",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+      "sourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
       "path": "components/ExpertNotificationsPanel.tsx",
       "line": 146,
       "reviewedExpression": "resolveKind(n.kind)",
       "consumerContext": [
         {
           "line": 174,
-          "text": "{{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTra"
+          "text": "{{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTransform.v642d8"
         },
         {
           "line": 177,
-          "text": "<span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QD"
+          "text": "<span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTran"
         },
         {
           "line": 178,
@@ -8294,22 +8294,22 @@
         {
           "path": "components/ExpertNotificationsPanel.tsx",
           "line": 146,
-          "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+          "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
         },
         {
           "path": "components/ExpertNotificationsPanel.tsx",
           "line": 174,
-          "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+          "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
         },
         {
           "path": "components/ExpertNotificationsPanel.tsx",
           "line": 177,
-          "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+          "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
         },
         {
           "path": "components/ExpertNotificationsPanel.tsx",
           "line": 178,
-          "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+          "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
         },
         {
           "path": "lib/notifications/kind-display.ts",

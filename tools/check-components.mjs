@@ -6,6 +6,10 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['--test','tools/fresh-proof-cache.test.mjs'],
+  ['--test','tools/atelier-expert-fonts.test.mjs'],
+  ['tools/atelier-expert-font-evidence.mjs','--check'],
+  ['tools/atelier-expert-font-ledger.mjs','--check'],
   ['tools/build-permission-copy.mjs','--check'],
   ['--test','tools/permission-copy.test.mjs'],
   ['--test','tools/chart-layout.test.mjs','tools/atelier-chart-layout-review.test.mjs'],
@@ -142,6 +146,7 @@ if(args.includes('--browser'))steps.push(['tools/verify-mobile-navigation-banner
 if(args.includes('--browser'))steps.push(['tools/verify-social-link-touch.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-profile-grid.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-profile-responsive.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-expert-fonts.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

@@ -1,3 +1,4 @@
+import {beforeExpertFonts,expertFontPath} from './atelier-expert-font-source.mjs';
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {createRequire} from 'node:module';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';import {localBindings,sourceImports,expressionProof} from './atelier-style-proof.mjs';import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
 import {proveResidualBusinessRecord} from './atelier-residual-business.mjs';
@@ -23,7 +24,7 @@ export function createResidualLedger(current){
   const row=current.records[index];if(JSON.stringify(old)===JSON.stringify(row))continue;
   assert.equal(old.decision,'unknown','An already decided argument cannot change in this classification-only batch');
   for(const key of new Set([...Object.keys(old),...Object.keys(row)]))if(!['decision','ruleId','reason','evidence'].includes(key))assert.deepEqual(row[key],old[key],'Argument/source/order must be preserved: '+index+'.'+key);
-  if(!source.has(row.path))source.set(row.path,fs.readFileSync(product+'/'+row.path,'utf8'));
+  if(!source.has(row.path))source.set(row.path,(row.path===expertFontPath?beforeExpertFonts(fs.readFileSync(product+'/'+row.path,'utf8')):fs.readFileSync(product+'/'+row.path,'utf8')));
   const proof=row.ruleId==='exact-residual-business-consumer'?proveResidualBusinessRecord(row,source.get(row.path)):proveStyleOriginRecord(row,source.get(row.path));
   changes.push({index,path:row.path,line:row.line,property:row.property,argumentHash:row.argumentHash,beforeHash:hash(JSON.stringify(old)),afterHash:hash(JSON.stringify(row)),proof});
  }

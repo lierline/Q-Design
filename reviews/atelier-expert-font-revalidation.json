@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "ref": "22edbd44588ceeb2315b89d2c1d6c6d09cb11ee5",
+  "path": "components/ExpertNotificationsPanel.tsx",
+  "beforeSourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+  "afterSourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
+  "scope": "Exactly three undefined font selections replaced by the independently traced central mono family. Existing scanner arguments and evidence lines are identical. Complete binding consumer ASTs may differ only by these exact three substitutions. No unrelated source change, caller metadata or decision is inherited.",
+  "reports": [
+    {
+      "name": "atelier-residual-business-review.json",
+      "beforeHash": "fad6b948a39deb68aed27307b7a562f84249e1f2e4c66772aba97c75c9954406",
+      "afterHash": "0f5458851cf18a72f251c55a8beb2fc0c2b0fd331a17255641bd975885b1fd99",
+      "changes": [
+        {
+          "location": [
+            "records",
+            13
+          ],
+          "before": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 80,
+            "property": "filter",
+            "kind": "object-property",
+            "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+            "argumentHash": "f92f166d312bb65301b880bfe1612f11ba42aefdd4b0c7b0d59553cadb251561",
+            "value": "`recipient_id=eq.${userId}`",
+            "decision": "business-data",
+            "ruleId": "exact-residual-business-consumer",
+            "reason": "The exact second argument to .on(postgres_changes, ...) restricts subscription rows by recipient, expert or organization. It is a database event condition, not the CSS filter effect.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 80,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 76,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              }
+            ],
+            "proof": {
+              "category": "realtime-query",
+              "consumer": "supabase\r\n      .channel(`expert-notif:${userId}`)\r\n      .on(\r\n        'postgres_changes',\r\n        { event: '*', schema: 'public', table: 'notifications', filter: `recipient_id=eq.${userId}` },\r\n        () => { void refetch(); },\r\n      )",
+              "consumerLine": 76
+            }
+          },
+          "after": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 80,
+            "property": "filter",
+            "kind": "object-property",
+            "sourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
+            "argumentHash": "f92f166d312bb65301b880bfe1612f11ba42aefdd4b0c7b0d59553cadb251561",
+            "value": "`recipient_id=eq.${userId}`",
+            "decision": "business-data",
+            "ruleId": "exact-residual-business-consumer",
+            "reason": "The exact second argument to .on(postgres_changes, ...) restricts subscription rows by recipient, expert or organization. It is a database event condition, not the CSS filter effect.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 80,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 76,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              }
+            ],
+            "proof": {
+              "category": "realtime-query",
+              "consumer": "supabase\r\n      .channel(`expert-notif:${userId}`)\r\n      .on(\r\n        'postgres_changes',\r\n        { event: '*', schema: 'public', table: 'notifications', filter: `recipient_id=eq.${userId}` },\r\n        () => { void refetch(); },\r\n      )",
+              "consumerLine": 76
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "atelier-style-spread-review.json",
+      "beforeHash": "61c71a9a92547fb0678a47e36a3a78deb24ce0e94514d2e308d5049b9ade0f79",
+      "afterHash": "0fc25c73bd192bb25a565116b47c1ceb8fc465a7fc40722bf5a9126826c02d0e",
+      "changes": [
+        {
+          "location": [
+            "records",
+            521
+          ],
+          "before": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 91,
+            "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+            "argumentHash": "2bd44551c4f181a65b86faed4324cc5074a4c195b9742b9462da2e723fef86fc",
+            "value": "x",
+            "decision": "business-data",
+            "ruleId": "exact-reviewed-data-spread",
+            "reason": "The inspected expression composes domain identifiers, selected keywords, form field values, document filenames/statuses or outgoing API/query payloads. The exact consumer is retained; it does not compose a visible CSS style.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 91,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              }
+            ],
+            "consumer": "(x) => (x.id === n.id ? { ...x, is_read: true } : x)"
+          },
+          "after": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 91,
+            "sourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
+            "argumentHash": "2bd44551c4f181a65b86faed4324cc5074a4c195b9742b9462da2e723fef86fc",
+            "value": "x",
+            "decision": "business-data",
+            "ruleId": "exact-reviewed-data-spread",
+            "reason": "The inspected expression composes domain identifiers, selected keywords, form field values, document filenames/statuses or outgoing API/query payloads. The exact consumer is retained; it does not compose a visible CSS style.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 91,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              }
+            ],
+            "consumer": "(x) => (x.id === n.id ? { ...x, is_read: true } : x)"
+          }
+        },
+        {
+          "location": [
+            "records",
+            522
+          ],
+          "before": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 102,
+            "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+            "argumentHash": "f1742e0d050fe017ae2f093bbb7dfc3859f37b5c92570769ed58ef226a731072",
+            "value": "x",
+            "decision": "business-data",
+            "ruleId": "exact-reviewed-data-spread",
+            "reason": "The inspected expression composes domain identifiers, selected keywords, form field values, document filenames/statuses or outgoing API/query payloads. The exact consumer is retained; it does not compose a visible CSS style.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 102,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              }
+            ],
+            "consumer": "prev.map((x) => ({ ...x, is_read: true }))"
+          },
+          "after": {
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 102,
+            "sourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
+            "argumentHash": "f1742e0d050fe017ae2f093bbb7dfc3859f37b5c92570769ed58ef226a731072",
+            "value": "x",
+            "decision": "business-data",
+            "ruleId": "exact-reviewed-data-spread",
+            "reason": "The inspected expression composes domain identifiers, selected keywords, form field values, document filenames/statuses or outgoing API/query payloads. The exact consumer is retained; it does not compose a visible CSS style.",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 102,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              }
+            ],
+            "consumer": "prev.map((x) => ({ ...x, is_read: true }))"
+          }
+        }
+      ]
+    },
+    {
+      "name": "atelier-style-bindings-review.json",
+      "beforeHash": "9706740af43a70e32d3c5603a6551226cd63be5759c74801349efae9264a67f2",
+      "afterHash": "afb499562b1edc0bae76a34634898525020cfa8951ae92bd987fdbbccc90f07c",
+      "changes": [
+        {
+          "location": [
+            "records",
+            183
+          ],
+          "before": {
+            "argumentHash": "cd8aecf8e4009d06a97030339149ee2a8b3df567c9c820ca227c66094ce5f868",
+            "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 146,
+            "reviewedExpression": "resolveKind(n.kind)",
+            "consumerContext": [
+              {
+                "line": 174,
+                "text": "{{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTra"
+              },
+              {
+                "line": 177,
+                "text": "<span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QD"
+              },
+              {
+                "line": 178,
+                "text": "<button key={n.id} type=\"button\" onClick={() => void click(n)} style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\", textAlign: 'left', display: 'flex', flexDirection: 'column', gap: \"var(--qd-space-1)\", padding: \"var(--qd-atelier-padding-6"
+              }
+            ],
+            "decision": "token-reference-verified",
+            "ruleId": "reviewed-notification-kind-palette",
+            "reason": "resolveKind and every KIND_COLOR branch return only T semantic color values, including all prefix and fallback branches. Labels and glyph strings are notification content; actual colors are generated palette variables. Consumers: {{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTra | <span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QD | <button key={n.id} type=\"button\" onClick={() => void click(n)} style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\", textAlign: 'left', display: 'flex', flexDirection: 'column', gap: \"var(--qd-space-1)\", padding: \"var(--qd-atelier-padding-6",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 146,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 174,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 177,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 178,
+                "hash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611"
+              },
+              {
+                "path": "lib/notifications/kind-display.ts",
+                "line": 1,
+                "hash": "3a035cacae52a70ecf021dde574212164af6cf68ab28267edcc9d4b164cbac4a"
+              },
+              {
+                "path": "lib/design/tokens.ts",
+                "line": 1,
+                "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+              },
+              {
+                "path": "dist/q-design.palette.atelier.css",
+                "line": 1,
+                "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+              }
+            ],
+            "priorReview": {
+              "sourceHash": "3f78ab58127dd1191c92505c7046ff3b25d9f12338c244e3dc0ca1f7d8682c1a",
+              "argumentHash": "cd8aecf8e4009d06a97030339149ee2a8b3df567c9c820ca227c66094ce5f868",
+              "line": 146
+            },
+            "revalidation": "Latest visual migration reverses exactly to the previously reviewed full source SHA. The named initializer and consumer binding were retained; only four explicitly reviewed nested/default expressions changed."
+          },
+          "after": {
+            "argumentHash": "cd8aecf8e4009d06a97030339149ee2a8b3df567c9c820ca227c66094ce5f868",
+            "sourceHash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d",
+            "path": "components/ExpertNotificationsPanel.tsx",
+            "line": 146,
+            "reviewedExpression": "resolveKind(n.kind)",
+            "consumerContext": [
+              {
+                "line": 174,
+                "text": "{{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTransform.v642d8"
+              },
+              {
+                "line": 177,
+                "text": "<span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTran"
+              },
+              {
+                "line": 178,
+                "text": "<button key={n.id} type=\"button\" onClick={() => void click(n)} style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\", textAlign: 'left', display: 'flex', flexDirection: 'column', gap: \"var(--qd-space-1)\", padding: \"var(--qd-atelier-padding-6"
+              }
+            ],
+            "decision": "token-reference-verified",
+            "ruleId": "reviewed-notification-kind-palette",
+            "reason": "resolveKind and every KIND_COLOR branch return only T semantic color values, including all prefix and fallback branches. Labels and glyph strings are notification content; actual colors are generated palette variables. Consumers: {{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QDText.textTra | <span style={{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-space-1)\", fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\", textTransform: QD | <button key={n.id} type=\"button\" onClick={() => void click(n)} style={{ width: \"var(--qd-atelier-width-b7aa1ec004)\", textAlign: 'left', display: 'flex', flexDirection: 'column', gap: \"var(--qd-space-1)\", padding: \"var(--qd-atelier-padding-6",
+            "evidence": [
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 146,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 174,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 177,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              },
+              {
+                "path": "components/ExpertNotificationsPanel.tsx",
+                "line": 178,
+                "hash": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+              },
+              {
+                "path": "lib/notifications/kind-display.ts",
+                "line": 1,
+                "hash": "3a035cacae52a70ecf021dde574212164af6cf68ab28267edcc9d4b164cbac4a"
+              },
+              {
+                "path": "lib/design/tokens.ts",
+                "line": 1,
+                "hash": "5eb006408d4e6f45681f50e84c0c20aafb3dcb1f8592e504c3dc0015fba520c9"
+              },
+              {
+                "path": "dist/q-design.palette.atelier.css",
+                "line": 1,
+                "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+              }
+            ],
+            "priorReview": {
+              "sourceHash": "3f78ab58127dd1191c92505c7046ff3b25d9f12338c244e3dc0ca1f7d8682c1a",
+              "argumentHash": "cd8aecf8e4009d06a97030339149ee2a8b3df567c9c820ca227c66094ce5f868",
+              "line": 146
+            },
+            "revalidation": "Latest visual migration reverses exactly to the previously reviewed full source SHA. The named initializer and consumer binding were retained; only four explicitly reviewed nested/default expressions changed."
+          }
+        }
+      ]
+    },
+    {
+      "name": "atelier-style-prop-flow-review.json",
+      "beforeHash": "6e8fe39b6589e785cd51ae81066c50738c4501779a0f4260ce0db288f2d2c634",
+      "afterHash": "1ff5dccd7d621e0f1ba97e7a6b3ede7935c92c38dd04732a243d2be57f86b8ca",
+      "changes": [
+        {
+          "location": [
+            "files",
+            "745",
+            "sourceHash"
+          ],
+          "before": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
+          "after": "19f1146a30f74d8633dc4c461ca55e2d643bce93684003e5332f28109c77592d"
+        }
+      ]
+    }
+  ]
+}

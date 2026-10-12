@@ -1,13 +1,13 @@
 {
-  "createdAt": "2026-10-12T06:29:33.242Z",
+  "createdAt": "2026-10-12T07:06:43.226Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 588,
-  "confirmedStyleArguments": 428,
-  "confirmedStylePercent": 72.8,
+  "unknown": 582,
+  "confirmedStyleArguments": 422,
+  "confirmedStylePercent": 72.5,
   "kinds": {
-    "object-property": 234,
-    "style-expression": 195,
+    "object-property": 231,
+    "style-expression": 192,
     "presentation-attribute": 46,
     "dynamic-style": 36,
     "class-utility": 12,
@@ -20,8 +20,8 @@
     "html-attribute": 3
   },
   "counts": {
-    "confirmed-style-object": 220,
-    "direct-jsx-style": 195,
+    "confirmed-style-object": 217,
+    "direct-jsx-style": 192,
     "component-prop-needs-consumer-trace": 46,
     "unresolved-consumer": 80,
     "dom-style-write": 13,
@@ -2272,72 +2272,6 @@
       "property": "e.currentTarget.style.background",
       "value": "alpha(o.color, QDRuntime.alpha.tint0_08)",
       "context": "dom-style-write"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 129,
-      "argumentHash": "f8ed83aaa4493835d3312884949f2408a5836efdb41798d40321f916b5f4ed19",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\r\n              marginLeft: 'auto',\r\n              background: 'transparent',\r\n              border: 'none',\r\n              color: 'var(--qa-champagne)',\r\n              fontSize: QDScale.font[12],\r\n              fontFamily: 'var(--qa-font-mono, monospace)',\r\n              cursor: 'pointer',\r\n              padding: \"var(--qd-space-0)\",\r\n            }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 135,
-      "argumentHash": "e38156e5004f20d44ebb18267a38b13f6c7f4b774bd14b5a08b294896e55f5a8",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "object-property",
-      "property": "fontFamily",
-      "value": "'var(--qa-font-mono, monospace)'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 166,
-      "argumentHash": "5a21d77a11838bf16203ae17761a2f04a6f6c0447b03179bc72675e7b318636a",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\r\n                  display: 'inline-flex',\r\n                  alignItems: 'center',\r\n                  gap: \"var(--qd-space-1)\",\r\n                  fontSize: QDScale.font[12],\r\n                  fontFamily: 'var(--qa-font-mono, monospace)',\r\n                  letterSpacing: \"var(--qd-atelier-letter-spacing-c7e9f7cfec)\",\r\n                  textTransform: QDText.textTransform.v642d85873e,\r\n                  color: d.color,\r\n                }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 171,
-      "argumentHash": "b1473a5931cd840c95516d0e7de3a71ba5e4034058e7bcfcd81ec1ab5c074063",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "object-property",
-      "property": "fontFamily",
-      "value": "'var(--qa-font-mono, monospace)'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 198,
-      "argumentHash": "47cc1730ea21813d8f9463c1ddb07569a4a6dc95d550328f9d2a8e943bc4a96f",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "object-property",
-      "property": "fontFamily",
-      "value": "'var(--qa-font-mono, monospace)'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/ExpertNotificationsPanel.tsx",
-      "line": 198,
-      "argumentHash": "f53aa401696bdc9e144ebbe121679ae5e4bced356ee6326845a02c88e90dafd3",
-      "sourceHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "currentHash": "644ec52f694a2bf90cca214612ff1868adafcefacbc89e2d270305a60d8ed611",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ fontSize: QDScale.font[12], fontFamily: 'var(--qa-font-mono, monospace)', color: 'var(--qa-muted)' }}",
-      "context": "direct-jsx-style"
     },
     {
       "path": "components/FinalJudgmentPanel.tsx",
