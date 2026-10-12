@@ -13,6 +13,8 @@ const steps=[
   ['tools/maison-professional-copy-evidence.mjs','--check'],
   ['--test','tools/maison-nonvisual-handoff-review.test.mjs'],
   ['tools/maison-nonvisual-handoff-review.mjs','--check'],
+  ['--test','tools/maison-choice-columns-review.test.mjs'],
+  ['tools/maison-choice-columns-review.mjs','--check'],
   ['tools/atelier-professional-copy-revalidation.mjs','--check'],
   ['--test','tools/atelier-professional-copy.test.mjs'],
   ['tools/atelier-choice-columns-review.mjs','--check'],

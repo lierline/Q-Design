@@ -49,6 +49,10 @@ export function createAtelierCopyRevalidation(){
  return {version:1,ref:atelierCopyRef,productRef:atelierCopyProductRef,scope:'Only reviewed display literals change. Every complete styling argument is identical. Exact source/evidence fingerprints are rebound; no decision, value, line or caller is approved or omitted.',sources,reports};
 }
 export function beforeAtelierProfessionalReview(name,current){
+ if(fs.existsSync(manifest)){
+  const known=JSON.parse(fs.readFileSync(manifest,'utf8')).reports.find(r=>r.name===name);
+  if(known&&hash(serialize(current))===known.beforeHash)return current;
+ }
  current=beforeChoiceGlyphReview(name,current);
  if(!fs.existsSync(manifest))return current;
  const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),report=saved.reports.find(r=>r.name===name);
