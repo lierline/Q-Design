@@ -1,0 +1,21 @@
+/* Preparation grids share a surface and a readable mobile equipment layout. */
+:root { --qd-prep-table-min-width: var(--qd-maison-min-width-40rem); }
+.qd-prep-table { border: var(--qd-border-width) solid var(--qd-border); border-radius: var(--qd-radius); overflow-x: auto; }
+.qd-prep-table-grid { width: 100%; min-width: var(--qd-prep-table-min-width); }
+.qd-prep-table--equipment { overflow: visible; }
+.qd-prep-table--equipment .qd-prep-table-grid { min-width: 0; }
+.qd-prep-table--equipment td { overflow-wrap: anywhere; }
+.qd-prep-check { display: inline-flex; align-items: center; gap: var(--qd-space-2); }
+.qd-prep-check-label { display: none; }
+@media (max-width: 640px) {
+  .qd-prep-table--equipment .qd-prep-table-grid,
+  .qd-prep-table--equipment tbody { display: block; }
+  .qd-prep-table--equipment thead { display: none; }
+  .qd-prep-table--equipment tr { display: grid; grid-template-columns: minmax(0, 1fr) var(--qd-control-height); gap: var(--qd-space-2); padding: var(--qd-space-3); }
+  .qd-prep-table--equipment td { display: block; min-width: 0; width: auto; padding: 0; text-align: left; overflow-wrap: anywhere; }
+  .qd-prep-table--equipment td:nth-child(-n+3) { grid-column: 1 / -1; }
+  .qd-prep-table--equipment td[data-label]::before { content: attr(data-label); display: block; margin-bottom: var(--qd-space-1); color: var(--qd-muted); font-size: var(--qd-caption-size); }
+  .qd-prep-table--equipment .qd-prep-check { min-height: var(--qd-control-height); min-width: var(--qd-control-height); cursor: pointer; }
+  .qd-prep-table--equipment .qd-prep-check-label { display: inline; }
+  .qd-prep-table--equipment .qd-prep-remove { display: inline-flex; align-items: center; justify-content: center; min-width: var(--qd-control-height); min-height: var(--qd-control-height); border-radius: var(--qd-radius); }
+}

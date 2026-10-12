@@ -1,0 +1,1849 @@
+{
+  "scope": "Actual preparation component and business handlers with synthetic state only. Four processes, three viewport widths, two input font sizes and two themes. Search, keyboard selection, disabled/reset and row removal are checked without services or submissions. Public Pretendard CDN requests are allowed; loaded font families are reported per case.",
+  "sources": [
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
+    },
+    {
+      "path": "app/globals.css",
+      "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "hash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6"
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "hash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17"
+    }
+  ],
+  "cases": [
+    {
+      "kind": "wire_bending",
+      "width": 320,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 320,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 320,
+      "size": 13,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 320,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 320,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "centralMutation": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ],
+        "hitAreas": [
+          {
+            "width": 80.203125,
+            "height": 48
+          },
+          {
+            "width": 80.203125,
+            "height": 48
+          },
+          {
+            "width": 80.203125,
+            "height": 48
+          },
+          {
+            "width": 48,
+            "height": 48
+          }
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 320,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 320,
+      "size": 13,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 320,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 320,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 320,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 320,
+      "size": 15,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 320,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 320,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 320,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 320,
+      "size": 15,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 320,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 236,
+        "table": 234,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 390,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 390,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 390,
+      "size": 13,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 390,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 390,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 390,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 390,
+      "size": 13,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 390,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 390,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 390,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 390,
+      "size": 15,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 390,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 390,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 390,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 390,
+      "size": 15,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 390,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 306,
+        "table": 304,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 1280,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 1280,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 1280,
+      "size": 13,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 1280,
+      "size": 13,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 1280,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 1280,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 1280,
+      "size": 13,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 1280,
+      "size": 13,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 1280,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 1280,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 1280,
+      "size": 15,
+      "theme": "light",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 1280,
+      "size": 15,
+      "theme": "light",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "wire_bending",
+      "width": 1280,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "forming",
+      "width": 1280,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    },
+    {
+      "kind": "electro_polishing",
+      "width": 1280,
+      "size": 15,
+      "theme": "dark",
+      "equipmentNotApplicable": true,
+      "overflow": 0
+    },
+    {
+      "kind": "packaging",
+      "width": 1280,
+      "size": 15,
+      "theme": "dark",
+      "before": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "after": {
+        "overflow": 0,
+        "parent": 1196,
+        "table": 1194,
+        "cellOverflow": 0,
+        "fonts": [
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "Pretendard Variable",
+          "JetBrains Mono"
+        ]
+      },
+      "searchSelectionAndReset": true
+    }
+  ],
+  "passed": 48
+}

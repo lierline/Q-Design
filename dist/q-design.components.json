@@ -34483,11 +34483,11 @@
       "repo": "Q-Works",
       "syncKey": "Q-Works",
       "summary": {
-        "modules": 1159,
+        "modules": 1160,
         "components": 1442,
         "iconModules": 164,
         "roleMappedComponents": 98,
-        "canonicalCopies": 22,
+        "canonicalCopies": 24,
         "qdClassModules": 474,
         "productLocalModules": 600
       },
@@ -34499,6 +34499,22 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "메종 생산 준비 표",
+          "source": "patterns/foundation/maison-prep-table.css",
+          "path": "app/q-design.prep-table.css",
+          "runtime": true,
+          "matches": true,
+          "reachable": true
+        },
+        {
+          "name": "메종 안전관리 인쇄 규칙",
+          "source": "patterns/foundation/maison-safety-print.ts",
+          "path": "lib/design/q-design-safety-print.ts",
+          "runtime": false,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "공통 모노 글꼴",
           "source": "dist/q-design.mono-fonts.css",
@@ -52682,7 +52698,13 @@
             }
           ],
           "classes": [
-            "qd-label"
+            "qd-label",
+            "qd-prep-check",
+            "qd-prep-check-label",
+            "qd-prep-remove",
+            "qd-prep-table",
+            "qd-prep-table--equipment",
+            "qd-prep-table-grid"
           ],
           "tokens": [],
           "nativeControls": [
@@ -59190,6 +59212,7 @@
           "imports": [
             "components/print/format.ts",
             "components/print/report-sheet.tsx",
+            "lib/design/q-design-print.ts",
             "lib/print/sheet-chrome.ts",
             "lib/safety/incident-rules.ts",
             "lib/utils/dates.ts"
@@ -59511,6 +59534,8 @@
           "imports": [
             "components/print/format.ts",
             "components/print/report-sheet.tsx",
+            "lib/design/q-design-print.ts",
+            "lib/design/q-design-safety-print.ts",
             "lib/print/sheet-chrome.ts",
             "lib/safety/env-month-sheet.ts"
           ],
@@ -66240,6 +66265,7 @@
             "app/q-design.list.css",
             "app/q-design.nav.css",
             "app/q-design.palette.css",
+            "app/q-design.prep-table.css",
             "app/q-design.print.css",
             "app/q-design.screen.css",
             "app/q-design.workspace.css"
@@ -67068,6 +67094,41 @@
           "components": [],
           "classes": [],
           "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "q-design",
+          "evidence": "canonical-copy",
+          "reviewScope": "product-composition-or-review-candidate"
+        },
+        {
+          "path": "app/q-design.prep-table.css",
+          "kind": "stylesheet",
+          "family": "foundation",
+          "components": [],
+          "classes": [
+            "qd-prep-check",
+            "qd-prep-check-label",
+            "qd-prep-remove",
+            "qd-prep-table",
+            "qd-prep-table--equipment",
+            "qd-prep-table-grid"
+          ],
+          "tokens": [
+            "--qd-border",
+            "--qd-border-width",
+            "--qd-caption-size",
+            "--qd-control-height",
+            "--qd-maison-min-width-40rem",
+            "--qd-muted",
+            "--qd-prep-table-min-width",
+            "--qd-radius",
+            "--qd-space-1",
+            "--qd-space-2",
+            "--qd-space-3"
+          ],
           "nativeControls": [],
           "inlineStyles": 0,
           "imports": [],

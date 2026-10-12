@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T19:01:59.922Z",
+  "generatedAt": "2026-10-12T19:33:57.208Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -2298,7 +2298,7 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+      "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
     },
     {
       "path": "app/(app)/production/page.tsx",
@@ -4034,7 +4034,7 @@
     },
     {
       "path": "app/globals.css",
-      "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+      "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
     },
     {
       "path": "app/layout.tsx",
@@ -4075,6 +4075,10 @@
     {
       "path": "app/q-design.palette.css",
       "hash": "ef1b1cdb8c33a05d98ceba6bdbbfe1f6ca2e6ccb6bb6e523267914ef112471b6"
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "hash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6"
     },
     {
       "path": "app/q-design.print.css",
@@ -6779,24 +6783,24 @@
   ],
   "counts": {
     "delegated-renderer-parameter": 462,
-    "central-live-utility": 20477,
+    "central-live-utility": 20476,
     "confirmed-style-composition": 834,
-    "central-build-utility": 12075,
-    "composed-classes": 831,
-    "central-selector": 2485,
+    "central-build-utility": 12072,
+    "composed-classes": 829,
+    "central-selector": 2491,
     "compatibility-noop": 77,
     "business-data": 872,
-    "unknown": 653,
+    "unknown": 652,
     "business-condition": 54,
     "token-reference-verified": 1264,
     "structural-behavior": 408,
     "coordinate-boundary": 122,
     "business-content": 49,
-    "dependency-entry": 12,
+    "dependency-entry": 13,
     "platform-metadata": 17,
-    "central-source-verified": 3887
+    "central-source-verified": 3929
   },
-  "unknownCount": 653,
+  "unknownCount": 652,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -563316,131 +563320,12 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2154f38f51e2c489282598153c69920af11b9a30da46189720aeb79f62ff1c58",
-      "line": 86,
-      "kind": "class-expression",
-      "property": "className",
-      "value": "{cn(\"rounded-md border\", !popovers && \"overflow-x-auto\")}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-composition",
-      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 86,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "ecc2a34e8e6248829d458067418b71f436dd5af8aa0ecfdb23817133c089a939",
-      "line": 86,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "rounded-md",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX class expression literal",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS da66cb18c6d3b5a4568adf7f9fdbda5ca48da91c0d95f00a9df9682c1410b2d6 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/components.css",
-          "line": 5,
-          "hash": "c5550258b9712e46549b620cf6eaf619475e752de82d86cef878e7bca8e4ede4",
-          "variable": "--qd-radius"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "6bb12c1a4f0d9b9c2e03b54685f3bb6ab2fa277bfb3d37ca1e41d635dc10db11",
-      "line": 86,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "border",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX class expression literal",
-      "originalStatus": "review-required",
-      "decision": "central-build-utility",
-      "ruleId": "compiled-preset-utility",
-      "reason": "Installed Tailwind CSS cae340213d7f4f77345e62331d942b169c4b20f89f7d1a2050efacb1c212fba2 is generated with the verified central preset. These build-time scales require sync and rebuild; this does not claim live palette linkage.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e1458957ceb0e319fc7d34e06097031a008507c83f64d6e066cfd2125c10a1e3",
-      "line": 86,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "overflow-x-auto",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX class expression literal",
-      "originalStatus": "review-required",
-      "decision": "central-build-utility",
-      "ruleId": "compiled-preset-utility",
-      "reason": "Installed Tailwind CSS 73b65b45edc6ff39e96f91423e8ec4be24fda95da3c996f5808d6c15aec671a1 is generated with the verified central preset. These build-time scales require sync and rebuild; this does not claim live palette linkage.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "09e7e01eadbf1280d38b1675329e6a033012868935ed0edbd59f94b77b3258f6",
-      "line": 86,
-      "kind": "style-call",
-      "property": "cn",
-      "value": "\"rounded-md border\", !popovers && \"overflow-x-auto\"",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-call",
-      "reason": "Class composition call; literal fragments have separate records and unresolved values remain candidates. This does not approve the returned appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 86,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "89a82f36ca4eecad0a5a53983021e62f137fe94527b1b0951e75a6a0faa950ba",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7ad8bd70e874b3aaac017594f84f40f565bdaffee8fa2c776a3a71c07f04d4df",
       "line": 87,
       "kind": "class-expression",
       "property": "className",
-      "value": "{cn(\"w-full text-sm\", !popovers && \"min-w-[40rem]\")}",
+      "value": "{cn(\"qd-prep-table\", popovers && \"qd-prep-table--equipment\")}",
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
@@ -563451,44 +563336,112 @@
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
           "line": 87,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "9036a360e45ede1135b721bc36e19c7bce7190e28db35ff5cbf161a471aea4f1",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "30e28d5c188a5a9db5441be3465a4d77dbeeb65106913889a6735023f39933bc",
       "line": 87,
       "kind": "class-utility",
       "property": "className",
-      "value": "w-full",
+      "value": "qd-prep-table",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "JSX class expression literal",
       "originalStatus": "review-required",
-      "decision": "central-build-utility",
-      "ruleId": "compiled-preset-utility",
-      "reason": "Installed Tailwind CSS 32e9775bb20b74dc91bce084d46f98556fc830408e021516ad6e8722130305bf is generated with the verified central preset. These build-time scales require sync and rebuild; this does not claim live palette linkage.",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
       "evidence": [
         {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 3,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "aac54562ea4346b33e7edd271d7d58d88a5228a76f305f7653f00a09f330a812",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "df781e4a883483be3c1001268ce181bef262c28239f08793dd30f88aae0cc741",
       "line": 87,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "qd-prep-table--equipment",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX class expression literal",
+      "originalStatus": "review-required",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 5,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "5a647100cee010ae4404901be66490d8fb62723592af814dd1686245bececcba",
+      "line": 87,
+      "kind": "style-call",
+      "property": "cn",
+      "value": "\"qd-prep-table\", popovers && \"qd-prep-table--equipment\"",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "composed-classes",
+      "ruleId": "class-call",
+      "reason": "Class composition call; literal fragments have separate records and unresolved values remain candidates. This does not approve the returned appearance.",
+      "evidence": [
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 87,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "4d1ad0931fc343900827ec42073dfbd6ddd8e12551e2759c5646eeace137e331",
+      "line": 89,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "qd-prep-table-grid",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 4,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7b3eedb864de03f0f82d21cc2c48ae15cf50e4bb0f860f42f8dea4399e8d6003",
+      "line": 89,
       "kind": "class-utility",
       "property": "className",
       "value": "text-sm",
       "family": "behavior-structure",
       "status": "review-required",
-      "context": "JSX class expression literal",
+      "context": "JSX className",
       "originalStatus": "review-required",
       "decision": "central-live-utility",
       "ruleId": "compiled-live-utility",
@@ -563515,54 +563468,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2197fb3c459a258444ef51850e69a8ace1ff7f64575e21156bdba60a064ad60e",
-      "line": 87,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "min-w-[40rem]",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX class expression literal",
-      "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "arbitrary-utility-literal",
-      "reason": "Arbitrary value bypasses the named central theme: [[\"min-width\",\"40rem\"]]",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 87,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "1bb655c812186b6640934f45d7656e6f34c768d654c17dd7472cb5eebf3e5537",
-      "line": 87,
-      "kind": "style-call",
-      "property": "cn",
-      "value": "\"w-full text-sm\", !popovers && \"min-w-[40rem]\"",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-call",
-      "reason": "Class composition call; literal fragments have separate records and unresolved values remain candidates. This does not approve the returned appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 87,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "1ab4185fe77c918d2d74484f2012e53c1211e3b711e5ce4c9bc9761ff75754ba",
-      "line": 88,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "11642a6610907b08216f800259f81033636f678b1e92e882618feb05053431b8",
+      "line": 90,
       "kind": "class-utility",
       "property": "className",
       "value": "border-b",
@@ -563583,9 +563491,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "7295d03375eff96a20bdcce5fc58c9217de693724f7b679743816b5e105175cd",
-      "line": 88,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8a77012ec7fa27828f39ebeee974b9d52cc748d17a7123cae318c393683f6a2a",
+      "line": 90,
       "kind": "class-utility",
       "property": "className",
       "value": "bg-muted/30",
@@ -563612,9 +563520,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a4f959d70da0a2a6a3e7f91289de62f73b4ba208e0c8f38a339b85f664865bb3",
-      "line": 88,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ed97cc7f094c6fbc7571d5bd3a03babe264978ac8417f4ba2db21f9ddb940307",
+      "line": 90,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -563647,9 +563555,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5bf41cfc47d0b8f02c86a8cf43597ae13cd4173899919e13f58c8108e5641345",
-      "line": 88,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "e47f35da5bb3e7e83171584e23cdf7f0b452db54bd682b65eec28227e596d8a7",
+      "line": 90,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -563676,9 +563584,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5899c2786615f5771bc56ef9c2396cd86fe08fee39df0576d1eae5adf75de2e0",
-      "line": 92,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "e22aea632f9cf9e5f525f78c641ec5ea6847ead40de1e359d2f7db00a569eebc",
+      "line": 94,
       "kind": "class-expression",
       "property": "className",
       "value": "{TH}",
@@ -563691,16 +563599,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 92,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 94,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "601fc3250b5dcee45e3675f8fc5704d7e60369fd6defd5768ffc123efbdcb3b3",
-      "line": 96,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "36aa8a0df412415697d28fb49579536c0a79e5e0ed1babcd4df9bdff0cc369a8",
+      "line": 98,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TH, h.className)}",
@@ -563713,16 +563621,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 96,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 98,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "7d14320e7bb7ff64b6f462b8a27b92f87a2f421f8258b1049e7379837a0d3dc5",
-      "line": 96,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "17b9225ea5272187af75327a95cb13fd9d8219cbb04529f4e9966aec3db792b9",
+      "line": 98,
       "kind": "style-call",
       "property": "cn",
       "value": "TH, h.className",
@@ -563735,16 +563643,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 96,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 98,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5c0810507f1a67e3aca534b9252ae9f203e5056e7b719fa8082d30dac9dc160d",
-      "line": 103,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "49124a6c86e55f34cef33fbd64d10565fdc156ec961765e08278c9affcf1780f",
+      "line": 105,
       "kind": "class-utility",
       "property": "className",
       "value": "divide-y",
@@ -563765,9 +563673,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f083eb7d0c3d03c470357e0ba29b75949f7825b52cbfd84ccb6b5d992bc56936",
-      "line": 103,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "795564afb38ecbe428c21990f2e8077f78dd5e48b74ea5dafa5135ed3de6b7b8",
+      "line": 105,
       "kind": "class-utility",
       "property": "className",
       "value": "divide-border",
@@ -563794,9 +563702,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "b83e8c2c5411861bdb03d8c8a4b1e63624b775682fadaf4dc1170b3334c16333",
-      "line": 111,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "0a06a844ddffad55c62e51860e8ca0284eddbea01d3bee9c4328e7e9791330c2",
+      "line": 113,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -563823,9 +563731,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "71f4fd246685b08353c3c1bfc04aa3caf68873c01608e44227b75d8d2a207b24",
-      "line": 124,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8c8955de363632c447a1cfce391747b266d7c10bdbb7d8411da2de6d6bccdb54",
+      "line": 126,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"w-14 text-center\")}",
@@ -563838,16 +563746,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 124,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 126,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2558addc90899f20ad9739d3d56398257a7227e3d0f08629798cff0905ab39a7",
-      "line": 124,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "beec06f67e0d8a69a12ea91f25c058436e107f66d7962b7644db4354662cbbb0",
+      "line": 126,
       "kind": "class-utility",
       "property": "className",
       "value": "w-14",
@@ -563874,9 +563782,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "0a5d846fc5fd88c6ee22a44381b9dfb6d3c9238d47408ad62bb09a2fae411bba",
-      "line": 124,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "e6e0d63fe2d68b9f27e5595f9e59e9e8bf36b044dfbe4604fa56f4630829e52b",
+      "line": 126,
       "kind": "class-utility",
       "property": "className",
       "value": "text-center",
@@ -563897,9 +563805,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "29bf5d88d4859e961741068951a64535cf69aee14b2877f0831545ebea19e03d",
-      "line": 124,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "84ec0f75ddf28bb604fd14f92084e1fc49f1cef4cce7c029f3ed71ef7e487d5b",
+      "line": 126,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"w-14 text-center\"",
@@ -563912,16 +563820,62 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 124,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 126,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5563c994a4d3d7709f1953349448bfd99b422b4f512df00ce3a45060963cb70d",
-      "line": 136,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ed257ecc40d70b92739724a6540fc59ff9c3aa2170d9eeeebd18beeaae1734ff",
+      "line": 127,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "qd-prep-check",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 8,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d3cf7c9d804300e1c328d7070f686b17ea0c6a35c9dae2b0986de54bfd1b8196",
+      "line": 133,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "qd-prep-check-label",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 9,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "cf65b3526c1341a6ea68ef2c9341861dd425dfee3c67f984967f1c3d5d15fb38",
+      "line": 141,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"w-8 text-right\")}",
@@ -563934,16 +563888,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 136,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 141,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "41e78f61d543adc8566c67c478a5c929d664636d93ab4b6a517a423397f569ed",
-      "line": 136,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d8928b7915c1ca6cdb1e8915c87ad0e3494bdd67bac5f2cab4c298432e89057e",
+      "line": 141,
       "kind": "class-utility",
       "property": "className",
       "value": "w-8",
@@ -563970,9 +563924,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4d3d7743b39b7432c02f6d3ea130a33cbbabf8d237fe8f6b904e44e85c4557c8",
-      "line": 136,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8c80f06fb0b2e07bc02980a4077681af0384f7f4908db6e57b5f03d1e2186607",
+      "line": 141,
       "kind": "class-utility",
       "property": "className",
       "value": "text-right",
@@ -563993,9 +563947,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "0770c71b287cb516d50ccd2c2d1b908d651e42d92d48f5f74af92fc5de021c19",
-      "line": 136,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "3495d48c1a40fc341f000ae8da64b37fb60d8d3e18d78d1421fe2845b6217d3b",
+      "line": 141,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"w-8 text-right\"",
@@ -564008,16 +563962,39 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 136,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 141,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "abcc24fff5def5647488754fd52a59e099cbb2c104a48b86ee9c6ace161c4fd5",
-      "line": 141,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "4d223ffbf64eddf6218189997a34fdee401e72579ecd8571de69220e7544a0e5",
+      "line": 146,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "qd-prep-remove",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-selector",
+      "ruleId": "central-selector",
+      "reason": "Exact selector exists in the hashed central CSS recipe. Selector presence does not assert active scope or computed appearance.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 20,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "eb0142bb57ace209c417382d6dba6fe62e6297e861d955e00b116716514304f5",
+      "line": 146,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -564044,9 +564021,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "0eedbc5f82c3d3971f1fe17ec0bb24dbfdc4405b7b815146528aaf996ab06d7b",
-      "line": 141,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d10b75109d4157ba271bd87824a550ea6855975beed1f8331a9a3f9c06a47b8f",
+      "line": 146,
       "kind": "class-utility",
       "property": "className",
       "value": "hover:text-destructive",
@@ -564073,9 +564050,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "70cf2615c3d1c34b6bffc3f3b43bcfd0402a7496bebe7b64df4c5b7e737dfa61",
-      "line": 144,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "53c30d51b438ae5d58ca119cd3d0758140a21c2a569dd169f4d1f7359e1c69c5",
+      "line": 149,
       "kind": "class-utility",
       "property": "className",
       "value": "h-3.5",
@@ -564102,9 +564079,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d80f43295f43fc1f51e9ede425b45a25ba4400a105e115e22e3a32835178bcf1",
-      "line": 144,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "385d77ae307b151d0a4dc84aeec6550a063af0e63792414f64abfbdeb6f0ca2d",
+      "line": 149,
       "kind": "class-utility",
       "property": "className",
       "value": "w-3.5",
@@ -564131,9 +564108,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "34edfa08de9c11a3db63948a96c98a0adb9171b17f3b093908eb3d32f71a4ac7",
-      "line": 188,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1502c8c5088b91e450a4f52ec6d8f7193e8ff8ce10d18bb683a811f510c67fb4",
+      "line": 193,
       "kind": "object-spread",
       "property": "...",
       "value": "sheet",
@@ -564147,16 +564124,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 188,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 193,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "20ff3d7c09a582b8e465c7fc96d5c85313734efde640b68618e60fcfacbbec32",
-      "line": 189,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "539e0a2b4e893af3f5be63f87792fb3d8da092ec3999b7997704a1c37533cfbd",
+      "line": 194,
       "kind": "object-spread",
       "property": "...",
       "value": "r",
@@ -564170,16 +564147,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 189,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 194,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f31ec4c94f77cd1477e34cfb3402cbae53a6221d76121bd153fb6cf7228dc8d8",
-      "line": 189,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "fd51fee0ffdf703c5afd721a223edd597478efde1dbb4f532362b74be951aee7",
+      "line": 194,
       "kind": "object-spread",
       "property": "...",
       "value": "patch",
@@ -564193,16 +564170,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 189,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 194,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "449182e251fc582f723ea0702924a947960619b01c3061451b24c1481b45faa0",
-      "line": 192,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "3a2699e6bbdbc45f549108d3be852733bd9a74951c3985c1f44efbb1c1ccdd51",
+      "line": 197,
       "kind": "object-spread",
       "property": "...",
       "value": "sheet",
@@ -564216,16 +564193,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 192,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 197,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5d6f109d401fe1908d5248325d69d4e8c727af9dc6626d975036c6d87e84199f",
-      "line": 195,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "be10e7a409034c4b7873be6d207b1a873638e7bb4e43919c479ce8b2ed62e611",
+      "line": 200,
       "kind": "object-spread",
       "property": "...",
       "value": "sheet",
@@ -564239,16 +564216,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 195,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 200,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e2db9305ca52597aa5c6d20ee396714958cce21807bce0ef8e83f8fa766c235a",
-      "line": 196,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "2421c44faa1e6be05eca2086867b7178d994d2536033d24311d77f5e9188f2de",
+      "line": 201,
       "kind": "object-spread",
       "property": "...",
       "value": "over",
@@ -564262,16 +564239,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 196,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 201,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "07b591c33db2b9117544455857430b7b42ea7456643edd58096097245e39e013",
-      "line": 236,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "e69f56abf854f77f1b941bee2bde10d493ac1e6aac75482573539542cee050c0",
+      "line": 241,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"text-muted-foreground\")}",
@@ -564284,16 +564261,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 236,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 241,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "617693ce20786509ec6459f8b45a902015192f34103549bceb8baf6678c8d616",
-      "line": 236,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "90a770e63eb2289e81dfb8406e3001117b48538b55793e0d087aabdece308073",
+      "line": 241,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -564320,9 +564297,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "6b2930e488c38c885424be6ffcfac65f0915be267d9f481f50a969c6f429f8f4",
-      "line": 236,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "23c6ad0cec6392bdf8782633618719a2b75cb9e6471ecb11fc21d69846fd0966",
+      "line": 241,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"text-muted-foreground\"",
@@ -564335,16 +564312,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 236,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 241,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f0628dd3e858051b92c7a78484dd7de8b5d67d10f531a9fa987b909750cb207f",
-      "line": 237,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7f93cd5f6f4899d66e5d7328d7346d5cf043c1b5474c17ba3dcf56c8de3fcc1c",
+      "line": 242,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -564357,16 +564334,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 237,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 242,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "55cea14bb2114514cdd02cd0440d13f0125c307f77bb213fbf978b9c1a2bfc98",
-      "line": 246,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "a4c69fe68318da5216f39f44287a5e2cd88c7ff6adfa1cb0441698c8586fb096",
+      "line": 251,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -564393,9 +564370,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a514310cfe9c02636476e7e12ee25df3dd8b36266f7e625bdfa71f1443df024d",
-      "line": 250,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "c034f8442e84950c9f6863a24ca0fb6c22ba0284082736fbcee52e255de18318",
+      "line": 255,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -564408,16 +564385,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 250,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 255,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "b8bda903c46751b13be5f9ea5057eb719a4e1f92652c7b3e42ceb00a24b7fb71",
-      "line": 252,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "5cd2d5282f71c9ddc36443c51cf44e9391ce684ca9467eb3df4dcf3c12412535",
+      "line": 257,
       "kind": "class-utility",
       "property": "className",
       "value": "flex",
@@ -564438,9 +564415,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "bb5bcb395a8cbfdfcb0b9f0b31285f7cf71fc2164787de3dacb89cbcc1c20406",
-      "line": 252,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "028aaff3a0aeb1c5d5ee16b7dd24ab601c6a7c14de9965cf44df88c2f267e655",
+      "line": 257,
       "kind": "class-utility",
       "property": "className",
       "value": "items-center",
@@ -564461,9 +564438,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "6ff28b7be599ddf310ce8a10298b9dc35ae97285d84296982cb30c8be9554cf4",
-      "line": 252,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d528ce36b9a7881f66ba5a43f459f59c37f128ca904fb84d0279ba4c598fbb43",
+      "line": 257,
       "kind": "class-utility",
       "property": "className",
       "value": "gap-1",
@@ -564490,9 +564467,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2f8dd8c824568b2be13c05da221da1b6ad43f10aad3ef7031bcc35f5af1056ce",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "c971f2a2f351a979978de8e6e3b86d15b7011e445eab8e608ac39604cff2bb7c",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "shrink-0",
@@ -564513,9 +564490,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "08d6069fb05c3f15d5db067f1e9792ad479556dccef3fbfd54212bcaba1fba46",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "f09cfe5c47505ac9128033e4d3a890fd9dee765c3c220dd20d37f3e8e8dd01ac",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "rounded-md",
@@ -564542,9 +564519,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d5b9f1be95b17865c2f0c7889a8da1e1770df6fdcf7eb3b0515e46a2eccab59f",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7271aace32c44d41f6a8bddafc0a3dcdab30f48be1adfec99b78c5f83b45739c",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "border",
@@ -564565,9 +564542,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "dfd7d60a523debe23d529d93d5542a60122e9d709934d52bc6f2a2d0571b09b0",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ed8f006564b7336da6333db8da128d11f76fceff83df299b430a9a5417c44fa3",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "border-input",
@@ -564594,9 +564571,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5c3cd2bc965c2bf1b94bd10eabe9a2f9d1a817070318ee7ee5b1e6c5a1d4ee04",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "c92d80d0ff7486f4c787c938216c0dfb598946d5b0434ee0f2b867da7d69f070",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "bg-muted/40",
@@ -564623,9 +564600,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d3fdcca8cd069c4bec015ebdb52e8aa140e7e4c72f57ecc9451a495f87bb6a49",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "dcf85f8e27fcf6a95baf7f02cc44f6052085aa67c533af72e5b61b6da779a01a",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "px-1.5",
@@ -564652,9 +564629,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4c0c5befed46726cd71ecda07cbe91aff47c7df7b4935bbd69dc9cb22eaa4955",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8eac3484d2faaab1d4eeb7313fb6304ef120cd7f0df3e3fc9f10d0d5a3ae06a2",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "py-1",
@@ -564681,9 +564658,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "172397ff489f7ac7ad1034cca2ec63babcc8a08ffaabfce5d6f752d4e04fee54",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "f32986f0e9501e1970251b5bcd373cc6fb3c8b482da51ff2e54f71dab9fda509",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "font-mono",
@@ -564710,9 +564687,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "6b5bd7d8c9919358f22d6ca738accafd4b50ea0ff53bd5c2b5a3d66594b4e28b",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "cdc7c2faa15feab440c32ce445f8d04e467a73d78a4bc9661bdf398975a40712",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -564745,9 +564722,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4bdb49a34bb9d19b9384f25f67d2ed95a44836341cac78425248eba01bae3847",
-      "line": 253,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "6dabb90103f7f35753497780510e8222b4061955b010a5ac5dc2d153cf5b5e53",
+      "line": 258,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -564774,9 +564751,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "386d344afa375525e65de2a82bd03e942e203a91461476812694b5d82a14f883",
-      "line": 267,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "bac0715cb739458d1dd8737c79b9daa36ff599480989765f7d9806486b91deea",
+      "line": 272,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -564803,9 +564780,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a6d35dfc47956d257f168dc9646f1b5a72fe7c76d0017159008e38910d4eaebc",
-      "line": 267,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "30ee831b62a077d6e6e3c523b0238516c574da21349be16e7e492086c717dbbd",
+      "line": 272,
       "kind": "class-utility",
       "property": "className",
       "value": "font-mono",
@@ -564832,67 +564809,67 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "920b1a811f3a8bada2d1c3b83edccfb96bcdcc13471fc55036299d0c72d2d293",
-      "line": 279,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "h-8",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX className",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 19,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-spacing-unit"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d621bf3b1bee309f9318f29463f35e759c0c27054c1f8de93050b3d031064c26",
-      "line": 279,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "font-mono",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX className",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 12,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-font-family-mono"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "138f5b9eeeed19f16a7a00c9aac8c77564e842628ece841bdbdaa4f589c4f97a",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "303b34e17a05202a758a0743a6660466f5e0fb728f20ba8c163293e453b46398",
       "line": 284,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "h-8",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 19,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-spacing-unit"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1f2a5be14ccfc55fe29739948e514f2e64773e3859b8ab7c461557072c5d893b",
+      "line": 284,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "font-mono",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 12,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-font-family-mono"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "57f51a6df9b36c352e7c790dd0f0581adc8019218d099a2a28f086d30b42cff2",
+      "line": 289,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -564905,16 +564882,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 284,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 289,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c37d995389337e437ef2cd9d60c7cf1f3a581d54df08f0dc59600e340b3e2c19",
-      "line": 291,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "9bc92dfbd25d9152c5f1bdacf8ffd53c5ed49001c5333fd981fd4d96ba9e5fb5",
+      "line": 296,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -564941,9 +564918,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "9e09ee35a635ac4556912e5ceef21afc209c80790989af1b690549238632ec3a",
-      "line": 295,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ada22c2d31226dd94b3f23addd056349f9b0d20fa1e850e6a62660ceb0fb3128",
+      "line": 300,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"w-24\")}",
@@ -564956,16 +564933,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 295,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 300,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c336813b64d746f25a7d8dad55535e9ef68febde027810fe6508b9cbbb5768a0",
-      "line": 295,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "0a97a5de16fc9edefeb8e85a4c9b1279c14771897262e459346d2222b269a80b",
+      "line": 300,
       "kind": "class-utility",
       "property": "className",
       "value": "w-24",
@@ -564992,9 +564969,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e5c188fa845fc69f3c155d5f6e3adf3cb980d902600256ea18457886e9bb4938",
-      "line": 295,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "b70ae4d2ef473988fc31bce0fe788e700af3f540b29ca743d492444599f48898",
+      "line": 300,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"w-24\"",
@@ -565007,16 +564984,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 295,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 300,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d37c02edd92ccc9cca1c552492d64f06596f17114f67315f88af03a576e68e96",
-      "line": 305,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "90727a6ccde375b88c9293191fe74377d23b4f76afd8809185246bab52848ac8",
+      "line": 310,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -565043,9 +565020,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a18a5a8b719905a6e2e6f487543e4c89d434fc5dacb3fc56ead41bf587fba27e",
-      "line": 305,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1caeb1b4f19f943212ae98c4ebeb9993cac76d81d01c4b5b2ad08583b8ac03e9",
+      "line": 310,
       "kind": "class-utility",
       "property": "className",
       "value": "text-right",
@@ -565066,9 +565043,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f83283c7752fce4caf9cb7ffb62a72dbf6a4bebd00a9174c727bb82398514ff6",
-      "line": 323,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "0ebeab239d3b4c8604c86d6b49ec659bf8f96c6cc28ad3553decf69c0afbe5bf",
+      "line": 328,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -565101,9 +565078,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "165f1c2afbb3f7c82f455f93ee8b52d27b6f09c15a573578439f706f0af64c89",
-      "line": 323,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "a78686615fbf6d0299fb0255652684382f2a985877471f14d35e007c1e0f06cc",
+      "line": 328,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -565130,9 +565107,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4fb98fa06b6183c3bfe8c094f125d9bd66e0750190ec5835ea97c68b5689e7c3",
-      "line": 329,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1d57c0033ea92998a2a42f313d9bb8767314f382ede0d1d8bc9f1012ffe704cc",
+      "line": 334,
       "kind": "class-utility",
       "property": "className",
       "value": "flex",
@@ -565153,9 +565130,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "52332480edbd0d73f843e518a95e53d323a2924f27c61727a490d576e8c7457e",
-      "line": 329,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "a1cc814be2a354a7b7094ce7c3925622959a9544aeab752f0d45ede01118180d",
+      "line": 334,
       "kind": "class-utility",
       "property": "className",
       "value": "flex-wrap",
@@ -565176,9 +565153,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "3300da7273a5db85b9e2b4df87650315f3fffb59508bf2eb1ecb16788ed62c84",
-      "line": 329,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "95342444877f6866d813a53fefea4e575ff62e66862091b1b2a0ed2421bcde35",
+      "line": 334,
       "kind": "class-utility",
       "property": "className",
       "value": "items-center",
@@ -565199,9 +565176,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4beac7318bf594c4377edc57c3bcbe6dcc806092f4c45263b73f752d270c3dee",
-      "line": 329,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "bb559d90e83c7f8e224c810889239d49a9721a495cca4fff8dc6b45743451fff",
+      "line": 334,
       "kind": "class-utility",
       "property": "className",
       "value": "gap-2",
@@ -565228,9 +565205,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "dc17da7a059c9c1f4e8f47f2c71a6dd109aa7be73306d8cc80dddd9b0f835a02",
-      "line": 336,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "dc20436dffa28061c9ad7339ae42f1bdfc7e80da44ad0fe29b1dfea4b31d0b39",
+      "line": 341,
       "kind": "class-utility",
       "property": "className",
       "value": "h-4",
@@ -565257,9 +565234,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f0f7e1a22e7028e88afc380b41c2b3fd1bb1d29ca0f39362bd9f4ad9a0b5cbc2",
-      "line": 336,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d9f5e9ba4b9ae5f27e206560d437b7c8d6c80046bf698e7c9606bc86244217e7",
+      "line": 341,
       "kind": "class-utility",
       "property": "className",
       "value": "w-4",
@@ -565286,9 +565263,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "910bc9743926c6cc54633ddff39a66b8049ef90559f5af79e349e90ee437dd59",
-      "line": 351,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d2e954051834231394786146fae9013db04f3994b15757eb46b9cd538ac7801c",
+      "line": 356,
       "kind": "class-utility",
       "property": "className",
       "value": "w-auto",
@@ -565309,9 +565286,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "87a59a0a338b829509727fc11c34bf0e3896311122396d030498fdf9cf240f1e",
-      "line": 397,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "70c4ac7a3df391774371b42a913d165db518e1951aaf733de472d4c3dca94522",
+      "line": 402,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -565324,16 +565301,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 397,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 402,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "1e6315b18c457e5ca7646a86afa31674ac2205a1e7aa9a8b866425f6d4bdc5bb",
-      "line": 399,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "3a063667b1115364d29fc24e41396fd5122410563b957344b2bba58a418b26d4",
+      "line": 404,
       "kind": "class-utility",
       "property": "className",
       "value": "font-medium",
@@ -565360,60 +565337,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "698566a3ecd1de69934a479021b668baa4b19aa776d1de68986b0f1935877d19",
-      "line": 409,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "h-8",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX className",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 19,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-spacing-unit"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "3cc36ac94bbccfcf7a6f37d6be698327bc010f158d357591121f3698e9f574d9",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "9e76adf6cd82528df854a71b964d314dbfef079e5ef7558ac4a9f219c98255de",
       "line": 414,
-      "kind": "class-expression",
-      "property": "className",
-      "value": "{TD}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-composition",
-      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 414,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "1f5bc2ee6fc977953f8f0f08c378e15a1e3628bebf3669c722208a310ac706af",
-      "line": 425,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -565440,60 +565366,31 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d37d6d98f5e04f86f29c87b988de6baff2390f87ac0af2e4acccd532cf9de05b",
-      "line": 425,
-      "kind": "class-utility",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ee4538c8c00d0bd98d868204cf391eec1e07754c4916d6d63f1fa9470735228c",
+      "line": 419,
+      "kind": "class-expression",
       "property": "className",
-      "value": "font-mono",
+      "value": "{TD}",
       "family": "behavior-structure",
       "status": "review-required",
-      "context": "JSX className",
       "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
+      "decision": "composed-classes",
+      "ruleId": "class-composition",
+      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
       "evidence": [
         {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 12,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-font-family-mono"
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 419,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "04045efcbceb05330d0445414735876a35a27644364f06fceee09aad5e2214b0",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "11c9dc7477e89b86c98b0affbbf9ef617494c05c99c75b2dbd5c38ed551e8129",
       "line": 430,
-      "kind": "class-expression",
-      "property": "className",
-      "value": "{TD}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-composition",
-      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 430,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e7f9b048b5d5cc78dded3975901f2a01dafa0f180d82ea46c05839fe8ba3ecf4",
-      "line": 438,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -565520,9 +565417,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c072db45b36ceea982471c02b771117bca54d49e359cb19adae908e4cd6bffa0",
-      "line": 438,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "93c088fbdae9462b60c947faced257b86803c6c1d1c2211ec31ff58db2f0f9c5",
+      "line": 430,
       "kind": "class-utility",
       "property": "className",
       "value": "font-mono",
@@ -565549,9 +565446,89 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c8fb549e48c0ccaf3565934df84b7cbdd31ce6979b1cf48a664b19fc64e1d3ec",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "597e75a960d0c5cbadf80cc18d9d7e323bd44f1e8a2b62282e0d25d1b1922e57",
+      "line": 435,
+      "kind": "class-expression",
+      "property": "className",
+      "value": "{TD}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "composed-classes",
+      "ruleId": "class-composition",
+      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
+      "evidence": [
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 435,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "141da17b051a7e16f9d6bb94898af57696be325109e6fc97c9e10eb18696b15b",
       "line": 443,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "h-8",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 19,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-spacing-unit"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "bef193d95fb1f221baa298476e8723e1b1a648c842cd29d92b9431e02c0ef0e0",
+      "line": 443,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "font-mono",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 12,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-font-family-mono"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "6eef9ab1832736a683cd98203826ef9ce56e723236014dc7b4cea4e575676234",
+      "line": 448,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"w-24\")}",
@@ -565564,16 +565541,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 443,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 448,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "59cd999f8250c904bb666c459f0d6c43d45ca9843c060ababae2b17a4218081e",
-      "line": 443,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "cd96bc5e5c68497c08c3d480a23ad93f9019da01b1d42eed5af6c0fca2705c7f",
+      "line": 448,
       "kind": "class-utility",
       "property": "className",
       "value": "w-24",
@@ -565600,9 +565577,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "eaf9181ad8941ce7f269d225a8ae460271f433f9b1e120711ce2298199602a53",
-      "line": 443,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "f7186302ba83b8ab02f9f3c0b20a9e2c3e5f922b662d8ed4f4faf4c179d411cc",
+      "line": 448,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"w-24\"",
@@ -565615,16 +565592,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 443,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 448,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "03fc14c99ba773cd1ead9c70748755af58df01b5ba1dabd3f8fda7c554cdb2c6",
-      "line": 454,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "9fed4bd950983b18c81576469716924b85a21962383afc7a7b248c2ffcc29957",
+      "line": 459,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -565651,9 +565628,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "7633b278bf72acda4356542b0fabb1b115bb374372472167bc6cfdcb19c8670e",
-      "line": 454,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d7e6f31c3fb5b3edff4c7538bf594a66776c42a6cf93985ec862446fcbe8c8e2",
+      "line": 459,
       "kind": "class-utility",
       "property": "className",
       "value": "text-right",
@@ -565674,9 +565651,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f16e96e277b24155587fd3f2db64a0492b964b6f6629398a3cb3ce7f9949ad2d",
-      "line": 474,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "68d44ecefe98a7f2a92e893d01482298b4738ffbeee9b99b303abc0f3ff804b8",
+      "line": 479,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -565709,9 +565686,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "ef065e8e18b7a16c35fe4ba2d0ceffe4c110f2221568d7754d1b80f2c88a0db3",
-      "line": 474,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "2387383eef502f297bc7425499d97319d981e323e870481f1c81bd2457098dcc",
+      "line": 479,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -565738,9 +565715,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "9cde0beebd494dae8931876f566cbf0bc7644bab90539dba96e05f4282442e13",
-      "line": 479,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "433fa9409e14e8d17eb693928f30cbb433882c8cbbac54f29115673873414db7",
+      "line": 484,
       "kind": "class-utility",
       "property": "className",
       "value": "flex",
@@ -565761,9 +565738,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4eebc98885948081b4b7a0237ffaa89cd3bf277e8f73aa6c95f61704d27f7845",
-      "line": 479,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "6420134efbe7b52cbefc6ae21d4560970cec98160890a34cc20818d3692cda20",
+      "line": 484,
       "kind": "class-utility",
       "property": "className",
       "value": "flex-wrap",
@@ -565784,9 +565761,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "870b411bc7a7052d7c585d342277aeed2d67c57346b0971059464a23d0bcc39a",
-      "line": 479,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "910270aea339b34402e5e730985088cd082fd87cdaadd145f8903059b339a8de",
+      "line": 484,
       "kind": "class-utility",
       "property": "className",
       "value": "items-center",
@@ -565807,9 +565784,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "1c4df617c7469efe27a0fd06c8bbd382826d2053929aa2d6c801e7baedf82d7e",
-      "line": 479,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "32489b1a6bacec2e6a6b5a593c56e67ed300c089c7d4ddf05900d3726f7a67a4",
+      "line": 484,
       "kind": "class-utility",
       "property": "className",
       "value": "gap-2",
@@ -565836,9 +565813,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "4c8772022acfcd36802cc82d7e4a2ced9f1335c3ac4e1e72f161f00f6bd53096",
-      "line": 486,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ff0bb573a829fb8f243988a4972925998985df9c5b40918262123a5552b95d5d",
+      "line": 491,
       "kind": "class-utility",
       "property": "className",
       "value": "h-4",
@@ -565865,9 +565842,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a8c4afbb9326fdcdd0d3540c2ff7714386a878b789b09cd057b4a62dd27ca1ee",
-      "line": 486,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "58bc7dfff0878a046aa11e03b29794c4c4c3d466c40aee3ac44f591b8f1d7bb9",
+      "line": 491,
       "kind": "class-utility",
       "property": "className",
       "value": "w-4",
@@ -565894,9 +565871,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e8fa471cc3e670dbc0eda893424d89a4747c98391695b8ca3c4bd6fdca935bd3",
-      "line": 502,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ab231a94925912f2913c1f658434e253707dadb122f18a195918c528c15f51ac",
+      "line": 507,
       "kind": "class-utility",
       "property": "className",
       "value": "w-80",
@@ -565923,9 +565900,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "cf39fe19e69794cef53c5e4cf1b5ee711016f39e31002b2a9ba1162cc8f826c4",
-      "line": 502,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "c1170a148d2dcbc4b166e629073dbb5f3ec2f3d84e163013767d733eb9b751b7",
+      "line": 507,
       "kind": "class-utility",
       "property": "className",
       "value": "max-w-full",
@@ -565946,9 +565923,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "0fe0ba170e2ad71b1342f69b8142e28c5819e8cfbe98efec4a0ce692b7b95879",
-      "line": 532,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "973d2eb132def778914de6ced60e376305ffa8c7cac926155dc8c8fc563d3376",
+      "line": 538,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"font-medium\")}",
@@ -565961,16 +565938,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 532,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 538,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "7e0085c1cae61100133f404a9824180a01787be37679f521beb5b9b9b67a9e4c",
-      "line": 532,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d9ec4ed333dabd20301db7c2628fdaef375828c68cc42e81a80fc8cefc4227a2",
+      "line": 538,
       "kind": "class-utility",
       "property": "className",
       "value": "font-medium",
@@ -565997,9 +565974,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "67ed7ba097b2294747f0ba4c24949ea8a596a91c4d43f7fa93695797a4423628",
-      "line": 532,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "a9c9fe2f49367ffe50ef2496bd75425565c403b1a64e92e7ddbb7bf201c99cd7",
+      "line": 538,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"font-medium\"",
@@ -566012,16 +565989,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 532,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 538,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "9e4200388fa59a179efe7793a22e611baa317aa04e233df6244f8fbd14b3b822",
-      "line": 533,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "bd90fefa7572da3108306689a43978e8701da540700d5bcc6fe7d1806c02d9bf",
+      "line": 544,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -566034,16 +566011,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 533,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 544,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "b87a25c98b9cf94b3c89b5de9b58af9db10a8f49b0104613f86c6451b28f2c7c",
-      "line": 552,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "cbfd5b8eb6a7639f64602a72da15e74ec45c9ab73da9d1b98aa51dbce7017397",
+      "line": 566,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(TD, \"text-xs\")}",
@@ -566056,16 +566033,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 552,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 566,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "b90650c78ed42d834187aaeec8168d15f9ee110bdc373879501bedf07afbbbc3",
-      "line": 552,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8d913803a43b208a8fc1670d9760e237d27eb7483a977133f85e8a3147f225aa",
+      "line": 566,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -566098,9 +566075,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "7f74fdf03fb288c9fa233a792117dd80e00e62611a6dc2e2194850b91f58a8c6",
-      "line": 552,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "c9773c3716452e10164c79a1c37fa514558a585eb668e87176118bf280e83255",
+      "line": 566,
       "kind": "style-call",
       "property": "cn",
       "value": "TD, \"text-xs\"",
@@ -566113,16 +566090,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 552,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 566,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a4b21ecaa3bbef516bd593758a6f31cfee561dcdeb4bb0ddc16f6a93e23e9004",
-      "line": 584,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "5aed5628645780fe4efce7a68c5492d40181841a477ed4e8c4cb4698bf1422a0",
+      "line": 598,
       "kind": "class-utility",
       "property": "className",
       "value": "w-80",
@@ -566149,9 +566126,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "66cc6795ce90a62f4f2201024a40fc670d4447482c556b49966c2a29df727ec1",
-      "line": 584,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "018fb86997a69594a42a6df9ce051f09fce49ec7dd25def54bf0f3705bf21c02",
+      "line": 598,
       "kind": "class-utility",
       "property": "className",
       "value": "max-w-full",
@@ -566172,9 +566149,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "dd6b1e31f611deb747831453e54bf4d2ab915fda741ffa7a6f984ba15aec4f97",
-      "line": 612,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "3bade60c452607d918fcae214fd01ba0cab39c6a34f2a230d5e3a706b6580b5f",
+      "line": 626,
       "kind": "class-expression",
       "property": "className",
       "value": "{TD}",
@@ -566187,16 +566164,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 612,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 626,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "94fb2cdbca6af2c1ab38c1f3731b6de2fe84dac38e61811a3fee01620d307cdc",
-      "line": 614,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "4008ff4d9af6164efa71f29f4487776f151f0100d3c59ecf4402472ee125c07a",
+      "line": 628,
       "kind": "class-utility",
       "property": "className",
       "value": "font-medium",
@@ -566223,58 +566200,7 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2b1fa0fbe69e60c73c1f5893d812bfb3835059bd88736eae3bb97d597069d5b5",
-      "line": 623,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "h-8",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX className",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 19,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-spacing-unit"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "16a087dfe508c41149316ef7ed530ce9351640e02199336455d7d4df6340f297",
-      "line": 628,
-      "kind": "class-expression",
-      "property": "className",
-      "value": "{TD}",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "originalStatus": "review-required",
-      "decision": "composed-classes",
-      "ruleId": "class-composition",
-      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
-      "evidence": [
-        {
-          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 628,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
       "argumentHash": "489edd8f8eac2e78c09b50f89cd6e9aad5206fe6e9561a75f69944d5b4eb80c1",
       "line": 637,
       "kind": "class-utility",
@@ -566303,36 +566229,7 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "66807685a6ad8437e83f940a9ae5e7089afed27501047a1e5ee7cb4f748ce521",
-      "line": 637,
-      "kind": "class-utility",
-      "property": "className",
-      "value": "font-mono",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "JSX className",
-      "originalStatus": "review-required",
-      "decision": "central-live-utility",
-      "ruleId": "compiled-live-utility",
-      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
-      "evidence": [
-        {
-          "path": "patterns/foundation/maison-tailwind.ts",
-          "line": 1,
-          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
-        },
-        {
-          "path": "patterns/foundation.css",
-          "line": 12,
-          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
-          "variable": "--qd-font-family-mono"
-        }
-      ]
-    },
-    {
-      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
       "argumentHash": "9ef135531bba1ceb749a4217ba0d587d6d9638174e0ec119b8e96cafecf9d86c",
       "line": 642,
       "kind": "class-expression",
@@ -566348,15 +566245,15 @@
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
           "line": 642,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2dcec11596a766ee9ddbe129181537c85045b6b7b9584bc393a037371dd12477",
-      "line": 653,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "b6eb4710a04569fcdd56e0ff46c9b76dde2b28dd717eb79cbbb3f39cc63ceaf4",
+      "line": 651,
       "kind": "class-utility",
       "property": "className",
       "value": "h-8",
@@ -566383,9 +566280,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "0e3e9cc790ec86f9c9f8ea767aa77cd4ab0a058424f0221c6c54a75ef02fd2d4",
-      "line": 653,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "f51756a9adc44bfe3d8aa027c0c5bc8b003abbee3f1fb99d173d21b948e51619",
+      "line": 651,
       "kind": "class-utility",
       "property": "className",
       "value": "font-mono",
@@ -566412,9 +566309,89 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "89de20d3ccdbe4e6df963fd15e1d18d00c40ce04d12da83f26590a62bb9c08c1",
-      "line": 670,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7107a9e0542d5aa4db9267d195c195b3ea5501d1293aeaf7ea9dfc1750338f81",
+      "line": 656,
+      "kind": "class-expression",
+      "property": "className",
+      "value": "{TD}",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "originalStatus": "review-required",
+      "decision": "composed-classes",
+      "ruleId": "class-composition",
+      "reason": "Literal class fragments have individual records; unresolved identifier branches remain separate candidates. This is not proof of runtime appearance.",
+      "evidence": [
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 656,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "048c9cd277ca9361171c6ad483da660c470d4d312fbe542c7a5749b5a4194466",
+      "line": 667,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "h-8",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS dcf2008da39e6d083c767f3cf9cc1c528c71740d172da3635303f5c5cc2ff8d3 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 19,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-spacing-unit"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "b0b8b6ecb22d77f79416b345b529eaa0990607d2e26b0ae439a1a140150ff017",
+      "line": 667,
+      "kind": "class-utility",
+      "property": "className",
+      "value": "font-mono",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "JSX className",
+      "originalStatus": "review-required",
+      "decision": "central-live-utility",
+      "ruleId": "compiled-live-utility",
+      "reason": "Actual Tailwind CSS 204265fa0662fd62e2708e7224b2fd98e81d0fa231749ef97ee90a945b2129d9 reads declared canonical variables.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-tailwind.ts",
+          "line": 1,
+          "hash": "cf120c0bfcdba44c8062a864b973a5c23a6d46fce4858c5fa1506a3ac87c875b"
+        },
+        {
+          "path": "patterns/foundation.css",
+          "line": 12,
+          "hash": "4bb68dd6a37161cd8a83a7943facc9386108a26a2c8d9123201201eaaf350839",
+          "variable": "--qd-font-family-mono"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "fa9c59a88a8c034ddf52adbc78beef6197ddfda3a625d4460436f24502483d0e",
+      "line": 684,
       "kind": "class-utility",
       "property": "className",
       "value": "h-4",
@@ -566441,9 +566418,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "aececd9caef7605ae5d2f15d3908c7c80654f95fd73de5de832405a7e171f4de",
-      "line": 670,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "2c992a0713bb81c7d035bf6dd470ef71b8bb18d6ca0dc2cbb59589b957875e95",
+      "line": 684,
       "kind": "class-utility",
       "property": "className",
       "value": "w-4",
@@ -566470,9 +566447,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "56399e2bfb1e8679e836dd704fcbbc48688d26c2785d533845e202a8c4e24d95",
-      "line": 680,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "73a5e4d1643fd8ed4631e21b680d002f3560ce44a961172fa78666c5c7d7fa32",
+      "line": 694,
       "kind": "class-utility",
       "property": "className",
       "value": "space-y-4",
@@ -566499,9 +566476,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "bb9615712f8dd24e1ebb6e8e247219728aa1f9ec981df25448540c718383f74f",
-      "line": 680,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "6a6321dc3452830c5ff3ebf1252de545cc8e1c5a7fd2b808dfcfc2829eb04c54",
+      "line": 694,
       "kind": "class-utility",
       "property": "className",
       "value": "rounded-md",
@@ -566528,9 +566505,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "a1c59a4c169fff8a988b30c13251480f7bc4ab1a94a4cd7c49eac375fc52df6b",
-      "line": 680,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1eb0f5a586692271d6f16ced0ee77a94734f58d760aac2b26bc48119ebc98dd8",
+      "line": 694,
       "kind": "class-utility",
       "property": "className",
       "value": "border",
@@ -566551,9 +566528,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "8af8ac91dfccd10e5842c8588622beaaae91fa07b3dd0238bac31c8b543b4f34",
-      "line": 680,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d0bebdf247cf36a47c643f9c0507799c8546654684315a78b06ad59304919dbe",
+      "line": 694,
       "kind": "class-utility",
       "property": "className",
       "value": "bg-card",
@@ -566580,9 +566557,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "b7f1e311451ac188164899fc8d67ae404b7956ed15e61095fffbe88bb583a28f",
-      "line": 680,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "31397d70a13523661c46af7fe68bc6c13388d28573a22cf1d267373c0985999d",
+      "line": 694,
       "kind": "class-utility",
       "property": "className",
       "value": "p-5",
@@ -566609,9 +566586,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "d8b7daf0653a05dc586d789ff9b86b888960330ed67a244ce1cc4634e7cf12fb",
-      "line": 681,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "987399b6f74ce704341486f5b039ac4263054a2f6b33df6583a98afa0909735b",
+      "line": 695,
       "kind": "class-utility",
       "property": "className",
       "value": "space-y-1",
@@ -566638,9 +566615,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "9d9462a5c7ce96131997b36bbec53d403f237996296a97fb59b75150169d6091",
-      "line": 682,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "5f77cbd6f8e4f8105b93fd653c66a2e6b26457e17c6a0023a142cb853ea39517",
+      "line": 696,
       "kind": "class-utility",
       "property": "className",
       "value": "qd-label",
@@ -566661,9 +566638,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c6eb9af4148752b6ba0d18587e9a5af8e989eb58a32cae78725e61ae0ebbf062",
-      "line": 685,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "28c1661a3740b52b82e70fa6c2a958920ed4762bd2832877e98815cd85ecd9a6",
+      "line": 699,
       "kind": "class-utility",
       "property": "className",
       "value": "text-xs",
@@ -566696,9 +566673,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "17da9afd6540a9a942776870e6f824d6d1b060f8fbec1f7dc1852c4e6e674c98",
-      "line": 685,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "e87256f040963739649d249dcae7abbf717cd2a85f6f39797615b0fc8872cba5",
+      "line": 699,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -566725,9 +566702,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "37a24af79c5d9a9ba765a25c5fe9672c7afa20d63d673dde2cdf4c2e8c273789",
-      "line": 693,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "903eebb88bafb515481fcfaa7d411bc07df7d304d6bf1832ed8eca3e305f941c",
+      "line": 707,
       "kind": "class-expression",
       "property": "className",
       "value": "{cn(\"space-y-2\", i > 0 && \"border-t pt-4\")}",
@@ -566740,16 +566717,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 693,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 707,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f037f2eec92aeeeba9990f5b0d6895f299e2d637bc5d14ccdc97d844f3e1746b",
-      "line": 693,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "da3dfebd7006021ecff7ab1f144d5a1d81eb6fb252a429dc9bdee5a4c9da2dce",
+      "line": 707,
       "kind": "class-utility",
       "property": "className",
       "value": "space-y-2",
@@ -566776,9 +566753,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "2d18e5672523b39d41caa76818dad38108e27e778933b604bab9c71ce6fb43c4",
-      "line": 693,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "9ebaf21c38e56289f937445fd1ac23ad4e2929fd01a2d991802b895fa4bb9c0b",
+      "line": 707,
       "kind": "class-utility",
       "property": "className",
       "value": "border-t",
@@ -566799,9 +566776,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "54fb5f7c88a5f262ae43f84fb74b50879a4e499c42135bf12126d17d92adb26d",
-      "line": 693,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "d750b0c148c71f6eea9e0be572923205bc56639eba46664f0e10a0d117fd549b",
+      "line": 707,
       "kind": "class-utility",
       "property": "className",
       "value": "pt-4",
@@ -566828,9 +566805,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "ef3e26f41a6d8c32be4371be79b0eba039c065761da5ab8d7dbee0c4a570e5a2",
-      "line": 693,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ef8ae22803b94db22674e784a30bbf16bceeb14d5f12590869d20d6cbef98b65",
+      "line": 707,
       "kind": "style-call",
       "property": "cn",
       "value": "\"space-y-2\", i > 0 && \"border-t pt-4\"",
@@ -566843,16 +566820,16 @@
       "evidence": [
         {
           "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-          "line": 693,
-          "hash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6"
+          "line": 707,
+          "hash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9"
         }
       ]
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "fa98fc606a6e1a859f4486eade0b99823b655d759fe75a9869fb10dc080538bb",
-      "line": 695,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1996232e2a6f5bbc499b44aadda1ddf1b9502c071e78cf608ecf7b604488eb4d",
+      "line": 709,
       "kind": "class-utility",
       "property": "className",
       "value": "text-sm",
@@ -566885,9 +566862,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "f5ec194551dfb05ed603e9ba67e371e26f17651be85adef8a233850b7e6cbc9c",
-      "line": 695,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "ca30e9753ee84226a169b2625a913ef2fa1efb14f25b9f1e17d3cda7064b7794",
+      "line": 709,
       "kind": "class-utility",
       "property": "className",
       "value": "font-medium",
@@ -566914,9 +566891,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "8cf81afe0e992bf68867224183e1e03da4cfcbce7e5a14aaf8377f63baa2ddf6",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7e844cb9ba4fb9f5e9353a89462fb4824665d1191d7d3753f706966e3ccc1bc9",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "rounded-md",
@@ -566943,9 +566920,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "c0d2b91d912ec891b032b3b7dd68215d67dec1f6db0e290e059d36ae0cd5a4de",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "7e8ff98959e5b062a8b06250d481da464f4e95b05c1353138ca6f262f6ee86f0",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "border",
@@ -566966,9 +566943,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "61ef7179acf17a993148506c66cf2ce1fdb27a1d686c55bf9766c386e6feae0b",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "8f06fb8779918d86e872339ba9805a68cd634d5579149f03bebafb1848bcc3ac",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "border-brand-copper/40",
@@ -566995,9 +566972,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "39f899057673d3e1cf6e20ffd2fe7ed46ae1a3d15e961e23b3c2f59d1a7b47e1",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "f41c3d2c9f8bc4135a9e6032c5b65e1b717563282cb15fdf869adb9894eed4e3",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "bg-brand-forestPale/40",
@@ -567024,9 +567001,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "e6d7a8719ba2f5a82394f7ade3c70e409178b1f243486fd86185f0e2a28b344a",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "1280e443ecaef4aab42b411a8ed26c5f52d03a6dcf433c3044db54dd83201ce1",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "p-3",
@@ -567053,9 +567030,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "841e6db3c639898bad1efdb4c8bdb1badced107d54d098328a137dd10558c41a",
-      "line": 699,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "0e133b4f0cdd40b8d55b1f38927689758736b5ad0ffcd4780655dc127cb05f74",
+      "line": 713,
       "kind": "class-utility",
       "property": "className",
       "value": "text-sm",
@@ -567088,9 +567065,9 @@
     },
     {
       "path": "app/(app)/production/new/prep-sheet-fields.tsx",
-      "sourceHash": "9872e8581a376e20bb60bb5726153e051b423b3f228dcd6e174754ab5bc4a6b6",
-      "argumentHash": "5712f9efe80b7126b81b0fc2a46f9df7135bc9663e42443147c7c19fc1a0dc30",
-      "line": 701,
+      "sourceHash": "5952010b851e77b1e1a7d3b7f9358bbef68d0b2377c45a0f32de7c7043a9d1b9",
+      "argumentHash": "53f92302d008cb5ad8e88ae4a24a77e947c164eda7bef73b6e610a402237496d",
+      "line": 715,
       "kind": "class-utility",
       "property": "className",
       "value": "text-muted-foreground",
@@ -979405,7 +979382,7 @@
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "66a3811fd1627d47737ecab7ad2814bce524e9e2822a86c0ab8794a0d02978ba",
       "line": 1,
       "kind": "css-at-rule",
@@ -979422,13 +979399,13 @@
         {
           "path": "app/globals.css",
           "line": 1,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "0430c2cb80c97fb710614301fa5b718bde06da023e64b3af93ad29b2c560800e",
       "line": 21,
       "kind": "css-at-rule",
@@ -979445,13 +979422,13 @@
         {
           "path": "app/globals.css",
           "line": 21,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "23284ddbf20c93130f3be31f0f56fbeff6f956e4f52c44ac755e943eb643a995",
       "line": 22,
       "kind": "css-at-rule",
@@ -979468,13 +979445,13 @@
         {
           "path": "app/globals.css",
           "line": 22,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "85d5bd8a6b7726cfe9097983262114734f15afd9a17aaf361b82fa549a291ea2",
       "line": 23,
       "kind": "css-at-rule",
@@ -979491,13 +979468,13 @@
         {
           "path": "app/globals.css",
           "line": 23,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "1bd7d8b3d671e876053c894e4b676d43c2e5ba66058e1ddb5548c6d0d83ddeb3",
       "line": 24,
       "kind": "css-at-rule",
@@ -979514,13 +979491,13 @@
         {
           "path": "app/globals.css",
           "line": 24,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "2808850c697be0c5ebf10d8f9d0ccd6ce89ff19df0b708bc9dee1fba236e4a42",
       "line": 25,
       "kind": "css-at-rule",
@@ -979537,13 +979514,13 @@
         {
           "path": "app/globals.css",
           "line": 25,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "fab3b948d2eaf119468ac7edb581d59ee28945ca5251cf611dd351e880272795",
       "line": 26,
       "kind": "css-at-rule",
@@ -979560,13 +979537,13 @@
         {
           "path": "app/globals.css",
           "line": 26,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "0c8284e346b41214da0cc53d731c4d4bbcff80b0027de9feaf89d9df34ddb05c",
       "line": 27,
       "kind": "css-at-rule",
@@ -979583,13 +979560,13 @@
         {
           "path": "app/globals.css",
           "line": 27,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
       "argumentHash": "e716d10b5b770f605d11734f1d9f39c67ae1e0aed413fb61ae5b9e582a5a0e20",
       "line": 28,
       "kind": "css-at-rule",
@@ -979606,15 +979583,38 @@
         {
           "path": "app/globals.css",
           "line": 28,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
-      "argumentHash": "6acbd9f89b86ef6b53221c1ae8e922dd97b87a29ee5679c16f7d5fd0783e0a97",
-      "line": 30,
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
+      "argumentHash": "f45df0b082b8d32a4c3e33d1ef0f7564209a24571c6582f6878a403958fcdd5a",
+      "line": 29,
+      "kind": "css-at-rule",
+      "property": "@import",
+      "value": "\"./q-design.prep-table.css\"",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "stylesheet",
+      "originalStatus": "review-required",
+      "decision": "dependency-entry",
+      "ruleId": "style-entry",
+      "reason": "Import/Tailwind directives activate canonical recipe copies and compiler layers.",
+      "evidence": [
+        {
+          "path": "app/globals.css",
+          "line": 29,
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
+        }
+      ]
+    },
+    {
+      "path": "app/globals.css",
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
+      "argumentHash": "f07475ab97546e14485e79f5b21194a89ec4bf6761995b97d4f2729b6e151ecc",
+      "line": 31,
       "kind": "css-at-rule",
       "property": "@tailwind",
       "value": "base",
@@ -979628,16 +979628,16 @@
       "evidence": [
         {
           "path": "app/globals.css",
-          "line": 30,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "line": 31,
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
-      "argumentHash": "e9b3a18160bba80caaea4ba4b775db1e10f709a149f2fd1efef31b44ac543797",
-      "line": 31,
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
+      "argumentHash": "63b5139e1cf136075e2669c739764d95def16e4acc5431f172be06cb5faf5704",
+      "line": 32,
       "kind": "css-at-rule",
       "property": "@tailwind",
       "value": "components",
@@ -979651,16 +979651,16 @@
       "evidence": [
         {
           "path": "app/globals.css",
-          "line": 31,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "line": 32,
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
     {
       "path": "app/globals.css",
-      "sourceHash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763",
-      "argumentHash": "c2f28bf68125bb63282e910cba091fb6589afdb1f679498ed1d54b7aabd61020",
-      "line": 32,
+      "sourceHash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca",
+      "argumentHash": "11623b43cf9d4458d17724c4bc4b30428784538f4f4602f5470da031e817bb12",
+      "line": 33,
       "kind": "css-at-rule",
       "property": "@tailwind",
       "value": "utilities",
@@ -979674,8 +979674,8 @@
       "evidence": [
         {
           "path": "app/globals.css",
-          "line": 32,
-          "hash": "8a5bd880fcd8e57c85dc92a1924e338030c32c84ca624ba36313d031b1832763"
+          "line": 33,
+          "hash": "390df81e231d99dc38fe1bd97d769623538e1b39d607524e82605464addfabca"
         }
       ]
     },
@@ -1039603,6 +1039603,1014 @@
           "path": "dist/q-design.palette.maison.css",
           "line": 1,
           "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "33d6b68be1c6b94cf734174783d73cb75d5daa53def9c5dc1219639ed165a238",
+      "line": 15,
+      "kind": "css-declaration",
+      "property": "--qd-prep-table-min-width",
+      "value": "var(--qd-maison-min-width-40rem)",
+      "family": "token-definition",
+      "status": "central-source",
+      "context": "stylesheet :root",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "9864aeb66f69d2ee294c05bcf8da6c1c5bbe01d2e258dd32ab48c47755f06893",
+      "line": 16,
+      "kind": "css-declaration",
+      "property": "border",
+      "value": "var(--qd-border-width) solid var(--qd-border)",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "c6690285da095ee3165db31c6966e8f48b189365a8c02989f3b65592ea4943bf",
+      "line": 16,
+      "kind": "css-declaration",
+      "property": "border-radius",
+      "value": "var(--qd-radius)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "7ff2a17ca7b544fb0bf7a5151691ac6ff44367dae58a251cb96e937723a1db23",
+      "line": 16,
+      "kind": "css-declaration",
+      "property": "overflow-x",
+      "value": "auto",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "ffcbd9b9113cf5ed1a76deb23d0110b9d8546d0c487b1703e8dab468bf713290",
+      "line": 17,
+      "kind": "css-declaration",
+      "property": "min-width",
+      "value": "var(--qd-prep-table-min-width)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table-grid",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "50311a4d1ea5915e54d572e2fcb155ef2e8138c12aafe6d2861cdc288c5c3ec3",
+      "line": 17,
+      "kind": "css-declaration",
+      "property": "width",
+      "value": "100%",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table-grid",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "e7cc8921aeb82c084288f3f3ea3196a0fe25fa9b098c1bfb1860edfcdf3eafd8",
+      "line": 18,
+      "kind": "css-declaration",
+      "property": "overflow",
+      "value": "visible",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "53baa75268b441aa310a3c4c811322ccd4323f71232419c0e217b9cc3574a3b4",
+      "line": 19,
+      "kind": "css-declaration",
+      "property": "min-width",
+      "value": "0",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-table-grid",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "0024ca7e214e5eb66213877d54e087b2e250051434bfbb9434d5d3120b8477a2",
+      "line": 20,
+      "kind": "css-declaration",
+      "property": "overflow-wrap",
+      "value": "anywhere",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "ac666925e634b159e84d4742cfa6168441606fb599bfee82d1bf42d42bba76f0",
+      "line": 21,
+      "kind": "css-declaration",
+      "property": "align-items",
+      "value": "center",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "788054d378bc6c7606fcb7f1316a2a0dbb7735af236960629167de48beefdfcf",
+      "line": 21,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "inline-flex",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "ed9b02cbaade88aedf7407d8947d9c42071ea15126837eb7ad98066782e1e73b",
+      "line": 21,
+      "kind": "css-declaration",
+      "property": "gap",
+      "value": "var(--qd-space-2)",
+      "family": "spacing",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "d38516ef1a2fb42cad365942e219f52f53fbdf63663ce08c14f4e02e3696326d",
+      "line": 22,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "none",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-check-label",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "cd0cad728d0b8e3439eede2696732d534332ba6189e9e2532421ab2e213a970c",
+      "line": 23,
+      "kind": "css-at-rule",
+      "property": "@media",
+      "value": "(max-width: 640px)",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "fc29a9f6621028c3a9a80828288a0d1a295c455b9e50dc1c5c1ffbc1cb14a490",
+      "line": 25,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "block",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-table-grid,\n  .qd-prep-table--equipment tbody",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "3188019df5b5043e785688e0263debb5475496d8ee91d0b62e5b2e90b5401665",
+      "line": 26,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "none",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment thead",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "cb0e048b917cbd0607cacc87dc310cf0cd1479088b033e505b5a713c9cde7bc0",
+      "line": 27,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "grid",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment tr",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "2688e136a5b38ff9ded0a2eac36515f3fff2034305ebe2788d48e3a94bd909d8",
+      "line": 27,
+      "kind": "css-declaration",
+      "property": "gap",
+      "value": "var(--qd-space-2)",
+      "family": "spacing",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment tr",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "5178460ed8dfed42d2943c8126aed8181f1940f691fb325e6a8b49de521cf59d",
+      "line": 27,
+      "kind": "css-declaration",
+      "property": "grid-template-columns",
+      "value": "minmax(0, 1fr) var(--qd-control-height)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment tr",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "30cfd350c6e9c51bcd431d71cadba61596eb9e8fb8710f6134de3496815f7603",
+      "line": 27,
+      "kind": "css-declaration",
+      "property": "padding",
+      "value": "var(--qd-space-3)",
+      "family": "spacing",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment tr",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "35cbfbd01fe5f931a6e2dfb7a44e31a1bfd91b9b6e95ea630558aa7f0bd817cd",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "block",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "34124b4f95d897084ab7c45d653c96f4ccb53b94be1c14298be77a71cf07fdf1",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "min-width",
+      "value": "0",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "7f0a012826b3743395a4d1747f1746bd9a0439a80d28d840ac51a9be6096b6bc",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "overflow-wrap",
+      "value": "anywhere",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "a03117c9e62809749271a51b0d3c3957fc30fef483e4ffd161b5b768065ebeeb",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "padding",
+      "value": "0",
+      "family": "spacing",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "3b28e0988dd462b16dea9d0c041131ea767413bead9369e6fd5729f12267aacd",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "text-align",
+      "value": "left",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "f3920fb23951e33409425223b4d4eb6fbc18aa294da136129ea51906ad15b7a2",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "width",
+      "value": "auto",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "74f33b7911647e8986976fa667ea421e46124a6cf513ce13d54bf28cbb9838e4",
+      "line": 29,
+      "kind": "css-declaration",
+      "property": "grid-column",
+      "value": "1 / -1",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td:nth-child(-n+3)",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "185f8ea7d0712f99a2c7b9481645cff512e9f7209f536ce48b0533d0a837eea9",
+      "line": 30,
+      "kind": "css-declaration",
+      "property": "color",
+      "value": "var(--qd-muted)",
+      "family": "surface-color-effect",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td[data-label]::before",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "2b1beeb63b977201e1bca6906be65a655c53039a3587906f2747d52afe4290e4",
+      "line": 30,
+      "kind": "css-declaration",
+      "property": "content",
+      "value": "attr(data-label)",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td[data-label]::before",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "846585987858707972642d97ab12cd962bb593d86f534ae1fe1906b749057e18",
+      "line": 30,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "block",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td[data-label]::before",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "1a91ebafb0226ee3e4737df65e9c7023d38817dbe875df078c792d6967ece493",
+      "line": 30,
+      "kind": "css-declaration",
+      "property": "font-size",
+      "value": "var(--qd-caption-size)",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td[data-label]::before",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "1a3f20420c67e07636e44d22a50566c6c9f3fdca3ee1221f66b1b689b63934cf",
+      "line": 30,
+      "kind": "css-declaration",
+      "property": "margin-bottom",
+      "value": "var(--qd-space-1)",
+      "family": "position-layer",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment td[data-label]::before",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "4c8b28e0e886af285ff5a493a4ad63db015b60f77aa315cb33718b150e40ee2e",
+      "line": 31,
+      "kind": "css-declaration",
+      "property": "cursor",
+      "value": "pointer",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "80146a462584ca019ffee19b5c5b3b7fa582559d08bf3aaef9e00b3e3a76c64d",
+      "line": 31,
+      "kind": "css-declaration",
+      "property": "min-height",
+      "value": "var(--qd-control-height)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "cb0faf456f2b2607adfb4aa889c7e03b3edc5c5d654dfbd65a10fd5d32667e93",
+      "line": 31,
+      "kind": "css-declaration",
+      "property": "min-width",
+      "value": "var(--qd-control-height)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-check",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "99d33f4ece5e0c9ee6c1269bdd0eb86b4fcfaccdcfdea7c5b2d3e7de1b467d39",
+      "line": 32,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "inline",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-check-label",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "d6d30170a8c5b1b77b58efccbee65ceb6087c840f443b6d56c3df452361d3de9",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "align-items",
+      "value": "center",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "260e1d7362217ab52abbbd495facdfc104da0ec5d0d22eebb724152fb5c1f129",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "border-radius",
+      "value": "var(--qd-radius)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "53247f3efe9978f3eb9e47e81e2aba4da842890bc8d72d81588441eb240533f4",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "display",
+      "value": "inline-flex",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "71785de6c540da753e63e9a11a0ca5149eff72524fb1be1de0e3a5478b113503",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "justify-content",
+      "value": "center",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "cf3090137a7152304f14cb39d1baa975d5c13113cc394f8c0c86df362b26ccf4",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "min-height",
+      "value": "var(--qd-control-height)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.prep-table.css",
+      "sourceHash": "2cf6689cce45b3fbe9e7999f5dbfbcbc0191cfc23670c7cf4a1cce8e1cbf62a6",
+      "argumentHash": "7c068a72b74fee5fb10550252fbe6c52f63671db93f5514aa00e8133646dcf3a",
+      "line": 33,
+      "kind": "css-declaration",
+      "property": "min-width",
+      "value": "var(--qd-control-height)",
+      "family": "geometry",
+      "status": "central-source",
+      "context": "stylesheet .qd-prep-table--equipment .qd-prep-remove",
+      "owner": "patterns/foundation/maison-prep-table.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "patterns/foundation/maison-prep-table.css",
+          "line": 1,
+          "hash": "11cc124645202823c96fc6b59791e9a7c644107f58ae11bcd3f745271a73f6ba"
         }
       ]
     },

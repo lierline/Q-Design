@@ -16,7 +16,7 @@ const ts=require('typescript'),postcss=require('postcss'),tailwind=require('tail
 const selectorParser=createRequire(require.resolve('tailwindcss/package.json'))('postcss-selector-parser');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(require.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
 const copies=new Map(centralOutputs(PARTS,'Q-Works',PRODUCT).map(part=>[part.path,part]));
-const cssFiles=['patterns/foundation.css','patterns/foundation/maison.css','patterns/components.css','patterns/workspace.css','dist/q-design.nav.css','dist/q-design.list.css','dist/q-design.screen.css','dist/q-design.palette.maison.css'];
+const cssFiles=['patterns/foundation.css','patterns/foundation/maison.css','patterns/foundation/maison-prep-table.css','patterns/components.css','patterns/workspace.css','dist/q-design.nav.css','dist/q-design.list.css','dist/q-design.screen.css','dist/q-design.palette.maison.css'];
 const variables=new Map(),classes=new Map();
 function registerCSS(file,code,css=code,line=1){
   const sourceHash=hash(code),ast=postcss.parse(css);
