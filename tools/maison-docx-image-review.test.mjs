@@ -1,3 +1,4 @@
+import {beforeTextValuesReport} from './maison-docx-values-review.mjs';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
@@ -27,7 +28,7 @@ test('intrinsic dimensions and actual XML fitting preserve aspect ratio and resp
  assert.equal(cases,20);
 });
 test('complete image-review ledger inverse refuses unrelated decisions and borrowed evidence',()=>{
- const current=JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json')),before=beforeImageStyleReport(current);assert.equal(before.counts.unknown,643);assert.equal(current.counts.unknown,626);
+ const current=beforeTextValuesReport(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json'))),before=beforeImageStyleReport(current);assert.equal(before.counts.unknown,643);assert.equal(current.counts.unknown,626);
  const altered=structuredClone(current);altered.records.find(r=>r.decision==='unknown').decision='business-data';assert.throws(()=>beforeImageStyleReport(altered));
  const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='exact-docx-image-geometry').evidence[0].hash='borrowed';assert.throws(()=>beforeImageStyleReport(borrowed));
 });

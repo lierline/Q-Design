@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T20:54:03.409Z",
+  "generatedAt": "2026-10-12T21:54:12.693Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6794,17 +6794,17 @@
     "central-selector": 2491,
     "compatibility-noop": 77,
     "business-data": 872,
-    "unknown": 626,
+    "unknown": 607,
     "business-condition": 54,
     "token-reference-verified": 1271,
     "structural-behavior": 411,
     "coordinate-boundary": 128,
-    "business-content": 49,
+    "business-content": 68,
     "dependency-entry": 13,
     "platform-metadata": 17,
     "central-source-verified": 3929
   },
-  "unknownCount": 626,
+  "unknownCount": 607,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -1199676,14 +1199676,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 260,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199699,14 +1199719,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local parentValues producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 378,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199722,14 +1199762,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 380,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199745,14 +1199805,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 386,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199768,14 +1199848,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 391,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199791,14 +1199891,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 397,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199814,14 +1199934,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 402,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199837,14 +1199977,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 407,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199860,14 +1200020,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 412,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199883,14 +1200063,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 419,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199906,14 +1200106,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 424,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199929,14 +1200149,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 427,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199952,14 +1200192,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local parentValues producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 526,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199975,14 +1200235,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 532,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1199998,14 +1200278,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 537,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1200021,14 +1200321,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 542,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1200044,14 +1200364,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 547,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1200067,14 +1200407,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 553,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
@@ -1200090,14 +1200450,34 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-content",
+      "ruleId": "symbol-resolved-docx-text-values",
+      "reason": "This exact spread is in the values field of a typed ModuleFormResult return. Its resolved local numbered producer returns string document fields, using inspected numbered placeholder prefixes or six parent-record fields. The pinned assembly passes those values to doc.render as document content. No visual style object, font, box size, checkbox placement or caller appearance input is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill-changes.ts",
-          "line": 571,
+          "line": 1,
           "hash": "addaa5af1b860b24a59c77fd87468f77ce2ed01304281a57cf805255593e609e"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
         }
       ]
     },
