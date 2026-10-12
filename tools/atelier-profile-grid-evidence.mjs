@@ -8,7 +8,9 @@ assert([bodies.beforeHash,bodies.afterHash].includes(hash(read(repo+'/'+profileG
 const scan=code=>new Map(scanArguments(profileGridPath,code,{ts,postcss,properties}).map(r=>[hash(JSON.stringify(r)),r]));const oldArgs=scan(bodies.before),newArgs=scan(bodies.after);
 function contexts(code,line,text){const sf=ts.createSourceFile(profileGridPath,code,99,true,4),compact=s=>s.replace(/\s+/g,' ').trim(),matches=[];function visit(n){const at=sf.getLineAndCharacterOfPosition(n.getStart(sf)).line+1,end=sf.getLineAndCharacterOfPosition(n.end).line+1,full=compact(n.getText(sf));if(at<=line&&end>=line&&(full===compact(text)||text.length===240&&full.startsWith(compact(text))))matches.push(full);ts.forEachChild(n,visit);}visit(sf);return matches.sort();}
 function flowCaller(code,caller,prop){const sf=ts.createSourceFile(profileGridPath,code,99,true,4),matches=[];function visit(n){if((ts.isJsxOpeningElement(n)||ts.isJsxSelfClosingElement(n))&&sf.getLineAndCharacterOfPosition(n.getStart(sf)).line+1===caller.line&&n.tagName.getText(sf)===caller.tag){const attr=n.attributes.properties.find(a=>ts.isJsxAttribute(a)&&a.name.text===prop);if(caller.value==null){assert(!attr);assert.equal(caller.argumentHashes.length,0);}else{assert(attr&&sf.getLineAndCharacterOfPosition(attr.getStart(sf)).line+1===caller.attributeLine);assert.equal(attr.initializer?.getText(sf),caller.value);}matches.push(n.getText(sf));}ts.forEachChild(n,visit);}visit(sf);assert.equal(matches.length,1);return matches[0];}
-const reviewSource=read(root+'/tools/atelier-style-review.mjs');const names=[...reviewSource.matchAll(/'((?:atelier-)[a-z-]+\.json)'/g)].map(m=>m[1]);
+// A historical revalidation uses its pinned historical review inventory.
+// Later reports have independent live-source gates and cannot enter this set.
+const reviewSource=execFileSync('git',['show',ref+':tools/atelier-style-review.mjs'],{cwd:root,encoding:'utf8'});const names=[...reviewSource.matchAll(/'((?:atelier-)[a-z-]+\.json)'/g)].map(m=>m[1]);
 names.push('atelier-parameter-leaves-review.json');
 const prepared=[];let records=0,evidence=0;
 for(const name of [...new Set(names)]){

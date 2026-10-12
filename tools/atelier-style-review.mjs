@@ -9,6 +9,7 @@ import { collectAdapterReferences, expressionProof, classExpressionProof, import
 import { verifiedConsumerReview } from './atelier-style-manual.mjs';
 import { verifiedParameterLeaves } from './atelier-parameter-leaves-review.mjs';
 import { inactiveExportGroup } from './atelier-inactive-exports.mjs';
+import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
 const ROOT='D:/Claude/Q-Design', PRODUCT='D:/Claude/Q-Atelier';
 const req=createRequire(path.join(PRODUCT,'package.json')),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -75,7 +76,7 @@ const currentHash = file => {
   }
   return currentHashes.get(file);
 };
-for (const name of ['atelier-profile-responsive-review.json','atelier-profile-grid-review.json','atelier-icon-compatibility-review.json','atelier-size-renderer-review.json','atelier-write-guard-review.json','atelier-module-guard-review.json', 'atelier-nonvisual-binding-review.json', 'atelier-domain-binding-review.json', 'atelier-runtime-binding-review.json', 'atelier-style-spread-review.json', 'atelier-style-bindings-review.json', 'atelier-style-consumer-review.json','atelier-style-prop-flow-review.json','atelier-fold-grid-review.json','atelier-widget-width-review.json','atelier-final-presentation-boundaries.json','atelier-renderer-enum-review.json','atelier-renderer-slot-review.json','atelier-html-content-review.json','atelier-dimension-flow-review.json','atelier-api-output-consumer-review.json','atelier-data-ratio-review.json','atelier-measured-coordinate-review.json','atelier-semantic-palette-review.json','atelier-color-flow-review.json','atelier-watermark-content-review.json','atelier-chart-layout-review.json']) {
+for (const name of ['atelier-residual-business-review.json','atelier-profile-responsive-review.json','atelier-profile-grid-review.json','atelier-icon-compatibility-review.json','atelier-size-renderer-review.json','atelier-write-guard-review.json','atelier-module-guard-review.json', 'atelier-nonvisual-binding-review.json', 'atelier-domain-binding-review.json', 'atelier-runtime-binding-review.json', 'atelier-style-spread-review.json', 'atelier-style-bindings-review.json', 'atelier-style-consumer-review.json','atelier-style-prop-flow-review.json','atelier-fold-grid-review.json','atelier-widget-width-review.json','atelier-final-presentation-boundaries.json','atelier-renderer-enum-review.json','atelier-renderer-slot-review.json','atelier-html-content-review.json','atelier-dimension-flow-review.json','atelier-api-output-consumer-review.json','atelier-data-ratio-review.json','atelier-measured-coordinate-review.json','atelier-semantic-palette-review.json','atelier-color-flow-review.json','atelier-watermark-content-review.json','atelier-chart-layout-review.json']) {
   const file = path.join(ROOT, 'reviews', name);
   if (!fs.existsSync(file)) continue;
   for (const entry of JSON.parse(fs.readFileSync(file, 'utf8')).records ?? []) {
@@ -108,7 +109,7 @@ for(const file of applicationFiles){
   const verified=part&&copyProblems(part,fs.readFileSync(path.join(ROOT,part.src),'utf8'),code).length===0;
   const iconSource=file.startsWith('components/q-design-icons/')?`dist/react-icons/${path.basename(file)}`:null;
   const iconVerified=iconSource&&fs.existsSync(path.join(ROOT,iconSource))&&hash(fs.readFileSync(path.join(ROOT,iconSource),'utf8'))===sourceHash;
-  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals;
+  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals,styleOrigins=new Map();
   if(/\.[jt]sx?$/.test(file)){
     sf=ts.createSourceFile(file,code,ts.ScriptTarget.Latest,true,file.endsWith('x')?ts.ScriptKind.TSX:ts.ScriptKind.TS);
     imports=sourceImports(ts,sf);
@@ -145,6 +146,8 @@ for(const file of applicationFiles){
       }
       ts.forEachChild(node,visit);
     };visit(sf);
+    styleOrigins=collectStyleObjectOrigins({ts,sf,locals,hash});
+    for(const key of styleOrigins.keys())if(styleKeys.has(key))styleOrigins.delete(key);else styleKeys.add(key);
   }
   const argumentsFound=scanArguments(file,code,{ts,postcss,properties,owner:part?.src}),reviewedNodes=new WeakMap();
   if(sf){
@@ -188,7 +191,8 @@ for(const file of applicationFiles){
     if(!result&&proofNodes.has(`${kind}:${line}:${property}:${value}`)){
       const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property:kind==='dynamic-style'?property.split('.').at(-1):property,imports,file,references:adapterReferences,variables,locals,reviewedNodes});
       if(proof&&(proof.central||kind==='style-expression'||kind==='dynamic-style'||styleKeys.has(`${line}:${property}:${value}`))){
-        const evidence=[...new Map([...own,...proof.evidence].map(item=>[JSON.stringify(item),item])).values()];
+        const originEvidence=!proof.central&&kind==='object-property'?(styleOrigins.get(`${line}:${property}:${value}`)??[]):[];
+        const evidence=[...new Map([...own,...proof.evidence,...originEvidence].map(item=>[JSON.stringify(item),item])).values()];
         const delegated=evidence.some(item=>item.delegatedReview);
         const geometry=evidence.some(item=>item.dataGeometryReview);
         result=decide(delegated?'delegated-renderer-parameter':geometry?'confirmed-style-composition':proof.central?'token-reference-verified':'structural-behavior','proven-composition',delegated?'All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.':geometry?'All authored style values are proven and the exact separately reviewed domain ratio or DOM measurement remains a data boundary, not a centrally owned constant.':'Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.',evidence);
