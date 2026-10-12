@@ -1,0 +1,785 @@
+{
+  "deployment": "dpl_5b1e1dd6cNbtap8fRsD4P97GwgPg",
+  "sha": "498584bbe5b8cddfe25324ed5eafa5749c8518eb",
+  "parity": true,
+  "measurement": {
+    "documentWidth": 390,
+    "groups": [
+      {
+        "bounds": {
+          "bottom": 980.984375,
+          "height": 180,
+          "left": 63,
+          "right": 341,
+          "top": 800.984375,
+          "width": 278,
+          "x": 63,
+          "y": 800.984375
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 886.984375,
+              "height": 86,
+              "left": 63,
+              "right": 198,
+              "top": 800.984375,
+              "width": 135,
+              "x": 63,
+              "y": 800.984375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "1등급잠재적 위해 거의 없음 (예: 거즈, 청진기)"
+          },
+          {
+            "bounds": {
+              "bottom": 886.984375,
+              "height": 86,
+              "left": 206,
+              "right": 341,
+              "top": 800.984375,
+              "width": 135,
+              "x": 206,
+              "y": 800.984375
+            },
+            "clientWidth": 133,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "2등급낮은 위해 가능성 (예: 혈압계, 보청기)"
+          },
+          {
+            "bounds": {
+              "bottom": 980.984375,
+              "height": 86,
+              "left": 63,
+              "right": 198,
+              "top": 894.984375,
+              "width": 135,
+              "x": 63,
+              "y": 894.984375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "3등급중간 위해 가능성 (예: 인공호흡기, 카테터)"
+          },
+          {
+            "bounds": {
+              "bottom": 980.984375,
+              "height": 86,
+              "left": 206,
+              "right": 341,
+              "top": 894.984375,
+              "width": 135,
+              "x": 206,
+              "y": 894.984375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "4등급고위해 (예: 인공심장판막, 임플란트)"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "135px 135px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 1182.171875,
+          "height": 148,
+          "left": 63,
+          "right": 341,
+          "top": 1034.171875,
+          "width": 278,
+          "x": 63,
+          "y": 1034.171875
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 1104.171875,
+              "height": 70,
+              "left": 63,
+              "right": 153.796875,
+              "top": 1034.171875,
+              "width": 90.796875,
+              "x": 63,
+              "y": 1034.171875
+            },
+            "clientWidth": 89,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 89,
+            "text": "비멸균멸균 불필요"
+          },
+          {
+            "bounds": {
+              "bottom": 1104.171875,
+              "height": 70,
+              "left": 161.796875,
+              "right": 245.40625,
+              "top": 1034.171875,
+              "width": 83.609375,
+              "x": 161.796875,
+              "y": 1034.171875
+            },
+            "clientWidth": 82,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 82,
+            "text": "EO 멸균Ethylene Oxide"
+          },
+          {
+            "bounds": {
+              "bottom": 1104.171875,
+              "height": 70,
+              "left": 253.40625,
+              "right": 358.609375,
+              "top": 1034.171875,
+              "width": 105.203125,
+              "x": 253.40625,
+              "y": 1034.171875
+            },
+            "clientWidth": 103,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 103,
+            "text": "감마선Gamma irradiation"
+          },
+          {
+            "bounds": {
+              "bottom": 1182.171875,
+              "height": 70,
+              "left": 63,
+              "right": 153.796875,
+              "top": 1112.171875,
+              "width": 90.796875,
+              "x": 63,
+              "y": 1112.171875
+            },
+            "clientWidth": 89,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 89,
+            "text": "습열Steam / autoclave"
+          },
+          {
+            "bounds": {
+              "bottom": 1182.171875,
+              "height": 70,
+              "left": 161.796875,
+              "right": 245.40625,
+              "top": 1112.171875,
+              "width": 83.609375,
+              "x": 161.796875,
+              "y": 1112.171875
+            },
+            "clientWidth": 82,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 82,
+            "text": "전자빔E-beam"
+          },
+          {
+            "bounds": {
+              "bottom": 1182.171875,
+              "height": 70,
+              "left": 253.40625,
+              "right": 358.609375,
+              "top": 1112.171875,
+              "width": 105.203125,
+              "x": 253.40625,
+              "y": 1112.171875
+            },
+            "clientWidth": 103,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 103,
+            "text": "무균공정Aseptic processing"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "90.7969px 83.6094px 105.203px",
+        "gap": "8px",
+        "scrollWidth": 296
+      },
+      {
+        "bounds": {
+          "bottom": 1431.359375,
+          "height": 196,
+          "left": 63,
+          "right": 341,
+          "top": 1235.359375,
+          "width": 278,
+          "x": 63,
+          "y": 1235.359375
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 1337.359375,
+              "height": 102,
+              "left": 63,
+              "right": 150.328125,
+              "top": 1235.359375,
+              "width": 87.328125,
+              "x": 63,
+              "y": 1235.359375
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "비접촉인체 직접 접촉 없음 (체외 진단·SaMD 등)"
+          },
+          {
+            "bounds": {
+              "bottom": 1337.359375,
+              "height": 102,
+              "left": 158.328125,
+              "right": 245.65625,
+              "top": 1235.359375,
+              "width": 87.328125,
+              "x": 158.328125,
+              "y": 1235.359375
+            },
+            "clientWidth": 85,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "정상 피부완전한 피부 표면 접촉"
+          },
+          {
+            "bounds": {
+              "bottom": 1337.359375,
+              "height": 102,
+              "left": 253.65625,
+              "right": 341,
+              "top": 1235.359375,
+              "width": 87.34375,
+              "x": 253.65625,
+              "y": 1235.359375
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "점막구강·비강·결막 등"
+          },
+          {
+            "bounds": {
+              "bottom": 1431.359375,
+              "height": 86,
+              "left": 63,
+              "right": 150.328125,
+              "top": 1345.359375,
+              "width": 87.328125,
+              "x": 63,
+              "y": 1345.359375
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "손상 피부/조직상처·수술 부위"
+          },
+          {
+            "bounds": {
+              "bottom": 1431.359375,
+              "height": 86,
+              "left": 158.328125,
+              "right": 245.65625,
+              "top": 1345.359375,
+              "width": 87.328125,
+              "x": 158.328125,
+              "y": 1345.359375
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "이식인체 내 영구/장기 이식"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "87.3281px 87.3281px 87.3438px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 1568.546875,
+          "height": 84,
+          "left": 63,
+          "right": 341,
+          "top": 1484.546875,
+          "width": 278,
+          "x": 63,
+          "y": 1484.546875
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 1568.546875,
+              "height": 84,
+              "left": 63,
+              "right": 150.328125,
+              "top": 1484.546875,
+              "width": 87.328125,
+              "x": 63,
+              "y": 1484.546875
+            },
+            "clientWidth": 85,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "일시 (< 24시간)24시간 미만"
+          },
+          {
+            "bounds": {
+              "bottom": 1568.546875,
+              "height": 84,
+              "left": 158.328125,
+              "right": 245.65625,
+              "top": 1484.546875,
+              "width": 87.328125,
+              "x": 158.328125,
+              "y": 1484.546875
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "단기 (24h ~ 30일)카테터·드레싱 등"
+          },
+          {
+            "bounds": {
+              "bottom": 1568.546875,
+              "height": 84,
+              "left": 253.65625,
+              "right": 341,
+              "top": 1484.546875,
+              "width": 87.34375,
+              "x": 253.65625,
+              "y": 1484.546875
+            },
+            "clientWidth": 85,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 85,
+            "text": "장기 (> 30일)임플란트·장기 사용"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "87.3281px 87.3281px 87.3438px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 1718.921875,
+          "height": 70,
+          "left": 63,
+          "right": 341,
+          "top": 1648.921875,
+          "width": 278,
+          "x": 63,
+          "y": 1648.921875
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 1718.921875,
+              "height": 70,
+              "left": 63,
+              "right": 198,
+              "top": 1648.921875,
+              "width": 135,
+              "x": 63,
+              "y": 1648.921875
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "예 (혈액 접촉)순환 혈액과 직간접 접촉"
+          },
+          {
+            "bounds": {
+              "bottom": 1718.921875,
+              "height": 70,
+              "left": 206,
+              "right": 341,
+              "top": 1648.921875,
+              "width": 135,
+              "x": 206,
+              "y": 1648.921875
+            },
+            "clientWidth": 133,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "아니오혈액 비접촉"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "135px 135px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 1936.109375,
+          "height": 164,
+          "left": 63,
+          "right": 341,
+          "top": 1772.109375,
+          "width": 278,
+          "x": 63,
+          "y": 1772.109375
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 1842.109375,
+              "height": 70,
+              "left": 63,
+              "right": 198,
+              "top": 1772.109375,
+              "width": 135,
+              "x": 63,
+              "y": 1772.109375
+            },
+            "clientWidth": 133,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "SW 없음순수 하드웨어 또는 수동 장치"
+          },
+          {
+            "bounds": {
+              "bottom": 1842.109375,
+              "height": 70,
+              "left": 206,
+              "right": 341,
+              "top": 1772.109375,
+              "width": 135,
+              "x": 206,
+              "y": 1772.109375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "내부 펌웨어만독립 SW 아님: 장치 내장"
+          },
+          {
+            "bounds": {
+              "bottom": 1936.109375,
+              "height": 86,
+              "left": 63,
+              "right": 198,
+              "top": 1850.109375,
+              "width": 135,
+              "x": 63,
+              "y": 1850.109375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "SiMD의료기기에 내장된 소프트웨어: 장치 일부"
+          },
+          {
+            "bounds": {
+              "bottom": 1936.109375,
+              "height": 86,
+              "left": 206,
+              "right": 341,
+              "top": 1850.109375,
+              "width": 135,
+              "x": 206,
+              "y": 1850.109375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "SaMD독립형 소프트웨어: SW 자체가 의료기기"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "135px 135px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 2059.296875,
+          "height": 70,
+          "left": 63,
+          "right": 341,
+          "top": 1989.296875,
+          "width": 278,
+          "x": 63,
+          "y": 1989.296875
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 2059.296875,
+              "height": 70,
+              "left": 63,
+              "right": 198,
+              "top": 1989.296875,
+              "width": 135,
+              "x": 63,
+              "y": 1989.296875
+            },
+            "clientWidth": 133,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "예 (능동)전원·배터리·구동에너지 사용"
+          },
+          {
+            "bounds": {
+              "bottom": 2059.296875,
+              "height": 70,
+              "left": 206,
+              "right": 341,
+              "top": 1989.296875,
+              "width": 135,
+              "x": 206,
+              "y": 1989.296875
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "아니오 (수동)외부 에너지 없음"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "135px 135px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 2212.484375,
+          "height": 70,
+          "left": 63,
+          "right": 341,
+          "top": 2142.484375,
+          "width": 278,
+          "x": 63,
+          "y": 2142.484375
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 2212.484375,
+              "height": 70,
+              "left": 63,
+              "right": 198,
+              "top": 2142.484375,
+              "width": 135,
+              "x": 63,
+              "y": 2142.484375
+            },
+            "clientWidth": 133,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "예 (필요할 듯)신규성·고위해·고등급"
+          },
+          {
+            "bounds": {
+              "bottom": 2212.484375,
+              "height": 70,
+              "left": 206,
+              "right": 341,
+              "top": 2142.484375,
+              "width": 135,
+              "x": 206,
+              "y": 2142.484375
+            },
+            "clientWidth": 133,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 133,
+            "text": "아니오기허가품 동등 또는 저등급"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "135px 135px",
+        "gap": "8px",
+        "scrollWidth": 278
+      },
+      {
+        "bounds": {
+          "bottom": 2627.625,
+          "height": 228,
+          "left": 63,
+          "right": 341,
+          "top": 2399.625,
+          "width": 278,
+          "x": 63,
+          "y": 2399.625
+        },
+        "buttons": [
+          {
+            "bounds": {
+              "bottom": 2517.625,
+              "height": 118,
+              "left": 63,
+              "right": 139.390625,
+              "top": 2399.625,
+              "width": 76.390625,
+              "x": 63,
+              "y": 2399.625
+            },
+            "clientWidth": 74,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 74,
+            "text": "기계식물리적 작동 (수술기구·정형용 등)"
+          },
+          {
+            "bounds": {
+              "bottom": 2517.625,
+              "height": 118,
+              "left": 147.390625,
+              "right": 214.875,
+              "top": 2399.625,
+              "width": 67.484375,
+              "x": 147.390625,
+              "y": 2399.625
+            },
+            "clientWidth": 65,
+            "pressed": "true",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "전기·전자능동 의료기기"
+          },
+          {
+            "bounds": {
+              "bottom": 2517.625,
+              "height": 118,
+              "left": 222.875,
+              "right": 290.359375,
+              "top": 2399.625,
+              "width": 67.484375,
+              "x": 222.875,
+              "y": 2399.625
+            },
+            "clientWidth": 65,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "AI/ML인공지능 알고리즘"
+          },
+          {
+            "bounds": {
+              "bottom": 2517.625,
+              "height": 118,
+              "left": 298.359375,
+              "right": 365.84375,
+              "top": 2399.625,
+              "width": 67.484375,
+              "x": 298.359375,
+              "y": 2399.625
+            },
+            "clientWidth": 65,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "체외진단 (IVD)검체 분석"
+          },
+          {
+            "bounds": {
+              "bottom": 2627.625,
+              "height": 102,
+              "left": 63,
+              "right": 139.390625,
+              "top": 2525.625,
+              "width": 76.390625,
+              "x": 63,
+              "y": 2525.625
+            },
+            "clientWidth": 74,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 74,
+            "text": "의료영상초음파·MRI·CT 관련"
+          },
+          {
+            "bounds": {
+              "bottom": 2627.625,
+              "height": 102,
+              "left": 147.390625,
+              "right": 214.875,
+              "top": 2525.625,
+              "width": 67.484375,
+              "x": 147.390625,
+              "y": 2525.625
+            },
+            "clientWidth": 65,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "이식형인체 이식"
+          },
+          {
+            "bounds": {
+              "bottom": 2627.625,
+              "height": 102,
+              "left": 222.875,
+              "right": 290.359375,
+              "top": 2525.625,
+              "width": 67.484375,
+              "x": 222.875,
+              "y": 2525.625
+            },
+            "clientWidth": 65,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "웨어러블착용형 모니터링"
+          },
+          {
+            "bounds": {
+              "bottom": 2627.625,
+              "height": 102,
+              "left": 298.359375,
+              "right": 365.84375,
+              "top": 2525.625,
+              "width": 67.484375,
+              "x": 298.359375,
+              "y": 2525.625
+            },
+            "clientWidth": 65,
+            "pressed": "false",
+            "radius": "10px",
+            "scrollWidth": 65,
+            "text": "기타위 분류에 해당 없음"
+          }
+        ],
+        "clientWidth": 278,
+        "columns": "76.3906px 67.4844px 67.4844px 67.4844px",
+        "gap": "8px",
+        "scrollWidth": 303
+      }
+    ],
+    "viewport": 390
+  }
+}
