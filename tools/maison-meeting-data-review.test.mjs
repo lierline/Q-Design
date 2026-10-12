@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import {createRequire} from 'node:module';
 import {createMeetingDataReview,inspectMeetingData} from './maison-meeting-data-review.mjs';
 import {beforeMeetingData} from './maison-meeting-data-ledger.mjs';
+import {beforeContentFields} from './maison-docx-content-fields.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',file='app/(app)/meetings/meeting-form.tsx',read=p=>fs.readFileSync(p,'utf8'),ts=createRequire(repo+'/package.json')('typescript');
 test('all fifteen meeting spreads resolve to exact typed data and actual submit consumers',()=>{
  const result=createMeetingDataReview();assert.equal(result.records.length,15);assert.deepEqual(result,JSON.parse(read(root+'/reviews/maison-meeting-data-review.json')));
@@ -21,7 +22,7 @@ test('actual row patch functions preserve text spacing, unrelated rows and neste
  exports.patchFollowUp(0,0,{department_ids:['d1','d3']});assert.equal(state.agenda[0].follow_ups[0].task,initial.agenda[0].follow_ups[0].task);assert.deepEqual(state.agenda[0].follow_ups[1],initial.agenda[0].follow_ups[1]);
 });
 test('only the reviewed meeting records change classification and borrowed evidence is rejected',()=>{
- const current=JSON.parse(read(root+'/reviews/maison-style-decisions.json')),old=beforeMeetingData(current);assert.equal(old.counts.unknown,586);assert.equal(current.counts.unknown,571);
+ const current=beforeContentFields(JSON.parse(read(root+'/reviews/maison-style-decisions.json'))),old=beforeMeetingData(current);assert.equal(old.counts.unknown,586);assert.equal(current.counts.unknown,571);
  const unrelated=structuredClone(current);unrelated.records[0].value='changed';assert.throws(()=>beforeMeetingData(unrelated));
  const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='symbol-resolved-meeting-record-data').evidence[0].hash='borrowed';assert.throws(()=>beforeMeetingData(borrowed));
 });

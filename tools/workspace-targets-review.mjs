@@ -9,6 +9,7 @@ import {composeWorkspace,buildWorkspace} from './build-workspace.mjs';
 import {beforeRemainingFields} from './maison-remaining-field-ledger.mjs';
 import {beforeHeadingIconBoundaries} from './atelier-heading-icon-boundaries.mjs';
 import {beforeMeetingData} from './maison-meeting-data-ledger.mjs';
+import {beforeContentFields} from './maison-docx-content-fields.mjs';
 const root='D:/Claude/Q-Design',ref='99ca89e66f0505502d54f5937d175c85b377ece4';
 const products={atelier:['Q-Atelier','Q-Atelier'],maison:['Q-Works','Q-Works'],carnet:['DHR','Q-Forge']};
 const oldReport=product=>JSON.parse(execFileSync('git',['show',ref+':reviews/'+product+'-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));
@@ -22,6 +23,7 @@ export function inspectWorkspaceTargets(){
  return {output,sources};
 }
 export function beforeWorkspaceTargets(current){
+ current=beforeContentFields(current);
  current=beforeMeetingData(current);
  current=beforeHeadingIconBoundaries(current);
  current=beforeRemainingFields(current);
