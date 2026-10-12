@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 import {formatProductCopy} from './copy-spacing.mjs';
 import {beforePurchasingDocsRole} from './maison-purchasing-docs-role.mjs';
+import {beforeInspectionPrint} from './maison-inspection-print-migration.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',ref='f121284520f8a3b033c63e8e11f0b493fb3fede1',designRef='e6df209';
 const review=root+'/reviews/maison-handoff-role-migration.json';
 export const handoffRolePlans=[
@@ -21,6 +22,7 @@ export function applyHandoffRoleSource(plan,before){
  return (plan.addImport??'')+before.replace(plan.from,plan.to);
 }
 export function beforeMaisonHandoffRoles(file,code){
+ code=beforeInspectionPrint(file,code);
  code=beforePurchasingDocsRole(file,code);
  if(!fs.existsSync(review))return code;
  const record=JSON.parse(fs.readFileSync(review,'utf8')).records.find(r=>r.path===file);if(!record||hash(code)===record.beforeHash)return code;
@@ -44,7 +46,7 @@ export function verifyIdentityHandoffSite(site){
  assert.equal(hash(current),hash(pinned),'Unreviewed print route after feature handoff');
  assert(!current.includes('<CompanyMark')&&current.includes('<'+target.renderer),'Only the inspected delegation may replace the former identity site');
  const proof=JSON.parse(fs.readFileSync(review,'utf8')),record=proof.records.find(r=>r.path===target.child);assert(record);
- const code=fs.readFileSync(repo+'/'+target.child,'utf8');assert.equal(hash(code),record.afterHash);assert(code.includes(record.to));
+ const code=beforeInspectionPrint(target.child,fs.readFileSync(repo+'/'+target.child,'utf8'));assert.equal(hash(code),record.afterHash);assert(code.includes(record.to));
  return true;
 }
 export async function createHandoffRoleMigration(){
@@ -67,7 +69,7 @@ if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
   fs.writeFileSync(root+'/'+canonical.path,canonical.after);for(const r of records)fs.writeFileSync(repo+'/'+r.path,r.after);fs.writeFileSync(review,JSON.stringify(proof,null,2)+'\n');
  }else{
   assert.deepEqual(JSON.parse(fs.readFileSync(review,'utf8')),proof);assert.equal(hash(fs.readFileSync(root+'/'+canonical.path,'utf8')),hash(canonical.after));
-  for(const r of records)assert.equal(hash(fs.readFileSync(repo+'/'+r.path,'utf8')),hash(r.after));
+  for(const r of records)assert.equal(hash(beforeInspectionPrint(r.path,fs.readFileSync(repo+'/'+r.path,'utf8'))),hash(r.after));
  }
  console.log(JSON.stringify({files:records.length,roleSites:records.length,passed:true}));
 }

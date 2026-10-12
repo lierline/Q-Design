@@ -6,6 +6,9 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/maison-inspection-print-migration.mjs','--check'],
+  ['tools/maison-inspection-print-review.mjs','--check'],
+  ['--test','tools/maison-inspection-print.test.mjs','tools/maison-inspection-print-review.test.mjs'],
   ['--test','tools/atelier-copy-leaf-offsets.test.mjs'],
   ['tools/atelier-copy-leaf-offsets.mjs','--check'],
   ['tools/maison-purchasing-docs-role.mjs','--check'],
@@ -198,6 +201,7 @@ if(args.includes('--browser'))steps.push(['tools/verify-maison-caption-roles.mjs
 if(args.includes('--browser'))steps.push(['tools/verify-maison-selection-controls.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-choice-glyph-family.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-maison-icon-handoff.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-maison-inspection-print.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

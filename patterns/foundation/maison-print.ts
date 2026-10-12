@@ -1,6 +1,7 @@
 /** Q-Maison document appearance canon. Exact existing mm/pt values are preserved.
  * Screen themes do not substitute these paper values. Edit here, then sync. */
 export const qdPrint = {
+  inspectionMeasurements: { groupValueWidthPercent: 43.4 },
   ink: "#000",
   markJpegMatte: "#ffffff",
   qrOptions: { margin: 1 },
@@ -35,6 +36,16 @@ export const qdPrint = {
     "n0": 0
   },
   "width": {
+    "v75": "75%",
+    "v14_5": "14.5%",
+    "v14_8": "14.8%",
+    "v14_9": "14.9%",
+    "v26_7": "26.7%",
+    "v24_2": "24.2%",
+    "v24_1": "24.1%",
+    "v6_6": "6.6%",
+    "v18_4": "18.4%",
+
     "v6": "6%",
     "v14": "14%",
     "v42": "42%",
@@ -108,6 +119,8 @@ export const qdPrint = {
     "v0_3mm_1_5mm": "0.3mm 1.5mm"
   },
   "fontSize": {
+    "v10_5pt": "10.5pt",
+
     "v12_5pt": "12.5pt",
     "v9_5pt": "9.5pt",
     "v11pt": "11pt",
@@ -138,6 +151,11 @@ export const qdPrint = {
     "n0": 0
   },
   "height": {
+    "v21mm": "21mm",
+    "v26mm": "26mm",
+    "v15mm": "15mm",
+    "v30mm": "30mm",
+
     "v14mm": "14mm",
     "v13mm": "13mm",
     "v45mm": "45mm",
@@ -187,6 +205,8 @@ export const qdPrint = {
     "v_f2f2f2": "#f2f2f2"
   },
   "gridTemplateColumns": {
+    "v1fr": "1fr",
+
     "vauto_1fr_auto_1fr_auto_1fr": "auto 1fr auto 1fr auto 1fr"
   },
   "columnGap": {
@@ -201,6 +221,8 @@ export const qdPrint = {
     "v4mm": "4mm"
   },
   "paddingLeft": {
+    "v6mm": "6mm",
+
     "v5mm": "5mm"
   },
   "gap": {
