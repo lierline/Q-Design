@@ -1367,6 +1367,41 @@
           "ordinal": 0,
           "original": "\"스캔본을 아직 올리지 않은 공문\"",
           "emitted": "\"원본 파일이 첨부되지 않은 공문\""
+        },
+        {
+          "line": 997,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작업을 멈춘 건\"",
+          "emitted": "\"작업이 중지된 기록\""
+        },
+        {
+          "line": 1009,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"보고 · 조치중\"",
+          "emitted": "\"보고·조치 중 상태의 기록\""
+        },
+        {
+          "line": 1015,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"원인·재발 방지까지 끝난 건\"",
+          "emitted": "\"원인·재발 방지 조치가 완료된 기록\""
+        },
+        {
+          "line": 1057,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작업중\"",
+          "emitted": "\"작업 중\""
+        },
+        {
+          "line": 1058,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성 ~ 작업중\"",
+          "emitted": "\"작성·작업 중 상태의 기록\""
         }
       ]
     },
@@ -1461,6 +1496,20 @@
           "ordinal": 0,
           "original": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\"",
           "emitted": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\""
+        },
+        {
+          "line": 805,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"전해 연마 공정을 고르면 «외부 기관 의뢰» 를 켤 수 있고, 의뢰처(공급자)를 지정합니다. 다른 공정에는 공급자를 붙일 수 없습니다.\"",
+          "emitted": "\"전해 연마 공정에서는 「외부 기관 의뢰」를 선택하고 의뢰처(공급자)를 지정할 수 있습니다. 다른 공정은 공급자를 지정할 수 없습니다.\""
+        },
+        {
+          "line": 819,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"칩 세 줄이 각각 기간(30일·90일·1년·전체) · 공정 4종 · 실적 상태(작업중·작업 완료·확인 완료)입니다. 확인 완료만 보면 검증된 실적만으로 수율이 나옵니다.\"",
+          "emitted": "\"칩 세 줄이 각각 기간(30일·90일·1년·전체) · 공정 4종 · 실적 상태(작업 중·작업 완료·확인 완료)입니다. 확인 완료만 보면 검증된 실적만으로 수율이 나옵니다.\""
         }
       ]
     },
@@ -1731,6 +1780,20 @@
           "ordinal": 1,
           "original": "\"작성중\"",
           "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1225,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작업중\"",
+          "emitted": "\"작업 중\""
+        },
+        {
+          "line": 1809,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"조치중\"",
+          "emitted": "\"조치 중\""
         }
       ]
     },
@@ -2959,6 +3022,72 @@
           "ordinal": 0,
           "original": "구분을 고르면 검사 항목이 자동으로 채워집니다.\n      ",
           "emitted": "검사 구분을 선택하면 검사 항목이 자동 입력됩니다.\n      "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/page.tsx",
+      "bindings": [
+        {
+          "line": 181,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"공정을 고르면 준비 점검 항목이 자동으로 채워집니다.\"",
+          "emitted": "\"공정을 선택하면 준비 점검 항목이 자동 입력됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/print/page.tsx",
+      "bindings": [
+        {
+          "line": 460,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "기록마다 제 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 · 완제품\n          포장)으로 찍습니다. 시스템이 받지 않는 칸(규격 · 공정 조건 · 보관 실측\n          · 폐기 · 유효기간)은 빈칸으로 나가 손으로 채웁니다.\n        ",
+          "emitted": "각 기록은 해당 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 ·\n          완제품 포장)으로 인쇄합니다. 시스템에 입력 항목이 없는 칸(규격 · 공정\n          조건 · 보관 실측 · 폐기 · 유효기간)은 공란으로 출력하여 수기로\n          작성합니다.\n        "
+        },
+        {
+          "line": 471,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"그 로트를 산출한 기록과 그 로트를 투입한 기록을 공정 순서대로 모아 인쇄합니다.\"",
+          "emitted": "\"해당 로트의 생산·투입 기록을 공정 순서대로 조회하여 인쇄합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/new/new-production-form.tsx",
+      "bindings": [
+        {
+          "line": 428,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "종이에는 찍히지 않습니다.\n          ",
+          "emitted": "인쇄 서식에 포함되지 않습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "bindings": [
+        {
+          "line": 480,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "재고에서 고른 원재료는 확인 완료 때 투입 수량만큼 원재료 대장에서\n              출고됩니다. 투입 수량은 서식 밖 칸이라 종이에는 찍히지 않습니다.\n            ",
+          "emitted": "재고에서 고른 원재료는 확인 완료 때 투입 수량만큼 원재료 대장에서\n              출고됩니다. 투입 수량은 인쇄 서식에 포함되지 않는 추가 정보입니다.\n            "
+        },
+        {
+          "line": 700,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "줄마다 「확인」 을 체크하면 그 줄에 적을 수 있습니다.\n          (서식 ",
+          "emitted": "각 항목의 「확인」을 선택하면 해당 항목을 입력할 수\n          있습니다. (서식 "
         }
       ]
     }

@@ -65,7 +65,7 @@ const currentManualHash=file=>{
   if(!full.startsWith(base+path.sep)||!fs.existsSync(full))return null;
   const value=hash(fs.readFileSync(full,'utf8'));manualHashCache.set(file,value);return value;
 };
-for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json','maison-choice-columns-review.json','maison-unaffected-runtime-role-review.json','maison-list-stats-columns-review.json','maison-inspection-print-review.json','maison-inbox-columns-review.json','maison-workflow-copy-style-review.json','maison-batch-print-review.json','maison-db-payload-review.json','maison-safety-print-review.json']){
+for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json','maison-choice-columns-review.json','maison-unaffected-runtime-role-review.json','maison-list-stats-columns-review.json','maison-inspection-print-review.json','maison-inbox-columns-review.json','maison-workflow-copy-style-review.json','maison-batch-print-review.json','maison-db-payload-review.json','maison-safety-print-review.json','maison-production-copy-style-review.json']){
   const file=path.join(ROOT,'reviews',name);if(!fs.existsSync(file))continue;
   for(const entry of JSON.parse(fs.readFileSync(file,'utf8')).records??[]){
     // Keep historical reports intact. They cannot claim a changed current source

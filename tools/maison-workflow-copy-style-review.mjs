@@ -8,9 +8,13 @@ import {hash} from './style-arguments-core.mjs';
 import {manualDecisions} from './maison-style-manual.mjs';
 import {planMaisonWorkflowCopy} from './maison-workflow-copy.mjs';
 import {createWorkflowCopyBindings} from './maison-workflow-copy-bindings.mjs';
+import {beforeProductionCopyRules,beforeProductionCopyBindings} from './maison-production-copy-bindings.mjs';
+import {beforeMaisonProductionCopy} from './maison-production-copy.mjs';
+import {beforeProductionStyleReport} from './maison-production-copy-style-review.mjs';
+import {productionToolTransitions} from './maison-production-copy-tools.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',ref='bfcc8e680c8ad9838b2161eed1912b5faea773ac',tool='tools/maison-workflow-copy-style-review.mjs',manifest=root+'/reviews/maison-workflow-copy-style-review.json',ts=createRequire(repo+'/package.json')('typescript');
 const read=f=>fs.readFileSync((/^(?:source|patterns|dist|tools)\//.test(f)?root:repo)+'/'+f,'utf8');
-const hashNow=f=>{try{return hash(read(f));}catch{return null;}};
+const hashNow=f=>{try{if(f===tool)return productionToolTransitions().find(r=>r.path===tool).beforeHash;return hash(read(f));}catch{return null;}};
 const oldDesign=f=>execFileSync('git',['show',ref+':'+f],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024});
 function lineMap(record){
  const old=ts.createSourceFile(record.path,record.before,99,true,4),next=ts.createSourceFile(record.path,record.after,99,true,4),nodes=sf=>{const list=[];const visit=n=>{list.push(n);ts.forEachChild(n,visit);};visit(sf);return list;},a=nodes(old),b=nodes(next);assert.equal(a.length,b.length);for(const [i,n]of a.entries())assert.equal(n.kind,b[i].kind,'Copy formatting cannot alter syntax structure');
@@ -18,10 +22,10 @@ function lineMap(record){
 }
 const descriptor=r=>{const {line,sourceHash,argumentHash,decision,ruleId,reason,evidence,...rest}=r;return {...rest,value:rest.value.replaceAll('\r\n','\n')};};
 export async function createWorkflowStyleReview(){
- const migration=await planMaisonWorkflowCopy(),changed=new Map(),maps=new Map();for(const r of migration.records){assert.equal(hashNow(r.path),r.afterHash);changed.set(r.path,{before:r.beforeHash,after:r.afterHash});maps.set(r.path,lineMap(r));}
- const bindings=await createWorkflowCopyBindings();assert.equal(hashNow('dist/q-design.copy-bindings.json'),bindings.proof.afterHash);changed.set('dist/q-design.copy-bindings.json',{before:bindings.proof.beforeHash,after:bindings.proof.afterHash});
- const rulesFile='patterns/copy-rules.json',rulesBefore=JSON.parse(oldDesign(rulesFile)),rulesAfter=JSON.parse(read(rulesFile));assert.deepEqual(rulesAfter,{...rulesBefore,additionalRuleFiles:[...rulesBefore.additionalRuleFiles,'patterns/professional-maison-workflow-copy.json']});changed.set(rulesFile,{before:hash(oldDesign(rulesFile)),after:hashNow(rulesFile)});
- const before=JSON.parse(oldDesign('reviews/maison-style-decisions.json')),current=JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8')),byArgument=new Map(before.records.map(r=>[r.argumentHash,r])),pairs=new Map();
+ const migration=await planMaisonWorkflowCopy(),changed=new Map(),maps=new Map();for(const r of migration.records){assert.equal(hash(beforeMaisonProductionCopy(r.path,read(r.path))),r.afterHash);changed.set(r.path,{before:r.beforeHash,after:r.afterHash});maps.set(r.path,lineMap(r));}
+ const bindings=await createWorkflowCopyBindings();assert.equal(hash(JSON.stringify(beforeProductionCopyBindings(JSON.parse(read('dist/q-design.copy-bindings.json'))),null,2)+'\n'),bindings.proof.afterHash);changed.set('dist/q-design.copy-bindings.json',{before:bindings.proof.beforeHash,after:bindings.proof.afterHash});
+ const rulesFile='patterns/copy-rules.json',rulesBefore=JSON.parse(oldDesign(rulesFile)),rulesAfter=beforeProductionCopyRules(JSON.parse(read(rulesFile)));assert.deepEqual(rulesAfter,{...rulesBefore,additionalRuleFiles:[...rulesBefore.additionalRuleFiles,'patterns/professional-maison-workflow-copy.json']});changed.set(rulesFile,{before:hash(oldDesign(rulesFile)),after:hash(JSON.stringify(rulesAfter,null,2)+'\n')});
+ const before=JSON.parse(oldDesign('reviews/maison-style-decisions.json')),current=await beforeProductionStyleReport(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8'))),byArgument=new Map(before.records.map(r=>[r.argumentHash,r])),pairs=new Map();
  for(const file of migration.records.map(r=>r.path)){const old=before.records.filter(r=>r.path===file),now=current.records.filter(r=>r.path===file);assert.equal(old.length,now.length);for(const [i,r]of now.entries()){assert.deepEqual(descriptor(r),descriptor(old[i]),'Complete styling candidate must remain identical');pairs.set(r.argumentHash,old[i]);}}
  const records=[];
  for(const r of current.records){

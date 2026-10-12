@@ -1,25 +1,176 @@
 {
   "version": 1,
-  "additionalRuleFiles": ["patterns/professional-carnet-copy.json", "patterns/professional-atelier-copy.json", "patterns/professional-maison-copy.json", "patterns/professional-maison-workflow-copy.json"],
+  "additionalRuleFiles": [
+    "patterns/professional-carnet-copy.json",
+    "patterns/professional-atelier-copy.json",
+    "patterns/professional-maison-copy.json",
+    "patterns/professional-maison-workflow-copy.json",
+    "patterns/professional-maison-production-copy.json"
+  ],
   "scope": "Authored interface labels, help, errors and notifications. Business state codes, user input, identifiers, comments and regulatory source content are excluded.",
   "terms": [
-    { "id": "carnet-process-open-professional", "from": "끝나지 않은 공정", "to": "미종료 공정", "products": ["carnet"], "paths": ["app/(admin)/page.tsx"] },
-    { "id": "carnet-process-end-time-professional", "from": "종료 시각이 빈 공정", "to": "종료 시각이 미등록된 공정", "products": ["carnet"], "paths": ["app/(admin)/page.tsx", "app/print/day-record/[id]/[day]/[worker]/page.tsx"] },
-    { "id": "profile-public-db-particle-spacing", "from": "공공 DB 에서", "to": "공공 DB에서", "products": ["atelier"], "paths": ["components/ProductProfileWizard.tsx"] },
-    { "id": "expert-career-unit-spacing", "from": "경력(년)", "to": "경력 (년)", "products": ["atelier"], "paths": ["app/experts/settings/profile-form.tsx", "app/experts/portal/signup/page.tsx"] },
-    { "id": "expert-specialty-choice-prompt", "from": "(선택해주십시오)", "to": "고르십시오", "products": ["atelier"], "paths": ["app/experts/settings/profile-form.tsx", "app/experts/portal/signup/page.tsx"] },
-    { "id": "risk-treatment-completed-spacing", "from": "대응완료", "to": "대응 완료", "products": ["maison"], "paths": ["lib/supabase/types.ts"] },
-    { "id": "permission-finalization-spacing", "from": "최종확정", "to": "최종 확정", "products": ["maison"], "paths": [], "displayContexts": ["maison-permission-description"] },
-    { "id": "draft", "from": "작성중", "to": "작성 중" },
-    { "id": "review", "from": "검토중", "to": "검토 중" },
-    { "id": "approval", "from": "결재중", "to": "결재 중" },
-    { "id": "audit-type", "from": "심사구분", "to": "심사 구분" },
-    { "id": "quality-scope-activity-list", "from": "[설계·개발  생산  보관  유통  설치  서비스]", "to": "[설계·개발 · 생산 · 보관 · 유통 · 설치 · 서비스]" },
-    { "id": "risk-severity-spacing", "from": "어느정도 피해 예상", "to": "어느 정도 피해 예상" },
-    { "id": "risk-response-spacing", "from": "개선 검토 및 필요시 대응 계획 수립", "to": "개선 검토 및 필요 시 대응 계획 수립" },
-    { "id": "active-state-spacing", "from": "사용중", "to": "사용 중", "products": ["maison"], "paths": ["lib/supabase/types.ts", "components/shared/list-stats.tsx"] },
-    { "id": "active-warehouse-error-spacing", "from": "사용중인 창고만 선택할 수 있습니다.", "to": "사용 중인 창고만 선택할 수 있습니다.", "products": ["maison"], "paths": ["app/(app)/returns/actions.ts", "app/(app)/shipping/actions.ts", "app/(app)/inventory/actions.ts"] },
-    { "id": "management-review-spacing", "from": "경영검토", "to": "경영 검토", "products": ["maison"], "displayContexts": ["maison-permission-description"], "paths": ["lib/permissions/clause-groups.ts", "lib/navigation/menus.ts", "components/layout/nav-groups.ts", "app/(app)/reviews/page.tsx", "app/(app)/reviews/agendas/new/page.tsx", "app/(app)/reviews/agendas/[id]/page.tsx", "app/(app)/reviews/agendas/[id]/minutes/page.tsx", "app/(app)/reviews/agendas/[id]/report/page.tsx"] }
+    {
+      "id": "carnet-process-open-professional",
+      "from": "끝나지 않은 공정",
+      "to": "미종료 공정",
+      "products": [
+        "carnet"
+      ],
+      "paths": [
+        "app/(admin)/page.tsx"
+      ]
+    },
+    {
+      "id": "carnet-process-end-time-professional",
+      "from": "종료 시각이 빈 공정",
+      "to": "종료 시각이 미등록된 공정",
+      "products": [
+        "carnet"
+      ],
+      "paths": [
+        "app/(admin)/page.tsx",
+        "app/print/day-record/[id]/[day]/[worker]/page.tsx"
+      ]
+    },
+    {
+      "id": "profile-public-db-particle-spacing",
+      "from": "공공 DB 에서",
+      "to": "공공 DB에서",
+      "products": [
+        "atelier"
+      ],
+      "paths": [
+        "components/ProductProfileWizard.tsx"
+      ]
+    },
+    {
+      "id": "expert-career-unit-spacing",
+      "from": "경력(년)",
+      "to": "경력 (년)",
+      "products": [
+        "atelier"
+      ],
+      "paths": [
+        "app/experts/settings/profile-form.tsx",
+        "app/experts/portal/signup/page.tsx"
+      ]
+    },
+    {
+      "id": "expert-specialty-choice-prompt",
+      "from": "(선택해주십시오)",
+      "to": "고르십시오",
+      "products": [
+        "atelier"
+      ],
+      "paths": [
+        "app/experts/settings/profile-form.tsx",
+        "app/experts/portal/signup/page.tsx"
+      ]
+    },
+    {
+      "id": "risk-treatment-completed-spacing",
+      "from": "대응완료",
+      "to": "대응 완료",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "lib/supabase/types.ts"
+      ]
+    },
+    {
+      "id": "permission-finalization-spacing",
+      "from": "최종확정",
+      "to": "최종 확정",
+      "products": [
+        "maison"
+      ],
+      "paths": [],
+      "displayContexts": [
+        "maison-permission-description"
+      ]
+    },
+    {
+      "id": "draft",
+      "from": "작성중",
+      "to": "작성 중"
+    },
+    {
+      "id": "review",
+      "from": "검토중",
+      "to": "검토 중"
+    },
+    {
+      "id": "approval",
+      "from": "결재중",
+      "to": "결재 중"
+    },
+    {
+      "id": "audit-type",
+      "from": "심사구분",
+      "to": "심사 구분"
+    },
+    {
+      "id": "quality-scope-activity-list",
+      "from": "[설계·개발  생산  보관  유통  설치  서비스]",
+      "to": "[설계·개발 · 생산 · 보관 · 유통 · 설치 · 서비스]"
+    },
+    {
+      "id": "risk-severity-spacing",
+      "from": "어느정도 피해 예상",
+      "to": "어느 정도 피해 예상"
+    },
+    {
+      "id": "risk-response-spacing",
+      "from": "개선 검토 및 필요시 대응 계획 수립",
+      "to": "개선 검토 및 필요 시 대응 계획 수립"
+    },
+    {
+      "id": "active-state-spacing",
+      "from": "사용중",
+      "to": "사용 중",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "lib/supabase/types.ts",
+        "components/shared/list-stats.tsx"
+      ]
+    },
+    {
+      "id": "active-warehouse-error-spacing",
+      "from": "사용중인 창고만 선택할 수 있습니다.",
+      "to": "사용 중인 창고만 선택할 수 있습니다.",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/returns/actions.ts",
+        "app/(app)/shipping/actions.ts",
+        "app/(app)/inventory/actions.ts"
+      ]
+    },
+    {
+      "id": "management-review-spacing",
+      "from": "경영검토",
+      "to": "경영 검토",
+      "products": [
+        "maison"
+      ],
+      "displayContexts": [
+        "maison-permission-description"
+      ],
+      "paths": [
+        "lib/permissions/clause-groups.ts",
+        "lib/navigation/menus.ts",
+        "components/layout/nav-groups.ts",
+        "app/(app)/reviews/page.tsx",
+        "app/(app)/reviews/agendas/new/page.tsx",
+        "app/(app)/reviews/agendas/[id]/page.tsx",
+        "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+        "app/(app)/reviews/agendas/[id]/report/page.tsx"
+      ]
+    }
   ],
   "layout": [
     "문장은 한국어 단어 단위로 줄바꿈하고, 한 줄보다 긴 식별자는 자신의 영역에서만 나눈다.",

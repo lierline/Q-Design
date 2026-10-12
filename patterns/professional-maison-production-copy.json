@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "scope": "Exact authored production and safety interface labels, hints and help. Stored codes, record content, official form titles and business workflows stay unchanged.",
+  "terms": [
+    {
+      "id": "maison-production-professional-1",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "작성 ~ 작업중",
+      "to": "작성·작업 중 상태의 기록"
+    },
+    {
+      "id": "maison-production-professional-2",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "보고 · 조치중",
+      "to": "보고·조치 중 상태의 기록"
+    },
+    {
+      "id": "maison-production-professional-3",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "작업을 멈춘 건",
+      "to": "작업이 중지된 기록"
+    },
+    {
+      "id": "maison-production-professional-4",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "원인·재발 방지까지 끝난 건",
+      "to": "원인·재발 방지 조치가 완료된 기록"
+    },
+    {
+      "id": "maison-production-professional-5",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx",
+        "lib/supabase/types.ts",
+        "lib/help/page-help.ts"
+      ],
+      "from": "작업중",
+      "to": "작업 중"
+    },
+    {
+      "id": "maison-production-professional-6",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx",
+        "lib/supabase/types.ts"
+      ],
+      "from": "조치중",
+      "to": "조치 중"
+    },
+    {
+      "id": "maison-production-professional-7",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/page.tsx"
+      ],
+      "from": "공정을 고르면 준비 점검 항목이 자동으로 채워집니다.",
+      "to": "공정을 선택하면 준비 점검 항목이 자동 입력됩니다."
+    },
+    {
+      "id": "maison-production-professional-8",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/print/page.tsx"
+      ],
+      "from": "기록마다 제 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 · 완제품\n          포장)으로 찍습니다. 시스템이 받지 않는 칸(규격 · 공정 조건 · 보관 실측\n          · 폐기 · 유효기간)은 빈칸으로 나가 손으로 채웁니다.\n        ",
+      "to": "각 기록은 해당 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 · 완제품 포장)으로 인쇄합니다. 시스템에 입력 항목이 없는 칸(규격 · 공정 조건 · 보관 실측 · 폐기 · 유효기간)은 공란으로 출력하여 수기로 작성합니다."
+    },
+    {
+      "id": "maison-production-professional-9",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/print/page.tsx"
+      ],
+      "from": "그 로트를 산출한 기록과 그 로트를 투입한 기록을 공정 순서대로 모아 인쇄합니다.",
+      "to": "해당 로트의 생산·투입 기록을 공정 순서대로 조회하여 인쇄합니다."
+    },
+    {
+      "id": "maison-production-professional-10",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/new/new-production-form.tsx"
+      ],
+      "from": "종이에는 찍히지 않습니다.",
+      "to": "인쇄 서식에 포함되지 않습니다."
+    },
+    {
+      "id": "maison-production-professional-11",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/new/prep-sheet-fields.tsx"
+      ],
+      "from": "투입 수량은 서식 밖 칸이라 종이에는 찍히지 않습니다.",
+      "to": "투입 수량은 인쇄 서식에 포함되지 않는 추가 정보입니다."
+    },
+    {
+      "id": "maison-production-professional-12",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/production/new/prep-sheet-fields.tsx"
+      ],
+      "from": "줄마다 「확인」 을 체크하면 그 줄에 적을 수 있습니다.",
+      "to": "각 항목의 「확인」을 선택하면 해당 항목을 입력할 수 있습니다."
+    },
+    {
+      "id": "maison-production-professional-13",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "lib/help/page-help.ts"
+      ],
+      "from": "전해 연마 공정을 고르면 «외부 기관 의뢰» 를 켤 수 있고, 의뢰처(공급자)를 지정합니다. 다른 공정에는 공급자를 붙일 수 없습니다.",
+      "to": "전해 연마 공정에서는 「외부 기관 의뢰」를 선택하고 의뢰처(공급자)를 지정할 수 있습니다. 다른 공정은 공급자를 지정할 수 없습니다."
+    }
+  ]
+}
