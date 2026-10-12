@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "additionalRuleFiles": ["patterns/professional-carnet-copy.json", "patterns/professional-atelier-copy.json", "patterns/professional-maison-copy.json"],
+  "additionalRuleFiles": ["patterns/professional-carnet-copy.json", "patterns/professional-atelier-copy.json", "patterns/professional-maison-copy.json", "patterns/professional-maison-workflow-copy.json"],
   "scope": "Authored interface labels, help, errors and notifications. Business state codes, user input, identifiers, comments and regulatory source content are excluded.",
   "terms": [
     { "id": "carnet-process-open-professional", "from": "끝나지 않은 공정", "to": "미종료 공정", "products": ["carnet"], "paths": ["app/(admin)/page.tsx"] },

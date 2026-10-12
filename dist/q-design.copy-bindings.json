@@ -1332,6 +1332,41 @@
           "ordinal": 0,
           "original": "\"사용중\"",
           "emitted": "\"사용 중\""
+        },
+        {
+          "line": 340,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"주고받은 공문\"",
+          "emitted": "\"거래처 발신·수신 공문\""
+        },
+        {
+          "line": 343,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"우리가 보낸 공문\"",
+          "emitted": "\"거래처로 발송한 공문\""
+        },
+        {
+          "line": 349,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"거래처가 보낸 공문\"",
+          "emitted": "\"거래처에서 접수한 공문\""
+        },
+        {
+          "line": 354,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"원본 없음\"",
+          "emitted": "\"원본 미첨부\""
+        },
+        {
+          "line": 355,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"스캔본을 아직 올리지 않은 공문\"",
+          "emitted": "\"원본 파일이 첨부되지 않은 공문\""
         }
       ]
     },
@@ -2790,6 +2825,140 @@
           "ordinal": 1,
           "original": "항목 모두 P\r\n              ",
           "emitted": "개 항목 일괄 적합 판정\r\n              "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/inspections/inspection-overview.tsx",
+      "bindings": [
+        {
+          "line": 37,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"밀린 검사가 없습니다\"",
+          "emitted": "\"대기 중인 검사가 없습니다\""
+        },
+        {
+          "line": 38,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 검사하지 않은 로트·품목\"",
+          "emitted": "\"검사 미완료 로트·품목\""
+        },
+        {
+          "line": 48,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"판정을 기다리는 검사가 없습니다\"",
+          "emitted": "\"판정 대기 중인 검사가 없습니다\""
+        },
+        {
+          "line": 49,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"검사는 열렸고 적/부가 안 났습니다\"",
+          "emitted": "\"적합·부적합 판정이 완료되지 않은 검사\""
+        },
+        {
+          "line": 58,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 판정된 검사가 없습니다\"",
+          "emitted": "\"판정 완료된 검사가 없습니다\""
+        },
+        {
+          "line": 125,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 판정된 검사가 없습니다\"",
+          "emitted": "\"판정 완료된 검사가 없습니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/delivery-tab.tsx",
+      "bindings": [
+        {
+          "line": 246,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"전 품목이 들어온 발주\"",
+          "emitted": "\"전 품목 입고가 완료된 발주\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/official-doc-dialog.tsx",
+      "bindings": [
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"거래처와 주고받은 단가 인하 요청 · 회신 공문입니다. 절감 실적의 근거로 이어 붙입니다.\"",
+          "emitted": "\"거래처와 교환한 단가 인하 요청 · 회신 공문을 절감 실적의 근거 자료로 등록합니다.\""
+        },
+        {
+          "line": 139,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"대장에 없는 거래처면 비워 두고 아래에 이름을 적습니다.\"",
+          "emitted": "\"등록된 거래처가 없으면 거래처 이름을 직접 입력하세요.\""
+        },
+        {
+          "line": 145,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"(대장에 없음)\"",
+          "emitted": "\"직접 입력\""
+        },
+        {
+          "line": 185,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"PDF · 그림 · 워드 · 엑셀 · 한글, 25MB 까지\"",
+          "emitted": "\"PDF · 이미지 · 워드 · 엑셀 · 한글 파일, 최대 25MB\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/docs-tab.tsx",
+      "bindings": [
+        {
+          "line": 173,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"「공문 등록」 에서 거래처와 주고받은 단가 인하 요청 · 회신 공문을 올리면 절감 실적의 근거로 이어 붙일 수 있습니다.\"",
+          "emitted": "\"공문 등록에서 거래처와 교환한 단가 인하 요청 · 회신 공문을 등록하면 절감 실적의 근거 자료로 연결할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/page.tsx",
+      "bindings": [
+        {
+          "line": 344,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"입고·공정·완제품 검사 결과를 기록하세요. 구분을 고르면 절차서의 검사 항목이 자동으로 채워집니다.\"",
+          "emitted": "\"입고·공정·완제품 검사 결과를 기록하세요. 검사 구분을 선택하면 절차서의 검사 항목이 자동 입력됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/new/page.tsx",
+      "bindings": [
+        {
+          "line": 170,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "구분을 고르면 검사 항목이 자동으로 채워집니다.\n      ",
+          "emitted": "검사 구분을 선택하면 검사 항목이 자동 입력됩니다.\n      "
         }
       ]
     }

@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "scope": "Scoped authored inspection and purchasing interface copy. Business values, official paper source labels and workflows are excluded.",
+  "terms": [
+    {
+      "id": "maison-workflow-professional-1",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/inspections/inspection-overview.tsx"
+      ],
+      "from": "밀린 검사가 없습니다",
+      "to": "대기 중인 검사가 없습니다"
+    },
+    {
+      "id": "maison-workflow-professional-2",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/inspections/inspection-overview.tsx"
+      ],
+      "from": "아직 검사하지 않은 로트·품목",
+      "to": "검사 미완료 로트·품목"
+    },
+    {
+      "id": "maison-workflow-professional-3",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/inspections/inspection-overview.tsx"
+      ],
+      "from": "판정을 기다리는 검사가 없습니다",
+      "to": "판정 대기 중인 검사가 없습니다"
+    },
+    {
+      "id": "maison-workflow-professional-4",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/inspections/inspection-overview.tsx"
+      ],
+      "from": "검사는 열렸고 적/부가 안 났습니다",
+      "to": "적합·부적합 판정이 완료되지 않은 검사"
+    },
+    {
+      "id": "maison-workflow-professional-5",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/inspections/inspection-overview.tsx"
+      ],
+      "from": "아직 판정된 검사가 없습니다",
+      "to": "판정 완료된 검사가 없습니다"
+    },
+    {
+      "id": "maison-workflow-professional-6",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "주고받은 공문",
+      "to": "거래처 발신·수신 공문"
+    },
+    {
+      "id": "maison-workflow-professional-7",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "우리가 보낸 공문",
+      "to": "거래처로 발송한 공문"
+    },
+    {
+      "id": "maison-workflow-professional-8",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "거래처가 보낸 공문",
+      "to": "거래처에서 접수한 공문"
+    },
+    {
+      "id": "maison-workflow-professional-9",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "원본 없음",
+      "to": "원본 미첨부"
+    },
+    {
+      "id": "maison-workflow-professional-10",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/list-stats.tsx"
+      ],
+      "from": "스캔본을 아직 올리지 않은 공문",
+      "to": "원본 파일이 첨부되지 않은 공문"
+    },
+    {
+      "id": "maison-workflow-professional-11",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/delivery-tab.tsx"
+      ],
+      "from": "전 품목이 들어온 발주",
+      "to": "전 품목 입고가 완료된 발주"
+    },
+    {
+      "id": "maison-workflow-professional-12",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/official-doc-dialog.tsx"
+      ],
+      "from": "거래처와 주고받은 단가 인하 요청 · 회신 공문입니다. 절감 실적의 근거로 이어 붙입니다.",
+      "to": "거래처와 교환한 단가 인하 요청 · 회신 공문을 절감 실적의 근거 자료로 등록합니다."
+    },
+    {
+      "id": "maison-workflow-professional-13",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/official-doc-dialog.tsx"
+      ],
+      "from": "대장에 없는 거래처면 비워 두고 아래에 이름을 적습니다.",
+      "to": "등록된 거래처가 없으면 거래처 이름을 직접 입력하세요."
+    },
+    {
+      "id": "maison-workflow-professional-14",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/official-doc-dialog.tsx"
+      ],
+      "from": "(대장에 없음)",
+      "to": "직접 입력"
+    },
+    {
+      "id": "maison-workflow-professional-15",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/official-doc-dialog.tsx"
+      ],
+      "from": "PDF · 그림 · 워드 · 엑셀 · 한글, 25MB 까지",
+      "to": "PDF · 이미지 · 워드 · 엑셀 · 한글 파일, 최대 25MB"
+    },
+    {
+      "id": "maison-workflow-professional-16",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/purchasing/analysis/docs-tab.tsx"
+      ],
+      "from": "「공문 등록」 에서 거래처와 주고받은 단가 인하 요청 · 회신 공문을 올리면 절감 실적의 근거로 이어 붙일 수 있습니다.",
+      "to": "공문 등록에서 거래처와 교환한 단가 인하 요청 · 회신 공문을 등록하면 절감 실적의 근거 자료로 연결할 수 있습니다."
+    },
+    {
+      "id": "maison-workflow-professional-17",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/inspections/page.tsx"
+      ],
+      "from": "입고·공정·완제품 검사 결과를 기록하세요. 구분을 고르면 절차서의 검사 항목이 자동으로 채워집니다.",
+      "to": "입고·공정·완제품 검사 결과를 기록하세요. 검사 구분을 선택하면 절차서의 검사 항목이 자동 입력됩니다."
+    },
+    {
+      "id": "maison-workflow-professional-18",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "app/(app)/inspections/new/page.tsx"
+      ],
+      "from": "구분을 고르면 검사 항목이 자동으로 채워집니다.",
+      "to": "검사 구분을 선택하면 검사 항목이 자동 입력됩니다."
+    }
+  ]
+}

@@ -6,6 +6,10 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/maison-workflow-copy.mjs','--check'],
+  ['tools/maison-workflow-copy-bindings.mjs','--check'],
+  ['tools/maison-workflow-copy-style-review.mjs','--check'],
+  ['--test','tools/maison-workflow-copy.test.mjs'],
   ['tools/maison-inbox-columns-review.mjs','--check'],
   ['--test','tools/maison-inbox-columns-review.test.mjs'],
   ['tools/maison-inspection-print-migration.mjs','--check'],

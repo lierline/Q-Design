@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {copyNodes,jsxDisplayText} from './copy-spacing.mjs';
 import {hash} from './style-arguments-core.mjs';
 import {iconHandoffRef,beforeMaisonIconSource} from './maison-icon-handoff.mjs';
+import {beforeWorkflowCopyBindings} from './maison-workflow-copy-bindings.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',ref='f83d383',ts=createRequire(repo+'/package.json')('typescript');
 export function relocateIconCopyBindings(file,before,after,bindings){
  const norm=s=>s.replaceAll('\r\n','\n');
@@ -35,6 +36,6 @@ export function createIconCopyBindings(){
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
  const {after,proof}=createIconCopyBindings(),output=root+'/dist/q-design.copy-bindings.json',review=root+'/reviews/maison-icon-copy-bindings.json';
  if(process.argv.includes('--write')){fs.writeFileSync(output,JSON.stringify(after,null,2)+'\n');fs.writeFileSync(review,JSON.stringify(proof,null,2)+'\n');}
- else{assert.deepEqual(JSON.parse(fs.readFileSync(output,'utf8')),after);assert.deepEqual(JSON.parse(fs.readFileSync(review,'utf8')),proof);}
+ else{assert.deepEqual(beforeWorkflowCopyBindings(JSON.parse(fs.readFileSync(output,'utf8'))),after);assert.deepEqual(JSON.parse(fs.readFileSync(review,'utf8')),proof);}
  console.log(JSON.stringify({files:proof.records.length,bindings:proof.records.reduce((n,r)=>n+r.after.length,0),passed:true}));
 }
