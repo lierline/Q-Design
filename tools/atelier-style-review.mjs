@@ -75,12 +75,12 @@ const manualReviews = new Map(), currentHashes = new Map();
 const currentHash = file => {
   if (!file || path.isAbsolute(file) || file.split(/[\\/]/).includes('..')) return null;
   if (!currentHashes.has(file)) {
-    const absolute = path.join(/^(?:source|patterns|dist)\//.test(file) ? ROOT : PRODUCT, file);
+    const absolute = path.join(/^(?:source|patterns|dist|tools)\//.test(file) ? ROOT : PRODUCT, file);
     currentHashes.set(file, fs.existsSync(absolute) ? hash(fs.readFileSync(absolute, 'utf8')) : null);
   }
   return currentHashes.get(file);
 };
-for (const name of consumerReviewFiles) {
+for (const name of [...consumerReviewFiles,'atelier-heading-icon-boundaries.json']) {
   const file = path.join(ROOT, 'reviews', name);
   if (!fs.existsSync(file)) continue;
   for (const entry of JSON.parse(fs.readFileSync(file, 'utf8')).records ?? []) {
