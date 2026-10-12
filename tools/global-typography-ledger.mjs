@@ -8,6 +8,7 @@ import {PARTS} from './sync-parts.mjs';
 import {copyProblems} from './audit-coverage-core.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {createRequire} from 'node:module';
+import {beforeChoiceColumnsLedger} from './atelier-choice-columns-ledger.mjs';
 import {inspectGlobalTypographyLayer} from './typography-links-core.mjs';
 export {inspectGlobalTypographyLayer} from './typography-links-core.mjs';
 
@@ -21,6 +22,7 @@ const normalized=value=>value.replaceAll('\r\n','\n');
 const show=(ref,file)=>execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024});
 
 export function createGlobalTypographyLedger(current,ref=JSON.parse(fs.readFileSync(manifest,'utf8')).ref){
+  current=beforeChoiceColumnsLedger(current);
   const before=JSON.parse(show(ref,'reviews/atelier-style-decisions.json'));
   const oldCentral=show(ref,centralPath),oldCopy=execFileSync('git',['show',JSON.parse(show(ref,'source/_ORIGIN.json'))['원본'].qa['커밋']+':'+copyPath],{cwd:product,encoding:'utf8',maxBuffer:32*1024*1024});
   const central=fs.readFileSync(root+'/'+centralPath,'utf8'),copy=fs.readFileSync(product+'/'+copyPath,'utf8'),layer=fs.readFileSync(root+'/'+layerPath,'utf8');
@@ -66,6 +68,7 @@ export function createGlobalTypographyLedger(current,ref=JSON.parse(fs.readFileS
 }
 
 export function beforeGlobalTypographyLedger(current){
+  current=beforeChoiceColumnsLedger(current);
   if(!fs.existsSync(manifest))return current;
   const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),before=JSON.parse(show(saved.ref,'reviews/atelier-style-decisions.json'));
   if(hash(serialize(current))===hash(serialize(before)))return current;

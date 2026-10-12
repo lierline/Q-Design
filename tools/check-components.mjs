@@ -6,6 +6,9 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/atelier-choice-columns-review.mjs','--check'],
+  ['tools/atelier-choice-columns-ledger.mjs','--check'],
+  ['--test','tools/atelier-choice-columns.test.mjs'],
   ['tools/build-record-labels.mjs','--check'],
   ['tools/carnet-professional-copy-evidence.mjs','--check'],
   ['--test','tools/carnet-professional-copy.test.mjs'],
