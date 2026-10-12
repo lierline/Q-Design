@@ -5,6 +5,7 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
+import {beforeSocialFoundation} from './atelier-social-touch-foundation.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const ref='c424302',file='patterns/foundation/atelier.css';
 export function applyFieldLabelSpacing(css,{stage=true,clip=true}={}){
@@ -21,7 +22,7 @@ export function verifyFieldLabelSpacing(before,after){
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n');
- const after=fs.readFileSync(path.join(root,file),'utf8').replaceAll('\r\n','\n');
+ const after=beforeSocialFoundation(fs.readFileSync(path.join(root,file),'utf8'));
  verifyFieldLabelSpacing(before,after);
  const intermediate=applyFieldLabelSpacing(before,{stage:false});
  const priorStage=applyFieldLabelSpacing(before,{clip:false});

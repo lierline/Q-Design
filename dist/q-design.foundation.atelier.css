@@ -5908,6 +5908,14 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   }
 }
 
+/* Social controls keep separate, non-overlapping targets on small or touch screens. */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .qa-auth-form-wrap a.qa-social-link { min-width: var(--qd-control-height); min-height: var(--qd-control-height); }
+}
+@media (hover: none) and (pointer: coarse) {
+  .qa-auth-form-wrap a.qa-social-link::after { inset: var(--qd-space-0); }
+}
+
 /* Q-Design owns remaining reviewed Atelier presentation values.
    Original sites and values: source/style-adapters/atelier-literal-values.json.
    Edit values here; source code reads these stable parameter names. */

@@ -1,16 +1,16 @@
 {
-  "createdAt": "2026-10-12T00:57:27.679Z",
+  "createdAt": "2026-10-12T01:20:31.792Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 823,
+  "unknown": 822,
   "confirmedStyleArguments": 513,
-  "confirmedStylePercent": 62.3,
+  "confirmedStylePercent": 62.4,
   "kinds": {
     "object-property": 376,
     "style-expression": 237,
     "presentation-attribute": 92,
     "dynamic-style": 36,
-    "class-utility": 13,
+    "class-utility": 12,
     "svg-geometry": 2,
     "class-expression": 21,
     "object-spread": 23,
@@ -25,7 +25,7 @@
     "unresolved-consumer": 182,
     "component-prop-needs-consumer-trace": 92,
     "dom-style-write": 13,
-    "selector-or-variant": 34,
+    "selector-or-variant": 33,
     "svg-artwork-or-data-geometry": 2
   },
   "records": [
@@ -2503,17 +2503,6 @@
       "property": "textDecoration",
       "value": "'underline'",
       "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
-      "line": 1095,
-      "argumentHash": "89af60ef6b20244bde9442b752e319e0d4832bdf849cb622940226bcbdca0835",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "class-utility",
-      "property": "className",
-      "value": "qa-social-link",
-      "context": "selector-or-variant"
     },
     {
       "path": "app/(auth)/login/page.tsx",

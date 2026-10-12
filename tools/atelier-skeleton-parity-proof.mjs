@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
+import {beforeSocialTouchReview} from './atelier-social-touch-review-inverse.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const product=path.resolve(root,'../Q-Atelier'),target='lib/design/components.tsx';
 const req=createRequire(product+'/package.json'),ts=req('typescript'),postcss=req('postcss');
@@ -52,7 +53,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  const mode=process.argv.slice(2);assert(mode.length===1&&['--write','--check'].includes(mode[0]));const bodies=skeletonBodies();
  const files=['atelier-style-consumer-review','atelier-style-bindings-review','atelier-data-ratio-review'],writes=[];
  for(const name of files){
-  const file=root+'/reviews/'+name+'.json',proofFile=root+'/reviews/'+name+'-skeleton-revalidation.json',current=JSON.parse(fs.readFileSync(file,'utf8'));
+  const file=root+'/reviews/'+name+'.json',proofFile=root+'/reviews/'+name+'-skeleton-revalidation.json',current=beforeSocialTouchReview(name+'.json',JSON.parse(fs.readFileSync(file,'utf8')));
   if(mode[0]==='--write'){
    const after=retainSkeletonEvidence(current,bodies),records=[];
    current.records.forEach((before,index)=>{if(JSON.stringify(before)!==JSON.stringify(after.records[index]))records.push({index,before,after:after.records[index]});});

@@ -97,6 +97,8 @@ const steps=[
   ['tools/atelier-social-glyph-review.mjs','--check'],
   ['--test','tools/atelier-ring-geometry-review.test.mjs'],
   ['tools/atelier-ring-geometry-review.mjs','--check'],
+  ['--test','tools/atelier-social-touch-foundation.test.mjs'],
+  ['tools/atelier-social-touch-evidence.mjs','--check'],
   ['--test','tools/atelier-native-controls.test.mjs'],
   ['tools/atelier-native-controls.mjs','--check'],
   ['--test','tools/atelier-style-manual.test.mjs'],
@@ -117,6 +119,7 @@ const steps=[
   ['tools/carnet-style-review.mjs','--check'],
 ];
 if(args.includes('--browser'))steps.push(['tools/verify-mobile-navigation-banner.mjs'],['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs'],['tools/verify-native-file-control.mjs'],['tools/verify-print-phrase.mjs'],['tools/verify-maison-chart-responsive.mjs'],['tools/verify-toast-copy.mjs'],['tools/verify-maison-loading-controls.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-social-link-touch.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});
