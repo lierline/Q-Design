@@ -9,8 +9,8 @@
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Q-Atelier | 711 | 1153 | 143 | 87 | 21 | 70 | 623 |
-| Q-Maison | 1107 | 1355 | 156 | 94 | 21 | 468 | 561 |
-| Q-Carnet | 161 | 272 | 19 | 32 | 15 | 91 | 56 |
+| Q-Maison | 1108 | 1355 | 156 | 94 | 22 | 468 | 561 |
+| Q-Carnet | 162 | 272 | 19 | 32 | 16 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
 
@@ -1561,6 +1561,7 @@
 | [app/q-design.components.css](../../Q-Works/app/q-design.components.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.foundation.css](../../Q-Works/app/q-design.foundation.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.list.css](../../Q-Works/app/q-design.list.css) | 스타일 기반 규칙 | canonical-copy |
+| [app/q-design.mono-fonts.css](../../Q-Works/app/q-design.mono-fonts.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.nav.css](../../Q-Works/app/q-design.nav.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.palette.css](../../Q-Works/app/q-design.palette.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.print.css](../../Q-Works/app/q-design.print.css) | 스타일 기반 규칙 | canonical-copy |
@@ -1949,6 +1950,7 @@
 | [app/q-design.components.css](../../DHR/app/q-design.components.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.foundation.css](../../DHR/app/q-design.foundation.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.list.css](../../DHR/app/q-design.list.css) | 스타일 기반 규칙 | canonical-copy |
+| [app/q-design.mono-fonts.css](../../DHR/app/q-design.mono-fonts.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.nav.css](../../DHR/app/q-design.nav.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.palette.css](../../DHR/app/q-design.palette.css) | 스타일 기반 규칙 | canonical-copy |
 | [app/q-design.screen.css](../../DHR/app/q-design.screen.css) | 스타일 기반 규칙 | canonical-copy |

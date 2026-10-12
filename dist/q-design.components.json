@@ -34458,11 +34458,11 @@
       "repo": "Q-Works",
       "syncKey": "Q-Works",
       "summary": {
-        "modules": 1107,
+        "modules": 1108,
         "components": 1355,
         "iconModules": 156,
         "roleMappedComponents": 94,
-        "canonicalCopies": 21,
+        "canonicalCopies": 22,
         "qdClassModules": 468,
         "productLocalModules": 561
       },
@@ -34474,6 +34474,14 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "공통 모노 글꼴",
+          "source": "dist/q-design.mono-fonts.css",
+          "path": "app/q-design.mono-fonts.css",
+          "runtime": true,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "권한 설명 문구",
           "source": "dist/q-design.permission-copy.maison.ts",
@@ -64671,6 +64679,7 @@
           "inlineStyles": 0,
           "imports": [
             "app/globals.css",
+            "app/q-design.mono-fonts.css",
             "components/shared/app-window-title.tsx",
             "components/shared/theme-provider.tsx",
             "components/ui/sonner.tsx",
@@ -65319,6 +65328,22 @@
             "--qd-warn",
             "--qd-z-sticky"
           ],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "q-design",
+          "evidence": "canonical-copy",
+          "reviewScope": "product-composition-or-review-candidate"
+        },
+        {
+          "path": "app/q-design.mono-fonts.css",
+          "kind": "stylesheet",
+          "family": "foundation",
+          "components": [],
+          "classes": [],
+          "tokens": [],
           "nativeControls": [],
           "inlineStyles": 0,
           "imports": [],
@@ -74043,11 +74068,11 @@
       "repo": "DHR",
       "syncKey": "Q-Forge",
       "summary": {
-        "modules": 161,
+        "modules": 162,
         "components": 272,
         "iconModules": 19,
         "roleMappedComponents": 32,
-        "canonicalCopies": 15,
+        "canonicalCopies": 16,
         "qdClassModules": 91,
         "productLocalModules": 56
       },
@@ -74059,6 +74084,14 @@
         "unmapped": []
       },
       "copies": [
+        {
+          "name": "공통 모노 글꼴",
+          "source": "dist/q-design.mono-fonts.css",
+          "path": "app/q-design.mono-fonts.css",
+          "runtime": true,
+          "matches": true,
+          "reachable": true
+        },
         {
           "name": "카르넷 런타임 팔레트",
           "source": "dist/q-design.palette.carnet.ts",
@@ -77913,6 +77946,7 @@
           "imports": [
             "app/fonts.css",
             "app/globals.css",
+            "app/q-design.mono-fonts.css",
             "components/app-window-title.tsx",
             "components/print-light.tsx",
             "components/ribbon.tsx",
@@ -79237,6 +79271,22 @@
             "--qd-warn",
             "--qd-z-sticky"
           ],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "q-design",
+          "evidence": "canonical-copy",
+          "reviewScope": "product-composition-or-review-candidate"
+        },
+        {
+          "path": "app/q-design.mono-fonts.css",
+          "kind": "stylesheet",
+          "family": "foundation",
+          "components": [],
+          "classes": [],
+          "tokens": [],
           "nativeControls": [],
           "inlineStyles": 0,
           "imports": [],

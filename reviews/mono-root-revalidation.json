@@ -1,0 +1,35 @@
+{
+  "ref": "63372ef3622c9ae2eb7f2584fc058f0d0167704b",
+  "sources": [
+    {
+      "product": "maison",
+      "path": "app/layout.tsx",
+      "productRef": "63a292194b882363fc6c1f3815f93c5664f8d7b5",
+      "beforeHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
+      "afterHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "insert": 4
+    },
+    {
+      "product": "carnet",
+      "path": "app/layout.tsx",
+      "productRef": "b5e873e1f5ce646a76c8c53a6b1c37a26d8bc81f",
+      "beforeHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
+      "afterHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "insert": 3
+    }
+  ],
+  "reports": [
+    {
+      "name": "maison-style-manual-review.json",
+      "rebound": 2,
+      "beforeHash": "c67e506eb78dd22d6e14ea965cfc7a0c5762296c3465b8d25b6590b0f086195f",
+      "afterHash": "630c230c2a9089473ff6d1ab084df6b7803a9006163eb233c16a580e8f512cb1"
+    },
+    {
+      "name": "carnet-script-boundaries.json",
+      "rebound": 12,
+      "beforeHash": "60253968447bf08744f1005015bbd6159d591953169aa6b04c0edae4d584428b",
+      "afterHash": "f9b5b59391f6a72c9dfeb541da3a0f65d3e78b459266a6d504f7d4341a1631d6"
+    }
+  ]
+}

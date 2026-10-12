@@ -6,6 +6,12 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/build-record-labels.mjs','--check'],
+  ['tools/carnet-professional-copy-evidence.mjs','--check'],
+  ['--test','tools/carnet-professional-copy.test.mjs'],
+  ['tools/build-mono-fonts.mjs','--check'],
+  ['tools/mono-root-revalidation.mjs','--check'],
+  ['--test','tools/mono-fonts.test.mjs'],
   ['--test','tools/typography-links.test.mjs','tools/global-typography-ledger.test.mjs'],
   ['tools/global-typography-evidence.mjs','--check'],
   ['tools/global-typography-ledger.mjs','--check'],
@@ -151,6 +157,7 @@ if(args.includes('--browser'))steps.push(['tools/verify-profile-grid.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-profile-responsive.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-expert-fonts.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-typography-links.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-mono-fonts.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

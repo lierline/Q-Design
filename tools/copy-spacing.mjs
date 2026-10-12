@@ -65,17 +65,28 @@ export function copySourceFiles(base,product,owners=new Map()){
  return [...new Set([...['app','components','lib'].flatMap(dir=>files(path.join(base,dir))),...explicit])];
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- const args=process.argv.slice(2);if(args.length!==1||!['--write','--check'].includes(args[0]))throw Error('Use --write or --check.');
+ const args=process.argv.slice(2),mode=args.filter(a=>['--write','--check'].includes(a)),filters=args.filter(a=>a.startsWith('--only='));
+ if(mode.length!==1||filters.length>1||args.some(a=>!['--write','--check'].includes(a)&&!a.startsWith('--only=')))throw Error('Use --write or --check and optional --only=atelier,maison,carnet.');
+ const selected=filters.length?filters[0].slice(7).split(','):['atelier','maison','carnet'];
+ if(!selected.length||new Set(selected).size!==selected.length||selected.some(p=>!['atelier','maison','carnet'].includes(p)))throw Error('Unknown or duplicate product scope.');
  const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.json','utf8'));
+ const terms=[...rules.terms];
+ for(const file of rules.additionalRuleFiles??[]){
+  if(!/^patterns\/[a-z0-9-]+\.json$/.test(file))throw Error('Invalid copy rule file: '+file);
+  const extra=JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
+  if(extra.version!==1||!Array.isArray(extra.terms))throw Error('Invalid additional copy rules: '+file);
+  terms.push(...extra.terms);
+ }
  const owners=fs.existsSync(root+'/patterns/component-implementations.json')?implementationOwners(root):new Map();
- for(const term of rules.terms)if(!term.from||!term.to||/[\r\n"'`$\\]/.test(term.to))throw Error('Copy terms must be plain single-line text.');
+ for(const term of terms)if(!term.from||!term.to||/[\r\n"'`$\\]/.test(term.to))throw Error('Copy terms must be plain single-line text.');
  const out=root+'/dist/q-design.copy-bindings.json';
  const prior=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')).files:[],records=[],baselines=[],pending=[];
  for(const [product,repo] of [['atelier','Q-Atelier'],['maison','Q-Works'],['carnet','DHR']]){
+  if(!selected.includes(product))continue;
   const base=path.resolve(root,'..',repo);
   for(const full of copySourceFiles(base,product,owners)){
    const file=path.relative(base,full).replaceAll('\\','/'),canonical=owners.get(product+':'+file),before=fs.readFileSync(canonical?path.join(root,canonical):full,'utf8'),old=prior.find(row=>row.product===product&&row.path===file);
-   let {after,changes}=applyBindings(file,before,old?.bindings??[],termsForFile(rules.terms,product,file));
+   let {after,changes}=applyBindings(file,before,old?.bindings??[],termsForFile(terms,product,file));
    if(!changes.length&&!old)continue;
    const bindings=[...(old?.bindings??[])];
    for(const change of changes){
@@ -92,15 +103,18 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
    if(changes.length){pending.push({product,path:file,count:changes.length,...(canonical?{canonical}:{})});baselines.push({product,repo,path:file,before,after,beforeHash:hash(before),afterHash:hash(after),changes,...(canonical?{canonical}:{})});}
   }
  }
- if(args[0]==='--check'){
+ if(mode[0]==='--check'){
   if(pending.length)throw Error('Unsynchronized authored copy: '+JSON.stringify(pending));
-  console.log('Authored copy rules passed: '+records.length+' files.');
+  console.log('Authored copy rules passed: '+records.length+' files. Scope: '+selected.join(', '));
  }else{
   for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
-  fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.json',files:records},null,2)+'\n');
+  const byKey=new Map(records.map(r=>[r.product+':'+r.path,r])),merged=[];
+  for(const row of prior){const key=row.product+':'+row.path;if(!selected.includes(row.product))merged.push(row);else if(byKey.has(key)){merged.push(byKey.get(key));byKey.delete(key);}}
+  merged.push(...byKey.values());
+  fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.json',files:merged},null,2)+'\n');
   if(baselines.length){
    fs.writeFileSync(path.resolve(root,'../tmp/qd-copy-spacing-baselines.json'),JSON.stringify(baselines,null,2)+'\n');
-   fs.writeFileSync(root+'/reviews/copy-spacing-migration.json',JSON.stringify({scope:rules.scope,files:baselines.map(({before,after,changes,...record})=>({...record,changes:changes.map(({start,end,...change})=>change)}))},null,2)+'\n');
+   fs.writeFileSync(root+'/reviews/copy-spacing-migration.json',JSON.stringify({scope:rules.scope,selectedProducts:selected,files:baselines.map(({before,after,changes,...record})=>({...record,changes:changes.map(({start,end,...change})=>change)}))},null,2)+'\n');
   }
   console.log(JSON.stringify({files:baselines.length,phrases:baselines.reduce((sum,row)=>sum+row.changes.length,0)}));
  }

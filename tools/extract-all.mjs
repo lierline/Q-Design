@@ -34,14 +34,16 @@ const ROOT = resolve(HERE, '..');
 const args = process.argv.slice(2);
 const doSync = args.includes('--sync');
 const checkOnly = args.includes('--check');
+const withBrowser = args.includes('--browser');
 const only = args.filter(arg => arg.startsWith('--only='));
-if (only.length > 1 || args.some(arg => !['--sync', '--check'].includes(arg) && !arg.startsWith('--only='))) {
-  throw new Error('Use --check, --sync and optional --only=product,product.');
+if (only.length > 1 || withBrowser && !checkOnly || args.some(arg => !['--sync', '--check', '--browser'].includes(arg) && !arg.startsWith('--only='))) {
+  throw new Error('Use --check with optional --browser, --sync and optional --only=product,product.');
 }
 parseCoverageArgs(only);
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
+  { name: '카르넷 기록 유형 명칭', file: 'build-record-labels.mjs', why: '내부 기록 유형의 표시 명칭을 공통 규칙에서 만듭니다' },
   { name: '권한 설명 문구', file: 'build-permission-copy.mjs', why: '저장된 권한 설명의 표시 문구도 중앙 규칙에서 만듭니다' },
   { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
@@ -58,6 +60,7 @@ const STEPS = [
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
+  { name: '공통 모노 글꼴', file: 'build-mono-fonts.mjs', extra: ['--write'], why: '검증한 모노 글꼴 선언과 실제 파일을 세 제품에 함께 내보냅니다' },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
   { name: 'React 업무 아이콘', file: 'build-react-icons.mjs', why: '제품에서 직접 가져올 수 있는 개별 React 모듈을 만듭니다' },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
@@ -91,7 +94,7 @@ if (checkOnly) {
   console.log(native.out.trim());
   const copy = run('copy-spacing.mjs', ['--check']);
   console.log(copy.out.trim());
-  const components = run('check-components.mjs');
+  const components = run('check-components.mjs', withBrowser ? ['--browser'] : []);
   console.log(components.out.trim());
   // 종이 문서 v8: 산출물이 규격서와 맞는가 · 변환기와의 차이가 알려진 것뿐인가
   const mqd = run('extract-mqdoc.mjs', ['--check']);

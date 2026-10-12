@@ -1,0 +1,98 @@
+{
+  "product": "carnet",
+  "ref": "545d0c4d7c001dbb06eb48060e1110c2ea1a601e",
+  "scope": "Whole-source comparison. Reviewed literals plus exactly one display-label import and lookup; no database or state-code changes.",
+  "records": [
+    {
+      "path": "app/(admin)/chrome.tsx",
+      "beforeHash": "b980eafba80689ca7d860028cc57a06803feae19d12823e27f3a24ec0a242a6a",
+      "afterHash": "c8340cc9158093fa37a2ff166192bc5100312e091ee54c0010aeacbea7b9c6c4",
+      "literalChanges": 5,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(admin)/material/orders/page.tsx",
+      "beforeHash": "06c9b781fdf104c51d5fe1f836f652a3713ab0f154b107704d3a15729464edc1",
+      "afterHash": "66eb7ac402a6b7de79281f6d446021ad87715523761a0a0f7cfd3eb5ca93373f",
+      "literalChanges": 1,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(admin)/material/stock/stock-tools.tsx",
+      "beforeHash": "b005e032b6692b2cb5d042695c0cff1305e823cffd69f02d196a6a3e40c91cdd",
+      "afterHash": "613a557b29d4ddae919bbd42743eef8ddac0353a92227b39646ff640c975420a",
+      "literalChanges": 1,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(admin)/page.tsx",
+      "beforeHash": "179a15d11865eb9925faf25728c014690b81ecf26adf3b10a5c02a60325e4636",
+      "afterHash": "780edd238592bf9b272fc4b13fcec3bf80b973292aa99f02f7d31b003eeea630",
+      "literalChanges": 8,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(admin)/settings/audit/entry.tsx",
+      "beforeHash": "e6a5ced2862d72e8aea51fbd41669b37bc7073565acadaef862035c7898b5f65",
+      "afterHash": "76b86418448aeb411004a41f09e564d470502f927c46a7a142044e4c4dfadcbb",
+      "literalChanges": 1,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "beforeHash": "80754974d429ea6f6059c6b6e104e86815d1edc717b357f0f2393d98b24d59b5",
+      "afterHash": "b33c525d75262c69c74a64d7ac25535bc40724757966bc6a32664d06eb0630fb",
+      "literalChanges": 2,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/(work)/work/[id]/work-panel.tsx",
+      "beforeHash": "9df3a4a0a239615157513a9156d50af643eb84de79f9f412eb8a032cc71f8160",
+      "afterHash": "82f918ade34ff1a6a84680efea947f5b9a06dcc9427fb6717fbbfba80acf01df",
+      "literalChanges": 1,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/demo-actions.ts",
+      "beforeHash": "d44407ea95dae7de2cd896a21bd1ddc1716a91db4b3a74ca98f2c5fa09a83616",
+      "afterHash": "e19f21066c9f8e72921a5d29469960a1e520df76a0e16bc3c8e5e7c2bbbc9021",
+      "literalChanges": 4,
+      "centralLabelImport": false
+    },
+    {
+      "path": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "beforeHash": "3f49af0afc7589095870700157815ea6f6c5235bfec23bac82835ca5698c9d7f",
+      "afterHash": "dfd1f2b6a150a069f5e30c1dab451db4f2a78f149a52693350cf678988759e31",
+      "literalChanges": 5,
+      "centralLabelImport": false
+    },
+    {
+      "path": "components/demo-banner.tsx",
+      "beforeHash": "3fa8215655ec14266bf040befed592b06954afb8f42b79ef0df7839116d26451",
+      "afterHash": "1e1716137d17aa3fac031a10f7e2ac6b99fbf9892cfc2ef8dc8910087cb395c1",
+      "literalChanges": 17,
+      "centralLabelImport": false
+    },
+    {
+      "path": "components/idle-lock.tsx",
+      "beforeHash": "48205a85b7ed0dcfeff78d00658566785b7363c139c4f779d53e819cf0ab874e",
+      "afterHash": "455de589a15ba65e8e376c49d0ab9e79adaefd96c26baac10c4a2a55f6c63a49",
+      "literalChanges": 6,
+      "centralLabelImport": false
+    },
+    {
+      "path": "components/print-frame.tsx",
+      "beforeHash": "4cee929675d7d7eff2be939077cb67638fd3c217eedefcfba55139217ad29a5c",
+      "afterHash": "a447810d1a49f9fb51156a4a738afe774c087ff494c79899f44f3a6c91032ccc",
+      "literalChanges": 5,
+      "centralLabelImport": false
+    },
+    {
+      "path": "lib/forms.ts",
+      "beforeHash": "01cb566c5509e1f202e7c30ef93871dc12ed57bf4d539049bebdc46490cb809f",
+      "afterHash": "4b0302e8280939a419d4f6c1bdc30893a6286c8a40c36f8a51ce26e75586cae9",
+      "literalChanges": 2,
+      "centralLabelImport": true
+    }
+  ]
+}

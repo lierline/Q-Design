@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T08:13:17.771Z",
+  "generatedAt": "2026-10-12T09:57:38.050Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -3866,7 +3866,7 @@
     },
     {
       "path": "app/layout.tsx",
-      "hash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112"
+      "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
     },
     {
       "path": "app/manifest.ts",
@@ -3891,6 +3891,10 @@
     {
       "path": "app/q-design.list.css",
       "hash": "ca3f120ca48d76bcfc8e10623318351c4465ad1068551b9754babd963688b87b"
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "hash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17"
     },
     {
       "path": "app/q-design.nav.css",
@@ -6313,7 +6317,7 @@
     "business-content": 54,
     "dependency-entry": 12,
     "platform-metadata": 17,
-    "central-source-verified": 3820
+    "central-source-verified": 3834
   },
   "unknownCount": 0,
   "records": [
@@ -952048,9 +952052,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "ed14121eb5bb7636f08821d0c77e5be403747790fdb44d83e9ff705413534a71",
-      "line": 27,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "eeff946d59860aebfa01c476b28fd3e7413bc3c71a07806c1911cb91d973ee55",
+      "line": 28,
       "kind": "object-property",
       "property": "display",
       "value": "\"swap\"",
@@ -952064,16 +952068,16 @@
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 27,
-          "hash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112"
+          "line": 28,
+          "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
         }
       ]
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "e068f916c20de50a4fe2a61a443e6677bf70acf74ef9fa3b27d63d1c5eac7205",
-      "line": 66,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "b01cdf14b7547355db160e24d7433c38992b52938c5a9f9ddef674547463982a",
+      "line": 67,
       "kind": "object-property",
       "property": "width",
       "value": "\"device-width\"",
@@ -952087,16 +952091,16 @@
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 66,
-          "hash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112"
+          "line": 67,
+          "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
         }
       ]
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "b174d18021fdea1563c6ba57fdef3d001a1d7b40b0c7568815f12ea0ea9bc349",
-      "line": 110,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "1017246fe84f37d0ac49c5605181010de8a23132b7e97f0708a629162a130f99",
+      "line": 111,
       "kind": "class-expression",
       "property": "className",
       "value": "{`${cormorant.variable} h-full bg-background font-sans antialiased`}",
@@ -952109,16 +952113,16 @@
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 110,
-          "hash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112"
+          "line": 111,
+          "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
         }
       ]
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "5e9fad94b1fa89ca52d4d3ebae9757d1070e6b067285dcb379b6acce69038fea",
-      "line": 110,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "60cd52ad88c1ca757e4dce73164a31decdd5a22455c0f9a49a6b71641c3e2632",
+      "line": 111,
       "kind": "class-utility",
       "property": "className",
       "value": "h-full",
@@ -952139,9 +952143,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "d8c7433bca3128612caf1869549527bc6f8c79497f47cf94f454b62b130560fd",
-      "line": 110,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "9a7723d8860547764926b1bf99a88dc3926d505bfdee80e9aae328a8045c5a38",
+      "line": 111,
       "kind": "class-utility",
       "property": "className",
       "value": "bg-background",
@@ -952168,9 +952172,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "d936221ea7768128e67f621c4bd12addd9ab796e96d196afbc46d85e361f49f2",
-      "line": 110,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "9344162785cb65b98e4f410b1ae04b1c03e3e6f449b4003341ccfd9660f0aaf6",
+      "line": 111,
       "kind": "class-utility",
       "property": "className",
       "value": "font-sans",
@@ -952197,9 +952201,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "097124999b51d671cb1bf817e4c10df9b3521198ed5c6c5025bae65c160b6a8a",
-      "line": 110,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "aa29cce6a899023f155269ad49e5e16650792d9efb47e2d27360c51ae4b79149",
+      "line": 111,
       "kind": "class-utility",
       "property": "className",
       "value": "antialiased",
@@ -952220,9 +952224,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "04c1beea177f70b64e6124fa57ed0143d6dd17a3eceef4bd25a8ed37e7264ea5",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "c66ec2c5c2230dba8ac5935a4fc09247d7e481fcc9fde2380229a14fbe527391",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "sr-only",
@@ -952243,9 +952247,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "132e969722e10020c38333f11655085d1bc58cc28a6b6d08ce2f823a049a5de4",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "2cc11b14b55b1213fc72d945bf3733f1cd819e86fd519473087c700204593a14",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:not-sr-only",
@@ -952266,9 +952270,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "bdbbdab72c4a1e369725af6d9b6e43d8b2ebb853d03b4556134a45c63eadaa41",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "ca9091026dbbe8f217349e08d544dddf6416dcb873d6cad2c5a5f758de451dfd",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:fixed",
@@ -952289,9 +952293,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "b1c6cb19019f802fdff21cf9fbae1e86ed71941180dee95d618f6737c0c6189d",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "5dd8673636ffb98f8ff75b1b839f1556c867818e2ae1805052de80fd08cc5e7e",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:left-2",
@@ -952318,9 +952322,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "11efd3b1ab3d59b3792937b5e0a4f1e9d51c77075f91009c5b54f615e1060a16",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "c71d3882b8af222d5cb5c06997cc9799d181a2a459dd4b65bf190637351dff9a",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:top-2",
@@ -952347,9 +952351,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "72ba788a2231c0f523760abde716a8936590ecaa2a794eb10241baad66062e19",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "d0ec04a87956872d73aea5772289c6ea1d7f57c70a1a8c12fba79406ed3fb9fe",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:z-50",
@@ -952370,9 +952374,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "2b6e53cae7836e3b8a57490f13593adfd502be1b02285cf875c04a6e2f570aec",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "ed00dba2839a515f25da5ab3d4467b233e622249fc66638a09ab927f126a1d4c",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:rounded-md",
@@ -952399,9 +952403,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "62e30180579497c51a216ae31f8ffdb0d0644565254ff48a785b466aa6646d6d",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "c7169b46311e1d1823abefd58b11294116b16851c76089185ea03d3a365cef41",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:bg-brand-forest",
@@ -952428,9 +952432,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "03e30e0847a260cc7c2b6ea41195f8f086034ac792aab53a9f34b0c9496af7da",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "56e67450c1e912c063af9e0b094b7f446e17023a114e78a90a3aa0e19d7b859f",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:px-3",
@@ -952457,9 +952461,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "5382757d4ca94edb08144a1b065b18717dc657ddaf8793860049a3f7d90f2c9b",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "48b7ae463e4fe35a30fdd1906069546e2bf13f6cf4d0fb064b90e517c8f3bc6b",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:py-2",
@@ -952486,9 +952490,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "4a91c69b6215182eec07b028ad8ef2892c8cd3fa14e46e80252a5ef0a5183e2d",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "2e49a7237f2d8f8834a7aad833972b47da459d1f31443b58ea487d3fd258e3e5",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:text-sm",
@@ -952521,9 +952525,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "911743e9c2adc6617b5ddde0ec201888314de14abf7362185c4609e9fc6bd3cc",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "f8728f75af789be40969740b46bd63bcd58ba89cd3a9504b7a895df2c851ea1a",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:text-brand-cream",
@@ -952550,9 +952554,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "37e6f72096b3978b6353e26e8695e54c788ab76996b44eda7b8619727f8403d4",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "cebde232d87df53c7b5ad27c8a911eb4d92fa48f9b398da39c7b7c1d06747931",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:outline-none",
@@ -952573,9 +952577,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "945a401cb66ce67b5613ad40734c18303c054299cdc9b198ebd26e4039351379",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "a10c9cf30021e3fddccfadee2bbdc02242dd9df82232352d61d4e08defc66e9b",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:ring-2",
@@ -952596,9 +952600,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "cb745ab7d4074b10d0912f626d735b12c0b39fe9a54e4c4a404544639c10c407",
-      "line": 115,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "645ede4551f5613db0da1d77d026898c2d2c498f68ca84c69e02c9d7521cbf52",
+      "line": 116,
       "kind": "class-utility",
       "property": "className",
       "value": "focus:ring-brand-copper",
@@ -952625,9 +952629,9 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112",
-      "argumentHash": "8ebb6f34e97abba4dd3a8b687a6938d9527e455495dc3a569aed17479eb6c2e6",
-      "line": 127,
+      "sourceHash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752",
+      "argumentHash": "dc855b8082a275e8fa240e4c226f14342a200f190cd0c833c31ad3098e70f582",
+      "line": 128,
       "kind": "presentation-attribute",
       "property": "position",
       "value": "{qdMaison.toastPosition}",
@@ -952645,8 +952649,8 @@
         },
         {
           "path": "app/layout.tsx",
-          "line": 127,
-          "hash": "4c268292bf95ef94412c68682f452adfb7e09bf1640b139d0d913be5c2b55112"
+          "line": 128,
+          "hash": "fe505aa8a3f46f4d78acdab232da3ef76aa6639d6ce8b1e410ba6e7f9d552752"
         }
       ]
     },
@@ -1001122,6 +1001126,342 @@
           "path": "dist/q-design.list.css",
           "line": 1,
           "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "b5c039c72fab9835bdf4f0544bfbbdfc4793ef75fff6d6b7f1f257c357fd3b78",
+      "line": 14,
+      "kind": "css-at-rule",
+      "property": "@font-face",
+      "value": "",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "1baf55a7e7a372eadf0a74e62b4bad71d47094363dbc5e4d0e2e32a2e380b118",
+      "line": 15,
+      "kind": "css-declaration",
+      "property": "font-family",
+      "value": "'JetBrains Mono'",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "ac1cd52735f2197c4663567558750ccecef8bdf6bde01abfeaf5489664dd46c6",
+      "line": 16,
+      "kind": "css-declaration",
+      "property": "font-style",
+      "value": "normal",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "9d0158347dc34cfdd4f5fadfc3fa056a690a0bbc5f8c97a0bf887c1cbb0e20fd",
+      "line": 17,
+      "kind": "css-declaration",
+      "property": "font-display",
+      "value": "swap",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "da23cbd5bc16f09f2d00299b158b1a47730095e334dc8da843a0f8f50486e778",
+      "line": 18,
+      "kind": "css-declaration",
+      "property": "font-weight",
+      "value": "400 800",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "c4e5965fb916845fa74e9da19fa13ceda5a55aef546f8a3967019666a881426d",
+      "line": 19,
+      "kind": "css-declaration",
+      "property": "src",
+      "value": "url('/fonts/jetbrains-mono/JetBrainsMono-latin.83c005d4.woff2') format('woff2')",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "fc4da810aa85717d2eb827b6689193f8c287a0ff0b2427dcabddeafe385abf25",
+      "line": 20,
+      "kind": "css-declaration",
+      "property": "unicode-range",
+      "value": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "429fc5ef959f78adafe5f01781fb3efa6be0e2bd19d54948bbd5e7aa593767ae",
+      "line": 23,
+      "kind": "css-at-rule",
+      "property": "@font-face",
+      "value": "",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "31c77e811b825767dc015846a55c4b84c0e9a003c368610404ab10670e421440",
+      "line": 24,
+      "kind": "css-declaration",
+      "property": "font-family",
+      "value": "'JetBrains Mono'",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "f3cb84b926832e718e696178a627b83c58c45354bf3555d76687ba45ef0a84d8",
+      "line": 25,
+      "kind": "css-declaration",
+      "property": "font-style",
+      "value": "normal",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "b29b2df620d896ff4fbbcf8268befaffee6fba8e2f57993caf00a7e4d0659cb8",
+      "line": 26,
+      "kind": "css-declaration",
+      "property": "font-display",
+      "value": "swap",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "6ef76d13b754ba1782d351c8874454365137da2ea2b9b53e32be2c06ea757bdd",
+      "line": 27,
+      "kind": "css-declaration",
+      "property": "font-weight",
+      "value": "400 800",
+      "family": "typography",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "ff0e98831bfdff0a8b901585a479adf56ac615bcd83bb196a8f046f8074437f2",
+      "line": 28,
+      "kind": "css-declaration",
+      "property": "src",
+      "value": "url('/fonts/jetbrains-mono/JetBrainsMono-latin-ext.db5ff4db.woff2') format('woff2')",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
+        }
+      ]
+    },
+    {
+      "path": "app/q-design.mono-fonts.css",
+      "sourceHash": "32303d0168488d966a746cb7abde4cc839a3ac7d2f4561a2fb0e6c61e2623a17",
+      "argumentHash": "a94bb48ee5877d4c98883603cdf7c932938a347f1325f989a57d44f90e419f71",
+      "line": 29,
+      "kind": "css-declaration",
+      "property": "unicode-range",
+      "value": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "family": "behavior-structure",
+      "status": "central-source",
+      "context": "stylesheet font-face",
+      "owner": "dist/q-design.mono-fonts.css",
+      "originalStatus": "central-source",
+      "decision": "central-source-verified",
+      "ruleId": "central-copy",
+      "reason": "Full argument is distributed from a fingerprint-verified canonical body.",
+      "evidence": [
+        {
+          "path": "dist/q-design.mono-fonts.css",
+          "line": 1,
+          "hash": "beff74dc6085ce2608bcdbe35a030f5d67b64d67bbbaa9e5711c11438c9756fb"
         }
       ]
     },

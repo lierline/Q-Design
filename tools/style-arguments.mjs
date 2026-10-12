@@ -11,8 +11,11 @@ const ts = req('typescript');
 const postcss = createRequire(join(WORKSPACE, 'Q-Works/package.json'))('postcss');
 const properties = cssProperties(ts, readFileSync(join(dirname(req.resolve('typescript')), 'lib.dom.d.ts'), 'utf8'));
 const args = process.argv.slice(2);
-if (args.some(arg => !['--write', '--check', '--strict'].includes(arg))) throw new Error('Use --write, --check or --strict');
+const scopeArgs=args.filter(arg=>arg.startsWith('--only='));
+if (scopeArgs.length>1||args.some(arg => !['--write', '--check', '--strict'].includes(arg)&&!arg.startsWith('--only='))) throw new Error('Use --write, --check or --strict with optional --only=atelier,maison,carnet');
 const products = [{ id: 'atelier', repo: 'Q-Atelier', syncKey: 'Q-Atelier' }, { id: 'maison', repo: 'Q-Works', syncKey: 'Q-Works' }, { id: 'carnet', repo: 'DHR', syncKey: 'Q-Forge' }];
+const selected=scopeArgs.length?scopeArgs[0].slice(7).split(','):products.map(p=>p.id);
+if(new Set(selected).size!==selected.length||selected.some(id=>!products.some(p=>p.id===id)))throw Error('Unknown or duplicate product scope.');
 const report = { version: 1, note: 'Exhaustive lexical/AST argument inventory. Token references are not proof of semantic correctness. Review-required findings are retained, never automatically exempted. CSS-like data objects are candidates. File hashes include files with zero findings.', products: [] };
 let stale = false;
 function emit(path, text) {
@@ -21,6 +24,7 @@ function emit(path, text) {
   else if (!existsSync(full) || readFileSync(full, 'utf8').replaceAll('\r\n', '\n') !== text) { console.error(`Stale style evidence: ${path}`); stale = true; }
 }
 for (const product of products) {
+  if(!selected.includes(product.id))continue;
   const root = join(WORKSPACE, product.repo);
   const copies = new Map(centralOutputs(PARTS, product.syncKey, root).map(part => [part.path, part.src]));
   const counts = {}, families = {}, files = [];
@@ -35,7 +39,9 @@ for (const product of products) {
   emit(`dist/style-arguments/${product.id}.ndjson`, evidence.join('\n') + '\n');
   report.products.push({ id: product.id, files, counts, families, total: Object.values(counts).reduce((a, b) => a + b, 0) });
 }
-emit('dist/q-design.style-arguments.json', JSON.stringify(report, null, 2) + '\n');
+const whole=selected.length===products.length?report:{...report,products:products.map(p=>report.products.find(row=>row.id===p.id)??JSON.parse(readFileSync(join(ROOT,'dist/q-design.style-arguments.json'),'utf8')).products.find(row=>row.id===p.id))};
+if(whole.products.some(p=>!p))throw Error('Unselected product inventory is missing. Run a full inventory first.');
+emit('dist/q-design.style-arguments.json', JSON.stringify(whole, null, 2) + '\n');
 console.log(JSON.stringify(report.products.map(({ id, files, counts, total }) => ({ id, files: files.length, counts, total })), null, 2));
 if (args.includes('--strict') && report.products.some(p => p.counts['review-required'])) { console.error('Unresolved styling arguments remain. Inventory is not full conformance.'); process.exitCode = 1; }
 if (stale) process.exitCode = 1;

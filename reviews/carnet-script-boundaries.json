@@ -5,42 +5,12 @@
   "records": [
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "4f4ed2e07602cfe439e2a67f098f7a36eec5c3e22ac98006aaec820346847a15",
-      "line": 99,
-      "kind": "dynamic-style",
-      "property": "embedded-script",
-      "value": "(function(){try{",
-      "family": "behavior-structure",
-      "status": "review-required",
-      "context": "script string requires runtime review",
-      "originalStatus": "review-required",
-      "decision": "runtime-boundary",
-      "ruleId": "persisted-theme-bootstrap",
-      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
-      "evidence": [
-        {
-          "path": "app/layout.tsx",
-          "line": 99
-        },
-        {
-          "path": "components/theme-toggle.tsx",
-          "line": 1
-        },
-        {
-          "path": "scripts/check-theme.mjs",
-          "line": 1
-        }
-      ]
-    },
-    {
-      "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "9dfe8f195acb7c9d82da86d36687e018344025e22441e141aa1c2caf474a5dc5",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "52081b0afbdd7b4e027490592c7bded08948e994de146f6ed206ce886a7c8478",
       "line": 100,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "var s=localStorage.getItem('dhr-theme');",
+      "value": "(function(){try{",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -65,12 +35,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "8d78bebcd7d184f55e18a20ea5c18c774146d78315b6434078738a2559d80b6f",
-      "line": 111,
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "1f5de8ac2caeabfeadc5ab0cc3533e52bc90e6a6500d1d88d7bcbccf0ffea944",
+      "line": 101,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "var m=s||(location.pathname.indexOf('/work')===0?'light':'dark');",
+      "value": "var s=localStorage.getItem('dhr-theme');",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -81,7 +51,7 @@
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 111
+          "line": 101
         },
         {
           "path": "components/theme-toggle.tsx",
@@ -95,12 +65,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "d845dc27f0ba65f62a5a66b19862e7f7f852e6042330714ac154021abd9882ca",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "a67b0ec526441cb079475d879a7c7c6fb0e8f400b0e7812edbb07cd3f49b567e",
       "line": 112,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "var t=m==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):m;",
+      "value": "var m=s||(location.pathname.indexOf('/work')===0?'light':'dark');",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -125,12 +95,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "54e43f47c4ce804f8d6f32bd4181e0d052d680bcdf97f1c7b86370ef1b970f89",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "2a0f8a5836b770942bb02c74e026e38d165bbfac63beec543514bc5c4e21f97a",
       "line": 113,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "document.documentElement.dataset.theme=t==='light'?'light':'dark';",
+      "value": "var t=m==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):m;",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -155,12 +125,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "e2289ff6319fedcfbb7e130a420ea723f3b0b1f3bcb774bdfcdf368a53fc9dec",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "30d0104a208ce86b9089d133c6b2f57bb99492009b19950f5a261b882731b50c",
       "line": 114,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "}catch(e){}})()",
+      "value": "document.documentElement.dataset.theme=t==='light'?'light':'dark';",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -185,42 +155,42 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "2dc2f59cea145125ddf83b28d80e7a453151992daf7e21283d29f9eed3935cfa",
-      "line": 132,
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "cf879fa6aa93d27ad504d7c5814e6f4fbd6487c3558e394895784d67911ef9a0",
+      "line": 115,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "(function(){try{",
+      "value": "}catch(e){}})()",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
       "originalStatus": "review-required",
       "decision": "runtime-boundary",
-      "ruleId": "pwa-install-event-bootstrap",
-      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "ruleId": "persisted-theme-bootstrap",
+      "reason": "Exact inspected theme boot fragment reads the persisted dark/light/system selection, applies the approved /work light default, and sets data-theme before paint. It contains no finite visual default.",
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 132
+          "line": 115
         },
         {
-          "path": "components/install-app.tsx",
+          "path": "components/theme-toggle.tsx",
           "line": 1
         },
         {
-          "path": "source/style-adapters/carnet.json",
+          "path": "scripts/check-theme.mjs",
           "line": 1
         }
       ]
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "13d5e21a8ee50b45a25c8fa414a3571041715a0c2f38378c55145ee6ab282565",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "a2dcdda3d34c436261aa425aef310ce174a41e5b787e45f6c449b7de10eaa516",
       "line": 133,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "addEventListener('beforeinstallprompt',function(e){",
+      "value": "(function(){try{",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -245,12 +215,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "ae8b37d4abc5c05901a47a8474c7e3b8641c1871a40e5c43cb340f55b4261751",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "cf5a0aa83e9dda9b612354f0d1a23ae8bcf3b5edc64872a9f69388c94aff4234",
       "line": 134,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "e.preventDefault();window.__dhrInstall=e;dispatchEvent(new Event('dhr-install-ready'));});",
+      "value": "addEventListener('beforeinstallprompt',function(e){",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -275,12 +245,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "5e7150d5be5e15b330846765cee712d5e40b515bd10a9237bbeb0f445b871da1",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "21a3c4aeef7e790cef4296f4bc59919210c98986904f182c5ca1da1f4dee8543",
       "line": 135,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "addEventListener('appinstalled',function(){",
+      "value": "e.preventDefault();window.__dhrInstall=e;dispatchEvent(new Event('dhr-install-ready'));});",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -305,12 +275,12 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "e79c08cc5ed32152ff2ca09c9ee9c5cee4dc90e6473dc7829729e6a8ec6510ec",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "e38a742627c4a6bfb4b84960f47f8b466c738fd24768710f1f7cb64f3a9a0669",
       "line": 136,
       "kind": "dynamic-style",
       "property": "embedded-script",
-      "value": "window.__dhrInstall=null;dispatchEvent(new Event('dhr-install-done'));});",
+      "value": "addEventListener('appinstalled',function(){",
       "family": "behavior-structure",
       "status": "review-required",
       "context": "script string requires runtime review",
@@ -335,9 +305,39 @@
     },
     {
       "path": "app/layout.tsx",
-      "sourceHash": "9b33e8f52fdf681bcf9845f195527c9275dc9d8ad56d407b30aabb6532d43b98",
-      "argumentHash": "b40f27234d1c1462316ee29f5cca8d2f27168d969658344671b6614310350b3b",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "da0fd9b8dbc888240032bacada025e1a868cd85315bf30464121ce2a2d1371be",
       "line": 137,
+      "kind": "dynamic-style",
+      "property": "embedded-script",
+      "value": "window.__dhrInstall=null;dispatchEvent(new Event('dhr-install-done'));});",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "script string requires runtime review",
+      "originalStatus": "review-required",
+      "decision": "runtime-boundary",
+      "ruleId": "pwa-install-event-bootstrap",
+      "reason": "Exact inspected install boot fragment captures native beforeinstallprompt/appinstalled events for the existing install UI. It stores and clears the browser event; no style parameter is authored here.",
+      "evidence": [
+        {
+          "path": "app/layout.tsx",
+          "line": 137
+        },
+        {
+          "path": "components/install-app.tsx",
+          "line": 1
+        },
+        {
+          "path": "source/style-adapters/carnet.json",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceHash": "2d228a86f78ff32554b54ceb598d7279eb632d48d3eb9d5eb57632de032bed48",
+      "argumentHash": "30923369d4b7b595e41101b3734f44146de31b1bb757d1276a9ae245f190c2f5",
+      "line": 138,
       "kind": "dynamic-style",
       "property": "embedded-script",
       "value": "}catch(e){}})()",
@@ -351,7 +351,7 @@
       "evidence": [
         {
           "path": "app/layout.tsx",
-          "line": 137
+          "line": 138
         },
         {
           "path": "components/install-app.tsx",
