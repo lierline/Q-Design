@@ -14,3 +14,6 @@ dist/** linguist-generated=true
 # source/ 는 Q-Atelier 원본의 복사본. 이 저장소가 «쓴» 코드가 아니다.
 # 언어 통계에서 빼야 저장소 성격(문서)이 제대로 보인다.
 source/** linguist-vendored=true
+
+# 공급자 공식 라이선스의 원문 바이트와 줄 끝 공백을 그대로 보존한다.
+source/fonts/JetBrainsMono.LICENSE.txt whitespace=-blank-at-eol

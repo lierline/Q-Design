@@ -25,7 +25,7 @@ test('the same actual mono faces and whole licensed bytes reach all three produc
 test('a changed family, range, subset, weight, source path, extra field, missing license or damaged cached binary cannot receive a passing mono manifest',()=>{
  const model='patterns/mono-fonts.json';
  for(const mutate of [m=>m.family='Other Font',m=>m.weightRange='100 900',m=>m.style='italic',m=>m.faces.reverse(),m=>m.faces[0].source='../../private.woff2',m=>m.faces[0].unicodeRange='U+FFFF',m=>m.unusedStyle=7]){
-  assert.throws(()=>createMonoFonts(root,altered(model,text=>{const m=JSON.parse(text);mutate(m);return JSON.stringify(m);}))); 
+  assert.throws(()=>createMonoFonts(root,altered(model,text=>{const m=JSON.parse(text);mutate(m);return JSON.stringify(m);})));
  }
  assert.throws(()=>createMonoFonts(root,altered('source/fonts/JetBrainsMono.LICENSE.txt',()=>Buffer.from('unlicensed'))));
  assert.throws(()=>createMonoFonts(root,altered('source/fonts/jetbrains-mono-400-latin.woff2',b=>{const copy=Buffer.from(b);copy[100]^=1;return copy;})));
