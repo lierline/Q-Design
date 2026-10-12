@@ -7,6 +7,7 @@ import {PARTS} from './sync-parts.mjs';
 import {centralOutputs,copyProblems} from './audit-coverage-core.mjs';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
 import {collectAdapterReferences,expressionProof,importedReference,localBindings,sourceImports} from './atelier-style-proof.mjs';
+import {responsiveProfilePath,assertResponsiveProfile} from './atelier-profile-responsive-source.mjs';
 
 export const REVIEWED_FOLD_GRID='a97993e2adaa3630523b3ca329914e669bc1fe634049dc41c9c0af6af492f802';
 export function verifyFoldGridBody(ts,fn,sf){
@@ -80,6 +81,9 @@ export function createFoldGridReview(root=path.resolve(path.dirname(fileURLToPat
   const match=(kind,at,value)=>(argumentsByPath.get(file)??[]).find(r=>r.sourceHash===sourceHash&&r.kind===kind&&r.line===at&&r.value===value);
   const visit=node=>{
    if(targetCalls.has(node)){
+    // This closed parameterized call has its own exact source, caller and browser
+    // proof. Keep the numeric-call catalog strict; do not accept other parameters.
+    if(file===responsiveProfilePath&&node.getText(sf)==='foldGrid(cols, QDScale.space[2], { min: QDPresentation.choiceMinColumn[110] })'){assertResponsiveProfile(sf.text);return;}
     const proof=proveFoldGridArguments({ts,call:node,sf,reference:value=>importedReference(value,imports,file,refs)});
     let attribute=node.parent;while(attribute&&!ts.isJsxAttribute(attribute))attribute=attribute.parent;
     if(!proof||!attribute||attribute.name.getText(sf)!=='style'){rejected.push({path:file,line:line(sf,node),value:node.getText(sf),reason:'Unproven call argument or non-style consumer'});return;}

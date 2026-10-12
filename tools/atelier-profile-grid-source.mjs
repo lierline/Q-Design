@@ -1,9 +1,10 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';
 import path from 'node:path';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
+import {beforeResponsiveProfile} from './atelier-profile-responsive-source.mjs';
 export const profileGridPath='components/ProductProfileWizard.tsx';
 export const profileProductRef='1c0a3f8e0d5ded5dbd53c0ba0d86e733a0dc2519';
-export const normalizeProfileGrid=s=>s.replaceAll('\r\n','\n');
+export const normalizeProfileGrid=s=>beforeResponsiveProfile(s.replaceAll('\r\n','\n'));
 export function profileGridSources(){
  const before=normalizeProfileGrid(execFileSync('git',['show',profileProductRef+':'+profileGridPath],{cwd:'D:/Claude/Q-Atelier',encoding:'utf8',maxBuffer:8*1024*1024}));
  const values=[];const after=before.replace(/cols=\{([234])\}/g,(original,n)=>{values.push(Number(n));return 'cols={QDPresentation.rendererInputs.gridColumns['+n+']}';});

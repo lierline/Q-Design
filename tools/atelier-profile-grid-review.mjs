@@ -1,8 +1,11 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {fileURLToPath} from 'node:url';
 import {profileGridPath,profileGridSources,normalizeProfileGrid} from './atelier-profile-grid-source.mjs';import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {readRuntimeValues} from './atelier-runtime-values.mjs';
+import {beforeResponsiveProfile} from './atelier-profile-responsive-source.mjs';
+import {beforeResponsiveReview} from './atelier-profile-responsive-history.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',req=createRequire(repo+'/package.json');export const profileTs=req('typescript');const ts=profileTs,postcss=req('postcss'),read=p=>normalizeProfileGrid(fs.readFileSync(p,'utf8')),properties=cssProperties(ts,read(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts')));
 export function inspectProfileGrid(code){
+ code=beforeResponsiveProfile(code);
  const bodies=profileGridSources();assert(code===bodies.after,'Only the exact nine-input migration qualifies');
  const sf=ts.createSourceFile(profileGridPath,code,99,true,4);assert.equal(sf.parseDiagnostics.length,0);
  const options={noLib:true,noResolve:true,jsx:ts.JsxEmit.Preserve},host=ts.createCompilerHost(options);host.getSourceFile=p=>p===profileGridPath?sf:undefined;host.fileExists=p=>p===profileGridPath;host.readFile=p=>p===profileGridPath?code:undefined;
@@ -23,4 +26,4 @@ export function createProfileGridReview(){
  const records=inspection.calls.map(a=>{const matches=raw.filter(r=>r.line===line(a)&&r.property==='cols'&&r.value===a.initializer.getText(inspection.sf));assert.equal(matches.length,1);const r=matches[0];return {path:profileGridPath,line:r.line,sourceHash:hash(code),argumentHash:hash(JSON.stringify(r)),property:r.property,value:r.value,decision:'token-reference-verified',ruleId:'exact-profile-choice-columns',reason:'This exact numeric input imports QDPresentation.rendererInputs.gridColumns and reaches the same local RadioGrid renderer. Only nine reviewed inputs changed; all options, callback expressions, selected states and renderer source remain byte-identical. No other columns, complete style objects or business option values are approved.',evidence};});
  return {version:1,scope:'Nine exact ProductProfileWizard RadioGrid column inputs only. The renderer and every other source expression retain their prior behavior.',records};
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){const report=createProfileGridReview(),file=root+'/reviews/atelier-profile-grid-review.json';if(process.argv.includes('--write'))fs.writeFileSync(file,JSON.stringify(report,null,2)+'\n');else assert.deepEqual(JSON.parse(read(file)),report);console.log(JSON.stringify({inputs:report.records.length}));}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){const report=createProfileGridReview(),file=root+'/reviews/atelier-profile-grid-review.json';if(process.argv.includes('--write'))fs.writeFileSync(file,JSON.stringify(report,null,2)+'\n');else assert.deepEqual(beforeResponsiveReview('atelier-profile-grid-review.json',JSON.parse(read(file))),report);console.log(JSON.stringify({inputs:report.records.length}));}

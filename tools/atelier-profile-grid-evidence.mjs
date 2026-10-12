@@ -1,6 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {createRequire} from 'node:module';
 import {profileGridPath,profileGridSources,normalizeProfileGrid} from './atelier-profile-grid-source.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
+import {beforeResponsiveReview} from './atelier-profile-responsive-history.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='8e0d7ed',req=createRequire(repo+'/package.json'),ts=req('typescript'),postcss=req('postcss'),properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
 const bodies=profileGridSources(),read=p=>normalizeProfileGrid(fs.readFileSync(p,'utf8')),serialize=j=>JSON.stringify(j,null,2)+'\n';
 assert([bodies.beforeHash,bodies.afterHash].includes(hash(read(repo+'/'+profileGridPath))),'Unrelated product changes');
@@ -11,7 +12,7 @@ const reviewSource=read(root+'/tools/atelier-style-review.mjs');const names=[...
 names.push('atelier-parameter-leaves-review.json');
 const prepared=[];let records=0,evidence=0;
 for(const name of [...new Set(names)]){
- if(name==='atelier-profile-grid-review.json')continue; // Fresh nine-input proof, absent from the pinned prior review set.
+ if(['atelier-profile-grid-review.json','atelier-profile-responsive-review.json'].includes(name))continue; // Later exact proofs are independently checked and absent from this pinned review set.
  const before=JSON.parse(execFileSync('git',['show',ref+':reviews/'+name],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024})),after=structuredClone(before),changes=[],metadataChanges=[];
  for(const [index,row] of (after.records??[]).entries()){
   if(row.path===profileGridPath){assert.equal(row.sourceHash,bodies.beforeHash);assert.deepEqual(newArgs.get(row.argumentHash),oldArgs.get(row.argumentHash));assert(oldArgs.has(row.argumentHash),'Changed arguments require fresh review');
@@ -44,5 +45,5 @@ for(const name of [...new Set(names)]){
 }
 const proof={version:2,ref,path:profileGridPath,beforeHash:bodies.beforeHash,afterHash:bodies.afterHash,scope:'Nine exact column expressions only. No other source byte changes. Existing arguments, complete consumer AST contexts and referenced declarations must remain identical. Repeated caller metadata also requires identical complete JSX. No new decision is approved.',reports:prepared.map(p=>({name:p.name,beforeHash:hash(serialize(p.before)),afterHash:hash(serialize(p.after)),changes:p.changes,metadataChanges:p.metadataChanges}))};
 if(process.argv.includes('--write')){assert.equal(hash(read(repo+'/'+profileGridPath)),bodies.afterHash);const prior=JSON.parse(read(root+'/reviews/atelier-profile-grid-revalidation.json'));assert.equal(prior.ref,ref);for(const p of prepared){const old=prior.reports.find(r=>r.name===p.name);if(old)assert.equal(old.beforeHash,hash(serialize(p.before)));assert([hash(serialize(p.before)),old?.afterHash].includes(hash(read(root+'/reviews/'+p.name))),'Whole prior verified report required');}for(const p of prepared)fs.writeFileSync(root+'/reviews/'+p.name,serialize(p.after));fs.writeFileSync(root+'/reviews/atelier-profile-grid-revalidation.json',serialize(proof));}
-else if(process.argv.includes('--check')){for(const p of prepared)assert.equal(hash(read(root+'/reviews/'+p.name)),hash(serialize(p.after)));assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-profile-grid-revalidation.json')),proof);}
+else if(process.argv.includes('--check')){for(const p of prepared)assert.equal(hash(serialize(beforeResponsiveReview(p.name,JSON.parse(read(root+'/reviews/'+p.name))))),hash(serialize(p.after)));assert.deepEqual(JSON.parse(read(root+'/reviews/atelier-profile-grid-revalidation.json')),proof);}
 console.log(JSON.stringify({reports:prepared.length,records,evidence,callerMetadata:prepared.reduce((n,p)=>n+p.metadataChanges.length,0)}));

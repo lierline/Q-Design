@@ -2,6 +2,7 @@
   "version": 1,
   "scope": "Authored interface labels, help, errors and notifications. Business state codes, user input, identifiers, comments and regulatory source content are excluded.",
   "terms": [
+    { "id": "profile-public-db-particle-spacing", "from": "공공 DB 에서", "to": "공공 DB에서", "products": ["atelier"], "paths": ["components/ProductProfileWizard.tsx"] },
     { "id": "expert-career-unit-spacing", "from": "경력(년)", "to": "경력 (년)", "products": ["atelier"], "paths": ["app/experts/settings/profile-form.tsx", "app/experts/portal/signup/page.tsx"] },
     { "id": "expert-specialty-choice-prompt", "from": "(선택해주십시오)", "to": "고르십시오", "products": ["atelier"], "paths": ["app/experts/settings/profile-form.tsx", "app/experts/portal/signup/page.tsx"] },
     { "id": "risk-treatment-completed-spacing", "from": "대응완료", "to": "대응 완료", "products": ["maison"], "paths": ["lib/supabase/types.ts"] },

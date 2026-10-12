@@ -1,5 +1,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import {hash} from './style-arguments-core.mjs';
+import {beforeResponsiveReview} from './atelier-profile-responsive-history.mjs';
 export function beforeProfileGridReview(name,current){
+ current=beforeResponsiveReview(name,current);
  const file='D:/Claude/Q-Design/reviews/atelier-profile-grid-revalidation.json';if(!fs.existsSync(file))return current;
  const report=JSON.parse(fs.readFileSync(file,'utf8')).reports.find(r=>r.name===name);if(!report)return current;
  const serialize=j=>JSON.stringify(j,null,2)+'\n';if(hash(serialize(current))===report.beforeHash)return current;
