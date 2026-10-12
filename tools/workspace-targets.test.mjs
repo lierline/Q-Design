@@ -3,12 +3,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {inspectWorkspaceTargets,beforeWorkspaceTargets} from './workspace-targets-review.mjs';
 import {composeWorkspace} from './build-workspace.mjs';
+import {beforeRemainingFields} from './maison-remaining-field-ledger.mjs';
 const root='D:/Claude/Q-Design';
 test('all three live workspace copies contain exactly the central short-action rule',()=>{
  const result=inspectWorkspaceTargets();assert.equal(result.sources.length,3);
  assert.equal(composeWorkspace('a\r\n','b\r\n'),'a\n\nb\n');
  for(const product of ['atelier','maison','carnet']){
-  const current=JSON.parse(fs.readFileSync(root+'/reviews/'+product+'-style-decisions.json','utf8')),old=beforeWorkspaceTargets(current);
+  const current=beforeRemainingFields(JSON.parse(fs.readFileSync(root+'/reviews/'+product+'-style-decisions.json','utf8'))),old=beforeWorkspaceTargets(current);
   assert.equal(current.counts.unknown,old.counts.unknown);assert.equal(current.counts['central-source-verified'],old.counts['central-source-verified']+2);
  }
 });

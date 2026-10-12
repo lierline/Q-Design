@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T22:54:50.065Z",
+  "generatedAt": "2026-10-12T23:28:43.493Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6793,10 +6793,10 @@
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
-    "business-data": 872,
-    "unknown": 607,
+    "business-data": 889,
+    "unknown": 586,
     "business-condition": 54,
-    "token-reference-verified": 1271,
+    "token-reference-verified": 1275,
     "structural-behavior": 411,
     "coordinate-boundary": 128,
     "business-content": 68,
@@ -6804,7 +6804,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3931
   },
-  "unknownCount": 607,
+  "unknownCount": 586,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -1200909,14 +1200909,49 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "symbol-resolved-docx-box-alias",
+      "reason": "This exact maxWidthMm expression resolves to the inspected qdPrint.signatures.approval canonical box through one local or imported constant. The complete four-producer image pipeline and canonical print copy are independently verified. Approval/photo bounds are controlled by Q-Design; no authored replacement dimension, fallback ratio or unrelated document field is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill.ts",
-          "line": 1584,
+          "line": 1,
           "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/docx-images.ts",
+          "line": 1,
+          "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
+        },
+        {
+          "path": "tools/maison-docx-box-alias-review.mjs",
+          "line": 1,
+          "hash": "7a848eb0d3d2fcbce63f5b006a0ba55d42f692f5d6ba2b033895f2272664febb"
         }
       ]
     },
@@ -1200932,14 +1200967,49 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "symbol-resolved-docx-box-alias",
+      "reason": "This exact maxHeightMm expression resolves to the inspected qdPrint.signatures.approval canonical box through one local or imported constant. The complete four-producer image pipeline and canonical print copy are independently verified. Approval/photo bounds are controlled by Q-Design; no authored replacement dimension, fallback ratio or unrelated document field is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill.ts",
-          "line": 1585,
+          "line": 1,
           "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/docx-images.ts",
+          "line": 1,
+          "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
+        },
+        {
+          "path": "tools/maison-docx-box-alias-review.mjs",
+          "line": 1,
+          "hash": "7a848eb0d3d2fcbce63f5b006a0ba55d42f692f5d6ba2b033895f2272664febb"
         }
       ]
     },
@@ -1200955,14 +1201025,49 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "symbol-resolved-docx-box-alias",
+      "reason": "This exact maxWidthMm expression resolves to the inspected qdPrint.docxBoxes.photo canonical box through one local or imported constant. The complete four-producer image pipeline and canonical print copy are independently verified. Approval/photo bounds are controlled by Q-Design; no authored replacement dimension, fallback ratio or unrelated document field is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill.ts",
-          "line": 1670,
+          "line": 1,
           "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/docx-images.ts",
+          "line": 1,
+          "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
+        },
+        {
+          "path": "tools/maison-docx-box-alias-review.mjs",
+          "line": 1,
+          "hash": "7a848eb0d3d2fcbce63f5b006a0ba55d42f692f5d6ba2b033895f2272664febb"
         }
       ]
     },
@@ -1200978,14 +1201083,49 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "token-reference-verified",
+      "ruleId": "symbol-resolved-docx-box-alias",
+      "reason": "This exact maxHeightMm expression resolves to the inspected qdPrint.docxBoxes.photo canonical box through one local or imported constant. The complete four-producer image pipeline and canonical print copy are independently verified. Approval/photo bounds are controlled by Q-Design; no authored replacement dimension, fallback ratio or unrelated document field is approved.",
       "evidence": [
         {
           "path": "lib/documents/form-fill.ts",
-          "line": 1671,
+          "line": 1,
           "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/docx-images.ts",
+          "line": 1,
+          "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
+        },
+        {
+          "path": "tools/maison-docx-box-alias-review.mjs",
+          "line": 1,
+          "hash": "7a848eb0d3d2fcbce63f5b006a0ba55d42f692f5d6ba2b033895f2272664febb"
         }
       ]
     },
@@ -1206193,14 +1206333,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact blankRow site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 88,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206216,14 +1206391,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact fixedRow site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 92,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206239,14 +1206449,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applySource site composes typed preparation record fields (semi, raw, equipment, sub, consumable). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 164,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206262,14 +1206507,49 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applySource site composes typed preparation record fields (name, lot, expiry, quantity, checked, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 166,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206285,14 +1206565,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applySource site composes typed preparation record fields (semi, raw, equipment, sub, consumable). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 177,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206308,14 +1206623,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applySource site composes typed preparation record fields (semi, raw, equipment, sub, consumable). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 179,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206331,14 +1206681,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact row-map-callback site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 180,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206354,14 +1206739,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact row-map-callback site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 180,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206377,14 +1206797,49 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applyStock site composes typed preparation record fields (lot, expiry, fromInventory, itemCodeId, checked). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 202,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206400,14 +1206855,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applyStock site composes typed preparation record fields (semi, raw, equipment, sub, consumable). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 218,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206423,14 +1206913,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact row-map-callback site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 222,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206446,14 +1206971,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact row-map-callback site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 222,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206469,14 +1207029,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applyStock site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 229,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206492,14 +1207087,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact applyStock site composes typed preparation record fields (semi, raw, equipment, sub, consumable). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 234,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206515,14 +1207145,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact row-map-callback site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 237,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206538,14 +1207203,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact uncheckRow site composes typed preparation record fields (key, fixed, name, no, lot, printedNo, printedLot, checked, expiry, quantity, fromInventory, itemCodeId, equipmentId, sourceId). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 245,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },
@@ -1206561,14 +1207261,49 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-production-preparation-data",
+      "reason": "The exact material site composes typed preparation record fields (from_inventory, item_code_id). The inspected form passes the resulting materials and prep_items to the production action as business input. It is not an element style, CSS object or authored visual dimension. Every producer, source, schema, UI consumer and action body is pinned; no other spread or source argument is approved.",
       "evidence": [
         {
           "path": "lib/production/prep-sheet.ts",
-          "line": 296,
+          "line": 1,
           "hash": "575d3337ef61e8c83ec3ec733e23c6a3fcc9867a7faf1345e4db81af5c786fdd"
+        },
+        {
+          "path": "lib/production/batch-record.ts",
+          "line": 1,
+          "hash": "c99351a558065120015ee2718928838040ef4139bb31fa02f9dcc30c02f7b0c8"
+        },
+        {
+          "path": "lib/validators/production.ts",
+          "line": 1,
+          "hash": "c2e76b99f3d9e6acbb86370996aa0825c10bd07476909be4c49f3590b21ab5ef"
+        },
+        {
+          "path": "app/(app)/production/new/new-production-form.tsx",
+          "line": 1,
+          "hash": "074b3edadce9415cf1c0d6ed7657ed10d63f5469cdd7044a16c6026ce029c384"
+        },
+        {
+          "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+          "line": 1,
+          "hash": "3a741f9e14db2fc1435596e2193bfb8fd02539e81e4cc60bb09355c52c7e1ab1"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-prep-data-review.mjs",
+          "line": 1,
+          "hash": "93c5f70d53e820104595623ceeb594b32437fde2d94611a8f6069059c0b84908"
         }
       ]
     },

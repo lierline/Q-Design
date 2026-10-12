@@ -6,6 +6,9 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/maison-prep-data-review.mjs','--check'],
+  ['tools/maison-docx-box-alias-review.mjs','--check'],
+  ['--test','tools/maison-remaining-field-ledger.test.mjs'],
   ['tools/build-workspace.mjs','--check'],
   ['--test','tools/workspace-targets.test.mjs'],
   ['tools/maison-docx-values-review.mjs','--check'],
