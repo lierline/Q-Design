@@ -1,0 +1,2651 @@
+{
+  "scope": "Shared text-action button and link probes in the actual three-product compiled CSS. Three widths, two themes and two pointer modes. Central width mutation and keyboard activation checked. No business forms or services are submitted. This is role verification, not a certificate for every work screen or a physical device installation.",
+  "sources": [
+    {
+      "product": "atelier",
+      "path": "D:/Claude/Q-Atelier/app/q-design.workspace.css",
+      "hash": "a79375173af4d27f5194c0bdf8e41bba9c08cc8b4a35a8da69ea1396cffdacba"
+    },
+    {
+      "product": "maison",
+      "path": "D:/Claude/Q-Works/app/q-design.workspace.css",
+      "hash": "a79375173af4d27f5194c0bdf8e41bba9c08cc8b4a35a8da69ea1396cffdacba"
+    },
+    {
+      "product": "carnet",
+      "path": "D:/Claude/DHR/app/q-design.workspace.css",
+      "hash": "a79375173af4d27f5194c0bdf8e41bba9c08cc8b4a35a8da69ea1396cffdacba"
+    }
+  ],
+  "cases": [
+    {
+      "product": "atelier",
+      "width": 320,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 320,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 320,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 320,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 390,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 390,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 390,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 390,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 1280,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 1280,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 1280,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "atelier",
+      "width": 1280,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 320,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 320,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 320,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 320,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 390,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 390,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 390,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 390,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 1280,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 1280,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 1280,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "maison",
+      "width": 1280,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 320,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 320,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 320,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 320,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 390,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 390,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 390,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 390,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 1280,
+      "theme": "light",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 1280,
+      "theme": "light",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 1280,
+      "theme": "dark",
+      "touch": false,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 36,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 36,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    },
+    {
+      "product": "carnet",
+      "width": 1280,
+      "theme": "dark",
+      "touch": true,
+      "before": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "focused": [
+        {
+          "label": "취소",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 60
+        },
+        {
+          "label": "닫기",
+          "width": 44,
+          "height": 44,
+          "minWidth": "44px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 76,
+          "right": 120
+        }
+      ],
+      "mutation": [
+        {
+          "label": "취소",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 16,
+          "right": 64
+        },
+        {
+          "label": "닫기",
+          "width": 48,
+          "height": 48,
+          "minWidth": "48px",
+          "radius": "10px",
+          "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "x": 80,
+          "right": 128
+        }
+      ],
+      "keyboardActivation": true
+    }
+  ],
+  "passed": 36
+}

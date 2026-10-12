@@ -71,6 +71,7 @@ const STEPS = [
   { name: '차림표', file: 'extract-nav.mjs' },
   { name: '목록', file: 'extract-list.mjs' },
   { name: '뼈대', file: 'extract-screen.mjs' },
+  { name: '업무 조작 대상', file: 'build-workspace.mjs' },
   { name: '인라인 색인', file: 'extract-inline-styles.mjs', why: '원본을 바꾸지 않는 색인' },
   { name: '앱 아이콘', file: 'app-icons.mjs', why: '네 제품 홈 화면 · 파비콘 아이콘을 dist/app-icons 에 그립니다' },
 ];

@@ -1,0 +1,4 @@
+/* Short text actions keep the shared control target, including cancel links. */
+.qd-text-action { min-width: var(--qd-control-height); }
+/* A legacy focus reset must not change the shared control shape. */
+.qd-text-action:focus-visible { border-radius: var(--qd-radius) !important; }

@@ -1,3 +1,4 @@
+import {beforeWorkspaceTargets} from './workspace-targets-review.mjs';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
@@ -17,7 +18,7 @@ test('actual numbered producer preserves record text, whitespace and ordering wi
  const pick=module.exports,rows=[{key:'a',label:'첫 항목'},{key:'b',label:'둘째 항목'}],values=pick(rows,'impact',k=>k==='a'?'  첫 줄\n둘째 줄 & <내용>':'부서별 검토 의견');assert.deepEqual(JSON.parse(JSON.stringify(values)),{impact_1:'  첫 줄\n둘째 줄 & <내용>',impact_2:'부서별 검토 의견'});assert.deepEqual(Object.keys(pick(rows,'doc_target',k=>k)),['doc_target_1','doc_target_2']);
 });
 test('complete document-field ledger inverse rejects unrelated approvals and borrowed evidence',()=>{
- const current=JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8')),old=beforeTextValuesReport(current);assert.equal(current.counts.unknown,607);assert.equal(old.counts.unknown,626);
+ const current=beforeWorkspaceTargets(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8'))),old=beforeTextValuesReport(current);assert.equal(current.counts.unknown,607);assert.equal(old.counts.unknown,626);
  const changed=structuredClone(current);changed.records.find(r=>r.decision==='unknown').decision='business-content';assert.throws(()=>beforeTextValuesReport(changed));
  const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='symbol-resolved-docx-text-values').evidence[0].hash='borrowed';assert.throws(()=>beforeTextValuesReport(borrowed));
 });

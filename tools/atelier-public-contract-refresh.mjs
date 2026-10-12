@@ -4,10 +4,12 @@ import {execFileSync} from 'node:child_process';
 import {hash} from './style-arguments-core.mjs';
 import {PARTS} from './sync-parts.mjs';
 import {copyProblems} from './audit-coverage-core.mjs';
+import {beforeWorkspaceTargets} from './workspace-targets-review.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='712ccc1c47f21f803f969fedfdb0d816548cf4d0';
 const paths=['public/__sim.html','public/offline.html','public/q-design.offline-revision.js'];
 const baseline=()=>JSON.parse(execFileSync('git',['show',ref+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));
 export function beforePublicFingerprints(current){
+ current=beforeWorkspaceTargets(current);
  const old=baseline(),oldFiles=new Map(old.fileHashes.map(f=>[f.path,f.hash]));
  // Historical reports already carry the earlier public fingerprints. Their
  // remaining differences are verified by the next existing history layer.

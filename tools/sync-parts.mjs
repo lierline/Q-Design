@@ -116,7 +116,7 @@ export const PARTS = [
   },
   {
     name: '업무 화면',
-    src: 'patterns/workspace.css',
+    src: 'dist/q-design.workspace.css',
     to: {
       'Q-Atelier': 'D:/Claude/Q-Atelier/app/q-design.workspace.css',
       'Q-Works': 'D:/Claude/Q-Works/app/q-design.workspace.css',

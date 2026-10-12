@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createAtelierCopyRevalidation,beforeAtelierProfessionalReview} from './atelier-professional-copy-revalidation.mjs';
 import {hash} from './style-arguments-core.mjs';
+import {beforeWorkspaceTargets} from './workspace-targets-review.mjs';
 const root='D:/Claude/Q-Design';
 test('professional copy keeps every complete styling argument and only rebinds exact reviewed source fingerprints',()=>{
  const result=createAtelierCopyRevalidation();
@@ -14,7 +15,7 @@ test('professional copy keeps every complete styling argument and only rebinds e
  }
 });
 test('copy revalidation rejects an unrelated argument or decision change instead of inheriting historical approval',()=>{
- const current=JSON.parse(fs.readFileSync(root+'/reviews/atelier-style-decisions.json','utf8'));
+ const current=beforeWorkspaceTargets(JSON.parse(fs.readFileSync(root+'/reviews/atelier-style-decisions.json','utf8')));
  for(const field of ['value','decision','sourceHash']){
   const wrong=structuredClone(current);wrong.records[0][field]='unreviewed';
   assert.throws(()=>beforeAtelierProfessionalReview('atelier-style-decisions.json',wrong),/Unexpected report content/);
