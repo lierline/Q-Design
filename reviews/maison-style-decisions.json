@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T20:42:46.544Z",
+  "generatedAt": "2026-10-12T20:54:03.409Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6788,23 +6788,23 @@
   "counts": {
     "delegated-renderer-parameter": 462,
     "central-live-utility": 20476,
-    "confirmed-style-composition": 834,
+    "confirmed-style-composition": 844,
     "central-build-utility": 12072,
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
     "business-data": 872,
-    "unknown": 643,
+    "unknown": 626,
     "business-condition": 54,
     "token-reference-verified": 1271,
-    "structural-behavior": 408,
-    "coordinate-boundary": 124,
+    "structural-behavior": 411,
+    "coordinate-boundary": 128,
     "business-content": 49,
     "dependency-entry": 13,
     "platform-metadata": 17,
     "central-source-verified": 3929
   },
-  "unknownCount": 643,
+  "unknownCount": 626,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -1198013,14 +1198013,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact property reads an intrinsic PNG/JPEG dimension from image bytes. It is input geometry, not an authored layout size. Complete parser and caller sources are pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 61,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198036,14 +1198066,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact property reads an intrinsic PNG/JPEG dimension from image bytes. It is input geometry, not an authored layout size. Complete parser and caller sources are pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 61,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198097,14 +1198157,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact property reads an intrinsic PNG/JPEG dimension from image bytes. It is input geometry, not an authored layout size. Complete parser and caller sources are pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 87,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198120,14 +1198210,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "coordinate-boundary",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact property reads an intrinsic PNG/JPEG dimension from image bytes. It is input geometry, not an authored layout size. Complete parser and caller sources are pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 87,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198298,14 +1198418,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 108,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198321,14 +1198471,44 @@
       "status": "review-required",
       "context": "candidate: includes style maps and data objects; inspect context",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 108,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198343,14 +1198523,44 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 132,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198365,14 +1198575,44 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 132,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198388,14 +1198628,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 132,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198411,14 +1198681,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 132,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198434,14 +1198734,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact zero is the drawing origin or effect extent in the pinned XML emitter. It does not introduce a visible box size. The complete image pipeline is pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 133,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198588,14 +1198918,44 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198610,14 +1198970,44 @@
       "family": "behavior-structure",
       "status": "review-required",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198633,14 +1199023,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198656,14 +1199076,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "confirmed-style-composition",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact extent is derived by aspect-preserving fitting into the four inspected image-box producers. Logo, approval signature and photo bounds are direct qdPrint members from the verified canonical body. No authored replacement dimensions are approved. The separate 4:3 fallback remains unresolved.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198679,14 +1199129,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact zero is the drawing origin or effect extent in the pinned XML emitter. It does not introduce a visible box size. The complete image pipeline is pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
@@ -1198702,14 +1199182,44 @@
       "status": "review-required",
       "context": "embedded-html",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "structural-behavior",
+      "ruleId": "exact-docx-image-geometry",
+      "reason": "This exact zero is the drawing origin or effect extent in the pinned XML emitter. It does not introduce a visible box size. The complete image pipeline is pinned.",
       "evidence": [
         {
           "path": "lib/documents/docx-images.ts",
-          "line": 141,
+          "line": 1,
           "hash": "d7d895632a277d1f75f61ab344c8a0ec0549bb79c6560c3ac8b111d65300203d"
+        },
+        {
+          "path": "lib/documents/form-common.ts",
+          "line": 1,
+          "hash": "d180ee2a0f89c498b0b8e8d5a1038405299e08601db4618f430db8db6456f41a"
+        },
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "lib/design/q-design-print.ts",
+          "line": 1,
+          "hash": "3aa37348aa08654d468dfdbc5d1b9e001c406e1a1690115281eb081c2ba73b76"
+        },
+        {
+          "path": "patterns/foundation/maison-print.ts",
+          "line": 1,
+          "hash": "b85136c64ee1975de1d465d34ccfe92b0f0a2f1ed77bdc834a67384f2a342504"
+        },
+        {
+          "path": "tools/maison-docx-image-review.mjs",
+          "line": 1,
+          "hash": "7ef1ecc2c029af68c051f7669f7084bece0c06674cde2dc35d3989027797d8fb"
         }
       ]
     },
