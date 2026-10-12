@@ -81,7 +81,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
       'source/tokens/tokens.ts', 'source/tokens/q-design-contract.ts', 'source/tokens/grain.ts', 'source/tokens/tag-metrics.ts',
       'source/tokens/main-padding.ts', 'source/screens/audit-page.tsx', 'source/components/PageTabs.tsx',
       'source/css/globals.css', 'source/css/expert-theme.css', 'dist/q-design.tokens.json', 'patterns/components.css', 'patterns/workspace.css', 'patterns/foundation.css', 'patterns/foundation/atelier.css',
-      'patterns/foundation/atelier-values.css', 'patterns/foundation/atelier-core-values.css',
+      'patterns/foundation/atelier-values.css', 'patterns/foundation/atelier-core-values.css', 'patterns/typography-links.css',
       'source/style-adapters/atelier-literal-values.json', 'source/style-adapters/atelier-core-values.json',
       'source/style-adapters/atelier-grid-values.json', 'source/style-adapters/atelier-conditional-values.json',
       'source/style-adapters/atelier-function-values.json', 'source/style-adapters/atelier-style-fragments.json',

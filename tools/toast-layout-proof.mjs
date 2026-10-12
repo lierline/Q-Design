@@ -6,8 +6,9 @@ import {fileURLToPath} from 'node:url';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
 import {beforeBannerFoundation,beforeBannerDist,beforeBannerCopy} from './carnet-banner-foundation.mjs';
 import {beforeSocialDist,beforeSocialCopy} from './atelier-social-touch-foundation.mjs';
+import {beforeGlobalTypographySource} from './global-typography-evidence.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),ref='cf00e72';
-const historicalFoundation=(product,source,copy=false)=>product==='atelier'?(copy?beforeSocialCopy(source):beforeSocialDist(source)):product==='carnet'?(copy?beforeBannerCopy(source):beforeBannerDist(source)):source.replaceAll('\r\n','\n');
+const historicalFoundation=(product,source,copy=false)=>product==='atelier'?(copy?beforeSocialCopy(source):beforeSocialDist(source)):product==='carnet'?(copy?beforeBannerCopy(source):beforeBannerDist(source)):beforeGlobalTypographySource(copy?'maison/app/q-design.foundation.css':'dist/q-design.foundation.maison.css',source.replaceAll('\r\n','\n'));
 export const toastLayoutAppendix=`
 /* Shared feedback placement, including safe-area edges on installed apps. */
 :root {

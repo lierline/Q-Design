@@ -43,7 +43,7 @@ test('main padding numeric fallback follows central configuration without conver
 test('actual foundation build and print-fit calculation share mutable physical dimensions',()=>{
   const fixture=fs.mkdtempSync(path.resolve(ROOT,'../tmp/atelier-output-css-'));
   try{
-    for(const file of ['patterns/foundation.css','patterns/components.css','patterns/foundation/atelier.css','patterns/foundation/atelier-values.css','patterns/foundation/atelier-core-values.css','source/design/atelier-runtime.ts']){fs.mkdirSync(path.dirname(fixture+'/'+file),{recursive:true});fs.copyFileSync(ROOT+'/'+file,fixture+'/'+file);}
+    for(const file of ['patterns/foundation.css','patterns/typography-links.css','patterns/components.css','patterns/foundation/atelier.css','patterns/foundation/atelier-values.css','patterns/foundation/atelier-core-values.css','source/design/atelier-runtime.ts']){fs.mkdirSync(path.dirname(fixture+'/'+file),{recursive:true});fs.copyFileSync(ROOT+'/'+file,fixture+'/'+file);}
     const output=structuredClone(canonicalOutput);Object.assign(output.print,{paperWidthMm:220,paperHeightMm:300,mainPadXpx:4,mainPadYpx:28});output.print.marginMm={top:20,right:17,bottom:24,left:19};
     fs.writeFileSync(fixture+'/source/design/atelier-output.ts','export const QDOutput = '+JSON.stringify(output)+' as const;');
     buildFoundation(fixture,{only:['atelier']});

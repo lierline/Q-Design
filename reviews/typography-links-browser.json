@@ -1,0 +1,2426 @@
+{
+  "scope": "24 CSS composition cases for the actual three product foundations and common workspace recipes in document order. Exact UI/mono roles, reproduced Atelier workspace bypass, central family mutation through controls and labels, legacy section/divider/skip roles and print footer. Synthetic content only; no operating account, data, persistence or network is executed.",
+  "layerHash": "c63e55c6f67073696e4294ea121cdc73f45989f15c78ae1ad8ac10f93670213b",
+  "copies": [
+    {
+      "source": "dist/q-design.foundation.atelier.css",
+      "target": "D:/Claude/Q-Atelier/app/q-design.foundation.css",
+      "sourceHash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd",
+      "copyHash": "d8b200b4cb901fcfa80c311e8ebe92e91ba784c751c7a266a186baf8ffd7f06c"
+    },
+    {
+      "source": "dist/q-design.foundation.maison.css",
+      "target": "D:/Claude/Q-Works/app/q-design.foundation.css",
+      "sourceHash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc",
+      "copyHash": "e53911f82132c84f7b90779c895eca512c30c717c05d756b26f4cbe0464f6c40"
+    },
+    {
+      "source": "dist/q-design.foundation.carnet.css",
+      "target": "D:/Claude/DHR/app/q-design.foundation.css",
+      "sourceHash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba",
+      "copyHash": "962423435ff4df0b52415e76836f6a0eddc0a4c43339c9c13ba31984254e22c8"
+    }
+  ],
+  "records": [
+    {
+      "product": "atelier",
+      "theme": "light",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "light",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "light",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "light",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "dark",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "dark",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "dark",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "theme": "dark",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", Pretendard, sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", monospace",
+          "dividerNumber": "\"Pretendard Variable\", serif",
+          "dividerLabel": "\"JetBrains Mono\", monospace",
+          "dividerTitle": "\"Pretendard Variable\", sans-serif",
+          "skip": "system-ui, -apple-system, sans-serif"
+        }
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": {
+          "number": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerNumber": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "dividerLabel": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+          "dividerTitle": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif",
+          "skip": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+        }
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": {
+          "number": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerNumber": "Arial, \"Pretendard Variable\", sans-serif",
+          "dividerLabel": "\"Courier New\", \"Pretendard Variable\", monospace",
+          "dividerTitle": "Arial, \"Pretendard Variable\", sans-serif",
+          "skip": "Arial, \"Pretendard Variable\", sans-serif"
+        }
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.atelier.css",
+          "hash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.atelier.css",
+          "hash": "4a1a42006c6efa8b1940aec84cff9ca968088e492d00274adf3a168476879f37"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "light",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "light",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "light",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "light",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "dark",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "dark",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "dark",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "theme": "dark",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.maison.css",
+          "hash": "27255946cea76639e6f89537cfc4421bf40321fbaa7af0b332d559fbb2aa7cbc"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.maison.css",
+          "hash": "ea065101f3a5522905d288b8caf2bb2986de9ac3ca89499c192b6f3af4daf554"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "light",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "light",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "light",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "light",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "dark",
+      "width": 320,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "dark",
+      "width": 390,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "dark",
+      "width": 768,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "theme": "dark",
+      "width": 1280,
+      "baseline": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "fixed": {
+        "overflow": false,
+        "ui": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",
+        "mono": "'JetBrains Mono', Consolas, Menlo, ui-monospace, 'Pretendard Variable', Pretendard, monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "\"Pretendard Variable\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans KR\", sans-serif"
+          }
+        ],
+        "code": "\"JetBrains Mono\", Consolas, Menlo, ui-monospace, \"Pretendard Variable\", Pretendard, monospace",
+        "atelier": null
+      },
+      "mutation": {
+        "overflow": false,
+        "ui": "Arial,\"Pretendard Variable\",sans-serif",
+        "mono": "Courier New,\"Pretendard Variable\",monospace",
+        "controls": [
+          {
+            "text": "업무 양식 28건",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 문서 검색",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          },
+          {
+            "text": "검토 항목",
+            "font": "Arial, \"Pretendard Variable\", sans-serif"
+          }
+        ],
+        "code": "\"Courier New\", \"Pretendard Variable\", monospace",
+        "atelier": null
+      },
+      "css": [
+        {
+          "path": "dist/q-design.foundation.carnet.css",
+          "hash": "ae15dedcd75d330d58c820ac03ec00c5f2af9b3e4c8e9d1552c31cbccd2415ba"
+        },
+        {
+          "path": "patterns/components.css",
+          "hash": "b6adb0ace4b60d1f9b2331a1503ad826f887c5bbaeaa7ef83f850f809001c147"
+        },
+        {
+          "path": "dist/q-design.palette.carnet.css",
+          "hash": "ac331183c7c8a4ca365cfa8b02415c883666c427e053d7c49fee973abb86a081"
+        },
+        {
+          "path": "dist/q-design.nav.css",
+          "hash": "f3914dc838062a51b4f32cae06ffdc77cbfaa29d7f3e685fefd4d8b85bbfc1e2"
+        },
+        {
+          "path": "dist/q-design.list.css",
+          "hash": "c1eb651c22dc884bc41a69362bd85db9bbba34ba666c69a895c50be6ecbd3a3b"
+        },
+        {
+          "path": "dist/q-design.screen.css",
+          "hash": "8d02116ad5b361b93e2de5a2bd3ff04016090a3413b4c7505834c422565e48b3"
+        }
+      ]
+    }
+  ]
+}

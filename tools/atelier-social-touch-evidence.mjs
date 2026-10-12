@@ -4,12 +4,13 @@ import {hash} from './style-arguments-core.mjs';
 import {beforeSocialFoundation,beforeSocialDist,beforeSocialCopy,socialTouchAppendix} from './atelier-social-touch-foundation.mjs';
 import {readRuntimeValues,resolveAtelierMedia} from './atelier-runtime-values.mjs';
 import {beforeProfileGridReview} from './atelier-profile-grid-review-inverse.mjs';
+import {beforeGlobalTypographySource} from './global-typography-evidence.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='12a8e0dfbc52455b360f7025d7b8a5860d0e72d8';
 const normalize=s=>s.replaceAll('\r\n','\n'),serialize=j=>JSON.stringify(j,null,2)+'\n',read=p=>normalize(fs.readFileSync(p,'utf8'));
 const names=['atelier-color-flow-review.json','atelier-fold-grid-review.json','atelier-renderer-enum-review.json','atelier-size-renderer-review.json','atelier-style-bindings-review.json','atelier-widget-width-review.json'];
 const compiled=resolveAtelierMedia(socialTouchAppendix,readRuntimeValues(root));
 const definitions=[['patterns/foundation/atelier.css',root,beforeSocialFoundation,socialTouchAppendix],['dist/q-design.foundation.atelier.css',root,beforeSocialDist,compiled],['app/q-design.foundation.css',repo,beforeSocialCopy,compiled]].map(([path,cwd,reverse,addition])=>{
- const after=read(cwd+'/'+path),before=reverse(after),at=after.indexOf(addition);assert(at>=0);assert.equal(after.split(addition).length,2);
+ const after=beforeGlobalTypographySource(path,read(cwd+'/'+path)),before=reverse(after),at=after.indexOf(addition);assert(at>=0);assert.equal(after.split(addition).length,2);
  const insertionLine=after.slice(0,at).split('\n').length,addedLines=addition.split('\n').length-1;
  return {path,before,after,beforeHash:hash(before),afterHash:hash(after),insertionLine,addedLines};
 });

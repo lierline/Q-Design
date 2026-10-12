@@ -2182,3 +2182,26 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-maison-max-height-calc-100dvh-negative--2rem: calc(100dvh - 2rem);
   --qd-maison-width-calc-100percent-negative--2rem: calc(100% - 2rem);
 }
+
+/* Central family roles for composed workspaces and Atelier legacy recipes.
+   Selector specificity keeps later workspace CSS from freezing a family.
+   This layer only selects a family. Size, weight, layout and text are retained. */
+html .qd-workspace,
+html .qd-workspace[data-product] {
+  --qd-font-ui: var(--qd-font-family-ui);
+  --qd-font-mono: var(--qd-font-family-mono);
+}
+html .qa-sec-t::before,
+html .qa-mag-divider-label {
+  font-family: var(--qd-font-family-mono);
+}
+html .qa-mag-divider-num,
+html .qa-mag-divider-title,
+html .qa-skip-link:focus {
+  font-family: var(--qd-font-family-ui);
+}
+@media print {
+  html body::after {
+    font-family: var(--qd-font-family-mono);
+  }
+}
