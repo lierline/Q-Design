@@ -10,6 +10,7 @@ import { verifiedConsumerReview } from './atelier-style-manual.mjs';
 import { verifiedParameterLeaves } from './atelier-parameter-leaves-review.mjs';
 import { inactiveExportGroup } from './atelier-inactive-exports.mjs';
 import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
+import {createAtelierProofContext} from './atelier-proof-context.mjs';
 const ROOT='D:/Claude/Q-Design', PRODUCT='D:/Claude/Q-Atelier';
 const req=createRequire(path.join(PRODUCT,'package.json')),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -97,6 +98,7 @@ for(const name of ['atelier-social-glyph-review.json','atelier-ring-geometry-rev
 const parameterFlows=fs.existsSync(parameterFile)?JSON.parse(fs.readFileSync(parameterFile,'utf8')).flows:[];
 const decide=(decision,ruleId,reason,evidence=[])=>({decision,ruleId,reason,evidence});
 const applicationFiles=runtimeFiles(PRODUCT);
+const expandedContext=createAtelierProofContext({expanded:true});
 const inactiveCompatibility=inactiveExportGroup({ts,root:PRODUCT,files:applicationFiles,target:'lib/design/tokens.ts',names:['TYPE','typeStyle','goldTextStyle']});
 for(const file of applicationFiles){
   const code=fs.readFileSync(path.join(PRODUCT,file),'utf8'),sourceHash=hash(code),part=copies.get(file);
@@ -109,7 +111,7 @@ for(const file of applicationFiles){
   const verified=part&&copyProblems(part,fs.readFileSync(path.join(ROOT,part.src),'utf8'),code).length===0;
   const iconSource=file.startsWith('components/q-design-icons/')?`dist/react-icons/${path.basename(file)}`:null;
   const iconVerified=iconSource&&fs.existsSync(path.join(ROOT,iconSource))&&hash(fs.readFileSync(path.join(ROOT,iconSource),'utf8'))===sourceHash;
-  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals,styleOrigins=new Map();
+  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals,expandedLocals,styleOrigins=new Map();
   if(/\.[jt]sx?$/.test(file)){
     sf=ts.createSourceFile(file,code,ts.ScriptTarget.Latest,true,file.endsWith('x')?ts.ScriptKind.TSX:ts.ScriptKind.TS);
     imports=sourceImports(ts,sf);
@@ -210,6 +212,13 @@ for(const file of applicationFiles){
     if(!result)result=verifiedConsumerReview({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),line},manualReviews.get(JSON.stringify([file,line,hash(JSON.stringify(argument))])),currentHash);
     if(!result)result=verifiedConsumerReview({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),line},socialGlyphReviews.get(JSON.stringify([file,line,hash(JSON.stringify(argument))])),currentHash);
     if(!result&&kind!=='parse-error'&&file==='lib/design/tokens.ts'&&inactiveCompatibility.inactive&&inactiveCompatibility.ranges.some(range=>line>=range.start&&line<=range.end))result=decide('inactive-compatibility-export','inactive-export-graph','This exact argument is within an unused compatibility export. Its runtime-use graph is rechecked on every review; the immutable token source is preserved.',own);
+    // Discovery expands the local import graph only after existing exact
+    // decisions. Every new value still needs the complete lexical proof.
+    if(!result&&sf&&['object-property','style-expression','presentation-attribute'].includes(kind)&&proofNodes.has(`${kind}:${line}:${property}:${value}`)){
+      expandedLocals??=localBindings(ts,sf,hash,expandedContext.references);
+      const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property,imports,file,references:expandedContext.references,variables,locals:expandedLocals});
+      if(proof?.central)result=decide('token-reference-verified','proven-composition','Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.',[...new Map([...own,...proof.evidence].map(e=>[JSON.stringify(e),e])).values()]);
+    }
     if(!result)result=decide('unknown','unknown','No broad filename, numeric-value or single-token exemption is applied.',own);
     records.push({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),...argument,originalStatus:argument.status,...result});
   }

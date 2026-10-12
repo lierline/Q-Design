@@ -1,14 +1,14 @@
 {
-  "createdAt": "2026-10-12T05:09:58.253Z",
+  "createdAt": "2026-10-12T05:34:15.257Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 736,
-  "confirmedStyleArguments": 511,
-  "confirmedStylePercent": 69.4,
+  "unknown": 681,
+  "confirmedStyleArguments": 489,
+  "confirmedStylePercent": 71.8,
   "kinds": {
-    "object-property": 301,
-    "style-expression": 236,
-    "presentation-attribute": 83,
+    "object-property": 296,
+    "style-expression": 219,
+    "presentation-attribute": 50,
     "dynamic-style": 36,
     "class-utility": 12,
     "svg-geometry": 2,
@@ -20,9 +20,9 @@
     "html-attribute": 3
   },
   "counts": {
-    "confirmed-style-object": 262,
-    "direct-jsx-style": 236,
-    "component-prop-needs-consumer-trace": 83,
+    "confirmed-style-object": 257,
+    "direct-jsx-style": 219,
+    "component-prop-needs-consumer-trace": 50,
     "unresolved-consumer": 107,
     "dom-style-write": 13,
     "selector-or-variant": 33,
@@ -580,94 +580,6 @@
       "context": "component-prop-needs-consumer-trace"
     },
     {
-      "path": "app/(app)/cleanroom/page.tsx",
-      "line": 224,
-      "argumentHash": "ad3327ffe2bc5a253727ee23b04d6e7b19fd99ce4ff572b7389d7e6a1a1b5aa7",
-      "sourceHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "currentHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/cleanroom/page.tsx",
-      "line": 225,
-      "argumentHash": "ef7c2ad19004b9777b87cab0573c6e494e1640179f61f0a7340984b3b808f6e1",
-      "sourceHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "currentHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/cleanroom/page.tsx",
-      "line": 226,
-      "argumentHash": "9e8463781ad7090c963c4972f61f122cf29a4046685e07458832e41f57ead1df",
-      "sourceHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "currentHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/cleanroom/page.tsx",
-      "line": 231,
-      "argumentHash": "ebff5fe17b79422d3603563ee2a440cb0d9f2db424fcdb07e4239ee689093a67",
-      "sourceHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "currentHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/clinical-evaluations/page.tsx",
-      "line": 196,
-      "argumentHash": "67eb99b20455500f583c886327ff44171299163c52aaccbbc156af69c7466369",
-      "sourceHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "currentHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/clinical-evaluations/page.tsx",
-      "line": 197,
-      "argumentHash": "84f7ebb68e848ae5413924d4696db8243fadad77a2f0865637c9b4a18e8947c6",
-      "sourceHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "currentHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/clinical-evaluations/page.tsx",
-      "line": 198,
-      "argumentHash": "af05abdee385faa43324a31866b517be239dad45c0f9902ffdf436f3b45b6b2e",
-      "sourceHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "currentHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/clinical-evaluations/page.tsx",
-      "line": 203,
-      "argumentHash": "3c10a85f4d4543e67ef6f50e5c75302d6faa9f832c7aeaf895ff6197fd8dda5b",
-      "sourceHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "currentHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
       "path": "app/(app)/complaints/new/client.tsx",
       "line": 261,
       "argumentHash": "d4be9a3ca74bfa5c757ea754e8049a528ad9ccb787ae22fb867a17a579aebe28",
@@ -787,94 +699,6 @@
       "property": "style",
       "value": "{{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], fontWeight: \"var(--qd-font-weight-medium)\", letterSpacing: \"var(--qd-atelier-letter-spacing-1976387f7d)\", color, textTransform: QDText.textTransform.v642d85873e, padding: \"var(--qd-atelier-padding-03e93ce316)\", border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_4)}`, borderRadius: QDScale.radius }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/eu-mdr/page.tsx",
-      "line": 202,
-      "argumentHash": "530f8517a0e1cf9e35cb75e92250e4c0f23972ae5e3bbc405b6795ad4b831f77",
-      "sourceHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "currentHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/eu-mdr/page.tsx",
-      "line": 203,
-      "argumentHash": "e4e6aa01e31b3ff6ded92eaba50c4d223f89a34adc7be59f4d3603b05a92d0cf",
-      "sourceHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "currentHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/eu-mdr/page.tsx",
-      "line": 204,
-      "argumentHash": "5e91dc0eba40463f939330fb512f914f6b66a4602f3ad8ededd4345ebf7d2831",
-      "sourceHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "currentHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/eu-mdr/page.tsx",
-      "line": 209,
-      "argumentHash": "71368f7a6fdcc2892bd6c8e7d118b48552757f7e6f7bffadf60694fdaf0b5c7b",
-      "sourceHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "currentHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/fda-510k/page.tsx",
-      "line": 193,
-      "argumentHash": "44fd7be11edc364304c754719ac8712ab8e55f47039efff5bb6f3ae077343056",
-      "sourceHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "currentHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/fda-510k/page.tsx",
-      "line": 194,
-      "argumentHash": "3ded2fcbe4bde2517bd388ba5116691cc809e4171392e81f0ad278ea7ba3735c",
-      "sourceHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "currentHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/fda-510k/page.tsx",
-      "line": 195,
-      "argumentHash": "c902e2c0bf3ad89b94a75748f2bbcf168e5bfcf5e28a5e87f404047b441174ec",
-      "sourceHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "currentHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/fda-510k/page.tsx",
-      "line": 200,
-      "argumentHash": "ff2d7b27fbef46d0f0b712e20b939f386fbd5000a1d01a333444a5c58ef3cfac",
-      "sourceHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "currentHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "app/(app)/layout.tsx",
@@ -1130,143 +954,11 @@
       "context": "component-prop-needs-consumer-trace"
     },
     {
-      "path": "app/(app)/nmpa/page.tsx",
-      "line": 191,
-      "argumentHash": "799648e9c17ee8cf77ebc50dcd25bdc56cef5d951b82cdf0345ce23ee532d198",
-      "sourceHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "currentHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/nmpa/page.tsx",
-      "line": 192,
-      "argumentHash": "a092003ebee89155e5064c95df34c57054f6ed1846f19bff133a407c46bbf3ce",
-      "sourceHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "currentHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/nmpa/page.tsx",
-      "line": 193,
-      "argumentHash": "0b17929c5cdb93c24b56b648b5703eb339c7ccda63cc6d506dd5f0e4582ef44b",
-      "sourceHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "currentHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/nmpa/page.tsx",
-      "line": 198,
-      "argumentHash": "1ae3c985e1a7ae48433d2ac9bb253055ab649b2f468d32b264558f4a33dbe87a",
-      "sourceHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "currentHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
       "path": "app/(app)/notifications/page.tsx",
       "line": 306,
       "argumentHash": "4d0ce2640e59b3b875bd2b948def2c7d570dcccfaa831656ae9caab3308b08ec",
       "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
       "currentHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pmda/page.tsx",
-      "line": 192,
-      "argumentHash": "6f8dce6ad6d1fbb086665672ae1f8604ae1495f560ae2a788984755c3fc4618f",
-      "sourceHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "currentHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pmda/page.tsx",
-      "line": 193,
-      "argumentHash": "3305117e1e9d7e99d141effde192c241a10074471c75bc477fb71bc64e4ae9b2",
-      "sourceHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "currentHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pmda/page.tsx",
-      "line": 194,
-      "argumentHash": "8c07980b55eb9bb6fe31aab8d4ae0ae1e672cb78bada929271a106d17d38786e",
-      "sourceHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "currentHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/pmda/page.tsx",
-      "line": 199,
-      "argumentHash": "90bb0002dc48ef4fdcd1938cbb9afd30a4fd068c77f8938c3f2f94c8dc1d042f",
-      "sourceHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "currentHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pms/page.tsx",
-      "line": 208,
-      "argumentHash": "8c6c595ce27de1b330c1b41b310f73b41c4f99985ff112397c9fc5fc4b946e5e",
-      "sourceHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "currentHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pms/page.tsx",
-      "line": 209,
-      "argumentHash": "7e1831d6c71c109e4fdae439378acf80b4246f41ea3435d99707ad9eea0e323f",
-      "sourceHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "currentHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/pms/page.tsx",
-      "line": 210,
-      "argumentHash": "af908054c714c73bd3b42ea2b2ca99d1141e6854ec1ba6783753fbeaffaadc69",
-      "sourceHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "currentHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/pms/page.tsx",
-      "line": 215,
-      "argumentHash": "b604c83fbe202184f0f18aef10003be4dca6ade5b26e5c1855fa77e30a90dadf",
-      "sourceHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
-      "currentHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
       "kind": "presentation-attribute",
       "property": "color",
       "value": "{color}",
@@ -1999,94 +1691,6 @@
       "context": "confirmed-style-object"
     },
     {
-      "path": "app/(app)/standards/page.tsx",
-      "line": 130,
-      "argumentHash": "4830934f674097ed984905c0780df18661446dc9946ead8bc3fefc3a5179b8ba",
-      "sourceHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "currentHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/standards/page.tsx",
-      "line": 131,
-      "argumentHash": "413675441b1c6ee492ba3256a993e2b1fba31326e0a4411800451b386bb9c47b",
-      "sourceHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "currentHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/standards/page.tsx",
-      "line": 132,
-      "argumentHash": "3e52e6bd994b33ee6bb9dc4770c7e44228016fc1eb47e814f3fc23caa4dcdcae",
-      "sourceHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "currentHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/standards/page.tsx",
-      "line": 137,
-      "argumentHash": "8786622df6e3d9a00dbfd889c2224fc376c8c8aa6deab0c477b86f8d1b57725e",
-      "sourceHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "currentHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/sterilization/page.tsx",
-      "line": 202,
-      "argumentHash": "530f8517a0e1cf9e35cb75e92250e4c0f23972ae5e3bbc405b6795ad4b831f77",
-      "sourceHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "currentHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/sterilization/page.tsx",
-      "line": 203,
-      "argumentHash": "e4e6aa01e31b3ff6ded92eaba50c4d223f89a34adc7be59f4d3603b05a92d0cf",
-      "sourceHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "currentHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/sterilization/page.tsx",
-      "line": 204,
-      "argumentHash": "5e91dc0eba40463f939330fb512f914f6b66a4602f3ad8ededd4345ebf7d2831",
-      "sourceHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "currentHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/sterilization/page.tsx",
-      "line": 209,
-      "argumentHash": "71368f7a6fdcc2892bd6c8e7d118b48552757f7e6f7bffadf60694fdaf0b5c7b",
-      "sourceHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "currentHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
       "path": "app/(app)/suppliers/[id]/client.tsx",
       "line": 124,
       "argumentHash": "d770b5299816a24c1fcf002d2a7cc47e381c48c4ca6e8814a12efff9455fbe09",
@@ -2129,50 +1733,6 @@
       "property": "color",
       "value": "value > 0 ? color : T.text",
       "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/udi/page.tsx",
-      "line": 263,
-      "argumentHash": "7d366012d745bb999ab915144053bc62df11317517adf821d6af9f6f639ea89b",
-      "sourceHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "currentHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "kind": "presentation-attribute",
-      "property": "accent",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/udi/page.tsx",
-      "line": 264,
-      "argumentHash": "f99d53fdb15eb6a2b4390abd48bd029fabdd2ceed03c4177d7f05629beb8f4f4",
-      "sourceHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "currentHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "kind": "presentation-attribute",
-      "property": "iconColor",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "app/(app)/udi/page.tsx",
-      "line": 265,
-      "argumentHash": "4b24068d1b1a7f4df8c2e46560a3ed4b4dfb74c5240c8b1ba583cfec084231e7",
-      "sourceHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "currentHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/udi/page.tsx",
-      "line": 270,
-      "argumentHash": "99674510df096d7736d4bb56cd0f32026901ba76adfab4ffb2974d02830b6d3f",
-      "sourceHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "currentHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{color}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "app/(app)/vigilance/new/client.tsx",
@@ -5124,39 +4684,6 @@
     },
     {
       "path": "components/SubscriptionIndicator.tsx",
-      "line": 323,
-      "argumentHash": "a8b69567f0daf1c1c94be640b6da1fd8839cddb298c2b99ce2d755386c6f4dbe",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            width: \"var(--qd-atelier-width-21afe5201d)\",\n            height: \"var(--qd-atelier-height-7c868067ec)\",\n            borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\",\n            background: color,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 327,
-      "argumentHash": "797b628b515377202ff5cedda0461f7e269b2e200d84b6cc0489c075936d95d8",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "object-property",
-      "property": "background",
-      "value": "color",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 331,
-      "argumentHash": "737b5b83bb0f52ce9fdb0826ebc38db405226622070265e56b0a6b5f26a690c9",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            fontSize: QDScale.font[12],\n            color,\n            fontFamily: QDScale.family.mono,\n            letterSpacing: \"var(--qd-atelier-letter-spacing-2cfff841a4)\",\n            textTransform: QDText.textTransform.v642d85873e,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
       "line": 344,
       "argumentHash": "ceebf8f805b08f4fd0a80be4afeaaa59d4f42c1f77e8071d1ec785ef65c3f467",
       "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
@@ -5165,105 +4692,6 @@
       "property": "accent",
       "value": "true",
       "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 416,
-      "argumentHash": "8ddbafcfbe384757e77a1589d4e8287ed2427be5a4b1daa3d2e83a71570bec51",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            position: 'relative',\n            boxSizing: 'border-box',\n            borderRadius: QDScale.radius,\n            background: T.surface,\n            borderColor: alpha(color, QDRuntime.alpha.tint0_35),\n            borderStyle: stale ? 'var(--qd-atelier-border-style-95c01bc47f)' : undefined,\n            color: T.subtle,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 421,
-      "argumentHash": "939a434a735b25a5be42125cdce687776932bdbce32d4669fbd82da9989cb8d0",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "object-property",
-      "property": "borderColor",
-      "value": "alpha(color, QDRuntime.alpha.tint0_35)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 429,
-      "argumentHash": "90d41c2435df327784129d4760d4d5fe4900528484c49ec8cca7c01654dc0d05",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "object-property",
-      "property": "background",
-      "value": "color",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 429,
-      "argumentHash": "9353bbaf27002ff1772c11e30879fd29a8273c05b6d5230932164ad8930428f4",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ position: 'absolute', top: \"var(--qd-atelier-top-18405c4d95)\", right: \"var(--qd-atelier-right-fc7eff8b93)\", width: \"var(--qd-atelier-width-e9960f26b2)\", height: \"var(--qd-atelier-height-36840fdbd2)\", borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\", background: color }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 524,
-      "argumentHash": "ed4471a4bc7dd63ebafd02e58a540f65d7afcaa37fe1b69e405f2c6000013ed8",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n          borderRadius: QDScale.radius,\n          display: 'flex',\n          alignItems: 'center',\n          gap: isCompact ? \"var(--qd-space-1-5)\" : \"var(--qd-space-2)\",\n          // box-sizing 고정 + 높이 32 → 우상단 종 버튼(32×32)과 정확히 같은 높이·세로 정렬.\n          // (이전엔 데스크탑 height=undefined 라 ~26px 로 종보다 작고 위로 떠 보였음. 사장님 지적.)\n          boxSizing: 'border-box',\n          // 갱신 실패 시 점선: 「지금 값이 아님」을 한눈에.\n          borderStyle: stale ? 'var(--qd-atelier-border-style-95c01bc47f)' : undefined,\n          padding: isCompact ? \"var(--qd-atelier-padding-c2a728b34e)\" : isMobile ? \"var(--qd-atelier-padding-10cb0c99af)\" : \"var(--qd-atelier-padding-7576358438)\",\n          height: \"var(--qd-atelier-height-bea2031474)\",\n          background: T.surface,\n          border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_25)}`,\n          color: T.subtle,\n          // 2026-08-21: `isCompact ? 9.5 : 10` 이었다. 0.5px 는 좁은 화면에서 자리를\n          // 아껴 주지도 못하면서 크기만 어긋나게 한다. 한 값으로 고정한다.\n          fontSize: QDScale.font[12],\n          fontFamily: QDScale.family.mono,\n          /* 요금제 이름은 「엔터프라이즈」처럼 한글일 수 있다. 런타임에 가른다 */\n          letterSpacing: labelTracking(PLAN_LABEL_KR[tierKey], isCompact ? QDPresentation.visual.subscription.compactTracking : QDPresentation.visual.subscription.tracking),\n          wordSpacing: labelWordSpacing(PLAN_LABEL_KR[tierKey]),\n          cursor: 'pointer',\n          textTransform: labelCase(PLAN_LABEL_KR[tierKey]),\n          whiteSpace: 'nowrap',\n        }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 537,
-      "argumentHash": "564c05c62e4fd41f658284c34f42d101a2bbd1207233d8235f7a7ac10dbdc43a",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_25)}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 552,
-      "argumentHash": "44b7f78d1d5debbb91bea8c885d8c1024b5e41498d386bad541b6bd155aa3739",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            width: isCompact ? \"var(--qd-atelier-width-e9960f26b2)\" : \"var(--qd-atelier-width-0445905988)\",\n            height: isCompact ? \"var(--qd-atelier-height-36840fdbd2)\" : \"var(--qd-atelier-height-6f30f75c6a)\",\n            borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\",\n            background: color,\n            flexShrink: 0,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 556,
-      "argumentHash": "c43cb784ac2005b16e312c20420e0f6700b29225b6ccfb911cb7dbb6171fa4ea",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "object-property",
-      "property": "background",
-      "value": "color",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SubscriptionIndicator.tsx",
-      "line": 569,
-      "argumentHash": "82371a9b0fac5b8050050f2c66157fda0b25f2528dcc69aaef9de0c31fbc4076",
-      "sourceHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "currentHash": "f34280327424e2c939d04494b7719d620257688d843dbc5f0b37589cacd14a7f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ color }}",
-      "context": "direct-jsx-style"
     },
     {
       "path": "components/SubscriptionIndicator.tsx",
@@ -5663,28 +5091,6 @@
     },
     {
       "path": "components/capa/CapaSheetsPanel.tsx",
-      "line": 137,
-      "argumentHash": "620d00ea55988743f41d090bacb8b83e2f1d38ceec500d0e29bb6ad7f53aa72a",
-      "sourceHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
-      "currentHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{statusColor(planStatus)}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "components/capa/CapaSheetsPanel.tsx",
-      "line": 269,
-      "argumentHash": "b2f3a7bb87dfa251f7cdeaeb72b31656b1f6686450779272cd2c54e2c3ebbaed",
-      "sourceHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
-      "currentHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{statusColor(reportStatus)}",
-      "context": "component-prop-needs-consumer-trace"
-    },
-    {
-      "path": "components/capa/CapaSheetsPanel.tsx",
       "line": 270,
       "argumentHash": "91a3dc1b879a291d010005a8ad7332145ce65ca1e89997839de22cc7a03f9232",
       "sourceHash": "8f881ab3da5f616e82eda121308fdc3da27426041c417bfc86bfbb9f98956fd3",
@@ -5704,17 +5110,6 @@
       "property": "style",
       "value": "{{ marginLeft: 'auto', order: 2 }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/complaints/ComplaintInvestigationPanel.tsx",
-      "line": 121,
-      "argumentHash": "0d3f5320928f2cd9ae6271a816a2b33d96652cbf6f27d707c27984290bd99924",
-      "sourceHash": "26b9a7c0fea00821a8de025c86c1363a07084ae15e508c6b26f6ba2e8748652a",
-      "currentHash": "26b9a7c0fea00821a8de025c86c1363a07084ae15e508c6b26f6ba2e8748652a",
-      "kind": "presentation-attribute",
-      "property": "color",
-      "value": "{statusColor(st)}",
-      "context": "component-prop-needs-consumer-trace"
     },
     {
       "path": "components/dashboard/CustomizableWidgetBoard.tsx",

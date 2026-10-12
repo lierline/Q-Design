@@ -10,6 +10,22 @@ const variables = new Map(['--qd-text', '--qd-radius', '--qd-space-2', '--qd-fon
   .map(variable => [variable, { path: 'central.css', line: 2, variable, hash: 'verified-css' }]));
 const source = code => ts.createSourceFile('components/example.tsx', code, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 
+test('destructured local selector returns prove all scalar color branches even when the primitive escapes',()=>{
+ const prove=code=>{const sf=source(code);return expressionProof({ts,node:sf.statements.at(-1).declarationList.declarations[0].initializer,sf,property:'color',imports:sourceImports(ts,sf),file:sf.fileName,references:new Map(),variables,locals:localBindings(ts,sf,hash)});};
+ assert(prove('function choose(data){if(data)return {label:unknown,color:"var(--qd-text)"};return {label:other,color:"var(--qd-text)"};}const {color}=choose(remote);external(color);const value=color;')?.central);
+ for(const code of [
+  'function choose(data){return data?{color:"red"}:{color:"var(--qd-text)"};}const {color}=choose(remote);const value=color;',
+  'function choose(color){return {color};}const {color}=choose("var(--qd-text)");const value=color;',
+  'function choose(){return {...external,color:"var(--qd-text)"};}const {color}=choose();const value=color;',
+  'function choose(){return {color:"var(--qd-text)"};}const {color}=choose();color="red";const value=color;',
+  'function choose(){const result={color:"var(--qd-text)"};external(result);return result;}const {color}=choose();const value=color;',
+  'function choose(){return {color:{color:"var(--qd-text)"}};}const {color}=choose();external(color);const value=color;',
+  'function choose(){return {color:"var(--qd-text)"};}const {color}=choose(...unknownArgs);const value=color;',
+  'async function choose(){return {color:"var(--qd-text)"};}const {color}=choose();const value=color;',
+  'function* choose(){return {color:"var(--qd-text)"};}const {color}=choose();const value=color;',
+ ])assert.equal(prove(code),null);
+});
+
 test('exact reviewed leaves compose without authorizing sibling values or same-name references',()=>{
  const code='const target={height:height,color:"var(--qd-text)",width:height};',sf=source(code),obj=sf.statements[0].declarationList.declarations[0].initializer;
  const reviewedNodes=new WeakMap(),review={decision:'delegated-renderer-parameter',ruleId:'exact-dimension-forwarding',evidence:[{path:'current.tsx',line:1,hash:'current'}]};

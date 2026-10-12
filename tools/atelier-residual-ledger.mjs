@@ -1,6 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {createRequire} from 'node:module';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';import {localBindings,sourceImports,expressionProof} from './atelier-style-proof.mjs';import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
 import {proveResidualBusinessRecord} from './atelier-residual-business.mjs';
+import {beforeImportLedger} from './atelier-import-ledger.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',ts=createRequire(product+'/package.json')('typescript'),serialize=v=>JSON.stringify(v,null,2)+'\n';
 export const residualRef='c1e35663c3618196df176546fa3a88487dd942a7';let baseline;
 export function residualBaseline(){return baseline??=JSON.parse(execFileSync('git',['show',residualRef+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));}
@@ -11,10 +12,12 @@ export function proveStyleOriginRecord(record,code){
  const nodes=[];const visit=n=>{if(ts.isPropertyAssignment(n)&&sf.getLineAndCharacterOfPosition(n.getStart(sf)).line+1===record.line&&n.name.getText(sf).replace(/^['"]|['"]$/g,'')===record.property&&n.initializer.getText(sf)===record.value)nodes.push(n.initializer);ts.forEachChild(n,visit);};visit(sf);assert(nodes.length);
  const proofs=nodes.map(node=>expressionProof({ts,node,sf,property:record.property,imports:sourceImports(ts,sf),file:record.path,references:new Map(),variables:new Map(),locals}));assert(proofs.every(p=>p&&!p.central),'Only independently structural leaves qualify');
  assert.equal(record.decision,'structural-behavior');assert.equal(record.ruleId,'proven-composition');
+ assert.equal(record.reason,'Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.');
  const own={path:record.path,line:record.line,hash:record.sourceHash};const expected=[...new Map([own,...proofs[0].evidence,...consumers].map(e=>[JSON.stringify(e),e])).values()];assert.deepEqual(record.evidence,expected);
  return {kind:'immutable-style-origin',consumers};
 }
 export function createResidualLedger(current){
+ current=beforeImportLedger(current);
  const before=residualBaseline();assert.equal(before.records.length,53991);assert.equal(before.counts.unknown,811);assert.equal(current.records.length,before.records.length);
  const source=new Map(),changes=[];for(const [index,old]of before.records.entries()){
   const row=current.records[index];if(JSON.stringify(old)===JSON.stringify(row))continue;
@@ -29,6 +32,7 @@ export function createResidualLedger(current){
  return {version:1,ref:residualRef,scope:'Fresh immutable JSX style origins with independently structural leaves and explicitly reviewed exact business consumers only. Every source, argument and other full record remains identical. No implementation, default, dimension, color or caller override is approved by context alone.',beforeReportHash:hash(serialize(before)),afterReportHash:hash(serialize(current)),records:current.records.length,unchanged:current.records.length-changes.length,beforeUnknown:811,afterUnknown:current.counts.unknown,changes};
 }
 export function beforeResidualLedger(current){
+ current=beforeImportLedger(current);
  const before=residualBaseline();if(hash(serialize(current))===hash(serialize(before)))return current;
  const file=root+'/reviews/atelier-residual-ledger.json';if(!fs.existsSync(file))return current;
  const saved=JSON.parse(fs.readFileSync(file,'utf8'));assert.deepEqual(createResidualLedger(current),saved,'Current closure decisions must match fresh semantic proofs');return before;

@@ -80,6 +80,8 @@ const steps=[
   ['tools/atelier-residual-ledger.mjs','--check'],
   ['--test','tools/atelier-residual-business.test.mjs'],
   ['tools/atelier-residual-business.mjs','--check'],
+  ['--test','tools/atelier-import-closure.test.mjs','tools/atelier-import-ledger.test.mjs'],
+  ['tools/atelier-import-ledger.mjs','--check'],
   ['--test','tools/progress-color-boundary.test.mjs'],
   ['--test','tools/renderer-default-propagation.test.mjs'],
   ['--test','tools/migrate-atelier-style-fragments.test.mjs'],

@@ -465,7 +465,7 @@ export function localBindings(ts, sf, hash, references = new Map()) {
       line: sf.getLineAndCharacterOfPosition(declaration.getStart(sf)).line + 1, hash: hash(sf.text) } };
   }, destructuredValues(node) {
     const binding=symbol(node),declaration=binding?.declarations?.find(ts.isBindingElement);
-    if(!declaration||unsafe.has(binding)||declaration.dotDotDotToken||declaration.initializer||!ts.isObjectBindingPattern(declaration.parent))return null;
+    if(!declaration||written.has(binding)||declaration.dotDotDotToken||declaration.initializer||!ts.isObjectBindingPattern(declaration.parent))return null;
     const pattern=declaration.parent,parent=pattern.parent;
     const key=(declaration.propertyName??declaration.name).getText(sf).replace(/^['"]|['"]$/g,'');
     if(!ts.isIdentifier(declaration.name)||!/^[$\w]+$/.test(key)||pattern.elements.some(item=>item.dotDotDotToken))return null;
@@ -481,13 +481,22 @@ export function localBindings(ts, sf, hash, references = new Map()) {
     };
     const container=closed(origin);if(!container)return null;
     if(array&&(!ts.isArrayLiteralExpression(container)||container.elements.some(ts.isSpreadElement)))return null;
-    const objects=array?container.elements.map(value=>closed(value)):[container],values=[];
+    const returnedObjects=(value,depth=0)=>{
+      if(!value||depth>10)return null;const resolved=closed(value);if(!resolved)return null;
+      if(ts.isConditionalExpression(resolved)){const a=returnedObjects(resolved.whenTrue,depth+1),b=returnedObjects(resolved.whenFalse,depth+1);return a&&b?[...a,...b]:null;}
+      if(ts.isCallExpression(resolved)&&ts.isIdentifier(resolved.expression)){
+        const callable=this.callable(resolved.expression);if(!callable||resolved.arguments.length>callable.fn.parameters.length||resolved.arguments.some(ts.isSpreadElement))return null;
+        const branches=callable.returns.map(n=>returnedObjects(n,depth+1));return branches.every(Boolean)?branches.flat():null;
+      }
+      return ts.isObjectLiteralExpression(resolved)?[resolved]:null;
+    };
+    const objects=array?container.elements.map(value=>closed(value)):returnedObjects(container),values=[];if(!objects)return null;
     for(const object of objects){
       if(!object||!ts.isObjectLiteralExpression(object)||object.properties.some(item=>!ts.isPropertyAssignment(item)||ts.isComputedPropertyName(item.name)))return null;
       const property=object.properties.find(item=>item.name.getText(sf).replace(/^['"]|['"]$/g,'')===key);if(!property)return null;
       values.push(property.initializer);
     }
-    return values.length?{values,evidence:{path:sf.fileName,line:sf.getLineAndCharacterOfPosition(declaration.getStart(sf)).line+1,hash:hash(sf.text)}}:null;
+    return values.length?{values,escaped:unsafe.has(binding),evidence:{path:sf.fileName,line:sf.getLineAndCharacterOfPosition(declaration.getStart(sf)).line+1,hash:hash(sf.text)}}:null;
   }, parameter(node) {
     const declaration = symbol(node)?.declarations?.find(ts.isParameter);
     return declaration && !unsafe.has(symbol(node)) ? declaration : null;
@@ -505,7 +514,7 @@ export function localBindings(ts, sf, hash, references = new Map()) {
     const declaration = binding.declarations?.find(ts.isFunctionDeclaration);
     const initializer = declarations.get(binding)?.initializer;
     const fn = declaration ?? (initializer && (ts.isArrowFunction(initializer) || ts.isFunctionExpression(initializer)) ? initializer : null);
-    if (!fn?.body || fn.parameters.some(parameter => !ts.isIdentifier(parameter.name) || parameter.dotDotDotToken)) return null;
+    if (!fn?.body || fn.asteriskToken || fn.modifiers?.some(m=>m.kind===ts.SyntaxKind.AsyncKeyword) || fn.parameters.some(parameter => !ts.isIdentifier(parameter.name) || parameter.dotDotDotToken)) return null;
     const returns = [];
     if (!ts.isBlock(fn.body)) returns.push(fn.body);
     else {
@@ -609,7 +618,7 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
     const proven = local && prove(local.node);
     if (proven) return { evidence: [local.evidence, ...proven.evidence], central: proven.central };
     const destructured=locals.destructuredValues?.(node);
-    if(destructured){const proofs=destructured.values.map(value=>prove(value));if(proofs.every(Boolean))return {evidence:[destructured.evidence,...proofs.flatMap(proof=>proof.evidence)],central:proofs.some(proof=>proof.central)};}
+    if(destructured&&(!destructured.escaped||destructured.values.every(node=>primitiveExpression({ts,node,sf,imports,file,references,locals})))){const proofs=destructured.values.map(value=>prove(value));if(proofs.every(Boolean))return {evidence:[destructured.evidence,...proofs.flatMap(proof=>proof.evidence)],central:proofs.some(proof=>proof.central)};}
   }
   if (ts.isPropertyAccessExpression(node) || ts.isElementAccessExpression(node)) {
     const aliases=importedValueCandidates({ts,node,sf,imports,file,references,locals});
