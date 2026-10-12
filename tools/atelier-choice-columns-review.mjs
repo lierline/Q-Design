@@ -7,6 +7,7 @@ import {primitiveFlowType} from './atelier-primitive-leaves.mjs';
 import {createAtelierProofContext} from './atelier-proof-context.mjs';
 import {expressionProof,localBindings,sourceImports} from './atelier-style-proof.mjs';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
+import {verifiesChoiceInventoryWithOfflineRevision} from './atelier-offline-cache-inventory.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',file='app/(app)/m/field-ui.tsx';
 const target=[file,'ChoiceGroup','columns'],manifest=root+'/reviews/atelier-choice-columns-review.json';
 export const choiceInventory=()=>hash(JSON.stringify(runtimeFiles(product).filter(p=>/\.[jt]sx?$/.test(p)).map(p=>[p,hash(fs.readFileSync(product+'/'+p,'utf8'))])));
@@ -16,7 +17,7 @@ export function createChoiceColumnsReview(){
 }
 export function verifiedChoiceColumns(ts,sf,review){
  if(sf.fileName!==file)return [];
- assert.equal(review.inventoryHash,choiceInventory(),'Complete caller/source inventory changed');
+ assert(verifiesChoiceInventoryWithOfflineRevision(review.inventoryHash),'Complete caller/source inventory changed');
  assert.equal(review.flows.length,1);const flow=review.flows[0];
  assert.deepEqual([flow.path,flow.component,flow.prop],target);
  const currentHash=p=>!p||path.isAbsolute(p)||p.split(/[\\/]/).includes('..')?null:fs.existsSync(product+'/'+p)?hash(fs.readFileSync(product+'/'+p,'utf8')):null;
@@ -39,7 +40,11 @@ export function addChoiceColumnsNodes(ts,sf,nodes){
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
  const review=createChoiceColumnsReview();
  if(process.argv.includes('--write'))fs.writeFileSync(manifest,JSON.stringify(review,null,2)+'\n');
- else assert.deepEqual(JSON.parse(fs.readFileSync(manifest,'utf8')),review);
+ else {
+  const saved=JSON.parse(fs.readFileSync(manifest,'utf8'));
+  assert(verifiesChoiceInventoryWithOfflineRevision(saved.inventoryHash),'Complete caller/source inventory changed');
+  assert.deepEqual(saved,{...review,inventoryHash:saved.inventoryHash});
+ }
  const {ts}=createAtelierProofContext(),sf=ts.createSourceFile(file,fs.readFileSync(product+'/'+file,'utf8'),99,true,4);
  const leaves=verifiedChoiceColumns(ts,sf,review);
  console.log(JSON.stringify({flows:1,callers:review.flows[0].callers.length,leaves:leaves.length}));

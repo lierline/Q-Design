@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "scope": "One exact optional ListStats.cols forwarding site to the actual StatRow CSS column renderer. Counts, queries and other caller appearance inputs are separate.",
+  "records": [
+    {
+      "path": "components/shared/list-stats.tsx",
+      "line": 1529,
+      "sourceHash": "a3781f13018cdf2b71d8af14f78b9a8c0f122c121749b863041653e81b8f58d9",
+      "argumentHash": "8b6463599e8795ad90743dedf61ea3974aed32cd5aaf5b2859bdeb301679188a",
+      "value": "{cols}",
+      "decision": "delegated-renderer-parameter",
+      "ruleId": "exact-optional-list-stats-columns",
+      "reason": "The optional numeric presentation parameter has exactly one forwarding use, the named imported StatRow.cols argument. The actual renderer uses it only as --stat-cols and retains automatic child count when omitted. Runtime tests compare all database count inputs and card text before/after the column mutation; caller values retain their own argument records.",
+      "evidence": [
+        {
+          "path": "components/shared/list-stats.tsx",
+          "line": 1529,
+          "hash": "a3781f13018cdf2b71d8af14f78b9a8c0f122c121749b863041653e81b8f58d9"
+        },
+        {
+          "path": "components/shared/stat-block.tsx",
+          "line": 1,
+          "hash": "5a7905563de665d06f33be3446b1543415e563ca77ecd966f6bc92c8ab762d18"
+        },
+        {
+          "path": "tools/maison-list-stats-columns-review.mjs",
+          "line": 1,
+          "hash": "f0029c9bcff3b0e0aeee227a5c584a3a91736c5c9005bff4403f0da487990755"
+        }
+      ]
+    }
+  ]
+}

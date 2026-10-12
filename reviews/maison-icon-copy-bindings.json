@@ -4,7 +4,7 @@
   "productRef": "d5a9c06a6b972cefffe3992b0a1f04000b2b0c7d",
   "scope": "Exact display binding locations after the reviewed icon import migration. Every non-import literal and rendered JSX text is unchanged; no product copy, business data or other product binding is edited.",
   "beforeHash": "db0a8c41ff295321e05881ecdb6a7c884157d754b27b2077effd0498bd3fd2fe",
-  "afterHash": "8b3f4c9a10b5865224aaf3d0634db9fba8657c190b917a3f951cfe4c936d7d42",
+  "afterHash": "70e6602023447d8305fa01f05d63c80d185b10ad62cf544b092a68fd5576adcd",
   "records": [
     {
       "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
@@ -199,7 +199,7 @@
     {
       "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
       "beforeHash": "0504d6a32ff9db81ed74d208f1f27acf890992e466512c5e10d6fd2d211ade07",
-      "afterHash": "ea90b5264a9fbf51e7262acc3a8183af6b3e30af526ab5479a95cb795800c432",
+      "afterHash": "10e20792eab385307e8daee2af52460f4e3f5d81aebe722632a87dcc4879f0b9",
       "before": [
         {
           "line": 298,
@@ -218,14 +218,14 @@
       ],
       "after": [
         {
-          "line": 301,
+          "line": 302,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"가져올 발주 줄\"",
           "emitted": "\"미등록 발주 품목\""
         },
         {
-          "line": 303,
+          "line": 304,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",

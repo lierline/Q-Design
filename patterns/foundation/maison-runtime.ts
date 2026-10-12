@@ -8,7 +8,7 @@ export const qdMaison = {
   logoAuthMobileSize: 56,
   qrSize: 96,
   calendarPopover: { width: 280, estimatedHeight: 180, edge: 8, gap: 6 },
-  statRowColumns: { purchasingAnalysis: 3, kpiClassification: 4 },
+  statRowColumns: { purchasingAnalysis: 4, kpiClassification: 4 },
   chart: {
     axisLabelGap: 4,
     axisLabelBaseline: 3,

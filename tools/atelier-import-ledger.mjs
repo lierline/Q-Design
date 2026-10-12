@@ -2,6 +2,7 @@ import {beforeExpertFonts,expertFontPath} from './atelier-expert-font-source.mjs
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';import {expressionProof,localBindings,sourceImports} from './atelier-style-proof.mjs';import {createAtelierProofContext,compositionNodes} from './atelier-proof-context.mjs';
 import {beforeForwardedLedger} from './atelier-forwarded-ledger.mjs';
+import {historicalTypographyEvidence} from './global-typography-evidence.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',serialize=v=>JSON.stringify(v,null,2)+'\n';
 export const importRef='f3b4ee8bed831e3cf0ba111fd0cac53d372bdbc0';let baseline;
 export function importBaseline(){return baseline??=JSON.parse(execFileSync('git',['show',importRef+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}));}
@@ -12,7 +13,7 @@ export function proveImportedComposition(record,code,context=createAtelierProofC
  const proofs=nodes.map(node=>expressionProof({ts,node,sf,property:record.property,imports,file:record.path,references,variables,locals}));assert(proofs.every(p=>p?.central),'Every authored branch must resolve independently to central values');
  assert.equal(record.decision,'token-reference-verified');assert.equal(record.ruleId,'proven-composition');
  assert.equal(record.reason,'Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.');
- const expected=[...new Map([{path:record.path,line:record.line,hash:record.sourceHash},...proofs[0].evidence].map(e=>[JSON.stringify(e),e])).values()];assert.deepEqual(record.evidence,expected);
+ const expected=historicalTypographyEvidence([...new Map([{path:record.path,line:record.line,hash:record.sourceHash},...proofs[0].evidence].map(e=>[JSON.stringify(e),e])).values()],record.evidence);assert.deepEqual(record.evidence,expected);
  return {kind:'exact-import-composition',evidence:expected};
 }
 export function createImportLedger(current){

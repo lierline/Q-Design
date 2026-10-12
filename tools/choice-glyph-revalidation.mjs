@@ -9,8 +9,10 @@ import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {consumerReviewFiles} from './atelier-consumer-review-files.mjs';
 import {PARTS} from './sync-parts.mjs';
 import {copyProblems} from './audit-coverage-core.mjs';
+import {createFreshProofCache} from './fresh-proof-cache.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Atelier',base='ba10c2d0679a64505cd2a6bb411c5978798d456e',manifest=root+'/reviews/choice-glyph-revalidation.json',temporary='D:/Claude/tmp/qd-phase83-glyph-report-baselines';
 const serialize=v=>JSON.stringify(v,null,2)+'\n',norm=s=>s.replaceAll('\r\n','\n');
+const glyphSourceCache=createFreshProofCache();
 const productRefs={'Q-Atelier':['Q-Atelier','9f22faefa3bfb904f80be5c4c8a7dcf73ec59682'],'Q-Works':['Q-Works','e7be4ba17f345bf02704cb4735accadbb577e9f3'],'Q-Forge':['DHR','171aed618b5e6a5333d4d27aa5aa0389194cbf6d']};
 const beforeCanonical=()=>norm(execFileSync('git',['show',base+':patterns/components.css'],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024}));
 export function applyChoiceGlyphRules(before){
@@ -30,14 +32,17 @@ export function beforeChoiceGlyphCanonical(code){
  const before=beforeCanonical();assert.equal(hash(before),source.beforeHash);return before;
 }
 export function inspectChoiceGlyphSources(){
- const before=beforeCanonical(),after=norm(fs.readFileSync(root+'/patterns/components.css','utf8'));assert.equal(after,applyChoiceGlyphRules(before));assert.match(after,/--qd-choice-glyph-size: 16px;/);
- const part=PARTS.find(p=>p.src==='patterns/components.css'),sources=[{path:part.src,beforeHash:hash(before),afterHash:hash(after)}];
+ const part=PARTS.find(p=>p.src==='patterns/components.css'),texts=new Map([[part.src,fs.readFileSync(root+'/'+part.src,'utf8')],...Object.entries(part.to).map(([key,full])=>[key,fs.readFileSync(full,'utf8')])]);
+ return glyphSourceCache('exact-glyph-sources',[['complete-current-sources',texts]],()=>{
+ const before=beforeCanonical(),after=norm(texts.get(part.src));assert.equal(after,applyChoiceGlyphRules(before));assert.match(after,/--qd-choice-glyph-size: 16px;/);
+ const sources=[{path:part.src,beforeHash:hash(before),afterHash:hash(after)}];
  for(const [key,full]of Object.entries(part.to)){
-  const copy=fs.readFileSync(full,'utf8');assert.deepEqual(copyProblems(part,after,copy),[]);
+  const copy=texts.get(key);assert.deepEqual(copyProblems(part,after,copy),[]);
   const [repo,ref]=productRefs[key],original=execFileSync('git',['show',ref+':app/q-design.components.css'],{cwd:'D:/Claude/'+repo,encoding:'utf8',maxBuffer:8*1024*1024});assert.deepEqual(copyProblems(part,before,original),[]);
   sources.push({path:(key==='Q-Atelier'?'':key==='Q-Works'?'maison/':'carnet/')+'app/q-design.components.css',key,beforeHash:hash(original),afterHash:hash(copy)});
  }
  return sources;
+ });
 }
 const names=[...new Set([...consumerReviewFiles,'atelier-parameter-leaves-review.json','atelier-supplementary-parameter-review.json','atelier-choice-columns-review.json','atelier-style-decisions.json','maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-current-navigation-review.json'])];
 function changesFor(name,before,sources){
@@ -69,12 +74,16 @@ export function beforeChoiceGlyphReview(name,current){
  const before=JSON.parse(serialize(current));for(const change of record.changes){const owner=change.location.slice(0,-1).reduce((v,k)=>v[k],before),key=change.location.at(-1);assert.deepEqual(owner[key],change.after);owner[key]=change.before;}
  assert.equal(hash(serialize(before)),record.beforeHash);return before;
 }
-export function historicalChoiceGlyphEvidence(evidence){
+export function historicalChoiceGlyphEvidence(evidence,recordEvidence){
  if(!fs.existsSync(manifest))return evidence;
  const saved=JSON.parse(fs.readFileSync(manifest,'utf8'));
- if(!evidence.some(e=>saved.sources.some(s=>s.path===e.path&&s.afterHash===e.hash)))return evidence;
+ const relevant=(recordEvidence??[]).filter(e=>saved.sources.some(s=>s.path===e.path));
+ for(const e of relevant){const source=saved.sources.find(s=>s.path===e.path);assert([source.beforeHash,source.afterHash].includes(e.hash),'Unknown historical glyph fingerprint');}
+ const historical=new Set(relevant.filter(e=>saved.sources.find(s=>s.path===e.path).beforeHash===e.hash).map(e=>e.path));
+ if(!historical.size)return evidence;
  assert.deepEqual(inspectChoiceGlyphSources(),saved.sources);
- return evidence.map(e=>{const source=saved.sources.find(s=>s.path===e.path);if(!source)return e;assert([source.beforeHash,source.afterHash].includes(e.hash));return {...e,hash:source.beforeHash};});
+ for(const e of relevant){const source=saved.sources.find(s=>s.path===e.path);assert([source.beforeHash,source.afterHash].includes(e.hash),'Unknown historical glyph fingerprint');if(historical.has(e.path))assert.equal(e.hash,source.beforeHash,'Glyph evidence cannot mix source revisions');}
+ return evidence.map(e=>{const source=saved.sources.find(s=>s.path===e.path);if(!source||!historical.has(e.path))return e;assert([source.beforeHash,source.afterHash].includes(e.hash));return {...e,hash:source.beforeHash};});
 }
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
  if(process.argv.includes('--prepare')){

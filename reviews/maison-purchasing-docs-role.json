@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "productRef": "8b7b49abe742e30709513a153fd82055842eab46",
+  "role": "qdMaison.statRowColumns.purchasingAnalysis",
+  "scope": "The purchasing page passes its central four-card role through ListStats to StatRow for the docs tab. Other ListStats callers retain automatic card count. Only the optional presentation argument, role import and product formatting change. Database counts, filters, permissions, upload actions and cards remain unchanged.",
+  "records": [
+    {
+      "path": "app/(app)/purchasing/analysis/page.tsx",
+      "beforeHash": "99623131593a7dc0e94ef9c6307ea22f859b70241f6d3ee3fe46f2779fe0e74f",
+      "afterHash": "7e5f6fc0ce34f7282c1cb683941634b78aa3094fdbb1a914b976063b26534267"
+    },
+    {
+      "path": "components/shared/list-stats.tsx",
+      "beforeHash": "9c8ef25e09888c59573abbeebd7c8ce24e699ff794fe16e6faf8a5283d0e76f6",
+      "afterHash": "a3781f13018cdf2b71d8af14f78b9a8c0f122c121749b863041653e81b8f58d9"
+    }
+  ]
+}

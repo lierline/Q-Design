@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "reviewRef": "e6df209",
+  "scope": "Only lexical byte offsets moved by separately verified display-copy literals. Exact leaf text, line, callers, values, defaults and every other report field are unchanged. No new leaf or caller is approved.",
+  "beforeHash": "208c9003b51d2e7d7218a5bdb76c42c2e5c8bba3bdb455cd440d6aa3f6bdcac1",
+  "afterHash": "63a1fbd1ae9ba8adb64e65161fdd8d53751012e52c65e94037d6f7468d816724",
+  "changes": [
+    {
+      "flow": 3,
+      "leaf": 0,
+      "path": "components/Sidebar.tsx",
+      "before": {
+        "start": 57674,
+        "end": 57678,
+        "text": "size",
+        "line": 1365
+      },
+      "after": {
+        "start": 57673,
+        "end": 57677,
+        "text": "size",
+        "line": 1365
+      }
+    },
+    {
+      "flow": 4,
+      "leaf": 0,
+      "path": "components/Sidebar.tsx",
+      "before": {
+        "start": 68596,
+        "end": 68600,
+        "text": "size",
+        "line": 1683
+      },
+      "after": {
+        "start": 68595,
+        "end": 68599,
+        "text": "size",
+        "line": 1683
+      }
+    }
+  ]
+}

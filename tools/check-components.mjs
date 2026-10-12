@@ -6,6 +6,17 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['--test','tools/atelier-copy-leaf-offsets.test.mjs'],
+  ['tools/atelier-copy-leaf-offsets.mjs','--check'],
+  ['tools/maison-purchasing-docs-role.mjs','--check'],
+  ['--test','tools/maison-purchasing-docs-role.test.mjs'],
+  ['--test','tools/maison-list-stats-columns-review.test.mjs'],
+  ['tools/maison-list-stats-columns-review.mjs','--check'],
+  ['--test','tools/atelier-offline-cache-inventory.test.mjs'],
+  ['--test','tools/maison-handoff-roles.test.mjs'],
+  ['tools/maison-handoff-roles.mjs','--check'],
+  ['--test','tools/maison-unaffected-runtime-role-review.test.mjs'],
+  ['tools/maison-unaffected-runtime-role-review.mjs','--check'],
   ['--test','tools/sync-react-icons.test.mjs'],
   ['tools/sync-react-icons.mjs','--check'],
   ['--test','tools/maison-icon-handoff.test.mjs'],

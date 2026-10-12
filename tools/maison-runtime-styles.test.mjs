@@ -4,13 +4,14 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {verifyIdentityHandoffSite} from './maison-handoff-roles.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),product=resolve(root,'../Q-Works');
 const require=createRequire(join(product,'package.json')),ts=require('typescript'),React=require('react'),{renderToStaticMarkup}=require('react-dom/server'),{JSDOM}=require('jsdom'),postcss=require('postcss');
 function loader(overrides={}){
   const cache=new Map();
   const load=file=>{
     if(cache.has(file))return cache.get(file).exports;
-    const source=readFileSync(file,'utf8'),js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX}}).outputText;
+    const source=readFileSync(file,'utf8'),js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText;
     const module={exports:{}};cache.set(file,module);
     const localRequire=name=>{
       if(name in overrides)return overrides[name];
@@ -42,8 +43,8 @@ test('KPI classification row count follows a mutated central layout setting with
   assert.equal(before.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'4');
   assert.equal(after.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'2');
   assert.deepEqual([...before.querySelectorAll('.qd-kpi-value')].map(x=>x.textContent),[...after.querySelectorAll('.qd-kpi-value')].map(x=>x.textContent));
-  assert.equal(runtime.statRowColumns.purchasingAnalysis,3);
-  assert.match(readFileSync(join(product,'app/(app)/purchasing/analysis/page.tsx'),'utf8'),/<StatRow cols=\{qdMaison\.statRowColumns\.purchasingAnalysis\}>/);
+  assert.equal(runtime.statRowColumns.purchasingAnalysis,4);
+  for(const file of ['savings-tab.tsx','delivery-tab.tsx'])assert.match(readFileSync(join(product,'app/(app)/purchasing/analysis',file),'utf8'),/<StatRow cols=\{qdMaison\.statRowColumns\.purchasingAnalysis\}>/);
 });
 
 test('real RowsEditor emits a token reference and a changed central width resolves through that actual table style',()=>{
@@ -53,6 +54,36 @@ test('real RowsEditor emits a token reference and a changed central width resolv
   assert.equal(resolveScalar(style,values),'900px');
   assert.equal(resolveScalar(style,{...values,'--qd-maison-min-width-900px':'1024px'}),'1024px');
   assert.ok(doc.querySelector('button'));
+});
+
+test('both actual purchasing tabs consume a changed central column role while preserving their four cards and values',async()=>{
+ const common={
+  'next/link':{__esModule:true,default:({href,children,...props})=>React.createElement('a',{href:typeof href==='string'?href:'#',...props},children)},
+  '@/lib/purchasing/savings-data':{loadSavingRows:async()=>[],loadQuoteVariance:async()=>[]},
+  '@/lib/purchasing/analysis-data':{PURCHASE_ROW_CAP:1000,loadPurchaseAnalysis:async()=>({rows:[],suppliers:[],truncated:false,error:null})},
+  '@/components/shared/list-filter-select':{ListFilterSelect:()=>null},
+  '@/components/shared/pagination':{ListPagination:()=>null,PageSizeSelect:()=>null},
+  '@/lib/supabase/server':{createClient:()=>{throw Error('No business-service calls allowed in the layout fixture');}},
+  './saving-row-actions':{SavingRowActions:()=>null},
+ };
+ const props={sp:{},p:{page:1,size:20},tenantId:'local-fixture',thisYear:'2026',tabs:null,lines:[],claimable:[],docs:[],userId:'local-fixture',canWrite:false};
+ for(const [file,name]of [['savings-tab.tsx','SavingsTab'],['delivery-tab.tsx','DeliveryTab']]){
+  const render=async count=>{const View=loader({...common,'@/lib/design/q-design-runtime':{qdMaison:{...runtime,statRowColumns:{...runtime.statRowColumns,purchasingAnalysis:count}}}})(join(product,'app/(app)/purchasing/analysis',file))[name];return documentFor(await View(props));};
+  const before=await render(4),after=await render(2);
+  assert.equal(before.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'4');assert.equal(after.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'2');
+  assert.equal(before.querySelectorAll('.qd-kpi').length,4);assert.equal(after.querySelectorAll('.qd-kpi').length,4);
+  assert.deepEqual([...before.querySelectorAll('.qd-kpi')].map(e=>e.textContent),[...after.querySelectorAll('.qd-kpi')].map(e=>e.textContent));
+ }
+});
+
+test('actual docs ListStats forwards the central column override without altering database count inputs or default callers',async()=>{
+ const calls=[];
+ const {ListStats}=loader({'@/lib/ui/stat-counts':{countStats:async(...args)=>{calls.push(args);return [0,0,0,0];},statValue:v=>v}})(join(product,'components/shared/list-stats.tsx'));
+ const base={menu:'/purchasing/analysis#docs',tenantId:'local-fixture'};
+ const before=documentFor(await ListStats({...base,cols:4})),after=documentFor(await ListStats({...base,cols:2})),automatic=documentFor(await ListStats(base));
+ assert.equal(before.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'4');assert.equal(after.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'2');assert.equal(automatic.querySelector('.qd-grid-kpi').style.getPropertyValue('--stat-cols'),'4');
+ assert.equal(before.querySelectorAll('.qd-kpi').length,4);assert.deepEqual([...before.querySelectorAll('.qd-kpi')].map(e=>e.textContent),[...after.querySelectorAll('.qd-kpi')].map(e=>e.textContent));
+ assert.deepEqual(calls[0],calls[1]);assert.deepEqual(calls[0],calls[2]);
 });
 test('real KPI chart shape changes from a mutated central numeric adapter while target dash stays token-bound',()=>{
   const props={points:[{label:'1월',value:20},{label:'2월',value:40}],target:50,yMin:0,yMax:100,unit:'점',direction:'higher_better'};
@@ -104,6 +135,7 @@ test('company mark maximum height follows a changed paper canon, and reviewed ex
   const migration=JSON.parse(readFileSync(join(root,'reviews/maison-identity-size-migration.json'),'utf8'));
   assert.equal(migration.sites.length,24);
   for(const site of migration.sites){
+    if(verifyIdentityHandoffSite(site))continue;
     const source=readFileSync(join(product,site.path),'utf8');
     assert.ok(source.includes(`${site.property}={${site.replacement}}`),site.path);
     const [owner,...keys]=site.replacement.split('.');
@@ -132,6 +164,7 @@ test('the real specification sheet distributes a changed central value-area shar
     const {SpecSheet}=loader({
       '@/lib/design/q-design-print':{qdPrint:{...print,specificationValueAreaPercent:percentage}},
       '@/lib/print/sheet-chrome':{loadSheetChrome:async()=>({})},
+      '@/lib/attachments/load':{loadSheetAttachmentNames:async()=>[]},
       '@/components/print/report-sheet':{ReportSheet:({extra})=>React.createElement('section',null,extra)},
     })(join(product,'app/(app)/purchasing/specs/spec-sheet.tsx'));
     return documentFor(await SpecSheet({row,tenantId:'local-test'}));

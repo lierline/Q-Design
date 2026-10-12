@@ -4,7 +4,8 @@ import {createWidgetWidthReview} from './atelier-widget-width-review.mjs';
 import {createRendererEnumReview} from './atelier-renderer-enum-review.mjs';
 import {hash} from './style-arguments-core.mjs';import {PARTS} from './sync-parts.mjs';import {copyProblems} from './audit-coverage-core.mjs';
 import {createRequire} from 'node:module';import {validateTypographyLinks} from './typography-links-core.mjs';
-import {beforeAtelierProfessionalReview} from './atelier-professional-copy-revalidation.mjs';
+import {beforeAtelierProfessionalReview,historicalAtelierCopyEvidence} from './atelier-professional-copy-revalidation.mjs';
+import {historicalChoiceGlyphEvidence} from './choice-glyph-revalidation.mjs';
 const root='D:/Claude/Q-Design',manifest=root+'/reviews/global-typography-revalidation.json',serialize=j=>JSON.stringify(j,null,2)+'\n';
 const beforeProductRefs={maison:'09280b6a07c6d34bba4bc2e63c7656d45279e6cf',carnet:'69163745ec69a2cbcf6af82e3e4b23f456259ced'};
 const productRoots={atelier:'D:/Claude/Q-Atelier',maison:'D:/Claude/Q-Works',carnet:'D:/Claude/DHR'};
@@ -51,6 +52,8 @@ export function beforeGlobalTypographySource(file,code){
   const before=execFileSync('git',['show',ref+':'+gitFile],{cwd:file.startsWith('dist/')?root:productRoots[product],encoding:'utf8',maxBuffer:32*1024*1024});assert.equal(hash(before),source.beforeHash);return before;
 }
 export function historicalTypographyEvidence(evidence,recordEvidence){
+  evidence=historicalChoiceGlyphEvidence(evidence,recordEvidence);
+  evidence=historicalAtelierCopyEvidence(evidence,recordEvidence);
   if(!fs.existsSync(manifest))return evidence;
   const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),relevant=(recordEvidence??[]).filter(e=>saved.sources.some(s=>s.path===e.path));
   if(!relevant.some(e=>saved.sources.find(s=>s.path===e.path).beforeHash===e.hash))return evidence;
