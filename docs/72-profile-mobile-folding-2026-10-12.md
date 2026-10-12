@@ -20,12 +20,20 @@
 
 전체 세 제품 릴리스 검사는 종료 코드 0으로 통과했다. 공통 구현·정본 사본·앱 인자를 대조했고 앱 아이콘 32개도 모두 일치한다. 새 문구 연결 후 별도 문구 검사는 87개 파일에서 통과했다. 제품 Next.js 운영 빌드와 변경 관련 시험도 통과했다. 로그는 로컬 `D:/Claude/tmp/qd-phase72-release.log`, `qd-phase72-atelier-build.log`, `qd-phase72-browser.log`에 보관한다.
 
+정상 푸시 훅의 타입 검사, 단위 테스트 4,667개, 린트 오류 0건도 통과했다. 기존 경고 1,573건, 예정된 실패 1개와 건너뛴 시험 3개는 그대로 남아 있다. 문구 중앙 연결을 추가한 최종 변경 시험 4개는 `qd-phase72-final-targeted.log`에 별도 보관한다. 새 문서까지 포함한 금지 문자 검사와 변경 공백 검사도 통과했다.
+
 ## 운영 확인
 
-운영 반영과 실제 화면의 수정 후 검증을 진행 중이다. 수정 전 관찰은 `reviews/phase72-operating-profile-before.json`, 로컬 브라우저 근거는 `reviews/profile-responsive-browser.json`이다. 배포 완료와 수정 후 관찰을 확인한 뒤 이 문단을 갱신한다.
+운영 배포 `dpl_4KFA3sirq5itz87YLAYCjVKfuBGr`는 READY이고 제품 커밋 `fe430c4dc312dc2026c4b3b5ca60ff3acd7aa035`와 일치한다. `atelier.medqraft.app`, `www.qatelier.co.kr`, `qatelier.co.kr`의 연결도 확인했다. 실제 운영 페이지를 다시 불러와 같은 기존 제품 정보 양식으로 확인했으며 신규 업무 데이터나 저장 요청은 만들지 않았다.
+
+실제 운영의 320/375/390/430/1280px 다섯 너비에서 각각 9개 선택 그룹을 검사했다. 페이지·그룹·버튼 내용의 넘침은 모두 없었고, 문구·선택 상태·모서리는 수정 전과 같았다. 390px 카드의 열 너비는 135px 두 열, 375px는 127.5px 두 열이며 320px에서는 한 열로 접힌다. 1280px의 열 너비·버튼 너비·높이·간격은 수정 전과 정확히 같았다. 안내의 `공공 DB에서`도 모든 너비에서 정상 표시됐다.
+
+운영 근거는 `reviews/phase72-operating-deployment.json`, `reviews/phase72-operating-profile-before.json`, `reviews/phase72-operating-desktop-before.json`, `reviews/phase72-operating-profile-after.json`이다. 운영 이미지 `reviews/phase72-operating-profile-after.png`는 로컬에 보관한다. 로컬의 실제 렌더러 검수는 `reviews/profile-responsive-browser.json`에 보관한다.
 
 ## 남은 범위
 
 미분류 811건에는 실제 스타일로 확인된 511건과 추가 소비자 추적이 필요한 항목이 섞여 있다. 모두 하드코딩 오류라는 뜻은 아니다. 현재 인벤토리에서 공통 `lib/design/components.tsx`의 106건, 모바일 업무 부품의 21건, 결재선 편집기의 19건, 구독 표시의 17건 등이 다음 조사 대상이다. 이 숫자는 우선순위 자료이며 완료 판정이 아니다. 이번 단계에서 이전 전체 화면 540개 대상과 이미지 2,330개를 다시 촬영하지 않았다.
+
+남은 미분류의 근거 파일 168개를 현재 제품 소스와 다시 대조했고, 811건 모두 현재 지문과 일치했다. 이는 자료가 최신이라는 확인이며 모든 소비자의 설계 판정을 끝냈다는 뜻은 아니다. 규칙·검수 근거는 큐 디자인 커밋 `e6f6650`으로 저장·푸시했다. 운영 확인은 후속 기록에 보관한다.
 
 큐 디자인 변경은 생성, 사본 동기화, 제품 검사·빌드, 운영 배포를 거쳐 반영된다. 파일 저장만으로 운영이 즉시 바뀌지는 않는다. 이번 수정은 기존 중앙 값을 사용하는 아뜰리에 소비자의 연결이며 메종·카르넷 운영 코드는 변경하지 않았다. Android 실제 설치 검증은 남아 있고 iOS 검사는 사용자 요청에 따라 제외한다.
