@@ -1,0 +1,903 @@
+{
+  "version": 1,
+  "productRef": "7e5bd9be53fb61bb15fca676fde3e9400fdd377a",
+  "scope": "Twenty-eight individually pinned object spreads with resolved database payload consumers. All other object spreads remain independently reviewed.",
+  "records": [
+    {
+      "path": "app/(app)/audits/sheet-actions.ts",
+      "line": 442,
+      "value": "base",
+      "sourceHash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36",
+      "argumentHash": "9a99e350c9f89f3b55a84e7ef017dc5ac541c894d3b4e5c999d03a69c5be335e",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/audits/sheet-actions.ts",
+      "line": 448,
+      "value": "base",
+      "sourceHash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36",
+      "argumentHash": "7ca31f10cde4fbb47cbb35691131d799c1a25d55f7b43bb7122cade742a0c466",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/sheet-actions.ts",
+      "line": 98,
+      "value": "planColumns(input, user.id)",
+      "sourceHash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee",
+      "argumentHash": "d121d7da690edc8ea99daf1e35a35c4618901370fd9f56fced86defe87d348b5",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/sheet-actions.ts",
+      "line": 433,
+      "value": "header",
+      "sourceHash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee",
+      "argumentHash": "57441a55e92f469b2356677b04764ad71a792d975396df09b2cc723ad9d6aa76",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/capa/sheet-actions.ts",
+      "line": 482,
+      "value": "header",
+      "sourceHash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee",
+      "argumentHash": "ff80392cb5a8f6cb06fa62c1f3f7eafc63aa32b55f37e1b61ef6d2afb6d6fa28",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/concessions/actions.ts",
+      "line": 416,
+      "value": "fields",
+      "sourceHash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d",
+      "argumentHash": "42f262ae2409323c82c7aca924f98140890fc79ba75da27b4d9a8973118009c2",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/concessions/actions.ts",
+      "line": 1063,
+      "value": "fields",
+      "sourceHash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d",
+      "argumentHash": "96299cb48850c7a3d88b320e2c4f8818313ea48371c278c85207db31ea63a7da",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-actions.ts",
+      "line": 100,
+      "value": "toRow(input)",
+      "sourceHash": "477534d85298956c6666830fc1704b92bca27232612847f6ff3b80dc892b4597",
+      "argumentHash": "e74e10b4075e13f35cde2829ce3cddec2b26800e46b90a6b3016affe555dcb95",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/dashboard/calendar-actions.ts",
+          "line": 1,
+          "hash": "477534d85298956c6666830fc1704b92bca27232612847f6ff3b80dc892b4597"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/actions.ts",
+      "line": 246,
+      "value": "fields",
+      "sourceHash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e",
+      "argumentHash": "e64a7917ffdc0fe3716304c1682e441d330856543ac1aa7181270ca1b16403a2",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/ledger-actions.ts",
+      "line": 347,
+      "value": "fields",
+      "sourceHash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4",
+      "argumentHash": "eb4c06349badffac6ade3e54dcb5fca137b182626b5a504f36d9f49eb4a277aa",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/improvements/actions.ts",
+      "line": 100,
+      "value": "proposalFields(input)",
+      "sourceHash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3",
+      "argumentHash": "e64d14fe681a012f918965370245daf1a06c1e5408d4f6a9d6359f634dcec2dc",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/improvements/actions.ts",
+          "line": 1,
+          "hash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/improvements/actions.ts",
+      "line": 416,
+      "value": "fields",
+      "sourceHash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3",
+      "argumentHash": "fd3ab01136e89ca205c3b2cf06039dba064ab58dda795e753b119c4f8a0ed10f",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/improvements/actions.ts",
+          "line": 1,
+          "hash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/actions.ts",
+      "line": 484,
+      "value": "header",
+      "sourceHash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c",
+      "argumentHash": "fa44346807dec09fd96b8ba5906f2fe5eba6b296e7d10188a6f2814483b348d1",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/kpi/evaluations/actions.ts",
+      "line": 563,
+      "value": "header",
+      "sourceHash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c",
+      "argumentHash": "6c8c0b90f9b1877ccd7deb2991e5f798067c56e3a21488cce1dc029f0070009f",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nc/report-actions.ts",
+      "line": 236,
+      "value": "fields",
+      "sourceHash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5",
+      "argumentHash": "4613c0d5efa5ae2581855a634a0a14fbf6c31eb655d3e45157f73f00f831e4f9",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/actions.ts",
+      "line": 482,
+      "value": "specFields(input, item, user.id)",
+      "sourceHash": "170578f3b690d710daf1b3265b9e88a771b6c7bcce2abd2778f9d111cbc81ed7",
+      "argumentHash": "1c03cf1442d7d8982bbdab7dc610790afa3fd612dc07ea5cf9688b06f6ae6b51",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/purchasing/actions.ts",
+          "line": 1,
+          "hash": "170578f3b690d710daf1b3265b9e88a771b6c7bcce2abd2778f9d111cbc81ed7"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "line": 302,
+      "value": "fields",
+      "sourceHash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082",
+      "argumentHash": "cd45c5e7237a4f54007a8037631750d60939e82788ddcd2b057963df15d44d12",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/quote-actions.ts",
+      "line": 220,
+      "value": "fields",
+      "sourceHash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49",
+      "argumentHash": "276ea13bf4fc7a9cc73447f76bb614da86c145ea1b4b1108e86252a39ac8f290",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/actions.ts",
+      "line": 331,
+      "value": "fields",
+      "sourceHash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315",
+      "argumentHash": "cdd9b5343ee014eb700835c1ed2a1761ae1d14a97bf06dfb1c09f7e967cf508c",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/actions.ts",
+      "line": 493,
+      "value": "fields",
+      "sourceHash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315",
+      "argumentHash": "3295a70370f1735d9dcad26f7c21272f3711fce3db0a78b85b1df5636c9c1936",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/recalls/actions.ts",
+      "line": 633,
+      "value": "fields",
+      "sourceHash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315",
+      "argumentHash": "1e6d1334f7adca5eca7f0bd32f4e5209f28e00cc63cc8261eccb71ec2ef17de9",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/reviews/sheet-actions.ts",
+      "line": 220,
+      "value": "agendaColumns(input, user.id)",
+      "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
+      "argumentHash": "ac3121c2cbef5d6be821e944a9828daed81d8f5c63c647504984553240a90e14",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/reviews/sheet-actions.ts",
+      "line": 478,
+      "value": "base",
+      "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
+      "argumentHash": "87a497f86b38f60788923614dfe3b466aed9e11089ca42f226c6e7e49d04d7b1",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/reviews/sheet-actions.ts",
+      "line": 485,
+      "value": "base",
+      "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
+      "argumentHash": "75c12b3c72a988b011063c122b24f21b0fe37f3ef26c28f160ddcb1426b886a0",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/actions.ts",
+      "line": 407,
+      "value": "payload",
+      "sourceHash": "d9a159f9de501596b60dcddf97d3fbcf819072b8cdef71613910f16733bf4c35",
+      "argumentHash": "1e15ddbd3454de83a90f4d1972a72ab78c948f0460514e4d4ca0c6d4c76fb604",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/actions.ts",
+          "line": 1,
+          "hash": "d9a159f9de501596b60dcddf97d3fbcf819072b8cdef71613910f16733bf4c35"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-actions.ts",
+      "line": 148,
+      "value": "head",
+      "sourceHash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3",
+      "argumentHash": "3f499a21ef077d3dc7603f4bc35f0f5a4b595293fde31ee90f3ef04279a52839",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/specs/actions.ts",
+      "line": 157,
+      "value": "payload",
+      "sourceHash": "b3c4209fc24e53b18e8984b4f90f216753bd1de3121700f379e72ac4333eb577",
+      "argumentHash": "870b287c9c0aee7155485fe77f4ef1041622177e0aca9187caa135742d52d8de",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "app/(app)/specs/actions.ts",
+          "line": 1,
+          "hash": "b3c4209fc24e53b18e8984b4f90f216753bd1de3121700f379e72ac4333eb577"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    },
+    {
+      "path": "lib/items/barcode-link.ts",
+      "line": 244,
+      "value": "fields",
+      "sourceHash": "48bdbe1b41c0bd34fafa5c55b8aa4760cfb031aa5e499ee94903c0c9ecaa44e6",
+      "argumentHash": "9ab721f6430393282948b910e4947a7b8b822eb0f39385aa4d88e01d95e0eb74",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
+      "evidence": [
+        {
+          "path": "lib/items/barcode-link.ts",
+          "line": 1,
+          "hash": "48bdbe1b41c0bd34fafa5c55b8aa4760cfb031aa5e499ee94903c0c9ecaa44e6"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
+        }
+      ]
+    }
+  ]
+}

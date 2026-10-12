@@ -6,6 +6,8 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/maison-db-payload-review.mjs','--check'],
+  ['--test','tools/maison-db-payload-review.test.mjs'],
   ['tools/maison-batch-print-migration.mjs','--check'],
   ['tools/maison-batch-print-review.mjs','--check'],
   ['--test','tools/maison-batch-print.test.mjs','tools/maison-batch-print-review.test.mjs'],

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T18:07:11.555Z",
+  "generatedAt": "2026-10-12T18:52:26.788Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6781,8 +6781,8 @@
     "composed-classes": 831,
     "central-selector": 2485,
     "compatibility-noop": 77,
-    "business-data": 844,
-    "unknown": 729,
+    "business-data": 872,
+    "unknown": 701,
     "business-condition": 54,
     "token-reference-verified": 1247,
     "structural-behavior": 403,
@@ -6792,7 +6792,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3884
   },
-  "unknownCount": 729,
+  "unknownCount": 701,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -40564,14 +40564,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/audits/sheet-actions.ts",
-          "line": 442,
+          "line": 1,
           "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -40587,14 +40602,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/audits/sheet-actions.ts",
-          "line": 448,
+          "line": 1,
           "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -58638,14 +58668,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/capa/sheet-actions.ts",
-          "line": 98,
+          "line": 1,
           "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -58684,14 +58729,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/capa/sheet-actions.ts",
-          "line": 433,
+          "line": 1,
           "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -58707,14 +58767,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/capa/sheet-actions.ts",
-          "line": 482,
+          "line": 1,
           "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -101711,14 +101786,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/concessions/actions.ts",
-          "line": 416,
+          "line": 1,
           "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -101803,14 +101893,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/concessions/actions.ts",
-          "line": 1063,
+          "line": 1,
           "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -152762,14 +152867,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/dashboard/calendar-actions.ts",
-          "line": 100,
+          "line": 1,
           "hash": "477534d85298956c6666830fc1704b92bca27232612847f6ff3b80dc892b4597"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -221563,14 +221683,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/document-dispatch/actions.ts",
-          "line": 246,
+          "line": 1,
           "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -223162,14 +223297,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/document-dispatch/ledger-actions.ts",
-          "line": 347,
+          "line": 1,
           "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -365542,14 +365692,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/improvements/actions.ts",
-          "line": 100,
+          "line": 1,
           "hash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -365588,14 +365753,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/improvements/actions.ts",
-          "line": 416,
+          "line": 1,
           "hash": "5c824ebf0781b8c0b129e0f0c365c761569a25c34837f9a07f9a9cf179ee38b3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -467273,14 +467453,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/kpi/evaluations/actions.ts",
-          "line": 484,
+          "line": 1,
           "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -467296,14 +467491,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/kpi/evaluations/actions.ts",
-          "line": 563,
+          "line": 1,
           "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -530705,14 +530915,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/nc/report-actions.ts",
-          "line": 236,
+          "line": 1,
           "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -585157,14 +585382,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/purchasing/actions.ts",
-          "line": 482,
+          "line": 1,
           "hash": "170578f3b690d710daf1b3265b9e88a771b6c7bcce2abd2778f9d111cbc81ed7"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -604722,14 +604962,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/purchasing/order-actions.ts",
-          "line": 302,
+          "line": 1,
           "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -627040,14 +627295,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/purchasing/quote-actions.ts",
-          "line": 220,
+          "line": 1,
           "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -662097,14 +662367,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/recalls/actions.ts",
-          "line": 331,
+          "line": 1,
           "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -662143,14 +662428,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/recalls/actions.ts",
-          "line": 493,
+          "line": 1,
           "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -662166,14 +662466,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/recalls/actions.ts",
-          "line": 633,
+          "line": 1,
           "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -710030,14 +710345,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/reviews/sheet-actions.ts",
-          "line": 220,
+          "line": 1,
           "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -710053,14 +710383,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/reviews/sheet-actions.ts",
-          "line": 478,
+          "line": 1,
           "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -710076,14 +710421,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/reviews/sheet-actions.ts",
-          "line": 485,
+          "line": 1,
           "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -740060,14 +740420,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/safety/actions.ts",
-          "line": 407,
+          "line": 1,
           "hash": "d9a159f9de501596b60dcddf97d3fbcf819072b8cdef71613910f16733bf4c35"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -752019,14 +752394,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/safety/incidents/incident-actions.ts",
-          "line": 148,
+          "line": 1,
           "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -847363,14 +847753,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "app/(app)/specs/actions.ts",
-          "line": 157,
+          "line": 1,
           "hash": "b3c4209fc24e53b18e8984b4f90f216753bd1de3121700f379e72ac4333eb577"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
@@ -1198107,14 +1198512,29 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-insert-payload",
+      "reason": "This exact spread is inside the third argument object of a TypeScript-resolved insertOne call. Its pinned consumer passes payload once and only to supabase.from(table).insert(payload).select(columns).single(). The complete caller and consumer hashes are checked; changed sources, shadowed consumers and other argument positions are rejected. This is data persistence evidence, not a renderer or filename exemption. No database operation is executed.",
       "evidence": [
         {
           "path": "lib/items/barcode-link.ts",
-          "line": 244,
+          "line": 1,
           "hash": "48bdbe1b41c0bd34fafa5c55b8aa4760cfb031aa5e499ee94903c0c9ecaa44e6"
+        },
+        {
+          "path": "lib/actions/db.ts",
+          "line": 1,
+          "hash": "373d6cb48ebd27b64bfb35c26412bbbd85c5790a46e50eb6e0bf87a953ccee52"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-db-payload-review.mjs",
+          "line": 1,
+          "hash": "bec2e426beccc576df600d942d2ccb3a638941b119c86901709d89ba9ef79800"
         }
       ]
     },
