@@ -2373,35 +2373,35 @@
       "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
       "bindings": [
         {
-          "line": 226,
+          "line": 227,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
           "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
         },
         {
-          "line": 272,
+          "line": 273,
           "kind": "JsxText",
           "ordinal": 0,
           "original": "회의 · 출장 · 고객 방문처럼 사람이 아는 일을 달력에 적습니다. 문서\r\n          정기검토 · 검교정 같은 기한은 시스템이 알아서 올립니다.\r\n        ",
           "emitted": "회의 · 출장 · 고객 방문 등의 일정을 등록합니다. 문서 정기 검토 ·\r\n          검교정 같은 기한은 시스템에서 자동으로 표시합니다.\r\n        "
         },
         {
-          "line": 326,
+          "line": 327,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"끝나는 날\"",
           "emitted": "\"종료 날짜\""
         },
         {
-          "line": 344,
+          "line": 345,
           "kind": "JsxText",
           "ordinal": 0,
           "original": "종일 (시각 없이 그날 안에)\r\n          ",
           "emitted": "종일 일정\r\n          "
         },
         {
-          "line": 368,
+          "line": 369,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"끝나는 시각\"",
@@ -2427,14 +2427,14 @@
       "path": "app/(app)/inspections/[id]/approval-ui.tsx",
       "bindings": [
         {
-          "line": 131,
+          "line": 135,
           "kind": "TemplateHead",
           "ordinal": 0,
           "original": "`작성중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${",
           "emitted": "`작성 중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${"
         },
         {
-          "line": 219,
+          "line": 223,
           "kind": "JsxText",
           "ordinal": 0,
           "original": "검사 기록을 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          ",
@@ -2460,14 +2460,14 @@
       "path": "app/(app)/nc/approval-ui.tsx",
       "bindings": [
         {
-          "line": 219,
+          "line": 223,
           "kind": "TemplateHead",
           "ordinal": 0,
           "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${",
           "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${"
         },
         {
-          "line": 348,
+          "line": 352,
           "kind": "JsxText",
           "ordinal": 1,
           "original": "를 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          ",
@@ -2493,14 +2493,14 @@
       "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
       "bindings": [
         {
-          "line": 119,
+          "line": 120,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"(가져올 발주 줄이 없습니다)\"",
           "emitted": "\"(미등록 발주 품목이 없습니다)\""
         },
         {
-          "line": 123,
+          "line": 124,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"가져올 발주 줄\"",
@@ -2513,14 +2513,14 @@
       "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
       "bindings": [
         {
-          "line": 298,
+          "line": 301,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"가져올 발주 줄\"",
           "emitted": "\"미등록 발주 품목\""
         },
         {
-          "line": 300,
+          "line": 303,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",
@@ -2559,28 +2559,28 @@
       "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
       "bindings": [
         {
-          "line": 195,
+          "line": 199,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"작성중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\"",
           "emitted": "\"작성 중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\""
         },
         {
-          "line": 196,
+          "line": 200,
           "kind": "StringLiteral",
           "ordinal": 0,
           "original": "\"작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\"",
           "emitted": "\"작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\""
         },
         {
-          "line": 197,
+          "line": 201,
           "kind": "TemplateHead",
           "ordinal": 0,
           "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
           "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
         },
         {
-          "line": 289,
+          "line": 293,
           "kind": "JsxText",
           "ordinal": 0,
           "original": "기록지를 작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          ",

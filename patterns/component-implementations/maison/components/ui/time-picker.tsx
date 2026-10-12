@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Clock } from "lucide-react";
+import { Clock } from "@/components/q-design-icons/Clock";
 import { cn } from "@/lib/utils/cn";
 import { CHOICE_ON } from "@/lib/ui/choice";
 import { useFieldControl } from "@/components/ui/field";

@@ -6,6 +6,12 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['--test','tools/sync-react-icons.test.mjs'],
+  ['tools/sync-react-icons.mjs','--check'],
+  ['--test','tools/maison-icon-handoff.test.mjs'],
+  ['tools/maison-icon-handoff.mjs','--check'],
+  ['--test','tools/maison-icon-copy-bindings.test.mjs'],
+  ['tools/maison-icon-copy-bindings.mjs','--check'],
   ['tools/choice-glyph-revalidation.mjs','--check'],
   ['--test','tools/choice-glyph-revalidation.test.mjs'],
   ['tools/maison-caption-roles.mjs','--check'],
@@ -25,6 +31,7 @@ const steps=[
   ['--test','tools/carnet-professional-copy.test.mjs'],
   ['tools/build-mono-fonts.mjs','--check'],
   ['tools/mono-root-revalidation.mjs','--check'],
+  ['--test','tools/mono-root-history.test.mjs'],
   ['--test','tools/mono-fonts.test.mjs'],
   ['--test','tools/typography-links.test.mjs','tools/global-typography-ledger.test.mjs'],
   ['tools/global-typography-evidence.mjs','--check'],
@@ -101,6 +108,8 @@ const steps=[
   ['tools/component-registry.mjs','--check'],
   ['tools/style-arguments.mjs','--check'],
   ['tools/build-react-icons.mjs','--check'],
+  ['tools/maison-layout-handoff-history.mjs','--check'],
+  ['--test','tools/maison-layout-handoff-history.test.mjs'],
   ['--test','tools/component-registry.test.mjs','tools/component-style-contract.test.mjs','tools/palette.test.mjs','tools/maison-palette.test.mjs','tools/maison-email.test.mjs','tools/maison-choice-targets.test.mjs','tools/audit-coverage.test.mjs','tools/audit-coverage-imports.test.mjs','tools/qd-adapter-values.test.mjs','tools/asset-pipeline.test.mjs','tools/foundation.test.mjs','tools/style-arguments.test.mjs','tools/carnet-foundation.test.mjs','tools/sync-html-consumers.test.mjs','tools/icon-defaults.test.mjs'],
   ['--test','tools/app-icon-runtime.test.mjs','tools/carnet-stroke-contract.test.mjs','tools/carnet-style-boundaries.test.mjs','tools/maison-layout-tokens.test.mjs','tools/maison-style-proof.test.mjs','tools/migrate-atelier-grid-values.test.mjs','tools/migrate-atelier-conditional-values.test.mjs'],
   ['--test','tools/atelier-style-proof.test.mjs','tools/build-atelier-simulator.test.mjs','tools/maison-runtime-styles.test.mjs'],
@@ -177,6 +186,7 @@ if(args.includes('--browser'))steps.push(['tools/verify-maison-time-controls.mjs
 if(args.includes('--browser'))steps.push(['tools/verify-maison-caption-roles.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-maison-selection-controls.mjs']);
 if(args.includes('--browser'))steps.push(['tools/verify-choice-glyph-family.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-maison-icon-handoff.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

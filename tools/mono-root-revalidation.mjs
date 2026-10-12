@@ -49,9 +49,10 @@ export function createMonoRootReviews(selected=['maison','carnet']){
  return {ref,sources,reports};
 }
 export function beforeMonoRootReport(name,current){
- current=beforeChoiceGlyphReview(name,current);
- if(name!=='maison-style-manual-review.json')return current;
+ if(name!=='maison-style-manual-review.json')return beforeChoiceGlyphReview(name,current);
  const result=createMonoRootReviews(['maison']),report=result.reports.find(r=>r.name===name);
+ if(hash(serialize(current))===report.beforeHash)return current;
+ current=beforeChoiceGlyphReview(name,current);
  if(hash(serialize(current))===report.beforeHash)return current;
  assert.deepEqual(current,report.next,'Only the verified root import and mount fingerprints may be restored');
  return JSON.parse(execFileSync('git',['show',ref+':reviews/'+name],{cwd:root,encoding:'utf8'}));
@@ -61,6 +62,6 @@ if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
  if(filters.length>1||args.some(a=>!['--write','--check'].includes(a)&&!a.startsWith('--only='))||selected.some(p=>!['maison','carnet'].includes(p))||new Set(selected).size!==selected.length||filters.length&&args.includes('--write'))throw Error('Use --write or --check; scoped --only=maison,carnet is read-only.');
  const result=createMonoRootReviews(selected),proof={...result,reports:result.reports.map(({next,...r})=>r)};
  if(process.argv.includes('--write')){for(const r of result.reports)fs.writeFileSync(root+'/reviews/'+r.name,serialize(r.next));fs.writeFileSync(root+'/reviews/mono-root-revalidation.json',serialize(proof));}
- else{const saved=JSON.parse(read(root+'/reviews/mono-root-revalidation.json'));assert.deepEqual({...saved,sources:saved.sources.filter(s=>selected.includes(s.product)),reports:saved.reports.filter(r=>result.reports.some(current=>current.name===r.name))},proof);for(const r of result.reports)assert.deepEqual(JSON.parse(read(root+'/reviews/'+r.name)),r.next);}
+ else{const saved=JSON.parse(read(root+'/reviews/mono-root-revalidation.json'));assert.deepEqual({...saved,sources:saved.sources.filter(s=>selected.includes(s.product)),reports:saved.reports.filter(r=>result.reports.some(current=>current.name===r.name))},proof);for(const r of result.reports)assert.deepEqual(beforeChoiceGlyphReview(r.name,JSON.parse(read(root+'/reviews/'+r.name))),r.next);}
  console.log(JSON.stringify({imports:result.sources.length,rebound:result.reports.reduce((n,r)=>n+r.rebound,0)}));
 }

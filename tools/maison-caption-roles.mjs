@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {hash} from './style-arguments-core.mjs';
 import {replaceClassLiterals,compile} from './maison-layout-tokens.mjs';
 import {formatProductCopy} from './copy-spacing.mjs';
+import {beforeMaisonIconSource} from './maison-icon-handoff.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Works',manifest=root+'/reviews/maison-caption-migration.json';
 const files=[
  'app/(app)/inspections/receipt-dialog.tsx',
@@ -19,6 +20,7 @@ const files=[
 ];
 export const maisonCaptionClass='text-[length:var(--qd-caption-size)]';
 export function beforeMaisonCaptionRoles(file,code){
+ code=beforeMaisonIconSource(file,code);
  if(!fs.existsSync(manifest))return code;
  const record=JSON.parse(fs.readFileSync(manifest,'utf8')).records.find(r=>r.path===file);
  if(!record||hash(code)===record.beforeHash)return code;
@@ -37,7 +39,7 @@ export async function verifyMaisonCaptionRoles(){
  const css=fs.readFileSync(root+'/patterns/components.css','utf8');assert.match(css,/--qd-caption-size:\s*[^;]+;/);
  const compiled=await compile([maisonCaptionClass]);assert.deepEqual(compiled.get(maisonCaptionClass),[['font-size','var(--qd-caption-size)']]);
  for(const record of saved.records){
-  assert(files.includes(record.path));const code=fs.readFileSync(product+'/'+record.path,'utf8');
+  assert(files.includes(record.path));const code=beforeMaisonIconSource(record.path,fs.readFileSync(product+'/'+record.path,'utf8'));
   const before=beforeMaisonCaptionRoles(record.path,code);
   const next=replaceClassLiterals(before,record.path,record.changes.map(c=>[c.before,c.after,record.beforeHash,c.line]));
   const expected=record.formatted?await formatProductCopy(product,record.path,next.code):next.code;

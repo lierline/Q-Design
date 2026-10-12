@@ -21,6 +21,14 @@ export function applyChoiceGlyphRules(before){
  ];
  for(const [old,next]of edits){assert.equal(before.split(old).length,2,'One exact existing central glyph rule');before=before.replace(old,next);}return before;
 }
+export function beforeChoiceGlyphCanonical(code){
+ if(!fs.existsSync(manifest))return code;
+ const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),source=saved.sources.find(s=>s.path==='patterns/components.css');
+ if(hash(code)===source.beforeHash)return code;
+ assert.equal(hash(code),source.afterHash,'Unreviewed canonical change after choice glyph migration');
+ assert.deepEqual(inspectChoiceGlyphSources(),saved.sources);
+ const before=beforeCanonical();assert.equal(hash(before),source.beforeHash);return before;
+}
 export function inspectChoiceGlyphSources(){
  const before=beforeCanonical(),after=norm(fs.readFileSync(root+'/patterns/components.css','utf8'));assert.equal(after,applyChoiceGlyphRules(before));assert.match(after,/--qd-choice-glyph-size: 16px;/);
  const part=PARTS.find(p=>p.src==='patterns/components.css'),sources=[{path:part.src,beforeHash:hash(before),afterHash:hash(after)}];

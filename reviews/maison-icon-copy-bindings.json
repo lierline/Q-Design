@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "reviewRef": "f83d383",
+  "productRef": "d5a9c06a6b972cefffe3992b0a1f04000b2b0c7d",
+  "scope": "Exact display binding locations after the reviewed icon import migration. Every non-import literal and rendered JSX text is unchanged; no product copy, business data or other product binding is edited.",
+  "beforeHash": "db0a8c41ff295321e05881ecdb6a7c884157d754b27b2077effd0498bd3fd2fe",
+  "afterHash": "8b3f4c9a10b5865224aaf3d0634db9fba8657c190b917a3f951cfe4c936d7d42",
+  "records": [
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "beforeHash": "44ea03bb3e943e2a6dd1ce5adae688d26d0252804f4e119b5858881d6ac5dd09",
+      "afterHash": "834f0e5cf2c243029558630871502dffc758fbe855601734baf3136950f4dbfd",
+      "before": [
+        {
+          "line": 226,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+          "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+        },
+        {
+          "line": 272,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "회의 · 출장 · 고객 방문처럼 사람이 아는 일을 달력에 적습니다. 문서\r\n          정기검토 · 검교정 같은 기한은 시스템이 알아서 올립니다.\r\n        ",
+          "emitted": "회의 · 출장 · 고객 방문 등의 일정을 등록합니다. 문서 정기 검토 ·\r\n          검교정 같은 기한은 시스템에서 자동으로 표시합니다.\r\n        "
+        },
+        {
+          "line": 326,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날\"",
+          "emitted": "\"종료 날짜\""
+        },
+        {
+          "line": 344,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "종일 (시각 없이 그날 안에)\r\n          ",
+          "emitted": "종일 일정\r\n          "
+        },
+        {
+          "line": 368,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 시각\"",
+          "emitted": "\"종료 시각\""
+        }
+      ],
+      "after": [
+        {
+          "line": 227,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+          "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+        },
+        {
+          "line": 273,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "회의 · 출장 · 고객 방문처럼 사람이 아는 일을 달력에 적습니다. 문서\r\n          정기검토 · 검교정 같은 기한은 시스템이 알아서 올립니다.\r\n        ",
+          "emitted": "회의 · 출장 · 고객 방문 등의 일정을 등록합니다. 문서 정기 검토 ·\r\n          검교정 같은 기한은 시스템에서 자동으로 표시합니다.\r\n        "
+        },
+        {
+          "line": 327,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날\"",
+          "emitted": "\"종료 날짜\""
+        },
+        {
+          "line": 345,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "종일 (시각 없이 그날 안에)\r\n          ",
+          "emitted": "종일 일정\r\n          "
+        },
+        {
+          "line": 369,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 시각\"",
+          "emitted": "\"종료 시각\""
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/inspections/[id]/approval-ui.tsx",
+      "beforeHash": "1f2127046a972c9cedb9c82e38f7e2395c129a02dc8960e08a1aded35cdf5006",
+      "afterHash": "f40d6397db207036668ae62fa26d88245ffd4b7db79e57f8adfc75f578fdcc60",
+      "before": [
+        {
+          "line": 131,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 219,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "검사 기록을 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          ",
+          "emitted": "검사 기록을 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          "
+        }
+      ],
+      "after": [
+        {
+          "line": 135,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 223,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "검사 기록을 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          ",
+          "emitted": "검사 기록을 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          "
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/nc/approval-ui.tsx",
+      "beforeHash": "06b7e9d0c3ed7f23d4b779dd63bf1bbe5d493974983dc1b18d72126cfd3b65ad",
+      "afterHash": "8db3640ff267ad94dca605388d0022f07da8d2bbe494961c22253b23b03c03f1",
+      "before": [
+        {
+          "line": 219,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 348,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "를 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          "
+        }
+      ],
+      "after": [
+        {
+          "line": 223,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 352,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "를 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          "
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+      "beforeHash": "fc66be2d9d19b5e5b7964d28224e63c31fefccd2f3672b7ef6b7c61d5dc526f1",
+      "afterHash": "9dbf283439f87c68976cee19e59cfb362bfe5ef5b73b1d499966a05f42d83f66",
+      "before": [
+        {
+          "line": 119,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"(가져올 발주 줄이 없습니다)\"",
+          "emitted": "\"(미등록 발주 품목이 없습니다)\""
+        },
+        {
+          "line": 123,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        }
+      ],
+      "after": [
+        {
+          "line": 120,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"(가져올 발주 줄이 없습니다)\"",
+          "emitted": "\"(미등록 발주 품목이 없습니다)\""
+        },
+        {
+          "line": 124,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
+      "beforeHash": "0504d6a32ff9db81ed74d208f1f27acf890992e466512c5e10d6fd2d211ade07",
+      "afterHash": "ea90b5264a9fbf51e7262acc3a8183af6b3e30af526ab5479a95cb795800c432",
+      "before": [
+        {
+          "line": 298,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        },
+        {
+          "line": 300,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",
+          "emitted": "\"직전 발주와 비교 가능한 미등록 품목\""
+        }
+      ],
+      "after": [
+        {
+          "line": 301,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        },
+        {
+          "line": 303,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",
+          "emitted": "\"직전 발주와 비교 가능한 미등록 품목\""
+        }
+      ]
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "beforeHash": "fbac8bc79b0b68232232c503898dde2b023ba50a74a23565d7321e581084cb95",
+      "afterHash": "93ada09c1be79d6b3d9e3bdc237cfaa7275949271d2b5a8490c02ec5e9d65da4",
+      "before": [
+        {
+          "line": 195,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\"",
+          "emitted": "\"작성 중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\""
+        },
+        {
+          "line": 196,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\""
+        },
+        {
+          "line": 197,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 289,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "기록지를 작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          ",
+          "emitted": "기록지를 작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          "
+        }
+      ],
+      "after": [
+        {
+          "line": 199,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\"",
+          "emitted": "\"작성 중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\""
+        },
+        {
+          "line": 200,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\""
+        },
+        {
+          "line": 201,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 293,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "기록지를 작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          ",
+          "emitted": "기록지를 작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          "
+        }
+      ]
+    }
+  ]
+}

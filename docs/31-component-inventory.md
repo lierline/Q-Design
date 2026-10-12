@@ -9,7 +9,7 @@
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Q-Atelier | 711 | 1153 | 143 | 87 | 21 | 70 | 623 |
-| Q-Maison | 1151 | 1434 | 156 | 98 | 22 | 474 | 592 |
+| Q-Maison | 1159 | 1442 | 164 | 98 | 22 | 474 | 600 |
 | Q-Carnet | 162 | 272 | 19 | 32 | 17 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
@@ -1662,6 +1662,7 @@
 | [components/q-design-icons/ArrowUp.tsx](../../Q-Works/components/q-design-icons/ArrowUp.tsx) | `ArrowUp` (icon, 추론) | product-local |
 | [components/q-design-icons/ArrowUpCircle.tsx](../../Q-Works/components/q-design-icons/ArrowUpCircle.tsx) | `ArrowUpCircle` (icon, 추론) | product-local |
 | [components/q-design-icons/BadgeCheck.tsx](../../Q-Works/components/q-design-icons/BadgeCheck.tsx) | `BadgeCheck` (icon, 추론) | product-local |
+| [components/q-design-icons/BadgePercent.tsx](../../Q-Works/components/q-design-icons/BadgePercent.tsx) | `BadgePercent` (icon, 추론) | product-local |
 | [components/q-design-icons/BarChart3.tsx](../../Q-Works/components/q-design-icons/BarChart3.tsx) | `BarChart3` (icon, 추론) | product-local |
 | [components/q-design-icons/Barcode.tsx](../../Q-Works/components/q-design-icons/Barcode.tsx) | `Barcode` (icon, 추론) | product-local |
 | [components/q-design-icons/Bell.tsx](../../Q-Works/components/q-design-icons/Bell.tsx) | `Bell` (icon, 추론) | product-local |
@@ -1672,7 +1673,9 @@
 | [components/q-design-icons/Boxes.tsx](../../Q-Works/components/q-design-icons/Boxes.tsx) | `Boxes` (icon, 추론) | product-local |
 | [components/q-design-icons/Building2.tsx](../../Q-Works/components/q-design-icons/Building2.tsx) | `Building2` (icon, 추론) | product-local |
 | [components/q-design-icons/Calendar.tsx](../../Q-Works/components/q-design-icons/Calendar.tsx) | `Calendar` (icon, 추론) | product-local |
+| [components/q-design-icons/CalendarCheck.tsx](../../Q-Works/components/q-design-icons/CalendarCheck.tsx) | `CalendarCheck` (icon, 추론) | product-local |
 | [components/q-design-icons/CalendarDays.tsx](../../Q-Works/components/q-design-icons/CalendarDays.tsx) | `CalendarDays` (icon, 추론) | product-local |
+| [components/q-design-icons/CalendarMinus.tsx](../../Q-Works/components/q-design-icons/CalendarMinus.tsx) | `CalendarMinus` (icon, 추론) | product-local |
 | [components/q-design-icons/CalendarPlus.tsx](../../Q-Works/components/q-design-icons/CalendarPlus.tsx) | `CalendarPlus` (icon, 추론) | product-local |
 | [components/q-design-icons/CalendarRange.tsx](../../Q-Works/components/q-design-icons/CalendarRange.tsx) | `CalendarRange` (icon, 추론) | product-local |
 | [components/q-design-icons/Check.tsx](../../Q-Works/components/q-design-icons/Check.tsx) | `Check` (icon, 추론) | product-local |
@@ -1688,6 +1691,8 @@
 | [components/q-design-icons/Circle.tsx](../../Q-Works/components/q-design-icons/Circle.tsx) | `Circle` (icon, 추론) | product-local |
 | [components/q-design-icons/ClipboardCheck.tsx](../../Q-Works/components/q-design-icons/ClipboardCheck.tsx) | `ClipboardCheck` (icon, 추론) | product-local |
 | [components/q-design-icons/ClipboardList.tsx](../../Q-Works/components/q-design-icons/ClipboardList.tsx) | `ClipboardList` (icon, 추론) | product-local |
+| [components/q-design-icons/Clock.tsx](../../Q-Works/components/q-design-icons/Clock.tsx) | `Clock` (icon, 추론) | product-local |
+| [components/q-design-icons/Coins.tsx](../../Q-Works/components/q-design-icons/Coins.tsx) | `Coins` (icon, 추론) | product-local |
 | [components/q-design-icons/Compass.tsx](../../Q-Works/components/q-design-icons/Compass.tsx) | `Compass` (icon, 추론) | product-local |
 | [components/q-design-icons/Copy.tsx](../../Q-Works/components/q-design-icons/Copy.tsx) | `Copy` (icon, 추론) | product-local |
 | [components/q-design-icons/CornerDownLeft.tsx](../../Q-Works/components/q-design-icons/CornerDownLeft.tsx) | `CornerDownLeft` (icon, 추론) | product-local |
@@ -1707,6 +1712,7 @@
 | [components/q-design-icons/FileSpreadsheet.tsx](../../Q-Works/components/q-design-icons/FileSpreadsheet.tsx) | `FileSpreadsheet` (icon, 추론) | product-local |
 | [components/q-design-icons/FileText.tsx](../../Q-Works/components/q-design-icons/FileText.tsx) | `FileText` (icon, 추론) | product-local |
 | [components/q-design-icons/FileUp.tsx](../../Q-Works/components/q-design-icons/FileUp.tsx) | `FileUp` (icon, 추론) | product-local |
+| [components/q-design-icons/FileWarning.tsx](../../Q-Works/components/q-design-icons/FileWarning.tsx) | `FileWarning` (icon, 추론) | product-local |
 | [components/q-design-icons/Files.tsx](../../Q-Works/components/q-design-icons/Files.tsx) | `Files` (icon, 추론) | product-local |
 | [components/q-design-icons/Fingerprint.tsx](../../Q-Works/components/q-design-icons/Fingerprint.tsx) | `Fingerprint` (icon, 추론) | product-local |
 | [components/q-design-icons/FlaskConical.tsx](../../Q-Works/components/q-design-icons/FlaskConical.tsx) | `FlaskConical` (icon, 추론) | product-local |
@@ -1760,6 +1766,8 @@
 | [components/q-design-icons/PlayCircle.tsx](../../Q-Works/components/q-design-icons/PlayCircle.tsx) | `PlayCircle` (icon, 추론) | product-local |
 | [components/q-design-icons/Plus.tsx](../../Q-Works/components/q-design-icons/Plus.tsx) | `Plus` (icon, 추론) | product-local |
 | [components/q-design-icons/Printer.tsx](../../Q-Works/components/q-design-icons/Printer.tsx) | `Printer` (icon, 추론) | product-local |
+| [components/q-design-icons/RefreshCw.tsx](../../Q-Works/components/q-design-icons/RefreshCw.tsx) | `RefreshCw` (icon, 추론) | product-local |
+| [components/q-design-icons/Repeat.tsx](../../Q-Works/components/q-design-icons/Repeat.tsx) | `Repeat` (icon, 추론) | product-local |
 | [components/q-design-icons/Rocket.tsx](../../Q-Works/components/q-design-icons/Rocket.tsx) | `Rocket` (icon, 추론) | product-local |
 | [components/q-design-icons/RotateCcw.tsx](../../Q-Works/components/q-design-icons/RotateCcw.tsx) | `RotateCcw` (icon, 추론) | product-local |
 | [components/q-design-icons/Ruler.tsx](../../Q-Works/components/q-design-icons/Ruler.tsx) | `Ruler` (icon, 추론) | product-local |

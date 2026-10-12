@@ -34483,13 +34483,13 @@
       "repo": "Q-Works",
       "syncKey": "Q-Works",
       "summary": {
-        "modules": 1151,
-        "components": 1434,
-        "iconModules": 156,
+        "modules": 1159,
+        "components": 1442,
+        "iconModules": 164,
         "roleMappedComponents": 98,
         "canonicalCopies": 22,
         "qdClassModules": 474,
-        "productLocalModules": 592
+        "productLocalModules": 600
       },
       "publicCoverage": {
         "failures": [],
@@ -39626,6 +39626,9 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/contracts/[id]/link-supplier.tsx",
+            "components/q-design-icons/ClipboardCheck.tsx",
+            "components/q-design-icons/FileCheck2.tsx",
+            "components/q-design-icons/Plus.tsx",
             "components/shared/linked-doc-card.tsx",
             "components/ui/button.tsx",
             "lib/auth/session.ts",
@@ -40223,10 +40226,12 @@
             "app/(app)/dashboard/calendar-actions.ts",
             "app/(app)/dashboard/calendar-hover-card.tsx",
             "components/q-design-icons/CalendarDays.tsx",
+            "components/q-design-icons/CalendarMinus.tsx",
             "components/q-design-icons/CalendarPlus.tsx",
             "components/q-design-icons/Loader2.tsx",
             "components/q-design-icons/Lock.tsx",
             "components/q-design-icons/MapPin.tsx",
+            "components/q-design-icons/Repeat.tsx",
             "components/shared/badge.tsx",
             "components/shared/check-chip.tsx",
             "components/shared/choice-boxes.tsx",
@@ -46958,6 +46963,11 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/inspections/approval-actions.ts",
+            "components/q-design-icons/Check.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Send.tsx",
+            "components/q-design-icons/Undo2.tsx",
+            "components/q-design-icons/X.tsx",
             "components/ui/button.tsx",
             "components/ui/textarea.tsx",
             "lib/inspections/approval-rules.ts"
@@ -47199,6 +47209,7 @@
             "components/print/print-styles.tsx",
             "components/print/sheet-pagination.tsx",
             "components/print/signature-mark.tsx",
+            "components/q-design-icons/ArrowLeft.tsx",
             "lib/design/q-design-print.ts",
             "lib/inspections/iso2859.ts",
             "lib/inspections/record-sheet.ts"
@@ -47915,6 +47926,8 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/inspections/receipt-actions.ts",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/PackagePlus.tsx",
             "components/shared/delete-with-reason-dialog.tsx",
             "components/shared/form-dialog.tsx",
             "components/ui/button.tsx",
@@ -50800,6 +50813,9 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/nc/actions.ts",
+            "components/q-design-icons/GitBranch.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Wrench.tsx",
             "components/ui/button.tsx"
           ],
           "reachable": true,
@@ -50972,6 +50988,8 @@
             "app/(app)/nc/report-form.tsx",
             "components/approvals/approval-line-picker.tsx",
             "components/documents/form-actions.tsx",
+            "components/q-design-icons/ArrowLeft.tsx",
+            "components/q-design-icons/FileText.tsx",
             "components/shared/approval-header.tsx",
             "components/shared/empty-state.tsx",
             "components/shared/page-head.tsx",
@@ -51049,6 +51067,11 @@
             "app/(app)/nc/occurrence-actions.ts",
             "app/(app)/nc/report-actions.ts",
             "components/approvals/review-opinion-fields.tsx",
+            "components/q-design-icons/Check.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Send.tsx",
+            "components/q-design-icons/Undo2.tsx",
+            "components/q-design-icons/X.tsx",
             "components/shared/choice-boxes.tsx",
             "components/ui/button.tsx",
             "components/ui/field.tsx",
@@ -51103,6 +51126,9 @@
           "nativeControls": [],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/FileCheck2.tsx",
+            "components/q-design-icons/FileText.tsx",
+            "components/q-design-icons/Plus.tsx",
             "components/shared/linked-doc-card.tsx",
             "components/ui/button.tsx",
             "lib/nc/approval-rules.ts",
@@ -51240,6 +51266,8 @@
             "app/(app)/nc/actions.ts",
             "components/attachments/pending-sheet-files.ts",
             "components/attachments/sheet-attachments.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Save.tsx",
             "components/shared/choice-boxes.tsx",
             "components/shared/unsaved-guard.tsx",
             "components/ui/button.tsx",
@@ -51345,6 +51373,8 @@
           "imports": [
             "app/(app)/nc/report-actions.ts",
             "components/attachments/sheet-attachments.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Save.tsx",
             "components/shared/choice-boxes.tsx",
             "components/shared/unsaved-guard.tsx",
             "components/ui/button.tsx",
@@ -51754,6 +51784,7 @@
           ],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/Smartphone.tsx",
             "components/ui/button.tsx",
             "lib/app-shell/bridge.ts",
             "lib/push/actions.ts"
@@ -52660,6 +52691,8 @@
           ],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/Plus.tsx",
+            "components/q-design-icons/Trash2.tsx",
             "components/ui/button.tsx",
             "components/ui/checkbox.tsx",
             "components/ui/combobox.tsx",
@@ -53362,6 +53395,11 @@
           ],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/CalendarCheck.tsx",
+            "components/q-design-icons/Gauge.tsx",
+            "components/q-design-icons/PackageCheck.tsx",
+            "components/q-design-icons/ShoppingCart.tsx",
+            "components/q-design-icons/Truck.tsx",
             "components/shared/badge.tsx",
             "components/shared/empty-state.tsx",
             "components/shared/list-filter-select.tsx",
@@ -53403,6 +53441,7 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/official-doc-row-actions.tsx",
+            "components/q-design-icons/FileText.tsx",
             "components/shared/empty-state.tsx",
             "components/shared/list-filter-select.tsx",
             "components/shared/list-search.tsx",
@@ -53465,6 +53504,8 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/official-doc-actions.ts",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Plus.tsx",
             "components/shared/choice-boxes.tsx",
             "components/shared/form-dialog.tsx",
             "components/ui/button.tsx",
@@ -53504,6 +53545,9 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/official-doc-actions.ts",
+            "components/q-design-icons/Download.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Upload.tsx",
             "components/shared/delete-with-reason-dialog.tsx",
             "lib/documents/download-file.ts",
             "lib/purchasing/upload-quote.ts",
@@ -53581,6 +53625,8 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/savings-actions.ts",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Plus.tsx",
             "components/shared/form-dialog.tsx",
             "components/ui/button.tsx",
             "components/ui/combobox.tsx",
@@ -53615,6 +53661,8 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/savings-actions.ts",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Pencil.tsx",
             "components/shared/delete-with-reason-dialog.tsx",
             "components/shared/form-dialog.tsx",
             "components/ui/button.tsx",
@@ -53653,6 +53701,10 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/analysis/saving-row-actions.tsx",
+            "components/q-design-icons/BadgePercent.tsx",
+            "components/q-design-icons/Coins.tsx",
+            "components/q-design-icons/PackagePlus.tsx",
+            "components/q-design-icons/TrendingUp.tsx",
             "components/shared/empty-state.tsx",
             "components/shared/list-filter-select.tsx",
             "components/shared/pagination.tsx",
@@ -53845,6 +53897,8 @@
           "imports": [
             "app/(app)/purchasing/orders/order-linked-docs.tsx",
             "components/attachments/sheet-attachments.tsx",
+            "components/q-design-icons/ArrowLeft.tsx",
+            "components/q-design-icons/FileWarning.tsx",
             "components/shared/page-head.tsx",
             "lib/attachments/sheet-kinds.ts",
             "lib/auth/session.ts",
@@ -54213,6 +54267,9 @@
           "nativeControls": [],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/ClipboardCheck.tsx",
+            "components/q-design-icons/FileSignature.tsx",
+            "components/q-design-icons/Truck.tsx",
             "components/shared/linked-doc-card.tsx",
             "lib/attachments/load.ts",
             "lib/purchasing/order-rules.ts",
@@ -54246,6 +54303,7 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/purchasing/orders/order-item-code-cell.tsx",
+            "components/q-design-icons/PackageCheck.tsx",
             "components/shared/badge.tsx",
             "lib/inspections/queues.ts",
             "lib/purchasing/item-codes.ts",
@@ -59047,6 +59105,11 @@
           "inlineStyles": 0,
           "imports": [
             "app/(app)/safety/incidents/incident-approval-actions.ts",
+            "components/q-design-icons/Check.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Send.tsx",
+            "components/q-design-icons/Undo2.tsx",
+            "components/q-design-icons/X.tsx",
             "components/shared/step-progress.tsx",
             "components/ui/button.tsx",
             "components/ui/textarea.tsx",
@@ -67374,6 +67437,10 @@
           ],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/Download.tsx",
+            "components/q-design-icons/Loader2.tsx",
+            "components/q-design-icons/Trash2.tsx",
+            "components/q-design-icons/Upload.tsx",
             "components/ui/button.tsx",
             "lib/inbound/compress-image.ts"
           ],
@@ -69298,6 +69365,31 @@
           "reviewScope": "generated-icon"
         },
         {
+          "path": "components/q-design-icons/BadgePercent.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "BadgePercent",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
           "path": "components/q-design-icons/BarChart3.tsx",
           "kind": "generated-icon",
           "components": [
@@ -69548,11 +69640,61 @@
           "reviewScope": "generated-icon"
         },
         {
+          "path": "components/q-design-icons/CalendarCheck.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "CalendarCheck",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
           "path": "components/q-design-icons/CalendarDays.tsx",
           "kind": "generated-icon",
           "components": [
             {
               "name": "CalendarDays",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/CalendarMinus.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "CalendarMinus",
               "family": "icon",
               "kind": "component",
               "exported": true,
@@ -69928,6 +70070,56 @@
           "components": [
             {
               "name": "ClipboardList",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/Clock.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "Clock",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/Coins.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "Coins",
               "family": "icon",
               "kind": "component",
               "exported": true,
@@ -70403,6 +70595,31 @@
           "components": [
             {
               "name": "FileUp",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/FileWarning.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "FileWarning",
               "family": "icon",
               "kind": "component",
               "exported": true,
@@ -71728,6 +71945,56 @@
           "components": [
             {
               "name": "Printer",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/RefreshCw.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "RefreshCw",
+              "family": "icon",
+              "kind": "component",
+              "exported": true,
+              "roles": []
+            }
+          ],
+          "classes": [],
+          "tokens": [],
+          "nativeControls": [],
+          "inlineStyles": 0,
+          "imports": [
+            "components/q-design-icons/_icon.tsx"
+          ],
+          "reachable": true,
+          "ruleAssignment": "name-and-path-inference",
+          "owner": "product",
+          "evidence": "product-local",
+          "reviewScope": "generated-icon"
+        },
+        {
+          "path": "components/q-design-icons/Repeat.tsx",
+          "kind": "generated-icon",
+          "components": [
+            {
+              "name": "Repeat",
               "family": "icon",
               "kind": "component",
               "exported": true,
@@ -74472,6 +74739,7 @@
           "nativeControls": [],
           "inlineStyles": 2,
           "imports": [
+            "components/q-design-icons/RefreshCw.tsx",
             "lib/app-shell/pull-to-refresh.ts",
             "lib/utils/cn.ts"
           ],
@@ -75836,6 +76104,7 @@
           ],
           "inlineStyles": 0,
           "imports": [
+            "components/q-design-icons/Clock.tsx",
             "components/ui/field.tsx",
             "lib/ui/choice.ts",
             "lib/utils/cn.ts",

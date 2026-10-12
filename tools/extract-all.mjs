@@ -63,6 +63,7 @@ const STEPS = [
   { name: '공통 모노 글꼴', file: 'build-mono-fonts.mjs', extra: ['--write'], why: '검증한 모노 글꼴 선언과 실제 파일을 세 제품에 함께 내보냅니다' },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
   { name: 'React 업무 아이콘', file: 'build-react-icons.mjs', why: '제품에서 직접 가져올 수 있는 개별 React 모듈을 만듭니다' },
+  { name: '업무 아이콘 연결', file: 'sync-react-icons.mjs', extra: [doSync ? '--write' : '--check', ...only], why: '실제 업무 화면이 가져오는 아이콘 모듈과 공통 구현을 함께 내보내고 대조합니다' },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
   { name: '종이 문서 v8', file: 'extract-mqdoc.mjs', why: 'MedQraft 종이 문서 규격서 v8 에서 뽑고 회사 Word 변환기와 대조' },

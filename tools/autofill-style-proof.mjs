@@ -7,6 +7,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
 import {hash} from './style-arguments-core.mjs';
+import {beforeChoiceGlyphCanonical} from './choice-glyph-revalidation.mjs';
 
 const root='D:/Claude/Q-Design',ref='f8e1463',file='patterns/components.css';
 const postcss=createRequire('D:/Claude/Q-Atelier/package.json')('postcss');
@@ -54,6 +55,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n');
  let after=fs.readFileSync(root+'/'+file,'utf8').replaceAll('\r\n','\n');
  if(process.argv.includes('--apply')){assert.equal(after,before,'Canonical file already changed');after=applyAutofillStyles(before);fs.writeFileSync(root+'/'+file,after);}
+ after=beforeChoiceGlyphCanonical(after);
  verifyAutofillStyles(before,after);
  const target=root+'/reviews/autofill-style-proof.json';
  const prior=fs.existsSync(target)?JSON.parse(fs.readFileSync(target,'utf8')):null;
