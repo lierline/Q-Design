@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
+import {beforeBannerUtilityInventory} from './carnet-banner-foundation.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),repo=path.resolve(root,'../DHR');
 const ref='93ce0ca5cb9f74bcbe6519fb46547be36b4928f1',file='components/toast.tsx';
 const edit={before:'          <span className="flex-1">{n.text}</span>',after:'          <span className="flex-1" style={{ minWidth: \'var(--qd-space-0)\' }}>{n.text}</span>'};
@@ -19,6 +20,6 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  assert.equal(rows[0].replacement,'w-[var(--qd-carnet-screen-w-3e6e4f30)]');
  rows[0].replacement='w-[var(--qd-toast-width)]';rows[0].variable='--qd-toast-width';rows[0].currentBindingProof='reviews/carnet-toast-copy-migration.json';
  const inventoryPath=root+'/source/style-adapters/carnet-utility-values.json';
- if(process.argv.includes('--check'))assert.deepEqual(JSON.parse(fs.readFileSync(inventoryPath,'utf8')),inventory,'Only the exact toast width caller may be rebound');
+ if(process.argv.includes('--check'))assert.deepEqual(beforeBannerUtilityInventory(JSON.parse(fs.readFileSync(inventoryPath,'utf8'))),inventory,'Only the exact toast width caller may be rebound');
  else fs.writeFileSync(inventoryPath,JSON.stringify(inventory,null,2)+'\n');
 }

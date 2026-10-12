@@ -2623,3 +2623,8 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
   --qd-carnet-motion-250: 250ms;
   --qd-carnet-opacity-15: 15%;
 }
+.qd-demo-banner-content { display: flex; flex-wrap: wrap; align-items: center; gap: var(--qd-space-1-5) var(--qd-space-4); max-width: var(--qd-work-max); margin-inline: auto; padding: var(--qd-space-2) var(--qd-space-5); }
+@media (max-width: 640px) {
+  .qd-demo-banner-content { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: var(--qd-space-2); }
+  .qd-demo-banner-content > p { width: 100%; }
+}

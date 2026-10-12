@@ -31,6 +31,9 @@ const steps=[
   ['tools/maison-toast-copy-proof.mjs','--check'],
   ['--test','tools/maison-loading-control-proof.test.mjs'],
   ['tools/maison-loading-control-proof.mjs','--check'],
+  ['--test','tools/maison-back-navigation.test.mjs','tools/mobile-navigation-evidence.test.mjs'],
+  ['tools/maison-back-navigation.mjs','--check'],
+  ['tools/maison-back-navigation-evidence.mjs','--check'],
   ['tools/carnet-toast-copy-proof.mjs','--check'],
   ['tools/toast-layout-proof.mjs','--check'],
   ['--test','tools/toast-layout-proof.test.mjs'],
@@ -109,7 +112,7 @@ const steps=[
   ['tools/maison-style-review.mjs','--check'],
   ['tools/carnet-style-review.mjs','--check'],
 ];
-if(args.includes('--browser'))steps.push(['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs'],['tools/verify-native-file-control.mjs'],['tools/verify-print-phrase.mjs'],['tools/verify-maison-chart-responsive.mjs'],['tools/verify-toast-copy.mjs'],['tools/verify-maison-loading-controls.mjs']);
+if(args.includes('--browser'))steps.push(['tools/verify-mobile-navigation-banner.mjs'],['tools/build-component-workbench.mjs'],['tools/verify-component-workbench.mjs'],['tools/verify-component-parity.mjs'],['tools/verify-extended-parity.mjs'],['tools/verify-design-propagation.mjs'],['tools/verify-foundation-workbench.mjs'],['tools/verify-atelier-choice-contract.mjs'],['tools/verify-native-offline.mjs'],['tools/verify-table-description.mjs'],['tools/verify-print-identifiers.mjs'],['tools/verify-chart-responsive.mjs'],['tools/verify-calendar-layout.mjs'],['tools/verify-native-file-control.mjs'],['tools/verify-print-phrase.mjs'],['tools/verify-maison-chart-responsive.mjs'],['tools/verify-toast-copy.mjs'],['tools/verify-maison-loading-controls.mjs']);
 for(const step of steps){
   console.log(`\nChecking ${step.join(' ')}`);
   const result=spawnSync(process.execPath,step,{cwd:root,stdio:'inherit',windowsHide:true});

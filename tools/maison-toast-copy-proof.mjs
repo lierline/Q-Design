@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {retainToastLayoutEvidence} from './toast-layout-proof.mjs';
 import {retainLoadingControlEvidence} from './maison-loading-control-proof.mjs';
+import {beforeNavigationReport} from './maison-back-navigation-evidence.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),repo=path.resolve(root,'../Q-Works');
 const ref='260975db2ca1548c442876f6ce2243807bb3b361',file='components/ui/sonner.tsx';
@@ -56,7 +57,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  const proof={ref,scope:'Exact default Sonner wrapping, flex minimum and shared safe-area placement bindings. Inert container marker, unstyled mode, existing classes, caller props, timers, dismissal and values are unchanged. Library defaults no longer bypass central copy and width tokens.',records:[{path:file,beforeHash:hash(before),afterHash:hash(after),edits:maisonToastCopyEdits}]};
  const target=root+'/reviews/maison-toast-copy-migration.json',manual=root+'/reviews/maison-style-manual-review.json';
  if(process.argv.includes('--retain'))fs.writeFileSync(manual,JSON.stringify(retainedMaisonToastReview(before,after),null,2)+'\n');
- if(process.argv.includes('--check')){assert.deepEqual(JSON.parse(fs.readFileSync(target,'utf8')),proof);assert.deepEqual(JSON.parse(fs.readFileSync(manual,'utf8')),retainedMaisonToastReview(before,after),'Only the unchanged inert marker may retain evidence');}
+ if(process.argv.includes('--check')){assert.deepEqual(JSON.parse(fs.readFileSync(target,'utf8')),proof);assert.deepEqual(beforeNavigationReport('maison-style-manual-review',JSON.parse(fs.readFileSync(manual,'utf8'))),retainedMaisonToastReview(before,after),'Only the unchanged inert marker may retain evidence');}
  else fs.writeFileSync(target,JSON.stringify(proof,null,2)+'\n');
  console.log('Maison toast copy source and marker proof passed.');
 }

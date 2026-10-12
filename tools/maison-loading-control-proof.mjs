@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
+import {beforeNavigationReport} from './maison-back-navigation-evidence.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),product=path.resolve(root,'../Q-Works'),require=createRequire(product+'/package.json'),ts=require('typescript'),postcss=require('postcss');
 const target='components/shared/page-skeleton.tsx',beforeHash='2b6ef0392988643e52e4570931023c9f0004c4707d50d07919c293a559734a9c',afterHash='44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7';
 const norm=s=>s.replaceAll('\r\n','\n'),read=file=>fs.readFileSync(file,'utf8');
@@ -57,7 +58,7 @@ export function retainLoadingControlEvidence(input,bodies=loadingControlBodies()
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  assert.deepEqual(process.argv.slice(2),['--check']);const bodies=loadingControlBodies();
  for(const [name,count]of [['maison-style-manual-review',18],['maison-style-bindings-review',3]]){
-  const proof=JSON.parse(read(root+'/reviews/'+name+'-loading-revalidation.json')),current=JSON.parse(read(root+'/reviews/'+name+'.json'));
+  const proof=JSON.parse(read(root+'/reviews/'+name+'-loading-revalidation.json')),current=beforeNavigationReport(name,JSON.parse(read(root+'/reviews/'+name+'.json')));
   assert.equal(proof.records.length,count);assert.equal(hash(JSON.stringify(current,null,2)+'\n'),proof.afterReportHash);
   const reconstructed=structuredClone(current);
   for(const item of proof.records){assert.deepEqual(current.records[item.index],item.after);reconstructed.records[item.index]=item.before;}

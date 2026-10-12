@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
+import {beforeBannerFoundation,beforeBannerDist,beforeBannerCopy} from './carnet-banner-foundation.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),ref='cf00e72';
 export const toastLayoutAppendix=`
 /* Shared feedback placement, including safe-area edges on installed apps. */
@@ -40,7 +41,7 @@ export function applyToastLayout(file,source){source=source.replaceAll('\r\n','\
 export function verifyToastLayout(file,before,after){assert.equal(after.replaceAll('\r\n','\n'),applyToastLayout(file,before),'Only exact shared toast placement and legacy calc syntax may change');}
 export function retainToastLayoutEvidence(review){
  const records=files.map(file=>{
-  const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=fs.readFileSync(root+'/'+file,'utf8').replaceAll('\r\n','\n');
+  const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=file===files[1]?beforeBannerFoundation(fs.readFileSync(root+'/'+file,'utf8')):fs.readFileSync(root+'/'+file,'utf8').replaceAll('\r\n','\n');
   verifyToastLayout(file,before,after);return {file,before,after,beforeHash:hash(before),afterHash:hash(after)};
  });
  const visit=node=>{
@@ -52,13 +53,13 @@ export function retainToastLayoutEvidence(review){
  };visit(review);return review;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- const records=files.map(file=>{const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=fs.readFileSync(root+'/'+file,'utf8').replaceAll('\r\n','\n');verifyToastLayout(file,before,after);return {path:file,beforeHash:hash(before),afterHash:hash(after),before,after};});
+ const records=files.map(file=>{const before=execFileSync('git',['show',ref+':'+file],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=file===files[1]?beforeBannerFoundation(fs.readFileSync(root+'/'+file,'utf8')):fs.readFileSync(root+'/'+file,'utf8').replaceAll('\r\n','\n');verifyToastLayout(file,before,after);return {path:file,beforeHash:hash(before),afterHash:hash(after),before,after};});
  const intermediate=records[0].before+toastLayoutAppendix.split("/* Sonner's unlayered defaults")[0];
  records.push({...records[0],before:intermediate,beforeHash:hash(intermediate)});
  const previousShared=records[0].before+toastLayoutAppendix.split('/* Central copy policy also overrides')[0];
  records.push({...records[0],before:previousShared,beforeHash:hash(previousShared)});
  for(const [product,repo,productRef] of [['atelier','Q-Atelier','6b781a8'],['maison','Q-Works','260975d'],['carnet','DHR','93ce0ca']]){
-  const distFile=`dist/q-design.foundation.${product}.css`,before=execFileSync('git',['show',ref+':'+distFile],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=fs.readFileSync(root+'/'+distFile,'utf8').replaceAll('\r\n','\n');
+  const distFile=`dist/q-design.foundation.${product}.css`,before=execFileSync('git',['show',ref+':'+distFile],{cwd:root,encoding:'utf8'}).replaceAll('\r\n','\n'),after=product==='carnet'?beforeBannerDist(fs.readFileSync(root+'/'+distFile,'utf8')):fs.readFileSync(root+'/'+distFile,'utf8').replaceAll('\r\n','\n');
   const oldShared=records[0].before.trimEnd(),newShared=records[0].after.trimEnd();
   assert.equal(before.split(oldShared).length,2);
   let expected=before.replace(oldShared,newShared);
@@ -66,7 +67,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   assert.equal(after,expected,'Generated foundation can only contain the exact canonical delta');
   const insertLine=before.slice(0,before.indexOf(oldShared)+oldShared.length).split('\n').length,addedLines=newShared.split('\n').length-oldShared.split('\n').length;
   records.push({path:distFile,before,after,beforeHash:hash(before),afterHash:hash(after),insertLine,addedLines});
-  const copyFile='app/q-design.foundation.css',copyBefore=execFileSync('git',['show',productRef+':'+copyFile],{cwd:path.resolve(root,'../'+repo),encoding:'utf8'}).replaceAll('\r\n','\n'),copyAfter=fs.readFileSync(path.resolve(root,'../'+repo,copyFile),'utf8').replaceAll('\r\n','\n');
+  const copyFile='app/q-design.foundation.css',copyBefore=execFileSync('git',['show',productRef+':'+copyFile],{cwd:path.resolve(root,'../'+repo),encoding:'utf8'}).replaceAll('\r\n','\n'),copyAfter=product==='carnet'?beforeBannerCopy(fs.readFileSync(path.resolve(root,'../'+repo,copyFile),'utf8')):fs.readFileSync(path.resolve(root,'../'+repo,copyFile),'utf8').replaceAll('\r\n','\n');
   assert(copyBefore.includes(before));assert(copyAfter.includes(after));
   assert.equal(copyAfter,copyBefore.replace(before,after).replace('q-design-nav-sha256: '+hash(before),'q-design-nav-sha256: '+hash(after)),'Product copy must be generated from the verified foundation');
   records.push({path:copyFile,before:copyBefore,after:copyAfter,beforeHash:hash(copyBefore),afterHash:hash(copyAfter),insertLine:insertLine+copyBefore.slice(0,copyBefore.indexOf(before)).split('\n').length-1,addedLines});

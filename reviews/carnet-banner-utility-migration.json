@@ -1,0 +1,16 @@
+{
+  "scope": "One former Tailwind max-width occurrence is now owned by qd-demo-banner-content. Other utility caller records remain unchanged.",
+  "index": 227,
+  "row": {
+    "file": "components/demo-banner.tsx",
+    "line": 71,
+    "original": "max-w-[1400px]",
+    "replacement": "max-w-[var(--qd-work-max)]",
+    "variable": "--qd-work-max",
+    "scope": "screen"
+  },
+  "beforeHash": "eccc9e1c4fa1d5918b97969f1aecaabde0d2e7eee7c8dfc263acea8a81efbbc8",
+  "afterHash": "549d5bdb6343b4de5659822c301036103aa840a630881f39f8806944ff3600c3",
+  "centralOwner": "patterns/foundation/carnet.css",
+  "className": "qd-demo-banner-content"
+}

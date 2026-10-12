@@ -9,7 +9,7 @@
 | 제품 | UI 모듈·스타일 | 컴포넌트 선언 | 생성 아이콘 모듈 | 역할 등록 부품 | 배포 조각 | qd 클래스 참조 모듈 | 공통 연결 근거 없는 모듈 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Q-Atelier | 711 | 1153 | 143 | 87 | 21 | 70 | 623 |
-| Q-Maison | 1107 | 1355 | 156 | 94 | 21 | 367 | 637 |
+| Q-Maison | 1107 | 1355 | 156 | 94 | 21 | 468 | 561 |
 | Q-Carnet | 161 | 272 | 19 | 32 | 15 | 91 | 56 |
 
 선언 수에는 함수, 래퍼, 별칭과 파일 내부 부품이 포함됩니다. 파일별 상세 클래스, CSS 변수, 원시 컨트롤, 인라인 스타일 수, import 경로는 [JSON 목록](../dist/q-design.components.json)에 있습니다.
@@ -753,14 +753,14 @@
 | [app/(app)/audit-simulation/verdict-breakdown.tsx](../../Q-Works/app/(app)/audit-simulation/verdict-breakdown.tsx) | `VerdictBreakdown` (composition, 추론) | qd-class-reference |
 | [app/(app)/audits/[id]/audit-detail-client.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/audit-detail-client.tsx) | `AuditDetailClient` (composition, 추론), `FindingsSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/audits/[id]/checklist/loading.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/checklist/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/audits/[id]/checklist/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/checklist/page.tsx) | `AuditChecklistPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/audits/[id]/checklist/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/checklist/page.tsx) | `AuditChecklistPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/audits/[id]/checklist/print/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/checklist/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
 | [app/(app)/audits/[id]/delete-audit-button.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/delete-audit-button.tsx) | `DeleteAuditButton` (action, 추론) | product-local |
 | [app/(app)/audits/[id]/loading.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/audits/[id]/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/page.tsx) | `AuditDetailPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/audits/[id]/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/page.tsx) | `AuditDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/audits/[id]/print/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
 | [app/(app)/audits/[id]/report/loading.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/report/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/audits/[id]/report/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/report/page.tsx) | `AuditReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/audits/[id]/report/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/report/page.tsx) | `AuditReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/audits/[id]/report/print/page.tsx](../../Q-Works/app/(app)/audits/%5Bid%5D/report/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
 | [app/(app)/audits/approval-ui.tsx](../../Q-Works/app/(app)/audits/approval-ui.tsx) | `AuditApprovalButtons` (composition, 추론), `AuditApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/audits/audit-sheets.tsx](../../Q-Works/app/(app)/audits/audit-sheets.tsx) | `AuditChecklistSheet` (composition, 추론), `AuditPlanSheet` (composition, 추론), `AuditReportSheet` (document, 추론), `ChecklistTable` (data-display, 추론) | imports-canonical-module |
@@ -768,7 +768,7 @@
 | [app/(app)/audits/body-form.tsx](../../Q-Works/app/(app)/audits/body-form.tsx) | `AuditBodyForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/audits/checklist-form.tsx](../../Q-Works/app/(app)/audits/checklist-form.tsx) | `AuditChecklistForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/audits/loading.tsx](../../Q-Works/app/(app)/audits/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/audits/new/page.tsx](../../Q-Works/app/(app)/audits/new/page.tsx) | `NewAuditPage` (screen, 추론) | product-local |
+| [app/(app)/audits/new/page.tsx](../../Q-Works/app/(app)/audits/new/page.tsx) | `NewAuditPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/audits/page.tsx](../../Q-Works/app/(app)/audits/page.tsx) | `AuditsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/audits/sheet-flow.tsx](../../Q-Works/app/(app)/audits/sheet-flow.tsx) | `AuditSheetDeleteButton` (action, 추론), `AuditSheetFlow` (composition, 추론), `makeButton` (action, 추론) | product-local |
 | [app/(app)/audits/sheet-header.tsx](../../Q-Works/app/(app)/audits/sheet-header.tsx) | `AuditSheetApproval` (composition, 추론) | product-local |
@@ -777,14 +777,14 @@
 | [app/(app)/capa/checklist-form.tsx](../../Q-Works/app/(app)/capa/checklist-form.tsx) | `CapaChecklistForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/capa/loading.tsx](../../Q-Works/app/(app)/capa/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/capa/new/loading.tsx](../../Q-Works/app/(app)/capa/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/capa/new/page.tsx](../../Q-Works/app/(app)/capa/new/page.tsx) | `NewCapaPlanPage` (screen, 추론) | product-local |
+| [app/(app)/capa/new/page.tsx](../../Q-Works/app/(app)/capa/new/page.tsx) | `NewCapaPlanPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/capa/page.tsx](../../Q-Works/app/(app)/capa/page.tsx) | `CapaPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/capa/plan-form.tsx](../../Q-Works/app/(app)/capa/plan-form.tsx) | `CapaPlanForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/capa/plans/[id]/checklist/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/checklist/page.tsx) | `CapaChecklistPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/capa/plans/[id]/checklist/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/checklist/page.tsx) | `CapaChecklistPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/capa/plans/[id]/checklist/print/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/checklist/print/page.tsx) | `CapaChecklistPrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/capa/plans/[id]/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/page.tsx) | `CapaPlanDetailPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/capa/plans/[id]/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/page.tsx) | `CapaPlanDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/capa/plans/[id]/print/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/print/page.tsx) | `CapaPlanPrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/capa/plans/[id]/report/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/report/page.tsx) | `CapaReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/capa/plans/[id]/report/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/report/page.tsx) | `CapaReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/capa/plans/[id]/report/print/page.tsx](../../Q-Works/app/(app)/capa/plans/%5Bid%5D/report/print/page.tsx) | `CapaReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/capa/report-form.tsx](../../Q-Works/app/(app)/capa/report-form.tsx) | `CapaReportForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/capa/sheet-flow.tsx](../../Q-Works/app/(app)/capa/sheet-flow.tsx) | `CapaSheetFlow` (composition, 추론), `makeButton` (action, 추론) | product-local |
@@ -799,15 +799,15 @@
 | [app/(app)/change-requests/[id]/cr-detail-client.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/cr-detail-client.tsx) | `CrDetailClient` (composition, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/delete-cr-button.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/delete-cr-button.tsx) | `DeleteCrButton` (action, 추론) | product-local |
 | [app/(app)/change-requests/[id]/examine/examine-form.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/examine/examine-form.tsx) | `ExamineForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/change-requests/[id]/examine/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/examine/page.tsx) | `ChangeExaminePage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/change-requests/[id]/examine/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/examine/page.tsx) | `ChangeExaminePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/examine/print/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/examine/print/page.tsx) | `ChangeExaminePrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/change-requests/[id]/form-section.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/form-section.tsx) | `FormSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/form-tables.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/form-tables.tsx) | `RowsTable` (data-display, 추론), `YesNoTable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/loading.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/change-requests/[id]/next-sheets.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/next-sheets.tsx) | `NextSheets` (composition, 추론), `SheetCard` (composition, 추론) | qd-class-reference |
-| [app/(app)/change-requests/[id]/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/page.tsx) | `CrDetailPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/change-requests/[id]/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/page.tsx) | `CrDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/print/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/print/page.tsx) | `ChangeRequestPrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/change-requests/[id]/report/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/report/page.tsx) | `ChangeReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/change-requests/[id]/report/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/report/page.tsx) | `ChangeReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/change-requests/[id]/report/print/page.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/report/print/page.tsx) | `ChangeReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/change-requests/[id]/report/report-form.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/report/report-form.tsx) | `ReportForm` (composition, 추론), `textRows` (composition, 추론) | product-local |
 | [app/(app)/change-requests/[id]/request-form-card.tsx](../../Q-Works/app/(app)/change-requests/%5Bid%5D/request-form-card.tsx) | `CrRequestFormCard` (composition, 추론), `Section` (layout, 추론) | qd-class-reference |
@@ -817,7 +817,7 @@
 | [app/(app)/change-requests/loading.tsx](../../Q-Works/app/(app)/change-requests/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/change-requests/new/loading.tsx](../../Q-Works/app/(app)/change-requests/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/change-requests/new/new-cr-form.tsx](../../Q-Works/app/(app)/change-requests/new/new-cr-form.tsx) | `NewCrForm` (composition, 추론), `Section` (layout, 추론) | qd-class-reference |
-| [app/(app)/change-requests/new/page.tsx](../../Q-Works/app/(app)/change-requests/new/page.tsx) | `NewCrPage` (screen, 추론) | product-local |
+| [app/(app)/change-requests/new/page.tsx](../../Q-Works/app/(app)/change-requests/new/page.tsx) | `NewCrPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/change-requests/page.tsx](../../Q-Works/app/(app)/change-requests/page.tsx) | `ChangeRequestsPage` (screen, 추론) | product-local |
 | [app/(app)/change-requests/sheets-section.tsx](../../Q-Works/app/(app)/change-requests/sheets-section.tsx) | `ChangeSheetsSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/complaints/[id]/approval-flow.tsx](../../Q-Works/app/(app)/complaints/%5Bid%5D/approval-flow.tsx) | `ComplaintApprovalFlow` (composition, 추론) | qd-class-reference |
@@ -832,14 +832,14 @@
 | [app/(app)/complaints/complaint-report-form.tsx](../../Q-Works/app/(app)/complaints/complaint-report-form.tsx) | `CheckChip` (composition, 추론), `CheckGroup` (composition, 추론), `ComplaintReportForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/complaints/loading.tsx](../../Q-Works/app/(app)/complaints/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/complaints/new/loading.tsx](../../Q-Works/app/(app)/complaints/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/complaints/new/page.tsx](../../Q-Works/app/(app)/complaints/new/page.tsx) | `NewComplaintPage` (screen, 추론) | product-local |
+| [app/(app)/complaints/new/page.tsx](../../Q-Works/app/(app)/complaints/new/page.tsx) | `NewComplaintPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/complaints/page.tsx](../../Q-Works/app/(app)/complaints/page.tsx) | `ComplaintsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/concessions/[id]/loading.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/concessions/[id]/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/page.tsx) | `ConcessionRequestPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/concessions/[id]/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/page.tsx) | `ConcessionRequestPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/concessions/[id]/print/loading.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/concessions/[id]/print/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/print/page.tsx) | `ConcessionRequestPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/concessions/[id]/report/loading.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/report/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/concessions/[id]/report/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/report/page.tsx) | `ConcessionReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/concessions/[id]/report/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/report/page.tsx) | `ConcessionReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/concessions/[id]/report/print/loading.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/report/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/concessions/[id]/report/print/page.tsx](../../Q-Works/app/(app)/concessions/%5Bid%5D/report/print/page.tsx) | `ConcessionReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/concessions/approval-ui.tsx](../../Q-Works/app/(app)/concessions/approval-ui.tsx) | `ConcessionApprovalActions` (action, 추론), `ConcessionApprovalFlow` (composition, 추론) | qd-class-reference |
@@ -859,7 +859,7 @@
 | [app/(app)/contracts/[id]/decide-panel.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/decide-panel.tsx) | `ContractDecidePanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/contracts/[id]/delete-contract-button.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/delete-contract-button.tsx) | `DeleteContractButton` (action, 추론) | product-local |
 | [app/(app)/contracts/[id]/edit/loading.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/contracts/[id]/edit/page.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/edit/page.tsx) | `EditContractReviewPage` (screen, 추론) | product-local |
+| [app/(app)/contracts/[id]/edit/page.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/edit/page.tsx) | `EditContractReviewPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/contracts/[id]/link-supplier.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/link-supplier.tsx) | `LinkSupplierPanel` (composition, 추론) | product-local |
 | [app/(app)/contracts/[id]/loading.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/contracts/[id]/page.tsx](../../Q-Works/app/(app)/contracts/%5Bid%5D/page.tsx) | `Block` (composition, 추론), `ContractReviewDetailPage` (screen, 추론) | qd-class-reference |
@@ -871,18 +871,18 @@
 | [app/(app)/contracts/contract-sheet.tsx](../../Q-Works/app/(app)/contracts/contract-sheet.tsx) | `ContractSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/contracts/loading.tsx](../../Q-Works/app/(app)/contracts/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/contracts/new/loading.tsx](../../Q-Works/app/(app)/contracts/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/contracts/new/page.tsx](../../Q-Works/app/(app)/contracts/new/page.tsx) | `NewContractReviewPage` (screen, 추론) | product-local |
+| [app/(app)/contracts/new/page.tsx](../../Q-Works/app/(app)/contracts/new/page.tsx) | `NewContractReviewPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/contracts/page.tsx](../../Q-Works/app/(app)/contracts/page.tsx) | `ContractsPage` (screen, 추론) | product-local |
 | [app/(app)/contracts/reviews-section.tsx](../../Q-Works/app/(app)/contracts/reviews-section.tsx) | `ContractReviewsSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/customer/loading.tsx](../../Q-Works/app/(app)/customer/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/customer/page.tsx](../../Q-Works/app/(app)/customer/page.tsx) | `CustomerPage` (screen, 추론) | product-local |
 | [app/(app)/customer/surveys/[id]/edit/loading.tsx](../../Q-Works/app/(app)/customer/surveys/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/customer/surveys/[id]/edit/page.tsx](../../Q-Works/app/(app)/customer/surveys/%5Bid%5D/edit/page.tsx) | `EditSurveyPage` (screen, 추론) | product-local |
+| [app/(app)/customer/surveys/[id]/edit/page.tsx](../../Q-Works/app/(app)/customer/surveys/%5Bid%5D/edit/page.tsx) | `EditSurveyPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/customer/surveys/[id]/loading.tsx](../../Q-Works/app/(app)/customer/surveys/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/customer/surveys/[id]/page.tsx](../../Q-Works/app/(app)/customer/surveys/%5Bid%5D/page.tsx) | `SurveyDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/customer/surveys/new/loading.tsx](../../Q-Works/app/(app)/customer/surveys/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/customer/surveys/new/new-survey-form.tsx](../../Q-Works/app/(app)/customer/surveys/new/new-survey-form.tsx) | `NewSurveyForm` (composition, 추론) | product-local |
-| [app/(app)/customer/surveys/new/page.tsx](../../Q-Works/app/(app)/customer/surveys/new/page.tsx) | `NewSurveyPage` (screen, 추론) | product-local |
+| [app/(app)/customer/surveys/new/page.tsx](../../Q-Works/app/(app)/customer/surveys/new/page.tsx) | `NewSurveyPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/dashboard/calendar-event-dialog.tsx](../../Q-Works/app/(app)/dashboard/calendar-event-dialog.tsx) | `DetailContent` (composition, 추론), `EventForm` (composition, 추론), `EventPill` (composition, 추론), `NewEventButton` (action, 추론) | product-local |
 | [app/(app)/dashboard/calendar-hover-card.tsx](../../Q-Works/app/(app)/dashboard/calendar-hover-card.tsx) | `CalendarHoverCard` (composition, 추론) | product-local |
 | [app/(app)/dashboard/day-dialog.tsx](../../Q-Works/app/(app)/dashboard/day-dialog.tsx) | `DayDialog` (overlay, 추론), `EventRow` (data-display, 추론) | qd-class-reference |
@@ -903,17 +903,17 @@
 | [app/(app)/design/changes/change-form.tsx](../../Q-Works/app/(app)/design/changes/change-form.tsx) | `DesignChangeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/design/changes/changes-section.tsx](../../Q-Works/app/(app)/design/changes/changes-section.tsx) | `DesignChangesSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/design/changes/loading.tsx](../../Q-Works/app/(app)/design/changes/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/design/changes/new/page.tsx](../../Q-Works/app/(app)/design/changes/new/page.tsx) | `NewDesignChangePage` (screen, 추론) | product-local |
-| [app/(app)/design/changes/page.tsx](../../Q-Works/app/(app)/design/changes/page.tsx) | `DesignChangesPage` (screen, 추론) | product-local |
+| [app/(app)/design/changes/new/page.tsx](../../Q-Works/app/(app)/design/changes/new/page.tsx) | `NewDesignChangePage` (screen, 추론) | qd-class-reference |
+| [app/(app)/design/changes/page.tsx](../../Q-Works/app/(app)/design/changes/page.tsx) | `DesignChangesPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/design/loading.tsx](../../Q-Works/app/(app)/design/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/design/new/loading.tsx](../../Q-Works/app/(app)/design/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/design/new/page.tsx](../../Q-Works/app/(app)/design/new/page.tsx) | `NewDesignProjectPage` (screen, 추론) | product-local |
+| [app/(app)/design/new/page.tsx](../../Q-Works/app/(app)/design/new/page.tsx) | `NewDesignProjectPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/design/page.tsx](../../Q-Works/app/(app)/design/page.tsx) | `DesignPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/design/programs/[id]/delete-program-button.tsx](../../Q-Works/app/(app)/design/programs/%5Bid%5D/delete-program-button.tsx) | `DeleteProgramButton` (action, 추론) | product-local |
-| [app/(app)/design/programs/[id]/edit/page.tsx](../../Q-Works/app/(app)/design/programs/%5Bid%5D/edit/page.tsx) | `EditRndProgramPage` (screen, 추론) | product-local |
+| [app/(app)/design/programs/[id]/edit/page.tsx](../../Q-Works/app/(app)/design/programs/%5Bid%5D/edit/page.tsx) | `EditRndProgramPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/design/programs/[id]/page.tsx](../../Q-Works/app/(app)/design/programs/%5Bid%5D/page.tsx) | `Line` (composition, 추론), `RndProgramDetailPage` (screen, 추론) | qd-class-reference |
-| [app/(app)/design/programs/new/page.tsx](../../Q-Works/app/(app)/design/programs/new/page.tsx) | `NewRndProgramPage` (screen, 추론) | product-local |
-| [app/(app)/design/programs/page.tsx](../../Q-Works/app/(app)/design/programs/page.tsx) | `RndProgramsPage` (screen, 추론) | product-local |
+| [app/(app)/design/programs/new/page.tsx](../../Q-Works/app/(app)/design/programs/new/page.tsx) | `NewRndProgramPage` (screen, 추론) | qd-class-reference |
+| [app/(app)/design/programs/page.tsx](../../Q-Works/app/(app)/design/programs/page.tsx) | `RndProgramsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/design/programs/program-form.tsx](../../Q-Works/app/(app)/design/programs/program-form.tsx) | `RndProgramForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/design/programs/programs-section.tsx](../../Q-Works/app/(app)/design/programs/programs-section.tsx) | `RndProgramsSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/design/proposal-approval.tsx](../../Q-Works/app/(app)/design/proposal-approval.tsx) | `DesignProposalApproval` (composition, 추론) | product-local |
@@ -931,7 +931,7 @@
 | [app/(app)/document-dispatch/ledger-panel.tsx](../../Q-Works/app/(app)/document-dispatch/ledger-panel.tsx) | `DispatchLedgerPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/document-dispatch/loading.tsx](../../Q-Works/app/(app)/document-dispatch/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/document-dispatch/new/loading.tsx](../../Q-Works/app/(app)/document-dispatch/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/document-dispatch/new/page.tsx](../../Q-Works/app/(app)/document-dispatch/new/page.tsx) | `NewDispatchRequestPage` (screen, 추론) | product-local |
+| [app/(app)/document-dispatch/new/page.tsx](../../Q-Works/app/(app)/document-dispatch/new/page.tsx) | `NewDispatchRequestPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/document-dispatch/page.tsx](../../Q-Works/app/(app)/document-dispatch/page.tsx) | `DocumentDispatchPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/document-dispatch/report-form.tsx](../../Q-Works/app/(app)/document-dispatch/report-form.tsx) | `DispatchReportForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/document-dispatch/request-form.tsx](../../Q-Works/app/(app)/document-dispatch/request-form.tsx) | `DispatchRequestForm` (composition, 추론) | qd-class-reference |
@@ -954,31 +954,31 @@
 | [app/(app)/documents/[id]/relationships-panel.tsx](../../Q-Works/app/(app)/documents/%5Bid%5D/relationships-panel.tsx) | `RelationsBlock` (composition, 추론), `RelationshipsPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/[id]/dispose-button.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/dispose-button.tsx) | `DisposeButton` (action, 추론) | product-local |
 | [app/(app)/documents/distribution/[id]/loading.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/documents/distribution/[id]/page.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/page.tsx) | `Line` (composition, 추론), `TransferDetailPage` (screen, 추론) | product-local |
+| [app/(app)/documents/distribution/[id]/page.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/page.tsx) | `Line` (composition, 추론), `TransferDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/[id]/status-panel.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/status-panel.tsx) | `TransferStatusPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/[id]/transfer-edit-form.tsx](../../Q-Works/app/(app)/documents/distribution/%5Bid%5D/transfer-edit-form.tsx) | `TransferEditForm` (composition, 추론) | product-local |
 | [app/(app)/documents/distribution/disposal-form.tsx](../../Q-Works/app/(app)/documents/distribution/disposal-form.tsx) | `DisposalForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/disposals/[id]/disposal-edit-form.tsx](../../Q-Works/app/(app)/documents/distribution/disposals/%5Bid%5D/disposal-edit-form.tsx) | `DisposalEditForm` (composition, 추론) | product-local |
 | [app/(app)/documents/distribution/disposals/[id]/loading.tsx](../../Q-Works/app/(app)/documents/distribution/disposals/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/documents/distribution/disposals/[id]/page.tsx](../../Q-Works/app/(app)/documents/distribution/disposals/%5Bid%5D/page.tsx) | `DisposalDetailPage` (screen, 추론), `Line` (composition, 추론) | product-local |
+| [app/(app)/documents/distribution/disposals/[id]/page.tsx](../../Q-Works/app/(app)/documents/distribution/disposals/%5Bid%5D/page.tsx) | `DisposalDetailPage` (screen, 추론), `Line` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/disposals/[id]/revoke-button.tsx](../../Q-Works/app/(app)/documents/distribution/disposals/%5Bid%5D/revoke-button.tsx) | `RevokeDisposalButton` (action, 추론) | product-local |
 | [app/(app)/documents/distribution/import/import-panel.tsx](../../Q-Works/app/(app)/documents/distribution/import/import-panel.tsx) | `TransferImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/import/loading.tsx](../../Q-Works/app/(app)/documents/distribution/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/documents/distribution/import/page.tsx](../../Q-Works/app/(app)/documents/distribution/import/page.tsx) | `TransferImportPage` (screen, 추론) | product-local |
+| [app/(app)/documents/distribution/import/page.tsx](../../Q-Works/app/(app)/documents/distribution/import/page.tsx) | `TransferImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/page.tsx](../../Q-Works/app/(app)/documents/distribution/page.tsx) | `DistributionPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/distribution/transfer-form.tsx](../../Q-Works/app/(app)/documents/distribution/transfer-form.tsx) | `TransferForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/documents-list.tsx](../../Q-Works/app/(app)/documents/documents-list.tsx) | `DocumentsList` (data-display, 추론) | qd-class-reference |
 | [app/(app)/documents/external/[id]/attachments-panel.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/attachments-panel.tsx) | `ExternalDocAttachmentsPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/external/[id]/delete-external-doc-button.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/delete-external-doc-button.tsx) | `DeleteExternalDocButton` (action, 추론) | product-local |
 | [app/(app)/documents/external/[id]/edit/loading.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/documents/external/[id]/edit/page.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/edit/page.tsx) | `EditExternalDocPage` (screen, 추론) | product-local |
+| [app/(app)/documents/external/[id]/edit/page.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/edit/page.tsx) | `EditExternalDocPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/external/[id]/loading.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/documents/external/[id]/page.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/page.tsx) | `ExternalDocDetailPage` (screen, 추론), `Field` (field, 추론) | qd-class-reference |
 | [app/(app)/documents/external/[id]/review-history.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/review-history.tsx) | `ExternalReviewHistory` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/external/[id]/review-panel.tsx](../../Q-Works/app/(app)/documents/external/%5Bid%5D/review-panel.tsx) | `ExternalReviewPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/external/external-form.tsx](../../Q-Works/app/(app)/documents/external/external-form.tsx) | `ExternalDocForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/documents/external/new/loading.tsx](../../Q-Works/app/(app)/documents/external/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/documents/external/new/page.tsx](../../Q-Works/app/(app)/documents/external/new/page.tsx) | `NewExternalDocPage` (screen, 추론) | product-local |
+| [app/(app)/documents/external/new/page.tsx](../../Q-Works/app/(app)/documents/external/new/page.tsx) | `NewExternalDocPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/external/page.tsx](../../Q-Works/app/(app)/documents/external/page.tsx) | `ExternalDocsPage` (screen, 추론), `Sortable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/documents/forms/page.tsx](../../Q-Works/app/(app)/documents/forms/page.tsx) | `FormRow` (data-display, 추론), `FormsLibraryPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/documents/loading.tsx](../../Q-Works/app/(app)/documents/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -995,30 +995,30 @@
 | [app/(app)/drawings/[id]/drawing-approval.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/drawing-approval.tsx) | `DrawingApprovalActions` (action, 추론), `DrawingApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/drawings/[id]/drawing-attachments.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/drawing-attachments.tsx) | `AttachmentBox` (composition, 추론), `DrawingAttachments` (composition, 추론) | qd-class-reference |
 | [app/(app)/drawings/[id]/drawing-panel.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/drawing-panel.tsx) | `DrawingPanel` (composition, 추론) | qd-class-reference |
-| [app/(app)/drawings/[id]/edit/page.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/edit/page.tsx) | `EditDrawingPage` (screen, 추론) | product-local |
+| [app/(app)/drawings/[id]/edit/page.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/edit/page.tsx) | `EditDrawingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/drawings/[id]/loading.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/drawings/[id]/page.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/page.tsx) | `DrawingDetailPage` (screen, 추론), `Field` (field, 추론) | qd-class-reference |
 | [app/(app)/drawings/[id]/print/page.tsx](../../Q-Works/app/(app)/drawings/%5Bid%5D/print/page.tsx) | `DrawingPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/drawings/drawing-form.tsx](../../Q-Works/app/(app)/drawings/drawing-form.tsx) | `DrawingForm` (composition, 추론), `PickBox` (composition, 추론) | qd-class-reference |
 | [app/(app)/drawings/drawing-sheet.tsx](../../Q-Works/app/(app)/drawings/drawing-sheet.tsx) | `DrawingSheet` (document, 추론), `Sign` (document, 추론) | imports-canonical-module |
 | [app/(app)/drawings/loading.tsx](../../Q-Works/app/(app)/drawings/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/drawings/new/page.tsx](../../Q-Works/app/(app)/drawings/new/page.tsx) | `NewDrawingPage` (screen, 추론) | product-local |
+| [app/(app)/drawings/new/page.tsx](../../Q-Works/app/(app)/drawings/new/page.tsx) | `NewDrawingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/drawings/page.tsx](../../Q-Works/app/(app)/drawings/page.tsx) | `DrawingsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/drawings/release-register.tsx](../../Q-Works/app/(app)/drawings/release-register.tsx) | `loadDrawingReleaseRegister` (composition, 추론), `sign` (composition, 추론) | qd-class-reference |
 | [app/(app)/environmental/aspects/new/new-aspect-form.tsx](../../Q-Works/app/(app)/environmental/aspects/new/new-aspect-form.tsx) | `NewAspectForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/environmental/aspects/new/page.tsx](../../Q-Works/app/(app)/environmental/aspects/new/page.tsx) | `NewAspectPage` (screen, 추론) | product-local |
+| [app/(app)/environmental/aspects/new/page.tsx](../../Q-Works/app/(app)/environmental/aspects/new/page.tsx) | `NewAspectPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/environmental/legal/new/new-legal-form.tsx](../../Q-Works/app/(app)/environmental/legal/new/new-legal-form.tsx) | `NewLegalForm` (composition, 추론) | product-local |
-| [app/(app)/environmental/legal/new/page.tsx](../../Q-Works/app/(app)/environmental/legal/new/page.tsx) | `NewLegalPage` (screen, 추론) | product-local |
+| [app/(app)/environmental/legal/new/page.tsx](../../Q-Works/app/(app)/environmental/legal/new/page.tsx) | `NewLegalPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/environmental/page.tsx](../../Q-Works/app/(app)/environmental/page.tsx) | `EnvironmentalPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/equipment/[id]/calibration-panel.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/calibration-panel.tsx) | `CalibrationPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/equipment/[id]/delete-equipment-button.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/delete-equipment-button.tsx) | `DeleteEquipmentButton` (action, 추론) | product-local |
-| [app/(app)/equipment/[id]/edit/page.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/edit/page.tsx) | `EditEquipmentPage` (screen, 추론) | product-local |
+| [app/(app)/equipment/[id]/edit/page.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/edit/page.tsx) | `EditEquipmentPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/equipment/[id]/loading.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/equipment/[id]/page.tsx](../../Q-Works/app/(app)/equipment/%5Bid%5D/page.tsx) | `EquipmentDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/equipment/equipment-form.tsx](../../Q-Works/app/(app)/equipment/equipment-form.tsx) | `EquipmentForm` (composition, 추론) | product-local |
 | [app/(app)/equipment/loading.tsx](../../Q-Works/app/(app)/equipment/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/equipment/new/loading.tsx](../../Q-Works/app/(app)/equipment/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/equipment/new/page.tsx](../../Q-Works/app/(app)/equipment/new/page.tsx) | `NewEquipmentPage` (screen, 추론) | product-local |
+| [app/(app)/equipment/new/page.tsx](../../Q-Works/app/(app)/equipment/new/page.tsx) | `NewEquipmentPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/equipment/page.tsx](../../Q-Works/app/(app)/equipment/page.tsx) | `EquipmentPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/factory/loading.tsx](../../Q-Works/app/(app)/factory/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/factory/page.tsx](../../Q-Works/app/(app)/factory/page.tsx) | `FactoryPage` (screen, 추론), `OeeBlock` (composition, 추론) | qd-class-reference |
@@ -1026,12 +1026,12 @@
 | [app/(app)/help/page.tsx](../../Q-Works/app/(app)/help/page.tsx) | `HelpBlock` (composition, 추론), `HelpPage` (screen, 추론), `renderInline` (composition, 추론) | qd-class-reference |
 | [app/(app)/improvements/[id]/delete-improvement-button.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/delete-improvement-button.tsx) | `DeleteImprovementButton` (action, 추론) | product-local |
 | [app/(app)/improvements/[id]/edit/loading.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/improvements/[id]/edit/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/edit/page.tsx) | `EditImprovementPage` (screen, 추론) | product-local |
+| [app/(app)/improvements/[id]/edit/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/edit/page.tsx) | `EditImprovementPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/improvements/[id]/improvement-panel.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/improvement-panel.tsx) | `ImprovementProgressPanel` (composition, 추론), `ImprovementReviewPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/improvements/[id]/loading.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/improvements/[id]/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/page.tsx) | `Block` (composition, 추론), `Cell` (composition, 추론), `ImprovementDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/improvements/[id]/print/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/print/page.tsx) | `ImprovementPrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/improvements/[id]/report/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/report/page.tsx) | `ImprovementReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/improvements/[id]/report/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/report/page.tsx) | `ImprovementReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/improvements/[id]/report/print/page.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/report/print/page.tsx) | `ImprovementReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/improvements/[id]/report/report-form.tsx](../../Q-Works/app/(app)/improvements/%5Bid%5D/report/report-form.tsx) | `ImprovementReportForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/improvements/approval-buttons.tsx](../../Q-Works/app/(app)/improvements/approval-buttons.tsx) | `ImprovementApprovalButtons` (composition, 추론) | qd-class-reference |
@@ -1041,23 +1041,23 @@
 | [app/(app)/improvements/improvement-sheet.tsx](../../Q-Works/app/(app)/improvements/improvement-sheet.tsx) | `ImprovementSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/improvements/loading.tsx](../../Q-Works/app/(app)/improvements/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/improvements/new/loading.tsx](../../Q-Works/app/(app)/improvements/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/improvements/new/page.tsx](../../Q-Works/app/(app)/improvements/new/page.tsx) | `NewImprovementPage` (screen, 추론) | product-local |
+| [app/(app)/improvements/new/page.tsx](../../Q-Works/app/(app)/improvements/new/page.tsx) | `NewImprovementPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/improvements/page.tsx](../../Q-Works/app/(app)/improvements/page.tsx) | `ImprovementsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/improvements/register-summary.tsx](../../Q-Works/app/(app)/improvements/register-summary.tsx) | `ImprovementRegisterSummary` (data-display, 추론) | product-local |
 | [app/(app)/improvements/report-sheet-view.tsx](../../Q-Works/app/(app)/improvements/report-sheet-view.tsx) | `ImprovementReportSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/inbound/[id]/delete-inbound-button.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/delete-inbound-button.tsx) | `DeleteInboundButton` (action, 추론) | product-local |
-| [app/(app)/inbound/[id]/edit/page.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/edit/page.tsx) | `EditInboundPage` (screen, 추론) | product-local |
+| [app/(app)/inbound/[id]/edit/page.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/edit/page.tsx) | `EditInboundPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inbound/[id]/escalate-to-complaint-dialog.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/escalate-to-complaint-dialog.tsx) | `EscalateToComplaintDialog` (overlay, 추론) | product-local |
 | [app/(app)/inbound/[id]/loading.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inbound/[id]/page.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/page.tsx) | `InboundDetailPage` (screen, 추론), `Line` (composition, 추론) | qd-class-reference |
 | [app/(app)/inbound/[id]/photo-gallery.tsx](../../Q-Works/app/(app)/inbound/%5Bid%5D/photo-gallery.tsx) | `InboundPhotoGallery` (composition, 추론) | product-local |
 | [app/(app)/inbound/import/import-panel.tsx](../../Q-Works/app/(app)/inbound/import/import-panel.tsx) | `InboundImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/inbound/import/loading.tsx](../../Q-Works/app/(app)/inbound/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/inbound/import/page.tsx](../../Q-Works/app/(app)/inbound/import/page.tsx) | `InboundImportPage` (screen, 추론) | product-local |
+| [app/(app)/inbound/import/page.tsx](../../Q-Works/app/(app)/inbound/import/page.tsx) | `InboundImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inbound/inbound-form.tsx](../../Q-Works/app/(app)/inbound/inbound-form.tsx) | `InboundForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/inbound/loading.tsx](../../Q-Works/app/(app)/inbound/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inbound/new/loading.tsx](../../Q-Works/app/(app)/inbound/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/inbound/new/page.tsx](../../Q-Works/app/(app)/inbound/new/page.tsx) | `NewInboundPage` (screen, 추론) | product-local |
+| [app/(app)/inbound/new/page.tsx](../../Q-Works/app/(app)/inbound/new/page.tsx) | `NewInboundPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inbound/page.tsx](../../Q-Works/app/(app)/inbound/page.tsx) | `InboundPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inbound/photo-field.tsx](../../Q-Works/app/(app)/inbound/photo-field.tsx) | `InboundPhotoField` (field, 추론) | qd-class-reference |
 | [app/(app)/inspections/[id]/assign-panel.tsx](../../Q-Works/app/(app)/inspections/%5Bid%5D/assign-panel.tsx) | `InspectionAssignPanel` (composition, 추론) | qd-class-reference |
@@ -1077,7 +1077,7 @@
 | [app/(app)/inspections/loading.tsx](../../Q-Works/app/(app)/inspections/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inspections/new/loading.tsx](../../Q-Works/app/(app)/inspections/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inspections/new/new-inspection-form.tsx](../../Q-Works/app/(app)/inspections/new/new-inspection-form.tsx) | `NewInspectionForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/inspections/new/page.tsx](../../Q-Works/app/(app)/inspections/new/page.tsx) | `NewInspectionPage` (screen, 추론) | product-local |
+| [app/(app)/inspections/new/page.tsx](../../Q-Works/app/(app)/inspections/new/page.tsx) | `NewInspectionPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inspections/page.tsx](../../Q-Works/app/(app)/inspections/page.tsx) | `InspectionsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inspections/print/loading.tsx](../../Q-Works/app/(app)/inspections/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inspections/print/page.tsx](../../Q-Works/app/(app)/inspections/print/page.tsx) | `F` (document, 추론), `InspectionPrintPage` (document, 추론), `TblId` (document, 추론) | qd-class-reference |
@@ -1091,20 +1091,20 @@
 | [app/(app)/inventory/moves/page.tsx](../../Q-Works/app/(app)/inventory/moves/page.tsx) | `InventoryMovesPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inventory/new/loading.tsx](../../Q-Works/app/(app)/inventory/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/inventory/new/new-movement-form.tsx](../../Q-Works/app/(app)/inventory/new/new-movement-form.tsx) | `NewMovementForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/inventory/new/page.tsx](../../Q-Works/app/(app)/inventory/new/page.tsx) | `NewMovementPage` (screen, 추론) | product-local |
+| [app/(app)/inventory/new/page.tsx](../../Q-Works/app/(app)/inventory/new/page.tsx) | `NewMovementPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/inventory/page.tsx](../../Q-Works/app/(app)/inventory/page.tsx) | `InventoryPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/knowledge/[id]/delete-knowledge-button.tsx](../../Q-Works/app/(app)/knowledge/%5Bid%5D/delete-knowledge-button.tsx) | `DeleteKnowledgeButton` (action, 추론) | product-local |
 | [app/(app)/knowledge/[id]/loading.tsx](../../Q-Works/app/(app)/knowledge/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/knowledge/[id]/page.tsx](../../Q-Works/app/(app)/knowledge/%5Bid%5D/page.tsx) | `KnowledgeDetailPage` (screen, 추론) | product-local |
+| [app/(app)/knowledge/[id]/page.tsx](../../Q-Works/app/(app)/knowledge/%5Bid%5D/page.tsx) | `KnowledgeDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/knowledge/knowledge-attachments.tsx](../../Q-Works/app/(app)/knowledge/knowledge-attachments.tsx) | `KnowledgeAttachments` (composition, 추론) | qd-class-reference |
 | [app/(app)/knowledge/knowledge-form.tsx](../../Q-Works/app/(app)/knowledge/knowledge-form.tsx) | `KnowledgeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/knowledge/loading.tsx](../../Q-Works/app/(app)/knowledge/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/knowledge/new/loading.tsx](../../Q-Works/app/(app)/knowledge/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/knowledge/new/page.tsx](../../Q-Works/app/(app)/knowledge/new/page.tsx) | `NewKnowledgePage` (screen, 추론) | product-local |
+| [app/(app)/knowledge/new/page.tsx](../../Q-Works/app/(app)/knowledge/new/page.tsx) | `NewKnowledgePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/knowledge/page.tsx](../../Q-Works/app/(app)/knowledge/page.tsx) | `KnowledgePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/[id]/delete-kpi-button.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/delete-kpi-button.tsx) | `DeleteKpiButton` (action, 추론) | product-local |
 | [app/(app)/kpi/[id]/edit/loading.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/kpi/[id]/edit/page.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/edit/page.tsx) | `EditKpiPage` (screen, 추론) | product-local |
+| [app/(app)/kpi/[id]/edit/page.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/edit/page.tsx) | `EditKpiPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/[id]/loading.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/kpi/[id]/objective-panel.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/objective-panel.tsx) | `KpiObjectivePanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/kpi/[id]/page.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/page.tsx) | `KpiDetailPage` (screen, 추론), `ObjField` (field, 추론) | qd-class-reference |
@@ -1115,14 +1115,14 @@
 | [app/(app)/kpi/[id]/value-history.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/value-history.tsx) | `KpiValueHistory` (composition, 추론) | product-local |
 | [app/(app)/kpi/[id]/value-panel.tsx](../../Q-Works/app/(app)/kpi/%5Bid%5D/value-panel.tsx) | `KpiValuePanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/[id]/checklist/loading.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/checklist/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/kpi/evaluations/[id]/checklist/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/checklist/page.tsx) | `ChecklistPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/kpi/evaluations/[id]/checklist/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/checklist/page.tsx) | `ChecklistPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/[id]/checklist/print/loading.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/checklist/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/kpi/evaluations/[id]/checklist/print/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/checklist/print/page.tsx) | `MonitoringChecklistPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/kpi/evaluations/[id]/delete-plan-button.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/delete-plan-button.tsx) | `DeletePlanButton` (action, 추론) | product-local |
 | [app/(app)/kpi/evaluations/[id]/loading.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/kpi/evaluations/[id]/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/page.tsx) | `MonitoringPlanPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/kpi/evaluations/[id]/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/page.tsx) | `MonitoringPlanPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/[id]/print/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/print/page.tsx) | `MonitoringPlanPrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/kpi/evaluations/[id]/report/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/report/page.tsx) | `MonitoringReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/kpi/evaluations/[id]/report/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/report/page.tsx) | `MonitoringReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/[id]/report/print/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/%5Bid%5D/report/print/page.tsx) | `MonitoringReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/kpi/evaluations/approval-buttons.tsx](../../Q-Works/app/(app)/kpi/evaluations/approval-buttons.tsx) | `MonitoringApprovalButtons` (composition, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/approval-flow.tsx](../../Q-Works/app/(app)/kpi/evaluations/approval-flow.tsx) | `MonitoringApprovalFlow` (composition, 추론) | product-local |
@@ -1132,7 +1132,7 @@
 | [app/(app)/kpi/evaluations/loading.tsx](../../Q-Works/app/(app)/kpi/evaluations/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/kpi/evaluations/monitoring-sheets.tsx](../../Q-Works/app/(app)/kpi/evaluations/monitoring-sheets.tsx) | `MonitoringPlanSheet` (composition, 추론), `MonitoringReportSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/kpi/evaluations/new/loading.tsx](../../Q-Works/app/(app)/kpi/evaluations/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/kpi/evaluations/new/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/new/page.tsx) | `NewMonitoringPlanPage` (screen, 추론) | product-local |
+| [app/(app)/kpi/evaluations/new/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/new/page.tsx) | `NewMonitoringPlanPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/evaluations/next-sheets.tsx](../../Q-Works/app/(app)/kpi/evaluations/next-sheets.tsx) | `Card` (layout, 추론), `NextSheets` (composition, 추론) | product-local |
 | [app/(app)/kpi/evaluations/page.tsx](../../Q-Works/app/(app)/kpi/evaluations/page.tsx) | `MonitoringEvaluationsPage` (screen, 추론) | product-local |
 | [app/(app)/kpi/evaluations/plan-form.tsx](../../Q-Works/app/(app)/kpi/evaluations/plan-form.tsx) | `MonitoringPlanForm` (composition, 추론) | qd-class-reference |
@@ -1144,7 +1144,7 @@
 | [app/(app)/kpi/loading.tsx](../../Q-Works/app/(app)/kpi/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/kpi/new/loading.tsx](../../Q-Works/app/(app)/kpi/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/kpi/new/new-kpi-form.tsx](../../Q-Works/app/(app)/kpi/new/new-kpi-form.tsx) | `NewKpiForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/kpi/new/page.tsx](../../Q-Works/app/(app)/kpi/new/page.tsx) | `NewKpiPage` (screen, 추론) | product-local |
+| [app/(app)/kpi/new/page.tsx](../../Q-Works/app/(app)/kpi/new/page.tsx) | `NewKpiPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/kpi/page.tsx](../../Q-Works/app/(app)/kpi/page.tsx) | `KpiPage` (screen, 추론) | product-local |
 | [app/(app)/layout.tsx](../../Q-Works/app/(app)/layout.tsx) | `AppLayout` (layout, 추론) | imports-canonical-module |
 | [app/(app)/meetings/[id]/delete-meeting-button.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/delete-meeting-button.tsx) | `DeleteMeetingButton` (action, 추론) | product-local |
@@ -1153,12 +1153,12 @@
 | [app/(app)/meetings/[id]/meeting-approval-flow.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/meeting-approval-flow.tsx) | `MeetingApprovalFlow` (composition, 추론) | product-local |
 | [app/(app)/meetings/[id]/meeting-attendance.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/meeting-attendance.tsx) | `MeetingAttendance` (composition, 추론) | product-local |
 | [app/(app)/meetings/[id]/meeting-sheet.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/meeting-sheet.tsx) | `MeetingSheet` (document, 추론), `secCell` (document, 추론) | imports-canonical-module |
-| [app/(app)/meetings/[id]/page.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/page.tsx) | `MeetingDetailPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/meetings/[id]/page.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/page.tsx) | `MeetingDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/meetings/[id]/print/page.tsx](../../Q-Works/app/(app)/meetings/%5Bid%5D/print/page.tsx) | `MeetingPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/meetings/loading.tsx](../../Q-Works/app/(app)/meetings/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/meetings/meeting-form.tsx](../../Q-Works/app/(app)/meetings/meeting-form.tsx) | `MeetingForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/meetings/new/loading.tsx](../../Q-Works/app/(app)/meetings/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/meetings/new/page.tsx](../../Q-Works/app/(app)/meetings/new/page.tsx) | `NewMeetingPage` (screen, 추론) | product-local |
+| [app/(app)/meetings/new/page.tsx](../../Q-Works/app/(app)/meetings/new/page.tsx) | `NewMeetingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/meetings/page.tsx](../../Q-Works/app/(app)/meetings/page.tsx) | `MeetingsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/my-tasks/inbox-filter-bar.tsx](../../Q-Works/app/(app)/my-tasks/inbox-filter-bar.tsx) | `InboxFilterBar` (composition, 추론) | qd-class-reference |
 | [app/(app)/my-tasks/loading.tsx](../../Q-Works/app/(app)/my-tasks/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1176,13 +1176,13 @@
 | [app/(app)/nc/page.tsx](../../Q-Works/app/(app)/nc/page.tsx) | `NcPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/notices/[id]/delete-notice-button.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/delete-notice-button.tsx) | `DeleteNoticeButton` (action, 추론) | product-local |
 | [app/(app)/notices/[id]/edit/loading.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/notices/[id]/edit/page.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/edit/page.tsx) | `EditNoticePage` (screen, 추론) | product-local |
+| [app/(app)/notices/[id]/edit/page.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/edit/page.tsx) | `EditNoticePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/notices/[id]/loading.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/notices/[id]/notice-attachments.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/notice-attachments.tsx) | `NoticeAttachments` (composition, 추론) | qd-class-reference |
-| [app/(app)/notices/[id]/page.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/page.tsx) | `NoticeDetailPage` (screen, 추론) | product-local |
+| [app/(app)/notices/[id]/page.tsx](../../Q-Works/app/(app)/notices/%5Bid%5D/page.tsx) | `NoticeDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/notices/loading.tsx](../../Q-Works/app/(app)/notices/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/notices/new/loading.tsx](../../Q-Works/app/(app)/notices/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/notices/new/page.tsx](../../Q-Works/app/(app)/notices/new/page.tsx) | `NewNoticePage` (screen, 추론) | product-local |
+| [app/(app)/notices/new/page.tsx](../../Q-Works/app/(app)/notices/new/page.tsx) | `NewNoticePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/notices/notice-form.tsx](../../Q-Works/app/(app)/notices/notice-form.tsx) | `NoticeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/notices/page.tsx](../../Q-Works/app/(app)/notices/page.tsx) | `NoticesPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/notifications/loading.tsx](../../Q-Works/app/(app)/notifications/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1209,7 +1209,7 @@
 | [app/(app)/production/loading.tsx](../../Q-Works/app/(app)/production/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/production/new/loading.tsx](../../Q-Works/app/(app)/production/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/production/new/new-production-form.tsx](../../Q-Works/app/(app)/production/new/new-production-form.tsx) | `NewProductionForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/production/new/page.tsx](../../Q-Works/app/(app)/production/new/page.tsx) | `NewProductionPage` (screen, 추론) | product-local |
+| [app/(app)/production/new/page.tsx](../../Q-Works/app/(app)/production/new/page.tsx) | `NewProductionPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/production/page.tsx](../../Q-Works/app/(app)/production/page.tsx) | `ProductionPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/production/print/loading.tsx](../../Q-Works/app/(app)/production/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/production/print/page.tsx](../../Q-Works/app/(app)/production/print/page.tsx) | `F` (document, 추론), `ProductionPrintPage` (document, 추론), `TblId` (document, 추론) | qd-class-reference |
@@ -1217,7 +1217,7 @@
 | [app/(app)/production/yield/page.tsx](../../Q-Works/app/(app)/production/yield/page.tsx) | `ProductionYieldPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/[id]/delete-purchase-button.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/delete-purchase-button.tsx) | `DeletePurchaseButton` (action, 추론) | product-local |
 | [app/(app)/purchasing/[id]/edit/loading.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/[id]/edit/page.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/edit/page.tsx) | `EditPurchaseRequestPage` (screen, 추론) | product-local |
+| [app/(app)/purchasing/[id]/edit/page.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/edit/page.tsx) | `EditPurchaseRequestPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/[id]/loading.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/purchasing/[id]/page.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/page.tsx) | `Field` (field, 추론), `PurchaseRequestDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/[id]/print/loading.tsx](../../Q-Works/app/(app)/purchasing/%5Bid%5D/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1228,14 +1228,14 @@
 | [app/(app)/purchasing/analysis/page.tsx](../../Q-Works/app/(app)/purchasing/analysis/page.tsx) | `PurchaseAnalysisPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/loading.tsx](../../Q-Works/app/(app)/purchasing/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/purchasing/new/loading.tsx](../../Q-Works/app/(app)/purchasing/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/new/page.tsx](../../Q-Works/app/(app)/purchasing/new/page.tsx) | `NewPurchaseRequestPage` (screen, 추론) | product-local |
+| [app/(app)/purchasing/new/page.tsx](../../Q-Works/app/(app)/purchasing/new/page.tsx) | `NewPurchaseRequestPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/orders-register.tsx](../../Q-Works/app/(app)/purchasing/orders-register.tsx) | `loadOrdersRegister` (composition, 추론) | qd-class-reference |
 | [app/(app)/purchasing/orders/[id]/loading.tsx](../../Q-Works/app/(app)/purchasing/orders/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/orders/[id]/page.tsx](../../Q-Works/app/(app)/purchasing/orders/%5Bid%5D/page.tsx) | `PurchaseOrderPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/purchasing/orders/[id]/page.tsx](../../Q-Works/app/(app)/purchasing/orders/%5Bid%5D/page.tsx) | `PurchaseOrderPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/orders/[id]/print/loading.tsx](../../Q-Works/app/(app)/purchasing/orders/%5Bid%5D/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/purchasing/orders/[id]/print/page.tsx](../../Q-Works/app/(app)/purchasing/orders/%5Bid%5D/print/page.tsx) | `PurchaseOrderPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/purchasing/orders/new/loading.tsx](../../Q-Works/app/(app)/purchasing/orders/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/orders/new/page.tsx](../../Q-Works/app/(app)/purchasing/orders/new/page.tsx) | `NewOrderPage` (screen, 추론) | product-local |
+| [app/(app)/purchasing/orders/new/page.tsx](../../Q-Works/app/(app)/purchasing/orders/new/page.tsx) | `NewOrderPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/orders/order-approval.tsx](../../Q-Works/app/(app)/purchasing/orders/order-approval.tsx) | `OrderApprovalActions` (action, 추론), `OrderApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/purchasing/orders/order-delete-button.tsx](../../Q-Works/app/(app)/purchasing/orders/order-delete-button.tsx) | `DeleteOrderButton` (action, 추론) | product-local |
 | [app/(app)/purchasing/orders/order-form.tsx](../../Q-Works/app/(app)/purchasing/orders/order-form.tsx) | `PartyFields` (composition, 추론), `PurchaseOrderForm` (composition, 추론) | qd-class-reference |
@@ -1250,7 +1250,7 @@
 | [app/(app)/purchasing/quotes/[id]/loading.tsx](../../Q-Works/app/(app)/purchasing/quotes/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/purchasing/quotes/[id]/page.tsx](../../Q-Works/app/(app)/purchasing/quotes/%5Bid%5D/page.tsx) | `F` (composition, 추론), `QuoteItemsView` (composition, 추론), `QuotePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/quotes/new/loading.tsx](../../Q-Works/app/(app)/purchasing/quotes/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/quotes/new/page.tsx](../../Q-Works/app/(app)/purchasing/quotes/new/page.tsx) | `NewQuotePage` (screen, 추론) | product-local |
+| [app/(app)/purchasing/quotes/new/page.tsx](../../Q-Works/app/(app)/purchasing/quotes/new/page.tsx) | `NewQuotePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/request-sheet.tsx](../../Q-Works/app/(app)/purchasing/request-sheet.tsx) | `RequestSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/purchasing/specs/[id]/delete-spec-button.tsx](../../Q-Works/app/(app)/purchasing/specs/%5Bid%5D/delete-spec-button.tsx) | `DeleteSpecButton` (action, 추론) | product-local |
 | [app/(app)/purchasing/specs/[id]/loading.tsx](../../Q-Works/app/(app)/purchasing/specs/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1259,7 +1259,7 @@
 | [app/(app)/purchasing/specs/[id]/print/page.tsx](../../Q-Works/app/(app)/purchasing/specs/%5Bid%5D/print/page.tsx) | `PurchaseSpecPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/purchasing/specs/loading.tsx](../../Q-Works/app/(app)/purchasing/specs/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/purchasing/specs/new/loading.tsx](../../Q-Works/app/(app)/purchasing/specs/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/purchasing/specs/new/page.tsx](../../Q-Works/app/(app)/purchasing/specs/new/page.tsx) | `NewPurchaseSpecPage` (screen, 추론) | product-local |
+| [app/(app)/purchasing/specs/new/page.tsx](../../Q-Works/app/(app)/purchasing/specs/new/page.tsx) | `NewPurchaseSpecPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/specs/page.tsx](../../Q-Works/app/(app)/purchasing/specs/page.tsx) | `PurchaseSpecsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/purchasing/specs/spec-approval.tsx](../../Q-Works/app/(app)/purchasing/specs/spec-approval.tsx) | `SpecApprovalActions` (action, 추론), `SpecApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/purchasing/specs/spec-form.tsx](../../Q-Works/app/(app)/purchasing/specs/spec-form.tsx) | `RadioRow` (data-display, 추론), `SpecForm` (composition, 추론) | qd-class-reference |
@@ -1268,7 +1268,7 @@
 | [app/(app)/qc-charts/[id]/page.tsx](../../Q-Works/app/(app)/qc-charts/%5Bid%5D/page.tsx) | `QcChartDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/qc-charts/loading.tsx](../../Q-Works/app/(app)/qc-charts/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/qc-charts/new/loading.tsx](../../Q-Works/app/(app)/qc-charts/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/qc-charts/new/page.tsx](../../Q-Works/app/(app)/qc-charts/new/page.tsx) | `NewQcChartPage` (screen, 추론) | product-local |
+| [app/(app)/qc-charts/new/page.tsx](../../Q-Works/app/(app)/qc-charts/new/page.tsx) | `NewQcChartPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/qc-charts/page.tsx](../../Q-Works/app/(app)/qc-charts/page.tsx) | `QcChartsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/qc-charts/qc-chart-form.tsx](../../Q-Works/app/(app)/qc-charts/qc-chart-form.tsx) | `QcChartForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/recalls/[id]/loading.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1276,18 +1276,18 @@
 | [app/(app)/recalls/[id]/notice/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/notice/page.tsx) | `RecallNoticePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/recalls/[id]/notice/print/loading.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/notice/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/recalls/[id]/notice/print/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/notice/print/page.tsx) | `RecallNoticePrintPage` (document, 추론) | imports-canonical-module |
-| [app/(app)/recalls/[id]/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/page.tsx) | `RecallReviewPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/recalls/[id]/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/page.tsx) | `RecallReviewPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/recalls/[id]/print/loading.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/recalls/[id]/print/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/print/page.tsx) | `RecallReviewPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/recalls/[id]/report/loading.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/report/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/recalls/[id]/report/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/report/page.tsx) | `RecallReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/recalls/[id]/report/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/report/page.tsx) | `RecallReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/recalls/[id]/report/print/loading.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/report/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/recalls/[id]/report/print/page.tsx](../../Q-Works/app/(app)/recalls/%5Bid%5D/report/print/page.tsx) | `RecallReportPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/recalls/approval-ui.tsx](../../Q-Works/app/(app)/recalls/approval-ui.tsx) | `RecallApprovalActions` (action, 추론), `RecallApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/recalls/delete-sheet-button.tsx](../../Q-Works/app/(app)/recalls/delete-sheet-button.tsx) | `DeleteRecallSheetButton` (action, 추론) | product-local |
 | [app/(app)/recalls/loading.tsx](../../Q-Works/app/(app)/recalls/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/recalls/new/loading.tsx](../../Q-Works/app/(app)/recalls/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/recalls/new/page.tsx](../../Q-Works/app/(app)/recalls/new/page.tsx) | `NewRecallPage` (screen, 추론) | product-local |
+| [app/(app)/recalls/new/page.tsx](../../Q-Works/app/(app)/recalls/new/page.tsx) | `NewRecallPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/recalls/notice-form.tsx](../../Q-Works/app/(app)/recalls/notice-form.tsx) | `DistributeNoticeCard` (composition, 추론), `RecallNoticeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/recalls/page.tsx](../../Q-Works/app/(app)/recalls/page.tsx) | `RecallsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/recalls/recall-flow.tsx](../../Q-Works/app/(app)/recalls/recall-flow.tsx) | `RecallDocFlow` (composition, 추론) | product-local |
@@ -1297,31 +1297,31 @@
 | [app/(app)/recalls/review-form.tsx](../../Q-Works/app/(app)/recalls/review-form.tsx) | `RecallReviewForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/returns/[id]/advance-step-button.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/advance-step-button.tsx) | `AdvanceStepButton` (action, 추론) | product-local |
 | [app/(app)/returns/[id]/delete-return-button.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/delete-return-button.tsx) | `DeleteReturnButton` (action, 추론) | product-local |
-| [app/(app)/returns/[id]/edit/page.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/edit/page.tsx) | `EditReturnPage` (screen, 추론) | product-local |
+| [app/(app)/returns/[id]/edit/page.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/edit/page.tsx) | `EditReturnPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/returns/[id]/escalate-dialog.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/escalate-dialog.tsx) | `EscalateReturnDialog` (overlay, 추론) | product-local |
 | [app/(app)/returns/[id]/loading.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/returns/[id]/page.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/page.tsx) | `Field` (field, 추론), `ReturnDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/returns/[id]/withdraw-button.tsx](../../Q-Works/app/(app)/returns/%5Bid%5D/withdraw-button.tsx) | `WithdrawReturnButton` (action, 추론) | product-local |
 | [app/(app)/returns/import/import-panel.tsx](../../Q-Works/app/(app)/returns/import/import-panel.tsx) | `ReturnsImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/returns/import/loading.tsx](../../Q-Works/app/(app)/returns/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/returns/import/page.tsx](../../Q-Works/app/(app)/returns/import/page.tsx) | `ReturnsImportPage` (screen, 추론) | product-local |
+| [app/(app)/returns/import/page.tsx](../../Q-Works/app/(app)/returns/import/page.tsx) | `ReturnsImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/returns/loading.tsx](../../Q-Works/app/(app)/returns/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/returns/new/csv-template-button.tsx](../../Q-Works/app/(app)/returns/new/csv-template-button.tsx) | `CsvTemplateButton` (action, 추론) | product-local |
 | [app/(app)/returns/new/loading.tsx](../../Q-Works/app/(app)/returns/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/returns/new/page.tsx](../../Q-Works/app/(app)/returns/new/page.tsx) | `NewReturnPage` (screen, 추론) | product-local |
+| [app/(app)/returns/new/page.tsx](../../Q-Works/app/(app)/returns/new/page.tsx) | `NewReturnPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/returns/page.tsx](../../Q-Works/app/(app)/returns/page.tsx) | `ReturnsPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/returns/print/loading.tsx](../../Q-Works/app/(app)/returns/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/returns/print/page.tsx](../../Q-Works/app/(app)/returns/print/page.tsx) | `ReturnsPrintPage` (document, 추론) | imports-canonical-module |
+| [app/(app)/returns/print/page.tsx](../../Q-Works/app/(app)/returns/print/page.tsx) | `ReturnsPrintPage` (document, 추론) | qd-class-reference |
 | [app/(app)/returns/return-form.tsx](../../Q-Works/app/(app)/returns/return-form.tsx) | `ReturnForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/returns/returns-table.tsx](../../Q-Works/app/(app)/returns/returns-table.tsx) | `Clamp` (composition, 추론), `ReturnsTable` (data-display, 추론), `Th` (composition, 추론) | qd-class-reference |
 | [app/(app)/reviews/agenda-form.tsx](../../Q-Works/app/(app)/reviews/agenda-form.tsx) | `ReviewAgendaForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/reviews/agendas/[id]/minutes/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/minutes/page.tsx) | `ReviewMinutesPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/reviews/agendas/[id]/minutes/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/minutes/page.tsx) | `ReviewMinutesPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/reviews/agendas/[id]/minutes/print/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/minutes/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
-| [app/(app)/reviews/agendas/[id]/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/page.tsx) | `ReviewAgendaPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/reviews/agendas/[id]/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/page.tsx) | `ReviewAgendaPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/reviews/agendas/[id]/print/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
-| [app/(app)/reviews/agendas/[id]/report/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/report/page.tsx) | `ReviewReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/reviews/agendas/[id]/report/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/report/page.tsx) | `ReviewReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/reviews/agendas/[id]/report/print/page.tsx](../../Q-Works/app/(app)/reviews/agendas/%5Bid%5D/report/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
-| [app/(app)/reviews/agendas/new/page.tsx](../../Q-Works/app/(app)/reviews/agendas/new/page.tsx) | `NewReviewAgendaPage` (screen, 추론) | product-local |
+| [app/(app)/reviews/agendas/new/page.tsx](../../Q-Works/app/(app)/reviews/agendas/new/page.tsx) | `NewReviewAgendaPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/reviews/approval-ui.tsx](../../Q-Works/app/(app)/reviews/approval-ui.tsx) | `ReviewApprovalButtons` (composition, 추론), `ReviewApprovalFlow` (composition, 추론) | qd-class-reference |
 | [app/(app)/reviews/attendance.tsx](../../Q-Works/app/(app)/reviews/attendance.tsx) | `ReviewAttendance` (composition, 추론) | product-local |
 | [app/(app)/reviews/input-items.tsx](../../Q-Works/app/(app)/reviews/input-items.tsx) | `ReviewInputItems` (composition, 추론) | qd-class-reference |
@@ -1333,18 +1333,18 @@
 | [app/(app)/reviews/sheet-flow.tsx](../../Q-Works/app/(app)/reviews/sheet-flow.tsx) | `makeButton` (action, 추론), `ReviewSheetDeleteButton` (action, 추론), `ReviewSheetFlow` (composition, 추론) | product-local |
 | [app/(app)/risks/[id]/delete-risk-button.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/delete-risk-button.tsx) | `DeleteRiskButton` (action, 추론) | product-local |
 | [app/(app)/risks/[id]/loading.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/risks/[id]/page.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/page.tsx) | `RiskDetailPage` (screen, 추론) | product-local |
+| [app/(app)/risks/[id]/page.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/page.tsx) | `RiskDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/risks/[id]/print/[kind]/page.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/print/%5Bkind%5D/page.tsx) | `Grade` (document, 추론), `RiskFormPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/risks/[id]/risk-approval-panel.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/risk-approval-panel.tsx) | `RiskApprovalPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/[id]/risk-basic-info.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/risk-basic-info.tsx) | `RiskBasicInfo` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/[id]/risk-detail-client.tsx](../../Q-Works/app/(app)/risks/%5Bid%5D/risk-detail-client.tsx) | `RiskDetailClient` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/import/import-panel.tsx](../../Q-Works/app/(app)/risks/import/import-panel.tsx) | `RiskImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/import/loading.tsx](../../Q-Works/app/(app)/risks/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/risks/import/page.tsx](../../Q-Works/app/(app)/risks/import/page.tsx) | `RiskImportPage` (screen, 추론) | product-local |
+| [app/(app)/risks/import/page.tsx](../../Q-Works/app/(app)/risks/import/page.tsx) | `RiskImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/risks/loading.tsx](../../Q-Works/app/(app)/risks/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/risks/new/loading.tsx](../../Q-Works/app/(app)/risks/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/risks/new/new-risk-form.tsx](../../Q-Works/app/(app)/risks/new/new-risk-form.tsx) | `NewRiskForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/risks/new/page.tsx](../../Q-Works/app/(app)/risks/new/page.tsx) | `NewRiskPage` (screen, 추론) | product-local |
+| [app/(app)/risks/new/page.tsx](../../Q-Works/app/(app)/risks/new/page.tsx) | `NewRiskPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/risks/page.tsx](../../Q-Works/app/(app)/risks/page.tsx) | `RisksPage` (screen, 추론), `SortHead` (composition, 추론) | qd-class-reference |
 | [app/(app)/risks/print/loading.tsx](../../Q-Works/app/(app)/risks/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/risks/print/page.tsx](../../Q-Works/app/(app)/risks/print/page.tsx) | `cell` (document, 추론), `PrintRiskMatrix` (document, 추론), `RiskRegisterPrintPage` (document, 추론) | qd-class-reference |
@@ -1353,7 +1353,7 @@
 | [app/(app)/safety/[id]/page.tsx](../../Q-Works/app/(app)/safety/%5Bid%5D/page.tsx) | `EnvironmentCheckDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/safety/areas/areas-editor.tsx](../../Q-Works/app/(app)/safety/areas/areas-editor.tsx) | `WorkAreasEditor` (field, 추론) | qd-class-reference |
 | [app/(app)/safety/areas/loading.tsx](../../Q-Works/app/(app)/safety/areas/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/safety/areas/page.tsx](../../Q-Works/app/(app)/safety/areas/page.tsx) | `WorkAreasPage` (screen, 추론) | product-local |
+| [app/(app)/safety/areas/page.tsx](../../Q-Works/app/(app)/safety/areas/page.tsx) | `WorkAreasPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/safety/incidents/[id]/close-panel.tsx](../../Q-Works/app/(app)/safety/incidents/%5Bid%5D/close-panel.tsx) | `IncidentClosePanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/safety/incidents/[id]/loading.tsx](../../Q-Works/app/(app)/safety/incidents/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/safety/incidents/[id]/page.tsx](../../Q-Works/app/(app)/safety/incidents/%5Bid%5D/page.tsx) | `Block` (composition, 추론), `IncidentDetailPage` (screen, 추론) | qd-class-reference |
@@ -1365,7 +1365,7 @@
 | [app/(app)/safety/incidents/incidents-tab.tsx](../../Q-Works/app/(app)/safety/incidents/incidents-tab.tsx) | `IncidentsTab` (navigation, 추론) | qd-class-reference |
 | [app/(app)/safety/incidents/loading.tsx](../../Q-Works/app/(app)/safety/incidents/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/safety/incidents/new/loading.tsx](../../Q-Works/app/(app)/safety/incidents/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/safety/incidents/new/page.tsx](../../Q-Works/app/(app)/safety/incidents/new/page.tsx) | `NewIncidentPage` (screen, 추론) | product-local |
+| [app/(app)/safety/incidents/new/page.tsx](../../Q-Works/app/(app)/safety/incidents/new/page.tsx) | `NewIncidentPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/safety/incidents/page.tsx](../../Q-Works/app/(app)/safety/incidents/page.tsx) | `SafetyHealthPage` (screen, 추론) | product-local |
 | [app/(app)/safety/loading.tsx](../../Q-Works/app/(app)/safety/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/safety/monthly/month-approval.tsx](../../Q-Works/app/(app)/safety/monthly/month-approval.tsx) | `EnvMonthApproval` (composition, 추론) | qd-class-reference |
@@ -1427,18 +1427,18 @@
 | [app/(app)/shipping/loading.tsx](../../Q-Works/app/(app)/shipping/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/shipping/new/loading.tsx](../../Q-Works/app/(app)/shipping/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/shipping/new/new-shipment-form.tsx](../../Q-Works/app/(app)/shipping/new/new-shipment-form.tsx) | `FormSection` (layout, 추론), `NewShipmentForm` (composition, 추론) | qd-class-reference |
-| [app/(app)/shipping/new/page.tsx](../../Q-Works/app/(app)/shipping/new/page.tsx) | `NewShipmentPage` (screen, 추론) | product-local |
+| [app/(app)/shipping/new/page.tsx](../../Q-Works/app/(app)/shipping/new/page.tsx) | `NewShipmentPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/shipping/page.tsx](../../Q-Works/app/(app)/shipping/page.tsx) | `ShippingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/shipping/shipment-sheet.tsx](../../Q-Works/app/(app)/shipping/shipment-sheet.tsx) | `Guide` (document, 추론), `SectionHead` (document, 추론), `ShipmentSheet` (document, 추론) | imports-canonical-module |
 | [app/(app)/specs/[id]/barcode-detail-actions.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/barcode-detail-actions.tsx) | `BarcodeDeleteButton` (action, 추론), `BarcodeDetailActions` (action, 추론) | product-local |
 | [app/(app)/specs/[id]/edit/loading.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/specs/[id]/edit/page.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/edit/page.tsx) | `EditBarcodePage` (screen, 추론) | product-local |
+| [app/(app)/specs/[id]/edit/page.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/edit/page.tsx) | `EditBarcodePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/specs/[id]/loading.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/specs/[id]/page.tsx](../../Q-Works/app/(app)/specs/%5Bid%5D/page.tsx) | `BarcodeDetailPage` (screen, 추론), `Row` (data-display, 추론) | qd-class-reference |
 | [app/(app)/specs/barcode-form.tsx](../../Q-Works/app/(app)/specs/barcode-form.tsx) | `BarcodeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/specs/barcode-row-actions.tsx](../../Q-Works/app/(app)/specs/barcode-row-actions.tsx) | `BarcodeRowActions` (action, 추론) | product-local |
 | [app/(app)/specs/loading.tsx](../../Q-Works/app/(app)/specs/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/specs/new/page.tsx](../../Q-Works/app/(app)/specs/new/page.tsx) | `NewBarcodePage` (screen, 추론) | product-local |
+| [app/(app)/specs/new/page.tsx](../../Q-Works/app/(app)/specs/new/page.tsx) | `NewBarcodePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/specs/page.tsx](../../Q-Works/app/(app)/specs/page.tsx) | `ProductSpecsPage` (screen, 추론), `Sortable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/store/[id]/delete-sale-button.tsx](../../Q-Works/app/(app)/store/%5Bid%5D/delete-sale-button.tsx) | `DeleteSaleButton` (action, 추론) | product-local |
 | [app/(app)/store/[id]/loading.tsx](../../Q-Works/app/(app)/store/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
@@ -1446,7 +1446,7 @@
 | [app/(app)/store/[id]/status-panel.tsx](../../Q-Works/app/(app)/store/%5Bid%5D/status-panel.tsx) | `StoreStatusPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/store/loading.tsx](../../Q-Works/app/(app)/store/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/store/new/loading.tsx](../../Q-Works/app/(app)/store/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/store/new/page.tsx](../../Q-Works/app/(app)/store/new/page.tsx) | `NewStoreSalePage` (screen, 추론) | product-local |
+| [app/(app)/store/new/page.tsx](../../Q-Works/app/(app)/store/new/page.tsx) | `NewStoreSalePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/store/page.tsx](../../Q-Works/app/(app)/store/page.tsx) | `StorePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/store/sale-items-table.tsx](../../Q-Works/app/(app)/store/sale-items-table.tsx) | `SaleItemsTable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/store/store-form.tsx](../../Q-Works/app/(app)/store/store-form.tsx) | `StoreSaleForm` (composition, 추론) | qd-class-reference |
@@ -1457,16 +1457,16 @@
 | [app/(app)/suppliers/[id]/page.tsx](../../Q-Works/app/(app)/suppliers/%5Bid%5D/page.tsx) | `SupplierDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/import/import-panel.tsx](../../Q-Works/app/(app)/suppliers/import/import-panel.tsx) | `handleTemplate` (composition, 추론), `SupplierImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/suppliers/import/loading.tsx](../../Q-Works/app/(app)/suppliers/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/suppliers/import/page.tsx](../../Q-Works/app/(app)/suppliers/import/page.tsx) | `SupplierImportPage` (screen, 추론) | product-local |
+| [app/(app)/suppliers/import/page.tsx](../../Q-Works/app/(app)/suppliers/import/page.tsx) | `SupplierImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/ledger-section.tsx](../../Q-Works/app/(app)/suppliers/ledger-section.tsx) | `SupplierLedgerSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/suppliers/loading.tsx](../../Q-Works/app/(app)/suppliers/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/suppliers/new/loading.tsx](../../Q-Works/app/(app)/suppliers/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/suppliers/new/new-supplier-form.tsx](../../Q-Works/app/(app)/suppliers/new/new-supplier-form.tsx) | `FilePick` (composition, 추론), `NewSupplierForm` (composition, 추론) | product-local |
-| [app/(app)/suppliers/new/page.tsx](../../Q-Works/app/(app)/suppliers/new/page.tsx) | `NewSupplierPage` (screen, 추론) | product-local |
+| [app/(app)/suppliers/new/page.tsx](../../Q-Works/app/(app)/suppliers/new/page.tsx) | `NewSupplierPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/page.tsx](../../Q-Works/app/(app)/suppliers/page.tsx) | `SuppliersPage` (screen, 추론) | product-local |
 | [app/(app)/suppliers/reports/[id]/delete-report-button.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/delete-report-button.tsx) | `DeleteReportButton` (action, 추론) | product-local |
 | [app/(app)/suppliers/reports/[id]/edit/loading.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/suppliers/reports/[id]/edit/page.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/edit/page.tsx) | `EditEvalReportPage` (screen, 추론) | product-local |
+| [app/(app)/suppliers/reports/[id]/edit/page.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/edit/page.tsx) | `EditEvalReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/reports/[id]/loading.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/suppliers/reports/[id]/page.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/page.tsx) | `EvalReportDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/reports/[id]/print/page.tsx](../../Q-Works/app/(app)/suppliers/reports/%5Bid%5D/print/page.tsx) | `EvalReportPrintPage` (document, 추론) | imports-canonical-module |
@@ -1476,24 +1476,24 @@
 | [app/(app)/suppliers/reports/eval-report-form.tsx](../../Q-Works/app/(app)/suppliers/reports/eval-report-form.tsx) | `EvalReportForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/suppliers/reports/eval-report-sheet.tsx](../../Q-Works/app/(app)/suppliers/reports/eval-report-sheet.tsx) | `EvalReportSheet` (document, 추론), `ScoreTable` (document, 추론) | imports-canonical-module |
 | [app/(app)/suppliers/reports/new/loading.tsx](../../Q-Works/app/(app)/suppliers/reports/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/suppliers/reports/new/page.tsx](../../Q-Works/app/(app)/suppliers/reports/new/page.tsx) | `NewEvalReportPage` (screen, 추론) | product-local |
+| [app/(app)/suppliers/reports/new/page.tsx](../../Q-Works/app/(app)/suppliers/reports/new/page.tsx) | `NewEvalReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/suppliers/reports/reports-section.tsx](../../Q-Works/app/(app)/suppliers/reports/reports-section.tsx) | `EvalReportsSection` (layout, 추론) | qd-class-reference |
 | [app/(app)/traceability/[id]/loading.tsx](../../Q-Works/app/(app)/traceability/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/traceability/[id]/page.tsx](../../Q-Works/app/(app)/traceability/%5Bid%5D/page.tsx) | `ItemCodeDetailPage` (screen, 추론) | product-local |
+| [app/(app)/traceability/[id]/page.tsx](../../Q-Works/app/(app)/traceability/%5Bid%5D/page.tsx) | `ItemCodeDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/traceability/import/import-panel.tsx](../../Q-Works/app/(app)/traceability/import/import-panel.tsx) | `ItemCodeImportPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/traceability/import/loading.tsx](../../Q-Works/app/(app)/traceability/import/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/traceability/import/page.tsx](../../Q-Works/app/(app)/traceability/import/page.tsx) | `ItemCodeImportPage` (screen, 추론) | product-local |
+| [app/(app)/traceability/import/page.tsx](../../Q-Works/app/(app)/traceability/import/page.tsx) | `ItemCodeImportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/traceability/item-code-form.tsx](../../Q-Works/app/(app)/traceability/item-code-form.tsx) | `ItemCodeForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/traceability/loading.tsx](../../Q-Works/app/(app)/traceability/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/traceability/lot/loading.tsx](../../Q-Works/app/(app)/traceability/lot/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/traceability/lot/page.tsx](../../Q-Works/app/(app)/traceability/lot/page.tsx) | `LotTracePage` (screen, 추론), `TracePanel` (composition, 추론), `TraceProductionTable` (data-display, 추론) | qd-class-reference |
 | [app/(app)/traceability/new/loading.tsx](../../Q-Works/app/(app)/traceability/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/traceability/new/page.tsx](../../Q-Works/app/(app)/traceability/new/page.tsx) | `NewItemCodePage` (screen, 추론) | product-local |
+| [app/(app)/traceability/new/page.tsx](../../Q-Works/app/(app)/traceability/new/page.tsx) | `NewItemCodePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/traceability/page.tsx](../../Q-Works/app/(app)/traceability/page.tsx) | `TraceabilityPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/traceability/print/loading.tsx](../../Q-Works/app/(app)/traceability/print/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/traceability/print/page.tsx](../../Q-Works/app/(app)/traceability/print/page.tsx) | `ItemCodeClassificationPrintPage` (document, 추론) | imports-canonical-module |
 | [app/(app)/training/[id]/edit/loading.tsx](../../Q-Works/app/(app)/training/%5Bid%5D/edit/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/training/[id]/edit/page.tsx](../../Q-Works/app/(app)/training/%5Bid%5D/edit/page.tsx) | `EditTrainingPage` (screen, 추론) | product-local |
+| [app/(app)/training/[id]/edit/page.tsx](../../Q-Works/app/(app)/training/%5Bid%5D/edit/page.tsx) | `EditTrainingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/[id]/loading.tsx](../../Q-Works/app/(app)/training/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/training/[id]/page.tsx](../../Q-Works/app/(app)/training/%5Bid%5D/page.tsx) | `TrainingDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/approval-ui.tsx](../../Q-Works/app/(app)/training/approval-ui.tsx) | `TrainingApprovalButtons` (composition, 추론), `TrainingApprovalFlow` (composition, 추론) | qd-class-reference |
@@ -1507,18 +1507,18 @@
 | [app/(app)/training/competency-register.tsx](../../Q-Works/app/(app)/training/competency-register.tsx) | `CompetencyRegister` (composition, 추론) | qd-class-reference |
 | [app/(app)/training/loading.tsx](../../Q-Works/app/(app)/training/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/training/new/loading.tsx](../../Q-Works/app/(app)/training/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/training/new/page.tsx](../../Q-Works/app/(app)/training/new/page.tsx) | `NewTrainingPage` (screen, 추론) | product-local |
+| [app/(app)/training/new/page.tsx](../../Q-Works/app/(app)/training/new/page.tsx) | `NewTrainingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/page.tsx](../../Q-Works/app/(app)/training/page.tsx) | `TrainingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/plans/[id]/loading.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/training/plans/[id]/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/page.tsx) | `TrainingPlanPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/training/plans/[id]/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/page.tsx) | `TrainingPlanPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/plans/[id]/print/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
 | [app/(app)/training/plans/[id]/report/loading.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/report/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/training/plans/[id]/report/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/report/page.tsx) | `TrainingReportPage` (screen, 추론) | imports-canonical-module |
+| [app/(app)/training/plans/[id]/report/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/report/page.tsx) | `TrainingReportPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/plans/[id]/report/print/page.tsx](../../Q-Works/app/(app)/training/plans/%5Bid%5D/report/print/page.tsx) | `Page` (document, 추론) | imports-canonical-module |
 | [app/(app)/training/plans/new/new-plan-form.tsx](../../Q-Works/app/(app)/training/plans/new/new-plan-form.tsx) | `NewTrainingPlanForm` (composition, 추론) | product-local |
-| [app/(app)/training/plans/new/page.tsx](../../Q-Works/app/(app)/training/plans/new/page.tsx) | `NewTrainingPlanPage` (screen, 추론) | product-local |
+| [app/(app)/training/plans/new/page.tsx](../../Q-Works/app/(app)/training/plans/new/page.tsx) | `NewTrainingPlanPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/record/loading.tsx](../../Q-Works/app/(app)/training/record/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/training/record/page.tsx](../../Q-Works/app/(app)/training/record/page.tsx) | `RecordTrainingPage` (screen, 추론) | product-local |
+| [app/(app)/training/record/page.tsx](../../Q-Works/app/(app)/training/record/page.tsx) | `RecordTrainingPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/training/record/record-form.tsx](../../Q-Works/app/(app)/training/record/record-form.tsx) | `RecordTrainingForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/training/sheet-flow.tsx](../../Q-Works/app/(app)/training/sheet-flow.tsx) | `TrainingSheetDeleteButton` (action, 추론), `TrainingSheetFlow` (composition, 추론) | product-local |
 | [app/(app)/training/sheet-header.tsx](../../Q-Works/app/(app)/training/sheet-header.tsx) | `TrainingSheetApproval` (composition, 추론) | product-local |
@@ -1526,13 +1526,13 @@
 | [app/(app)/training/training-form.tsx](../../Q-Works/app/(app)/training/training-form.tsx) | `TrainingForm` (composition, 추론) | qd-class-reference |
 | [app/(app)/training/training-row-actions.tsx](../../Q-Works/app/(app)/training/training-row-actions.tsx) | `TrainingRowActions` (action, 추론) | product-local |
 | [app/(app)/training/training-sheets.tsx](../../Q-Works/app/(app)/training/training-sheets.tsx) | `TrainingSheet` (composition, 추론) | imports-canonical-module |
-| [app/(app)/warehouses/[id]/edit/page.tsx](../../Q-Works/app/(app)/warehouses/%5Bid%5D/edit/page.tsx) | `WarehouseEditPage` (screen, 추론) | product-local |
+| [app/(app)/warehouses/[id]/edit/page.tsx](../../Q-Works/app/(app)/warehouses/%5Bid%5D/edit/page.tsx) | `WarehouseEditPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/warehouses/[id]/loading.tsx](../../Q-Works/app/(app)/warehouses/%5Bid%5D/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/warehouses/[id]/page.tsx](../../Q-Works/app/(app)/warehouses/%5Bid%5D/page.tsx) | `WarehouseDetailPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/warehouses/[id]/warehouse-items-panel.tsx](../../Q-Works/app/(app)/warehouses/%5Bid%5D/warehouse-items-panel.tsx) | `WarehouseItemsPanel` (composition, 추론) | qd-class-reference |
 | [app/(app)/warehouses/loading.tsx](../../Q-Works/app/(app)/warehouses/loading.tsx) | `Loading` (feedback, 추론) | product-local |
 | [app/(app)/warehouses/new/loading.tsx](../../Q-Works/app/(app)/warehouses/new/loading.tsx) | `Loading` (feedback, 추론) | product-local |
-| [app/(app)/warehouses/new/page.tsx](../../Q-Works/app/(app)/warehouses/new/page.tsx) | `NewWarehousePage` (screen, 추론) | product-local |
+| [app/(app)/warehouses/new/page.tsx](../../Q-Works/app/(app)/warehouses/new/page.tsx) | `NewWarehousePage` (screen, 추론) | qd-class-reference |
 | [app/(app)/warehouses/page.tsx](../../Q-Works/app/(app)/warehouses/page.tsx) | `WarehousesPage` (screen, 추론) | qd-class-reference |
 | [app/(app)/warehouses/warehouse-form.tsx](../../Q-Works/app/(app)/warehouses/warehouse-form.tsx) | `WarehouseForm` (composition, 추론) | qd-class-reference |
 | [app/(auth)/forgot-password/forgot-password-form.tsx](../../Q-Works/app/(auth)/forgot-password/forgot-password-form.tsx) | `ForgotPasswordForm` (composition, 추론) | product-local |
