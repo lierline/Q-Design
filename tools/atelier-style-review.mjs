@@ -13,6 +13,7 @@ import {collectStyleObjectOrigins} from './atelier-style-origins.mjs';
 import {createAtelierProofContext} from './atelier-proof-context.mjs';
 import {primitiveFlowType} from './atelier-primitive-leaves.mjs';
 import {consumerReviewFiles} from './atelier-consumer-review-files.mjs';
+import {supplementaryNodes} from './atelier-supplementary-flows.mjs';
 const ROOT='D:/Claude/Q-Design', PRODUCT='D:/Claude/Q-Atelier';
 const req=createRequire(path.join(PRODUCT,'package.json')),ts=req('typescript'),postcss=req('postcss');
 const properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
@@ -113,7 +114,7 @@ for(const file of applicationFiles){
   const verified=part&&copyProblems(part,fs.readFileSync(path.join(ROOT,part.src),'utf8'),code).length===0;
   const iconSource=file.startsWith('components/q-design-icons/')?`dist/react-icons/${path.basename(file)}`:null;
   const iconVerified=iconSource&&fs.existsSync(path.join(ROOT,iconSource))&&hash(fs.readFileSync(path.join(ROOT,iconSource),'utf8'))===sourceHash;
-  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals,expandedLocals,styleOrigins=new Map();
+  const styleKeys=new Set(),proofNodes=new Map();let imports=new Map(),sf,locals,expandedLocals,supplementaryReviewedNodes,styleOrigins=new Map();
   if(/\.[jt]sx?$/.test(file)){
     sf=ts.createSourceFile(file,code,ts.ScriptTarget.Latest,true,file.endsWith('x')?ts.ScriptKind.TSX:ts.ScriptKind.TS);
     imports=sourceImports(ts,sf);
@@ -220,6 +221,11 @@ for(const file of applicationFiles){
       expandedLocals??=localBindings(ts,sf,hash,expandedContext.references);
       const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property,imports,file,references:expandedContext.references,variables,locals:expandedLocals,reviewedNodes,extendedAliases:true});
       if(proof?.central){const evidence=[...new Map([...own,...proof.evidence].map(e=>[JSON.stringify(e),e])).values()],delegated=evidence.some(e=>e.delegatedReview);result=decide(delegated?'delegated-renderer-parameter':'token-reference-verified','proven-composition',delegated?'All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.':'Every result branch and authored value in this expression has independent source proof; no unknown fragment is ignored.',evidence);}
+    }
+    if(!result&&sf&&['object-property','style-expression','presentation-attribute'].includes(kind)&&proofNodes.has(`${kind}:${line}:${property}:${value}`)){
+      supplementaryReviewedNodes??=supplementaryNodes(ts,sf);
+      const proof=expressionProof({ts,node:proofNodes.get(`${kind}:${line}:${property}:${value}`),sf,property,imports,file,references:expandedContext.references,variables,locals:expandedLocals,reviewedNodes:supplementaryReviewedNodes,extendedAliases:true,numericParameterUnits:true});
+      if(proof&&(proof.central||kind==='style-expression'||styleKeys.has(`${line}:${property}:${value}`))){const evidence=[...new Map([...own,...proof.evidence].map(e=>[JSON.stringify(e),e])).values()];if(evidence.some(e=>e.delegatedReview))result=decide('delegated-renderer-parameter','proven-composition','All local authored values are independently proven; exact forwarded style parameters retain their separately inventoried caller obligations. This does not approve the caller styles.',evidence);}
     }
     if(!result)result=decide('unknown','unknown','No broad filename, numeric-value or single-token exemption is applied.',own);
     records.push({path:file,sourceHash,argumentHash:hash(JSON.stringify(argument)),...argument,originalStatus:argument.status,...result});

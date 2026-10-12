@@ -10,6 +10,14 @@ const variables = new Map(['--qd-text', '--qd-radius', '--qd-space-2', '--qd-fon
   .map(variable => [variable, { path: 'central.css', line: 2, variable, hash: 'verified-css' }]));
 const source = code => ts.createSourceFile('components/example.tsx', code, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 
+test('numeric forwarding permits CSS units only for exact reviewed number leaves without approving a fallback or factor',()=>{
+ const prove=(value,type='number',attach=true,enabled=true)=>{const sf=source('function Item({distance}:{distance:number}){const result='+value+';}'),reviewedNodes=new WeakMap();let target;const visit=n=>{if(attach&&ts.isIdentifier(n)&&n.text==='distance'&&!ts.isBindingElement(n.parent)&&!ts.isPropertySignature(n.parent))reviewedNodes.set(n,{central:false,primitiveType:type,evidence:[{path:sf.fileName,line:1,hash:hash(sf.text),delegatedReview:true}]});if(ts.isVariableDeclaration(n)&&n.name.getText(sf)==='result')target=n.initializer;ts.forEachChild(n,visit);};visit(sf);return expressionProof({ts,node:target,sf,property:'height',imports:sourceImports(ts,sf),file:sf.fileName,references:new Map(),variables,locals:localBindings(ts,sf,hash),reviewedNodes,numericParameterUnits:enabled});};
+ assert(prove('`${distance}px`')?.evidence.some(e=>e.delegatedReview));
+ for(const type of['string','mixed',null])assert.equal(prove('`${distance}px`',type),null);
+ assert.equal(prove('`${distance}px`','number',false),null);assert.equal(prove('`${distance}px`','number',true,false),null);
+ assert.equal(prove('`${distance??913}px`'),null);assert.equal(prove('`${distance*2}px`'),null);assert.equal(prove('`${distance}px solid red`'),null);
+});
+
 test('imported selector aliases require a closed provider member and an immutable unescaped receiver',()=>{
  const provider='export function choose(data){return data?{label:unknown,color:"var(--qd-text)"}:{label:other,color:"var(--qd-text)"};}',refs=code=>collectAdapterReferences({ts,variables,hash,files:new Map([['lib/choice.ts',code]])});
  const prove=(body,code=provider,enabled=true)=>{const sf=source('import {choose}from"@/lib/choice";'+body);return expressionProof({ts,node:sf.statements.at(-1).declarationList.declarations[0].initializer,sf,property:'color',imports:sourceImports(ts,sf),file:sf.fileName,references:refs(code),variables,locals:localBindings(ts,sf,hash),extendedAliases:enabled});};

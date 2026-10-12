@@ -1,13 +1,13 @@
 {
-  "createdAt": "2026-10-12T06:17:38.838Z",
+  "createdAt": "2026-10-12T06:29:33.242Z",
   "sourceReview": "reviews/atelier-style-decisions.json",
   "note": "Context inventory only, not adjudication. Confirmed styles can contain central runtime compositions; counts do not equal remaining hardcoded defaults. Unresolved consumers and changed sources are never exempt.",
-  "unknown": 638,
-  "confirmedStyleArguments": 477,
-  "confirmedStylePercent": 74.8,
+  "unknown": 588,
+  "confirmedStyleArguments": 428,
+  "confirmedStylePercent": 72.8,
   "kinds": {
-    "object-property": 266,
-    "style-expression": 213,
+    "object-property": 234,
+    "style-expression": 195,
     "presentation-attribute": 46,
     "dynamic-style": 36,
     "class-utility": 12,
@@ -20,10 +20,10 @@
     "html-attribute": 3
   },
   "counts": {
-    "confirmed-style-object": 251,
-    "direct-jsx-style": 213,
+    "confirmed-style-object": 220,
+    "direct-jsx-style": 195,
     "component-prop-needs-consumer-trace": 46,
-    "unresolved-consumer": 81,
+    "unresolved-consumer": 80,
     "dom-style-write": 13,
     "selector-or-variant": 32,
     "svg-artwork-or-data-geometry": 2
@@ -83,28 +83,6 @@
       "property": "top",
       "value": "0",
       "context": "unresolved-consumer"
-    },
-    {
-      "path": "app/(app)/admin/multi-view/page.tsx",
-      "line": 658,
-      "argumentHash": "b8b197dcedd64bcd97cc41a02a4ee4063d2e71feb0a44a45d97eb32b398f54f9",
-      "sourceHash": "a40b28ddf57930adb7890c62633fec1cc0f6e4830b73042102e39a3ea5a83fb4",
-      "currentHash": "a40b28ddf57930adb7890c62633fec1cc0f6e4830b73042102e39a3ea5a83fb4",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\r\n          padding: `${QDScale.space[2.5]} ${QDScale.space[3.5]}`,\r\n          background: alpha(color, QDRuntime.alpha.tint0_08),\r\n        }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/admin/multi-view/page.tsx",
-      "line": 660,
-      "argumentHash": "20a8f829db3810def20b5162c97e028606be01905d10a7fb4e2b86e3ca380ce5",
-      "sourceHash": "a40b28ddf57930adb7890c62633fec1cc0f6e4830b73042102e39a3ea5a83fb4",
-      "currentHash": "a40b28ddf57930adb7890c62633fec1cc0f6e4830b73042102e39a3ea5a83fb4",
-      "kind": "object-property",
-      "property": "background",
-      "value": "alpha(color, QDRuntime.alpha.tint0_08)",
-      "context": "confirmed-style-object"
     },
     {
       "path": "app/(app)/admin/multi-view/page.tsx",
@@ -467,50 +445,6 @@
       "kind": "style-expression",
       "property": "style",
       "value": "{{ fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, color: T.bg, background: sev.color, borderRadius: QDScale.radius, padding: \"var(--qd-atelier-padding-ebe18731f0)\", fontWeight: \"var(--qd-font-weight-semibold)\", flexShrink: 0 }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/audit-readiness/page.tsx",
-      "line": 319,
-      "argumentHash": "fc581ee9169c750aad3cb695d6d2608d64a3970fbe92c973018bf73c99249978",
-      "sourceHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "currentHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "kind": "object-property",
-      "property": "background",
-      "value": "n > 0 ? alpha(color, QDRuntime.alpha.tint0_1) : 'transparent'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/audit-readiness/page.tsx",
-      "line": 319,
-      "argumentHash": "a888ddd253efbbf4fd0ab726ab5e91690738af2be94f1f355427b773b5b69bda",
-      "sourceHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "currentHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${n > 0 ? alpha(color, QDRuntime.alpha.tint0_35) : T.border}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/audit-readiness/page.tsx",
-      "line": 319,
-      "argumentHash": "d75b6bf60e263807771337653f40ff8512723e10bcf7c43f5394e7e9e19200cb",
-      "sourceHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "currentHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "kind": "object-property",
-      "property": "color",
-      "value": "n > 0 ? color : T.muted",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/audit-readiness/page.tsx",
-      "line": 319,
-      "argumentHash": "138b30435c5c1bfb4da569f595df67bc971c8f9cc3ac5c953c3f8ce95a0c48f1",
-      "sourceHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "currentHash": "594b55d481513eb0cb47d3f1639fd8382c66c3540d10508f45658fa987e5e3fd",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ display: 'inline-flex', alignItems: 'center', gap: \"var(--qd-atelier-gap-0d6046eefe)\", fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, color: n > 0 ? color : T.muted, background: n > 0 ? alpha(color, QDRuntime.alpha.tint0_1) : 'transparent', border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${n > 0 ? alpha(color, QDRuntime.alpha.tint0_35) : T.border}`, borderRadius: QDScale.radius, padding: \"var(--qd-atelier-padding-30334f0345)\" }}",
       "context": "direct-jsx-style"
     },
     {
@@ -1373,72 +1307,6 @@
     },
     {
       "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 584,
-      "argumentHash": "4ef15c327b69b7bd83879a485805eb91b6adb3960eee905e06d1d1621efc47cc",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "object-property",
-      "property": "borderColor",
-      "value": "tintBorder(accent)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 584,
-      "argumentHash": "1a38b7a314d692b23580ac1469ad1341d905f793c205809b028d7004dbe6e2ab",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ padding: QDScale.space[3.5], borderColor: tintBorder(accent) }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 597,
-      "argumentHash": "d27c75dc26d7d696850b063e3b5abf130df359dc162a2b87617fba9f946f7e69",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "object-property",
-      "property": "color",
-      "value": "accent",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 597,
-      "argumentHash": "c6ce0b1e9eb448f3b927cc9a5bb5fd52b87a599ab421e86ef9e49e0077e5e8bf",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ fontSize: QDScale.font[24], color: accent, fontFamily: QDScale.family.serif, fontWeight: \"var(--qd-font-weight-medium)\" }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 668,
-      "argumentHash": "34d22fce04cb9a6c3331651708f6ec77116471129f946112a0902b93994745f5",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "object-property",
-      "property": "color",
-      "value": "accent",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
-      "line": 668,
-      "argumentHash": "ba0eb58b036371146e79d7a72d1c744b9498b0093c6a6d3f3ef849d1308166da",
-      "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "currentHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ marginLeft: QDScale.space[1.5], color: accent, fontWeight: \"var(--qd-font-weight-semibold)\" }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/settings/compliance/compliance-manager.tsx",
       "line": 1089,
       "argumentHash": "f44f07ccabbda213206826c42620c2ccb5dbc4a3ee0a46713c091baa587d879c",
       "sourceHash": "06ab1394078340ab3b45178ddc2c1a18e19eee4a269cc369cc662244445b2d3f",
@@ -1581,39 +1449,6 @@
       "context": "confirmed-style-object"
     },
     {
-      "path": "app/(app)/settings/usage/page.tsx",
-      "line": 715,
-      "argumentHash": "bce5b5d99a816c561adef09cb390a521e22fef63fea95b35f12e0f66d89a5198",
-      "sourceHash": "56da44acee37f778867c2ab41ffdbfa0af8dc5deaadb0b294205659522162593",
-      "currentHash": "56da44acee37f778867c2ab41ffdbfa0af8dc5deaadb0b294205659522162593",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\r\n              width: \"var(--qd-atelier-width-b7aa1ec004)\",\r\n              height: `${d.pct * 100}%`,\r\n              background: d.hit_100 ? T.red : d.hit_80 ? T.warning : color,\r\n              transition: \"var(--qd-atelier-transition-282bfdd54b)\",\r\n            }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/settings/usage/page.tsx",
-      "line": 718,
-      "argumentHash": "ef33830d61afd32f9f572eb5d3320678a450a70980a654745eda8f0c8095eaf7",
-      "sourceHash": "56da44acee37f778867c2ab41ffdbfa0af8dc5deaadb0b294205659522162593",
-      "currentHash": "56da44acee37f778867c2ab41ffdbfa0af8dc5deaadb0b294205659522162593",
-      "kind": "object-property",
-      "property": "background",
-      "value": "d.hit_100 ? T.red : d.hit_80 ? T.warning : color",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/suppliers/[id]/client.tsx",
-      "line": 124,
-      "argumentHash": "d770b5299816a24c1fcf002d2a7cc47e381c48c4ca6e8814a12efff9455fbe09",
-      "sourceHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
-      "currentHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_4)}`",
-      "context": "confirmed-style-object"
-    },
-    {
       "path": "app/(app)/suppliers/[id]/client.tsx",
       "line": 124,
       "argumentHash": "08d145705cb9a38a89e19c9044540daf2e1c7130c21009cc2e4d10bb1d98d903",
@@ -1623,50 +1458,6 @@
       "property": "style",
       "value": "{{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], fontWeight: \"var(--qd-font-weight-medium)\", letterSpacing: \"var(--qd-atelier-letter-spacing-1976387f7d)\", color, textTransform: QDText.textTransform.v642d85873e, padding: \"var(--qd-atelier-padding-b26b9ada6f)\", border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_4)}`, borderRadius: QDScale.radius }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/training/page.tsx",
-      "line": 325,
-      "argumentHash": "233bd743680a0dbe46dd03fc0f7bb3600623a5293f326d88dfd0ca0fbcfad812",
-      "sourceHash": "953a5f30f9c15b15b00eb2363db0bb6f5a0e36e58989fe2234cfabc0130d62c1",
-      "currentHash": "953a5f30f9c15b15b00eb2363db0bb6f5a0e36e58989fe2234cfabc0130d62c1",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n          fontFamily: QDScale.family.mono,\n          fontSize: QDScale.font[18],\n          fontWeight: \"var(--qd-font-weight-bold)\",\n          color: value > 0 ? color : T.text,\n        }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/training/page.tsx",
-      "line": 329,
-      "argumentHash": "c8407a79b7f28824d399158e93aa05ff272af14045fe0e2f9f70fc9776d8b9db",
-      "sourceHash": "953a5f30f9c15b15b00eb2363db0bb6f5a0e36e58989fe2234cfabc0130d62c1",
-      "currentHash": "953a5f30f9c15b15b00eb2363db0bb6f5a0e36e58989fe2234cfabc0130d62c1",
-      "kind": "object-property",
-      "property": "color",
-      "value": "value > 0 ? color : T.text",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(app)/vigilance/new/client.tsx",
-      "line": 371,
-      "argumentHash": "2851d4e77065ad79b4a93ed0bd812845018097e37b37cfd359b5b08679e3411c",
-      "sourceHash": "bf5f42c569aa929fea55cff88cc49cb8590a4be00624a19009cc5a48b93df954",
-      "currentHash": "bf5f42c569aa929fea55cff88cc49cb8590a4be00624a19009cc5a48b93df954",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        padding: \"var(--qd-atelier-padding-152a9b1880)\",\n        background: T.surface,\n        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(accent, QDRuntime.alpha.tint0_28)}`,\n        borderRadius: QDScale.radius,\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(app)/vigilance/new/client.tsx",
-      "line": 374,
-      "argumentHash": "6ca257f5f01cff65874fa925ce751a765ff6d6eb59ad0d19e7db04b29ecce6ff",
-      "sourceHash": "bf5f42c569aa929fea55cff88cc49cb8590a4be00624a19009cc5a48b93df954",
-      "currentHash": "bf5f42c569aa929fea55cff88cc49cb8590a4be00624a19009cc5a48b93df954",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(accent, QDRuntime.alpha.tint0_28)}`",
-      "context": "confirmed-style-object"
     },
     {
       "path": "app/(auth)/login/page.tsx",
@@ -1711,50 +1502,6 @@
       "property": "d",
       "value": "\"M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z\"",
       "context": "svg-artwork-or-data-geometry"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
-      "line": 1311,
-      "argumentHash": "33f18f7d26d983cba86064ffcf907a2c256b7505d6f86a91b27a757b221bf928",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        borderRadius: QDScale.radius,\n        marginTop: QDScale.space[2],\n        padding: \"var(--qd-atelier-padding-071d0f3c74)\",\n        background: alpha(color, QDRuntime.alpha.tint0_07),\n        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_35)}`,\n        borderColor: tintBorder(color),\n        fontSize: QDScale.font[12],\n        color: T.text,\n        fontFamily: QDScale.family.serif,\n        letterSpacing: \"var(--qd-atelier-letter-spacing-7ced33ba9c)\",\n        lineHeight: QDScale.leading.normal,\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
-      "line": 1315,
-      "argumentHash": "a772c577210966ada6c32ca732a836ca8e94244f2659b75e2c5396efce8af855",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "object-property",
-      "property": "background",
-      "value": "alpha(color, QDRuntime.alpha.tint0_07)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
-      "line": 1316,
-      "argumentHash": "2e59c99a9d4c2a548013f181fb59b7f310f07c9e3bf81b7cafde74208c31e3b5",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${alpha(color, QDRuntime.alpha.tint0_35)}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "app/(auth)/login/page.tsx",
-      "line": 1317,
-      "argumentHash": "da19fdec79eb5cf8240f6f82e87fdabb8cdce97eb624fa08b6e4d1a61e74f5c6",
-      "sourceHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "currentHash": "05b6eb16326db7f013d148ce3275ebd5b3749eecb31ef02ddd70fcb584a296f5",
-      "kind": "object-property",
-      "property": "borderColor",
-      "value": "tintBorder(color)",
-      "context": "confirmed-style-object"
     },
     {
       "path": "app/experts/inbox/[id]/page.tsx",
@@ -2593,50 +2340,6 @@
       "context": "direct-jsx-style"
     },
     {
-      "path": "components/FinalDecisionPanel.tsx",
-      "line": 307,
-      "argumentHash": "4c17ebf8724aed6bf6c348ea142f10723159cc2674564540b6e1933821b078c5",
-      "sourceHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "currentHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\r\n        borderRadius: QDScale.radius,\r\n        flex: \"var(--qd-atelier-flex-83725d2c6e)\",\r\n        padding: \"var(--qd-atelier-padding-47a5dde148)\",\r\n        background: active ? alpha(color, QDRuntime.alpha.tint0_12) : 'transparent',\r\n        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${active ? color : T.border}`,\r\n        color: active ? color : T.subtle,\r\n        fontSize: QDScale.font[12],\r\n        fontFamily: QDScale.family.serif,\r\n        fontWeight: active ? \"var(--qd-font-weight-semibold)\" : \"var(--qd-font-weight-normal)\",\r\n        cursor: 'pointer',\r\n        textAlign: 'left',\r\n        transition: \"var(--qd-atelier-transition-f773cabbfd)\",\r\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/FinalDecisionPanel.tsx",
-      "line": 311,
-      "argumentHash": "b56702d01397919c4eb02f451057403fc95e332be693b62906cf8893a2525f4e",
-      "sourceHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "currentHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "kind": "object-property",
-      "property": "background",
-      "value": "active ? alpha(color, QDRuntime.alpha.tint0_12) : 'transparent'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/FinalDecisionPanel.tsx",
-      "line": 312,
-      "argumentHash": "aacec61f5bcfd3c96557a356acd24a6f2e8a07a79b2e4497a74d55da1214e3c7",
-      "sourceHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "currentHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${active ? color : T.border}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/FinalDecisionPanel.tsx",
-      "line": 313,
-      "argumentHash": "35c0fa27bbbe670a38bb299f47a156380dc5bc445993e3e5847c137ef3681de1",
-      "sourceHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "currentHash": "6a5823d5319ddf4622c1eb82f1c36419fd7a15da4a08ef67dc99af977f61941a",
-      "kind": "object-property",
-      "property": "color",
-      "value": "active ? color : T.subtle",
-      "context": "confirmed-style-object"
-    },
-    {
       "path": "components/FinalJudgmentPanel.tsx",
       "line": 285,
       "argumentHash": "b332b1c3d1b9c74e9d0dfb29ec3ffb099cf8d71f57a94e3373d258df87e3dc24",
@@ -2714,28 +2417,6 @@
       "context": "confirmed-style-object"
     },
     {
-      "path": "components/FinalJudgmentPanel.tsx",
-      "line": 448,
-      "argumentHash": "ce5b9922ff5b1399a82394a47a892423e8eba53bfdc9b91b0a13db20e2f5457e",
-      "sourceHash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
-      "currentHash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n                position: 'absolute',\n                left: \"var(--qd-atelier-left-090a0c84b4)\",\n                top: \"var(--qd-atelier-top-cdd75e945e)\",\n                width: \"var(--qd-atelier-width-222b812eb5)\",\n                height: \"var(--qd-atelier-height-48d63bd7e5)\",\n                borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\",\n                background: color,\n              }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/FinalJudgmentPanel.tsx",
-      "line": 455,
-      "argumentHash": "8883cdf82ba35c2a9ccf4b0a994f8ea64a31dc3b643d5093ce6aad383d518a9a",
-      "sourceHash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
-      "currentHash": "64d4b24cf6219c1e0e8d7402a862fb5473192a1e7d43c52b05474183beb3ab2a",
-      "kind": "object-property",
-      "property": "background",
-      "value": "color",
-      "context": "confirmed-style-object"
-    },
-    {
       "path": "components/GlobalSearch.tsx",
       "line": 351,
       "argumentHash": "6560d218c46c2d42c34e4ab9ba8601e2b79dfe0317bfb79681ec92a72b5c9f8e",
@@ -2777,28 +2458,6 @@
       "kind": "object-spread",
       "property": "...",
       "value": "infoPopoverStyle()",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/ItemClassificationPreview.tsx",
-      "line": 424,
-      "argumentHash": "e5e753bb8ae88062a332130fe0cbfb23c5477a0b8bf5ddbc1108255a02ec62d5",
-      "sourceHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
-      "currentHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        display: 'inline-block',\n        width: \"var(--qd-atelier-width-1424f7d8e8)\",\n        height: \"var(--qd-atelier-height-1959f437dd)\",\n        borderRadius: \"var(--qd-atelier-border-radius-f44e751c2d)\",\n        border: `var(--qd-atelier-border-width-629f400716) var(--qd-atelier-border-style-5ed175bd8d) ${color}`,\n        borderTopColor: 'transparent',\n        animation: \"var(--qd-atelier-animation-d886dde6cd)\",\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/ItemClassificationPreview.tsx",
-      "line": 429,
-      "argumentHash": "606fba59e8cfef80c3597a886a9ec7352627a42bd01f78db83daefd65bc9bba0",
-      "sourceHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
-      "currentHash": "3c705c61378cec66ddc187734315e1f5b360aa57924b71c523675e5507ab6c1d",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-atelier-border-width-629f400716) var(--qd-atelier-border-style-5ed175bd8d) ${color}`",
       "context": "confirmed-style-object"
     },
     {
@@ -3108,28 +2767,6 @@
       "property": "style",
       "value": "{{\n        borderRadius: QDScale.radius,\n        display: 'inline-block',\n        padding: \"var(--qd-atelier-padding-27db9f8b15)\",\n        background: alpha(color, QDRuntime.alpha.tint0_14),\n        color,\n        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${color}`,\n        fontSize: QDScale.font[12],\n        fontFamily: QDScale.family.ui,\n        marginRight: QDScale.space[1.5],\n      }}",
       "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/OpinionForm.tsx",
-      "line": 793,
-      "argumentHash": "ab9dcc2cc4ddf26023a5390a554a446ff1c7e7623e46b1f470a05b24a1567cb8",
-      "sourceHash": "792543effca3231aaf780169e61a0efe5a80926b9f69703627e0ac5eeabaf6ab",
-      "currentHash": "792543effca3231aaf780169e61a0efe5a80926b9f69703627e0ac5eeabaf6ab",
-      "kind": "object-property",
-      "property": "background",
-      "value": "alpha(color, QDRuntime.alpha.tint0_14)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/OpinionForm.tsx",
-      "line": 795,
-      "argumentHash": "a81719acf22cb1d73c3964bb14ef478d607abb08215c4d2fe3df5f2e51b7367b",
-      "sourceHash": "792543effca3231aaf780169e61a0efe5a80926b9f69703627e0ac5eeabaf6ab",
-      "currentHash": "792543effca3231aaf780169e61a0efe5a80926b9f69703627e0ac5eeabaf6ab",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${color}`",
-      "context": "confirmed-style-object"
     },
     {
       "path": "components/OpinionForm.tsx",
@@ -3848,50 +3485,6 @@
     },
     {
       "path": "components/RequirementsDashboard.tsx",
-      "line": 825,
-      "argumentHash": "a1d208422c0684ce3c6b3c24d30c933abb232ca6fa8dd23e551d26845652d581",
-      "sourceHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "currentHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n          padding: QDScale.space[3.5],\n          borderColor: tintBorder(accent),\n          background: alpha(accent, QDRuntime.alpha.tint0_04),\n          cursor: tooltip ? 'help' : 'default',\n          // 호버 시 살짝 강조: 그 카드에 hover info 가 있다는 affordance\n          boxShadow: open ? `0 0 0 var(--qd-border-width) ${alpha(accent, QDRuntime.alpha.tint0_4)}` : 'none',\n          transition: \"var(--qd-atelier-transition-bc79e320e5)\",\n          // 4개 카드 동일 높이: sub 유무와 무관\n          height: \"var(--qd-atelier-height-26ecbf76a0)\",\n          boxSizing: 'border-box',\n          display: 'flex',\n          flexDirection: 'column',\n          // 값 위주로 중앙 정렬되도록 sub 행을 하단에 두고 위쪽 spacer\n          justifyContent: 'flex-start',\n          minHeight: \"var(--qd-atelier-min-height-838e37e3a4)\",\n        }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/RequirementsDashboard.tsx",
-      "line": 827,
-      "argumentHash": "a56bf0b99f7cd9f2c96ed6d2da150b9ab5f1e752b4efa511cef6736f08d6108c",
-      "sourceHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "currentHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "kind": "object-property",
-      "property": "borderColor",
-      "value": "tintBorder(accent)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/RequirementsDashboard.tsx",
-      "line": 828,
-      "argumentHash": "4c6285ad73372456000b2ac6eebef8d9fc68f8c420b1601bba68efc0109b5f30",
-      "sourceHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "currentHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "kind": "object-property",
-      "property": "background",
-      "value": "alpha(accent, QDRuntime.alpha.tint0_04)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/RequirementsDashboard.tsx",
-      "line": 831,
-      "argumentHash": "10257644c514d27879ce1fb08a8960585745b2b63dfb53cc875389d6073d848c",
-      "sourceHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "currentHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
-      "kind": "object-property",
-      "property": "boxShadow",
-      "value": "open ? `0 0 0 var(--qd-border-width) ${alpha(accent, QDRuntime.alpha.tint0_4)}` : 'none'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/RequirementsDashboard.tsx",
       "line": 883,
       "argumentHash": "ad686e2d9b00666eb67c27acc6727f384660adc2f4e90af6cd43d5238e279fc2",
       "sourceHash": "791036a9750ac11e083151c013afed11ddb888c4bd6679992de8b8773a89d4f2",
@@ -4299,28 +3892,6 @@
     },
     {
       "path": "components/Skeleton.tsx",
-      "line": 77,
-      "argumentHash": "63612e9d572a7c8aceb7b3d71369e51a470ea4b0f34c92e4492f7b7cdfcefb70",
-      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
-      "currentHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        display: 'grid',\n        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,\n        gap: QDScale.space[3.5],\n        marginBottom: QDScale.space[6],\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/Skeleton.tsx",
-      "line": 79,
-      "argumentHash": "69302a7707784356bc6c444dc3aba1b6c8092840a21252b1000d432f427418f9",
-      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
-      "currentHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
-      "kind": "object-property",
-      "property": "gridTemplateColumns",
-      "value": "`repeat(${cols}, minmax(0, 1fr))`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/Skeleton.tsx",
       "line": 89,
       "argumentHash": "2818ef0488a79b41254fb5eb7e3faa1e1a761a6611a0361fcc311bba3cb02fdc",
       "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
@@ -4460,50 +4031,6 @@
       "kind": "style-expression",
       "property": "style",
       "value": "{{ fontSize: QDScale.font[12], color: subColor ?? T.muted, fontFamily: QDScale.family.mono }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "components/SuggestionDetailModal.tsx",
-      "line": 491,
-      "argumentHash": "39acb6c67693725ebb0dd1d8327100c0c0567d413c6ab0117e9ed1fc2ff44166",
-      "sourceHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "currentHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "kind": "object-property",
-      "property": "background",
-      "value": "filled ? color : 'transparent'",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SuggestionDetailModal.tsx",
-      "line": 491,
-      "argumentHash": "af8ff462cfaff1fd370d5dfd4bda1e8b8b978531a65a9f33170be27b23998b13",
-      "sourceHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "currentHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "kind": "object-property",
-      "property": "border",
-      "value": "`var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${color}`",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SuggestionDetailModal.tsx",
-      "line": 491,
-      "argumentHash": "ecf64ac35747313e8442ce039cda435b5d7c5f7b847f1f6deef054f0a5057784",
-      "sourceHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "currentHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "kind": "object-property",
-      "property": "color",
-      "value": "filled ? T.bg : color",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "components/SuggestionDetailModal.tsx",
-      "line": 491,
-      "argumentHash": "ab038a60f35760e169be0c55e6b846392ea0e01a43cee5df357d877023e68b99",
-      "sourceHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "currentHash": "0a719c81520c8b82fe8883a72c1591045cfc2c6967f8ae63615bf6e0c0f07e01",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ borderRadius: QDScale.radius, padding: `${QDScale.space[1]} ${QDScale.space[2]}`, fontSize: QDScale.font[12], fontFamily: QDScale.family.mono, letterSpacing: \"var(--qd-atelier-letter-spacing-27dbd80453)\", border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${color}`, color: filled ? T.bg : color, background: filled ? color : 'transparent' }}",
       "context": "direct-jsx-style"
     },
     {
@@ -5652,17 +5179,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 2743,
-      "argumentHash": "2079e392b53acc9959e06a1b3e0f4a8dd407c2fb5b8152ad399f5627550897d9",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "width",
-      "value": "width ?? QDRuntime.popover.infoWidth",
-      "context": "unresolved-consumer"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 2749,
       "argumentHash": "0500658dffeafcc1407f3961b26fa794f55a38e8745eced2778f3508b2c48063",
       "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
@@ -6015,28 +5531,6 @@
     },
     {
       "path": "lib/design/components.tsx",
-      "line": 3588,
-      "argumentHash": "b5340e0da70de067b8b234263e614ebed0d069cd04243b7b0268d8d4b3afe8e5",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n            display: 'inline-flex',\n            alignItems: 'center',\n            justifyContent: 'center',\n            width: \"var(--qd-atelier-width-c2cf54abc1)\",\n            height: \"var(--qd-atelier-height-0fff0a1524)\",\n            borderRadius: QDScale.radiusFull,\n            background: alpha(chipColor, QDRuntime.alpha.tint0_08),\n            flexShrink: 0,\n          }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 3595,
-      "argumentHash": "a78cc86bd40cbbfe127946c058fb63ae97610b7ae4a342bdc851720118980e93",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "background",
-      "value": "alpha(chipColor, QDRuntime.alpha.tint0_08)",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/components.tsx",
       "line": 3631,
       "argumentHash": "4580720c2ce704ee452da67075bc1295bbb588a153362c750022dd158595a813",
       "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
@@ -6267,28 +5761,6 @@
       "context": "confirmed-style-object"
     },
     {
-      "path": "lib/design/components.tsx",
-      "line": 4350,
-      "argumentHash": "6eb7912655e5092033c2b18a3826fc0d01d9715057f361a9aa7f4ff74851036d",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{\n        display: 'grid',\n        gridTemplateColumns: `repeat(auto-fit, minmax(${minCol}px, 1fr))`,\n        gap: QDScale.space[3],\n      }}",
-      "context": "direct-jsx-style"
-    },
-    {
-      "path": "lib/design/components.tsx",
-      "line": 4352,
-      "argumentHash": "fb2570878e16920a8e24f51adaa2a4a08b8c84ff3a60abcdb27ee0505a2debab",
-      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "currentHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
-      "kind": "object-property",
-      "property": "gridTemplateColumns",
-      "value": "`repeat(auto-fit, minmax(${minCol}px, 1fr))`",
-      "context": "confirmed-style-object"
-    },
-    {
       "path": "lib/design/grain.ts",
       "line": 23,
       "argumentHash": "a732b460244e6c7e3a2e73be100f3a78e0053e9e8b55b231ed952f03f89edecc",
@@ -6320,28 +5792,6 @@
       "property": "letterSpacing",
       "value": "tracking",
       "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/hangul-text.tsx",
-      "line": 30,
-      "argumentHash": "7d142efe1c7c629be3ef1ebff45258800ec2fe294cfbc9a75776e366f7b8397b",
-      "sourceHash": "442960d1cd7542d5a92991d61000bd3675379fb61a8f9c9569fe5a5205e6fcff",
-      "currentHash": "442960d1cd7542d5a92991d61000bd3675379fb61a8f9c9569fe5a5205e6fcff",
-      "kind": "object-property",
-      "property": "color",
-      "value": "color ?? T.subtle",
-      "context": "confirmed-style-object"
-    },
-    {
-      "path": "lib/design/hangul-text.tsx",
-      "line": 30,
-      "argumentHash": "ac23da9150ffd53fca000a968198daeb89978b05c8fe9e92d5e192d3213726dc",
-      "sourceHash": "442960d1cd7542d5a92991d61000bd3675379fb61a8f9c9569fe5a5205e6fcff",
-      "currentHash": "442960d1cd7542d5a92991d61000bd3675379fb61a8f9c9569fe5a5205e6fcff",
-      "kind": "style-expression",
-      "property": "style",
-      "value": "{{ fontSize: QDScale.font[12], color: color ?? T.subtle, ...codeOrTextFont(children, QDText.tracking.codeMeta) }}",
-      "context": "direct-jsx-style"
     },
     {
       "path": "lib/design/modal-focus.ts",

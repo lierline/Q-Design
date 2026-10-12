@@ -589,9 +589,10 @@ function importedValueCandidates({ts,node,sf,imports,file,references,locals,dept
   return expanded;
 }
 
-function numericExpression({ts,node,sf,imports,file,references,locals,depth=0}) {
+function numericExpression({ts,node,sf,imports,file,references,locals,reviewedNodes,depth=0}) {
   if(!node||depth>12)return false;
-  const numeric=child=>numericExpression({ts,node:child,sf,imports,file,references,locals,depth:depth+1});
+  if(reviewedNodes?.get(node)?.primitiveType==='number')return true;
+  const numeric=child=>numericExpression({ts,node:child,sf,imports,file,references,locals,reviewedNodes,depth:depth+1});
   if(ts.isParenthesizedExpression(node)||ts.isAsExpression(node)||ts.isSatisfiesExpression(node))return numeric(node.expression);
   if(ts.isNumericLiteral(node))return true;
   const reference=importedReference(node.getText(sf),imports,file,references);
@@ -604,10 +605,10 @@ function numericExpression({ts,node,sf,imports,file,references,locals,depth=0}) 
   return false;
 }
 
-export function expressionProof({ ts, node, sf, property, imports, file, references, variables, locals, reviewedNodes, extendedAliases = false, parameters = new Map(), depth = 0 }) {
+export function expressionProof({ ts, node, sf, property, imports, file, references, variables, locals, reviewedNodes, extendedAliases = false, numericParameterUnits = false, parameters = new Map(), depth = 0 }) {
   if (!node || depth > 15) return null;
   const reviewed=reviewedNodes?.get(node);if(reviewed)return reviewed;
-  const prove = (child, childProperty = property, bindings = parameters) => expressionProof({ ts, node: child, sf, property: childProperty, imports, file, references, variables, locals, reviewedNodes, extendedAliases, parameters: bindings, depth: depth + 1 });
+  const prove = (child, childProperty = property, bindings = parameters) => expressionProof({ ts, node: child, sf, property: childProperty, imports, file, references, variables, locals, reviewedNodes, extendedAliases, numericParameterUnits, parameters: bindings, depth: depth + 1 });
   if (ts.isParenthesizedExpression(node) || ts.isAsExpression(node) || ts.isSatisfiesExpression(node)) return prove(node.expression);
   const direct = importedReference(node.getText(sf), imports, file, references);
   if (direct) return { evidence: direct, central: true };
@@ -733,7 +734,7 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
   }
   const combine = proofs => proofs.every(Boolean) ? { evidence: proofs.flatMap(proof => proof.evidence), central: proofs.some(proof => proof.central) } : null;
   if(ts.isBinaryExpression(node)&&[ts.SyntaxKind.PlusToken,ts.SyntaxKind.MinusToken,ts.SyntaxKind.AsteriskToken,ts.SyntaxKind.SlashToken].includes(node.operatorToken.kind)
-    &&numericExpression({ts,node,sf,imports,file,references,locals}))return combine([prove(node.left),prove(node.right)]);
+    &&numericExpression({ts,node,sf,imports,file,references,locals,reviewedNodes:numericParameterUnits?reviewedNodes:undefined}))return combine([prove(node.left),prove(node.right)]);
   if (ts.isCallExpression(node) && (ts.isPropertyAccessExpression(node.expression)||ts.isIdentifier(node.expression))) {
     const recipe=importedReference(node.expression.getText(sf),imports,file,references,'#recipeCall');
     const arity=recipe?.find(item=>Number.isInteger(item.recipeParameters));
@@ -758,7 +759,7 @@ export function expressionProof({ ts, node, sf, property, imports, file, referen
     const chunksProof = chunks.map((chunk,index) => {
       // Units are only valid after a definitely numeric expression. One numeric
       // branch must never disguise a CSS-variable string in another branch.
-      if(index>0&&/^(?:px|ms|s|%)(?=\s|,|\)|$)/.test(chunk)&&numericExpression({ts,node:node.templateSpans[index-1].expression,sf,imports,file,references,locals}))chunk=chunk.replace(/^(?:px|ms|s|%)/,'');
+      if(index>0&&/^(?:px|ms|s|%)(?=\s|,|\)|$)/.test(chunk)&&numericExpression({ts,node:node.templateSpans[index-1].expression,sf,imports,file,references,locals,reviewedNodes:numericParameterUnits?reviewedNodes:undefined}))chunk=chunk.replace(/^(?:px|ms|s|%)/,'');
       if ((spacing ? /^[\s0]*$/ : /^\s*$/).test(chunk)) return { evidence: [], central: false };
       if (property === 'transition' && /^(?:\s|,|\b(?:all|background|background-color|color|border-color|opacity|transform|box-shadow|width|height|max-height|filter|grid-template-rows|left|right|top|bottom|stroke-dasharray|ms|s)\b)*$/.test(chunk)) return { evidence: [], central: false };
       if(spacing&&/^(?:\s|[()*+,-]|\bcalc\b|-1|0)*$/.test(chunk))return {evidence:[],central:false};
