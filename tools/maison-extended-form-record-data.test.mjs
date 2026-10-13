@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import {beforeContinuedFormData as beforeOriginalContinuedFormData} from './maison-continued-form-record-data.mjs';
-import {beforeActionResultData} from './maison-action-result-data.mjs';
+import {beforeActionResultData as beforeOriginalActionResultData} from './maison-action-result-data.mjs';
+import {beforeRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+const beforeActionResultData=current=>beforeOriginalActionResultData(beforeRemainingDocxFields(current));
 const beforeContinuedFormData=current=>beforeOriginalContinuedFormData(beforeActionResultData(current));
 import test from 'node:test';
 import assert from 'node:assert/strict';

@@ -1,5 +1,7 @@
 import fs from 'node:fs';
-import {beforeActionResultData} from './maison-action-result-data.mjs';
+import {beforeActionResultData as beforeOriginalActionResultData} from './maison-action-result-data.mjs';
+import {beforeRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+const beforeActionResultData=current=>beforeOriginalActionResultData(beforeRemainingDocxFields(current));
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';

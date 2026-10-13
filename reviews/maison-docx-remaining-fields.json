@@ -1,0 +1,408 @@
+{
+  "version": 1,
+  "scope": "Six exact database-derived document content arguments resolve under the actual installed TypeScript dependencies. Drawing scale and review position are strings; typed training records produce document text. Complete source, query producers, training text formatter and DOCX consumers are pinned. No business action is executed.",
+  "records": [
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 2399,
+      "value": "data.scale ?? \"\"",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "2affe98849207c86705c7e91a2edd307b0ea59e5935b60d888de10d519cec19a",
+      "decision": "business-content",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveDrawing argument produces string document values, table text or checkbox labels. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    },
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 3137,
+      "value": "c.position ?? \"\"",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "79742731f9fce8b2b379a82ee9f0d000f12c9c7ec50dc656afccc67bffcc24c6",
+      "decision": "business-content",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveContractReview argument produces string document values, table text or checkbox labels. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    },
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 3794,
+      "value": "{ ...row, doc_no: row.plan_no }",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "0dedd42123c330a4f84c7926359b5b2f3ecee79f6ced79cc0dcb7d9194195728",
+      "decision": "business-data",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveTrainingPlan argument produces a typed training record passed to trainingValues. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    },
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 3794,
+      "value": "row",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "b1124f947e3406170e563cadec77491885bc869761ef4718edbc9839b2ec1c5e",
+      "decision": "business-data",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveTrainingPlan argument produces a typed training record passed to trainingValues. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    },
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 3829,
+      "value": "{ ...row, doc_no: row.report_no }",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "9a0b0120a5937dbb1eef1897b297d9f93637d080be6151710af66f512e935cbd",
+      "decision": "business-data",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveTrainingReport argument produces a typed training record passed to trainingValues. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    },
+    {
+      "path": "lib/documents/form-fill.ts",
+      "line": 3829,
+      "value": "row",
+      "sourceHash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80",
+      "argumentHash": "24efd1d35ced3d93b97ebd1494d26f87364e7638217ad92daf491a2c7750394f",
+      "decision": "business-data",
+      "ruleId": "resolved-docx-remaining-field",
+      "reason": "This exact resolveTrainingReport argument produces a typed training record passed to trainingValues. The complete pinned pipeline passes content to doc.render or its checkbox-text preparation. The inspected field is not an element style, visual scale, CSS position or appearance object. Every other argument is separately inventoried.",
+      "evidence": [
+        {
+          "path": "lib/documents/form-fill.ts",
+          "line": 1,
+          "hash": "725a898a665e3b5383afaa117b0cda7f794d8473c9ccb4b5d5252961d3fcef80"
+        },
+        {
+          "path": "app/api/documents/form/route.ts",
+          "line": 1,
+          "hash": "f27b445522415b212f2a65802099e589fec451b35e1a089724defb229fbd5609"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "lib/users/job-grade.ts",
+          "line": 1,
+          "hash": "4ab064477ce6e5f1f66602e0fa58c58b60a87b74c7a8606143be0c8234ecfab7"
+        },
+        {
+          "path": "lib/monitoring/approval-rules.ts",
+          "line": 1,
+          "hash": "7f834b3cd7b2eb0990ac8ae2bc10f7f092fa6e18a93986617f0aceeb9ee6c9f8"
+        },
+        {
+          "path": "lib/documents/docx-placeholders.ts",
+          "line": 1,
+          "hash": "78bb47b0a02f1e9c3e5bf0a36bbe24142d137b2787ad16666353b1ba8299b8be"
+        },
+        {
+          "path": "lib/training/sheets.ts",
+          "line": 1,
+          "hash": "55d1a8b6e5ab2f010f8225b628d54f2faba2e2d1315112c6bfb33303d2327081"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tools/maison-docx-values-review.mjs",
+          "line": 1,
+          "hash": "efb4d9f339882b037183f5aefbb402e5b6ba6715600a9b2ea3d3fd59a9c05e65"
+        },
+        {
+          "path": "tools/maison-docx-remaining-fields.mjs",
+          "line": 1,
+          "hash": "382ba0228b2030aca9ee304cbdbfbad30c6692a67d01d3caf451f99f2d5925d8"
+        }
+      ]
+    }
+  ]
+}
