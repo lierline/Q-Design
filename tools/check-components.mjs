@@ -6,6 +6,8 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/active-copy-bindings.mjs','--check'],
+  ['--test','tools/active-copy-bindings.test.mjs'],
   ['tools/maison-form-record-data.mjs','--check'],
   ['--test','tools/maison-form-record-data.test.mjs'],
   ['tools/carnet-honorific-review.mjs','--check'],

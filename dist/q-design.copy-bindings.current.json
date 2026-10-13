@@ -1,0 +1,3102 @@
+{
+  "version": 1,
+  "rules": "patterns/copy-rules.json",
+  "files": [
+    {
+      "product": "atelier",
+      "path": "app/experts/portal/signup/page.tsx",
+      "bindings": [
+        {
+          "line": 250,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "(선택해주십시오)",
+          "emitted": "고르십시오"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "app/experts/settings/profile-form.tsx",
+      "bindings": [
+        {
+          "line": 121,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경력(년)\"",
+          "emitted": "\"경력 (년)\""
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "components/ProductProfileWizard.tsx",
+      "bindings": [
+        {
+          "line": 570,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "식약처 공공 DB 에서 등급·이식형·일회용·멸균·사용 목적을 직접 가져옴\n            ",
+          "emitted": "식약처 공공 DB에서 등급·이식형·일회용·멸균·사용 목적을 직접 가져옴\n            "
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "components/QmsStatusWidget.tsx",
+      "bindings": [
+        {
+          "line": 66,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "'작성중'",
+          "emitted": "'작성 중'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "lib/export/doc-sections.ts",
+      "bindings": [
+        {
+          "line": 898,
+          "kind": "FirstTemplateToken",
+          "ordinal": 0,
+          "original": "`## 1. 문서 정보\n\n| 항목 | 내용 |\n|------|------|\n| 문서번호 | [MQ-QM-001] |\n| 조직명 | [회사명] |\n| 버전 | 1.0 |\n| 승인일 | [YYYY-MM-DD] |\n\n## 2. 품질경영시스템 적용 범위 (§4.2.2a)\n\n| 항목 | 내용 |\n|------|------|\n| 대상 제품 | [의료기기 품목·등급] |\n| 사업장 | [주소 / 사업장] |\n| 적용 활동 | [설계·개발  생산  보관  유통  설치  서비스] |\n\n**적용 제외 및 비적용 조항 (정당화 필수):**\n\n| 조항 | 제외 / 비적용 | 정당화 근거 |\n|------|------|------|\n| [예: §7.5.5 멸균] | 비적용 | [비멸균 제품이므로 해당 없음] |\n| [예: §7.3 설계·개발] | 제외 | [위탁 설계: 해당 없음] |\n\n> ISO 13485 에서 §6·§7·§8 의 요구사항이 적용 불가한 경우에만 제외/비적용할 수 있으며, 각각 정당화를 기술해야 한다.\n\n## 3. 조직 및 품질경영시스템 구조\n\n[조직의 역할(제조자/수입자/판매자 등)과 QMS 의 전반적 구조를 기술한다.]\n\n## 4. 품질 방침 및 품질 목표\n\n- **품질 방침**: 품질 방침 문서 [MQ-QP-001] 참조 (§5.3)\n- **품질 목표**: 품질 목표 문서 [MQ-QO-001] 참조 (§5.4)\n\n## 5. 프로세스 상호작용 (§4.2.2c)\n\n[QMS 의 주요 프로세스와 그 상호작용(순서·연계)을 기술하거나 프로세스 맵으로 첨부한다.]\n\n| 프로세스 | 입력 | 출력 | 연계 프로세스 |\n|------|------|------|------|\n| 설계·개발 | 시장·규제 요구 | 설계 출력·DHF | 생산·구매 |\n| 구매 | 자재 요구 | 검증된 자재 | 생산 |\n| 생산 | 설계 출력·자재 | 완제품 | 출하·PMS |\n| 측정·개선 | 모니터링 데이터 | CAPA·개선 | 경영검토 |\n\n## 6. 문서 체계 구조 (§4.2.2b)\n\n| 단계 | 문서 유형 | 예시 |\n|------|------|------|\n| 1단계 | 품질 매뉴얼 | 본 문서 |\n| 2단계 | 절차서 (SOP) | 문서관리·기록관리·CAPA 절차서 |\n| 3단계 | 지침서 / 작업표준 | 작업 지시서·검사 기준서 |\n| 4단계 | 양식 / 기록 | 각종 기록 양식 |\n\n## 7. 문서화된 절차 목록 (§4.2.2b)\n\n| 절차서 | 문서번호 | 관련 조항 |\n|------|------|------|\n| 문서 관리 절차서 | [MQ-SOP-] | §4.2.4 |\n| 기록 관리 절차서 | [MQ-SOP-] | §4.2.5 |\n| 경영 검토 절차서 | [MQ-SOP-] | §5.6 |\n| 내부 감사 절차서 | [MQ-SOP-] | §8.2.4 |\n| 부적합 관리 절차서 | [MQ-SOP-] | §8.3 |\n| CAPA 절차서 | [MQ-SOP-] | §8.5 |\n\n## 8. 경영 책임\n\n[최고경영자의 책임, 품질책임자(관리대리인) 지정, 책임·권한·의사소통 체계를 기술한다 (§5.5).]\n\n## 9. 관련 문서\n\n- 품질 방침 / 품질 목표\n- 각 절차서 (SOP)\n- 조직도\n\n## 개정 이력\n\n| 버전 | 일자 | 변경 내용 | 작성자 | 승인자 |\n|------|------|------|------|------|\n| 1.0 | | 최초 제정 | | |`",
+          "emitted": "`## 1. 문서 정보\n\n| 항목 | 내용 |\n|------|------|\n| 문서번호 | [MQ-QM-001] |\n| 조직명 | [회사명] |\n| 버전 | 1.0 |\n| 승인일 | [YYYY-MM-DD] |\n\n## 2. 품질경영시스템 적용 범위 (§4.2.2a)\n\n| 항목 | 내용 |\n|------|------|\n| 대상 제품 | [의료기기 품목·등급] |\n| 사업장 | [주소 / 사업장] |\n| 적용 활동 | [설계·개발 · 생산 · 보관 · 유통 · 설치 · 서비스] |\n\n**적용 제외 및 비적용 조항 (정당화 필수):**\n\n| 조항 | 제외 / 비적용 | 정당화 근거 |\n|------|------|------|\n| [예: §7.5.5 멸균] | 비적용 | [비멸균 제품이므로 해당 없음] |\n| [예: §7.3 설계·개발] | 제외 | [위탁 설계: 해당 없음] |\n\n> ISO 13485 에서 §6·§7·§8 의 요구사항이 적용 불가한 경우에만 제외/비적용할 수 있으며, 각각 정당화를 기술해야 한다.\n\n## 3. 조직 및 품질경영시스템 구조\n\n[조직의 역할(제조자/수입자/판매자 등)과 QMS 의 전반적 구조를 기술한다.]\n\n## 4. 품질 방침 및 품질 목표\n\n- **품질 방침**: 품질 방침 문서 [MQ-QP-001] 참조 (§5.3)\n- **품질 목표**: 품질 목표 문서 [MQ-QO-001] 참조 (§5.4)\n\n## 5. 프로세스 상호작용 (§4.2.2c)\n\n[QMS 의 주요 프로세스와 그 상호작용(순서·연계)을 기술하거나 프로세스 맵으로 첨부한다.]\n\n| 프로세스 | 입력 | 출력 | 연계 프로세스 |\n|------|------|------|------|\n| 설계·개발 | 시장·규제 요구 | 설계 출력·DHF | 생산·구매 |\n| 구매 | 자재 요구 | 검증된 자재 | 생산 |\n| 생산 | 설계 출력·자재 | 완제품 | 출하·PMS |\n| 측정·개선 | 모니터링 데이터 | CAPA·개선 | 경영검토 |\n\n## 6. 문서 체계 구조 (§4.2.2b)\n\n| 단계 | 문서 유형 | 예시 |\n|------|------|------|\n| 1단계 | 품질 매뉴얼 | 본 문서 |\n| 2단계 | 절차서 (SOP) | 문서관리·기록관리·CAPA 절차서 |\n| 3단계 | 지침서 / 작업표준 | 작업 지시서·검사 기준서 |\n| 4단계 | 양식 / 기록 | 각종 기록 양식 |\n\n## 7. 문서화된 절차 목록 (§4.2.2b)\n\n| 절차서 | 문서번호 | 관련 조항 |\n|------|------|------|\n| 문서 관리 절차서 | [MQ-SOP-] | §4.2.4 |\n| 기록 관리 절차서 | [MQ-SOP-] | §4.2.5 |\n| 경영 검토 절차서 | [MQ-SOP-] | §5.6 |\n| 내부 감사 절차서 | [MQ-SOP-] | §8.2.4 |\n| 부적합 관리 절차서 | [MQ-SOP-] | §8.3 |\n| CAPA 절차서 | [MQ-SOP-] | §8.5 |\n\n## 8. 경영 책임\n\n[최고경영자의 책임, 품질책임자(관리대리인) 지정, 책임·권한·의사소통 체계를 기술한다 (§5.5).]\n\n## 9. 관련 문서\n\n- 품질 방침 / 품질 목표\n- 각 절차서 (SOP)\n- 조직도\n\n## 개정 이력\n\n| 버전 | 일자 | 변경 내용 | 작성자 | 승인자 |\n|------|------|------|------|------|\n| 1.0 | | 최초 제정 | | |`"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/audits/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 219,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 220,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/audits/body-form.tsx",
+      "bindings": [
+        {
+          "line": 250,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"심사구분\"",
+          "emitted": "\"심사 구분\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/capa/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 242,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 243,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/capa/plans/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 350,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "작성중",
+          "emitted": "작성 중"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/capa/sheet-flow.tsx",
+      "bindings": [
+        {
+          "line": 23,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/change-requests/[id]/approval-buttons.tsx",
+      "bindings": [
+        {
+          "line": 119,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 130,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 176,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 177,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/change-requests/[id]/next-sheets.tsx",
+      "bindings": [
+        {
+          "line": 17,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 62,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/complaints/actions.ts",
+      "bindings": [
+        {
+          "line": 301,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"승급에 실패했습니다. 이미 승급되었거나 작성중 상태가 아닙니다.\"",
+          "emitted": "\"승급에 실패했습니다. 이미 승급되었거나 작성 중 상태가 아닙니다.\""
+        },
+        {
+          "line": 429,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\"",
+          "emitted": "\"작성 중 불만은 먼저 정식 접수로 승급해야 NC 연계가 가능합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/complaints/complaint-report-form.tsx",
+      "bindings": [
+        {
+          "line": 212,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\"",
+          "emitted": "\"작성 중으로 저장했습니다. 상세 화면에서 «정식 접수로 승급»하면 번호가 발급됩니다.\""
+        },
+        {
+          "line": 508,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중으로 저장\"",
+          "emitted": "\"작성 중으로 저장\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/concessions/actions.ts",
+      "bindings": [
+        {
+          "line": 496,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/concessions/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 96,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 254,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/contracts/approval-actions.ts",
+      "bindings": [
+        {
+          "line": 378,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 검토서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 검토서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/contracts/approval-buttons.tsx",
+      "bindings": [
+        {
+          "line": 117,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+        },
+        {
+          "line": 128,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"반려: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+        },
+        {
+          "line": 169,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+        },
+        {
+          "line": 170,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/design/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 223,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 제안서가 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 224,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/document-dispatch/actions.ts",
+      "bindings": [
+        {
+          "line": 399,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/document-dispatch/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 85,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 200,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/document-dispatch/new/page.tsx",
+      "bindings": []
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/documents/actions.ts",
+      "bindings": [
+        {
+          "line": 496,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중·반려됨 상태에서만 개정을 만들 수 있습니다.\"",
+          "emitted": "\"작성 중·반려됨 상태에서만 개정을 만들 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/documents/attachment-actions.ts",
+      "bindings": [
+        {
+          "line": 123,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 상태에서는 첨부를 추가할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`",
+          "emitted": "} 상태에서는 첨부를 추가할 수 없습니다. 작성 중·반려됨 상태에서만 가능합니다.`"
+        },
+        {
+          "line": 240,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 상태에서는 첨부를 삭제할 수 없습니다. 작성중·반려됨 상태에서만 가능합니다.`",
+          "emitted": "} 상태에서는 첨부를 삭제할 수 없습니다. 작성 중·반려됨 상태에서만 가능합니다.`"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/documents/[id]/approval-panel.tsx",
+      "bindings": []
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/documents/[id]/attachments-panel.tsx",
+      "bindings": [
+        {
+          "line": 200,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "작성중·반려됨\n            ",
+          "emitted": "작성 중·반려됨\n            "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/drawings/[id]/drawing-approval.tsx",
+      "bindings": [
+        {
+          "line": 105,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 247,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 도면 이미지와 원본을 붙인 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/drawings/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 572,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성중으로 되돌리세요.\"",
+          "emitted": "\"상신된 도면은 파일을 바꾸지 않습니다. 고치려면 상신을 취소하거나 반려받아 작성 중으로 되돌리세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/help/content.ts",
+      "bindings": [
+        {
+          "line": 228,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**계획서**: 「내부심사」 의 「신규 심사」 를 누르면 빈 계획서가 한 장 서고, 그 한 장에 심사구분·범위·일정·심사원과 본문 열한 항목을 적습니다\"",
+          "emitted": "\"**계획서**: 「내부심사」 의 「신규 심사」 를 누르면 빈 계획서가 한 장 서고, 그 한 장에 심사 구분·범위·일정·심사원과 본문 열한 항목을 적습니다\""
+        },
+        {
+          "line": 452,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**Q. 문서를 잘못 썼습니다. 지울 수 있나요?** → 결재 전 작성중이면 지울 수 있습니다. 발행된 문서는 지우지 않고 「폐기」로 내립니다. 이력은 남아야 하니까요.\"",
+          "emitted": "\"**Q. 문서를 잘못 썼습니다. 지울 수 있나요?** → 결재 전 작성 중이면 지울 수 있습니다. 발행된 문서는 지우지 않고 「폐기」로 내립니다. 이력은 남아야 하니까요.\""
+        },
+        {
+          "line": 78,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"차림표, 알림, 메뉴 위치\"",
+          "emitted": "\"메뉴, 알림, 메뉴 위치\""
+        },
+        {
+          "line": 84,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"화면은 왼쪽 차림표(메뉴)와 본문으로 구성됩니다. 화면 폭에 따라 차림표가 형태를 바꿉니다.\"",
+          "emitted": "\"화면은 왼쪽 메뉴와 본문으로 구성됩니다. 화면 폭에 따라 메뉴가 형태를 바꿉니다.\""
+        },
+        {
+          "line": 88,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"차림표 형태\"",
+          "emitted": "\"메뉴 형태\""
+        },
+        {
+          "line": 97,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**통합 검색**: 차림표 맨 위 「통합 검색」 줄을 누르거나 Ctrl+K(맥은 ⌘K)를 누릅니다. 메뉴와 함께 문서 · 부적합 · 시정조치 · 심사 · 공급자를 찾습니다. 결과를 누르면 그 화면으로 갑니다.\"",
+          "emitted": "\"**통합 검색**: 메뉴 맨 위 「통합 검색」 줄을 누르거나 Ctrl+K(맥은 ⌘K)를 누릅니다. 메뉴와 함께 문서 · 부적합 · 시정조치 · 심사 · 공급자를 찾습니다. 결과를 누르면 그 화면으로 갑니다.\""
+        },
+        {
+          "line": 98,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**메뉴 검색**: 통합 검색 아래 칸에 메뉴 이름을 치면 차림표가 그 메뉴만 남깁니다. 지우면 전체가 다시 보입니다.\"",
+          "emitted": "\"**메뉴 검색**: 통합 검색 아래 칸에 메뉴 이름을 치면 메뉴가 그 메뉴만 남깁니다. 지우면 전체가 다시 보입니다.\""
+        },
+        {
+          "line": 99,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**테마**: 차림표 아래 「Theme」 줄을 누를 때마다 Dark → Light → System(기기 설정을 따름) 차례로 바뀝니다.\"",
+          "emitted": "\"**테마**: 메뉴 아래 「Theme」 줄을 누를 때마다 Dark → Light → System(기기 설정을 따름) 차례로 바뀝니다.\""
+        },
+        {
+          "line": 101,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"**내 계정**: 차림표 맨 아래 이름을 누르면 내 정보 · 권한 확인과 비밀번호 변경이 있습니다. 그 아래 「로그아웃」 단추로 나갑니다.\"",
+          "emitted": "\"**내 계정**: 메뉴 맨 아래 이름을 누르면 내 정보 · 권한 확인과 비밀번호 변경이 있습니다. 그 아래 「로그아웃」 단추로 나갑니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/improvements/actions.ts",
+      "bindings": [
+        {
+          "line": 494,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성중으로 되돌린 뒤에 지울 수 있습니다.\"",
+          "emitted": "\"이미 삭제되었거나 삭제할 수 없는 상태입니다. 상신된 제안은 먼저 상신을 취소해 작성 중으로 되돌린 뒤에 지울 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/improvements/approval-actions.ts",
+      "bindings": [
+        {
+          "line": 482,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 문서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 문서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/improvements/approval-buttons.tsx",
+      "bindings": [
+        {
+          "line": 110,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 121,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 161,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 ${",
+          "emitted": "`작성 중입니다. 상신하면 ${"
+        },
+        {
+          "line": 162,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 ${",
+          "emitted": "`작성 중입니다. 상신하면 ${"
+        },
+        {
+          "line": 163,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inbound/export-actions.ts",
+      "bindings": [
+        {
+          "line": 48,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inbound/page.tsx",
+      "bindings": [
+        {
+          "line": 446,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inbound/[id]/escalate-to-complaint-dialog.tsx",
+      "bindings": [
+        {
+          "line": 138,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "이 상담을 근거로 고객 불만을 «작성중» 상태로 만듭니다. 정식 번호는\n            불만 화면에서 「정식 접수로 승급」을 눌러야 발급되고, 그 뒤 부적합 ·\n            시정 및 예방 조치까지 이어집니다.\n          ",
+          "emitted": "이 상담을 근거로 고객 불만을 «작성 중» 상태로 만듭니다. 정식 번호는\n            불만 화면에서 「정식 접수로 승급」을 눌러야 발급되고, 그 뒤 부적합 ·\n            시정 및 예방 조치까지 이어집니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+      "bindings": [
+        {
+          "line": 131,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"합격 처리와 동시에 출하승인 요청(작성중)이 자동 생성됩니다.\"",
+          "emitted": "\"합격 처리와 동시에 출하승인 요청(작성 중)이 자동 생성됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inventory/actions.ts",
+      "bindings": [
+        {
+          "line": 37,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/kpi/evaluations/approval-buttons.tsx",
+      "bindings": [
+        {
+          "line": 112,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 상신 취소: 작성중으로 되돌렸습니다`",
+          "emitted": "} 상신 취소: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 123,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 반려: 작성중으로 되돌렸습니다`",
+          "emitted": "} 반려: 작성 중으로 되돌렸습니다`"
+        },
+        {
+          "line": 172,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 173,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/kpi/evaluations/evaluation-list.tsx",
+      "bindings": [
+        {
+          "line": 148,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/kpi/evaluations/next-sheets.tsx",
+      "bindings": [
+        {
+          "line": 18,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/meetings/meeting-form.tsx",
+      "bindings": []
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/meetings/[id]/meeting-approval-actions.tsx",
+      "bindings": [
+        {
+          "line": 129,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"반려했습니다. 작성중으로 돌아갑니다.\"",
+          "emitted": "\"반려했습니다. 작성 중으로 돌아갑니다.\""
+        },
+        {
+          "line": 140,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신을 취소하고 작성중으로 되돌립니다. 검토 도장과 참석자 확인이 \"",
+          "emitted": "\"상신을 취소하고 작성 중으로 되돌립니다. 검토 도장과 참석자 확인이 \""
+        },
+        {
+          "line": 155,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신을 취소했습니다. 작성중으로 돌아갑니다.\"",
+          "emitted": "\"상신을 취소했습니다. 작성 중으로 돌아갑니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/notices/notice-form.tsx",
+      "bindings": [
+        {
+          "line": 146,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"비워 두면 작성중: 전사에 보이지 않습니다\"",
+          "emitted": "\"비워 두면 작성 중: 전사에 보이지 않습니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "bindings": [
+        {
+          "line": 433,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성자만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자만, 작성 중일 때 상신할 수 있습니다.\""
+        },
+        {
+          "line": 699,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"승인된 발주서에서만 잇습니다. 작성중이면 발주서 폼의 재고 분류에서 고르세요.\"",
+          "emitted": "\"승인된 발주서에서만 잇습니다. 작성 중이면 발주서 폼의 재고 분류에서 고르세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/orders/order-approval.tsx",
+      "bindings": [
+        {
+          "line": 69,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 187,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/quote-form.tsx",
+      "bindings": [
+        {
+          "line": 118,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"요청서 없이 받은 견적이면 비워 둡니다. 고를 수 있는 것은 발주 전(요청 · 검토중) 요청서입니다\"",
+          "emitted": "\"요청서 없이 받은 견적이면 비워 둡니다. 고를 수 있는 것은 발주 전(요청 · 검토 중) 요청서입니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/specs/spec-approval.tsx",
+      "bindings": [
+        {
+          "line": 75,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 187,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/recalls/actions.ts",
+      "bindings": [
+        {
+          "line": 754,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성자(품질 책임자 · 품질 팀장)만, 작성중일 때 상신할 수 있습니다.\"",
+          "emitted": "\"작성자(품질 책임자 · 품질 팀장)만, 작성 중일 때 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/recalls/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 105,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중 · ${",
+          "emitted": "`작성 중 · ${"
+        },
+        {
+          "line": 290,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/returns/actions.ts",
+      "bindings": [
+        {
+          "line": 78,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        },
+        {
+          "line": 401,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/new/page.tsx",
+      "bindings": [
+        {
+          "line": 55,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/minutes/page.tsx",
+      "bindings": [
+        {
+          "line": 196,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 209,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/agendas/[id]/report/page.tsx",
+      "bindings": [
+        {
+          "line": 216,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "경영검토 ·",
+          "emitted": "경영 검토 ·"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 344,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (검토: ${"
+        },
+        {
+          "line": 345,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/reviews/page.tsx",
+      "bindings": [
+        {
+          "line": 31,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        },
+        {
+          "line": 159,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/risks/approval-actions.ts",
+      "bindings": [
+        {
+          "line": 148,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\"",
+          "emitted": "\"작성 중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/risks/import-actions.ts",
+      "bindings": [
+        {
+          "line": 286,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 위험입니다. 고르면 파일 내용으로 바꿉니다\"",
+          "emitted": "\"작성 중인 위험입니다. 고르면 파일 내용으로 바꿉니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "bindings": [
+        {
+          "line": 125,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 검토 · 승인 칸이 없어 상신하면 결재가 끝나고 자동 발행됩니다.\"",
+          "emitted": "\"작성 중입니다. 검토 · 승인 칸이 없어 상신하면 결재가 끝나고 자동 발행됩니다.\""
+        },
+        {
+          "line": 127,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 상신하면 결재가 시작되고, 승인을 생략해 검토가 끝나면 자동 발행됩니다.\"",
+          "emitted": "\"작성 중입니다. 상신하면 결재가 시작되고, 승인을 생략해 검토가 끝나면 자동 발행됩니다.\""
+        },
+        {
+          "line": 128,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 결재가 시작되고, 승인하면 자동 발행됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 결재가 시작되고, 승인하면 자동 발행됩니다 (승인: ${"
+        },
+        {
+          "line": 131,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 위험평가입니다. 결재선 설정 · 상신 권한이 없습니다.\"",
+          "emitted": "\"작성 중인 위험평가입니다. 결재선 설정 · 상신 권한이 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/actions.ts",
+      "bindings": [
+        {
+          "line": 141,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/actions.ts",
+      "bindings": [
+        {
+          "line": 91,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 점검표는 고칠 수 없습니다. 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/checks-tab.tsx",
+      "bindings": [
+        {
+          "line": 27,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/monthly/month-approval.tsx",
+      "bindings": [
+        {
+          "line": 172,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\"",
+          "emitted": "\"작성 중입니다. 이 달 점검을 다 적고 저장한 뒤 상신하세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/shipping/actions.ts",
+      "bindings": [
+        {
+          "line": 353,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중인 창고만 선택할 수 있습니다.\"",
+          "emitted": "\"사용 중인 창고만 선택할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/shipping/[id]/shipment-approval.tsx",
+      "bindings": [
+        {
+          "line": 237,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\"",
+          "emitted": "\"작성 중입니다. 서류 검수와 포장 확인을 마치면 확인자에게 넘어갑니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/suppliers/reports/actions.ts",
+      "bindings": [
+        {
+          "line": 640,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 보고서는 반려할 수 없습니다.\"",
+          "emitted": "\"작성 중인 보고서는 반려할 수 없습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/suppliers/reports/approval-buttons.tsx",
+      "bindings": [
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신 취소: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"상신 취소: 작성 중으로 되돌렸습니다\""
+        },
+        {
+          "line": 122,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"반려: 작성중으로 되돌렸습니다\"",
+          "emitted": "\"반려: 작성 중으로 되돌렸습니다\""
+        },
+        {
+          "line": 159,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다.\""
+        },
+        {
+          "line": 160,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/training/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 215,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 216,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 작성자가 상신하면 결재가 시작됩니다.\"",
+          "emitted": "\"작성 중입니다. 작성자가 상신하면 결재가 시작됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/layout/nav-groups.ts",
+      "bindings": [
+        {
+          "line": 272,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/shared/attendee-picker.tsx",
+      "bindings": [
+        {
+          "line": 34,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"검토가 끝나면 여기 있는 사람들이 각자 확인해야 승인으로 넘어갑니다. 명단은 작성중일 때만 고칠 수 있습니다.\"",
+          "emitted": "\"검토가 끝나면 여기 있는 사람들이 각자 확인해야 승인으로 넘어갑니다. 명단은 작성 중일 때만 고칠 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/shared/list-stats.tsx",
+      "bindings": [
+        {
+          "line": 90,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 120,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 199,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 230,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 236,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 288,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 317,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 366,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 495,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성 · 결재중\"",
+          "emitted": "\"작성 · 결재 중\""
+        },
+        {
+          "line": 556,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"결재중\"",
+          "emitted": "\"결재 중\""
+        },
+        {
+          "line": 581,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"결재중\"",
+          "emitted": "\"결재 중\""
+        },
+        {
+          "line": 744,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1032,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1433,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 605,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 659,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 340,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"주고받은 공문\"",
+          "emitted": "\"거래처 발신·수신 공문\""
+        },
+        {
+          "line": 343,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"우리가 보낸 공문\"",
+          "emitted": "\"거래처로 발송한 공문\""
+        },
+        {
+          "line": 349,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"거래처가 보낸 공문\"",
+          "emitted": "\"거래처에서 접수한 공문\""
+        },
+        {
+          "line": 354,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"원본 없음\"",
+          "emitted": "\"원본 미첨부\""
+        },
+        {
+          "line": 355,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"스캔본을 아직 올리지 않은 공문\"",
+          "emitted": "\"원본 파일이 첨부되지 않은 공문\""
+        },
+        {
+          "line": 997,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작업을 멈춘 건\"",
+          "emitted": "\"작업이 중지된 기록\""
+        },
+        {
+          "line": 1009,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"보고 · 조치중\"",
+          "emitted": "\"보고·조치 중 상태의 기록\""
+        },
+        {
+          "line": 1015,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"원인·재발 방지까지 끝난 건\"",
+          "emitted": "\"원인·재발 방지 조치가 완료된 기록\""
+        },
+        {
+          "line": 1057,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작업중\"",
+          "emitted": "\"작업 중\""
+        },
+        {
+          "line": 1058,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성 ~ 작업중\"",
+          "emitted": "\"작성·작업 중 상태의 기록\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/audits/sheets.ts",
+      "bindings": [
+        {
+          "line": 80,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/concessions/rules.ts",
+      "bindings": [
+        {
+          "line": 565,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/doc-dispatch/rules.ts",
+      "bindings": [
+        {
+          "line": 289,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/help/page-help.ts",
+      "bindings": [
+        {
+          "line": 192,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"「공지 작성」 → 제목·구분·본문을 적고 「게시하기」. 게시일이 비어 있으면 작성중이라 전사에 보이지 않습니다. 그때는 「임시저장」입니다.\"",
+          "emitted": "\"「공지 작성」 → 제목·구분·본문을 적고 「게시하기」. 게시일이 비어 있으면 작성 중이라 전사에 보이지 않습니다. 그때는 「임시저장」입니다.\""
+        },
+        {
+          "line": 208,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"게시일이 비어 있거나(작성중) 아직 오지 않았을(게시 예정) 수 있습니다. 상세 화면의 제목 위 표시를 확인하세요. 작성자와 공지 권한자에게만 보이는 상태입니다.\"",
+          "emitted": "\"게시일이 비어 있거나(작성 중) 아직 오지 않았을(게시 예정) 수 있습니다. 상세 화면의 제목 위 표시를 확인하세요. 작성자와 공지 권한자에게만 보이는 상태입니다.\""
+        },
+        {
+          "line": 547,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\"",
+          "emitted": "\"상세 화면의 «고객 불만으로 올리기» 를 누르면 심각도와 불만 내용만 고쳐 확인하고 곧바로 고객 불만이 만들어집니다. 고객명·연락처·접수일·채널·분류(제품군)는 상담에서 그대로 넘어가므로 다시 입력하지 않습니다. 만들어진 불만은 «작성 중» 이며, 불만 화면에서 「정식 접수로 승급」을 눌러야 번호가 발급됩니다.\""
+        },
+        {
+          "line": 1906,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\"",
+          "emitted": "\"작성 → 상신 → 품질 책임 부서장 검토 → 대표 승인. 상신하면 본문·첨부가 잠기고 화면이 서식 미리보기(뷰어)로 바뀝니다. 고칠 것이 있으면 ① 작성자 본인이 «상신 취소» 로 되가져오거나(승인 전까지, 검토 도장도 함께 지워집니다) ② 검토자·승인자가 사유를 적어 반려합니다. 둘 다 작성 중으로 돌아오고 번호는 그대로입니다. 작성자가 품질 책임 부서장이면 검토는 생략되고 그 사실이 결재란에 사선으로 남습니다. 보고서도 같은 결재선을 탑니다.\""
+        },
+        {
+          "line": 1911,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\"",
+          "emitted": "\"제안서·보고서에 PDF · 이미지 · 오피스 문서를 25MB 까지 10개 붙일 수 있습니다. 붙이고 떼는 것은 작성 중일 때만: 상신 뒤에는 첨부가 결재의 근거라 목록과 내려받기만 남습니다.\""
+        },
+        {
+          "line": 1272,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"메뉴 접근 탭에서 부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않습니다.\"",
+          "emitted": "\"메뉴 접근 탭에서 부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않습니다.\""
+        },
+        {
+          "line": 2038,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\"",
+          "emitted": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\""
+        },
+        {
+          "line": 805,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"전해 연마 공정을 고르면 «외부 기관 의뢰» 를 켤 수 있고, 의뢰처(공급자)를 지정합니다. 다른 공정에는 공급자를 붙일 수 없습니다.\"",
+          "emitted": "\"전해 연마 공정에서는 「외부 기관 의뢰」를 선택하고 의뢰처(공급자)를 지정할 수 있습니다. 다른 공정은 공급자를 지정할 수 없습니다.\""
+        },
+        {
+          "line": 819,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"칩 세 줄이 각각 기간(30일·90일·1년·전체) · 공정 4종 · 실적 상태(작업중·작업 완료·확인 완료)입니다. 확인 완료만 보면 검증된 실적만으로 수율이 나옵니다.\"",
+          "emitted": "\"칩 세 줄이 각각 기간(30일·90일·1년·전체) · 공정 4종 · 실적 상태(작업 중·작업 완료·확인 완료)입니다. 확인 완료만 보면 검증된 실적만으로 수율이 나옵니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/meetings/notify.ts",
+      "bindings": [
+        {
+          "line": 131,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"회의록이 작성중으로 되돌아왔습니다.\"",
+          "emitted": "\"회의록이 작성 중으로 되돌아왔습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/monitoring/approval-statuses.ts",
+      "bindings": [
+        {
+          "line": 9,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/navigation/menus.ts",
+      "bindings": [
+        {
+          "line": 135,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/notices/categories.ts",
+      "bindings": [
+        {
+          "line": 52,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/permissions/clause-groups.ts",
+      "bindings": [
+        {
+          "line": 194,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"경영검토\"",
+          "emitted": "\"경영 검토\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/purchasing/order-rules.ts",
+      "bindings": [
+        {
+          "line": 184,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/recalls/rules.ts",
+      "bindings": [
+        {
+          "line": 461,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/reviews/sheets.ts",
+      "bindings": [
+        {
+          "line": 42,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/risks/matrix.ts",
+      "bindings": [
+        {
+          "line": 38,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"어느정도 피해 예상\"",
+          "emitted": "\"어느 정도 피해 예상\""
+        },
+        {
+          "line": 97,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"개선 검토 및 필요시 대응 계획 수립\"",
+          "emitted": "\"개선 검토 및 필요 시 대응 계획 수립\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/supabase/types.ts",
+      "bindings": [
+        {
+          "line": 407,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 408,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 873,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 908,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 998,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1286,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 1325,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 1358,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1393,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1615,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1616,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 1628,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1673,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 1727,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1976,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"검토중\"",
+          "emitted": "\"검토 중\""
+        },
+        {
+          "line": 2051,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1177,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 2086,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"사용중\"",
+          "emitted": "\"사용 중\""
+        },
+        {
+          "line": 591,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"대응완료\"",
+          "emitted": "\"대응 완료\""
+        },
+        {
+          "line": 301,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        },
+        {
+          "line": 1225,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작업중\"",
+          "emitted": "\"작업 중\""
+        },
+        {
+          "line": 1809,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"조치중\"",
+          "emitted": "\"조치 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/suppliers/evaluation-report.ts",
+      "bindings": [
+        {
+          "line": 248,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/training/sheets.ts",
+      "bindings": [
+        {
+          "line": 101,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/page.tsx",
+      "bindings": [
+        {
+          "line": 375,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'끝나지 않은 공정'",
+          "emitted": "'미종료 공정'"
+        },
+        {
+          "line": 377,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'종료 시각이 빈 공정 기록'",
+          "emitted": "'종료 시각이 미등록된 공정 기록'"
+        },
+        {
+          "line": 381,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'끝나지 않은 공정이 없습니다'",
+          "emitted": "'미종료 공정이 없습니다'"
+        },
+        {
+          "line": 362,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "}일 지남`",
+          "emitted": "}일 경과`"
+        },
+        {
+          "line": 392,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`기한 지남 ${",
+          "emitted": "`기한 경과 ${"
+        },
+        {
+          "line": 392,
+          "kind": "LastTemplateToken",
+          "ordinal": 1,
+          "original": "}일 안에 기한이 끝남`",
+          "emitted": "}일 이내 기한 만료`"
+        },
+        {
+          "line": 402,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'기한 임박 · 지남'",
+          "emitted": "'기한 임박 · 경과'"
+        },
+        {
+          "line": 404,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`지남 · 기록 없음 ${",
+          "emitted": "`기한 경과 · 미등록 ${"
+        },
+        {
+          "line": 410,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'최소 재고선 아래'",
+          "emitted": "'최소 재고 미달'"
+        },
+        {
+          "line": 415,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'재고선 아래인 품목이 없습니다'",
+          "emitted": "'최소 재고 미달 품목이 없습니다'"
+        },
+        {
+          "line": 418,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'종료되지 않은 작업 지시'",
+          "emitted": "'미종료 작업 지시'"
+        },
+        {
+          "line": 465,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 님`",
+          "emitted": "}님`"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/print/day-record/[id]/[day]/[worker]/page.tsx",
+      "bindings": [
+        {
+          "line": 345,
+          "kind": "JsxText",
+          "ordinal": 2,
+          "original": "종료 시각이 빈 공정",
+          "emitted": "종료 시각이 미등록된 공정"
+        },
+        {
+          "line": 342,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "아직 기록서가 될 수 없습니다",
+          "emitted": "기록서 발행 조건이 충족되지 않았습니다"
+        },
+        {
+          "line": 345,
+          "kind": "JsxText",
+          "ordinal": 3,
+          "original": "이\n          있습니다. 기록서를 뽑으면 그 묶음이 잠기고\n          ",
+          "emitted": "이\n          있습니다. 기록서 발행 시 해당 기록이 잠기며,\n          "
+        },
+        {
+          "line": 361,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "현장 화면에서 그 공정을 마감하면 됩니다. 작업자가 자리에 없으면\n          배치 화면의 ",
+          "emitted": "현장 화면에서 해당 공정을 마감하십시오. 작업자가 부재중이면\n          배치 화면의 "
+        },
+        {
+          "line": 362,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "으로 생산관리자가 풉니다.\n        ",
+          "emitted": "으로 생산관리자가 마감할 수 있습니다.\n        "
+        },
+        {
+          "line": 347,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "그 칸은 영영 빈 채로 남습니다.",
+          "emitted": "미등록 항목은 이후 수정할 수 없습니다."
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/chrome.tsx",
+      "bindings": [
+        {
+          "line": 123,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"주 차림표\"",
+          "emitted": "\"주 메뉴\""
+        },
+        {
+          "line": 167,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"차림표 닫기\"",
+          "emitted": "\"메뉴 닫기\""
+        },
+        {
+          "line": 171,
+          "kind": "StringLiteral",
+          "ordinal": 2,
+          "original": "\"차림표\"",
+          "emitted": "\"메뉴\""
+        },
+        {
+          "line": 173,
+          "kind": "StringLiteral",
+          "ordinal": 2,
+          "original": "\"차림표 닫기\"",
+          "emitted": "\"메뉴 닫기\""
+        },
+        {
+          "line": 193,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"차림표 열기\"",
+          "emitted": "\"메뉴 열기\""
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/material/orders/page.tsx",
+      "bindings": [
+        {
+          "line": 88,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"최소 재고선 아래\"",
+          "emitted": "\"최소 재고 미달\""
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/material/stock/stock-tools.tsx",
+      "bindings": [
+        {
+          "line": 16,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "최소 재고선 아래 ",
+          "emitted": "최소 재고 미달 "
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/settings/audit/entry.tsx",
+      "bindings": [
+        {
+          "line": 133,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "바뀐 칸 ",
+          "emitted": "변경 항목 "
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(admin)/settings/dmr/dmr-forms.tsx",
+      "bindings": [
+        {
+          "line": 881,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "바뀐 칸 ",
+          "emitted": "변경 항목 "
+        },
+        {
+          "line": 885,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "바뀐 칸이 없습니다.",
+          "emitted": "변경 항목이 없습니다."
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/demo-actions.ts",
+      "bindings": [
+        {
+          "line": 25,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'시스템관리자만 시연 자료를 비울 수 있습니다'",
+          "emitted": "'시스템 관리자만 시연 데이터를 초기화할 수 있습니다'"
+        },
+        {
+          "line": 33,
+          "kind": "StringLiteral",
+          "ordinal": 2,
+          "original": "'비웁니다'",
+          "emitted": "'초기화'"
+        },
+        {
+          "line": 34,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'확인란에 \"비웁니다\" 를 그대로 적어 주십시오'",
+          "emitted": "'확인란에 \"초기화\" 를 입력하십시오'"
+        },
+        {
+          "line": 42,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'시연 자료를 비웠습니다'",
+          "emitted": "'시연 데이터를 초기화했습니다'"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "components/demo-banner.tsx",
+      "bindings": [
+        {
+          "line": 76,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "지어낸 배치 기록이 들어 있습니다.",
+          "emitted": "시연용 배치 기록이 등록되어 있습니다."
+        },
+        {
+          "line": 76,
+          "kind": "JsxText",
+          "ordinal": 2,
+          "original": "실 운영을 시작하기 전에 데이터베이스를 새로\r\n          올립니다. 이 시스템에는 삭제가 없어, 실 기록이 한 줄이라도 들어간 뒤에는\r\n          지어낸 기록과 갈라낼 수 없습니다.\r\n        ",
+          "emitted": "운영 시작 전 데이터베이스를\r\n          초기화해야 합니다. 실제 운영 기록이 한 건이라도 등록되면,\r\n          시연 데이터와 분리해 초기화할 수 없습니다.\r\n        "
+        },
+        {
+          "line": 84,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "시연 자료 비우기\r\n          ",
+          "emitted": "시연 데이터 초기화\r\n          "
+        },
+        {
+          "line": 92,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "착수 절차에서 정리합니다",
+          "emitted": "운영 전환 시 초기화합니다"
+        },
+        {
+          "line": 99,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"시연 자료 비우기\"",
+          "emitted": "\"시연 데이터 초기화\""
+        },
+        {
+          "line": 100,
+          "kind": "LastTemplateToken",
+          "ordinal": 0,
+          "original": "} 에 넣은 시연 자료를 전부 지웁니다. 되돌릴 수 없습니다.`",
+          "emitted": "}에 등록된 시연 데이터를 초기화합니다. 이 작업은 되돌릴 수 없습니다.`"
+        },
+        {
+          "line": 104,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "지워지는 것",
+          "emitted": "초기화 대상"
+        },
+        {
+          "line": 109,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "남는 것",
+          "emitted": "유지 데이터"
+        },
+        {
+          "line": 111,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "품목 · 공급자 · 제품표준서 · 설비 · 채번 규칙 · 계정, 그리고 감사 추적.\r\n              비웠다는 사실도 감사 추적에 남습니다.\r\n            ",
+          "emitted": "품목 · 공급자 · 제품표준서 · 설비 · 채번 규칙 · 계정, 그리고 감사 추적.\r\n              초기화 이력도 감사 추적에 기록됩니다.\r\n            "
+        },
+        {
+          "line": 117,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "시연 자료를 넣은 뒤에 기록이 한 줄이라도 더 쌓였으면 비우지 않습니다.\r\n            그 경우 지어낸 기록과 실제 기록을 갈라낼 수 없기 때문입니다.\r\n          ",
+          "emitted": "시연 데이터 등록 이후 추가 기록이 있으면 초기화할 수 없습니다.\r\n            시연 데이터와 실제 운영 기록을 구분할 수 없기 때문입니다.\r\n          "
+        },
+        {
+          "line": 127,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"비웁니다\"",
+          "emitted": "\"초기화\""
+        },
+        {
+          "line": 131,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "비우려면 ",
+          "emitted": "초기화를 진행하려면 "
+        },
+        {
+          "line": 131,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "비웁니다",
+          "emitted": "초기화"
+        },
+        {
+          "line": 137,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'비우는 중'",
+          "emitted": "'초기화 중'"
+        },
+        {
+          "line": 137,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "'비웁니다'",
+          "emitted": "'초기화'"
+        },
+        {
+          "line": 141,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "그만두기\r\n              ",
+          "emitted": "취소\r\n              "
+        },
+        {
+          "line": 131,
+          "kind": "JsxText",
+          "ordinal": 2,
+          "original": "를 그대로 적어 주십시오.\r\n              ",
+          "emitted": "를 입력하십시오.\r\n              "
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "components/idle-lock.tsx",
+      "bindings": [
+        {
+          "line": 183,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"자리 비움 잠금\"",
+          "emitted": "\"화면 잠금\""
+        },
+        {
+          "line": 196,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "자리를 비운 사이 화면을 잠갔습니다. 비밀번호를 누르면 하던 자리로 돌아갑니다.\n          ",
+          "emitted": "일정 시간 동안 사용하지 않아 화면이 잠겼습니다. 잠금 해제 코드를 입력하면 이전 화면으로 돌아갑니다.\n          "
+        },
+        {
+          "line": 215,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "'전체 지움'",
+          "emitted": "'전체 삭제'"
+        },
+        {
+          "line": 215,
+          "kind": "StringLiteral",
+          "ordinal": 3,
+          "original": "'한 자 지움'",
+          "emitted": "'한 자리 삭제'"
+        },
+        {
+          "line": 218,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "'전체지움'",
+          "emitted": "'전체 삭제'"
+        },
+        {
+          "line": 244,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "다른 사람이 쓰려면 로그아웃\n          ",
+          "emitted": "로그아웃\n          "
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "components/print-frame.tsx",
+      "bindings": [
+        {
+          "line": 189,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'두 값이 다릅니다. 그 종이가 나간 뒤에 바뀐 칸이 있습니다. 아래는 지금 자료라, 어느 칸이 바뀌었는지는 감사 추적에서 봅니다.'",
+          "emitted": "'두 값이 다릅니다. 그 종이가 나간 뒤에 변경 항목이 있습니다. 아래는 지금 자료라, 어느 칸이 바뀌었는지는 감사 추적에서 봅니다.'"
+        },
+        {
+          "line": 354,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "발행 전 미리 보기입니다. 인쇄 대장에 남지 않았고, 이 화면은 종이로 뽑히지 않습니다.\n        ",
+          "emitted": "발행 전 미리 보기입니다. 인쇄 이력에 등록되지 않았으므로 이 화면은 인쇄할 수 없습니다.\n        "
+        },
+        {
+          "line": 362,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "발행하지 않은 미리 보기는 종이로 뽑을 수 없습니다. 화면에서 [발행하고 인쇄] 를 누르십시오.\n      ",
+          "emitted": "미발행 문서는 인쇄할 수 없습니다. 화면에서 발행하고 인쇄를 선택하십시오.\n      "
+        },
+        {
+          "line": 505,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "' 그 뒤 바뀐 칸이 있습니다.'",
+          "emitted": "' 그 뒤 변경 항목이 있습니다.'"
+        },
+        {
+          "line": 523,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "발행 전 미리 보기입니다. 인쇄 대장에 남지 않았고 종이로 뽑을 수 없습니다.\n            ",
+          "emitted": "발행 전 미리 보기입니다. 인쇄 이력에 등록되지 않았으므로 이 화면은 인쇄할 수 없습니다.\n            "
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "lib/forms.ts",
+      "bindings": [
+        {
+          "line": 175,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'자료 짝'",
+          "emitted": "'자료 연동'"
+        },
+        {
+          "line": 176,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'자료 받아 오기'",
+          "emitted": "'자료 수신 이력'"
+        }
+      ]
+    },
+    {
+      "product": "carnet",
+      "path": "app/(work)/work/[id]/work-panel.tsx",
+      "bindings": [
+        {
+          "line": 1050,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "' · 기한 지남'",
+          "emitted": "' · 기한 경과'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "app/(app)/layout.tsx",
+      "bindings": [
+        {
+          "line": 415,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'이 화면은 아직 켜지 않은 업무에 속합니다. 켜면 차림표와 화면이 함께 열립니다.'",
+          "emitted": "'이 화면의 업무 기능이 비활성화되어 있습니다. 기능을 활성화하면 메뉴와 화면을 이용할 수 있습니다.'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "app/(app)/nonconformances/[id]/dispositions-section.tsx",
+      "bindings": [
+        {
+          "line": 157,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"처분 하나가 한 줄 · 추가 → 승인 → 실행 완료\"",
+          "emitted": "\"처분별 실행 이력 · 등록 → 승인 → 실행 완료\""
+        },
+        {
+          "line": 158,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"처분 하나가 한 줄입니다. 추가하고, 승인받고, 실행을 마치면 그 줄이 잠깁니다. 실행이 끝나지 않은 처분이 있으면 부적합을 종결할 수 없습니다. 위의 처분 결정은 대표 처분이고, 실제 수량과 실행은 여기에 한 줄씩 남깁니다.\"",
+          "emitted": "\"처분별 등록·승인·실행 이력을 관리합니다. 실행이 완료되면 기록이 잠깁니다. 미완료 처분이 있으면 부적합을 종결할 수 없습니다. 상단의 처분 결정은 대표 처분이며, 실제 수량과 실행 이력은 개별 등록합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "app/(app)/quality-objectives/[id]/client.tsx",
+      "bindings": [
+        {
+          "line": 420,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "아직 끝나지 않은 기간입니다. 측정 기간이 끝난 뒤(그 기간의 마지막 날부터) 기록하십시오.\n              ",
+          "emitted": "미래의 측정 기준일에는 실적을 기록할 수 없습니다. 해당 측정 기간의 마지막 날부터 기록하십시오.\n              "
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "app/api/quality-objectives/[id]/measurements/route.ts",
+      "bindings": [
+        {
+          "line": 88,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'아직 끝나지 않은 기간의 실적은 기록할 수 없습니다. 측정 기간이 끝난 뒤(그 기간의 마지막 날부터) 기록하십시오.'",
+          "emitted": "'미래의 측정 기준일에는 실적을 기록할 수 없습니다. 해당 측정 기간의 마지막 날부터 기록하십시오.'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "components/Sidebar.tsx",
+      "bindings": [
+        {
+          "line": 606,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"주 차림표\"",
+          "emitted": "\"주 메뉴\""
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "lib/notifications/kind-display.ts",
+      "bindings": [
+        {
+          "line": 265,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'기한 지남 보고'",
+          "emitted": "'기한 경과 보고'"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "lib/notifications/messages/ops.ts",
+      "bindings": [
+        {
+          "line": 100,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`기한 지남 보고: ${",
+          "emitted": "`기한 경과 보고: ${"
+        },
+        {
+          "line": 101,
+          "kind": "FirstTemplateToken",
+          "ordinal": 0,
+          "original": "`담당 직무가 기한을 넘겼습니다. `",
+          "emitted": "`담당 직무의 처리 기한이 경과했습니다. `"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "lib/qms/nc-disposition.ts",
+      "bindings": [
+        {
+          "line": 113,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`실행이 끝나지 않은 처분이 있습니다(처분 ${",
+          "emitted": "`미완료 처분이 있습니다(처분 ${"
+        }
+      ]
+    },
+    {
+      "product": "atelier",
+      "path": "lib/qms/sheets/paper.ts",
+      "bindings": [
+        {
+          "line": 59,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "'결재가 끝나지 않은 사본입니다. 승인 뒤 다시 출력하십시오.'",
+          "emitted": "'결재 미완료 사본입니다. 승인 후 다시 출력하십시오.'"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "bindings": [
+        {
+          "line": 227,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+          "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+        },
+        {
+          "line": 273,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "회의 · 출장 · 고객 방문처럼 사람이 아는 일을 달력에 적습니다. 문서\r\n          정기검토 · 검교정 같은 기한은 시스템이 알아서 올립니다.\r\n        ",
+          "emitted": "회의 · 출장 · 고객 방문 등의 일정을 등록합니다. 문서 정기 검토 ·\r\n          검교정 같은 기한은 시스템에서 자동으로 표시합니다.\r\n        "
+        },
+        {
+          "line": 327,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날\"",
+          "emitted": "\"종료 날짜\""
+        },
+        {
+          "line": 345,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "종일 (시각 없이 그날 안에)\r\n          ",
+          "emitted": "종일 일정\r\n          "
+        },
+        {
+          "line": 369,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 시각\"",
+          "emitted": "\"종료 시각\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/actions.ts",
+      "bindings": [
+        {
+          "line": 878,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"입고가 끝나지 않은 품목입니다. 다 들어온 뒤(또는 마지막 입고로 닫은 뒤) 검사합니다.\"",
+          "emitted": "\"입고 미완료 품목입니다. 전량 입고되거나 최종 입고 처리된 후 검사할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/[id]/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 135,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 223,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "검사 기록을 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          ",
+          "emitted": "검사 기록을 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/nc/actions.ts",
+      "bindings": [
+        {
+          "line": 174,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신된 발생 보고서는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 발생 보고서는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/nc/approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 223,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${"
+        },
+        {
+          "line": 352,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "를 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          ",
+          "emitted": "를 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/nc/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 347,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "작성중",
+          "emitted": "작성 중"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+      "bindings": [
+        {
+          "line": 120,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"(가져올 발주 줄이 없습니다)\"",
+          "emitted": "\"(미등록 발주 품목이 없습니다)\""
+        },
+        {
+          "line": 124,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
+      "bindings": [
+        {
+          "line": 302,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"가져올 발주 줄\"",
+          "emitted": "\"미등록 발주 품목\""
+        },
+        {
+          "line": 304,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",
+          "emitted": "\"직전 발주와 비교 가능한 미등록 품목\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/recalls/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 186,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "· 회수 기한 지남 (",
+          "emitted": "· 회수 기한 경과 ("
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/incident-actions.ts",
+      "bindings": [
+        {
+          "line": 108,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"상신된 기록지는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+          "emitted": "\"상신된 기록지는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "bindings": [
+        {
+          "line": 199,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\"",
+          "emitted": "\"작성 중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\""
+        },
+        {
+          "line": 200,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\"",
+          "emitted": "\"작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\""
+        },
+        {
+          "line": 201,
+          "kind": "TemplateHead",
+          "ordinal": 0,
+          "original": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+          "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+        },
+        {
+          "line": 293,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "기록지를 작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          ",
+          "emitted": "기록지를 작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/incidents-tab.tsx",
+      "bindings": [
+        {
+          "line": 42,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/safety/incidents/[id]/page.tsx",
+      "bindings": [
+        {
+          "line": 277,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "작성중",
+          "emitted": "작성 중"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/settings/roles/access-header.tsx",
+      "bindings": [
+        {
+          "line": 55,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\"",
+          "emitted": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(floor)/floor/actions.ts",
+      "bindings": [
+        {
+          "line": 194,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"생산 준비 점검이 끝나지 않은 기록입니다.\"",
+          "emitted": "\"생산 준비 점검이 미완료된 기록입니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/layout/mobile-sidebar.tsx",
+      "bindings": [
+        {
+          "line": 68,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"차림표 열기\"",
+          "emitted": "\"메뉴 열기\""
+        },
+        {
+          "line": 85,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"차림표\"",
+          "emitted": "\"메뉴\""
+        },
+        {
+          "line": 86,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "차림표",
+          "emitted": "메뉴"
+        },
+        {
+          "line": 93,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"차림표 닫기\"",
+          "emitted": "\"메뉴 닫기\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/layout/sidebar.tsx",
+      "bindings": [
+        {
+          "line": 52,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"차림표\"",
+          "emitted": "\"메뉴\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/shared/approval-flow.tsx",
+      "bindings": [
+        {
+          "line": 368,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "종이로 결재를 마친 기존 문서",
+          "emitted": "서면 결재를 완료한 기존 문서"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/documents/modify-gate.ts",
+      "bindings": [
+        {
+          "line": 39,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"발행 · 결재 중인 문서는 대표 · 품질 책임자만 고칠 수 있습니다. 작성중 · 반려 문서는 수정 권한이 있으면 고칠 수 있습니다.\"",
+          "emitted": "\"발행 · 결재 중인 문서는 대표 · 품질 책임자만 고칠 수 있습니다. 작성 중 · 반려 문서는 수정 권한이 있으면 고칠 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/nc/approval-rules.ts",
+      "bindings": [
+        {
+          "line": 204,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중\"",
+          "emitted": "\"작성 중\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/permissions/draft-author.ts",
+      "bindings": [
+        {
+          "line": 19,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"작성중인 서류는 작성자 본인만 고치고 상신할 수 있습니다.\"",
+          "emitted": "\"작성 중인 서류는 작성자 본인만 고치고 상신할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "lib/validators/calendar-events.ts",
+      "bindings": [
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+          "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+        },
+        {
+          "line": 130,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"끝나는 시각이 시작 시각보다 빠릅니다.\"",
+          "emitted": "\"종료 시각이 시작 시각보다 빠릅니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/new/new-inspection-form.tsx",
+      "bindings": [
+        {
+          "line": 577,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"보통 · 까다로운 · 수월한 검사 (검사 수준 G-II 등은 상세의 샘플링 판에서)\"",
+          "emitted": "\"검사 수준 G-II 등 세부 조건은 상세 화면의 샘플링 설정에서 확인합니다.\""
+        },
+        {
+          "line": 620,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"합격판정 Ac\"",
+          "emitted": "\"합격 판정 개수 (Ac)\""
+        },
+        {
+          "line": 738,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "남은 ",
+          "emitted": "미판정 "
+        },
+        {
+          "line": 738,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "항목 모두 P\r\n              ",
+          "emitted": "개 항목 일괄 적합 판정\r\n              "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/inspections/inspection-overview.tsx",
+      "bindings": [
+        {
+          "line": 37,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"밀린 검사가 없습니다\"",
+          "emitted": "\"대기 중인 검사가 없습니다\""
+        },
+        {
+          "line": 38,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 검사하지 않은 로트·품목\"",
+          "emitted": "\"검사 미완료 로트·품목\""
+        },
+        {
+          "line": 48,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"판정을 기다리는 검사가 없습니다\"",
+          "emitted": "\"판정 대기 중인 검사가 없습니다\""
+        },
+        {
+          "line": 49,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"검사는 열렸고 적/부가 안 났습니다\"",
+          "emitted": "\"적합·부적합 판정이 완료되지 않은 검사\""
+        },
+        {
+          "line": 58,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 판정된 검사가 없습니다\"",
+          "emitted": "\"판정 완료된 검사가 없습니다\""
+        },
+        {
+          "line": 125,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"아직 판정된 검사가 없습니다\"",
+          "emitted": "\"판정 완료된 검사가 없습니다\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/delivery-tab.tsx",
+      "bindings": [
+        {
+          "line": 246,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"전 품목이 들어온 발주\"",
+          "emitted": "\"전 품목 입고가 완료된 발주\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/official-doc-dialog.tsx",
+      "bindings": [
+        {
+          "line": 111,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"거래처와 주고받은 단가 인하 요청 · 회신 공문입니다. 절감 실적의 근거로 이어 붙입니다.\"",
+          "emitted": "\"거래처와 교환한 단가 인하 요청 · 회신 공문을 절감 실적의 근거 자료로 등록합니다.\""
+        },
+        {
+          "line": 139,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"대장에 없는 거래처면 비워 두고 아래에 이름을 적습니다.\"",
+          "emitted": "\"등록된 거래처가 없으면 거래처 이름을 직접 입력하세요.\""
+        },
+        {
+          "line": 145,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"(대장에 없음)\"",
+          "emitted": "\"직접 입력\""
+        },
+        {
+          "line": 185,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"PDF · 그림 · 워드 · 엑셀 · 한글, 25MB 까지\"",
+          "emitted": "\"PDF · 이미지 · 워드 · 엑셀 · 한글 파일, 최대 25MB\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/purchasing/analysis/docs-tab.tsx",
+      "bindings": [
+        {
+          "line": 173,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"「공문 등록」 에서 거래처와 주고받은 단가 인하 요청 · 회신 공문을 올리면 절감 실적의 근거로 이어 붙일 수 있습니다.\"",
+          "emitted": "\"공문 등록에서 거래처와 교환한 단가 인하 요청 · 회신 공문을 등록하면 절감 실적의 근거 자료로 연결할 수 있습니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/page.tsx",
+      "bindings": [
+        {
+          "line": 344,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"입고·공정·완제품 검사 결과를 기록하세요. 구분을 고르면 절차서의 검사 항목이 자동으로 채워집니다.\"",
+          "emitted": "\"입고·공정·완제품 검사 결과를 기록하세요. 검사 구분을 선택하면 절차서의 검사 항목이 자동 입력됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/inspections/new/page.tsx",
+      "bindings": [
+        {
+          "line": 170,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "구분을 고르면 검사 항목이 자동으로 채워집니다.\n      ",
+          "emitted": "검사 구분을 선택하면 검사 항목이 자동 입력됩니다.\n      "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/page.tsx",
+      "bindings": [
+        {
+          "line": 181,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"공정을 고르면 준비 점검 항목이 자동으로 채워집니다.\"",
+          "emitted": "\"공정을 선택하면 준비 점검 항목이 자동 입력됩니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/print/page.tsx",
+      "bindings": [
+        {
+          "line": 460,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "기록마다 제 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 · 완제품\n          포장)으로 찍습니다. 시스템이 받지 않는 칸(규격 · 공정 조건 · 보관 실측\n          · 폐기 · 유효기간)은 빈칸으로 나가 손으로 채웁니다.\n        ",
+          "emitted": "각 기록은 해당 공정의 서식(와이어 벤딩 · 성형 가공 · 전해 연마 ·\n          완제품 포장)으로 인쇄합니다. 시스템에 입력 항목이 없는 칸(규격 · 공정\n          조건 · 보관 실측 · 폐기 · 유효기간)은 공란으로 출력하여 수기로\n          작성합니다.\n        "
+        },
+        {
+          "line": 471,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"그 로트를 산출한 기록과 그 로트를 투입한 기록을 공정 순서대로 모아 인쇄합니다.\"",
+          "emitted": "\"해당 로트의 생산·투입 기록을 공정 순서대로 조회하여 인쇄합니다.\""
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/new/new-production-form.tsx",
+      "bindings": [
+        {
+          "line": 428,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "종이에는 찍히지 않습니다.\n          ",
+          "emitted": "인쇄 서식에 포함되지 않습니다.\n          "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/production/new/prep-sheet-fields.tsx",
+      "bindings": [
+        {
+          "line": 480,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "재고에서 고른 원재료는 확인 완료 때 투입 수량만큼 원재료 대장에서\n              출고됩니다. 투입 수량은 서식 밖 칸이라 종이에는 찍히지 않습니다.\n            ",
+          "emitted": "재고에서 고른 원재료는 확인 완료 때 투입 수량만큼 원재료 대장에서\n              출고됩니다. 투입 수량은 인쇄 서식에 포함되지 않는 추가 정보입니다.\n            "
+        },
+        {
+          "line": 700,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "줄마다 「확인」 을 체크하면 그 줄에 적을 수 있습니다.\n          (서식 ",
+          "emitted": "각 항목의 「확인」을 선택하면 해당 항목을 입력할 수\n          있습니다. (서식 "
+        }
+      ]
+    }
+  ]
+}

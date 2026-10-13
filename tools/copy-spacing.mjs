@@ -93,7 +93,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  }
  const owners=fs.existsSync(root+'/patterns/component-implementations.json')?implementationOwners(root):new Map();
  for(const term of terms)if(!term.from||!term.to||/[\r\n"'`$\\]/.test(term.to))throw Error('Copy terms must be plain single-line text.');
- const out=root+'/dist/q-design.copy-bindings.json';
+ const out=root+'/dist/q-design.copy-bindings.current.json';
  const prior=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')).files:[],records=[],baselines=[],pending=[];
  for(const [product,repo] of [['atelier','Q-Atelier'],['maison','Q-Works'],['carnet','DHR']]){
   if(!selected.includes(product))continue;
