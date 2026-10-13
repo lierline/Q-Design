@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "scope": "Exact authored hints in the contract review form. Input values, classifications, validation and stored document contents are excluded.",
+  "terms": [
+    {
+      "id": "maison-contract-classification-hint",
+      "products": ["maison"],
+      "paths": ["app/(app)/contracts/contract-form.tsx"],
+      "from": "서식에 찍히는 구분입니다. 「검토 대상」은 «언제 검토하는가»라 다른 축입니다.",
+      "to": "서식에 표시되는 계약 유형입니다. 검토 대상은 계약 검토 사유입니다."
+    },
+    {
+      "id": "maison-contract-followup-hint",
+      "products": ["maison"],
+      "paths": ["app/(app)/contracts/contract-form.tsx"],
+      "from": "필요일 때만 적습니다",
+      "to": "필요한 경우 입력하세요."
+    }
+  ]
+}

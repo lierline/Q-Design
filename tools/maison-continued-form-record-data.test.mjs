@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import {beforeActionResultData as beforeOriginalActionResultData} from './maison-action-result-data.mjs';
-import {beforeRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+import {beforeRemainingDocxFields as beforeOriginalRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+import {beforeContractHintReport} from './maison-contract-hint-copy.mjs';
+const beforeRemainingDocxFields=current=>beforeOriginalRemainingDocxFields(beforeContractHintReport(current));
 const beforeActionResultData=current=>beforeOriginalActionResultData(beforeRemainingDocxFields(current));
 import test from 'node:test';
 import assert from 'node:assert/strict';

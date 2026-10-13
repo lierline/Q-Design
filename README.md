@@ -236,3 +236,7 @@ html이 16px이면 `0.9375rem`은 15px입니다. body가 14px이어도 rem 기�
 현재 화면 문구는 `patterns/copy-rules.current.json`과 여기에 연결한 규칙 파일에서 관리합니다. 생성기는 `dist/q-design.copy-bindings.current.json`의 원문과 현재 출력 위치를 사용해 이미 적용된 문구도 다시 갱신합니다. 기존 `patterns/copy-rules.json` 및 `dist/q-design.copy-bindings.json`은 이전 검수를 재현하기 위한 스냅샷입니다.
 
 메종의 공용 필수 항목 안내는 `patterns/professional-maison-form-copy.json`으로 연결했습니다. 문구를 변경한 뒤 생성·연결·검수와 제품 빌드·배포를 거쳐 운영 화면에 반영합니다. 규칙 파일 수정만으로 운영 배포가 자동 완료되지는 않습니다.
+
+계약 검토 양식의 계약 구분·후속 조치 안내는 `patterns/professional-maison-contract-copy.json`으로 관리합니다. 신규 작성과 수정 화면이 같은 양식을 사용합니다. 현재 바인딩의 전체 연결은 `active-copy-bindings.mjs`가 검사하고, 각 안내 검증은 담당 파일의 실제 출력·원문·동작과 디자인 인자를 검사합니다. 과거 바인딩 스냅샷과 현재 출력 검사를 혼용하지 않습니다.
+
+문구만 수정한 경우에도 현재 소스의 전체 컴파일 결과와 디자인 인자 보존을 확인한 뒤 근거를 갱신합니다. 과거 계약 데이터 검사의 정본은 고정된 커밋에서 재현하며, 현재 소스를 되돌려 비교하는 어댑터의 변경 범위도 정확히 검사합니다. 다른 업무 코드나 미분류 인자를 포괄적으로 승인하지 않습니다.

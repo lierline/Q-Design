@@ -3117,6 +3117,26 @@
           "emitted": "개를 입력하세요: "
         }
       ]
+    },
+    {
+      "product": "maison",
+      "path": "app/(app)/contracts/contract-form.tsx",
+      "bindings": [
+        {
+          "line": 406,
+          "kind": "StringLiteral",
+          "ordinal": 0,
+          "original": "\"서식에 찍히는 구분입니다. 「검토 대상」은 «언제 검토하는가»라 다른 축입니다.\"",
+          "emitted": "\"서식에 표시되는 계약 유형입니다. 검토 대상은 계약 검토 사유입니다.\""
+        },
+        {
+          "line": 849,
+          "kind": "StringLiteral",
+          "ordinal": 1,
+          "original": "\"필요일 때만 적습니다\"",
+          "emitted": "\"필요한 경우 입력하세요.\""
+        }
+      ]
     }
   ]
 }

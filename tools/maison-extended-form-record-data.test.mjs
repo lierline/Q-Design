@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import {beforeContinuedFormData as beforeOriginalContinuedFormData} from './maison-continued-form-record-data.mjs';
 import {beforeActionResultData as beforeOriginalActionResultData} from './maison-action-result-data.mjs';
-import {beforeRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+import {beforeRemainingDocxFields as beforeOriginalRemainingDocxFields} from './maison-docx-remaining-fields.mjs';
+import {beforeContractHintReport} from './maison-contract-hint-copy.mjs';
+const beforeRemainingDocxFields=current=>beforeOriginalRemainingDocxFields(beforeContractHintReport(current));
 const beforeActionResultData=current=>beforeOriginalActionResultData(beforeRemainingDocxFields(current));
 const beforeContinuedFormData=current=>beforeOriginalContinuedFormData(beforeActionResultData(current));
 import test from 'node:test';

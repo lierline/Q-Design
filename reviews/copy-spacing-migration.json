@@ -7,25 +7,17 @@
     {
       "product": "maison",
       "repo": "Q-Works",
-      "path": "components/shared/missing-hint.tsx",
-      "beforeHash": "7e484f7f8d174a761886821b9fb42df0a4eb2c9e05b68b28bba05d26a2b3ca5c",
-      "afterHash": "65916b63bf614650c9f79e7b6591ca4ed169ea114cd92141cc577d90661df83a",
+      "path": "app/(app)/contracts/contract-form.tsx",
+      "beforeHash": "d3dc0c5ab3f96a09821e04b313cb9e65cc0d1ce6f135c3bce12f513f09413bb1",
+      "afterHash": "4485b460a3394b9bf03d7ca835c9fe7befa60b4962e6cbfc810f787c505c5e20",
       "changes": [
         {
-          "line": 27,
-          "kind": "JsxText",
+          "line": 851,
+          "kind": "StringLiteral",
           "ordinal": 0,
-          "raw": "필수 ",
-          "emitted": "필수 항목 ",
-          "original": "필수 "
-        },
-        {
-          "line": 27,
-          "kind": "JsxText",
-          "ordinal": 1,
-          "raw": "칸이 남았습니다: ",
-          "emitted": "개를 입력하세요: ",
-          "original": "칸이 남았습니다: "
+          "raw": "\"후속 조치가 필요한 경우 입력하세요.\"",
+          "emitted": "\"필요한 경우 입력하세요.\"",
+          "original": "\"필요일 때만 적습니다\""
         }
       ]
     }
