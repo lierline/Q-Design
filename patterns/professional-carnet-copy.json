@@ -47,6 +47,7 @@
     {"id":"carnet-print-issuance-instruction","from":"발행하지 않은 미리 보기는 종이로 뽑을 수 없습니다. 화면에서 [발행하고 인쇄] 를 누르십시오.","to":"미발행 문서는 인쇄할 수 없습니다. 화면에서 발행하고 인쇄를 선택하십시오.","products":["carnet"],"paths":["components/print-frame.tsx"]},
     {"id":"carnet-changed-fields","from":"바뀐 칸","to":"변경 항목","products":["carnet"],"paths":["app/(admin)/settings/audit/entry.tsx","app/(admin)/settings/dmr/dmr-forms.tsx","components/print-frame.tsx"]},
     {"id":"carnet-family-link","from":"자료 짝","to":"자료 연동","products":["carnet"],"paths":["lib/forms.ts"]},
-    {"id":"carnet-family-import","from":"자료 받아 오기","to":"자료 수신 이력","products":["carnet"],"paths":["lib/forms.ts"]}
+    {"id":"carnet-family-import","from":"자료 받아 오기","to":"자료 수신 이력","products":["carnet"],"paths":["lib/forms.ts"]},
+    {"id":"carnet-user-honorific-spacing","from":" 님","to":"님","products":["carnet"],"paths":["app/(admin)/page.tsx"]}
   ]
 }

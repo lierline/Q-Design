@@ -7,12 +7,13 @@ import {beforeRemainingFields} from './maison-remaining-field-ledger.mjs';
 import {beforeHeadingIconBoundaries} from './atelier-heading-icon-boundaries.mjs';
 import {beforeMeetingData} from './maison-meeting-data-ledger.mjs';
 import {beforeContentFields} from './maison-docx-content-fields.mjs';
+import {beforeHonorificReport} from './carnet-honorific-review.mjs';
 const root='D:/Claude/Q-Design';
 test('all three live workspace copies contain exactly the central short-action rule',()=>{
  const result=inspectWorkspaceTargets();assert.equal(result.sources.length,3);
  assert.equal(composeWorkspace('a\r\n','b\r\n'),'a\n\nb\n');
  for(const product of ['atelier','maison','carnet']){
-  const current=beforeHeadingIconBoundaries(beforeRemainingFields(beforeMeetingData(beforeContentFields(JSON.parse(fs.readFileSync(root+'/reviews/'+product+'-style-decisions.json','utf8')))))),old=beforeWorkspaceTargets(current);
+  const current=beforeHonorificReport(beforeHeadingIconBoundaries(beforeRemainingFields(beforeMeetingData(beforeContentFields(JSON.parse(fs.readFileSync(root+'/reviews/'+product+'-style-decisions.json','utf8'))))))),old=beforeWorkspaceTargets(current);
   assert.equal(current.counts.unknown,old.counts.unknown);assert.equal(current.counts['central-source-verified'],old.counts['central-source-verified']+2);
  }
 });

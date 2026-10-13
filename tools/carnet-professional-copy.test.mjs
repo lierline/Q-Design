@@ -7,13 +7,14 @@ import {execFileSync} from 'node:child_process';
 import {inspectProfessionalCopy} from './carnet-professional-copy-evidence.mjs';
 import {recordLabelsSource,buildRecordLabels} from './build-record-labels.mjs';
 import {applyBindings,termsForFile} from './copy-spacing.mjs';
+import {beforeHonorificBindings} from './carnet-honorific-review.mjs';
 const root='D:/Claude/Q-Design',base='D:/Claude/DHR';
 const ts=createRequire('D:/Claude/Q-Atelier/package.json')('typescript');
 const read=p=>fs.readFileSync(p,'utf8');
 test('professional terminology preserves complete product source outside reviewed literals and the display-label lookup',()=>{
  const proof=inspectProfessionalCopy();
  assert.equal(proof.records.length,13);
- assert.equal(proof.records.reduce((n,r)=>n+r.literalChanges,0),58);
+ assert.equal(proof.records.reduce((n,r)=>n+r.literalChanges,0),59);
 });
 test('demo confirmation rejects unauthorized, empty, old and incorrect phrases before reaching the database boundary',async()=>{
  const code=ts.transpileModule(read(base+'/app/demo-actions.ts'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
@@ -38,7 +39,7 @@ test('shared labels reject identifier drift and retain the reviewed Carnet bindi
  buildRecordLabels({check:true});
  assert.throws(()=>recordLabelsSource({link_connection:'연동',extra:'추가'}),/identifiers/);
  assert.throws(()=>recordLabelsSource({link_connection:'연동\n연결',link_inbox:'수신'}),/single-line/);
- const current=JSON.parse(read(root+'/dist/q-design.copy-bindings.json'));
+ const current=beforeHonorificBindings(JSON.parse(read(root+'/dist/q-design.copy-bindings.json')));
  const rows=(report,product)=>report.files.filter(r=>r.product===product).sort((a,b)=>a.path.localeCompare(b.path));
  const reviewed=JSON.parse(execFileSync('git',['show','cb5789de1676125fb2336e6fb46a0321d727afa2:dist/q-design.copy-bindings.json'],{cwd:root,encoding:'utf8'}));
  assert.deepEqual(rows(current,'carnet'),rows(reviewed,'carnet'));
