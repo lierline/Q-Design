@@ -1,4 +1,6 @@
-import {beforeFormRecordData} from './maison-form-record-data.mjs';
+import {beforeFormRecordData as beforeOriginalFormRecordData} from './maison-form-record-data.mjs';
+import {beforeExtendedFormData} from './maison-extended-form-record-data.mjs';
+const beforeFormRecordData=current=>beforeOriginalFormRecordData(beforeExtendedFormData(current));
 import fs from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';

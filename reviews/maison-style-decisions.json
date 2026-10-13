@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-13T00:24:47.398Z",
+  "generatedAt": "2026-10-13T01:18:07.547Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6793,8 +6793,8 @@
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
-    "business-data": 928,
-    "unknown": 534,
+    "business-data": 955,
+    "unknown": 507,
     "business-condition": 54,
     "token-reference-verified": 1275,
     "structural-behavior": 411,
@@ -6804,7 +6804,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3931
   },
-  "unknownCount": 534,
+  "unknownCount": 507,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -33758,14 +33758,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
           "path": "app/(app)/audits/body-form.tsx",
-          "line": 171,
+          "line": 1,
           "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -33781,14 +33941,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
           "path": "app/(app)/audits/body-form.tsx",
-          "line": 191,
+          "line": 1,
           "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -33832,14 +34152,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
           "path": "app/(app)/audits/body-form.tsx",
-          "line": 208,
+          "line": 1,
           "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -36078,14 +36558,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
           "path": "app/(app)/audits/checklist-form.tsx",
-          "line": 98,
+          "line": 1,
           "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -36101,14 +36741,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
           "path": "app/(app)/audits/checklist-form.tsx",
-          "line": 108,
+          "line": 1,
           "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -46619,14 +47419,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
           "path": "app/(app)/capa/checklist-form.tsx",
-          "line": 88,
+          "line": 1,
           "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -46642,14 +47602,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
           "path": "app/(app)/capa/checklist-form.tsx",
-          "line": 88,
+          "line": 1,
           "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -46930,14 +48050,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
           "path": "app/(app)/capa/checklist-form.tsx",
-          "line": 163,
+          "line": 1,
           "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -46953,14 +48233,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
           "path": "app/(app)/capa/checklist-form.tsx",
-          "line": 173,
+          "line": 1,
           "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -51770,14 +53210,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
           "path": "app/(app)/capa/plan-form.tsx",
-          "line": 165,
+          "line": 1,
           "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -51849,14 +53449,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
           "path": "app/(app)/capa/plan-form.tsx",
-          "line": 220,
+          "line": 1,
           "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -52683,14 +54443,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
           "path": "app/(app)/capa/plan-form.tsx",
-          "line": 332,
+          "line": 1,
           "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -108111,14 +110031,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
           "path": "app/(app)/concessions/report-form.tsx",
-          "line": 139,
+          "line": 1,
           "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -152656,14 +154736,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
           "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
-          "line": 86,
+          "line": 1,
           "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -202233,14 +204473,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
           "path": "app/(app)/design/changes/change-form.tsx",
-          "line": 82,
+          "line": 1,
           "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -203099,14 +205499,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
           "path": "app/(app)/design/changes/change-form.tsx",
-          "line": 191,
+          "line": 1,
           "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -210533,14 +213093,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
           "path": "app/(app)/design/programs/program-form.tsx",
-          "line": 79,
+          "line": 1,
           "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -210584,14 +213304,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
           "path": "app/(app)/design/programs/program-form.tsx",
-          "line": 115,
+          "line": 1,
           "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -230646,14 +233526,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
           "path": "app/(app)/document-dispatch/report-form.tsx",
-          "line": 88,
+          "line": 1,
           "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -230669,14 +233709,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
           "path": "app/(app)/document-dispatch/report-form.tsx",
-          "line": 94,
+          "line": 1,
           "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -232335,14 +235535,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
           "path": "app/(app)/document-dispatch/report-form.tsx",
-          "line": 193,
+          "line": 1,
           "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -233544,14 +236904,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
           "path": "app/(app)/document-dispatch/request-form.tsx",
-          "line": 105,
+          "line": 1,
           "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -233567,14 +237087,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
           "path": "app/(app)/document-dispatch/request-form.tsx",
-          "line": 120,
+          "line": 1,
           "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -234028,14 +237708,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
           "path": "app/(app)/document-dispatch/request-form.tsx",
-          "line": 204,
+          "line": 1,
           "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -235643,14 +239483,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
           "path": "app/(app)/document-dispatch/request-form.tsx",
-          "line": 321,
+          "line": 1,
           "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -290881,14 +294881,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
           "path": "app/(app)/documents/external/external-form.tsx",
-          "line": 154,
+          "line": 1,
           "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
+          "path": "app/(app)/drawings/drawing-form.tsx",
+          "line": 1,
+          "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },
@@ -319439,14 +323599,174 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "extended-symbol-resolved-form-record-data",
+      "reason": "This exact spread composes typed business record fields in a pinned producer. Property keys and index value types are reviewed. Actual symbol-resolved saves and validation schemas consume the form payload; it does not set an element design property.",
       "evidence": [
         {
+          "path": "app/(app)/audits/body-form.tsx",
+          "line": 1,
+          "hash": "e0e6b55d2f1d2004e0e74c911f4f1c6a0ca14f6a2d193e109eaf86405fb4ae95"
+        },
+        {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "lib/validators/audit-sheets.ts",
+          "line": 1,
+          "hash": "6b24431ca5faae457d51cab203a42cd81753402ad04f31638f744add355d1ca8"
+        },
+        {
+          "path": "app/(app)/audits/checklist-form.tsx",
+          "line": 1,
+          "hash": "cc26509de4e0fcb4d43b97161e825774f68a5168855d0ca508a9b5c5a897bcb8"
+        },
+        {
+          "path": "app/(app)/capa/checklist-form.tsx",
+          "line": 1,
+          "hash": "98971b4984cbce7d158732a84a0a73f5c0ff0babcae5f663740c1ecb8dc3445f"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/capa/plan-form.tsx",
+          "line": 1,
+          "hash": "72bc60c1e425c3d7c812fdae6c13391856a79a153a67543bd03afb9318357c27"
+        },
+        {
+          "path": "app/(app)/concessions/report-form.tsx",
+          "line": 1,
+          "hash": "e93ff69a7ab100317e35d859b8a0aea3b9ee90dbe378f2aa60275d20860b9a9f"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+          "line": 1,
+          "hash": "c6cc7b9413d237baf11932970827744c4f6c0eb7f4cdc7e3a3d1b05d2517ec65"
+        },
+        {
+          "path": "app/(app)/customer/actions.ts",
+          "line": 1,
+          "hash": "f0c2cc4be2c1d5fe96856dd249242029e57c9953fcee0645f26b9537cfe9a92c"
+        },
+        {
+          "path": "app/(app)/design/changes/change-form.tsx",
+          "line": 1,
+          "hash": "85a45f5148bc9c84385d955100323882dd6fd026977dd85ea59a268b3d7d998b"
+        },
+        {
+          "path": "app/(app)/design/actions.ts",
+          "line": 1,
+          "hash": "6604c90e2a1a498e93debeaad85a24f910063425c49923b62b566485d3568445"
+        },
+        {
+          "path": "lib/validators/design.ts",
+          "line": 1,
+          "hash": "0edc4858d8e0590ade8b50de103593dd34c06b04c19100155ae08f3726555268"
+        },
+        {
+          "path": "app/(app)/design/programs/program-form.tsx",
+          "line": 1,
+          "hash": "e5f72b0b46d6d025c3c8e99703d29683a8f4e7ad1a0f8ac2ed7e4e91cd0c73ec"
+        },
+        {
+          "path": "app/(app)/design/programs/actions.ts",
+          "line": 1,
+          "hash": "73cd659c8a86d7573d2f57fc1697669953a52b6421336a7a46b64565e18ae4dc"
+        },
+        {
+          "path": "lib/validators/rnd-programs.ts",
+          "line": 1,
+          "hash": "163cda10efb3ebb09480dd70c14f2b4cee671d0573d534f4db9660d2a513a9ad"
+        },
+        {
+          "path": "app/(app)/document-dispatch/report-form.tsx",
+          "line": 1,
+          "hash": "c9974aace2127c4d0210eeed9572a701dd8da08c7001ee64897f258f37ee0069"
+        },
+        {
+          "path": "app/(app)/document-dispatch/ledger-actions.ts",
+          "line": 1,
+          "hash": "282dd73b8039d9f5cf96db1da0971015e1108ef8ae0dba4f829276a9f5bb33c4"
+        },
+        {
+          "path": "lib/validators/doc-dispatch.ts",
+          "line": 1,
+          "hash": "be2936422e71c00fc5ce976211465f0863e24baf805f5f4ff0b8e9d1ebf3f76e"
+        },
+        {
+          "path": "app/(app)/document-dispatch/request-form.tsx",
+          "line": 1,
+          "hash": "cda1dfa435922349a004c73ff046135bc90f6e61c0fc6e2dc9e6f9b5b5e4ce1d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/documents/external/external-form.tsx",
+          "line": 1,
+          "hash": "13f61c995c2ec13ff5d18315ec18892c3f1bf61a474185e51263fcf20f4801fb"
+        },
+        {
+          "path": "app/(app)/documents/external/actions.ts",
+          "line": 1,
+          "hash": "c420bde224da2f4d6c4162b46d709974bd0cb6f12f0bcda4af3612f8ec121d34"
+        },
+        {
+          "path": "lib/validators/doccontrol.ts",
+          "line": 1,
+          "hash": "a8fa8242f8c6d2e240d51c91e859ec5ec559537403acafa5d96e8eaeda002760"
+        },
+        {
           "path": "app/(app)/drawings/drawing-form.tsx",
-          "line": 165,
+          "line": 1,
           "hash": "1ae36643bb366affe2a8f6eee122e04ba3422b4d1006724ec8ee37e14350dd5c"
+        },
+        {
+          "path": "app/(app)/drawings/actions.ts",
+          "line": 1,
+          "hash": "99e84311ae1dbc06f059484eeb6e6621879166d6500b571e96992fb5c982bb84"
+        },
+        {
+          "path": "lib/audits/checklist.ts",
+          "line": 1,
+          "hash": "509a94e2a25ee31a0d29c216eab88362c4a1ed7367620dd4a0fcc8e3fe9dce24"
+        },
+        {
+          "path": "lib/audits/sheets.ts",
+          "line": 1,
+          "hash": "c77d4b92cceeeb93ead25284c2e65cd6c107738f448c21f6eaedee7d341bbe6a"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-extended-form-record-data.mjs",
+          "line": 1,
+          "hash": "dbb1f093412ba04b8c02b662ed2b5b148b8ea700a6352e039c036285aec5176d"
         }
       ]
     },

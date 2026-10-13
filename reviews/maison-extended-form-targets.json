@@ -1,0 +1,806 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "line": 171,
+      "value": "prev",
+      "type": "AuditBody",
+      "keys": [],
+      "indexValue": "string",
+      "indexProperties": [],
+      "ancestors": [
+        "setBody"
+      ]
+    },
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "line": 191,
+      "value": "basics",
+      "type": "{ department_id: string | null; admin_department_id: string | null; audit_type: \"regular\" | \"irregular\" | \"special\" | \"follow_up\"; audit_year: number; audit_round: number | null; ... 5 more ...; planned_end: string | null; }",
+      "keys": [
+        "admin_department_id",
+        "audit_round",
+        "audit_type",
+        "audit_year",
+        "auditors",
+        "department_id",
+        "lead_auditor_id",
+        "planned_end",
+        "planned_start",
+        "scope",
+        "standards"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "createAuditPlan",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "line": 208,
+      "value": "basics",
+      "type": "{ department_id: string | null; admin_department_id: string | null; audit_type: \"regular\" | \"irregular\" | \"special\" | \"follow_up\"; audit_year: number; audit_round: number | null; ... 5 more ...; planned_end: string | null; }",
+      "keys": [
+        "admin_department_id",
+        "audit_round",
+        "audit_type",
+        "audit_year",
+        "auditors",
+        "department_id",
+        "lead_auditor_id",
+        "planned_end",
+        "planned_start",
+        "scope",
+        "standards"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateAuditPlan",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/audits/checklist-form.tsx",
+      "line": 98,
+      "value": "prev",
+      "type": "AuditChecks",
+      "keys": [],
+      "indexValue": "AuditCheckEntry",
+      "indexProperties": [
+        "note",
+        "result"
+      ],
+      "ancestors": [
+        "setChecks"
+      ]
+    },
+    {
+      "path": "app/(app)/audits/checklist-form.tsx",
+      "line": 108,
+      "value": "prev",
+      "type": "AuditChecks",
+      "keys": [],
+      "indexValue": "AuditCheckEntry",
+      "indexProperties": [
+        "note",
+        "result"
+      ],
+      "ancestors": [
+        "setChecks"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/checklist-form.tsx",
+      "line": 88,
+      "value": "r",
+      "type": "CapaChecklistRow",
+      "keys": [
+        "category",
+        "checked",
+        "label",
+        "note",
+        "seq"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "prev.map",
+        "setRows"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/checklist-form.tsx",
+      "line": 88,
+      "value": "patch",
+      "type": "Partial<CapaChecklistRow>",
+      "keys": [
+        "category",
+        "checked",
+        "label",
+        "note",
+        "seq"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "prev.map",
+        "setRows"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/checklist-form.tsx",
+      "line": 163,
+      "value": "p",
+      "type": "{ related_doc: string; inspection_note: string; }",
+      "keys": [
+        "inspection_note",
+        "related_doc"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setTexts"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/checklist-form.tsx",
+      "line": 173,
+      "value": "p",
+      "type": "{ related_doc: string; inspection_note: string; }",
+      "keys": [
+        "inspection_note",
+        "related_doc"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setTexts"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/plan-form.tsx",
+      "line": 165,
+      "value": "prev",
+      "type": "Record<string, string>",
+      "keys": [],
+      "indexValue": "string",
+      "indexProperties": [],
+      "ancestors": [
+        "setTexts"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/plan-form.tsx",
+      "line": 220,
+      "value": "payload",
+      "type": "{ source: string; source_other: string | null; source_ref_id: string | null; department_id: string | null; admin_department_id: string | null; written_on: string; subject: string | null; ... 22 more ...; eff_criteria: string | null; }",
+      "keys": [
+        "action_plan",
+        "action_schedule",
+        "action_scope",
+        "admin_department_id",
+        "apply_target",
+        "cause_analysis",
+        "cause_method",
+        "department_id",
+        "doc_revision_needed",
+        "eff_criteria",
+        "eff_due_on",
+        "eff_method",
+        "eff_owner",
+        "eff_target",
+        "identification",
+        "impact_customer",
+        "impact_production",
+        "impact_quality",
+        "impact_scope",
+        "impact_shipping",
+        "incident_summary",
+        "measures",
+        "overview",
+        "required_resources",
+        "revision_targets",
+        "source",
+        "source_other",
+        "source_ref_id",
+        "subject",
+        "written_on"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateCapaPlan",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/capa/plan-form.tsx",
+      "line": 332,
+      "value": "prev",
+      "type": "Record<string, string>",
+      "keys": [],
+      "indexValue": "string",
+      "indexProperties": [],
+      "ancestors": [
+        "setImpacts",
+        "CAPA_IMPACT_ROWS.map",
+        "SECTIONS.map"
+      ]
+    },
+    {
+      "path": "app/(app)/concessions/report-form.tsx",
+      "line": 139,
+      "value": "p",
+      "type": "ReportFormValue",
+      "keys": [
+        "conforming_qty",
+        "department_id",
+        "final_disposition",
+        "followup_action",
+        "handling_content",
+        "handling_overview",
+        "processed_qty",
+        "qc_effect",
+        "request_content",
+        "result",
+        "result_detail",
+        "review_content",
+        "written_on"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setV"
+      ]
+    },
+    {
+      "path": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+      "line": 86,
+      "value": "payload",
+      "type": "{ title: string; period_start: string; period_end: string; total_sent: number; total_responded: number; average_score: number | null; nps: number | null; notes: string | null; }",
+      "keys": [
+        "average_score",
+        "notes",
+        "nps",
+        "period_end",
+        "period_start",
+        "title",
+        "total_responded",
+        "total_sent"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateSatisfactionSurvey",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/design/changes/change-form.tsx",
+      "line": 82,
+      "value": "impacts",
+      "type": "Record<\"impact_production\" | \"impact_product\" | \"impact_drawing\" | \"impact_packaging\" | \"impact_barcode\" | \"impact_inspection\" | \"impact_qms\", boolean>",
+      "keys": [
+        "impact_barcode",
+        "impact_drawing",
+        "impact_inspection",
+        "impact_packaging",
+        "impact_product",
+        "impact_production",
+        "impact_qms"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "createDesignChange",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/design/changes/change-form.tsx",
+      "line": 191,
+      "value": "prev",
+      "type": "Record<\"impact_production\" | \"impact_product\" | \"impact_drawing\" | \"impact_packaging\" | \"impact_barcode\" | \"impact_inspection\" | \"impact_qms\", boolean>",
+      "keys": [
+        "impact_barcode",
+        "impact_drawing",
+        "impact_inspection",
+        "impact_packaging",
+        "impact_product",
+        "impact_production",
+        "impact_qms"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setImpacts",
+        "DESIGN_CHANGE_IMPACTS.map"
+      ]
+    },
+    {
+      "path": "app/(app)/design/programs/program-form.tsx",
+      "line": 79,
+      "value": "prev",
+      "type": "ProgramFormValues",
+      "keys": [
+        "agency",
+        "applied_on",
+        "end_on",
+        "gov_fund",
+        "host_org",
+        "id",
+        "manager_name",
+        "ministry",
+        "notes",
+        "own_fund",
+        "program_name",
+        "role",
+        "selected_on",
+        "start_on",
+        "status",
+        "summary",
+        "title",
+        "total_budget"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setV"
+      ]
+    },
+    {
+      "path": "app/(app)/design/programs/program-form.tsx",
+      "line": 115,
+      "value": "common",
+      "type": "{ title: string; program_name: string | null; ministry: string | null; agency: string | null; role: \"host\" | \"participant\"; host_org: string | null; status: \"applied\" | \"selected\" | \"ongoing\" | \"completed\" | \"dropped\"; ... 9 more ...; notes: string | null; }",
+      "keys": [
+        "agency",
+        "applied_on",
+        "end_on",
+        "gov_fund",
+        "host_org",
+        "manager_name",
+        "ministry",
+        "notes",
+        "own_fund",
+        "program_name",
+        "role",
+        "selected_on",
+        "start_on",
+        "status",
+        "summary",
+        "title",
+        "total_budget"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateRndProgram",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/report-form.tsx",
+      "line": 88,
+      "value": "p",
+      "type": "DispatchReportValue",
+      "keys": [
+        "department_id",
+        "followup",
+        "item_results",
+        "return_note",
+        "security_actions",
+        "written_on"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setV"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/report-form.tsx",
+      "line": 94,
+      "value": "r",
+      "type": "CheckRow",
+      "keys": [
+        "code",
+        "note",
+        "result"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "v.security_actions.map",
+        "set"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/report-form.tsx",
+      "line": 193,
+      "value": "v.item_results",
+      "type": "Record<string, string>",
+      "keys": [],
+      "indexValue": "string",
+      "indexProperties": [],
+      "ancestors": [
+        "set",
+        "lines.map"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/request-form.tsx",
+      "line": 105,
+      "value": "p",
+      "type": "DispatchFormValue",
+      "keys": [
+        "department_id",
+        "desired_on",
+        "items",
+        "kind",
+        "purpose",
+        "recipient",
+        "recipient_contact",
+        "recipient_manager",
+        "requested_on",
+        "return_required",
+        "security_review"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setV"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/request-form.tsx",
+      "line": 120,
+      "value": "r",
+      "type": "CheckRow",
+      "keys": [
+        "code",
+        "note",
+        "result"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "v.security_review.map",
+        "set"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/request-form.tsx",
+      "line": 204,
+      "value": "p",
+      "type": "DispatchFormValue",
+      "keys": [
+        "department_id",
+        "desired_on",
+        "items",
+        "kind",
+        "purpose",
+        "recipient",
+        "recipient_contact",
+        "recipient_manager",
+        "requested_on",
+        "return_required",
+        "security_review"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "setV"
+      ]
+    },
+    {
+      "path": "app/(app)/document-dispatch/request-form.tsx",
+      "line": 321,
+      "value": "x",
+      "type": "{ document_id: string; provide_form: string; }",
+      "keys": [
+        "document_id",
+        "provide_form"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "v.items.map",
+        "set",
+        "v.items.map"
+      ]
+    },
+    {
+      "path": "app/(app)/documents/external/external-form.tsx",
+      "line": 154,
+      "value": "payload()",
+      "type": "{ kind: never; title: string; issuer: string | null; doc_ref: string | null; received_on: string; received_dept: string | null; applicable_to: string | null; is_current: boolean; version_label: string | null; ... 7 more ...; notes: string | null; }",
+      "keys": [
+        "applicable_to",
+        "category",
+        "doc_ref",
+        "impact_note",
+        "is_current",
+        "issuer",
+        "kind",
+        "next_review_on",
+        "notes",
+        "received_dept",
+        "received_on",
+        "review_cycle_months",
+        "revision_needed",
+        "status",
+        "storage_location",
+        "title",
+        "version_label"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateExternalDoc",
+        "startTransition"
+      ]
+    },
+    {
+      "path": "app/(app)/drawings/drawing-form.tsx",
+      "line": 165,
+      "value": "payload",
+      "type": "{ drawing_no: string; revision_no: number; title: string; category: never; product_name: string | null; model_name: string | null; spec: string | null; material: string | null; scale: string | null; ... 7 more ...; notes: string | null; }",
+      "keys": [
+        "category",
+        "distribution",
+        "drafted_on",
+        "drafting_dept",
+        "drawing_no",
+        "material",
+        "model_name",
+        "notes",
+        "owner_dept",
+        "product_name",
+        "project_id",
+        "quantity",
+        "revision_no",
+        "scale",
+        "spec",
+        "storage_location",
+        "title"
+      ],
+      "indexValue": null,
+      "indexProperties": [],
+      "ancestors": [
+        "updateDrawing",
+        "startTransition"
+      ]
+    }
+  ],
+  "sinks": [
+    {
+      "form": "app/(app)/audits/body-form.tsx",
+      "name": "createAuditPlan",
+      "action": "app/(app)/audits/sheet-actions.ts",
+      "schema": "createAuditPlanSchema",
+      "schemaFiles": [
+        "lib/validators/audit-sheets.ts"
+      ],
+      "payload": "{ ...basics, body }"
+    },
+    {
+      "form": "app/(app)/audits/body-form.tsx",
+      "name": "updateAuditPlan",
+      "action": "app/(app)/audits/sheet-actions.ts",
+      "schema": "updateAuditPlanSchema",
+      "schemaFiles": [
+        "lib/validators/audit-sheets.ts"
+      ],
+      "payload": "{\r\n              id,\r\n              ...basics,\r\n              body,\r\n            }"
+    },
+    {
+      "form": "app/(app)/audits/body-form.tsx",
+      "name": "updateAuditReport",
+      "action": "app/(app)/audits/sheet-actions.ts",
+      "schema": "updateAuditReportSchema",
+      "schemaFiles": [
+        "lib/validators/audit-sheets.ts"
+      ],
+      "payload": "{\r\n              id,\r\n              department_id: dept || null,\r\n              admin_department_id: adminDept || null,\r\n              written_on: writtenOn,\r\n              body,\r\n            }"
+    },
+    {
+      "form": "app/(app)/audits/checklist-form.tsx",
+      "name": "updateAuditChecklist",
+      "action": "app/(app)/audits/sheet-actions.ts",
+      "schema": "updateAuditChecklistSchema",
+      "schemaFiles": [
+        "lib/validators/audit-sheets.ts"
+      ],
+      "payload": "{\r\n        id,\r\n        department_id: dept || null,\r\n        admin_department_id: adminDept || null,\r\n        written_on: writtenOn,\r\n        audit_list: auditList,\r\n        auditees: auditees.trim() || null,\r\n        result_note: resultNote.trim() || null,\r\n        checks,\r\n      }"
+    },
+    {
+      "form": "app/(app)/capa/checklist-form.tsx",
+      "name": "updateCapaChecklist",
+      "action": "app/(app)/capa/sheet-actions.ts",
+      "schema": "updateCapaChecklistSchema",
+      "schemaFiles": [
+        "lib/validators/capa-sheets.ts"
+      ],
+      "payload": "{\r\n        id: checklistId,\r\n        source: header.source,\r\n        source_other: header.source_other.trim() || null,\r\n        department_id: header.department_id || null,\r\n        admin_department_id: header.admin_department_id || null,\r\n        written_on: header.written_on,\r\n        subject: header.subject.trim() || null,\r\n        identification: header.identification.trim() || null,\r\n        measures,\r\n        related_doc: texts.related_doc.trim() || null,\r\n        inspection_note: texts.inspection_note.trim() || null,\r\n        items: rows.map((row) => ({\r\n          seq: row.seq,\r\n          checked: row.checked,\r\n          note: row.note.trim() || null,\r\n        })),\r\n      }"
+    },
+    {
+      "form": "app/(app)/capa/plan-form.tsx",
+      "name": "createCapaPlan",
+      "action": "app/(app)/capa/sheet-actions.ts",
+      "schema": "createCapaPlanSchema",
+      "schemaFiles": [
+        "lib/validators/capa-sheets.ts"
+      ],
+      "payload": "payload"
+    },
+    {
+      "form": "app/(app)/capa/plan-form.tsx",
+      "name": "updateCapaPlan",
+      "action": "app/(app)/capa/sheet-actions.ts",
+      "schema": "updateCapaPlanSchema",
+      "schemaFiles": [
+        "lib/validators/capa-sheets.ts"
+      ],
+      "payload": "{ id: initial.id!, ...payload }"
+    },
+    {
+      "form": "app/(app)/concessions/report-form.tsx",
+      "name": "saveConcessionReport",
+      "action": "app/(app)/concessions/actions.ts",
+      "schema": "concessionReportSchema",
+      "schemaFiles": [
+        "lib/validators/concessions.ts"
+      ],
+      "payload": "{\r\n        concession_id: concessionId,\r\n        department_id: v.department_id || null,\r\n        written_on: v.written_on,\r\n        result: v.result.trim() || null,\r\n        qc_effect:\r\n          v.qc_effect === \"yes\" || v.qc_effect === \"no\" ? v.qc_effect : null,\r\n        final_disposition: v.final_disposition\r\n          ? (v.final_disposition as never)\r\n          : null,\r\n        processed_qty: intOrNull(v.processed_qty),\r\n        conforming_qty: intOrNull(v.conforming_qty),\r\n        reinspection_id: null,\r\n        handling_overview: v.handling_overview.trim() || null,\r\n        request_content: v.request_content.trim() || null,\r\n        review_content: v.review_content.trim() || null,\r\n        handling_content: v.handling_content.trim() || null,\r\n        result_detail: v.result_detail.trim() || null,\r\n        followup_action: v.followup_action.trim() || null,\r\n      }"
+    },
+    {
+      "form": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+      "name": "updateSatisfactionSurvey",
+      "action": "app/(app)/customer/actions.ts",
+      "schema": "updateSurveySchema",
+      "schemaFiles": [
+        "app/(app)/customer/actions.ts"
+      ],
+      "payload": "{\r\n          id: initial.id,\r\n          ...payload,\r\n        }"
+    },
+    {
+      "form": "app/(app)/customer/surveys/new/new-survey-form.tsx",
+      "name": "createSatisfactionSurvey",
+      "action": "app/(app)/customer/actions.ts",
+      "schema": "createSurveySchema",
+      "schemaFiles": [
+        "app/(app)/customer/actions.ts"
+      ],
+      "payload": "payload"
+    },
+    {
+      "form": "app/(app)/design/changes/change-form.tsx",
+      "name": "createDesignChange",
+      "action": "app/(app)/design/actions.ts",
+      "schema": "createDesignChangeSchema",
+      "schemaFiles": [
+        "lib/validators/design.ts"
+      ],
+      "payload": "{\r\n        project_id: projectId || null,\r\n        product_name: productName.trim(),\r\n        requested_on: requestedOn,\r\n        request_dept: dept.trim() || null,\r\n        reason: reason.trim(),\r\n        before_content: before.trim(),\r\n        after_content: after.trim(),\r\n        ...impacts,\r\n        review_note: reviewNote.trim() || null,\r\n        notes: null,\r\n      }"
+    },
+    {
+      "form": "app/(app)/design/programs/program-form.tsx",
+      "name": "updateRndProgram",
+      "action": "app/(app)/design/programs/actions.ts",
+      "schema": "updateRndProgramSchema",
+      "schemaFiles": [
+        "lib/validators/rnd-programs.ts"
+      ],
+      "payload": "{ id: initial.id, ...common }"
+    },
+    {
+      "form": "app/(app)/design/programs/program-form.tsx",
+      "name": "createRndProgram",
+      "action": "app/(app)/design/programs/actions.ts",
+      "schema": "createRndProgramSchema",
+      "schemaFiles": [
+        "lib/validators/rnd-programs.ts"
+      ],
+      "payload": "common"
+    },
+    {
+      "form": "app/(app)/document-dispatch/report-form.tsx",
+      "name": "saveDispatchReport",
+      "action": "app/(app)/document-dispatch/ledger-actions.ts",
+      "schema": "dispatchReportSchema",
+      "schemaFiles": [
+        "lib/validators/doc-dispatch.ts"
+      ],
+      "payload": "{\r\n        id,\r\n        request_id: requestId,\r\n        department_id: v.department_id || null,\r\n        written_on: v.written_on,\r\n        item_results: v.item_results,\r\n        security_actions: v.security_actions,\r\n        return_note: v.return_note.trim() || null,\r\n        followup: v.followup.trim() || null,\r\n      }"
+    },
+    {
+      "form": "app/(app)/document-dispatch/request-form.tsx",
+      "name": "saveDispatchRequest",
+      "action": "app/(app)/document-dispatch/actions.ts",
+      "schema": "dispatchRequestSchema",
+      "schemaFiles": [
+        "lib/validators/doc-dispatch.ts"
+      ],
+      "payload": "{\r\n        id,\r\n        kind: v.kind,\r\n        department_id: v.department_id || null,\r\n        requested_on: v.requested_on,\r\n        purpose: v.purpose.trim() || null,\r\n        return_required: v.return_required,\r\n        recipient: v.recipient.trim() || null,\r\n        recipient_manager: v.recipient_manager.trim() || null,\r\n        recipient_contact: v.recipient_contact.trim() || null,\r\n        desired_on: v.desired_on || null,\r\n        security_review: v.security_review,\r\n        items: v.items.map((i) => ({\r\n          document_id: i.document_id,\r\n          provide_form: i.provide_form || null,\r\n        })),\r\n      }"
+    },
+    {
+      "form": "app/(app)/documents/external/external-form.tsx",
+      "name": "updateExternalDoc",
+      "action": "app/(app)/documents/external/actions.ts",
+      "schema": "updateExternalDocSchema",
+      "schemaFiles": [
+        "lib/validators/doccontrol.ts"
+      ],
+      "payload": "{ id: initial.id, ...payload() }"
+    },
+    {
+      "form": "app/(app)/documents/external/external-form.tsx",
+      "name": "createExternalDoc",
+      "action": "app/(app)/documents/external/actions.ts",
+      "schema": "externalDocSchema",
+      "schemaFiles": [
+        "lib/validators/doccontrol.ts"
+      ],
+      "payload": "payload()"
+    },
+    {
+      "form": "app/(app)/drawings/drawing-form.tsx",
+      "name": "updateDrawing",
+      "action": "app/(app)/drawings/actions.ts",
+      "schema": "drawingUpdateSchema",
+      "schemaFiles": [
+        "lib/validators/design.ts"
+      ],
+      "payload": "{ ...payload, id: edit.id }"
+    },
+    {
+      "form": "app/(app)/drawings/drawing-form.tsx",
+      "name": "createDrawing",
+      "action": "app/(app)/drawings/actions.ts",
+      "schema": "drawingSchema",
+      "schemaFiles": [
+        "lib/validators/design.ts"
+      ],
+      "payload": "payload"
+    }
+  ],
+  "dependencies": [
+    "app/(app)/audits/body-form.tsx",
+    "app/(app)/audits/sheet-actions.ts",
+    "lib/validators/audit-sheets.ts",
+    "app/(app)/audits/checklist-form.tsx",
+    "app/(app)/capa/checklist-form.tsx",
+    "app/(app)/capa/sheet-actions.ts",
+    "lib/validators/capa-sheets.ts",
+    "app/(app)/capa/plan-form.tsx",
+    "app/(app)/concessions/report-form.tsx",
+    "app/(app)/concessions/actions.ts",
+    "lib/validators/concessions.ts",
+    "app/(app)/customer/surveys/new/new-survey-form.tsx",
+    "app/(app)/customer/actions.ts",
+    "app/(app)/design/changes/change-form.tsx",
+    "app/(app)/design/actions.ts",
+    "lib/validators/design.ts",
+    "app/(app)/design/programs/program-form.tsx",
+    "app/(app)/design/programs/actions.ts",
+    "lib/validators/rnd-programs.ts",
+    "app/(app)/document-dispatch/report-form.tsx",
+    "app/(app)/document-dispatch/ledger-actions.ts",
+    "lib/validators/doc-dispatch.ts",
+    "app/(app)/document-dispatch/request-form.tsx",
+    "app/(app)/document-dispatch/actions.ts",
+    "app/(app)/documents/external/external-form.tsx",
+    "app/(app)/documents/external/actions.ts",
+    "lib/validators/doccontrol.ts",
+    "app/(app)/drawings/drawing-form.tsx",
+    "app/(app)/drawings/actions.ts",
+    "lib/audits/checklist.ts",
+    "lib/audits/sheets.ts",
+    "tsconfig.json"
+  ]
+}
