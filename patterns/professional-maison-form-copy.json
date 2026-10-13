@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "scope": "Exact shared missing-field hint only. Names, counts, validation and business data stay unchanged.",
+  "terms": [
+    {
+      "id": "maison-missing-fields-professional-prefix",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/missing-hint.tsx"
+      ],
+      "from": "필수 ",
+      "to": "필수 항목 "
+    },
+    {
+      "id": "maison-missing-fields-professional-instruction",
+      "products": [
+        "maison"
+      ],
+      "paths": [
+        "components/shared/missing-hint.tsx"
+      ],
+      "from": "칸이 남았습니다:",
+      "to": "개를 입력하세요:"
+    }
+  ]
+}

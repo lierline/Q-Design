@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "rules": "patterns/copy-rules.json",
+  "rules": "patterns/copy-rules.current.json",
   "files": [
     {
       "product": "atelier",
@@ -3095,6 +3095,26 @@
           "ordinal": 1,
           "original": "줄마다 「확인」 을 체크하면 그 줄에 적을 수 있습니다.\n          (서식 ",
           "emitted": "각 항목의 「확인」을 선택하면 해당 항목을 입력할 수\n          있습니다. (서식 "
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "path": "components/shared/missing-hint.tsx",
+      "bindings": [
+        {
+          "line": 27,
+          "kind": "JsxText",
+          "ordinal": 0,
+          "original": "필수 ",
+          "emitted": "필수 항목 "
+        },
+        {
+          "line": 27,
+          "kind": "JsxText",
+          "ordinal": 1,
+          "original": "칸이 남았습니다: ",
+          "emitted": "개를 입력하세요: "
         }
       ]
     }

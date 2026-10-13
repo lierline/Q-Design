@@ -222,9 +222,9 @@ node tools/app-icons.mjs           # 네 제품 앱 아이콘(홈 화면 · 파�
 
 ## 이 시스템을 다룰 때 먼저 알아야 할 세 가지
 
-**rem 기준은 16px 이 아니라 14px 입니다.**
-`body { font-size: 14px }` 이므로 `0.9375rem` 은 15px 이 아니라 13.125px 입니다.
-이걸 모르고 환산하면 타이포 계산이 전부 틀립니다.
+**rem은 html의 계산된 글꼴 크기를 기준으로 합니다.**
+html이 16px이면 `0.9375rem`은 15px입니다. body가 14px이어도 rem 기준은 바뀌지 않습니다.
+운영 메종에서 html 16px, body 14px를 확인했습니다. 치수를 환산할 때는 해당 화면의 html 값을 먼저 확인합니다.
 
 **한글에는 자간을 주지 않습니다.**
 대문자 변환과 넓은 자간은 라틴 약어 라벨을 위한 장치입니다. 한글에 걸면 낱글자로 흩어집니다.
@@ -233,3 +233,6 @@ node tools/app-icons.mjs           # 네 제품 앱 아이콘(홈 화면 · 파�
 **색은 두 곳에 살고, 계약이 둘을 묶고 있습니다.**
 `tokens.ts` 의 hex 와 `globals.css` 의 CSS 변수는 같은 사실의 사본입니다.
 한쪽만 고치면 테스트가 실패하도록 되어 있습니다. 옮겨 쓸 때도 이 구조를 유지하는 편이 낫습니다.
+현재 화면 문구는 `patterns/copy-rules.current.json`과 여기에 연결한 규칙 파일에서 관리합니다. 생성기는 `dist/q-design.copy-bindings.current.json`의 원문과 현재 출력 위치를 사용해 이미 적용된 문구도 다시 갱신합니다. 기존 `patterns/copy-rules.json` 및 `dist/q-design.copy-bindings.json`은 이전 검수를 재현하기 위한 스냅샷입니다.
+
+메종의 공용 필수 항목 안내는 `patterns/professional-maison-form-copy.json`으로 연결했습니다. 문구를 변경한 뒤 생성·연결·검수와 제품 빌드·배포를 거쳐 운영 화면에 반영합니다. 규칙 파일 수정만으로 운영 배포가 자동 완료되지는 않습니다.

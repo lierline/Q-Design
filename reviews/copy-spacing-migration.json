@@ -7,41 +7,25 @@
     {
       "product": "maison",
       "repo": "Q-Works",
-      "path": "app/(app)/inspections/new/new-inspection-form.tsx",
-      "beforeHash": "48de5241a7674843150c24a75367f731cc69c97e1a424280526655b2fa7f58f9",
-      "afterHash": "9486876b5d01f86b7eb722cde6ec651fd852d03f09be86a5dedbd905e5cc148c",
+      "path": "components/shared/missing-hint.tsx",
+      "beforeHash": "7e484f7f8d174a761886821b9fb42df0a4eb2c9e05b68b28bba05d26a2b3ca5c",
+      "afterHash": "65916b63bf614650c9f79e7b6591ca4ed169ea114cd92141cc577d90661df83a",
       "changes": [
         {
-          "line": 577,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"보통 · 까다로운 · 수월한 검사 (검사 수준 G-II 등은 상세의 샘플링 판에서)\"",
-          "emitted": "\"검사 수준 G-II 등 세부 조건은 상세 화면의 샘플링 설정에서 확인합니다.\"",
-          "original": "\"보통 · 까다로운 · 수월한 검사 (검사 수준 G-II 등은 상세의 샘플링 판에서)\""
-        },
-        {
-          "line": 620,
-          "kind": "StringLiteral",
-          "ordinal": 0,
-          "raw": "\"합격판정 Ac\"",
-          "emitted": "\"합격 판정 개수 (Ac)\"",
-          "original": "\"합격판정 Ac\""
-        },
-        {
-          "line": 738,
+          "line": 27,
           "kind": "JsxText",
           "ordinal": 0,
-          "raw": "남은 ",
-          "emitted": "미판정 ",
-          "original": "남은 "
+          "raw": "필수 ",
+          "emitted": "필수 항목 ",
+          "original": "필수 "
         },
         {
-          "line": 738,
+          "line": 27,
           "kind": "JsxText",
           "ordinal": 1,
-          "raw": "항목 모두 P\r\n              ",
-          "emitted": "개 항목 일괄 적합 판정\r\n              ",
-          "original": "항목 모두 P\r\n              "
+          "raw": "칸이 남았습니다: ",
+          "emitted": "개를 입력하세요: ",
+          "original": "칸이 남았습니다: "
         }
       ]
     }

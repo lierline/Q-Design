@@ -1,3 +1,4 @@
+import {beforeAtelierProfessionalReview} from './atelier-professional-copy-revalidation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -14,7 +15,7 @@ test('the exact numeric choice parameter needs complete caller coverage and a se
  }
 });
 test('only the two complete grid expressions change disposition, with every previous source argument preserved',()=>{
- const current=read('atelier-style-decisions.json'),proof=read('atelier-choice-columns-ledger.json');
+ const current=beforeAtelierProfessionalReview('atelier-style-decisions.json',read('atelier-style-decisions.json')),proof=read('atelier-choice-columns-ledger.json');
  assert.deepEqual(inspectChoiceLedger(current),proof);
  const before=beforeChoiceColumnsLedger(current);assert.equal(current.counts.unknown,580);assert.equal(before.counts.unknown,582);assert.equal(current.records.length,53997);
  const borrowed=structuredClone(current);borrowed.records[proof.changes[0].index].evidence=[{path:'patterns/foundation.css',line:1,hash:'f'.repeat(64)}];assert.throws(()=>inspectChoiceLedger(borrowed));

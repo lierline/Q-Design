@@ -1,5 +1,7 @@
 import {beforeFormRecordData as beforeOriginalFormRecordData} from './maison-form-record-data.mjs';
-import {beforeExtendedFormData} from './maison-extended-form-record-data.mjs';
+import {beforeExtendedFormData as beforeOriginalExtendedFormData} from './maison-extended-form-record-data.mjs';
+import {beforeMissingHintReport} from './maison-missing-hint-copy.mjs';
+const beforeExtendedFormData=current=>beforeOriginalExtendedFormData(beforeMissingHintReport(current));
 const beforeFormRecordData=current=>beforeOriginalFormRecordData(beforeExtendedFormData(current));
 import fs from 'node:fs';
 import assert from 'node:assert/strict';

@@ -83,7 +83,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  if(mode.length!==1||filters.length>1||args.some(a=>!['--write','--check'].includes(a)&&!a.startsWith('--only=')))throw Error('Use --write or --check and optional --only=atelier,maison,carnet.');
  const selected=filters.length?filters[0].slice(7).split(','):['atelier','maison','carnet'];
  if(!selected.length||new Set(selected).size!==selected.length||selected.some(p=>!['atelier','maison','carnet'].includes(p)))throw Error('Unknown or duplicate product scope.');
- const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.json','utf8'));
+ const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.current.json','utf8'));
  const terms=[...rules.terms];
  for(const file of rules.additionalRuleFiles??[]){
   if(!/^patterns\/[a-z0-9-]+\.json$/.test(file))throw Error('Invalid copy rule file: '+file);
@@ -123,7 +123,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  }else{
   for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
   const merged=mergeCopyBindings(prior,records,selected);
-  fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.json',files:merged},null,2)+'\n');
+  fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.current.json',files:merged},null,2)+'\n');
   if(baselines.length){
    fs.writeFileSync(path.resolve(root,'../tmp/qd-copy-spacing-baselines.json'),JSON.stringify(baselines,null,2)+'\n');
    fs.writeFileSync(root+'/reviews/copy-spacing-migration.json',JSON.stringify({scope:rules.scope,selectedProducts:selected,files:baselines.map(({before,after,changes,...record})=>({...record,changes:changes.map(({start,end,...change})=>change)}))},null,2)+'\n');

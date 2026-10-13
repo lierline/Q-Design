@@ -4,7 +4,9 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {createRequire} from 'node:module';
 import {inspectFormRecordData,createFormRecordReview,beforeFormRecordData as beforeOriginalFormRecordData} from './maison-form-record-data.mjs';
-import {beforeExtendedFormData} from './maison-extended-form-record-data.mjs';
+import {beforeExtendedFormData as beforeOriginalExtendedFormData} from './maison-extended-form-record-data.mjs';
+import {beforeMissingHintReport} from './maison-missing-hint-copy.mjs';
+const beforeExtendedFormData=current=>beforeOriginalExtendedFormData(beforeMissingHintReport(current));
 const beforeFormRecordData=current=>beforeOriginalFormRecordData(beforeExtendedFormData(current));
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',ts=createRequire(repo+'/package.json')('typescript'),read=p=>fs.readFileSync(p,'utf8');
 test('six real forms resolve seven actual saves and only the twenty-four exact typed spreads',()=>{
