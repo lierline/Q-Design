@@ -1,14 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',ref='d96a51695b94db5f3652aba6683bada9989e6430',baselineRef='89f69a801dd5e2a85dd5f9d095dc3aa13547156a',tool='tools/maison-form-record-data.mjs',ts=createRequire(repo+'/package.json')('typescript');
 const targetBytes=fs.readFileSync(root+'/reviews/maison-form-data-targets.json');
-assert.equal(createHash('sha256').update(targetBytes).digest('hex'),'05d24811048366fa30e5b96babf5125f36a49d1971cd06d55d3db06b8c4dd05d','Exact reviewed targets changed');
+assert.equal(hash(targetBytes.toString('utf8')),'fe2afaeeaf3965f72e7f28129e6e1a29ac9c5a186d82a2a74344db3cb4f0a355','Exact reviewed targets changed');
 const targets=JSON.parse(targetBytes),forms=[...new Set(targets.map(r=>r.path))];assert.equal(targets.length,24);assert.equal(forms.length,6);
 const sinks=[
  ['updateCapaReport','app/(app)/capa/sheet-actions.ts','lib/validators/capa-sheets.ts','updateCapaReportSchema','rest.exec_actions'],
