@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {inspectActionResults,createActionResultReview,beforeActionResultData} from './maison-action-result-data.mjs';
+const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Works',read=p=>fs.readFileSync(p,'utf8');
+test('twenty-three exact action results retain actual producer symbols and every reference',()=>{const result=inspectActionResults();assert.equal(result.records.length,23);assert.equal(result.sources.size,25);assert.equal(result.records.filter(r=>r.producer==='softDeleteRow').length,15);assert.deepEqual(createActionResultReview(),JSON.parse(read(root+'/reviews/maison-action-result-data.json')));const p='app/(app)/audits/sheet-actions.ts';assert.throws(()=>inspectActionResults({[p]:read(repo+'/'+p).replace('await softDeleteRow(','await unrelatedVisualRenderer(')}));});
+test('the complete ledger restores only twenty-three result decisions and rejects unrelated changes',()=>{const current=JSON.parse(read(root+'/reviews/maison-style-decisions.json')),old=beforeActionResultData(current);assert.equal(current.unknownCount,423);assert.equal(old.unknownCount,446);const changed=structuredClone(current);changed.records[0].decision='invented';assert.throws(()=>beforeActionResultData(changed));const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='symbol-resolved-business-action-result').evidence[0].hash='borrowed';assert.throws(()=>beforeActionResultData(borrowed));});

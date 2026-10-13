@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-13T02:36:03.025Z",
+  "generatedAt": "2026-10-13T02:41:05.705Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6793,8 +6793,8 @@
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
-    "business-data": 1016,
-    "unknown": 446,
+    "business-data": 1039,
+    "unknown": 423,
     "business-condition": 54,
     "token-reference-verified": 1275,
     "structural-behavior": 411,
@@ -6804,7 +6804,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3931
   },
-  "unknownCount": 446,
+  "unknownCount": 423,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -41475,14 +41475,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
           "path": "app/(app)/audits/sheet-actions.ts",
-          "line": 516,
+          "line": 1,
           "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -41498,14 +41623,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
           "path": "app/(app)/audits/sheet-actions.ts",
-          "line": 532,
+          "line": 1,
           "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -43063,14 +43313,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
           "path": "app/(app)/capa/approval-ui.tsx",
-          "line": 298,
+          "line": 1,
           "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -43171,14 +43546,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
           "path": "app/(app)/capa/approval-ui.tsx",
-          "line": 322,
+          "line": 1,
           "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -61035,14 +61535,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
           "path": "app/(app)/capa/sheet-actions.ts",
-          "line": 583,
+          "line": 1,
           "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -104133,14 +104758,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
           "path": "app/(app)/concessions/actions.ts",
-          "line": 1116,
+          "line": 1,
           "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -225700,14 +226450,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
           "path": "app/(app)/document-dispatch/actions.ts",
-          "line": 597,
+          "line": 1,
           "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -400930,14 +401805,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
           "path": "app/(app)/inspections/[id]/judge-panel.tsx",
-          "line": 155,
+          "line": 1,
           "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -414649,14 +415649,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
           "path": "app/(app)/inspections/actions.ts",
-          "line": 156,
+          "line": 1,
           "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -414672,14 +415797,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
           "path": "app/(app)/inspections/actions.ts",
-          "line": 165,
+          "line": 1,
           "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -477432,14 +478682,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
           "path": "app/(app)/kpi/evaluations/actions.ts",
-          "line": 262,
+          "line": 1,
           "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -477554,14 +478929,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
           "path": "app/(app)/kpi/evaluations/actions.ts",
-          "line": 697,
+          "line": 1,
           "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -546655,14 +548155,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
           "path": "app/(app)/nc/report-actions.ts",
-          "line": 578,
+          "line": 1,
           "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -576919,14 +578544,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
           "path": "app/(app)/production/[id]/production-panel.tsx",
-          "line": 273,
+          "line": 1,
           "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -621225,14 +622975,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
           "path": "app/(app)/purchasing/order-actions.ts",
-          "line": 646,
+          "line": 1,
           "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -645538,14 +647413,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
           "path": "app/(app)/purchasing/quote-actions.ts",
-          "line": 370,
+          "line": 1,
           "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -683229,14 +685229,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
           "path": "app/(app)/recalls/actions.ts",
-          "line": 1139,
+          "line": 1,
           "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -733755,14 +735880,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
           "path": "app/(app)/reviews/sheet-actions.ts",
-          "line": 588,
+          "line": 1,
           "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -733801,14 +736051,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
           "path": "app/(app)/reviews/sheet-actions.ts",
-          "line": 616,
+          "line": 1,
           "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -775677,14 +778052,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-actions.ts",
-          "line": 228,
+          "line": 1,
           "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -855353,14 +857853,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
           "path": "app/(app)/shipping/[id]/decide-panel.tsx",
-          "line": 78,
+          "line": 1,
           "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
+          "path": "app/(app)/training/sheet-actions.ts",
+          "line": 1,
+          "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -959086,14 +961711,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
           "path": "app/(app)/training/sheet-actions.ts",
-          "line": 424,
+          "line": 1,
           "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },
@@ -959109,14 +961859,139 @@
       "status": "review-required",
       "context": "candidate default or local binding; follow its consumers before classifying",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-business-action-result",
+      "reason": "This exact variable holds a symbol-resolved business action result. Reviewed references consume only success, error, count or business data, or return the result. It is not a CSS radius or visual value. Complete producer declarations and types remain pinned.",
       "evidence": [
         {
+          "path": "app/(app)/audits/sheet-actions.ts",
+          "line": 1,
+          "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
+        },
+        {
+          "path": "app/(app)/capa/approval-actions.ts",
+          "line": 1,
+          "hash": "eca0ee4e89c8da709a30abf4d555760b4614f128807df7f9fb5b000be8b05197"
+        },
+        {
+          "path": "app/(app)/capa/approval-ui.tsx",
+          "line": 1,
+          "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "app/(app)/document-dispatch/actions.ts",
+          "line": 1,
+          "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
+        },
+        {
+          "path": "app/(app)/inspections/[id]/judge-panel.tsx",
+          "line": 1,
+          "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
+        },
+        {
+          "path": "app/(app)/inspections/actions.ts",
+          "line": 1,
+          "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
+        },
+        {
+          "path": "app/(app)/kpi/evaluations/actions.ts",
+          "line": 1,
+          "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "app/(app)/production/[id]/production-panel.tsx",
+          "line": 1,
+          "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
+        },
+        {
+          "path": "app/(app)/production/actions.ts",
+          "line": 1,
+          "hash": "4bcb57e21349005999911638a050667f644f418c362ed900a3dd3f27eda5f72c"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/purchasing/quote-actions.ts",
+          "line": 1,
+          "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
+        },
+        {
+          "path": "app/(app)/recalls/actions.ts",
+          "line": 1,
+          "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
+        },
+        {
+          "path": "app/(app)/reviews/sheet-actions.ts",
+          "line": 1,
+          "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "app/(app)/shipping/[id]/decide-panel.tsx",
+          "line": 1,
+          "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
+        },
+        {
+          "path": "app/(app)/shipping/actions.ts",
+          "line": 1,
+          "hash": "9fba683feee152a858c05cc8353ee1adf5a3caaf46e37ec26b3ade181229ba4c"
+        },
+        {
           "path": "app/(app)/training/sheet-actions.ts",
-          "line": 440,
+          "line": 1,
           "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
+        },
+        {
+          "path": "lib/actions/register-helpers.ts",
+          "line": 1,
+          "hash": "5579919eaaf5ae8fba67cc7359db07c4048a3c090e01c348853d5a70cf6523d0"
+        },
+        {
+          "path": "lib/actions/with-action.ts",
+          "line": 1,
+          "hash": "4451a60033616a939de6d0cd945dfda5a43bcbe7ca3d0574814c3d99e94bc5b9"
+        },
+        {
+          "path": "package.json",
+          "line": 1,
+          "hash": "b34f9d27a9e0b77b8542c014e2b9c541f68064de1aa98e280efe5955e387d10c"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "line": 1,
+          "hash": "ccf30dd247d5a13f569fc928a120173b8c2d444c2f2880bc0bdce60bc08a1c7f"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-action-result-data.mjs",
+          "line": 1,
+          "hash": "3226557ce5424850b5116075ae1e124d6ea8d3491e0fece1a539ee297b2754e5"
         }
       ]
     },

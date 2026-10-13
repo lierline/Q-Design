@@ -207,98 +207,6 @@
     ]
   },
   {
-    "path": "app/(app)/audits/sheet-actions.ts",
-    "sourceHash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36",
-    "argumentHash": "241b8c165843b5c66e7fae5b3a443d0590b7b77b4171698784fe65c4c0e2337e",
-    "line": 516,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n          supabase,\r\n          \"audit_reports\",\r\n          child.id,\r\n          tenantId,\r\n          user.id,\r\n          `${input.reason} (점검표 삭제에 따른 연쇄 삭제)`,\r\n        )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/audits/sheet-actions.ts",
-        "line": 516,
-        "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/audits/sheet-actions.ts",
-    "sourceHash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36",
-    "argumentHash": "fbaa77ef446ff496685f1e058092ed77fb98035ba9bc24982531f617ee156562",
-    "line": 532,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      tableOf(input.kind),\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/audits/sheet-actions.ts",
-        "line": 532,
-        "hash": "7906169345c15f1272f29115b81032b1823e33fae4ed54abce7e84eab678ba36"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/capa/approval-ui.tsx",
-    "sourceHash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db",
-    "argumentHash": "a3b1616d8fe497a514ade7138509e76a39372f7791869c1848ee18fa7ef621e7",
-    "line": 298,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await transitionCapaSheet({\r\n                    kind,\r\n                    id,\r\n                    to: \"reviewed\",\r\n                    review_opinion:\r\n                      opinionAt === \"reviewed\"\r\n                        ? review.value.review_opinion.trim() || null\r\n                        : undefined,\r\n                  })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/capa/approval-ui.tsx",
-        "line": 298,
-        "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/capa/approval-ui.tsx",
-    "sourceHash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db",
-    "argumentHash": "b4e6bd8ad6f176f298041f105c4db20457e2f50912329f73d24bdfe7ee9e3a93",
-    "line": 322,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await transitionCapaSheet({\r\n                    kind,\r\n                    id,\r\n                    to: \"approved\",\r\n                    review_opinion:\r\n                      opinionAt === \"approved\"\r\n                        ? review.value.review_opinion.trim() || null\r\n                        : undefined,\r\n                  })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/capa/approval-ui.tsx",
-        "line": 322,
-        "hash": "f2f5aa43fac570c4ce6d3842354f9550d7569ea6dfabef1b2a24356742c952db"
-      }
-    ]
-  },
-  {
     "path": "app/(app)/capa/plans/[id]/checklist/page.tsx",
     "sourceHash": "eb600a760a4cc4f8bab61629d9280b242a7cb8cf1062353a0b32f5c5103176e0",
     "argumentHash": "50fb1298aa661f84197ab199b95c697a20611d9fe3ab0bebfa4149cb4e11fb49",
@@ -593,29 +501,6 @@
       {
         "path": "app/(app)/capa/sheet-actions.ts",
         "line": 194,
-        "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/capa/sheet-actions.ts",
-    "sourceHash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee",
-    "argumentHash": "552956713c6b0cb53cf9e4b8236d5c0cd4b2c10aa99b42497e617fd7c6c0a80c",
-    "line": 583,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n          supabase,\r\n          childTable,\r\n          child.id,\r\n          tenantId,\r\n          user.id,\r\n          cascadeReason,\r\n        )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/capa/sheet-actions.ts",
-        "line": 583,
         "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
       }
     ]
@@ -1053,29 +938,6 @@
       {
         "path": "app/(app)/concessions/actions.ts",
         "line": 774,
-        "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/concessions/actions.ts",
-    "sourceHash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d",
-    "argumentHash": "658f74a1d232e9a89eec326a6e5e6ffd21f5608ea20f7869ada99109257111ad",
-    "line": 1116,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      input.sheet === \"request\" ? \"concessions\" : \"concession_reports\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/concessions/actions.ts",
-        "line": 1116,
         "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
       }
     ]
@@ -2090,29 +1952,6 @@
     ]
   },
   {
-    "path": "app/(app)/document-dispatch/actions.ts",
-    "sourceHash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e",
-    "argumentHash": "6255ba064c3beb8b18df44368c9cc7a84157afa281512c23a1ab0574e9f23978",
-    "line": 597,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      TABLE[input.sheet],\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/document-dispatch/actions.ts",
-        "line": 597,
-        "hash": "ca950b0e36af859b20206882d33cb996c0bbbdc2106dfbf94b524e7fe9a6c17e"
-      }
-    ]
-  },
-  {
     "path": "app/(app)/document-dispatch/approval-ui.tsx",
     "sourceHash": "623268e3efa65ecaa5d170b6ca6deadb10baca817052fdfa1503c35a5ad26fc8",
     "argumentHash": "a77e79418416092df6c27d1d01a2f14f006a864511177e21b4e0ecda0c4793d3",
@@ -2659,75 +2498,6 @@
         "path": "app/(app)/inspections/[id]/approval-ui.tsx",
         "line": 108,
         "hash": "f40d6397db207036668ae62fa26d88245ffd4b7db79e57f8adfc75f578fdcc60"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/inspections/[id]/judge-panel.tsx",
-    "sourceHash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57",
-    "argumentHash": "1136b51c336bbf66cb0a204131ed8d71a327a619bc00e5dd08a4821559f61fb6",
-    "line": 155,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await updateInspectionStatus({\r\n            id,\r\n            status: next as never,\r\n            notes: appended.notes,\r\n          })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/inspections/[id]/judge-panel.tsx",
-        "line": 155,
-        "hash": "dea21c1e7769c3d399201ae1fd7e5da18fca4e82a1b1c196cc68248c8d2b1a57"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/inspections/actions.ts",
-    "sourceHash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b",
-    "argumentHash": "5c949d62e67987c36be00f40b774ef42e81a9b20d69bedf9b7f35a19d9863724",
-    "line": 156,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await checkProductionRecordLink(supabase, tenantId, {\r\n        recordId: input.production_record_id,\r\n        inspectionType: input.inspection_type,\r\n        processStep: input.process_step ?? null,\r\n      })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/inspections/actions.ts",
-        "line": 156,
-        "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/inspections/actions.ts",
-    "sourceHash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b",
-    "argumentHash": "6cc823abc77ef480f33306e873783191c13aed34ba203f2f95056573d0941473",
-    "line": 165,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await checkQcChartLink(supabase, tenantId, {\r\n        chartId: input.qc_chart_id,\r\n        qcProcessStep: input.qc_process_step ?? null,\r\n      })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/inspections/actions.ts",
-        "line": 165,
-        "hash": "8c47aac5e1b1450e117bf4085c6fbe2f8a0d90f505eda17fba641338c45b219b"
       }
     ]
   },
@@ -3442,29 +3212,6 @@
   {
     "path": "app/(app)/kpi/evaluations/actions.ts",
     "sourceHash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c",
-    "argumentHash": "c303fc39b1425ce1e5dafe8a4bf9297be040243abc7490b129919559ac1a7660",
-    "line": 262,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n          supabase,\r\n          childTable,\r\n          child.id,\r\n          tenantId,\r\n          user.id,\r\n          cascadeReason,\r\n        )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/kpi/evaluations/actions.ts",
-        "line": 262,
-        "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/kpi/evaluations/actions.ts",
-    "sourceHash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c",
     "argumentHash": "28c0118e2fcc9d676c951bf3357de9d2efc80813e42cda7543981a218f3ef224",
     "line": 680,
     "kind": "object-spread",
@@ -3481,29 +3228,6 @@
       {
         "path": "app/(app)/kpi/evaluations/actions.ts",
         "line": 680,
-        "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/kpi/evaluations/actions.ts",
-    "sourceHash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c",
-    "argumentHash": "9e5b5bb936b83bf5a0e4e64414f51c0f4cd3193dcbd6472cad34e197074fdac6",
-    "line": 697,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await syncCustomItems(\r\n        supabase,\r\n        tenantId,\r\n        input.id,\r\n        input.items,\r\n      )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/kpi/evaluations/actions.ts",
-        "line": 697,
         "hash": "312e355eb4d632a683c58f912ed3ba534d7f3c8eb48f6b4c42ffbadea0044f2c"
       }
     ]
@@ -3715,29 +3439,6 @@
     ]
   },
   {
-    "path": "app/(app)/nc/report-actions.ts",
-    "sourceHash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5",
-    "argumentHash": "38ab076554d7e94723e92782f992310f225732d337104504d07af53205f1983d",
-    "line": 578,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      \"nc_reports\",\r\n      cur.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/nc/report-actions.ts",
-        "line": 578,
-        "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
-      }
-    ]
-  },
-  {
     "path": "app/(app)/nc/report-form.tsx",
     "sourceHash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d",
     "argumentHash": "2228e7dd4883fef531bc06cc62d5a48791560d658e604b1e3e7d2f7ce947f37e",
@@ -3825,29 +3526,6 @@
       {
         "path": "app/(app)/production/[id]/production-panel.tsx",
         "line": 84,
-        "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/production/[id]/production-panel.tsx",
-    "sourceHash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b",
-    "argumentHash": "82e2403e6a50055845531cc27b4747c00056463a6ef51c3083e80171a1923b95",
-    "line": 273,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await recordProduction({ id, status: \"verified\" })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/production/[id]/production-panel.tsx",
-        "line": 273,
         "hash": "dd6fba70dad233cbc86089ae1e0b3570d2209eb4d227e91f8adf1822b289b91b"
       }
     ]
@@ -4240,29 +3918,6 @@
         "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
         "line": 271,
         "hash": "10e20792eab385307e8daee2af52460f4e3f5d81aebe722632a87dcc4879f0b9"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/purchasing/order-actions.ts",
-    "sourceHash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082",
-    "argumentHash": "098b26266c17085b7af67935c6a137e5b497fea717d2a3aa7b68d7458b972bbe",
-    "line": 646,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      \"purchase_orders\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/purchasing/order-actions.ts",
-        "line": 646,
-        "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
       }
     ]
   },
@@ -4695,29 +4350,6 @@
     ]
   },
   {
-    "path": "app/(app)/purchasing/quote-actions.ts",
-    "sourceHash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49",
-    "argumentHash": "82ecd44d37ec6183b29f4f4db5b65b4eb9724ebca2f1bb0b43fb3154fb8c4ca8",
-    "line": 370,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      \"purchase_quotes\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/purchasing/quote-actions.ts",
-        "line": 370,
-        "hash": "d27db80962a50f2c0b8d47c26a2bb6f5ab96bdf17af3a7ca2b520d9852fdbd49"
-      }
-    ]
-  },
-  {
     "path": "app/(app)/purchasing/quote-items-table.tsx",
     "sourceHash": "139f278fdf644d5f089f00ce30ab1661c33328e969561ceb96310e3254b9001b",
     "argumentHash": "a69a2c838ec5c04f36be3e2625e35b4673a69ae811d80df16932b71c16f476e8",
@@ -4942,29 +4574,6 @@
       {
         "path": "app/(app)/recalls/actions.ts",
         "line": 397,
-        "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/recalls/actions.ts",
-    "sourceHash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315",
-    "argumentHash": "37eba2e9b18d1d07e2150c647be0edccc2513d5867228c8e9d4a2e586682d532",
-    "line": 1139,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      DELETE_TABLE[input.sheet],\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/recalls/actions.ts",
-        "line": 1139,
         "hash": "fe61c3350ca37eba8c14305d6bc1f078e498d573470bd2efd6a5c58031788315"
       }
     ]
@@ -5450,29 +5059,6 @@
   {
     "path": "app/(app)/reviews/sheet-actions.ts",
     "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
-    "argumentHash": "3a3e7b08eea3417269d84f07d3e242d281c4206651a187d973314d0e2e4e1dd3",
-    "line": 588,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n          supabase,\r\n          childTable,\r\n          child.id,\r\n          tenantId,\r\n          user.id,\r\n          cascadeReason,\r\n        )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/reviews/sheet-actions.ts",
-        "line": 588,
-        "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/reviews/sheet-actions.ts",
-    "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
     "argumentHash": "1003fa9d5a7330007096a934435014c02123bfb31b0e9806b24a454444e954a8",
     "line": 602,
     "kind": "named-style-value",
@@ -5489,29 +5075,6 @@
       {
         "path": "app/(app)/reviews/sheet-actions.ts",
         "line": 602,
-        "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/reviews/sheet-actions.ts",
-    "sourceHash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49",
-    "argumentHash": "59baa6f39d4f84d163fc96622c6ada290bb246a0e22a8308f4650c82093e82e2",
-    "line": 616,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      tableOf(input.kind),\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/reviews/sheet-actions.ts",
-        "line": 616,
         "hash": "e4dd655688b0ea29fd911f93fe4038e8730349c60a0faaf1714780b395e07a49"
       }
     ]
@@ -5696,29 +5259,6 @@
         "path": "app/(app)/safety/incidents/check/page.tsx",
         "line": 198,
         "hash": "c5026d2a201e1b14d4004576628bd1755048dd7c0f6e19f81c1759a902b8c107"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/safety/incidents/incident-actions.ts",
-    "sourceHash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3",
-    "argumentHash": "93ce5072902ac72a5ffce9418be936a87c6be239cd2698afad3a45085357f8da",
-    "line": 228,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      \"safety_incidents\",\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/safety/incidents/incident-actions.ts",
-        "line": 228,
-        "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
       }
     ]
   },
@@ -5949,29 +5489,6 @@
         "path": "app/(app)/safety/monthly/page.tsx",
         "line": 216,
         "hash": "3899bbb2d9e0a3f3ac962fd3b3407e7c115b7d2d3adddf4f337941f60c902632"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/shipping/[id]/decide-panel.tsx",
-    "sourceHash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa",
-    "argumentHash": "a93e48c454ca29f3c34dafd7a2fab14f6427d51cfd692c8aa4ef8d482d5a3174",
-    "line": 78,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await decideShipment({\r\n      id,\r\n      status: next as never,\r\n      hold_reason: next === \"on_hold\" ? holdReason.trim() : null,\r\n    })",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/shipping/[id]/decide-panel.tsx",
-        "line": 78,
-        "hash": "a645d8102a4986ba96abbcd34dc73feef7a135b83388f2945357ea251217a7fa"
       }
     ]
   },
@@ -6523,52 +6040,6 @@
       {
         "path": "app/(app)/training/sheet-actions.ts",
         "line": 200,
-        "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/training/sheet-actions.ts",
-    "sourceHash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b",
-    "argumentHash": "c98ece43366499f5eb8bf73c3a994fdf9de8e248763482964e06b09120cc1b3b",
-    "line": 424,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n          supabase,\r\n          \"training_reports\",\r\n          child.id,\r\n          tenantId,\r\n          user.id,\r\n          `${input.reason} (계획서 삭제에 따른 연쇄 삭제)`,\r\n        )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/training/sheet-actions.ts",
-        "line": 424,
-        "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
-      }
-    ]
-  },
-  {
-    "path": "app/(app)/training/sheet-actions.ts",
-    "sourceHash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b",
-    "argumentHash": "dee91859b5319a02fe575eda364b484b3dd21e1f07d76c0d87f141c469d3005c",
-    "line": 440,
-    "kind": "named-style-value",
-    "property": "r",
-    "value": "await softDeleteRow(\r\n      supabase,\r\n      tableOf(input.kind),\r\n      input.id,\r\n      tenantId,\r\n      user.id,\r\n      input.reason,\r\n    )",
-    "family": "behavior-structure",
-    "status": "review-required",
-    "context": "candidate default or local binding; follow its consumers before classifying",
-    "originalStatus": "review-required",
-    "decision": "unknown",
-    "ruleId": "exact-consumer-review",
-    "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
-    "evidence": [
-      {
-        "path": "app/(app)/training/sheet-actions.ts",
-        "line": 440,
         "hash": "a3bff8724b1455a7ef2011093565a509616f853da091a4a27b73dcfc23c6722b"
       }
     ]

@@ -6,6 +6,8 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
 if(args.some(arg=>arg!=='--browser'))throw new Error('Use --browser to include real component browser checks.');
 const steps=[
+  ['tools/maison-action-result-data.mjs','--check'],
+  ['--test','tools/maison-action-result-data.test.mjs'],
   ['tools/maison-continued-form-record-data.mjs','--check'],
   ['--test','tools/maison-continued-form-record-data.test.mjs'],
   ['tools/maison-missing-hint-copy.mjs','--check'],

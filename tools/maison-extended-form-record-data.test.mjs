@@ -1,5 +1,7 @@
 import fs from 'node:fs';
-import {beforeContinuedFormData} from './maison-continued-form-record-data.mjs';
+import {beforeContinuedFormData as beforeOriginalContinuedFormData} from './maison-continued-form-record-data.mjs';
+import {beforeActionResultData} from './maison-action-result-data.mjs';
+const beforeContinuedFormData=current=>beforeOriginalContinuedFormData(beforeActionResultData(current));
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
