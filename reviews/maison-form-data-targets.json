@@ -1,0 +1,454 @@
+[
+  {
+    "path": "app/(app)/capa/report-form.tsx",
+    "line": 152,
+    "value": "prev",
+    "type": "Record<string, string>",
+    "any": false,
+    "keys": [],
+    "index": true
+  },
+  {
+    "path": "app/(app)/capa/report-form.tsx",
+    "line": 156,
+    "value": "a",
+    "type": "CapaExecAction",
+    "any": false,
+    "keys": [
+      "content",
+      "done_on",
+      "owner"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/capa/report-form.tsx",
+    "line": 156,
+    "value": "patch",
+    "type": "Partial<CapaExecAction>",
+    "any": false,
+    "keys": [
+      "content",
+      "done_on",
+      "owner"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/concessions/request-form.tsx",
+    "line": 145,
+    "value": "p",
+    "type": "RequestFormValue",
+    "any": false,
+    "keys": [
+      "customer_impact",
+      "impact_contract",
+      "impact_quality",
+      "impact_safety",
+      "impact_shipping",
+      "items",
+      "notes",
+      "opinion_quality",
+      "opinion_related",
+      "opinion_request",
+      "origin_stage",
+      "reasons",
+      "request_dept_id",
+      "request_type",
+      "requested_on",
+      "requester_id",
+      "urgency",
+      "writing_dept_id",
+      "written_on"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/concessions/request-form.tsx",
+    "line": 166,
+    "value": "p",
+    "type": "RequestFormValue",
+    "any": false,
+    "keys": [
+      "customer_impact",
+      "impact_contract",
+      "impact_quality",
+      "impact_safety",
+      "impact_shipping",
+      "items",
+      "notes",
+      "opinion_quality",
+      "opinion_related",
+      "opinion_request",
+      "origin_stage",
+      "reasons",
+      "request_dept_id",
+      "request_type",
+      "requested_on",
+      "requester_id",
+      "urgency",
+      "writing_dept_id",
+      "written_on"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/concessions/request-form.tsx",
+    "line": 200,
+    "value": "v",
+    "type": "RequestFormValue",
+    "any": false,
+    "keys": [
+      "customer_impact",
+      "impact_contract",
+      "impact_quality",
+      "impact_safety",
+      "impact_shipping",
+      "items",
+      "notes",
+      "opinion_quality",
+      "opinion_related",
+      "opinion_request",
+      "origin_stage",
+      "reasons",
+      "request_dept_id",
+      "request_type",
+      "requested_on",
+      "requester_id",
+      "urgency",
+      "writing_dept_id",
+      "written_on"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/contracts/contract-form.tsx",
+    "line": 256,
+    "value": "it",
+    "type": "ContractReviewItemValue",
+    "any": false,
+    "keys": [
+      "category",
+      "label",
+      "remark",
+      "result",
+      "seq"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/contracts/contract-form.tsx",
+    "line": 256,
+    "value": "patch",
+    "type": "Partial<{ result: \"conform\" | \"nonconform\" | \"na\" | null; remark: string; }>",
+    "any": false,
+    "keys": [
+      "remark",
+      "result"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/contracts/contract-form.tsx",
+    "line": 267,
+    "value": "it",
+    "type": "ContractReviewItemValue",
+    "any": false,
+    "keys": [
+      "category",
+      "label",
+      "remark",
+      "result",
+      "seq"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/contracts/contract-form.tsx",
+    "line": 267,
+    "value": "(patch as Partial<(typeof prev)[number]>)",
+    "type": "Partial<ContractReviewItemValue>",
+    "any": false,
+    "keys": [
+      "category",
+      "label",
+      "remark",
+      "result",
+      "seq"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/contracts/contract-form.tsx",
+    "line": 312,
+    "value": "payload",
+    "type": "{ review_kind: \"review\" | \"change\"; requested_on: string; request_dept: string | null; supplier_id: string | n",
+    "any": false,
+    "keys": [
+      "after_content",
+      "applied_to",
+      "before_content",
+      "change_items",
+      "change_reason",
+      "contract_class",
+      "contract_class_etc",
+      "contract_period",
+      "contract_purpose",
+      "contract_type",
+      "doc_revision_needed",
+      "expected_apply_on",
+      "followup_detail",
+      "followup_needed",
+      "notes",
+      "qms_impact",
+      "record_required",
+      "request_dept",
+      "request_info",
+      "requested_on",
+      "review_items",
+      "review_kind",
+      "scope",
+      "supplier_biz_no",
+      "supplier_ceo",
+      "supplier_email",
+      "supplier_id",
+      "supplier_manager",
+      "supplier_name",
+      "supplier_tel"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/nc/report-form.tsx",
+    "line": 95,
+    "value": "p",
+    "type": "NcReportFormValue",
+    "any": false,
+    "keys": [
+      "concession_applied",
+      "final_judgement",
+      "followup_action",
+      "handled_on",
+      "handled_qty",
+      "handling_detail",
+      "handling_method",
+      "handling_result",
+      "judgement",
+      "judgement_reason",
+      "remaining_qty",
+      "reworked",
+      "scrapped_or_returned",
+      "shippable",
+      "special_note"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 102,
+    "value": "p",
+    "type": "OrderFormValue",
+    "any": false,
+    "keys": [
+      "delivery_terms",
+      "due_on",
+      "items",
+      "ordered_on",
+      "payment_terms",
+      "quote_id",
+      "recv",
+      "request_note",
+      "send"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 104,
+    "value": "p",
+    "type": "OrderFormValue",
+    "any": false,
+    "keys": [
+      "delivery_terms",
+      "due_on",
+      "items",
+      "ordered_on",
+      "payment_terms",
+      "quote_id",
+      "recv",
+      "request_note",
+      "send"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 104,
+    "value": "p[side]",
+    "type": "Party",
+    "any": false,
+    "keys": [
+      "addr",
+      "company",
+      "email",
+      "fax",
+      "manager",
+      "tel"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 110,
+    "value": "p",
+    "type": "OrderFormValue",
+    "any": false,
+    "keys": [
+      "delivery_terms",
+      "due_on",
+      "items",
+      "ordered_on",
+      "payment_terms",
+      "quote_id",
+      "recv",
+      "request_note",
+      "send"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 126,
+    "value": "p",
+    "type": "OrderFormValue",
+    "any": false,
+    "keys": [
+      "delivery_terms",
+      "due_on",
+      "items",
+      "ordered_on",
+      "payment_terms",
+      "quote_id",
+      "recv",
+      "request_note",
+      "send"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/purchasing/orders/order-form.tsx",
+    "line": 128,
+    "value": "it",
+    "type": "QuoteItemRow",
+    "any": false,
+    "keys": [
+      "item_code_id",
+      "material",
+      "name",
+      "qty",
+      "remark",
+      "spec",
+      "unit",
+      "unit_price"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 104,
+    "value": "initial",
+    "type": "IncidentFormValue",
+    "any": false,
+    "keys": [
+      "area_id",
+      "category",
+      "entries",
+      "kind",
+      "severity",
+      "subject"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 126,
+    "value": "cur",
+    "type": "IncidentFormValue",
+    "any": false,
+    "keys": [
+      "area_id",
+      "category",
+      "entries",
+      "kind",
+      "severity",
+      "subject"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 133,
+    "value": "cur",
+    "type": "IncidentFormValue",
+    "any": false,
+    "keys": [
+      "area_id",
+      "category",
+      "entries",
+      "kind",
+      "severity",
+      "subject"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 134,
+    "value": "e",
+    "type": "IncidentEntry",
+    "any": false,
+    "keys": [
+      "action_taken",
+      "first_aid",
+      "handler_id",
+      "medical_referral",
+      "notes",
+      "recorded_on",
+      "symptom",
+      "work_stopped"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 138,
+    "value": "cur",
+    "type": "IncidentFormValue",
+    "any": false,
+    "keys": [
+      "area_id",
+      "category",
+      "entries",
+      "kind",
+      "severity",
+      "subject"
+    ],
+    "index": false
+  },
+  {
+    "path": "app/(app)/safety/incidents/incident-form.tsx",
+    "line": 143,
+    "value": "cur",
+    "type": "IncidentFormValue",
+    "any": false,
+    "keys": [
+      "area_id",
+      "category",
+      "entries",
+      "kind",
+      "severity",
+      "subject"
+    ],
+    "index": false
+  }
+]

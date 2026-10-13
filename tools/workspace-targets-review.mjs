@@ -1,3 +1,4 @@
+import {beforeFormRecordData} from './maison-form-record-data.mjs';
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
@@ -24,6 +25,7 @@ export function inspectWorkspaceTargets(){
  return {output,sources};
 }
 export function beforeWorkspaceTargets(current){
+ current=beforeFormRecordData(current);
  current=beforeHonorificReport(current);
  current=beforeContentFields(current);
  current=beforeMeetingData(current);

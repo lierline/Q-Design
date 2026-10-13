@@ -1,3 +1,4 @@
+import {beforeFormRecordData} from './maison-form-record-data.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -22,6 +23,6 @@ test('actual result-label producer and DOCX checkbox preprocessor consume labels
  const tick=load(read(repo+'/lib/documents/docx-placeholders.ts')).tickCheckboxes,xml='<w:p><w:r><w:t xml:space="preserve">  ☐ 적합  ☐ 부적합  </w:t></w:r></w:p>',output=tick(xml,groups);assert(output.includes('☑ 적합'));assert(output.includes('☐ 부적합'));assert(output.includes('xml:space="preserve"'));assert(!output.includes('style='));
 });
 test('the complete ledger reverses only thirteen fields and preserves six unresolved arguments',()=>{
- const current=JSON.parse(read(root+'/reviews/maison-style-decisions.json')),old=beforeContentFields(current);assert.equal(old.counts.unknown,571);assert.equal(current.counts.unknown,558);assert.equal(current.records.filter(r=>r.path==='lib/documents/form-fill.ts'&&r.decision==='unknown').length,6);
+ const current=beforeFormRecordData(JSON.parse(read(root+'/reviews/maison-style-decisions.json'))),old=beforeContentFields(current);assert.equal(old.counts.unknown,571);assert.equal(current.counts.unknown,558);assert.equal(current.records.filter(r=>r.path==='lib/documents/form-fill.ts'&&r.decision==='unknown').length,6);
  const unrelated=structuredClone(current);unrelated.records[0].decision='invented';assert.throws(()=>beforeContentFields(unrelated));const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='resolved-docx-content-field').evidence[0].hash='borrowed';assert.throws(()=>beforeContentFields(borrowed));
 });

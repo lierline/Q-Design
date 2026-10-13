@@ -1,3 +1,4 @@
+import {beforeFormRecordData} from './maison-form-record-data.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -14,7 +15,7 @@ test('preparation fields and DOCX aliases reproduce exact independently verified
  }
 });
 test('only twenty-one reviewed decisions reduce the whole Maison ledger',()=>{
- const current=beforeMeetingData(beforeContentFields(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8'))));
+ const current=beforeMeetingData(beforeContentFields(beforeFormRecordData(JSON.parse(fs.readFileSync(root+'/reviews/maison-style-decisions.json','utf8')))));
  const old=beforeRemainingFields(current);assert.equal(old.counts.unknown,607);assert.equal(current.counts.unknown,586);
  for(const field of ['value','decision','sourceHash']){
   const wrong=structuredClone(current);wrong.records[0][field]='unreviewed';assert.throws(()=>beforeRemainingFields(wrong));

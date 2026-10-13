@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T23:54:29.299Z",
+  "generatedAt": "2026-10-13T00:21:09.435Z",
   "product": "maison",
   "scope": "Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.",
   "fileHashes": [
@@ -6793,8 +6793,8 @@
     "composed-classes": 829,
     "central-selector": 2491,
     "compatibility-noop": 77,
-    "business-data": 904,
-    "unknown": 558,
+    "business-data": 928,
+    "unknown": 534,
     "business-condition": 54,
     "token-reference-verified": 1275,
     "structural-behavior": 411,
@@ -6804,7 +6804,7 @@
     "platform-metadata": 17,
     "central-source-verified": 3931
   },
-  "unknownCount": 558,
+  "unknownCount": 534,
   "records": [
     {
       "path": "app/(app)/account/copy-request-button.tsx",
@@ -56136,14 +56136,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes Record<string, string> record fields (string-valued text records) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
           "path": "app/(app)/capa/report-form.tsx",
-          "line": 152,
+          "line": 1,
           "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -56159,14 +56249,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes CapaExecAction record fields (content, done_on, owner) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
           "path": "app/(app)/capa/report-form.tsx",
-          "line": 156,
+          "line": 1,
           "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -56182,14 +56362,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes Partial<CapaExecAction> record fields (content, done_on, owner) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
           "path": "app/(app)/capa/report-form.tsx",
-          "line": 156,
+          "line": 1,
           "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -108927,14 +109197,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes RequestFormValue record fields (customer_impact, impact_contract, impact_quality, impact_safety, impact_shipping, items, notes, opinion_quality, opinion_related, opinion_request, origin_stage, reasons, request_dept_id, request_type, requested_on, requester_id, urgency, writing_dept_id, written_on) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
           "path": "app/(app)/concessions/request-form.tsx",
-          "line": 145,
+          "line": 1,
           "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -108973,14 +109333,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes RequestFormValue record fields (customer_impact, impact_contract, impact_quality, impact_safety, impact_shipping, items, notes, opinion_quality, opinion_related, opinion_request, origin_stage, reasons, request_dept_id, request_type, requested_on, requester_id, urgency, writing_dept_id, written_on) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
           "path": "app/(app)/concessions/request-form.tsx",
-          "line": 166,
+          "line": 1,
           "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -109024,14 +109474,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes RequestFormValue record fields (customer_impact, impact_contract, impact_quality, impact_safety, impact_shipping, items, notes, opinion_quality, opinion_related, opinion_request, origin_stage, reasons, request_dept_id, request_type, requested_on, requester_id, urgency, writing_dept_id, written_on) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
           "path": "app/(app)/concessions/request-form.tsx",
-          "line": 200,
+          "line": 1,
           "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -135197,14 +135737,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes ContractReviewItemValue record fields (category, label, remark, result, seq) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
           "path": "app/(app)/contracts/contract-form.tsx",
-          "line": 256,
+          "line": 1,
           "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -135220,14 +135850,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes Partial<{ result: \"conform\" | \"nonconform\" | \"na\" | null; remark: string; }> record fields (remark, result) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
           "path": "app/(app)/contracts/contract-form.tsx",
-          "line": 256,
+          "line": 1,
           "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -135243,14 +135963,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes ContractReviewItemValue record fields (category, label, remark, result, seq) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
           "path": "app/(app)/contracts/contract-form.tsx",
-          "line": 267,
+          "line": 1,
           "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -135266,14 +136076,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes Partial<ContractReviewItemValue> record fields (category, label, remark, result, seq) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
           "path": "app/(app)/contracts/contract-form.tsx",
-          "line": 267,
+          "line": 1,
           "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -135317,14 +136217,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes { review_kind: \"review\" | \"change\"; requested_on: string; request_dept: string | null; supplier_id: string | n record fields (after_content, applied_to, before_content, change_items, change_reason, contract_class, contract_class_etc, contract_period, contract_purpose, contract_type, doc_revision_needed, expected_apply_on, followup_detail, followup_needed, notes, qms_impact, record_required, request_dept, request_info, requested_on, review_items, review_kind, scope, supplier_biz_no, supplier_ceo, supplier_email, supplier_id, supplier_manager, supplier_name, supplier_tel) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
           "path": "app/(app)/contracts/contract-form.tsx",
-          "line": 312,
+          "line": 1,
           "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -531450,14 +532440,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes NcReportFormValue record fields (concession_applied, final_judgement, followup_action, handled_on, handled_qty, handling_detail, handling_method, handling_result, judgement, judgement_reason, remaining_qty, reworked, scrapped_or_returned, shippable, special_note) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
           "path": "app/(app)/nc/report-form.tsx",
-          "line": 95,
+          "line": 1,
           "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611297,14 +612377,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes OrderFormValue record fields (delivery_terms, due_on, items, ordered_on, payment_terms, quote_id, recv, request_note, send) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 102,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611320,14 +612490,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes OrderFormValue record fields (delivery_terms, due_on, items, ordered_on, payment_terms, quote_id, recv, request_note, send) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 104,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611343,14 +612603,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes Party record fields (addr, company, email, fax, manager, tel) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 104,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611366,14 +612716,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes OrderFormValue record fields (delivery_terms, due_on, items, ordered_on, payment_terms, quote_id, recv, request_note, send) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 110,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611389,14 +612829,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes OrderFormValue record fields (delivery_terms, due_on, items, ordered_on, payment_terms, quote_id, recv, request_note, send) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 126,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -611412,14 +612942,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes QuoteItemRow record fields (item_code_id, material, name, qty, remark, spec, unit, unit_price) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
           "path": "app/(app)/purchasing/orders/order-form.tsx",
-          "line": 128,
+          "line": 1,
           "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-form.tsx",
+          "line": 1,
+          "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754373,14 +755993,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentFormValue record fields (area_id, category, entries, kind, severity, subject) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 104,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754396,14 +756106,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentFormValue record fields (area_id, category, entries, kind, severity, subject) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 126,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754419,14 +756219,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentFormValue record fields (area_id, category, entries, kind, severity, subject) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 133,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754442,14 +756332,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentEntry record fields (action_taken, first_aid, handler_id, medical_referral, notes, recorded_on, symptom, work_stopped) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 134,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754465,14 +756445,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentFormValue record fields (area_id, category, entries, kind, severity, subject) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 138,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
@@ -754488,14 +756558,104 @@
       "status": "review-required",
       "context": "unresolved object composition",
       "originalStatus": "review-required",
-      "decision": "unknown",
-      "ruleId": "exact-consumer-review",
-      "reason": "No blanket filename or token-substring exemption is applied; inspect this exact consumer.",
+      "decision": "business-data",
+      "ruleId": "symbol-resolved-form-record-data",
+      "reason": "This exact spread composes IncidentFormValue record fields (area_id, category, entries, kind, severity, subject) in a pinned state update or record payload. The actual form submits these records to symbol-resolved save actions with pinned schemas and record consumers. It is not an element style. All other arguments remain separately classified.",
       "evidence": [
         {
+          "path": "app/(app)/capa/report-form.tsx",
+          "line": 1,
+          "hash": "289ec2f9fb803360f58bbf2c92f5b67c97b7478a988605b5b3f2b59105124b63"
+        },
+        {
+          "path": "app/(app)/concessions/request-form.tsx",
+          "line": 1,
+          "hash": "9ac4153439c574d9d7e69b63a0a447b04ef1c71979183a60de6888e4d4899269"
+        },
+        {
+          "path": "app/(app)/contracts/contract-form.tsx",
+          "line": 1,
+          "hash": "1155af2e8418825ff630deb07383ca73d357393cccfd28730671f9834e3a1bd0"
+        },
+        {
+          "path": "app/(app)/nc/report-form.tsx",
+          "line": 1,
+          "hash": "eddcc7ccc3f1c0ec17221cf6289f92480c3953e09aa43b066c7bf5e446a0090d"
+        },
+        {
+          "path": "app/(app)/purchasing/orders/order-form.tsx",
+          "line": 1,
+          "hash": "38bda8e13ab235d9af474e743a3d8747b7103d16f6cb6ba9c280444e5d689234"
+        },
+        {
           "path": "app/(app)/safety/incidents/incident-form.tsx",
-          "line": 143,
+          "line": 1,
           "hash": "95ce3b0ba516f45f6c12aa03c27ab1aae240ae4c50f74d74be66ab68e1f78cb9"
+        },
+        {
+          "path": "app/(app)/capa/sheet-actions.ts",
+          "line": 1,
+          "hash": "d7b70e2defb82dd282d8afbf9135df87b6fb79fee3e77192312f1d5240d089ee"
+        },
+        {
+          "path": "lib/validators/capa-sheets.ts",
+          "line": 1,
+          "hash": "d96a8f86eb1e7903d2a713032ce85a590e604aa5157f85c320ec5b7031446252"
+        },
+        {
+          "path": "app/(app)/concessions/actions.ts",
+          "line": 1,
+          "hash": "3716b782e29f8c8f8a01b6baa92e951e9cb27bf0fd1bafe667babc1a7483a28d"
+        },
+        {
+          "path": "lib/validators/concessions.ts",
+          "line": 1,
+          "hash": "93c1f469441a2a4eceb1f12865cc3119e30ba6a792db49d1eb3fd7b9e16b5c74"
+        },
+        {
+          "path": "app/(app)/contracts/actions.ts",
+          "line": 1,
+          "hash": "4c24e0b7d0d8f4a9edc69d87a41b6ad5df1cfcb7525222c2b583f2dfb5667d26"
+        },
+        {
+          "path": "lib/validators/purchasing.ts",
+          "line": 1,
+          "hash": "3605b1593ef79e3e9f1d5f42357e3a0b0b398661a5b6d59f6c62e828e5ebef92"
+        },
+        {
+          "path": "app/(app)/nc/report-actions.ts",
+          "line": 1,
+          "hash": "c67dd4f4f05c74aac0afa7d978e1d3e31f9dd269205a24b3bf86d4870119adc5"
+        },
+        {
+          "path": "lib/validators/nc.ts",
+          "line": 1,
+          "hash": "5b66d4acd6ddff9482742a7d77727d7073ba6d7c66a9a7558565d6824af6a2ab"
+        },
+        {
+          "path": "app/(app)/purchasing/order-actions.ts",
+          "line": 1,
+          "hash": "a01d0f3d41994c992030ac7efd146ef9ca0a6874aec36855bbbd9abbf297d082"
+        },
+        {
+          "path": "app/(app)/safety/incidents/incident-actions.ts",
+          "line": 1,
+          "hash": "0db610581d3e7ca076a1ec58e564f2b8cf33292e203e404048a843a1560a21a3"
+        },
+        {
+          "path": "lib/validators/safety.ts",
+          "line": 1,
+          "hash": "920aa62aae137d2eb7e9e177aceec750340be9f15ec143c6131d9bf56c9d7e95"
+        },
+        {
+          "path": "tsconfig.json",
+          "line": 1,
+          "hash": "8040832dc8f3d616294338fbef46323b760f083975a5ed944e88c6c0a037be79"
+        },
+        {
+          "path": "tools/maison-form-record-data.mjs",
+          "line": 1,
+          "hash": "332385d8f8d848eb5825eb08679048da8f62654ad77021922158deec6c481785"
         }
       ]
     },
