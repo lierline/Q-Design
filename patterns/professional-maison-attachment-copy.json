@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "scope": "Exact authored empty-state attachment guidance. Attachment counts, file names, pending messages and callbacks remain unchanged.",
+  "terms": [
+    {
+      "id": "maison-attachment-limit-particle-spacing",
+      "products": ["maison"],
+      "paths": ["components/attachments/attachment-panel.tsx"],
+      "from": "25MB 까지",
+      "to": "25MB까지"
+    },
+    {
+      "id": "maison-attachment-numbering-professional",
+      "products": ["maison"],
+      "paths": ["components/attachments/attachment-panel.tsx"],
+      "from": "개 붙일 수 있습니다. 올린 차례대로 1), 2), 3) 번호가 붙습니다.",
+      "to": "개 첨부할 수 있습니다. 첨부 순서에 따라 1), 2), 3)으로 표시됩니다."
+    }
+  ]
+}

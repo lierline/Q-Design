@@ -1,3 +1,4 @@
+import {beforeAccentSourceRefresh} from './maison-accent-source-refresh.mjs';
 // Exact-source adjudication. A classification is source evidence, not browser approval.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -65,9 +66,13 @@ const currentManualHash=file=>{
   if(!full.startsWith(base+path.sep)||!fs.existsSync(full))return null;
   const value=hash(fs.readFileSync(full,'utf8'));manualHashCache.set(file,value);return value;
 };
-for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json','maison-choice-columns-review.json','maison-unaffected-runtime-role-review.json','maison-list-stats-columns-review.json','maison-inspection-print-review.json','maison-inbox-columns-review.json','maison-workflow-copy-style-review.json','maison-batch-print-review.json','maison-db-payload-review.json','maison-safety-print-review.json','maison-production-copy-style-review.json','maison-pull-presentation-review.json','maison-pull-style-evidence.json','maison-docx-image-review.json','maison-docx-values-review.json','maison-prep-data-review.json','maison-docx-box-alias-review.json','maison-meeting-data-review.json','maison-docx-content-fields.json','maison-form-record-data.json','maison-extended-form-record-data.json','maison-continued-form-record-data.json','maison-action-result-data.json','maison-docx-remaining-fields.json','maison-contract-hint-copy.json']){
+for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json','maison-choice-columns-review.json','maison-unaffected-runtime-role-review.json','maison-list-stats-columns-review.json','maison-inspection-print-review.json','maison-inbox-columns-review.json','maison-workflow-copy-style-review.json','maison-batch-print-review.json','maison-db-payload-review.json','maison-safety-print-review.json','maison-production-copy-style-review.json','maison-pull-presentation-review.json','maison-pull-style-evidence.json','maison-docx-image-review.json','maison-docx-values-review.json','maison-prep-data-review.json','maison-docx-box-alias-review.json','maison-meeting-data-review.json','maison-docx-content-fields.json','maison-form-record-data.json','maison-extended-form-record-data.json','maison-continued-form-record-data.json','maison-action-result-data.json','maison-docx-remaining-fields.json','maison-contract-hint-copy.json','maison-attachment-hint-copy.json']){
   const file=path.join(ROOT,'reviews',name);if(!fs.existsSync(file))continue;
-  for(const entry of JSON.parse(fs.readFileSync(file,'utf8')).records??[]){
+  const review=JSON.parse(fs.readFileSync(file,'utf8'));
+  // Validate the fresh accent graph, then retain its historical classification
+  // view. Later exact current-source revalidations remain the only live owners.
+  const entries=name==='maison-accent-review.json'?beforeAccentSourceRefresh(review).records:review.records;
+  for(const entry of entries??[]){
     // Keep historical reports intact. They cannot claim a changed current source
     // or consumer, and must not collide with a fresh exact-source review.
     if(!verifiedManualReview(entry,entry,currentManualHash))continue;

@@ -48,6 +48,7 @@ const STEPS = [
   { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
   { name: '필수 항목 안내', file: 'maison-missing-hint-copy.mjs', extra: ['--write'], why: '공용 안내 문구의 중앙 연결과 보존 검증을 기록합니다' },
   { name: '계약 양식 안내', file: 'maison-contract-hint-copy.mjs', extra: ['--write'], why: '경로별 계약 안내 문구와 전체 인자 보존을 검증합니다' },
+  { name: '첨부 양식 안내', file: 'maison-attachment-hint-copy.mjs', extra: ['--write'], why: '첨부 안내 문구의 중앙 연결과 인자 보존을 검증합니다' },
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
   { name: '새로고침 표시', file: 'extract-pull-presentation.mjs', why: '아뜰리에의 검수된 표시 규칙을 메종에도 내보냅니다' },

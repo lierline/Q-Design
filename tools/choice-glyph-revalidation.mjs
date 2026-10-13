@@ -1,3 +1,4 @@
+import {beforeAccentSourceRefresh} from './maison-accent-source-refresh.mjs';
 import {beforePublicFingerprints} from './atelier-public-contract-refresh.mjs';
 import {beforeNavigationInventory} from './maison-navigation-inventory-refresh.mjs';
 // The six central glyph dimensions change representation, not their default size.
@@ -70,6 +71,7 @@ function changesFor(name,before,sources){
  return {name,beforeHash:hash(serialize(before)),afterHash:hash(serialize(after)),changes,after};
 }
 export function beforeChoiceGlyphReview(name,current){
+ if(name==='maison-accent-review.json')current=beforeAccentSourceRefresh(current);
  if(name==='atelier-style-decisions.json')current=beforePublicFingerprints(current);
  if(name==='maison-current-navigation-review.json')current=beforeNavigationInventory(current);
  if(!fs.existsSync(manifest))return current;

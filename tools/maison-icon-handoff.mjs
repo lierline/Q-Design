@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {beforeAttachmentHintSource} from './maison-attachment-hint-copy.mjs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
@@ -38,6 +39,7 @@ export function migrateIconImports(file,code,mapping){
  return {after,edits};
 }
 export function beforeMaisonIconSource(file,code){
+ code=beforeAttachmentHintSource(file,code);
  code=beforeMaisonHandoffRoles(file,code);
  if(!fs.existsSync(proofPath))return code;
  const record=JSON.parse(fs.readFileSync(proofPath,'utf8')).records.find(r=>r.path===file);
@@ -74,7 +76,7 @@ export async function syncMaisonIconHandoff({write=false,check=false}={}){
  const report={version:1,productRef:iconHandoffRef,scope:'Exact import-only migration to centrally generated Phosphor Regular icons. Local JSX identifiers, callback logic, business data and native icon props are preserved. No style argument is automatically approved.',records:prepared.map(p=>({path:p.file,beforeHash:hash(p.before),afterHash:hash(p.after),...(p.canonical?{canonical:p.canonical}:{}),imports:p.imports})),modules:modules.map(m=>({name:m.name,sourceHash:hash(fs.readFileSync(m.source,'utf8'))}))};
  if(check){
   assert.deepEqual(JSON.parse(fs.readFileSync(proofPath,'utf8')),report,'Icon migration evidence is stale');
-  for(const p of prepared)assert.equal(hash(beforeMaisonHandoffRoles(p.file,fs.readFileSync(repo+'/'+p.file,'utf8'))),hash(p.after));
+  for(const p of prepared)assert.equal(hash(beforeMaisonHandoffRoles(p.file,beforeAttachmentHintSource(p.file,fs.readFileSync(repo+'/'+p.file,'utf8')))),hash(p.after));
   for(const m of modules)assert.equal(hash(fs.readFileSync(m.destination,'utf8')),hash(fs.readFileSync(m.source,'utf8')),'Product icon differs from generated module: '+m.name);
  }else if(write){
   for(const p of prepared){if(p.canonical)fs.writeFileSync(root+'/'+p.canonical,p.after);fs.writeFileSync(repo+'/'+p.file,p.after);}

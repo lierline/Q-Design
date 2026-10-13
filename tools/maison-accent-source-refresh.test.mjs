@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {beforeAccentSourceRefresh} from './maison-accent-source-refresh.mjs';
+const root='D:/Claude/Q-Design';
+const saved=()=>JSON.parse(fs.readFileSync(root+'/reviews/maison-accent-review.json','utf8'));
+const old=ref=>JSON.parse(execFileSync('git',['show',ref+':reviews/maison-accent-review.json'],{cwd:root,encoding:'utf8'}));
+test('fresh symbol-resolved accent evidence restores only three pinned source fingerprint transitions',()=>{const current=saved(),prior=beforeAccentSourceRefresh(current);assert.deepEqual(prior,old('9d0a1cf'));assert.equal(current.records.length,254);assert.equal(prior.records.length,current.records.length);assert.deepEqual(current.paletteMap,prior.paletteMap);});
+test('changed arguments, palette or borrowed source evidence cannot inherit the source refresh',()=>{for(const mutate of [r=>r.records[0].argumentHash='unreviewed',r=>r.paletteMap[0][1]='--unreviewed',r=>r.records[0].evidence[0].hash='borrowed']){const changed=saved();mutate(changed);assert.throws(()=>beforeAccentSourceRefresh(changed));}});
+test('the exact earlier navigation snapshot remains historical and altered snapshots are rejected',()=>{const historical=old('63372ef3622c9ae2eb7f2584fc058f0d0167704b');assert.deepEqual(beforeAccentSourceRefresh(historical),historical);historical.scope='unreviewed';assert.throws(()=>beforeAccentSourceRefresh(historical));});

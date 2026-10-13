@@ -4,12 +4,13 @@ import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 import {hash,runtimeFiles} from './style-arguments-core.mjs';
 import {backNavigationSlots,beforeClass,afterClass} from './maison-back-navigation.mjs';
+import {beforeContractHintSource} from './maison-contract-hint-copy.mjs';
 import {beforeMaisonIconSource} from './maison-icon-handoff.mjs';
 const root='D:/Claude/Q-Design',product='D:/Claude/Q-Works';
 export function createCurrentMaisonNavigation(overrides=new Map()){
  const files=runtimeFiles(product).filter(p=>p.startsWith('app/')&&p.endsWith('.tsx')),records=[],inventory=[];
  for(const file of files){
-  const code=overrides.get(file)??beforeMaisonIconSource(file,fs.readFileSync(product+'/'+file,'utf8'));inventory.push([file,hash(code)]);
+  const code=overrides.get(file)??beforeMaisonIconSource(file,beforeContractHintSource(file,fs.readFileSync(product+'/'+file,'utf8')));inventory.push([file,hash(code)]);
   if(code.includes(beforeClass))assert.equal(backNavigationSlots(code,file,beforeClass).length,0,'Legacy parent-navigation appearance remains: '+file);
   if(!code.includes(afterClass))continue;
   for(const slot of backNavigationSlots(code,file,afterClass))records.push({path:file,line:slot.line,sourceHash:hash(code),href:slot.href,className:afterClass,consumer:'next/link with ArrowLeft and a visible label'});
