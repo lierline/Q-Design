@@ -11,6 +11,8 @@ desktop.ini
 
 # 도구 산출 임시물
 *.tmp
+# 머리 없는 크롬이 작업 폴더에 남기는 기록
+debug.log
 node_modules/
 
 # 감사용 화면. 11MB 이고 곧 낡는다 · `node tools/shoot-audit.mjs` 가 다시 만든다.
