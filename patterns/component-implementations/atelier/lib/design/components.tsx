@@ -4359,19 +4359,259 @@ export function StatGrid({ children, minCol = QDPresentation.commonDefaults.stat
 }
 
 /**
- * DetailRow: 상세 화면의 «속성 한 줄». 라벨은 왼쪽, 값은 오른쪽 끝.
+ * DetailRow: 상세 화면의 «속성 한 줄». 장부 두 칸(이름 칸 · 값 칸)의 한 줄이다.
  *
  * `Stat` 의 가로형 짝이다. `Stat` 은 라벨이 위·값이 아래(요약 그리드용),
  * 이쪽은 라벨과 값이 한 줄에 마주 본다(상세 나열용).
  * 2026-08-06 D4: lots/[id] 와 udi/[id] 가 **바이트 단위로 같은** 지역 정의를
  * 각자 갖고 있었다(복사-붙여넣기).
+ * 2026-10-15 오너 결정(용어집 시안 A): 라벨 왼쪽 · 값 오른쪽 끝(사이가 휑하게 벌어짐)에서
+ * «이름 칸 + 값 칸» 장부로 바꿨다. 줄 사이는 가는 선, 상자 없음. 반드시 `Ledger` 안에 둔다(dt · dd).
  */
-export function DetailRow({ label, value }: { label: string; value: ReactNode }) {
+export function DetailRow({ label, value }: { label: ReactNode; value: ReactNode }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "var(--qd-atelier-padding-00a9a83dda)" }}>
-      <span style={{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], letterSpacing: labelTracking(label, QDText.tracking.vae83a9aee5), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
-      <span style={{ fontFamily: QDScale.family.serif, fontSize: QDScale.font[13], color: T.text }}>{value}</span>
+    <div className="qa-ledger-row">
+      <dt className="qa-ledger-label">{label}</dt>
+      <dd className="qa-ledger-value">{value}</dd>
     </div>
+  );
+}
+
+/**
+ * Ledger: 이름 · 값 목록을 담는 장부(dl). 담긴 자리의 폭이 420 아래면 이름 위 · 값 아래로 쌓는다.
+ * 겉 상자(Bx · 테두리 div)로 감싸지 않는다: 줄 사이 선이 이미 묶음을 보여 준다.
+ */
+export function Ledger({ children, ariaLabel, className }: { children: ReactNode; ariaLabel?: string; className?: string }) {
+  return (
+    <dl className={className ? `qa-ledger ${className}` : 'qa-ledger'} aria-label={ariaLabel}>
+      {children}
+    </dl>
+  );
+}
+
+/** 한 칸에서 상세 머리를 올릴 기준: 바깥 상자의 scroll-margin-top(폰 상단 바 높이)보다 위로 갔으면 올린다 */
+function listDetailAboveFold(host: HTMLElement): boolean {
+  return host.getBoundingClientRect().top < (parseFloat(getComputedStyle(host).scrollMarginTop) || 0);
+}
+
+/** 목록 + 상세에서 한 칸만 보일 때(담긴 자리 700 아래)인가: 상세 칸이 숨었거나 목록 칸이 숨었으면 한 칸이다 */
+function listDetailSingle(host: HTMLElement | null): boolean {
+  const list = host?.querySelector<HTMLElement>('.qa-ld-list');
+  const detail = host?.querySelector<HTMLElement>('.qa-ld-detail');
+  if (!list || !detail) return false;
+  return getComputedStyle(list).display === 'none' || getComputedStyle(detail).display === 'none';
+}
+
+/**
+ * ListDetail: 왼쪽 목록 · 오른쪽 상세(2026-10-15 오너 결정 · 용어집 시안 C).
+ *
+ * 화면 폭이 아니라 «담긴 자리의 폭» 을 본다(@container). 용어집은 전용 화면과 AI 도우미의 좁은 탭이
+ * 같은 부품이라, 같은 화면 폭에서도 자리마다 한 칸 · 두 칸이 갈린다.
+ *   · 두 칸(700 이상): 목록과 상세가 각자 굴러간다. 선택은 면 색 + 굵은 제목(왼쪽 강조선 금지).
+ *   · 한 칸: `view` 가 보일 칸을 고른다. 상세 위에 «← 목록» 글귀가 선다.
+ * 목록에서 ↑ ↓ (Home · End)로 줄을 옮긴다. 두 칸이면 옮기는 즉시 상세가 바뀌고, 한 칸이면 초점만 옮긴다.
+ * 선택 · 보기 상태는 쓰는 쪽이 쥔다(고르면 view 를 'detail' 로, 뒤로는 'list' 로).
+ */
+export function ListDetail({
+  list,
+  detail,
+  view,
+  onBack,
+  detailKey,
+  listLabel,
+  detailLabel,
+  backLabel = '목록',
+  height,
+}: {
+  list: ReactNode;
+  detail: ReactNode;
+  /** 한 칸일 때 보일 칸 */
+  view: 'list' | 'detail';
+  /** «← 목록» 을 눌렀을 때(한 칸에서만 보인다) */
+  onBack: () => void;
+  /** 상세가 바뀌는 열쇠(고른 항목 id). 바뀌면 상세가 맨 위에서 살짝 떠오른다 */
+  detailKey?: string | number;
+  listLabel: string;
+  detailLabel: string;
+  backLabel?: string;
+  /** 두 칸일 때 높이(CSS 값). 기본은 화면 높이에 맞춘 값 */
+  height?: string;
+}) {
+  const hostRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLElement>(null);
+  const firstView = useRef(true);
+
+  // 상세가 바뀌면 상세 칸은 맨 위부터. 두 칸이면 상세 칸이 스스로 굴러가고,
+  // 한 칸이면 바깥(main · 서랍)이 굴러가므로 상세 머리가 화면 위로 지나갔을 때만 되돌린다(같은 분야 · 다음 건으로 건너갈 때)
+  useEffect(() => {
+    if (detailRef.current) detailRef.current.scrollTop = 0;
+    const host = hostRef.current;
+    if (host && view === 'detail' && listDetailSingle(host) && listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });
+  }, [detailKey]);
+
+  // 한 칸에서 칸을 바꾸면: 상세로 가면 상세 머리로 초점 · 화면을, 목록으로 오면 고른 줄로 되돌린다
+  useEffect(() => {
+    if (firstView.current) {
+      firstView.current = false;
+      return;
+    }
+    const host = hostRef.current;
+    if (!host || !listDetailSingle(host)) return;
+    if (view === 'detail') {
+      // 목록 아래쪽에서 골랐으면 상세 머리(← 목록)까지 올린다
+      if (listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });
+      detailRef.current?.focus({ preventScroll: true });
+    } else {
+      const row = host.querySelector<HTMLElement>('.qa-ld-row[aria-current="true"]');
+      row?.scrollIntoView({ block: 'center' });
+      row?.focus({ preventScroll: true });
+    }
+  }, [view]);
+
+  const onListKey = (e: KeyboardEvent<HTMLElement>) => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End') return;
+    const rows = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>('[data-ld-row]'));
+    const at = rows.indexOf(document.activeElement as HTMLButtonElement);
+    if (at < 0) return;
+    e.preventDefault();
+    const to = e.key === 'Home' ? 0 : e.key === 'End' ? rows.length - 1 : Math.min(rows.length - 1, Math.max(0, at + (e.key === 'ArrowDown' ? 1 : -1)));
+    const row = rows[to];
+    row.focus();
+    if (!listDetailSingle(hostRef.current)) row.click();
+  };
+
+  return (
+    <div className="qa-ld-host" ref={hostRef}>
+      <div className="qa-ld" data-view={view} style={height ? ({ ['--qa-ld-height' as string]: height } as CSSProperties) : undefined}>
+        <section className="qa-ld-list" aria-label={listLabel} onKeyDown={onListKey}>
+          {list}
+        </section>
+        <section className="qa-ld-detail" aria-label={detailLabel} ref={detailRef} tabIndex={-1}>
+          <button type="button" className="qa-ld-back" onClick={onBack}>
+            ← {backLabel}
+          </button>
+          <div key={detailKey} className="qa-ld-in">
+            {detail}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+/** 목록 칸의 묶음 머리(분류 이름 + 건수). 두 칸일 때 목록 위에 붙어 따라온다 */
+export function ListDetailGroup({ title, count }: { title: ReactNode; count?: number }) {
+  return (
+    <div className="qa-ld-gh">
+      <span>{title}</span>
+      {count != null && <span className="qa-ld-n">{count}</span>}
+    </div>
+  );
+}
+
+/**
+ * 목록 칸의 한 줄. 고르면 면 색이 깔리고 제목이 굵어진다(aria-current).
+ * 두 칸에서 이전 · 다음으로 고른 줄이 목록 밖으로 나가면 목록 칸만 굴려 보이게 한다(바깥 화면은 굴리지 않는다).
+ */
+export function ListDetailRow({
+  selected,
+  onSelect,
+  title,
+  sub,
+  code,
+  label,
+}: {
+  selected: boolean;
+  onSelect: () => void;
+  title: ReactNode;
+  sub?: ReactNode;
+  /** 제목이 약어 · 번호(DHF · ISO 13485 · CAPA-0012)면 고정폭 글꼴 */
+  code?: boolean;
+  /** 낭독기 이름(보이는 제목이 앞에 와야 한다) */
+  label?: string;
+}) {
+  const ref = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const row = ref.current;
+    const box = row?.closest<HTMLElement>('.qa-ld-list');
+    if (!selected || !row || !box || box.scrollHeight <= box.clientHeight) return;
+    if (getComputedStyle(box).overflowY === 'visible') return;
+    const r = row.getBoundingClientRect();
+    const b = box.getBoundingClientRect();
+    if (r.top < b.top + 40) box.scrollTop -= b.top + 40 - r.top;
+    else if (r.bottom > b.bottom) box.scrollTop += r.bottom - b.bottom;
+  }, [selected]);
+  return (
+    <button
+      ref={ref}
+      type="button"
+      className="qa-ld-row"
+      data-ld-row=""
+      aria-current={selected ? 'true' : undefined}
+      aria-label={label}
+      onClick={onSelect}
+    >
+      <span className={code ? 'qa-ld-row-title is-code' : 'qa-ld-row-title'}>{title}</span>
+      {sub != null && sub !== '' && <span className="qa-ld-row-sub">{sub}</span>}
+    </button>
+  );
+}
+
+/**
+ * 상세 칸의 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 곁말 → 한 줄 요약.
+ * 제목이 약어 · 번호면 `code` 로 고정폭 금색 큰 글자(용어집 시안 C 의 얼굴).
+ */
+export function ListDetailHead({
+  kicker,
+  position,
+  title,
+  code,
+  aside,
+  lede,
+}: {
+  kicker?: ReactNode;
+  /** 오른쪽 끝의 «3 / 140» */
+  position?: string;
+  title: ReactNode;
+  code?: boolean;
+  aside?: ReactNode;
+  lede?: ReactNode;
+}) {
+  return (
+    <header>
+      {(kicker != null || position) && (
+        <div className="qa-ld-kicker">
+          {kicker}
+          {position && <span className="is-end">{position}</span>}
+        </div>
+      )}
+      <h2 className={code ? 'qa-ld-title is-code' : 'qa-ld-title'}>{title}</h2>
+      {aside != null && aside !== '' && <p className="qa-ld-aside">{aside}</p>}
+      {lede != null && lede !== '' && <p className="qa-ld-lede">{lede}</p>}
+    </header>
+  );
+}
+
+/** 상세 칸 바닥의 이전 · 다음 글귀. 끝이면 그쪽 자리를 비운다 */
+export function ListDetailNav({
+  prev,
+  next,
+  onPrev,
+  onNext,
+  disabled,
+}: {
+  prev?: string;
+  next?: string;
+  onPrev: () => void;
+  onNext: () => void;
+  /** 보내는 중(결재 서명 등)에는 건너가지 못하게 */
+  disabled?: boolean;
+}) {
+  return (
+    <nav className="qa-ld-nav" aria-label="이전 · 다음">
+      {prev ? <TextAction onClick={onPrev} disabled={disabled} label={`이전: ${prev}`}>← {prev}</TextAction> : <span />}
+      {next ? <TextAction onClick={onNext} disabled={disabled} label={`다음: ${next}`}>{next} →</TextAction> : <span />}
+    </nav>
   );
 }
 

@@ -1313,7 +1313,8 @@
             "CardRows",
             "CardRow",
             "CardFigure",
-            "DetailRow"
+            "DetailRow",
+            "Ledger"
           ]
         },
         {
@@ -1366,7 +1367,33 @@
           ]
         }
       ],
-      "differences": "qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다."
+      "differences": "qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다. Atelier 의 이름 · 값 목록은 2026-10-15 오너 결정(용어집 시안 A)으로 Ledger(dl) 안의 DetailRow 장부 두 칸이다."
+    },
+    {
+      "id": "list-detail",
+      "label": "목록 + 상세(연속 검토)",
+      "canon": {
+        "status": "product-only",
+        "evidence": [
+          "docs/116-reference-sites-2026-10-15.md",
+          "patterns/foundation/atelier.css"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "ListDetail",
+            "ListDetailGroup",
+            "ListDetailRow",
+            "ListDetailHead",
+            "ListDetailNav"
+          ]
+        }
+      ],
+      "differences": "2026-10-15 오너 결정(용어집 시안 C). 담긴 자리가 700 이상이면 왼쪽 목록 · 오른쪽 상세, 좁으면 한 칸씩(← 목록). 선택은 면 색 + 굵은 제목. 무엇을 고르고 무엇을 결정하는지(결재 서명 · 용어 풀이)는 제품이 유지한다. Maison · Carnet 에는 아직 없다."
     },
     {
       "id": "form-section",

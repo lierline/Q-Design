@@ -902,6 +902,298 @@ textarea {
   }
 }
 
+/* =============================================================================
+   장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)
+   A 장부 두 칸(Ledger · DetailRow): 이름 칸 + 값 칸, 상자 없이 줄 사이 가는 선. 좁으면 위아래로 쌓는다.
+   C 목록 + 상세(ListDetail): 왼쪽 목록 · 오른쪽 상세. 담긴 자리의 폭이 700 아래면 한 칸씩(목록 → 상세 → 목록).
+     화면 폭이 아니라 «담긴 자리» 를 본다: 용어집은 전용 화면과 AI 도우미의 좁은 탭이 같은 부품이다.
+   선택은 면 색 + 굵은 제목(왼쪽 강조선 금지 · no-side-accent). 한글 자간은 0.
+   ============================================================================= */
+.qa-ledger {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+.qa-ledger-row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, var(--qa-ledger-label, 12rem)) minmax(0, 1fr);
+  column-gap: 24px;
+  row-gap: 2px;
+  align-items: baseline;
+  margin: 0;
+  padding: 11px 0 12px;
+  border-bottom: 1px solid var(--qa-border);
+}
+.qa-ledger > .qa-ledger-row:last-child {
+  border-bottom: none;
+}
+.qa-ledger-label {
+  margin: 0;
+  color: var(--qa-muted);
+  font-size: 13.5px;
+  line-height: var(--qa-lh-normal);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.qa-ledger-value {
+  margin: 0;
+  min-width: 0;
+  color: var(--qa-text);
+  font-size: 14px;
+  line-height: var(--qa-lh-relaxed);
+  overflow-wrap: anywhere;
+}
+@container (max-width: 420px) {
+  .qa-ledger-row {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 10px 0 11px;
+  }
+}
+
+.qa-ld-host {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  /* 한 칸에서 상세로 건너가 머리로 올릴 때 폰 상단 바(68)에 가리지 않게 */
+  scroll-margin-top: 80px;
+}
+.qa-ld {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  height: var(--qa-ld-height, min(760px, calc(100dvh - 220px)));
+  min-height: 420px;
+  border-top: 1px solid var(--qa-borderHi);
+}
+.qa-ld-list {
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-right: 1px solid var(--qa-borderHi);
+  padding-bottom: 24px;
+}
+.qa-ld-gh {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px 6px 0;
+  background: var(--qa-bg);
+  border-bottom: 1px solid var(--qa-border);
+  color: var(--qa-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.qa-ld-n {
+  font-family: var(--qd-font-family-mono);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.qa-ld-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 10px 16px 11px 10px;
+  border: none;
+  border-bottom: 1px solid var(--qa-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--qa-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+.qa-ld-row:hover {
+  background: var(--qa-surface);
+}
+.qa-ld-row[aria-current='true'] {
+  background: var(--qa-surface2);
+}
+.qa-ld-row:focus-visible {
+  outline: 2px solid var(--qa-champagne);
+  outline-offset: -2px;
+}
+.qa-ld-row-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: var(--qa-lh-snug);
+  overflow-wrap: anywhere;
+}
+.qa-ld-row[aria-current='true'] .qa-ld-row-title {
+  font-weight: 800;
+}
+.qa-ld-row-title.is-code {
+  font-family: var(--qd-font-family-mono);
+  font-size: 13.5px;
+}
+.qa-ld-row-sub {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--qa-subtle);
+  font-size: 13px;
+  line-height: var(--qa-lh-normal);
+}
+.qa-ld-row[aria-current='true'] .qa-ld-row-sub {
+  color: var(--qa-text);
+}
+.qa-ld-detail {
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 32px 8px 40px 44px;
+}
+.qa-ld-in {
+  max-width: 680px;
+  animation: qa-ld-in 0.24s ease both;
+}
+@keyframes qa-ld-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.qa-ld-back {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin: 0 0 4px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--qa-subtle);
+  font: inherit;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--qa-border);
+  text-underline-offset: 3px;
+}
+.qa-ld-back:hover {
+  color: var(--qa-text);
+  text-decoration-color: var(--qa-champagne);
+}
+/* 상세 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 한 줄 요약 → 본문 */
+.qa-ld-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0 0 12px;
+  color: var(--qa-muted);
+  font-size: 12.5px;
+}
+.qa-ld-kicker .is-code {
+  font-family: var(--qd-font-family-mono);
+  color: var(--qa-champagne);
+}
+.qa-ld-kicker .is-end {
+  margin-left: auto;
+  font-family: var(--qd-font-family-mono);
+  font-variant-numeric: tabular-nums;
+}
+.qa-ld-title {
+  margin: 0;
+  color: var(--qa-text);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: var(--qa-lh-heading);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.qa-ld-title.is-code {
+  font-family: var(--qd-font-family-mono);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: var(--qa-lh-tight);
+  color: var(--qa-champagne);
+}
+.qa-ld-aside {
+  margin: 8px 0 0;
+  color: var(--qa-muted);
+  font-size: 14px;
+}
+.qa-ld-lede {
+  margin: 20px 0 0;
+  color: var(--qa-text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: var(--qa-lh-snug);
+}
+.qa-ld-body {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  color: var(--qa-subtle);
+  font-size: 15px;
+  line-height: var(--qa-lh-loose);
+}
+.qa-ld-facts {
+  margin-top: 26px;
+  border-top: 1px solid var(--qa-borderHi);
+}
+.qa-ld-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 24px;
+}
+.qa-ld-empty {
+  padding: 40px 0;
+  color: var(--qa-muted);
+  font-size: 14px;
+}
+@container (max-width: 699px) {
+  .qa-ld {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+  .qa-ld-list {
+    overflow: visible;
+    border-right: none;
+    padding-bottom: 0;
+  }
+  /* 한 칸일 때 목록은 바깥(main · 서랍)이 굴린다. 거기서 top 0 고정은 폰 상단 바 밑으로 숨으므로 풀어 둔다(sticky-inset) */
+  .qa-ld-gh {
+    position: static;
+  }
+  .qa-ld[data-view='detail'] .qa-ld-list,
+  .qa-ld[data-view='list'] .qa-ld-detail {
+    display: none;
+  }
+  .qa-ld-detail {
+    overflow: visible;
+    padding: 12px 0 32px;
+  }
+  /* 상세가 짧아도 머리(← 목록)를 상단 바 아래로 올릴 만큼의 높이(짧으면 바깥 스크롤이 끝에 걸려 머리가 바에 반쯤 가린다) */
+  .qa-ld[data-view='detail'] .qa-ld-detail {
+    min-height: 70dvh;
+  }
+  .qa-ld-back {
+    display: inline-flex;
+  }
+  .qa-ld-row {
+    padding-left: 0;
+  }
+  .qa-ld-row[aria-current='true'] {
+    padding-left: 10px;
+  }
+  .qa-ld-title.is-code {
+    font-size: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-ld-in { animation: none; }
+  .qa-ld-row { transition: none; }
+}
+
 /* 운영 허브 탭줄(AdminHubTabs): 폰은 «고르기 줄 하나 + 아래 판», 그 위는 탭줄 */
 .qa-hub-module-label { word-break: keep-all; overflow-wrap: break-word; }
 .qa-hub-picker { display: none; }

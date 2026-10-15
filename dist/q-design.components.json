@@ -1650,7 +1650,8 @@
               "CardRows",
               "CardRow",
               "CardFigure",
-              "DetailRow"
+              "DetailRow",
+              "Ledger"
             ]
           },
           {
@@ -1703,7 +1704,33 @@
             ]
           }
         ],
-        "differences": "qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다."
+        "differences": "qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다. Atelier 의 이름 · 값 목록은 2026-10-15 오너 결정(용어집 시안 A)으로 Ledger(dl) 안의 DetailRow 장부 두 칸이다."
+      },
+      {
+        "id": "list-detail",
+        "label": "목록 + 상세(연속 검토)",
+        "canon": {
+          "status": "product-only",
+          "evidence": [
+            "docs/116-reference-sites-2026-10-15.md",
+            "patterns/foundation/atelier.css"
+          ]
+        },
+        "implementations": [
+          {
+            "product": "atelier",
+            "kind": "component",
+            "file": "lib/design/components.tsx",
+            "symbols": [
+              "ListDetail",
+              "ListDetailGroup",
+              "ListDetailRow",
+              "ListDetailHead",
+              "ListDetailNav"
+            ]
+          }
+        ],
+        "differences": "2026-10-15 오너 결정(용어집 시안 C). 담긴 자리가 700 이상이면 왼쪽 목록 · 오른쪽 상세, 좁으면 한 칸씩(← 목록). 선택은 면 색 + 굵은 제목. 무엇을 고르고 무엇을 결정하는지(결재 서명 · 용어 풀이)는 제품이 유지한다. Maison · Carnet 에는 아직 없다."
       },
       {
         "id": "form-section",
@@ -2163,17 +2190,17 @@
       "syncKey": "Q-Atelier",
       "summary": {
         "modules": 711,
-        "components": 1153,
+        "components": 1158,
         "iconModules": 143,
-        "roleMappedComponents": 87,
+        "roleMappedComponents": 93,
         "canonicalCopies": 21,
         "qdClassModules": 70,
         "productLocalModules": 623
       },
       "publicCoverage": {
         "failures": [],
-        "required": 69,
-        "mapped": 69,
+        "required": 75,
+        "mapped": 75,
         "exempted": 0,
         "unmapped": []
       },
@@ -17147,6 +17174,29 @@
             "qa-kpi-4",
             "qa-kpi-card",
             "qa-kpi-grid",
+            "qa-ld",
+            "qa-ld-aside",
+            "qa-ld-back",
+            "qa-ld-body",
+            "qa-ld-detail",
+            "qa-ld-empty",
+            "qa-ld-facts",
+            "qa-ld-gh",
+            "qa-ld-host",
+            "qa-ld-in",
+            "qa-ld-kicker",
+            "qa-ld-lede",
+            "qa-ld-list",
+            "qa-ld-n",
+            "qa-ld-nav",
+            "qa-ld-row",
+            "qa-ld-row-sub",
+            "qa-ld-row-title",
+            "qa-ld-title",
+            "qa-ledger",
+            "qa-ledger-label",
+            "qa-ledger-row",
+            "qa-ledger-value",
             "qa-legal-brand",
             "qa-legal-doc",
             "qa-legal-footer",
@@ -17341,6 +17391,8 @@
             "--qa-font-cormorant",
             "--qa-font-pretendard",
             "--qa-kpi-cols",
+            "--qa-ld-height",
+            "--qa-ledger-label",
             "--qa-lh-none",
             "--qa-lh-relaxed",
             "--qa-muted",
@@ -20691,26 +20743,21 @@
               "kind": "function",
               "exported": true,
               "roles": []
-            },
-            {
-              "name": "GlossaryRow",
-              "family": "data-display",
-              "kind": "function",
-              "exported": false,
-              "roles": []
             }
           ],
-          "classes": [],
+          "classes": [
+            "qa-ld-body",
+            "qa-ld-empty",
+            "qa-ld-facts"
+          ],
           "tokens": [
-            "--qd-atelier-flex-83725d2c6e",
-            "--qd-font-weight-semibold"
+            "--qd-atelier-flex-83725d2c6e"
           ],
           "nativeControls": [],
-          "inlineStyles": 12,
+          "inlineStyles": 6,
           "imports": [
+            "components/TextAction.tsx",
             "lib/design/components.tsx",
-            "lib/design/hangul-text.tsx",
-            "lib/design/q-design-labels.ts",
             "lib/design/q-design-scale.ts",
             "lib/design/tokens.ts",
             "lib/glossary.ts"
@@ -33558,12 +33605,66 @@
               ]
             },
             {
+              "name": "Ledger",
+              "family": "composition",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "record-row"
+              ]
+            },
+            {
               "name": "LegalNote",
               "family": "composition",
               "kind": "function",
               "exported": true,
               "roles": [
                 "feedback"
+              ]
+            },
+            {
+              "name": "ListDetail",
+              "family": "composition",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "list-detail"
+              ]
+            },
+            {
+              "name": "ListDetailGroup",
+              "family": "composition",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "list-detail"
+              ]
+            },
+            {
+              "name": "ListDetailHead",
+              "family": "composition",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "list-detail"
+              ]
+            },
+            {
+              "name": "ListDetailNav",
+              "family": "navigation",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "list-detail"
+              ]
+            },
+            {
+              "name": "ListDetailRow",
+              "family": "data-display",
+              "kind": "function",
+              "exported": true,
+              "roles": [
+                "list-detail"
               ]
             },
             {
@@ -33876,6 +33977,26 @@
             "qa-input",
             "qa-kpi-card",
             "qa-kpi-grid",
+            "qa-ld",
+            "qa-ld-aside",
+            "qa-ld-back",
+            "qa-ld-detail",
+            "qa-ld-gh",
+            "qa-ld-host",
+            "qa-ld-in",
+            "qa-ld-kicker",
+            "qa-ld-lede",
+            "qa-ld-list",
+            "qa-ld-n",
+            "qa-ld-nav",
+            "qa-ld-row",
+            "qa-ld-row-sub",
+            "qa-ld-row-title",
+            "qa-ld-title",
+            "qa-ledger",
+            "qa-ledger-label",
+            "qa-ledger-row",
+            "qa-ledger-value",
             "qa-page-hd-",
             "qa-phone-hide",
             "qa-phone-only",
@@ -34018,7 +34139,6 @@
             "--qd-atelier-opacity-b53823ac50",
             "--qd-atelier-opacity-dc43f5a623",
             "--qd-atelier-opacity-fab5edc654",
-            "--qd-atelier-padding-00a9a83dda",
             "--qd-atelier-padding-0230ce59c8",
             "--qd-atelier-padding-071d0f3c74",
             "--qd-atelier-padding-1c48da5609",
@@ -34089,7 +34209,7 @@
             "select",
             "textarea"
           ],
-          "inlineStyles": 213,
+          "inlineStyles": 211,
           "imports": [
             "components/TextAction.tsx",
             "components/q-design-icons/AlertCircle.tsx",
