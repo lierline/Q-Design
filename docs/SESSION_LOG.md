@@ -4,6 +4,23 @@
 
 ---
 
+## 정본 점검 · 참고 사이트 조사 · 2026-10-15
+
+- 오너 «Q-Design 점검. 참고할 만한 예시 사이트 전부 뒤져볼 것». 저장소 다섯 곳 모두 최신. `extract-all --check` 로 원본 사본 111/111,
+  세 제품(Q-Atelier · Q-Maison · Q-Carnet)의 차림표 · 목록 · 화면 CSS 사본과 앱 아이콘 32/32 가 정본과 같다. 10-10 기초 층
+  (조작 윤곽 · 줄 괘선 · 구역 괘선 · 구역 번호)은 제품 안에서 실제로 계산된다.
+- 전체 시험 746 중 743 통과. 실패 셋(choice-glyph-revalidation · maison-current-navigation · release-history-refresh)은 원인 하나다.
+  Q-Works 4d9361ae 가 `app/(auth)/login/login-form.tsx` 를 고쳤고 `maison-navigation-inventory-refresh.mjs` 는 옛 지문을 고정해 들고 있다.
+  차림 링크 147개는 그대로이고 inventoryHash 만 다르다. 다시 찍기는 증거 사슬 작업이라 손대지 않았다.
+  🔑 제품 원본이 바뀔 때마다 이 저장소 시험이 빨강이 되는 구조라, 빨강을 보면 먼저 «어느 제품 커밋이 지문을 바꿨나» 를 본다.
+- dev 3600 실화면(1440 · 412): 왼쪽 강조선 0 · 12px 미만 글자 0 · 가로 넘침 0.
+  🔴 대시보드 R&D 단계 이름표에 한글 자간 1.2px + 대문자 변환(Q-Atelier `components/OwnerResearchPipelineClient.tsx`), «시행» 꼬리표 0.48px.
+  `label-tracking-contract.test.ts` 는 `lib/design/components.tsx` 만 보고, 정규식이 `"var(--qd-…)"` 문자열을 못 읽어 거짓 초록이었다.
+- 장부형 계획 3 · 4단계(패턴 층)는 제품에 없다. 테두리 상자 목록이 용어집 69 · 멤버 14 · 설정 14 · 대시보드 15, /settings/usage 에 상자 중첩 1.
+  Q-Sonar 사본 셋은 09-28 결정대로 묶여 있고, `globals.css:53` 에 정본에서 10-11 에 뺀 #aaa395 가 남아 있다.
+- 고침: README · 문서 27 · 32 · 36 이 링크하던 미추적 파일 14개를 올렸다(9279cf0) · `debug.log` 무시.
+  패턴 층에 쓸 참고 사이트 80곳(6갈래 · 직접 열어 확인)을 [문서 116](116-reference-sites-2026-10-15.md)으로 남겼다.
+
 ## Btn pending 호출부 전환 뒤 추출 재확인 · 2026-10-08
 
 - Q-Atelier 에서 Btn `pending` 호출부 183곳을 바꾼 뒤(07624d43) `extract-all --sync` 를 돌렸다. 탐침 멈춤 0, 정본 CSS 값 변화 0.

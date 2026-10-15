@@ -9,6 +9,7 @@
 [팔레트 규칙](docs/33-palette-canon.md)에서 세 제품의 변수 연결과 제조사·인쇄 예외를 확인합니다.
 [배경부터 출력까지의 규칙](docs/35-foundation-rules.md)은 서체·간격·로그인·셸·상태·인쇄·오프라인의 원본과 변경 경로를 정합니다.
 [공식 디자인 참고 사례](docs/34-foundation-reference-study.md)에 15개 사례의 적용 판단을 기록했습니다.
+장부형 패턴 층(괘선 목록 · 목록과 상세 · 폰 줄 카드 · 결재 길 · 이력 · 합계 줄)에 쓸 [참고 사이트 80곳](docs/116-reference-sites-2026-10-15.md)은 갈래별로 따로 모았습니다.
 `patterns/foundation.css`와 제품별 `patterns/foundation/`가 기반 원본입니다.
 비교 화면의 공통 인자 조정에서 실제 세 제품 부품으로 변경 전파를 확인할 수 있습니다.
 `node tools/check-components.mjs`로 등록 누락·사본·연결·규칙을 검사하고,
