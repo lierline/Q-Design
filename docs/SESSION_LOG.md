@@ -17,7 +17,8 @@
   🔴 대시보드 R&D 단계 이름표에 한글 자간 1.2px + 대문자 변환(Q-Atelier `components/OwnerResearchPipelineClient.tsx`), «시행» 꼬리표 0.48px.
   `label-tracking-contract.test.ts` 는 `lib/design/components.tsx` 만 보고, 정규식이 `"var(--qd-…)"` 문자열을 못 읽어 거짓 초록이었다.
 - 장부형 계획 3 · 4단계(패턴 층)는 제품에 없다. 테두리 상자 목록이 용어집 69 · 멤버 14 · 설정 14 · 대시보드 15, /settings/usage 에 상자 중첩 1.
-  Q-Sonar 사본 셋은 09-28 결정대로 묶여 있고, `globals.css:53` 에 정본에서 10-11 에 뺀 #aaa395 가 남아 있다.
+  🔴 Q-Sonar 사본 셋(nav · list · screen)이 10-10 판에 멈춰 있다. 10-10 오너가 묶음을 풀었는데(`sync-parts.mjs` HOLD 비움),
+  10-11 부터 문서 06 의 절차가 `--only=Q-Atelier,Q-Works,Q-Forge` 라 Q-Sonar 가 빠졌다. `globals.css:53` 에는 정본에서 10-11 에 뺀 #aaa395 가 남아 있다.
 - 고침: README · 문서 27 · 32 · 36 이 링크하던 미추적 파일 14개를 올렸다(9279cf0) · `debug.log` 무시.
   패턴 층에 쓸 참고 사이트 80곳(6갈래 · 직접 열어 확인)을 [문서 116](116-reference-sites-2026-10-15.md)으로 남겼다.
 
