@@ -46,9 +46,7 @@ const STEPS = [
   { name: '카르넷 기록 유형 명칭', file: 'build-record-labels.mjs', why: '내부 기록 유형의 표시 명칭을 공통 규칙에서 만듭니다' },
   { name: '권한 설명 문구', file: 'build-permission-copy.mjs', why: '저장된 권한 설명의 표시 문구도 중앙 규칙에서 만듭니다' },
   { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
-  { name: '필수 항목 안내', file: 'maison-missing-hint-copy.mjs', extra: ['--write'], why: '공용 안내 문구의 중앙 연결과 보존 검증을 기록합니다' },
-  { name: '계약 양식 안내', file: 'maison-contract-hint-copy.mjs', extra: ['--write'], why: '경로별 계약 안내 문구와 전체 인자 보존을 검증합니다' },
-  { name: '첨부 양식 안내', file: 'maison-attachment-hint-copy.mjs', extra: ['--write'], why: '첨부 안내 문구의 중앙 연결과 인자 보존을 검증합니다' },
+  // 2026-10-16: 메종 안내 문구 증명 셋과 앱 시작 인자 목록화를 뺐습니다. 산출물을 만들지 않고 증명만 했습니다.
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
   { name: '새로고침 표시', file: 'extract-pull-presentation.mjs', why: '아뜰리에의 검수된 표시 규칙을 메종에도 내보냅니다' },
@@ -60,7 +58,6 @@ const STEPS = [
   { name: '앱 오프라인', file: 'build-native-offline.mjs', extra: [...only], why: 'Android와 iOS 앱의 독립 화면을 공통 규칙에서 만듭니다' },
   { name: '앱 시작 장면', file: 'build-native-launcher.mjs', extra: [...only], why: 'Android 세 앱의 실제 시작 화면을 하나의 공통 표현 규칙에서 만듭니다' },
   { name: 'iOS 공용 장면', file: 'build-ios-components.mjs', extra: [...only], why: '기존 UIKit 시작 화면과 안내 메시지를 정본 구현에서 만듭니다' },
-  { name: '앱 시작 인자', file: 'native-style-arguments.mjs', why: 'Java 구문 트리로 시작 화면의 리터럴과 실제 표현 인자를 목록화합니다' },
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
@@ -79,9 +76,11 @@ const STEPS = [
   { name: '앱 아이콘', file: 'app-icons.mjs', why: '네 제품 홈 화면 · 파비콘 아이콘을 dist/app-icons 에 그립니다' },
 ];
 
+// 걸음의 파일이 없으면 실패로 셉니다. 예전에는 «건너뜀» 한 줄만 찍고 계속 가서,
+// 도구를 지우면 산출물 일부가 조용히 낡은 채 남을 수 있었습니다(2026-10-16).
 function run(file, extra = []) {
   const p = join(HERE, file);
-  if (!existsSync(p)) return { skipped: true };
+  if (!existsSync(p)) return { missing: true, code: 1, out: file + ' 가 없습니다' };
   const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8', ...(file==='check-components.mjs'?{stdio:'inherit'}:{}) });
   return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
 }
@@ -126,7 +125,7 @@ console.log('');
 let failed = 0;
 for (const step of STEPS) {
   const r = run(step.file, step.extra ?? []);
-  if (r.skipped) {
+  if (r.missing && step.optional) {
     console.log('  건너뜀  ' + step.name + '  (' + step.file + ' 가 없습니다)');
     continue;
   }
@@ -196,6 +195,3 @@ if (iosComponents.code !== 0) process.exit(1);
 const implementations = run('build-component-implementations.mjs', ['--write', ...only]);
 console.log(implementations.out.trim());
 if (implementations.code !== 0) process.exit(1);
-const nativeArguments = run('native-style-arguments.mjs', ['--check']);
-console.log(nativeArguments.out.trim());
-if (nativeArguments.code !== 0) process.exit(1);

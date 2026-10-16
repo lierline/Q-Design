@@ -124,10 +124,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
   const merged=mergeCopyBindings(prior,records,selected);
   fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.current.json',files:merged},null,2)+'\n');
-  if(baselines.length){
-   fs.writeFileSync(path.resolve(root,'../tmp/qd-copy-spacing-baselines.json'),JSON.stringify(baselines,null,2)+'\n');
-   fs.writeFileSync(root+'/reviews/copy-spacing-migration.json',JSON.stringify({scope:rules.scope,selectedProducts:selected,files:baselines.map(({before,after,changes,...record})=>({...record,changes:changes.map(({start,end,...change})=>change)}))},null,2)+'\n');
-  }
+  // 2026-10-16: 옮기기 기록(reviews/ · ../tmp) 쓰기를 뺐습니다. 아무도 읽지 않았습니다.
   console.log(JSON.stringify({files:baselines.length,phrases:baselines.reduce((sum,row)=>sum+row.changes.length,0)}));
  }
 }
