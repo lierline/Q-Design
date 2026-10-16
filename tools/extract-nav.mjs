@@ -71,7 +71,7 @@ const Z = {
   // 있습니다. 한 구역으로 두면 어느 값인지 모르는 채로 뽑게 됩니다.
   itemLink: slice(sidebar, "key={`${href}-${active ? 'active' : 'idle'}`}", '      <span\n        aria-hidden', 'itemLink'),
   itemIcon: slice(sidebar, '      <span\n        aria-hidden', "<span style={{ flex: 1, position: 'relative' }}>", 'itemIcon'),
-  // 2026-09-27 «문서 결»(docs/24): 왼쪽 금막대 · 오른쪽 금점 대신 글자 밑 짧은 금색 선
+  // 2026-09-27 «문서 결»(docs/08-paper.md): 왼쪽 금막대 · 오른쪽 금점 대신 글자 밑 짧은 금색 선
   itemMark: slice(sidebar, 'className="qa-nav-active-underline"', '/>', 'itemMark'),
   // 앞에 줄바꿈을 붙입니다. 들여쓰기만 다른 접힘 상태의 같은 줄(8칸)이
   // 6칸짜리 표지를 부분 문자열로 품고 있어, 그것부터 잘려 배지가 둘 잡혔습니다.

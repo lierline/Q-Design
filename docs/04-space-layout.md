@@ -1,11 +1,16 @@
-# 간격과 레이아웃
+# 4장 · 간격 · 배치
+
+이 장은 화면의 간격 사다리, 셸 폭, 끊는 폭(브레이크포인트), 앱 셸의 뼈대, 누르는 자리의 크기를 정합니다.
+값은 `dist/q-design.tokens.css` · `dist/q-design.tokens.json` 과 세 제품 공통 기반(`patterns/foundation.css` · `patterns/components.css`), 아뜰리에 기반(`patterns/foundation/atelier.css`)에서 나옵니다.
+
+합친 옛 문서: 04 간격과 레이아웃
 
 ---
 
-## 1. 간격 사다리 `S`
+## 간격 사다리 `S`
 
-**4px 기준 + 2px 하프스텝.** 하프스텝은 에디토리얼 리듬을 위해 나중에 추가된 것으로,
-4px 그리드 밖의 실사용값(6 · 10 · 14 · 18 · 22 · 26 · 30)을 토큰으로 흡수한 결과입니다.
+**4px 기준 + 2px 하프스텝.** 하프스텝은 에디토리얼 리듬을 위한 것으로,
+4px 격자 밖에서 실제로 쓰이던 값(6 · 10 · 14 · 18 · 22 · 26 · 30)을 토큰으로 담습니다.
 
 | 키 | px | | 키 | px | | 키 | px |
 |---|---:|---|---|---:|---|---|---:|
@@ -19,54 +24,54 @@
 | `3.5` | 14 | | `7.5` | 30 | | `20` | 80 |
 | | | | `8` | 32 | | `24` | 96 |
 
-TS 에서는 `S[3.5]`, CSS 에서는 `var(--qa-space-3_5)` 입니다 (점을 밑줄로 바꿉니다).
+TS 에서는 `S[3.5]`, CSS 에서는 `var(--qa-space-3_5)` 입니다(점을 밑줄로 바꿉니다).
+세 제품 공통 기반은 같은 사다리를 `--qd-space-unit: 4px` 의 배수로 내고, 이름의 점을 하이픈으로 씁니다(`--qd-space-3-5` = 14px).
 
-**참조는 반드시 브래킷 키(`S[4]`)로** 합니다. 식별자라서 raw 숫자 검출 정규식을 피해 가고,
-치환할 때 동결 카운트가 자연스럽게 줄어듭니다.
+**참조는 반드시 브래킷 키(`S[4]`)로** 합니다. 식별자라서 raw 숫자를 찾는 검사를 피해 가고,
+raw 값을 토큰으로 바꿀 때마다 동결 개수가 자연스럽게 줄어듭니다(동결은 [10장](10-rules.md)).
 
-### 실사용 빈도
+### 자주 쓰는 조합
 
 원본에서 가장 많이 쓰이는 조합입니다. 옮겨 쓸 때 이 리듬을 따르면 인상이 비슷해집니다.
 
 | 자리 | 값 |
 |---|---|
-| 카드 안쪽 여백 | `18px 20px` (KPI · 모달 헤더) · `22px 24px` (Card) |
+| 카드 안쪽 여백 | `18px 20px` (KPI · 모달 머리) · `22px 24px` (Card) |
 | 카드 사이 gap | 10 ~ 16 |
-| 폼 필드 간격 | 12 ~ 16 |
-| 섹션 사이 | 32 (`marginBottom: S[7.5]` = 30 이 PageHd) |
-| 알림·인포박스 | `12px 16px` |
+| 폼 칸 간격 | 12 ~ 16 |
+| 구역 사이 | 32 (`PageHd` 의 아래 여백은 `S[7.5]` = 30) |
+| 알림 · 안내 상자 | `12px 16px` |
 | 배지 안쪽 | `4px 10px` (md) · `2px 8px` (sm) · `0 6px` (xs) |
 
 ---
 
-## 2. 셸 폭 `LAYOUT`
+## 셸 폭 `LAYOUT`
 
-페이지 셸(중앙정렬 컨테이너)의 최대폭입니다. 뷰포트 기준점인 브레이크포인트와는 다른 축입니다.
+페이지 셸(가운데 정렬 컨테이너)의 최대 폭입니다. 화면 폭 기준점인 브레이크포인트와는 다른 축입니다.
 
 | 키 | px | 용도 |
 |---|---:|---|
 | `mobile` | 520 | 현장 모드(PDA) |
 | `form` | 720 | 신규 등록 화면 표준 |
 | `detail` | 820 | 상세 화면 표준 |
-| `wide` | 1140 | 본문 + 사이드 2단 그리드 |
+| `wide` | 1140 | 본문 + 옆 칸 2단 격자 |
 
-원본 실측 당시 생성폼 720 을 25개 파일이 손으로 반복하고 있었고,
-상세는 800 · 820 · 840 · 860 · 880 다섯 가지로 갈려 있었습니다. 같은 역할에 다른 값이었습니다.
+같은 역할에는 한 값만 씁니다. 역할이 같은데 화면마다 손으로 적은 폭이 갈리면(상세 화면이 800 · 820 · 840 · 860 · 880 으로 갈리는 식) 통일성이 무너집니다.
 
 ### 이 목록에 넣지 않는 것
 
 값이 같아도 **축이 다르면** 넣지 않습니다. 나중에 한 키를 조정할 때 무관한 요소가 따라 움직이기 때문입니다.
 
-- 산문 measure (설명 문단 720): 폼 폭과 다른 축
-- 권한 게이트 패널 (640): 페이지 폭이 아니라 중첩 블록
-- 모달·드로어 폭: 오버레이 안의 maxHeight 와 함께 도는 별개 축
-- 컴포넌트 내부 캡 (진행바 220 · 말줄임 280 · 필드 320): 지역 상수
+- 산문 폭(설명 문단 720): 폼 폭과 다른 축
+- 권한 게이트 패널(640): 페이지 폭이 아니라 안쪽 블록
+- 모달 · 드로어 폭: 오버레이 안의 maxHeight 와 함께 도는 별개 축
+- 부품 안쪽 상한(진행바 220 · 말줄임 280 · 칸 320): 지역 상수
 
-계약(`page-shell-contract.test.ts`)이 **폭을 잡았으면 가운데로 놓는다**까지 검사합니다.
+셸 폭은 raw 숫자로 적지 않고, **폭을 잡았으면 가운데로 놓습니다.** 두 가지 모두 계약 시험이 지킵니다([10장](10-rules.md)의 ⑦).
 
 ---
 
-## 3. 브레이크포인트 `BP`
+## 브레이크포인트 `BP`
 
 | 키 | px |
 |---|---:|
@@ -78,9 +83,13 @@ TS 에서는 `S[3.5]`, CSS 에서는 `var(--qa-space-3_5)` 입니다 (점을 밑
 
 **1024 가 이 시스템의 진짜 분기점입니다.** 사이드바가 고정에서 드로어로 바뀌는 지점입니다.
 
+CSS 의 미디어 쿼리는 변수를 받지 못합니다. 그래서 원본(`patterns/foundation/atelier.css`)에서는 `qd-bp(md)` · `qd-bp(md-max)` 처럼 이름으로 적고,
+`tools/build-foundation.mjs` 가 만들 때 BP 값으로 바꿉니다(`qd-bp(md)` → `768px`, `qd-bp(md-max)` → `767px`).
+
 ### 설계 · 측정 기준 폭
 
-브레이크포인트는 «어디서 배치가 바뀌는가» 이고, 아래는 «어느 폭에서 재는가» 입니다. 새 화면과 고침은 이 폭들에서 잰 뒤 올립니다(2026-10-01 오너 규칙: 운영진 화면도 폰으로 즉시 관리).
+브레이크포인트는 «어디서 배치가 바뀌는가» 이고, 아래는 «어느 폭에서 재는가» 입니다.
+새 화면과 고침은 이 폭들에서 잰 뒤 올립니다(오너 규칙 2026-10-01: 운영진 화면도 폰으로 바로 관리).
 
 | 폭 | 무엇 | 재는 것 |
 |---:|---|---|
@@ -90,45 +99,35 @@ TS 에서는 `S[3.5]`, CSS 에서는 `var(--qa-space-3_5)` 입니다 (점을 밑
 | 640 | 데스크톱 1280 을 **200 % 확대** 한 폭 | 재배치(WCAG 1.4.10): 가로 스크롤 없이 읽혀야 함 |
 | 320 | 데스크톱 1280 을 **400 % 확대** 한 폭 | 같은 기준의 하한. 본문 글 · 폼은 한 열로 |
 
-
-미디어 쿼리 헬퍼도 함께 있습니다.
-
-```ts
-media.md        // @media (min-width: 768px)
-media.maxLg     // @media (max-width: 1023px)
-media.touch     // @media (hover: none) and (pointer: coarse)
-media.hover     // @media (hover: hover) and (pointer: fine)
-media.reduceMotion
-```
-
 ### 3단 반응 구간
 
-| 구간 | 사이드바 | 본문 여백 | 하단 |
+| 구간 | 사이드바 | 본문 여백(위 · 좌우 · 아래) | 하단 |
 |---|---|---|---|
-| `≥1024` 데스크톱 | 고정 (240px, 접으면 60px) | `32px 40px` | |
-| `768~1023` 태블릿 | 드로어 (264px) | `68px 28px` | AI FAB 80px |
-| `<768` 폰 | 드로어 | `68px 16px` | 하단 네비 + 128px |
+| `≥1024` 데스크톱 | 고정 240px, 접으면 60px | `32px 40px` | |
+| `768~1023` 태블릿 | 드로어 264px | 머리 높이 · 28px · 100px | AI FAB 80px |
+| `<768` 폰 | 드로어 264px | 머리 높이 · 16px · 128px | 하단 네비 |
 
-여백은 `env(safe-area-inset-bottom)` 을 더해 노치를 피합니다.
-PWA standalone 에서는 상단도 `max(68px, env(safe-area-inset-top) + 44px)` 로 늘어납니다.
+아래 여백과 FAB 위치에는 `env(safe-area-inset-bottom)` 을 더해 노치를 피합니다.
+태블릿 · 폰과 설치 앱(PWA standalone)의 위 여백 «머리 높이» 는 `--qd-atelier-mobile-header-height` 입니다.
+안전 영역 위 + max(64px, 조작 높이 44 + 12 × 2) 이므로, 노치가 없으면 68px 입니다.
 
 ---
 
-## 4. 앱 셸 구조
+## 앱 셸 구조
 
 ```
 html (100dvh, overflow hidden)
 └ div  display:flex
   ├ aside.qa-sidebar-aside   240px | 60px | 드로어 264px
-  │   background: surface · borderRight: 1px border · padding: 22px 16px
+  │   background: surface · borderRight: 1px border · padding: 22px 16px (접으면 18px 6px)
   └ main.qa-main-content     flex:1 · height:100% · overflowY:auto
-      padding: 32px 40px  ← MAIN_PADDING (SSOT)
+      padding: 32px 40px  ← MAIN_PADDING (한 곳)
 ```
 
 **스크롤하는 것은 `main` 이고 페이지가 아닙니다.**
 사이드바가 화면에 고정되고 본문만 흐릅니다.
 
-`MAIN_PADDING = { top: 32, right: 40, bottom: 32, left: 40 }` 이 별도 모듈로 빠져 있는 이유가 있습니다.
+`MAIN_PADDING = { top: 32, right: 40, bottom: 32, left: 40 }` 이 따로 모듈(`main-padding.ts`)로 빠져 있는 까닭이 있습니다.
 서버 컴포넌트인 레이아웃과, 훅을 쓰는 sticky 계산이 같은 값을 봐야 하는데
 서버 컴포넌트는 훅 모듈을 import 할 수 없기 때문입니다.
 
@@ -142,12 +141,12 @@ html (100dvh, overflow hidden)
             bottom: -(padding) + 하단 네비 높이     모바일
 ```
 
-계약(`sticky-inset.test.ts`)이 **리터럴 0 이 아니라 계산식을 쓰는지**까지 검사합니다.
-패드·폰에서는 전역 CSS 가 `!important` 로 여백을 덮으므로 **측정으로만 알 수 있습니다.**
+리터럴 0 이 아니라 계산식을 써야 합니다(계약은 [10장](10-rules.md)의 ⑬).
+패드 · 폰에서는 전역 CSS 가 `!important` 로 여백을 덮으므로 **측정으로만 알 수 있습니다.**
 
 ---
 
-## 5. 터치 타겟
+## 터치 타겟
 
 ```ts
 TOUCH.min = 44          // WCAG 2.2 · iOS HIG
@@ -156,41 +155,61 @@ TOUCH.comfortable = 48
 
 ```css
 @media (hover: none) and (pointer: coarse) {
-  .qa-btn, .qa-btn-secondary { min-height: 44px; }
+  .qa-btn, .qa-btn-secondary { min-height: var(--qd-control-height, 44px) !important; }
 }
 ```
 
-기본 버튼은 44px, 보조(`sm`) 버튼은 36px 인데 **터치 기기에서는 sm 도 44px 로 올라갑니다.**
+`!important` 가 있어야 하는 까닭: 공용 `Btn` 이 높이를 인라인으로 적어(sm 36) 보통 규칙을 이깁니다.
+같은 조건에서 `.qa-input` · `.qa-touch-44` 는 높이를, `.qa-touch-44sq` 는 가로 · 세로를 44 로 올리고,
+`.qa-touch-hit` 는 모양을 두고 누르는 자리만 보이지 않게 넓힙니다(바로 아래에 창이 열리는 단추에는 쓰지 않습니다. 넓힌 자리가 열린 창을 가립니다).
+폭 640 이하 창에서는 마우스여도 공용 조작부가 44 를 지킵니다(`patterns/foundation.css`).
+
+단추 높이는 역할로 정합니다.
+
+| 역할 | 높이 |
+|---|---|
+| 상자 단추 기본 | 44px (`--qd-control-height`) |
+| 명시한 작은 변형 | 데스크톱 36px (`--qd-control-height-sm`), 터치 44px |
+| 보조 글귀 행동 | 데스크톱 36px, 터치 44px |
+| 아이콘만 있는 행동 | 44px |
+| 카르넷 현장 입력 · 주요 현장 행동 | 56px (`--qd-field-control-height`). 이름 붙인 작업용 변형 |
+
+제품 이름만으로 같은 역할의 기본 크기가 달라지지 않게 합니다.
 
 ---
 
-## 6. 반응형 유틸리티
+## 반응형 유틸리티
 
-레이아웃을 CSS-in-JS 로 짜면 미디어 쿼리를 못 쓰기 때문에, 전역 클래스로 보완합니다.
+레이아웃을 CSS-in-JS 로 짜면 미디어 쿼리를 쓸 수 없어서, 전역 클래스로 보완합니다.
 
 ```css
-.qa-grid-responsive   /* repeat(auto-fit, minmax(220px, 1fr)) → 모바일 1열 */
-.qa-compare-grid      /* 1fr auto 1fr → 모바일 수직 스택, 화살표 숨김 */
+.qa-grid-responsive   /* repeat(auto-fit, minmax(220px, 1fr)) → 768 미만 1열 */
+.qa-compare-grid      /* 1fr auto 1fr → 768 미만 세로로 쌓고 화살표 숨김 */
 .qa-field-screen      /* 520px → 768px 이상에서 760px */
 .qa-hide-mobile · .qa-hide-tablet · .qa-desktop-only · .qa-mobile-only
+.qa-phone-only · .qa-phone-hide   /* 599 / 600 선 */
 ```
 
-그리고 화면별 1열 붕괴 규칙이 `@media (max-width: 767px)` 안에 모여 있습니다
-(`.qa-kpi-4` · `.qa-impact-grid` · `.qa-member-row` · `.qa-pipeline-row` 등 14종).
+현장 화면이 768 부터 넓어지는 까닭은 현장 모드의 주 기기가 패드이기 때문입니다(오너 지시 2026-08-20).
+폰 기준 520 에 묶어 두면 패드에서 화면 절반이 비고, 장갑 낀 손이 누를 자리가 공연히 작아집니다.
 
-> **이건 배울 점이자 경고입니다.**
+화면별 1열 접기 규칙은 `@media (max-width: 767px)` 한 블록에 모여 있습니다
+(`.qa-kpi-4` · `.qa-impact-grid` · `.qa-member-row` · `.qa-pipeline-row` 등 화면 이름이 박힌 클래스 16종).
+
+> **이것은 배울 점이자 경고입니다.**
 > 인라인 스타일을 주로 쓰면 반응형이 전역 CSS 의 `!important` 로 밀려납니다.
 > 새로 만드신다면 레이아웃만큼은 클래스로 두시는 편이 낫습니다.
 
 ---
 
-## 7. 가로 스크롤 표
+## 가로 스크롤 표
 
 ```css
 .qa-scroll-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.qa-scroll-table.qa-sticky-first > * > *:first-child { position: sticky; left: 0; }
+.qa-scroll-table.qa-sticky-first .qa-scroll-table-inner > * > *:first-child { position: sticky; left: 0; }
 ```
 
-모바일에서는 좌우 fade 그라디언트가 붙어 «더 있다»를 알립니다
+1024 미만에서는 좌우에 흐려지는 그라디언트가 붙어 «더 있다» 를 알립니다
 (`background-attachment: local` 로 스크롤 끝에서 사라집니다).
-`qa-sticky-first` 를 붙이면 첫 컬럼이 고정되어 행을 잃지 않습니다.
+`qa-sticky-first` 를 붙이면 첫 열이 고정되어 줄을 잃지 않습니다.
+머리글을 붙이려면 세로 한계가 있어야 하므로, 붙는 머리글을 쓰는 표는 `.qa-scroll-table--tall` 을 함께 겁니다.

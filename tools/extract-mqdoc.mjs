@@ -1,7 +1,7 @@
 // =============================================================================
 // MedQraft 종이 문서 양식 v8 토큰 뽑기
 // =============================================================================
-//   node tools/extract-mqdoc.mjs           뽑아서 dist/q-design.mqdoc.* 와 docs/23 생성 구간에 씁니다
+//   node tools/extract-mqdoc.mjs           뽑아서 dist/q-design.mqdoc.* 와 docs/08-paper.md 생성 구간에 씁니다
 //   node tools/extract-mqdoc.mjs --check   쓰지 않고, 어긋난 곳이 있으면 종료코드 1
 //
 // 원본: 오너가 준 「MedQraft 문서 양식_rev.8.zip」 의 규격서
@@ -29,7 +29,7 @@ const SRC_DIR = process.env.MQDOC_SRC || join(ROOT, 'source', 'brief', 'v8');
 const SPEC = join(SRC_DIR, 'MQ-문서양식-v8-규격서.html');
 const CONVERTER = process.env.MQDOC_CONV || join(ROOT, 'source', 'brief', 'mqhtml.py');
 const DIST = join(ROOT, 'dist');
-const DOC = join(ROOT, 'docs', '23-medqraft-paper-document-v8.md');
+const DOC = join(ROOT, 'docs', '08-paper.md');
 const CHECK = process.argv.includes('--check');
 
 const fail = [];
@@ -266,7 +266,7 @@ const css = [
 ].join('\n');
 const jsonText = JSON.stringify(out, null, 2) + '\n';
 
-// docs/23 의 생성 구간
+// docs/08-paper.md 의 생성 구간
 const md = (t) =>
   [`| ${t.머리.join(' | ')} |`, `|${t.머리.map(() => '---').join('|')}|`, ...t.줄.map((r) => `| ${r.map((c) => c.replace(/\|/g, '/')).join(' | ')} |`)].join('\n');
 const blocks = {
@@ -293,7 +293,7 @@ else {
     const i = doc.indexOf(a);
     const j = doc.indexOf(b);
     if (i < 0 || j < 0) {
-      fail.push(`docs/23 에 생성 구간 ${k} 가 없습니다`);
+      fail.push(`docs/08-paper.md 에 생성 구간 ${k} 가 없습니다`);
       continue;
     }
     doc = doc.slice(0, i + a.length) + '\n' + v.replace(DASH, ' · ') + '\n' + doc.slice(j);
@@ -304,7 +304,7 @@ const same = (p, s) => existsSync(p) && readFileSync(p, 'utf8').split('\r\n').jo
 const stale = [];
 if (!same(join(DIST, 'q-design.mqdoc.json'), jsonText)) stale.push('dist/q-design.mqdoc.json');
 if (!same(join(DIST, 'q-design.mqdoc.css'), css)) stale.push('dist/q-design.mqdoc.css');
-if (doc !== null && !same(DOC, doc)) stale.push('docs/23-medqraft-paper-document-v8.md');
+if (doc !== null && !same(DOC, doc)) stale.push('docs/08-paper.md');
 
 for (const [p, s] of [[join(DIST, 'q-design.mqdoc.json'), jsonText], [join(DIST, 'q-design.mqdoc.css'), css], [DOC, doc]])
   if (/[\u2014\u2013]/.test(s || '')) fail.push(`${p} 에 긴 줄표가 남았습니다`);

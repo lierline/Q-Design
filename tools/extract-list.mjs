@@ -87,7 +87,7 @@ const spec = probeAll([
   ['table.cellFontSize',Z.tableCell, /fontSize: ('[^']+'|QD\.\w+|FS\[[\d.]+\]),/, qd.pixels],
 
   // ── 항목 줄 (EntityRow) ─────────────────────────────────────────────────
-  // 2026-09-27 «문서 결»(오너 결정 · docs/24): 상자 · 왼쪽 색 띠 대신 행 아래 가는 괘선 하나
+  // 2026-09-27 «문서 결»(오너 결정 · docs/08-paper.md): 상자 · 왼쪽 색 띠 대신 행 아래 가는 괘선 하나
   ['row.gap',           Z.rowBox,    /gap: S\[([\d.]+)\],/, qd.step],
   ['row.padding',       Z.rowBox,    /padding: '([^']+)',/, String],
   ['row.ruleWidth',     Z.rowBox,    /borderBottom: `(\d+)px solid \$\{T\.border\}`,/, Number],
@@ -146,7 +146,7 @@ put(spec, 'panel.radius', qd.pixels('QD.radius'));
   if (!/borderColor: tintBorder\(accentColor\)/.test(bx)) {
     throw new Error('Bx 의 상태 색 테두리(borderColor: tintBorder(accentColor))를 못 찾았습니다.');
   }
-  if (/borderLeft/.test(bx)) throw new Error('Bx 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
+  if (/borderLeft/.test(bx)) throw new Error('Bx 에 왼쪽 선이 다시 생겼습니다. docs/08-paper.md 의 문서 결을 보세요.');
   put(spec, 'panel.accentMix', Number(g[1]));
 }
 
@@ -157,7 +157,7 @@ put(spec, 'panel.radius', qd.pixels('QD.radius'));
 {
   const al = slice(comp, 'export function Alert({', '// ─── ', 'Alert');
   if (!/className="qd-notice"/.test(al) || !/data-kind=\{kind\}/.test(al)) throw new Error('Alert 의 중앙 notice 연결을 못 찾았습니다.');
-  if (/borderLeft/.test(al)) throw new Error('Alert 에 왼쪽 선이 다시 생겼습니다. docs/24 를 보세요.');
+  if (/borderLeft/.test(al)) throw new Error('Alert 에 왼쪽 선이 다시 생겼습니다. docs/08-paper.md 의 문서 결을 보세요.');
   const notice = slice(canonicalComponents, '.qd-notice, .qd-toast {', '}', 'canonicalNotice');
   const declarations = notice.split('\n').filter(line => /^\s*(?:box-sizing|padding|border|border-radius|background|color|font-size|line-height):/.test(line));
   if (declarations.length !== 8) throw new Error('중앙 notice 표면 선언이 바뀌었습니다. 탐침을 검토하십시오.');

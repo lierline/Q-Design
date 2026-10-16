@@ -62,7 +62,9 @@ const 내보낸것 = (p) => /(^|\/)q-design\./.test(p);
  *    사본에만 남은 파일이 「진실」 행세를 하는 것을 막습니다.
  */
 const MAP = [
-  { dest: 'contracts', repo: 'qa', dir: 'lib/design', match: /\.test\.tsx?$/ },
+  /* q-design-version.test.ts 는 디자인 계약이 아니라 제품이 받은 사본을 판 파일과 대조하는 시험입니다.
+     Q-Design 이 읽을 것이 없어 받아 오지 않습니다(2026-10-16 · 군살 빼기 2단계에서 생김). */
+  { dest: 'contracts', repo: 'qa', dir: 'lib/design', match: /\.test\.tsx?$/, exclude: /\/q-design-version\.test\.ts$/ },
   {
     dest: 'tokens',
     repo: 'qa',

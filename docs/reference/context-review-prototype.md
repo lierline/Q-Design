@@ -102,11 +102,4 @@ python -m http.server 4817 --bind 127.0.0.1 --directory D:/Claude/Q-Design
 브라우저에서 계산된 실제 스타일 색상 기준 메모 입력·선택·보조 버튼의 경계 대비는 어두운 화면 4.44~4.71:1, 밝은 화면 4.07~4.29:1입니다.
 이는 해당 경계의 색상 계산 결과이며 전체 접근성 검증 완료를 의미하지 않습니다.
 
-- [확인 결과](../preview/screens/context-review/verification.json)
-- [비교 전환 확인 결과](../preview/screens/context-review/motion-verification.json)
-- [비교 화면](../preview/screens/context-review/comparison-light.png)
-- [집중 보기](../preview/screens/context-review/focus-light.png)
-- [모바일 문서 식별](../preview/screens/context-review/mobile-header-light.png)
-- [어두운 화면](../preview/screens/context-review/desktop-dark.png)
-- [밝은 화면](../preview/screens/context-review/desktop-light.png)
-- [모바일 화면](../preview/screens/context-review/mobile-light.png)
+확인 기록과 화면 사진(`preview/screens/context-review/`)은 2026-10-16 정리에서 보관했습니다. 꼬리표 `archive/before-slim-2026-10-16` 에 있습니다.

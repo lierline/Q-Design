@@ -1,129 +1,107 @@
 # Q-Design
 
-## 세 제품 컴포넌트 통일 · 2026-10-10
-
-[실제 제품 부품 비교](preview/components.html), [역할별 등록부](docs/29-component-registry.md),
-[공통 규칙과 변경 절차](docs/30-component-governance.md), [전체 코드 목록](docs/31-component-inventory.md),
-[첫 감사](docs/32-unification-audit.md), [확장 감사 결과](docs/36-foundation-audit.md).
-공통 외형은 `patterns/components.css`, 공통 화면 색상은 `patterns/palette-overrides.json`, 업무 동작은 제품 어댑터가 소유합니다.
-[팔레트 규칙](docs/33-palette-canon.md)에서 세 제품의 변수 연결과 제조사·인쇄 예외를 확인합니다.
-[배경부터 출력까지의 규칙](docs/35-foundation-rules.md)은 서체·간격·로그인·셸·상태·인쇄·오프라인의 원본과 변경 경로를 정합니다.
-[공식 디자인 참고 사례](docs/34-foundation-reference-study.md)에 15개 사례의 적용 판단을 기록했습니다.
-장부형 패턴 층(괘선 목록 · 목록과 상세 · 폰 줄 카드 · 결재 길 · 이력 · 합계 줄)에 쓸 [참고 사이트 80곳](docs/116-reference-sites-2026-10-15.md)은 갈래별로 따로 모았습니다.
-`patterns/foundation.css`와 제품별 `patterns/foundation/`가 기반 원본입니다.
-비교 화면의 공통 인자 조정에서 실제 세 제품 부품으로 변경 전파를 확인할 수 있습니다.
-`node tools/check-components.mjs`로 등록 누락·사본·연결·규칙을 검사하고,
-`--browser`를 붙이면 실제 부품을 빌드해 두 테마와 세 화면 폭에서 검증합니다.
-미리보기는 `node tools/build-component-workbench.mjs` 후 `node tools/serve-component-workbench.mjs`로 엽니다.
-
-## 맥락 유지형 문서 검토 시안 · 2026-10-10
-
-[시안 열기](preview/context-review.html): 목록과 상세를 함께 두고 문서 검토를 이어가는 화면입니다.
-문서별 메모와 확인 항목, 집중 보기와 복귀, 검색·상태·정렬 유지, 저장 실패와 재시도를 체험합니다.
-상단 시안 설정에서 모션을 3배 느리게 보거나 끌 수 있습니다.
-설명과 확인 범위: [시안 안내](docs/27-context-review-prototype.md).
-로컬 예시 데이터만 사용하며 운영 제품 배포나 공통 생성물 변경은 포함하지 않습니다.
-
-Q 제품군의 공통 디자인 규칙과 제품 연결을 관리하는 저장소입니다.
-기존 규칙은 커밋된 Q-Atelier 원본에서 추출하고, 새로운 공용 컴포넌트 규칙과 팔레트 변경은 Q-Design에서 관리합니다.
-
-## 업무 화면 다듬기 · 2026-10-03
-
-[업무 아이콘 30종](preview/icons.html): Phosphor Regular 단색 SVG를 메뉴·검색·문서·상태에 적용했다.
-[선정과 사용 규칙](docs/26-interface-icons.md), 원본·라이선스는 `vendor/phosphor/`에 있다.
-`node tools/build-icons.mjs`로 로컬 자산을 생성하며 제품 운영 배포는 실행하지 않는다.
-세 제품의 React 적용본은 `node tools/build-react-icons.mjs`로 만들고,
-`python tools/sync-react-icons.py --write`로 사용 아이콘만 내보낸다. 다른 동결 조각은 갱신하지 않는다.
-
-[작동하는 업무 화면 견본](preview/workspace.html)에서 제품·밝기·문서 검색·상태 필터·상세 보기를 확인할 수 있습니다.
-작은 글씨와 흐린 행동을 정돈하고, 검토할 일을 먼저 보여주는 배치를 추가했습니다.
-실제 공통 CSS를 사용하며, 예시 데이터만 표시합니다.
-
-- 규칙과 적용 범위: [업무 화면 정돈](docs/25-workspace-refinement.md)
-- 조합 규칙 원본: [patterns/workspace.css](patterns/workspace.css)
-- 재생성: `node tools/extract-screen.mjs` (제품 자동 배포 없음)
-
-기존 부품은 `source/`의 원본 사본에서 추출합니다. 새 조합 규칙은 Q-Design이 소유하고,
-`.qd-workspace`를 붙인 화면에서만 적용됩니다. 두 원본의 소유 범위를 구분합니다.
-
-추출일: 2026-09-09 · 원본: `D:\Claude\Q-Atelier` (커밋 `17876c4c`)
-
----
-
-## 한 줄 요약
+MedQraft 제품군의 디자인 정본입니다. 네 제품이 같은 집안으로 보이게 하는 규칙과,
+그 규칙에서 나오는 산출물(CSS · JSON · TS · 글꼴 · 아이콘)을 한곳에서 만들고 제품으로 내보냅니다.
 
 **깊은 무채색 위의 샴페인 골드. 에디토리얼 여백, 절제된 모션, 10px 모서리.**
 장식이 아니라 «장인의 정밀함» 을 보이려는 시스템입니다.
 
+| 제품 | 저장소 폴더 | 판 이름 |
+|---|---|---|
+| Q-Atelier | `D:/Claude/Q-Atelier` | Q-Atelier |
+| Q-Maison | `D:/Claude/Q-Works` | Q-Works |
+| Q-Carnet | `D:/Claude/DHR` | Q-Forge |
+| Q-Sonar | `D:/Claude/Lead-Radar` | Q-Sonar |
+
+판 이름은 `tools/sync-parts.mjs` 와 제품의 판 파일이 쓰는 이름입니다.
+
 ---
 
-## 무엇이 들어 있나
+## 정본 10장
+
+규칙은 이 열 장에만 있습니다. 값을 손으로 옮겨 적지 않고, 표의 숫자는 도구가 산출물에서 뽑아 씁니다.
+
+| 장 | 파일 | 무엇을 정하나 |
+|---|---|---|
+| 1 정체성 | [01-brand-identity.md](docs/01-brand-identity.md) | 왜 이렇게 생겼는가 |
+| 2 색 | [02-color.md](docs/02-color.md) | 팔레트 · 대비 · 상태색 · 제품별 변수 연결 |
+| 3 글자 | [03-typography.md](docs/03-typography.md) | 글꼴 · 크기 사다리 · 한글 자간 |
+| 4 간격 · 배치 | [04-space-layout.md](docs/04-space-layout.md) | 4px 리듬 · 셸 폭 · 끊는 폭 |
+| 5 모양 · 깊이 · 움직임 | [05-shape-elevation-motion.md](docs/05-shape-elevation-motion.md) | 모서리 · 그림자 · 이징 · 위젯 편집 움직임 |
+| 6 부품 | [06-components.md](docs/06-components.md) | 부품 스펙 · 역할별 등록부 · 바꾸는 절차 · 전역 CSS |
+| 7 화면 짜임 | [07-screens.md](docs/07-screens.md) | 아키타입 · 조합 패턴 · 차림표 · 목록 · 화면 뼈대 · 업무 화면 |
+| 8 종이 · 문서 | [08-paper.md](docs/08-paper.md) | 문서 디자인 · 종이 문서 v8 · 문서 결 · 전문가 포털 |
+| 9 글 · 말투 | [09-voice.md](docs/09-voice.md) | 화면 글 종결 · AI 티 거르기 · 아이콘 |
+| 10 지키는 규칙 | [10-rules.md](docs/10-rules.md) | 계약과 검사 · 옮겨 쓰는 법 · 기반 규칙 |
+
+7장의 차림표 · 목록 · 화면 뼈대는 설명이 아니라 **강제**입니다. 치수가 `dist/q-design.nav.css` ·
+`list.css` · `screen.css` 에서 나오고, 제품은 그 사본을 받습니다.
+
+참고 자료(규칙이 아닌 조사 · 안내)는 [docs/reference/](docs/reference/) 에 둡니다.
+[참고 사이트 80곳](docs/reference/reference-sites.md) ·
+[기초 참고 사례](docs/reference/foundation-reference-study.md) ·
+[얼굴 화면](docs/reference/signature-screens.md) ·
+[시각 참고 자료](docs/reference/visual-reference.md) ·
+[목록 + 상세 시안 설명](docs/reference/context-review-prototype.md).
+
+작업 기록은 [docs/SESSION_LOG.md](docs/SESSION_LOG.md) 한 장에만 이어 씁니다. 진행 문서를 따로 만들지 않습니다.
+
+## 폴더
 
 | 폴더 | 내용 |
 |---|---|
-| `docs/` | 규칙 문서 10편. **여기서 시작하세요.** |
-| `dist/` | 프레임워크 무관 산출물. CSS 변수 파일 + JSON |
-| `source/` | 원본 파일 그대로. 문서가 애매하면 여기가 진실입니다 |
-| `preview/` | 브라우저로 열어 보는 살아 있는 견본 |
-| `tools/` | 산출물 재생성 스크립트 |
+| `docs/` | 정본 10장 · 참고 자료 · 작업 기록 |
+| `patterns/` | Q-Design 이 원본인 규칙(부품 · 기반 · 팔레트 · 업무 화면 · 화면 문구) |
+| `source/` | 제품 저장소에서 받아 온 원본 사본. 문서가 애매하면 여기가 진실입니다 |
+| `dist/` | 산출물. **생성물이니 손대지 않습니다** |
+| `preview/` | 브라우저로 여는 견본과 시안 |
+| `tools/` | 만들기 · 내보내기 · 검사 도구 |
+| `vendor/` | 아이콘 원본과 라이선스 |
 
-## 문서 순서
+## 만들기와 내보내기
 
-1. [브랜드 정체성](docs/01-brand-identity.md) · 왜 이렇게 생겼는가
-2. [색](docs/02-color.md) · 팔레트 4벌, 대비 규칙, 상태색 7종
-3. [타이포그래피](docs/03-typography.md) · 폰트 3종, 크기 사다리, **한글 자간 규칙**
-4. [간격과 레이아웃](docs/04-space-layout.md) · 4px 리듬, 셸 폭, 브레이크포인트
-5. [모양·깊이·모션](docs/05-shape-elevation-motion.md) · 10px 모서리, 그림자 2계열, 이징
-6. [컴포넌트](docs/06-components.md) · 부품 60여 종의 실측 스펙
-7. [전역 CSS](docs/07-global-css.md) · 유틸리티 클래스 55종, 키프레임, 인쇄
-8. [전문가 포털 테마](docs/08-expert-portal.md) · 각진 모서리를 쓰는 자매 테마
-9. [규칙과 계약](docs/09-rules-and-contracts.md) · **테스트가 강제하는 26가지**
-10. [옮겨 쓰기](docs/10-porting-guide.md) · 최소 도입부터 전면 이식까지
-11. [화면 구조](docs/11-screen-architecture.md) · **아키타입 5종**, 셸, 사이드바, 위젯 보드, 폭 고르기
-12. [조합 패턴](docs/12-composition-patterns.md) · 부품이 모여 만드는 덩어리 11가지
-13. [얼굴 화면](docs/13-signature-screens.md) · 로그인 입장 연출 5겹, 환영, 작별
-14. [시각 참고 자료](docs/14-visual-reference.md) · **실제 화면 22장**, 무엇을 볼지 안내
-15. [차림표 정본](docs/15-navigation-canon.md) · 🔴 **설명이 아니라 강제.** 세 제품이 같은 CSS 를 링크합니다
-16. [목록 정본](docs/16-list-canon.md) · 🔴 같은 성격. 표 · 항목 카드 · 배지 · 판
-17. [화면 뼈대 정본](docs/17-screen-canon.md) · 🔴 같은 성격. 요약 지표 · 구역 이름표 · **폭**
-18. [세 제품 정밀 감사](docs/18-audit-2026-09-09.md) · 접근성·자간·구조 실측
-19. [AI 티 스크리닝](docs/19-ai-cliche-screening.md) · 시각 클리셰를 찾아 정리한 **판단 자료**
-20. [문서 디자인](docs/20-document-design.md) · **문서 브랜드는 둘**. 제품 문서(Q-Atelier) vs 대외 문서(MedQraft)
-22. [네 제품 통일성 감사](docs/22-audit-family-2026-09-24.md) · 정본이 CSS 로 쥔 자리는 맞고, 안 쥔 자리에서 갈린다
-23. [MedQraft 종이 문서 양식 v8](docs/23-medqraft-paper-document-v8.md) · 회사 문서 양식 규격서 v8 에서 뽑은 판형 · 글자 · 표 · 쪽 넘김. 종이 위 금색 글자는 `#8C6C27`
-24. [문서 결 정본](docs/24-document-grain.md) · 🔴 **왼쪽 강조선을 없앤다**(2026-09-27 오너 결정). 결재는 가로 결재 길, 강조는 괘선 목록 · 금색 라벨 강조문 · 요약표, 열 많은 목록은 장부 표. 원칙 «현혹보다 깔끔하게 잘 보이게»
-
-문서 6번이 부품 하나하나의 스펙이라면, 11번과 12번은 **그것들을 어떻게 놓는가**입니다.
-토큰을 다 옮겨도 화면이 다르게 보인다면 거기를 보십시오.
-
-15~17번만 성격이 다릅니다. 다른 문서는 「이렇게 생겼습니다」를 적지만, 이 셋은
-`dist/q-design.{nav,list,screen}.css` 세 파일로 **화면을 실제로 묶습니다.**
-Q-Sonar 와 Q-Forge 가 그 파일을 그대로 링크하고, 각 저장소의 검사가 사본의
-지문을 대조합니다.
+입구는 하나입니다. 도구를 하나씩 돌리면 하나를 빠뜨리고, 그러면 일부만 갱신된 채 내보내집니다.
 
 ```bash
-node tools/extract-nav.mjs && node tools/extract-list.mjs && node tools/extract-screen.mjs
-node tools/sync.mjs --write     # 두 제품으로 내보냅니다
-node tools/shoot-rails.mjs      # 세 제품을 띄워 나란히 찍습니다
+node tools/extract-all.mjs --check   # 아무것도 쓰지 않고 어긋난 곳만 봅니다
+node tools/extract-all.mjs           # Q-Design 안의 산출물을 다시 만듭니다
+node tools/extract-all.mjs --sync    # 만든 뒤 제품 저장소로 내보냅니다
 ```
 
-## 「다 뽑혔나」
+맨 앞 걸음은 `source/` 를 제품 저장소의 **커밋된** 내용으로 맞추는 것입니다. 사본이 낡으면 그 뒤가 전부
+«낡은 것에서 정확히 파생된» 값이 되고, 그것은 실패가 아니라 초록불로 나옵니다. 그래서 맨 앞에 둡니다.
 
-주장이 아니라 실측으로 답하도록 감사 도구를 두었습니다.
+- **제품 저장소에 쓰는 길은 `--sync` 하나입니다.** 만들기 걸음은 Q-Design 안에만 씁니다.
+  화면 문구와 모노 글꼴의 제품 쓰기도 `--sync` 안에서만 합니다.
+- 내보낼 조각과 받는 제품은 `tools/sync-parts.mjs` 한 곳에 있습니다.
+- 사본을 쓰면 제품마다 **판 파일** `q-design.version.json` 도 함께 씁니다. 조각마다 본문 지문과,
+  그 내용이 Q-Design 에 들어온 커밋 · 날짜가 적힙니다. 제품의 시험이 «사본 지문 = 판 파일» 을 대조하므로
+  제품에서 사본을 손으로 고치면 그 제품의 시험이 웁니다.
+- 제품마다 어느 판을 받았는지, 뒤처진 조각이 있는지는 상태 명령으로 봅니다.
 
 ```bash
-node tools/audit-coverage.mjs
+node tools/status.mjs                # 제품마다 받은 판 · 뒤처진 조각 · 커밋 / 원격 여부
+node tools/sync.mjs                  # 쓰지 않고 사본 대조만
+node tools/sync.mjs --write --only=Q-Atelier   # 한 제품만 내보내기
 ```
 
-여섯 축(키프레임 · CSS 파일 · `<style>` 블록 파일 · `lib/design` · 브랜드 자산 · 폰트)을
-원본과 대조하고, 하나라도 빠지면 실패합니다. 감사 자신이 「빈 그물」이 아닌지도 먼저 시험합니다.
+🔴 제품 저장소의 main 푸시는 곧 운영 배포입니다. 내보낸 뒤 제품에서 커밋 · 푸시할 때 그 점을 먼저 생각합니다.
 
-현재: **누락 없음** (키프레임 46 · CSS 2 · style 파일 28 · lib/design 25 · 브랜드 자산 10 · 폰트 1)
+낱개로 부를 수 있는 도구입니다.
 
-> ⚠️ **키프레임은 46종이고 27종은 CSS 파일에 없습니다.**
-> 스타일이 인라인 객체 위주라 컴포넌트 안의 `<style>` 블록에 들어갑니다.
-> `globals.css` 만 읽으면 절반 이상을 놓칩니다.
-> 어디에 무엇이 있는지는 [`dist/inline-styles-index.md`](dist/inline-styles-index.md) 를 보십시오.
+```bash
+node tools/refresh-source.mjs      # source/ 가 제품 원본과 같은가 (--write 로 맞춤)
+node tools/audit-coverage.mjs      # «다 뽑았나» 를 숫자로 답합니다 (제품별 색 커버리지 포함)
+node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02-color.md 에 씀)
+node tools/extract-mqdoc.mjs       # 종이 문서 v8 값 (docs/08-paper.md 생성 구간에 씀)
+node tools/check-chars.mjs         # 긴 줄표 같은 금지 문자
+node tools/check-voice.mjs         # 화면 글의 종결
+node tools/check-components.mjs    # 산출물을 다시 만들어 저장본과 같은지 · 남긴 시험
+node tools/app-icons.mjs           # 네 제품 앱 아이콘 (견본 dist/app-icons/sheet.png)
+```
+
+🔴 **문서의 생성 구간을 손으로 고치지 않습니다.** `<!-- 생성:이름 -->` 과 `<!-- /생성:이름 -->` 사이는 도구가 씁니다
+(`docs/02-color.md` 의 표 세 벌, `docs/08-paper.md` 의 v8 값). 손으로 고치면 다음 실행에 덮어쓰거나 검사가 웁니다.
 
 ## 가장 빨리 쓰는 법
 
@@ -134,110 +112,50 @@ node tools/audit-coverage.mjs
 <link rel="stylesheet" href="dist/q-design.screen.css">
 ```
 
-그다음 `var(--qa-bg)` · `var(--qa-text)` · `var(--qa-champagne)` 로 칠하면 됩니다.
-다크가 기본이고, `<html data-theme="light">` 로 라이트가 됩니다.
-
-차림표 · 목록 · 요약 지표는 뒤의 세 파일이 통째로 그립니다. 클래스 이름과 뼈대는
-[15](docs/15-navigation-canon.md) · [16](docs/16-list-canon.md) ·
-[17](docs/17-screen-canon.md) 에 있습니다.
-
-폰트는 `source/fonts/PretendardVariable.woff2` 를 함께 실어야 같은 얼굴이 됩니다.
+그다음 `var(--qa-bg)` · `var(--qa-text)` · `var(--qa-champagne)` 로 칠합니다.
+다크가 기본이고 `<html data-theme="light">` 로 라이트가 됩니다.
+글꼴은 `source/fonts/PretendardVariable.woff2` 를 함께 실어야 같은 얼굴이 됩니다. 자세한 것은 [10장](docs/10-rules.md)의 옮겨 쓰는 법을 봅니다.
 
 ## 견본 보기
 
-`preview/index.html` 이 살아 있는 견본입니다. **원본 `globals.css` 를 그대로 링크**하므로
-소스가 바뀌면 견본도 함께 바뀝니다 (사본이 아닙니다).
-
-상대 경로로 원본 CSS 와 폰트를 참조하기 때문에 `file://` 로 열면 스타일이 안 붙습니다.
-저장소 루트에서 서버를 띄우십시오.
+견본은 상대 경로로 CSS 와 글꼴을 읽으므로 `file://` 로 열면 스타일이 붙지 않습니다. 저장소 뿌리에서 서버를 띄웁니다.
 
 ```bash
 python -m http.server 4800 --directory D:/Claude/Q-Design
 ```
 
-그다음 `http://localhost:4800/preview/index.html` 을 엽니다.
-오른쪽 위 버튼으로 다크와 라이트를 오갑니다.
+`http://localhost:4800/preview/index.html` 이 살아 있는 견본입니다(원본 CSS 를 그대로 링크합니다).
+`preview/components.html` 은 세 제품의 실제 부품을 같은 조건에서 비교합니다.
 
-담긴 것: 팔레트 스와치 · 상태색 7종 · 타이포 사다리 · **한글 자간 비교** ·
-버튼 7종 · 입력 · 배지 3층위 × 3크기 · KPI · 알림 3종 · 스켈레톤 시머 · 진행바 · 빈 상태.
+## 먼저 알아야 할 세 가지
 
-## 실제 화면 22장
+**rem 은 html 의 계산된 글꼴 크기를 기준으로 합니다.** html 이 16px 이면 `0.9375rem` 은 15px 입니다.
+body 가 14px 이어도 rem 기준은 바뀌지 않습니다. 치수를 환산할 때는 그 화면의 html 값을 먼저 봅니다.
 
-`preview/screens/` 에 Q-Atelier 를 띄워 찍은 화면이 있습니다.
-다크 16 · 라이트 4 · 토큰 견본 2.
+**한글에는 자간을 주지 않습니다.** 대문자 변환과 넓은 자간은 라틴 약어 라벨을 위한 장치입니다.
+한글에 걸면 낱글자로 흩어집니다. 자세한 것은 [3장](docs/03-typography.md)에 있습니다.
 
-허브 · 목록 · 상세 · 폼 · 현장 모드 같은 아키타입뿐 아니라
-점수 대시보드 · 교차 매트릭스 · 필터가 붙은 표 · 기한 추적처럼 **패턴이 다른 화면**도 담았습니다.
+**같은 사실을 두 곳에 두지 않습니다.** 사본은 반드시 어긋납니다. 값은 한 원본에서 도구로 뽑고,
+사본에는 원본 지문을 찍어 대조합니다. 이 저장소의 도구와 검사는 거의 모두 이 원칙에서 나왔습니다.
 
-**어느 이미지에서 무엇을 볼지는 [14번 문서](docs/14-visual-reference.md)에 있습니다.**
-「이런 화면을 만들고 싶다」로 찾아 들어가는 표를 앞에 두었습니다.
-[화면 구조](docs/11-screen-architecture.md) 문서의 내용도 전부 이 사진들에서 나왔습니다.
+## 옛 문서 번호
 
-## 산출물 다시 만들기
+2026-10-16 에 옛 문서 27편을 정본 10장으로 합쳤습니다. 제품 코드나 산출물 주석이 옛 번호를 가리키면 이 표로 찾습니다.
 
-명령은 **하나**입니다. 손으로 베끼지 마세요.
+| 옛 번호 | 지금 |
+|---|---|
+| 01 | 1장 |
+| 02 · 33 | 2장 |
+| 03 | 3장 |
+| 04 | 4장 |
+| 05 · 39 | 5장 |
+| 06 · 07 · 29 · 30 | 6장 |
+| 11 · 12 · 15 · 16 · 17 · 25 | 7장 |
+| 08 · 20 · 23 · 24 | 8장 |
+| 19 · 21 · 26 | 9장 |
+| 09 · 10 · 35 | 10장 |
+| 13 · 14 · 27 · 34 · 116 | 참고 자료 |
+| 그 밖의 번호(18 · 22 · 28 · 31 · 32 · 36 · 117 · 118 등) | 보관 |
 
-```bash
-node tools/extract-all.mjs --sync
-```
-
-순서가 중요합니다. 맨 앞이 `source/` 를 원본 저장소의 **커밋된** 내용으로 맞추는 단계입니다.
-사본이 낡으면 그 뒤가 전부 «낡은 것에서 정확히 파생된» 값이 되고, 그것은 실패가 아니라
-**초록불**로 나옵니다. 가장 위험한 실패 형태라 맨 앞에 두었습니다.
-
-```
-원본 사본 → 토큰 → 글꼴 → 대비 문서 → 문서 토큰 → 차림표·목록·뼈대 → 인라인 색인
-→ 금지 문자 → 세 제품으로 내보내기 → «정말 같아졌는지» 재확인
-```
-
-스크립트는 뽑기만 하지 않고 검증도 합니다. 다크와 라이트의 변수 집합이 어긋나거나,
-줄간격 사다리가 TS 와 CSS 사이에서 갈리거나, 팔레트 사본이 원본과 달라지거나,
-배지 높이의 지배 요인이 알려진 값과 달라지면 산출물을 쓰지 않고 실패합니다.
-
-아무것도 쓰지 않고 «어긋난 곳» 만 보려면 이렇게 합니다.
-
-```bash
-node tools/extract-all.mjs --check
-```
-
-낱개로 부를 수 있는 것들.
-
-```bash
-node tools/refresh-source.mjs      # source/ 가 원본과 같은가 (--write 로 맞춤)
-node tools/audit-coverage.mjs      # 「다 뽑았나」에 숫자로 답합니다 (제품별 색 커버리지 포함)
-node tools/extract-ramp.mjs        # Q 계열이 쓰는 샴페인 계단 (--write)
-node tools/converge.mjs Q-Forge    # 그 제품의 정본 밖 색을 모읍니다 (--write / --adopt)
-node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02 에 직접 씀)
-node tools/check-chars.mjs         # 긴 대시 등 금지 문자 검사 (자체 검출력 시험 포함)
-node tools/check-voice.mjs         # 화면 글의 종결 검사 (자체 검출력 시험 포함)
-node tools/verify-fonts.mjs        # 글꼴이 «이름만» 이 아니라 실제로 그려지는가
-node tools/app-icons.mjs           # 네 제품 앱 아이콘(홈 화면 · 파비콘). --write 로 제품 public 에 씀
-```
-
-> 🔑 **제품 앱 아이콘**(2026-09-25 오너 결정): 네 제품이 같은 크롬 붓 Q 를 쓰고 **금속 색 + 상징 틀**로
-> 갈립니다. Q-Atelier 은 · 원 / Q-Maison 샴페인 금 · 집 / Q-Carnet 구리 · 수첩 / Q-Sonar 강철 청 · 음파.
-> 견본은 `dist/app-icons/sheet.png`, 규칙은 `tools/app-icons.mjs` 머리에 있습니다.
-
-> 🔴 **문서의 숫자를 손으로 고치지 마십시오.** `docs/02-color.md` 의 표 세 벌은
-> `<!-- 생성:이름 -->` 표시 사이에 도구가 씁니다. 손으로 고치면 다음 실행에 덮어씁니다.
-
-## 이 시스템을 다룰 때 먼저 알아야 할 세 가지
-
-**rem은 html의 계산된 글꼴 크기를 기준으로 합니다.**
-html이 16px이면 `0.9375rem`은 15px입니다. body가 14px이어도 rem 기준은 바뀌지 않습니다.
-운영 메종에서 html 16px, body 14px를 확인했습니다. 치수를 환산할 때는 해당 화면의 html 값을 먼저 확인합니다.
-
-**한글에는 자간을 주지 않습니다.**
-대문자 변환과 넓은 자간은 라틴 약어 라벨을 위한 장치입니다. 한글에 걸면 낱글자로 흩어집니다.
-원본은 이걸 `labelTracking()` 함수로 강제합니다.
-
-**색은 두 곳에 살고, 계약이 둘을 묶고 있습니다.**
-`tokens.ts` 의 hex 와 `globals.css` 의 CSS 변수는 같은 사실의 사본입니다.
-한쪽만 고치면 테스트가 실패하도록 되어 있습니다. 옮겨 쓸 때도 이 구조를 유지하는 편이 낫습니다.
-현재 화면 문구는 `patterns/copy-rules.current.json`과 여기에 연결한 규칙 파일에서 관리합니다. 생성기는 `dist/q-design.copy-bindings.current.json`의 원문과 현재 출력 위치를 사용해 이미 적용된 문구도 다시 갱신합니다. 기존 `patterns/copy-rules.json` 및 `dist/q-design.copy-bindings.json`은 이전 검수를 재현하기 위한 스냅샷입니다.
-
-메종의 공용 필수 항목 안내는 `patterns/professional-maison-form-copy.json`으로 연결했습니다. 문구를 변경한 뒤 생성·연결·검수와 제품 빌드·배포를 거쳐 운영 화면에 반영합니다. 규칙 파일 수정만으로 운영 배포가 자동 완료되지는 않습니다.
-
-계약 검토 양식의 계약 구분·후속 조치 안내는 `patterns/professional-maison-contract-copy.json`으로 관리합니다. 신규 작성과 수정 화면이 같은 양식을 사용합니다. 현재 바인딩의 전체 연결은 `active-copy-bindings.mjs`가 검사하고, 각 안내 검증은 담당 파일의 실제 출력·원문·동작과 디자인 인자를 검사합니다. 과거 바인딩 스냅샷과 현재 출력 검사를 혼용하지 않습니다.
-
-문구만 수정한 경우에도 현재 소스의 전체 컴파일 결과와 디자인 인자 보존을 확인한 뒤 근거를 갱신합니다. 과거 계약 데이터 검사의 정본은 고정된 커밋에서 재현하며, 현재 소스를 되돌려 비교하는 어댑터의 변경 범위도 정확히 검사합니다. 다른 업무 코드나 미분류 인자를 포괄적으로 승인하지 않습니다.
+보관한 문서와 파일은 꼬리표 `archive/before-slim-2026-10-16` 에 있습니다. 작업 트리를 건드리지 않고 보려면
+`git worktree add ../qd-archive archive/before-slim-2026-10-16` 로 다른 폴더에 꺼냅니다.
