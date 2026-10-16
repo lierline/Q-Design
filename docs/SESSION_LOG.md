@@ -4,6 +4,23 @@
 
 ---
 
+## 메종 로그인 화면 지문으로 탐색 목록 다시 묶기 · 2026-10-16
+
+- 오래된 빨강의 원인이 하나였다. 전체 시험 셋(choice-glyph-revalidation · maison-current-navigation · release-history-refresh)과
+  명령 검사 셋(choice-glyph-revalidation · maison-back-navigation · maison-back-navigation-evidence)이 모두 같은 원인이다.
+  Q-Works 4d9361ae 가 `app/(auth)/login/login-form.tsx` 에서 효과 하나의 안쪽만 고쳤다(어느 알림 문구를 띄울지, 한 박자 뒤에).
+  메종 탐색 목록은 1e27ab26 때의 화면 원본 전체 지문을 묶어 두고 있었다.
+- 계약 안내 층(`maison-contract-hint-copy`)과 같은 길로 새 원본 층 `maison-login-session-notice` 를 붙였다.
+  4d9361ae 의 로그인 화면과 정확히 같을 때만 2aff4e23 원본으로 되돌리고, 다른 내용은 그대로 흘려 기존의 정확한 검사가 거절한다.
+  증명(`reviews/maison-login-session-notice.json`): 고친 덩어리는 45번째 줄의 3줄이 15줄로 바뀐 것 하나이고, 효과 하나의 몸통이다.
+  모양 인자 20개는 12줄 밀린 것 말고 그대로이고, 상위 이동 링크 자리는 전후 모두 0이다. 저장된 검토 파일은 한 글자도 바꾸지 않았다.
+- 결과: 전체 시험 760 중 760(새 층 시험 3 포함). 메종 명령 검사 62 중 60.
+  남은 둘은 이번 일 전부터 실패했다. `maison-style-review --check` 는 미분류 417 규칙 때문이고,
+  브라우저 검사 `verify-maison-prep-table` 은 선택 목록에서 End 바로 뒤 Enter 가 첫 줄을 고르는 흔들림이다(한 번 통과, 네 번 실패).
+- 🔴 따로 본 것: `maison-style-review --check` 는 미분류가 0인지만 보고, 보고서가 낡았는지는 보지 않는다.
+  지금 생성기를 그대로 돌리면 미분류 1,164개, 기록 767개가 저장본과 다르다(원본 지문이 다른 파일은 로그인 화면 하나뿐).
+  저장본은 층을 거쳐 유지되는 것으로 보이며, 이번 일에서는 손대지 않았다.
+
 ## 장부형 패턴 층 증명 사슬 다시 묶기 · 2026-10-16
 
 - 10-15 패턴 층(Q-Atelier f6fcc65b · 이 저장소 ecc29c5)이 원본 15개(덩어리 69개)를 고쳐 증명 사슬 시험 43개가 빨강이 됐다.

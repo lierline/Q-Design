@@ -11,6 +11,8 @@ const steps=[
   ['--test','tools/maison-attachment-hint-copy.test.mjs'],
   ['tools/maison-contract-hint-copy.mjs','--check'],
   ['--test','tools/maison-contract-hint-copy.test.mjs'],
+  ['tools/maison-login-session-notice.mjs','--check'],
+  ['--test','tools/maison-login-session-notice.test.mjs'],
   ['tools/maison-docx-remaining-fields.mjs','--check'],
   ['--test','tools/maison-docx-remaining-fields.test.mjs'],
   ['tools/maison-action-result-data.mjs','--check'],
