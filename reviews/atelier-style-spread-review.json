@@ -282,9 +282,9 @@
     },
     {
       "path": "app/(app)/approve/client.tsx",
-      "line": 184,
-      "sourceHash": "9d37dc88ffae0a43e912a2cc74573d4eec4f29e50a3191126b4a0967e71176fc",
-      "argumentHash": "a89d574b19a19e86a99bcd3bf7ee0151c3cac3df343f278bb52975084155c9a6",
+      "line": 194,
+      "sourceHash": "11fad549e89077125f25fa4519dc51d0f47ef8129365bf00c1cca160a4a95d07",
+      "argumentHash": "75510109323ba9721cea8790c9e9b7522318f08c5c3c757e50c22129bb669fb9",
       "value": "ctx.rejectBody",
       "decision": "business-data",
       "ruleId": "exact-reviewed-data-spread",
@@ -292,8 +292,8 @@
       "evidence": [
         {
           "path": "app/(app)/approve/client.tsx",
-          "line": 182,
-          "hash": "9d37dc88ffae0a43e912a2cc74573d4eec4f29e50a3191126b4a0967e71176fc"
+          "line": 192,
+          "hash": "11fad549e89077125f25fa4519dc51d0f47ef8129365bf00c1cca160a4a95d07"
         }
       ],
       "consumer": "body = action === 'approve'\n        ? ctx.body\n        : { ...ctx.rejectBody, review_comment: comment.trim() || undefined, approve_comment: undefined };"
@@ -1381,7 +1381,7 @@
     {
       "path": "app/(app)/lots/[id]/client.tsx",
       "line": 134,
-      "sourceHash": "ebbf960a7e73d2d1edfebff09dad04aad278fd1355382def329245e69690c7ff",
+      "sourceHash": "e472645e928d723802158b8a26b3a71d535f07b2828e177813dd19825c029cdb",
       "argumentHash": "6a70961683706cc0a3f9f95451edf8c547ba6a65dd00b0bb7a7dc339845758c9",
       "value": "(nextStatus ? { status: nextStatus } : {})",
       "decision": "business-data",
@@ -1391,7 +1391,7 @@
         {
           "path": "app/(app)/lots/[id]/client.tsx",
           "line": 131,
-          "hash": "ebbf960a7e73d2d1edfebff09dad04aad278fd1355382def329245e69690c7ff"
+          "hash": "e472645e928d723802158b8a26b3a71d535f07b2828e177813dd19825c029cdb"
         }
       ],
       "consumer": "{\n        method: 'PATCH',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ notes: notes.trim() || null, ...(nextStatus ? { status: nextStatus } : {}) }),\n      }"
@@ -2857,7 +2857,7 @@
     {
       "path": "app/(app)/suppliers/[id]/client.tsx",
       "line": 156,
-      "sourceHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
+      "sourceHash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76",
       "argumentHash": "9cdda8923fa133162bf3427562b66fdf725b0a55969696c70f78c27bcf444f9c",
       "value": "Object.fromEntries(OUT_TEXT.map((k) => [k, initial[k] ?? '']))",
       "decision": "business-data",
@@ -2867,7 +2867,7 @@
         {
           "path": "app/(app)/suppliers/[id]/client.tsx",
           "line": 155,
-          "hash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009"
+          "hash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76"
         }
       ],
       "consumer": "useState<Record<string, string>>(() => ({\n    ...Object.fromEntries(OUT_TEXT.map((k) => [k, initial[k] ?? ''])),\n    outsource_validation_needed: yn(initial.outsource_validation_needed),\n    outsource_in_license: yn(initial.outsource_in_license),\n    outsource_control_level: initial.outsource_control_level ?? '',\n    qa_agreement_signed_on: initial.qa_agreement_signed_on ?? '',\n    qa_agreement_expires_on: initial.qa_agreement_expires_on ?? '',\n  }))"
@@ -2875,7 +2875,7 @@
     {
       "path": "app/(app)/suppliers/[id]/client.tsx",
       "line": 163,
-      "sourceHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
+      "sourceHash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76",
       "argumentHash": "459cedb8e0c68ad597b4df333f7a3185bd9c67c4bee4f5c93a1c2e615723bf71",
       "value": "o",
       "decision": "business-data",
@@ -2885,7 +2885,7 @@
         {
           "path": "app/(app)/suppliers/[id]/client.tsx",
           "line": 163,
-          "hash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009"
+          "hash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76"
         }
       ],
       "consumer": "setOut((o) => ({ ...o, [k]: e.target.value }))"
@@ -2893,7 +2893,7 @@
     {
       "path": "app/(app)/suppliers/[id]/client.tsx",
       "line": 198,
-      "sourceHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
+      "sourceHash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76",
       "argumentHash": "d44e8304b618fdc70bdb6a4d1b36cd3bbebf105b5d75065d8174c60e5838405d",
       "value": "Object.fromEntries(OUT_TEXT.map((k) => [k, out[k].trim() || null]))",
       "decision": "business-data",
@@ -2903,7 +2903,7 @@
         {
           "path": "app/(app)/suppliers/[id]/client.tsx",
           "line": 184,
-          "hash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009"
+          "hash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76"
         }
       ],
       "consumer": "{\n      method: 'PATCH',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({\n        name: name.trim(),\n        supplier_type: supType,\n        category: category.trim() || undefined,\n        contact_email: email.trim() || undefined,\n        contact_phone: phone.trim() || undefined,\n        address: address.trim() || undefined,\n        biz_no: bizNo.trim() || null,\n        approval_status: status,\n        notes: notes.trim() || undefined,\n        is_outsourced_process: isOut,\n        ...Object.fromEntries(OUT_TEXT.map((k) => [k, out[k].trim() || null])),\n        outsource_validation_needed: ynBack(out.outsource_validation_needed),\n        outsource_in_license: ynBack(out.outsource_in_license),\n        outsource_control_level: out.outsource_control_level || null,\n        qa_agreement_signed_on: out.qa_agreement_signed_on || null,\n        qa_agreement_expires_on: out.qa_agreement_expires_on || null,\n      }),\n    }"
@@ -2983,7 +2983,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 111,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "0cf29b1cb32764234d0c33adbf63090ada779bce50e8b6d0a495efeb536547da",
       "value": "s",
       "decision": "business-data",
@@ -2993,7 +2993,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 111,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "setSubs((s) => ({ ...s, [key]: false }))"
@@ -3001,7 +3001,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 124,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "40cb4eac61ce62b9cc1408a61951faea4c3ef26b13bb65c4c9ad1e1a321cb674",
       "value": "d",
       "decision": "business-data",
@@ -3011,7 +3011,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 124,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "(d) => (d[dateKey]?.submitted ? d : { ...d, [dateKey]: { ...d[dateKey], submitted: todayYmd() } })"
@@ -3019,7 +3019,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 124,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "7091747d73fd17898f537a96742db288a863ce9b9db4d9856446c6c52436d04d",
       "value": "d[dateKey]",
       "decision": "business-data",
@@ -3029,7 +3029,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 124,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "d[dateKey]?.submitted ? d : { ...d, [dateKey]: { ...d[dateKey], submitted: todayYmd() } }"
@@ -3037,7 +3037,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 126,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "94c067d495a5ff5aa212ba823ba62bdd1c028bc7e39e1531e4e3a43784afc35e",
       "value": "s",
       "decision": "business-data",
@@ -3047,7 +3047,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 126,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "return { ...s, [key]: next };"
@@ -3055,7 +3055,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 130,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "110e4b97a28369e40dff28a8423cbc161c402cbef7b6ad7bdfd3ddaf3ad1c6fa",
       "value": "d",
       "decision": "business-data",
@@ -3065,7 +3065,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 130,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "setSubDates((d) => ({ ...d, [dateKey]: { ...d[dateKey], [field]: value || null } }))"
@@ -3073,7 +3073,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 130,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "52ed06723042f2e97f6d9858f263eceda74f770b8b3f79cb34f4fe97b16f03cd",
       "value": "d[dateKey]",
       "decision": "business-data",
@@ -3083,7 +3083,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 130,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "({ ...d, [dateKey]: { ...d[dateKey], [field]: value || null } })"
@@ -3091,7 +3091,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 145,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "f2a9b24049c01ad6adb99a8f2be8708f4b4b9d9c41e8bacb86bb097dcfd33327",
       "value": "subs",
       "decision": "business-data",
@@ -3101,7 +3101,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 138,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "{\n        method: 'PATCH',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({\n          product_id: productId || null,\n          pi_components: pi,\n          package_levels: pkgs.filter((p) => p.udi_di.trim()),\n          ...subs,\n          not_applicable_markets: naMarkets,\n          submission_dates: subDates,\n          notes: notes.trim() || null,\n          ...(nextStatus ? { status: nextStatus, change_reason: reason.trim() } : {}),\n        }),\n      }"
@@ -3109,7 +3109,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 149,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "cdab0b479951bb43febc50fe86acd42e9409c4a0bd5576e613455eb819e8bbbf",
       "value": "(nextStatus ? { status: nextStatus, change_reason: reason.trim() } : {})",
       "decision": "business-data",
@@ -3119,7 +3119,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 138,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "{\n        method: 'PATCH',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({\n          product_id: productId || null,\n          pi_components: pi,\n          package_levels: pkgs.filter((p) => p.udi_di.trim()),\n          ...subs,\n          not_applicable_markets: naMarkets,\n          submission_dates: subDates,\n          notes: notes.trim() || null,\n          ...(nextStatus ? { status: nextStatus, change_reason: reason.trim() } : {}),\n        }),\n      }"
@@ -3127,7 +3127,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 173,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "81d497e325167a33d32ce4d22f4e9b58ddcee692a67b345fbd4afa2b4ab4d73d",
       "value": "row",
       "decision": "business-data",
@@ -3137,7 +3137,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 173,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "(row, idx) => (idx === i ? { ...row, ...patch } : row)"
@@ -3145,7 +3145,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 173,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "b93b5b0adbf72398953a34a168ceccececd62b1cbf1433a2bf8890b161bc6a9b",
       "value": "patch",
       "decision": "business-data",
@@ -3155,7 +3155,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 173,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "(row, idx) => (idx === i ? { ...row, ...patch } : row)"
@@ -3163,7 +3163,7 @@
     {
       "path": "app/(app)/udi/[id]/client.tsx",
       "line": 225,
-      "sourceHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "sourceHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
       "argumentHash": "ff4e8843614cf6c24647645fdcd963a6acac2e90f235df34b8c3dac384ff97b9",
       "value": "p",
       "decision": "business-data",
@@ -3173,7 +3173,7 @@
         {
           "path": "app/(app)/udi/[id]/client.tsx",
           "line": 225,
-          "hash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f"
+          "hash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b"
         }
       ],
       "consumer": "setPi((p) => ({ ...p, [m.key]: next }))"
@@ -14451,8 +14451,8 @@
     {
       "index": 134,
       "path": "app/(app)/lots/[id]/client.tsx",
-      "line": 339,
-      "sourceHash": "ebbf960a7e73d2d1edfebff09dad04aad278fd1355382def329245e69690c7ff",
+      "line": 340,
+      "sourceHash": "e472645e928d723802158b8a26b3a71d535f07b2828e177813dd19825c029cdb",
       "value": "choiceLook(status === s)",
       "consumer": "key={s} type=\"button\" aria-pressed={status === s} onClick={() => { if (!locked) setStatus(s); }} disabled={locked} style={{ padding: \"var(--qd-atelier-padding-e3da42537c)\", fontFamily: QDScale.family.ui, fontSize: QDScale.font[12], ...choiceLook(status === s), cursor: locked ? 'default' : 'pointer', opacity: locked ? \"var(--qd-atelier-opacity-b575b8dd07)\" : \"var(--qd-atelier-opacity-dc43f5a623)\" }}",
       "decision": "unresolved-visual-spread"

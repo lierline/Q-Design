@@ -6,6 +6,10 @@ import {hash} from './style-arguments-core.mjs';import {PARTS} from './sync-part
 import {createRequire} from 'node:module';import {validateTypographyLinks} from './typography-links-core.mjs';
 import {beforeAtelierProfessionalReview,historicalAtelierCopyEvidence} from './atelier-professional-copy-revalidation.mjs';
 import {historicalChoiceGlyphEvidence} from './choice-glyph-revalidation.mjs';
+import {beforeLedgerSourceIfLater} from './atelier-ledger-pattern-sources.mjs';
+// The ledger pattern layer (2026-10-15) later inserted its own recipe. Each historical check sees the
+// exact earlier foundation; the live pair is checked separately.
+const beforeLedgerFoundation=(file,code)=>file==='dist/q-design.foundation.atelier.css'?beforeLedgerSourceIfLater(file,code,'design'):file==='app/q-design.foundation.css'?beforeLedgerSourceIfLater(file,code,'product'):code;
 const root='D:/Claude/Q-Design',manifest=root+'/reviews/global-typography-revalidation.json',serialize=j=>JSON.stringify(j,null,2)+'\n';
 const beforeProductRefs={maison:'09280b6a07c6d34bba4bc2e63c7656d45279e6cf',carnet:'69163745ec69a2cbcf6af82e3e4b23f456259ced'};
 const productRoots={atelier:'D:/Claude/Q-Atelier',maison:'D:/Claude/Q-Works',carnet:'D:/Claude/DHR'};
@@ -15,7 +19,8 @@ export function inspectTypographySources(ref){
   const layer=fs.readFileSync(root+'/patterns/typography-links.css','utf8'),sources=[];
   validateTypographyLinks(fs.readFileSync(root+'/patterns/foundation.css','utf8'),layer,createRequire('D:/Claude/Q-Atelier/package.json')('postcss'));
   for(const part of PARTS.filter(p=>/^dist\/q-design\.foundation\.(atelier|maison|carnet)\.css$/.test(p.src))){
-    const before=show(part.src),after=fs.readFileSync(root+'/'+part.src,'utf8'),target=Object.values(part.to)[0],copy=fs.readFileSync(target,'utf8');
+    const liveCentral=fs.readFileSync(root+'/'+part.src,'utf8'),target=Object.values(part.to)[0],liveCopy=fs.readFileSync(target,'utf8');assert.deepEqual(copyProblems(part,liveCentral,liveCopy),[]);
+    const atelier=part.src==='dist/q-design.foundation.atelier.css',before=show(part.src),after=atelier?beforeLedgerFoundation(part.src,liveCentral):liveCentral,copy=atelier?beforeLedgerFoundation('app/q-design.foundation.css',liveCopy):liveCopy;
     assert.equal(after.replaceAll('\r\n','\n'),before.trimEnd()+'\n\n'+layer.replaceAll('\r\n','\n').trimEnd()+'\n');assert.deepEqual(copyProblems(part,after,copy),[]);
     sources.push({path:part.src,beforeHash:hash(before),afterHash:hash(after)});
     const product=/\.foundation\.(\w+)\.css$/.exec(part.src)[1];
@@ -44,6 +49,7 @@ export function beforeGlobalTypographyReview(name,current){
 }
 export function beforeGlobalTypographySource(file,code){
   if(!['dist/q-design.foundation.atelier.css','dist/q-design.foundation.maison.css','dist/q-design.foundation.carnet.css','app/q-design.foundation.css','maison/app/q-design.foundation.css','carnet/app/q-design.foundation.css'].includes(file)||!fs.existsSync(manifest))return code;
+  code=beforeLedgerFoundation(file,code);
   const saved=JSON.parse(fs.readFileSync(manifest,'utf8')),source=saved.sources.find(s=>s.path===file);if(hash(code)===source.beforeHash)return code;
   assert.deepEqual(inspectTypographySources(saved.ref),saved.sources);assert.equal(hash(code),source.afterHash);
   const product=file.startsWith('maison/')?'maison':file.startsWith('carnet/')?'carnet':'atelier';

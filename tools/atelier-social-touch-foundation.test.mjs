@@ -2,9 +2,11 @@ import fs from 'node:fs';import test from 'node:test';import assert from 'node:a
 import {beforeSocialFoundation,beforeSocialDist,beforeSocialCopy,socialTouchAppendix} from './atelier-social-touch-foundation.mjs';
 import {beforeSocialTouchReview} from './atelier-social-touch-review-inverse.mjs';
 import {hash} from './style-arguments-core.mjs';
+import {beforeLedgerSource} from './atelier-ledger-pattern-sources.mjs';
 test('only the exact social touch appendix and its generated copy may change',()=>{
  const root='D:/Claude/Q-Design',recipe=fs.readFileSync(root+'/patterns/foundation/atelier.css','utf8'),dist=fs.readFileSync(root+'/dist/q-design.foundation.atelier.css','utf8'),copy=fs.readFileSync('D:/Claude/Q-Atelier/app/q-design.foundation.css','utf8');
- assert.equal(recipe.replaceAll('\r\n','\n'),beforeSocialFoundation(recipe)+socialTouchAppendix);
+ // The ledger pattern layer (2026-10-15) later inserted its own recipe before this appendix.
+ assert.equal(beforeLedgerSource('patterns/foundation/atelier.css',recipe,'design'),beforeSocialFoundation(recipe)+socialTouchAppendix);
  assert.notEqual(beforeSocialDist(dist),dist);assert.notEqual(beforeSocialCopy(copy),copy);
  assert.throws(()=>beforeSocialFoundation(recipe.replace('min-width: var(--qd-control-height); min-height','min-width: 48px; min-height')));
  assert.throws(()=>beforeSocialDist(dist+'\n.other { color: red; }'));

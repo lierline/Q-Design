@@ -1,4 +1,6 @@
 import {beforeExpertFontReview} from './atelier-expert-font-evidence.mjs';
+// The newer ledger pattern source is read back to the exact source this historical revalidation checked.
+import {beforeLedgerSourceIfLater} from './atelier-ledger-pattern-sources.mjs';
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {createRequire} from 'node:module';
 import {responsiveProfilePath as profileGridPath,responsiveProfileSources as profileGridSources,normalizeResponsiveProfile as normalizeProfileGrid,responsiveDesignRef as ref} from './atelier-profile-responsive-source.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
@@ -21,7 +23,7 @@ for(const name of [...new Set(names)]){
    for(const c of row.consumerContext??[]){const old=contexts(bodies.before,c.line,c.text);assert(old.length);assert.deepEqual(contexts(bodies.after,c.line,c.text),old,'Changed complete consumer AST cannot inherit a review');}
    row.sourceHash=bodies.afterHash;records++;
   }
-  for(const e of row.evidence??[])if(e.path===profileGridPath){assert.equal(e.hash,bodies.beforeHash);assert.equal(hash(row.path===profileGridPath?bodies.after:read(repo+'/'+row.path)),row.sourceHash);const old=bodies.before.split('\n')[e.line-1],next=bodies.after.split('\n')[e.line-1];assert(old!==undefined&&old===next,'Changed evidence line requires fresh review');e.hash=bodies.afterHash;evidence++;}
+  for(const e of row.evidence??[])if(e.path===profileGridPath){assert.equal(e.hash,bodies.beforeHash);assert.equal(hash(row.path===profileGridPath?bodies.after:beforeLedgerSourceIfLater(row.path,read(repo+'/'+row.path))),row.sourceHash);const old=bodies.before.split('\n')[e.line-1],next=bodies.after.split('\n')[e.line-1];assert(old!==undefined&&old===next,'Changed evidence line requires fresh review');e.hash=bodies.afterHash;evidence++;}
   if(JSON.stringify(row)!==JSON.stringify(before.records[index]))changes.push({index,before:before.records[index],after:row});
  }
  function metadata(value,location){

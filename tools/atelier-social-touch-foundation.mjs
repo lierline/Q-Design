@@ -2,6 +2,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';
 import {hash} from './style-arguments-core.mjs';
 import {beforeGlobalTypographySource} from './global-typography-evidence.mjs';
+import {beforeLedgerSource} from './atelier-ledger-pattern-sources.mjs';
 import {readRuntimeValues,resolveAtelierMedia} from './atelier-runtime-values.mjs';
 import {readOutputValues,resolveAtelierOutputCss} from './atelier-output-values.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='12a8e0dfbc52455b360f7025d7b8a5860d0e72d8',productRef='4e2ab6a4ab31dcb4d03e37b0c232923bff7d3c01';
@@ -16,7 +17,7 @@ export const socialTouchAppendix=`
   .qa-auth-form-wrap a.qa-social-link::after { inset: var(--qd-space-0); }
 }
 `;
-export function beforeSocialFoundation(source){source=normalize(source);const before=old('patterns/foundation/atelier.css');if(source===before)return before;assert(source===before+socialTouchAppendix,'Only the exact social touch appendix is permitted');return before;}
+export function beforeSocialFoundation(source){source=normalize(beforeLedgerSource('patterns/foundation/atelier.css',source,'design'));const before=old('patterns/foundation/atelier.css');if(source===before)return before;assert(source===before+socialTouchAppendix,'Only the exact social touch appendix is permitted');return before;}
 export function beforeSocialDist(source){
  source=normalize(source);const before=old('dist/q-design.foundation.atelier.css');if(source===before)return before;
  source=beforeGlobalTypographySource('dist/q-design.foundation.atelier.css',source);

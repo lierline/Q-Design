@@ -1,0 +1,772 @@
+{
+  "version": 1,
+  "refs": {
+    "product": {
+      "before": "61ddd606f1c222c23175a8858e76ce6df75082dd",
+      "after": "f6fcc65b7206d9620671a1ab514b10f5804a93c5"
+    },
+    "design": {
+      "before": "9f9fff5db9af9dab042a9463d35d77c6348c81b9",
+      "after": "ecc29c540540a29bdcfbc283dffee42c656a7945"
+    }
+  },
+  "scope": "Exact whole-line edits of one Q-Atelier product commit and its Q-Design canon commit. Positions and fingerprints of unedited lines may move; nothing inside an edit inherits an earlier review.",
+  "sources": [
+    {
+      "repo": "product",
+      "path": "app/(app)/approve/client.tsx",
+      "beforeHash": "9d37dc88ffae0a43e912a2cc74573d4eec4f29e50a3191126b4a0967e71176fc",
+      "afterHash": "11fad549e89077125f25fa4519dc51d0f47ef8129365bf00c1cca160a4a95d07",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 19,
+          "beforeCount": 0,
+          "afterLine": 19,
+          "afterCount": 3,
+          "start": 1307,
+          "before": "",
+          "after": "// 배치(2026-10-15 오너 결정 · 용어집 시안 C «목록 + 상세»): 넓으면 왼쪽 안건 목록 · 오른쪽 고른 건(결재 길 · 파일 · 승인 · 반려),\n//   좁으면(폰) 목록 → 고른 건(← 목록) 한 칸씩. 처리한 건은 목록에서 빠지고 같은 자리의 다음 건이 열린다(연속 검토).\n//   종전(2026-09-28)엔 목록 줄 아래 그 자리에서 펼쳤다.\n"
+        },
+        {
+          "beforeLine": 40,
+          "beforeCount": 0,
+          "afterLine": 43,
+          "afterCount": 1,
+          "start": 2576,
+          "before": "",
+          "after": "import { ListDetail, ListDetailHead, ListDetailNav, ListDetailRow } from '@/lib/design/components';\n"
+        },
+        {
+          "beforeLine": 109,
+          "beforeCount": 0,
+          "afterLine": 113,
+          "afterCount": 2,
+          "start": 5398,
+          "before": "",
+          "after": "  // 좁은 화면(한 칸)에서 보일 칸: 안건 목록 · 고른 건\n  const [view, setView] = useState<'list' | 'detail'>('list');\n"
+        },
+        {
+          "beforeLine": 148,
+          "beforeCount": 1,
+          "afterLine": 154,
+          "afterCount": 3,
+          "start": 6658,
+          "before": "  const current = items[index];\n",
+          "after": "  // 맨 끝 건을 처리하면 자리가 하나 앞으로 온다(앞에 남은 건이 있는데 «모두 처리했습니다» 가 뜨지 않게)\n  const at = Math.min(index, items.length - 1);\n  const current = items[at];\n"
+        },
+        {
+          "beforeLine": 151,
+          "beforeCount": 3,
+          "afterLine": 159,
+          "afterCount": 5,
+          "start": 6879,
+          "before": "  const next = () => {\n    resetForm();\n    setIndex((i) => i + 1);\n",
+          "after": "  /** 다른 건을 연다: 열려 있던 서명 칸은 닫는다 */\n  const pick = (i: number) => {\n    if (i !== at) resetForm();\n    setIndex(i);\n    setView('detail');\n"
+        },
+        {
+          "beforeLine": 247,
+          "beforeCount": 1,
+          "afterLine": 257,
+          "afterCount": 1,
+          "start": 9862,
+          "before": "  if (items.length === 0 || index >= items.length) {\n",
+          "after": "  if (items.length === 0 || !current) {\n"
+        },
+        {
+          "beforeLine": 272,
+          "beforeCount": 1,
+          "afterLine": 282,
+          "afterCount": 0,
+          "start": 11002,
+          "before": "  const hasNext = index < items.length - 1;\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 282,
+          "beforeCount": 1,
+          "afterLine": 291,
+          "afterCount": 1,
+          "start": 11399,
+          "before": "    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: QDScale.space[4] }}>\n",
+          "after": "    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingBottom: QDScale.space[4] }}>\n"
+        },
+        {
+          "beforeLine": 322,
+          "beforeCount": 6,
+          "afterLine": 331,
+          "afterCount": 0,
+          "start": 13468,
+          "before": "          {/* 다음 건: 뒤에 안건이 있을 때만(마지막 건에서 넘기면 «모두 처리했습니다» 가 떠 뜻이 틀렸다) */}\n          {hasNext && (\n            <button type=\"button\" onClick={next} disabled={busy} style={{ ...textLinkStyle(), marginTop: QDScale.space[1] }}>\n              다음 건 <ChevronRight size={QDPresentation.iconSize[12]} aria-hidden=\"true\" style={{ verticalAlign: 'middle' }} />\n            </button>\n          )}\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 406,
+          "beforeCount": 0,
+          "afterLine": 409,
+          "afterCount": 6,
+          "start": 16830,
+          "before": "",
+          "after": "  const nameOf = (it: TodayQueueItem) => it.headline?.name ?? it.title;\n  const authorOf = (it: TodayQueueItem) => (it.route ?? []).find((st) => st.label === '작성');\n  const cur = authorOf(current);\n  const prevItem = at > 0 ? items[at - 1] : undefined;\n  const nextItem = at < items.length - 1 ? items[at + 1] : undefined;\n\n"
+        },
+        {
+          "beforeLine": 407,
+          "beforeCount": 13,
+          "afterLine": 416,
+          "afterCount": 15,
+          "start": 17165,
+          "before": "    <div style={containerStyle()}>\n      <InboxHead count={`${items.length}건`} />\n\n      {/* 목록 + 펼치기(오너 결정 2026-09-28): 안건마다 한 줄(장부 결 · 괘선), 고른 건만 그 자리에서 펼쳐 결재한다.\n          종전엔 한 번에 한 건만 보여 여러 건이 와도 나머지 제목을 «다음 건» 을 눌러야 알았고, 한 건에 화면 높이를 다 썼다.\n          제목은 20px 에서 15px 로(오빠 지적 「폰에서 글씨가 크다」 · 2026-09-28). */}\n      <ul aria-label=\"결재할 안건\" style={{ listStyle: 'none', margin: \"var(--qd-space-0)\", padding: \"var(--qd-space-0)\", alignSelf: 'stretch' }}>\n        {items.map((it, i) => {\n          const open = i === index;\n          const itAuthor = (it.route ?? []).find((st) => st.label === '작성');\n          const name = it.headline?.name ?? it.title;\n          const meta = itAuthor?.name ? `요청 ${itAuthor.name}` : it.subtitle;\n          const when = itAuthor?.at ? relative(itAuthor.at) : '';\n",
+          "after": "    <div style={containerStyle(true)}>\n      {/* 목록 + 상세가 위 괘선을 스스로 긋는다(두 겹이 되지 않게 머리 괘선은 뺀다) */}\n      <InboxHead count={`${items.length}건`} rule={false} />\n\n      <ListDetail\n        view={view}\n        onBack={() => setView('list')}\n        detailKey={current.id}\n        listLabel=\"결재할 안건\"\n        detailLabel=\"고른 안건\"\n        list={items.map((it, i) => {\n          const author = authorOf(it);\n          const meta = author?.name ? `요청 ${author.name}` : it.subtitle;\n          const when = author?.at ? relative(author.at) : '';\n          const rest = [meta, when].filter(Boolean).join(' · ');\n"
+        },
+        {
+          "beforeLine": 421,
+          "beforeCount": 13,
+          "afterLine": 432,
+          "afterCount": 7,
+          "start": 17782,
+          "before": "            <li key={it.id} style={{ borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}` }}>\n              <button\n                type=\"button\"\n                onClick={() => { if (!open) { resetForm(); setIndex(i); } }}\n                aria-expanded={open}\n                disabled={busy && !open}\n                style={rowStyle(open)}\n              >\n                <span style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: QDScale.space[3] }}>\n                  <span style={{ fontSize: QDScale.font[15], fontWeight: \"var(--qd-font-weight-semibold)\", color: T.text, lineHeight: QDScale.leading.snug, overflowWrap: 'anywhere' }}>{name}</span>\n                  {when && <span style={{ flexShrink: 0, fontSize: QDScale.font[12], color: T.subtle }}>{when}</span>}\n                </span>\n                <span style={{ display: 'flex', gap: QDScale.space[2], alignItems: 'baseline', fontSize: QDScale.font[12], color: T.subtle, lineHeight: QDScale.leading.relaxed }}>\n",
+          "after": "            <ListDetailRow\n              key={it.id}\n              selected={i === at}\n              onSelect={() => pick(i)}\n              title={nameOf(it)}\n              sub={\n                <>\n"
+        },
+        {
+          "beforeLine": 435,
+          "beforeCount": 5,
+          "afterLine": 440,
+          "afterCount": 5,
+          "start": 18097,
+          "before": "                  {meta && <span>{meta}</span>}\n                </span>\n              </button>\n              {open && expandedBody}\n            </li>\n",
+          "after": "                  {it.headline?.code && rest ? ' · ' : ''}\n                  {rest}\n                </>\n              }\n            />\n"
+        },
+        {
+          "beforeLine": 442,
+          "beforeCount": 1,
+          "afterLine": 447,
+          "afterCount": 19,
+          "start": 18257,
+          "before": "      </ul>\n",
+          "after": "        detail={\n          <article>\n            <ListDetailHead\n              kicker={current.headline?.code ? <span className=\"is-code\">{current.headline.code}</span> : undefined}\n              position={`${at + 1} / ${items.length}`}\n              title={nameOf(current)}\n              aside={[cur?.name ? `요청 ${cur.name}` : current.subtitle, cur?.at ? relative(cur.at) : ''].filter(Boolean).join(' · ')}\n            />\n            {expandedBody}\n            <ListDetailNav\n              prev={prevItem ? nameOf(prevItem) : undefined}\n              next={nextItem ? nameOf(nextItem) : undefined}\n              onPrev={() => pick(at - 1)}\n              onNext={() => pick(at + 1)}\n              disabled={busy}\n            />\n          </article>\n        }\n      />\n"
+        },
+        {
+          "beforeLine": 453,
+          "beforeCount": 17,
+          "afterLine": 476,
+          "afterCount": 0,
+          "start": 19409,
+          "before": "/** 목록 한 줄: 상자 없이 괘선 사이 글만(장부 결) */\nfunction rowStyle(open: boolean): React.CSSProperties {\n  return {\n    display: 'flex',\n    flexDirection: 'column',\n    gap: QDScale.space[1],\n    width: \"var(--qd-atelier-width-b7aa1ec004)\",\n    textAlign: 'left',\n    background: 'transparent',\n    border: 'none',\n    padding: `${QDScale.space[3]} 0`,\n    minHeight: \"var(--qd-atelier-min-height-ab5a9c2852)\",\n    fontFamily: QDScale.family.ui,\n    cursor: open ? 'default' : 'pointer',\n  };\n}\n\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 471,
+          "beforeCount": 1,
+          "afterLine": 477,
+          "afterCount": 1,
+          "start": 19457,
+          "before": "function InboxHead({ count }: { count?: string }) {\n",
+          "after": "function InboxHead({ count, rule = true }: { count?: string; rule?: boolean }) {\n"
+        },
+        {
+          "beforeLine": 480,
+          "beforeCount": 2,
+          "afterLine": 486,
+          "afterCount": 2,
+          "start": 19744,
+          "before": "        borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,\n        marginBottom: QDScale.space[5],\n",
+          "after": "        borderBottom: rule ? `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}` : 'none',\n        marginBottom: rule ? QDScale.space[5] : QDScale.space[1],\n"
+        },
+        {
+          "beforeLine": 492,
+          "beforeCount": 1,
+          "afterLine": 498,
+          "afterCount": 1,
+          "start": 20333,
+          "before": "  return { marginTop: QDScale.space[2.5], fontSize: QDScale.font[12], color: T.subtle, lineHeight: QDScale.leading.relaxed, textAlign: 'center' };\n",
+          "after": "  return { marginTop: QDScale.space[2.5], fontSize: QDScale.font[12], color: T.subtle, lineHeight: QDScale.leading.relaxed, textAlign: 'left' };\n"
+        },
+        {
+          "beforeLine": 495,
+          "beforeCount": 1,
+          "afterLine": 501,
+          "afterCount": 2,
+          "start": 20481,
+          "before": "function containerStyle(): React.CSSProperties {\n",
+          "after": "/** wide: 목록 + 상세(두 칸이 서려면 넓어야 한다). 불러오는 중 · 빈 결재함 · 오류는 종전 좁은 기둥 */\nfunction containerStyle(wide = false): React.CSSProperties {\n"
+        },
+        {
+          "beforeLine": 498,
+          "beforeCount": 1,
+          "afterLine": 505,
+          "afterCount": 1,
+          "start": 20680,
+          "before": "    maxWidth: \"var(--qd-atelier-max-width-98ad3e139b)\",\n",
+          "after": "    maxWidth: wide ? \"var(--qd-atelier-max-width-6436e68b96)\" : \"var(--qd-atelier-max-width-98ad3e139b)\",\n"
+        },
+        {
+          "beforeLine": 571,
+          "beforeCount": 1,
+          "afterLine": 578,
+          "afterCount": 1,
+          "start": 23457,
+          "before": "  return { marginTop: QDScale.space[3], fontSize: QDScale.font[12], color: T.red, lineHeight: QDScale.leading.relaxed, textAlign: 'center' };\n",
+          "after": "  return { marginTop: QDScale.space[3], fontSize: QDScale.font[12], color: T.red, lineHeight: QDScale.leading.relaxed, textAlign: 'left' };\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "app/(app)/lots/[id]/client.tsx",
+      "beforeHash": "ebbf960a7e73d2d1edfebff09dad04aad278fd1355382def329245e69690c7ff",
+      "afterHash": "e472645e928d723802158b8a26b3a71d535f07b2828e177813dd19825c029cdb",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 12,
+          "beforeCount": 1,
+          "afterLine": 12,
+          "afterCount": 1,
+          "start": 475,
+          "before": "import { Btn, Bx, EmptyState, LegalNote, NextStep, PageHd, Txt, Section, DetailRow } from '@/lib/design/components';\n",
+          "after": "import { Btn, Bx, EmptyState, LegalNote, NextStep, PageHd, Txt, Section, DetailRow, Ledger } from '@/lib/design/components';\n"
+        },
+        {
+          "beforeLine": 176,
+          "beforeCount": 1,
+          "afterLine": 176,
+          "afterCount": 2,
+          "start": 6627,
+          "before": "        <Bx style={{ padding: QDScale.space[4], borderRadius: QDScale.radius, borderColor: T.border }}>\n",
+          "after": "        {/* 장부 두 칸(2026-10-15 오너 결정 · 용어집 시안 A): 상자 없이 이름 칸 + 값 칸, 줄 사이 가는 선 */}\n        <Ledger>\n"
+        },
+        {
+          "beforeLine": 181,
+          "beforeCount": 1,
+          "afterLine": 182,
+          "afterCount": 1,
+          "start": 7154,
+          "before": "        </Bx>\n",
+          "after": "        </Ledger>\n"
+        },
+        {
+          "beforeLine": 367,
+          "beforeCount": 1,
+          "afterLine": 368,
+          "afterCount": 1,
+          "start": 17380,
+          "before": "          <Bx style={{ padding: QDScale.space[4], borderRadius: QDScale.radius, borderColor: tintBorder(T.green) }}>\n",
+          "after": "          <Ledger>\n"
+        },
+        {
+          "beforeLine": 371,
+          "beforeCount": 1,
+          "afterLine": 372,
+          "afterCount": 1,
+          "start": 17655,
+          "before": "          </Bx>\n",
+          "after": "          </Ledger>\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "app/(app)/suppliers/[id]/client.tsx",
+      "beforeHash": "891698905fc36d4ed4664d94f976a89c673b4856b79c1bb460b64ad1b877f009",
+      "afterHash": "d745e2785d9686b75a8b36eb6bbc8c5a8929ef8277d7df440e3c631148b6af76",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 11,
+          "beforeCount": 1,
+          "afterLine": 11,
+          "afterCount": 1,
+          "start": 449,
+          "before": "import { Alert, Btn, PageHd, Field, In, Sel, Txt, Section, FormActions, DetailRow } from '@/lib/design/components';\n",
+          "after": "import { Alert, Btn, PageHd, Field, In, Sel, Txt, Section, FormActions, DetailRow, Ledger } from '@/lib/design/components';\n"
+        },
+        {
+          "beforeLine": 274,
+          "beforeCount": 1,
+          "afterLine": 274,
+          "afterCount": 1,
+          "start": 12386,
+          "before": "        <div style={{ padding: `${QDScale.space[1]} ${QDScale.space[3]}`, border: `var(--qd-border-width) var(--qd-atelier-border-style-95c01bc47f) ${T.border}`, borderRadius: QDScale.radius }}>\n",
+          "after": "        <Ledger>\n"
+        },
+        {
+          "beforeLine": 278,
+          "beforeCount": 1,
+          "afterLine": 278,
+          "afterCount": 1,
+          "start": 12623,
+          "before": "        </div>\n",
+          "after": "        </Ledger>\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "app/(app)/training/records/[id]/page.tsx",
+      "beforeHash": "2ef70bd203369ec2586ff07212d65689372ba9eb04e8775ee3bdfd0d52f89f64",
+      "afterHash": "caccc6f1291e888cb890a48be585b0b65126934d096a28961defad89795cfca4",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 12,
+          "beforeCount": 1,
+          "afterLine": 12,
+          "afterCount": 1,
+          "start": 642,
+          "before": "import { Alert, Bx, DetailRow, PageHd } from '@/lib/design/components';\n",
+          "after": "import { Alert, DetailRow, Ledger, PageHd } from '@/lib/design/components';\n"
+        },
+        {
+          "beforeLine": 106,
+          "beforeCount": 9,
+          "afterLine": 106,
+          "afterCount": 3,
+          "start": 4170,
+          "before": "      <Bx\n        style={{\n          padding: QDScale.space[6],\n          background: T.surface,\n          borderColor: T.border,\n          borderRadius: QDScale.radius,\n          marginBottom: QDScale.space[6],\n        }}\n      >\n",
+          "after": "      {/* 장부 두 칸(2026-10-15 오너 결정 · 용어집 시안 A): 겉 상자 없이 이름 칸 + 값 칸 */}\n      <div style={{ marginBottom: QDScale.space[6] }}>\n      <Ledger ariaLabel=\"교육 이수 기록\">\n"
+        },
+        {
+          "beforeLine": 166,
+          "beforeCount": 4,
+          "afterLine": 160,
+          "afterCount": 1,
+          "start": 6440,
+          "before": "          <div style={{ marginTop: QDScale.space[3], fontSize: QDScale.font[13], color: T.text, lineHeight: QDScale.leading.notice, whiteSpace: 'pre-wrap' }}>\n            <span style={{ fontFamily: QDScale.family.ui, fontSize: QDScale.font[12], color: T.subtle, marginRight: QDScale.space[2] }}>재교육 계획</span>\n            {rec.retrain_plan}\n          </div>\n",
+          "after": "          <DetailRow label=\"재교육 계획\" value={<span style={{ whiteSpace: 'pre-wrap' }}>{rec.retrain_plan}</span>} />\n"
+        },
+        {
+          "beforeLine": 171,
+          "beforeCount": 7,
+          "afterLine": 162,
+          "afterCount": 3,
+          "start": 6565,
+          "before": "        {rec.notes && (\n          <div style={{ marginTop: QDScale.space[3], fontSize: QDScale.font[13], color: T.text, lineHeight: QDScale.leading.notice, whiteSpace: 'pre-wrap' }}>\n            <span style={{ fontFamily: QDScale.family.ui, fontSize: QDScale.font[12], color: T.subtle, marginRight: QDScale.space[2] }}>비고</span>\n            {rec.notes}\n          </div>\n        )}\n      </Bx>\n",
+          "after": "        {rec.notes && <DetailRow label=\"비고\" value={<span style={{ whiteSpace: 'pre-wrap' }}>{rec.notes}</span>} />}\n      </Ledger>\n      </div>\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "app/(app)/udi/[id]/client.tsx",
+      "beforeHash": "c2c4bfa8f19a7e509ad0ddac549b08a8fa558cbcec45a4439f9b02e589ed5b4f",
+      "afterHash": "1f4ab391b15a83a2406d59df03a9698ce539f6966704060e8190aa9c8dcd834b",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 12,
+          "beforeCount": 1,
+          "afterLine": 12,
+          "afterCount": 1,
+          "start": 517,
+          "before": "import { Btn, Bx, Checkbox, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Tag } from '@/lib/design/components';\n",
+          "after": "import { Btn, Checkbox, PageHd, Field, In, Txt, FormActions, Section, DetailRow, Ledger, Tag } from '@/lib/design/components';\n"
+        },
+        {
+          "beforeLine": 200,
+          "beforeCount": 1,
+          "afterLine": 200,
+          "afterCount": 1,
+          "start": 8046,
+          "before": "        <Bx style={{ padding: QDScale.space[4], borderRadius: QDScale.radius, borderColor: T.border }}>\n",
+          "after": "        <Ledger>\n"
+        },
+        {
+          "beforeLine": 204,
+          "beforeCount": 1,
+          "afterLine": 204,
+          "afterCount": 1,
+          "start": 8360,
+          "before": "        </Bx>\n",
+          "after": "        </Ledger>\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "app/q-design.foundation.css",
+      "beforeHash": "d8b200b4cb901fcfa80c311e8ebe92e91ba784c751c7a266a186baf8ffd7f06c",
+      "afterHash": "0b816aae493a3183f45815930a8ec868995f42a174ff7a1e9805c6511badb011",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 12,
+          "beforeCount": 1,
+          "afterLine": 12,
+          "afterCount": 1,
+          "start": 411,
+          "before": "   q-design-nav-sha256: 1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd\n",
+          "after": "   q-design-nav-sha256: 6c3a145ab729c80c5e32f939b2616c980641672b37b15cdfd1cdd543025cb631\n"
+        },
+        {
+          "beforeLine": 1311,
+          "beforeCount": 0,
+          "afterLine": 1311,
+          "afterCount": 292,
+          "start": 48093,
+          "before": "",
+          "after": "/* =============================================================================\n   장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)\n   A 장부 두 칸(Ledger · DetailRow): 이름 칸 + 값 칸, 상자 없이 줄 사이 가는 선. 좁으면 위아래로 쌓는다.\n   C 목록 + 상세(ListDetail): 왼쪽 목록 · 오른쪽 상세. 담긴 자리의 폭이 700 아래면 한 칸씩(목록 → 상세 → 목록).\n     화면 폭이 아니라 «담긴 자리» 를 본다: 용어집은 전용 화면과 AI 도우미의 좁은 탭이 같은 부품이다.\n   선택은 면 색 + 굵은 제목(왼쪽 강조선 금지 · no-side-accent). 한글 자간은 0.\n   ============================================================================= */\n.qa-ledger {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  margin: 0;\n}\n.qa-ledger-row {\n  display: grid;\n  grid-template-columns: minmax(6.5rem, var(--qa-ledger-label, 12rem)) minmax(0, 1fr);\n  column-gap: 24px;\n  row-gap: 2px;\n  align-items: baseline;\n  margin: 0;\n  padding: 11px 0 12px;\n  border-bottom: 1px solid var(--qa-border);\n}\n.qa-ledger > .qa-ledger-row:last-child {\n  border-bottom: none;\n}\n.qa-ledger-label {\n  margin: 0;\n  color: var(--qa-muted);\n  font-size: 13.5px;\n  line-height: var(--qa-lh-normal);\n  word-break: keep-all;\n  overflow-wrap: break-word;\n}\n.qa-ledger-value {\n  margin: 0;\n  min-width: 0;\n  color: var(--qa-text);\n  font-size: 14px;\n  line-height: var(--qa-lh-relaxed);\n  overflow-wrap: anywhere;\n}\n@container (max-width: 420px) {\n  .qa-ledger-row {\n    grid-template-columns: minmax(0, 1fr);\n    padding: 10px 0 11px;\n  }\n}\n\n.qa-ld-host {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  /* 한 칸에서 상세로 건너가 머리로 올릴 때 폰 상단 바(68)에 가리지 않게 */\n  scroll-margin-top: 80px;\n}\n.qa-ld {\n  display: grid;\n  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);\n  height: var(--qa-ld-height, min(760px, calc(100dvh - 220px)));\n  min-height: 420px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-list {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  border-right: 1px solid var(--qa-borderHi);\n  padding-bottom: 24px;\n}\n.qa-ld-gh {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  padding: 12px 16px 6px 0;\n  background: var(--qa-bg);\n  border-bottom: 1px solid var(--qa-border);\n  color: var(--qa-muted);\n  font-size: 12.5px;\n  font-weight: 600;\n}\n.qa-ld-n {\n  font-family: var(--qd-font-family-mono);\n  font-weight: 400;\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-row {\n  display: flex;\n  flex-direction: column;\n  gap: 1px;\n  width: 100%;\n  min-height: 52px;\n  margin: 0;\n  padding: 10px 16px 11px 10px;\n  border: none;\n  border-bottom: 1px solid var(--qa-border);\n  border-radius: 0;\n  background: transparent;\n  color: var(--qa-text);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n  transition: background-color 0.12s ease;\n}\n.qa-ld-row:hover {\n  background: var(--qa-surface);\n}\n.qa-ld-row[aria-current='true'] {\n  background: var(--qa-surface2);\n}\n.qa-ld-row:focus-visible {\n  outline: 2px solid var(--qa-champagne);\n  outline-offset: -2px;\n}\n.qa-ld-row-title {\n  font-size: 14px;\n  font-weight: 600;\n  line-height: var(--qa-lh-snug);\n  overflow-wrap: anywhere;\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-title {\n  font-weight: 800;\n}\n.qa-ld-row-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 13.5px;\n}\n.qa-ld-row-sub {\n  max-width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--qa-subtle);\n  font-size: 13px;\n  line-height: var(--qa-lh-normal);\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-sub {\n  color: var(--qa-text);\n}\n.qa-ld-detail {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  padding: 32px 8px 40px 44px;\n}\n.qa-ld-in {\n  max-width: 680px;\n  animation: qa-ld-in 0.24s ease both;\n}\n@keyframes qa-ld-in {\n  from { opacity: 0; transform: translateY(4px); }\n  to { opacity: 1; transform: none; }\n}\n.qa-ld-back {\n  display: none;\n  align-items: center;\n  gap: 4px;\n  min-height: 44px;\n  margin: 0 0 4px;\n  padding: 0;\n  border: none;\n  background: transparent;\n  color: var(--qa-subtle);\n  font: inherit;\n  font-size: 13.5px;\n  cursor: pointer;\n  text-decoration: underline;\n  text-decoration-color: var(--qa-border);\n  text-underline-offset: 3px;\n}\n.qa-ld-back:hover {\n  color: var(--qa-text);\n  text-decoration-color: var(--qa-champagne);\n}\n/* 상세 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 한 줄 요약 → 본문 */\n.qa-ld-kicker {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  gap: 4px 10px;\n  margin: 0 0 12px;\n  color: var(--qa-muted);\n  font-size: 12.5px;\n}\n.qa-ld-kicker .is-code {\n  font-family: var(--qd-font-family-mono);\n  color: var(--qa-champagne);\n}\n.qa-ld-kicker .is-end {\n  margin-left: auto;\n  font-family: var(--qd-font-family-mono);\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-title {\n  margin: 0;\n  color: var(--qa-text);\n  font-size: 24px;\n  font-weight: 700;\n  line-height: var(--qa-lh-heading);\n  overflow-wrap: anywhere;\n  text-wrap: balance;\n}\n.qa-ld-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 32px;\n  font-weight: 600;\n  line-height: var(--qa-lh-tight);\n  color: var(--qa-champagne);\n}\n.qa-ld-aside {\n  margin: 8px 0 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n.qa-ld-lede {\n  margin: 20px 0 0;\n  color: var(--qa-text);\n  font-size: 18px;\n  font-weight: 700;\n  line-height: var(--qa-lh-snug);\n}\n.qa-ld-body {\n  margin: 10px 0 0;\n  max-width: 62ch;\n  color: var(--qa-subtle);\n  font-size: 15px;\n  line-height: var(--qa-lh-loose);\n}\n.qa-ld-facts {\n  margin-top: 26px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-nav {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  gap: 8px 16px;\n  margin-top: 24px;\n}\n.qa-ld-empty {\n  padding: 40px 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n@container (max-width: 699px) {\n  .qa-ld {\n    display: block;\n    height: auto;\n    min-height: 0;\n  }\n  .qa-ld-list {\n    overflow: visible;\n    border-right: none;\n    padding-bottom: 0;\n  }\n  /* 한 칸일 때 목록은 바깥(main · 서랍)이 굴린다. 거기서 top 0 고정은 폰 상단 바 밑으로 숨으므로 풀어 둔다(sticky-inset) */\n  .qa-ld-gh {\n    position: static;\n  }\n  .qa-ld[data-view='detail'] .qa-ld-list,\n  .qa-ld[data-view='list'] .qa-ld-detail {\n    display: none;\n  }\n  .qa-ld-detail {\n    overflow: visible;\n    padding: 12px 0 32px;\n  }\n  /* 상세가 짧아도 머리(← 목록)를 상단 바 아래로 올릴 만큼의 높이(짧으면 바깥 스크롤이 끝에 걸려 머리가 바에 반쯤 가린다) */\n  .qa-ld[data-view='detail'] .qa-ld-detail {\n    min-height: 70dvh;\n  }\n  .qa-ld-back {\n    display: inline-flex;\n  }\n  .qa-ld-row {\n    padding-left: 0;\n  }\n  .qa-ld-row[aria-current='true'] {\n    padding-left: 10px;\n  }\n  .qa-ld-title.is-code {\n    font-size: 28px;\n  }\n}\n@media (prefers-reduced-motion: reduce) {\n  .qa-ld-in { animation: none; }\n  .qa-ld-row { transition: none; }\n}\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "components/GlossaryPanel.tsx",
+      "beforeHash": "e577498907e9ab1e603823652ef922ef4a205e241f3cab4289ecc5e5e9f3c528",
+      "afterHash": "dbb24560e8405060dac11a287457cd8931395b4bfa857ec65089564b954dbf1c",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 2,
+          "beforeCount": 2,
+          "afterLine": 2,
+          "afterCount": 0,
+          "start": 14,
+          "before": "import { QDText } from '@/lib/design/q-design-labels';\n\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 6,
+          "beforeCount": 1,
+          "afterLine": 4,
+          "afterCount": 1,
+          "start": 96,
+          "before": "// GlossaryPanel: 규제/QMS 전문용어 용어집 (검색 + 목록)\n",
+          "after": "// GlossaryPanel: 규제/QMS 전문용어 용어집 (찾기 + 목록 + 상세)\n"
+        },
+        {
+          "beforeLine": 8,
+          "beforeCount": 1,
+          "afterLine": 6,
+          "afterCount": 1,
+          "start": 226,
+          "before": "// lib/glossary.ts 의 용어(DHF·DMR·CAPA·PMS·510(k) 등)를 검색 노출한다.\n",
+          "after": "// lib/glossary.ts 의 용어(DHF·DMR·CAPA·PMS·510(k) 등)를 찾아 보여 준다.\n"
+        },
+        {
+          "beforeLine": 10,
+          "beforeCount": 0,
+          "afterLine": 8,
+          "afterCount": 4,
+          "start": 349,
+          "before": "",
+          "after": "//\n// 2026-10-15 오너 결정(용어집 시안 비교판 C): 상자 목록을 «목록 + 상세» 로 바꿨다.\n// 왼쪽은 분야별 용어 줄, 오른쪽은 고른 용어 한 장. 넓이는 ListDetail 이 «담긴 자리» 로 판단하므로\n// 좁은 AI 도우미 탭에서는 목록 → 상세(← 목록) 한 칸씩으로 저절로 바뀐다.\n"
+        },
+        {
+          "beforeLine": 12,
+          "beforeCount": 5,
+          "afterLine": 14,
+          "afterCount": 8,
+          "start": 581,
+          "before": "import { useState } from 'react';\nimport { S, FS, F, T, LH } from '@/lib/design/tokens';\nimport { codeOrTextFont } from '@/lib/design/hangul-text';\nimport { Bx, In } from '@/lib/design/components';\nimport { searchGlossary, type GlossaryEntry } from '@/lib/glossary';\n",
+          "after": "import { useMemo, useState } from 'react';\nimport { T } from '@/lib/design/tokens';\nimport { In, Ledger, DetailRow, ListDetail, ListDetailGroup, ListDetailRow, ListDetailHead, ListDetailNav } from '@/lib/design/components';\nimport { TextAction } from '@/components/TextAction';\nimport { GLOSSARY_CATEGORIES, searchGlossary, type GlossaryEntry } from '@/lib/glossary';\n\n/** 약어 · 표준 번호(DHF · ISO 13485)는 고정폭, 한글 낱말(품목·등급)은 본문 글꼴 */\nconst isCode = (term: string) => !/[가-힣]/.test(term);\n"
+        },
+        {
+          "beforeLine": 20,
+          "beforeCount": 1,
+          "afterLine": 25,
+          "afterCount": 2,
+          "start": 1134,
+          "before": "  const results = searchGlossary(q);\n",
+          "after": "  const [picked, setPicked] = useState<string | null>(null);\n  const [view, setView] = useState<'list' | 'detail'>('list');\n"
+        },
+        {
+          "beforeLine": 22,
+          "beforeCount": 30,
+          "afterLine": 28,
+          "afterCount": 20,
+          "start": 1259,
+          "before": "  return (\n    <div style={{ flex: \"var(--qd-atelier-flex-83725d2c6e)\", overflowY: 'auto', padding: QDScale.space[4] }}>\n      <label htmlFor=\"glossary-search\" style={{ display: 'none' }}>\n        용어 검색\n      </label>\n      <In\n        id=\"glossary-search\"\n        value={q}\n        onChange={(e) => setQ(e.target.value)}\n        placeholder=\"용어 검색 (DHF, ISO 13485, predicate ...)\"\n        style={{ marginBottom: QDScale.space[3.5] }}\n      />\n      <div\n        style={{\n          fontSize: QDScale.font[12],\n          color: T.muted,\n          fontFamily: QDScale.family.ui,\n          marginBottom: QDScale.space[2.5],\n        }}\n      >\n        {results.length}개 결과\n      </div>\n      <div style={{ display: 'flex', flexDirection: 'column', gap: QDScale.space[2] }}>\n        {results.map((e) => (\n          <GlossaryRow key={e.term} entry={e} />\n        ))}\n      </div>\n    </div>\n  );\n}\n",
+          "after": "  // 분야 차례대로 묶는다. 이전 · 다음도 이 차례를 따른다\n  const groups = useMemo(() => {\n    const found = searchGlossary(q);\n    return GLOSSARY_CATEGORIES.map((c) => ({ ...c, items: found.filter((e) => e.category === c.id) })).filter((g) => g.items.length > 0);\n  }, [q]);\n  const ordered = useMemo(() => groups.flatMap((g) => g.items), [groups]);\n\n  // 찾기로 고른 용어가 빠지면 첫 용어를 보여 준다\n  const at = Math.max(0, ordered.findIndex((e) => e.term === picked));\n  const current: GlossaryEntry | undefined = ordered[at];\n  const prev = at > 0 ? ordered[at - 1] : undefined;\n  const next = at < ordered.length - 1 ? ordered[at + 1] : undefined;\n\n  const open = (term: string) => {\n    setPicked(term);\n    setView('detail');\n  };\n\n  const label = (id: GlossaryEntry['category']) => GLOSSARY_CATEGORIES.find((c) => c.id === id)?.label ?? id;\n  const kin = current ? ordered.filter((e) => e.category === current.category && e.term !== current.term).slice(0, 8) : [];\n"
+        },
+        {
+          "beforeLine": 53,
+          "beforeCount": 1,
+          "afterLine": 49,
+          "afterCount": 0,
+          "start": 2196,
+          "before": "function GlossaryRow({ entry }: { entry: GlossaryEntry }) {\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 55,
+          "beforeCount": 8,
+          "afterLine": 50,
+          "afterCount": 11,
+          "start": 2207,
+          "before": "    <Bx style={{ padding: QDScale.space[3] }}>\n      <div style={{ display: 'flex', alignItems: 'baseline', gap: QDScale.space[1.5], marginBottom: QDScale.space[1] }}>\n        <span\n          style={{\n            fontSize: QDScale.font[12],\n            color: T.champagne,\n            ...codeOrTextFont(entry.term, QDText.tracking.codeFine),\n            fontWeight: \"var(--qd-font-weight-semibold)\",\n",
+          "after": "    <div style={{ flex: 'var(--qd-atelier-flex-83725d2c6e)', overflowY: 'auto', padding: QDScale.space[4] }}>\n      <div style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[3], marginBottom: QDScale.space[3] }}>\n        <label htmlFor=\"glossary-search\" style={{ display: 'none' }}>\n          용어 검색\n        </label>\n        <In\n          id=\"glossary-search\"\n          value={q}\n          onChange={(e) => {\n            setQ(e.target.value);\n            setView('list');\n"
+        },
+        {
+          "beforeLine": 64,
+          "beforeCount": 2,
+          "afterLine": 62,
+          "afterCount": 5,
+          "start": 2705,
+          "before": "        >\n          {entry.term}\n",
+          "after": "          placeholder=\"용어 검색 (DHF, ISO 13485, predicate ...)\"\n          style={{ flex: 'var(--qd-atelier-flex-83725d2c6e)', minWidth: 0 }}\n        />\n        <span aria-live=\"polite\" style={{ flexShrink: 0, fontSize: QDScale.font[13], color: T.muted, fontVariantNumeric: 'tabular-nums' }}>\n          {ordered.length}개\n"
+        },
+        {
+          "beforeLine": 67,
+          "beforeCount": 8,
+          "afterLine": 68,
+          "afterCount": 0,
+          "start": 3039,
+          "before": "        {entry.aliases && entry.aliases.length > 0 && (\n          <span style={{ fontSize: QDScale.font[12], color: T.muted, ...codeOrTextFont(entry.aliases.join(' / ')) }}>\n            ({entry.aliases.join(' / ')})\n          </span>\n        )}\n      </div>\n      <div style={{ fontSize: QDScale.font[12], color: T.text, fontFamily: QDScale.family.serif, lineHeight: QDScale.leading.normal, marginBottom: QDScale.space[1] }}>\n        {entry.short}\n",
+          "after": ""
+        },
+        {
+          "beforeLine": 76,
+          "beforeCount": 14,
+          "afterLine": 69,
+          "afterCount": 68,
+          "start": 3052,
+          "before": "      <div style={{ fontSize: QDScale.font[12], color: T.subtle, lineHeight: QDScale.leading.relaxed }}>\n        {entry.description}\n      </div>\n      {entry.reference && (\n        <div\n          style={{\n            fontSize: QDScale.font[12],\n            color: T.muted,\n            ...codeOrTextFont(entry.reference, QDText.tracking.codeFine),\n            marginTop: QDScale.space[1.5],\n          }}\n        >\n          ▸ {entry.reference}\n        </div>\n",
+          "after": "\n      {ordered.length === 0 || !current ? (\n        <p className=\"qa-ld-empty\">«{q.trim()}» 에 맞는 용어가 없습니다.</p>\n      ) : (\n        <ListDetail\n          view={view}\n          onBack={() => setView('list')}\n          detailKey={current.term}\n          listLabel=\"용어 목록\"\n          detailLabel=\"용어 풀이\"\n          list={groups.map((g) => (\n            <div key={g.id} role=\"group\" aria-label={g.label}>\n              <ListDetailGroup title={g.label} count={g.items.length} />\n              {g.items.map((e) => (\n                <ListDetailRow\n                  key={e.term}\n                  selected={e.term === current.term}\n                  onSelect={() => open(e.term)}\n                  title={e.term}\n                  sub={e.short}\n                  code={isCode(e.term)}\n                />\n              ))}\n            </div>\n          ))}\n          detail={\n            <article>\n              <ListDetailHead\n                kicker={\n                  <>\n                    <span className=\"is-code\">{String(at + 1).padStart(3, '0')}</span>\n                    <span>{label(current.category)}</span>\n                  </>\n                }\n                position={`${at + 1} / ${ordered.length}`}\n                title={current.term}\n                code={isCode(current.term)}\n                aside={current.aliases?.join(' · ')}\n                lede={current.short}\n              />\n              <p className=\"qa-ld-body\">{current.description}</p>\n              <Ledger className=\"qa-ld-facts\" ariaLabel=\"용어 정보\">\n                <DetailRow label=\"분야\" value={label(current.category)} />\n                {current.reference && <DetailRow label=\"근거\" value={current.reference} />}\n                {kin.length > 0 && (\n                  <DetailRow\n                    label=\"같은 분야\"\n                    value={\n                      <span style={{ display: 'flex', flexWrap: 'wrap', columnGap: QDScale.space[2] }}>\n                        {kin.map((e) => (\n                          <TextAction key={e.term} onClick={() => open(e.term)} label={`${e.term} 풀이 보기`}>\n                            {e.term}\n                          </TextAction>\n                        ))}\n                      </span>\n                    }\n                  />\n                )}\n              </Ledger>\n              <ListDetailNav\n                prev={prev?.term}\n                next={next?.term}\n                onPrev={() => prev && open(prev.term)}\n                onNext={() => next && open(next.term)}\n              />\n            </article>\n          }\n        />\n"
+        },
+        {
+          "beforeLine": 91,
+          "beforeCount": 1,
+          "afterLine": 138,
+          "afterCount": 1,
+          "start": 5623,
+          "before": "    </Bx>\n",
+          "after": "    </div>\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "docs/SESSION_LOG.md",
+      "beforeHash": "141c13b9e87ce7f38c4e82ebc33340ccdd47669f8b1130513f7507766c9186e0",
+      "afterHash": "934eca9aa321f5b92d4e366f6d3523f58ed17e464e7a8d92da62dae00d9b4148",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 15,
+          "beforeCount": 0,
+          "afterLine": 15,
+          "afterCount": 11,
+          "start": 319,
+          "before": "",
+          "after": "## 2026-10-15 · 장부형 패턴 층: 이름 · 값 목록은 «장부 두 칸», 용어집 · 결재함은 «목록 + 상세» (코드는 이 항목의 커밋 · 정본은 Q-Design 같은 날 커밋)\n\n오너 «추천대로 가자. 이름 · 값 목록은 A 장부 두 칸, 용어집과 검토 화면은 C 목록 + 상세로 만들어 줘.» (용어집 시안 비교판에서 고름). 정본은 Q-Design `patterns/foundation/atelier.css` 와 컴포넌트 정본이고, 이 저장소는 사본(`app/q-design.foundation.css` · `lib/design/components.tsx`)을 받았다.\n- **장부 두 칸(`Ledger` + 새 `DetailRow`):** 왼쪽 이름 칸 · 오른쪽 값 칸 · 줄 사이 가는 괘선 · 상자 없음. 담긴 자리가 420px 보다 좁으면 한 칸으로 쌓인다(뷰포트가 아니라 상자 폭). 바꾼 화면: 로트 상세(로트 정보 · 출하 승인 기록) · UDI 상세 · 공급자 상세 · 교육 이수 기록 상세(재교육 계획 · 비고도 같은 장부 안으로).\n- **목록 + 상세(`ListDetail` 묶음 다섯 · `.qa-ld-*`):** 왼쪽 목록 줄(고른 줄은 면 색 + 굵은 글자, 왼쪽 강조선 없음) · 오른쪽 한 장 · ↑↓ · Home · End 로 목록 이동 · 상세 바닥에 «← 이전 · 다음 →» 글귀. 상자 폭 700px 미만이면 목록 → 상세(«← 목록») 한 칸씩. 용어집은 분야 여덟(`GLOSSARY_CATEGORIES`)으로 묶고 찾기 · 관련 용어 건너가기를 그대로 둠. 결재함(/approve)은 «한 건씩 + 다음 건» 을 목록 + 상세로 바꿨다(반려 칸 · 전자서명 칸 · 결재 길은 그대로, 다른 건을 고르면 쓰던 반려 칸은 닫힘).\n- **가드:** `approve-inbox-contract` 의 «다음 건» 조항을 새 모양(ListDetailNav · 맨 끝 건 처리 뒤 앞 건이 남으면 «모두 처리했습니다» 가 안 뜸)으로 고쳐 같은 뜻을 잠금. 줄 높이는 모두 `--qa-lh-*`(lh-css-sync) · 사본 지문(q-design-copy) 통과.\n- **눌러 본 것(로컬 3600 · 운영자 계정 · 로컬 DB):** 용어집 1440 두 칸 · 69줄 · 고르기 · ↓ · End · 관련 용어 · 이전/다음 · 찾기(«capa» 2줄, 없는 말 안내) · 라이트/다크 · 가로 넘침 0. 폰 375: 목록 → 상세(맨 위 막대 아래로 내려앉음) → «← 목록» 이면 고른 줄에 초점. 결재함 1440 · 375 같은 흐름 · 콘솔 오류 0. 공급자 장부 폰 폭에서 한 칸으로 쌓임.\n- **검증:** tsc 0 · vitest 481파일 4,667 통과.\n- ⚠️ DECISION PENDING(오너 확인): ① 폰 결재함이 09-28 결정 «목록 + 펼치기» 에서 «목록 → 상세» 로 바뀜 ② 로트 «출하 승인 기록» 의 초록 테두리 상자가 빠짐(괘선만) ③ 로트 상세는 로컬에서 생산 기능이 꺼져 있어 화면으로 못 열어 봄(코드만) ④ AI 도우미 서랍의 용어집 탭은 로컬 조직에 도우미 단추가 없어 420px 상자로 흉내 내 잼.\n- **남은 것:** Q-Design 의 증명 사슬 시험 43건이 이 커밋 전 Q-Atelier(61ddd606)의 해시에 묶여 있어 빨강. 새 커밋으로 다시 묶는 일은 별도 작업. /inbox · CAPA 목록도 같은 목록 + 상세 후보.\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "lib/approvals/approve-inbox-contract.test.ts",
+      "beforeHash": "4c156e51ea6917c0cde26d338c17152ecf946c10886d670ce078ab6794077f91",
+      "afterHash": "a34a158952127d5a48a9be98fd985d590ffd945bd617565349de8899f639ffcd",
+      "lineEnding": "crlf",
+      "edits": [
+        {
+          "beforeLine": 82,
+          "beforeCount": 3,
+          "afterLine": 82,
+          "afterCount": 5,
+          "start": 3856,
+          "before": "  it('보조 동작(취소 · 다음 건 · 새로고침 · 상세 보기)은 글귀다', () => {\n    // «건너뛰기» 는 «다음 건» 이 됐고 뒤에 안건이 있을 때만 보인다(마지막 건에서 넘기면 «모두 처리했습니다» 가 떠 뜻이 틀렸다 · 2026-09-27)\n    for (const label of ['취소', '다음 건', '새로고침', '상세 보기']) {\n",
+          "after": "  it('보조 동작(취소 · 새로고침 · 상세 보기 · 이전 · 다음)은 글귀다', () => {\n    // «건너뛰기» 는 «다음 건» 이 됐고 뒤에 안건이 있을 때만 보였다(마지막 건에서 넘기면 «모두 처리했습니다» 가 떠 뜻이 틀렸다 · 2026-09-27).\n    // 2026-10-15 목록 + 상세(오너 결정 · 용어집 시안 C)에서 상세 바닥의 이전 · 다음 글귀(ListDetailNav · TextAction)가 됐다.\n    // 다음 글귀는 뒤에 안건이 있을 때만 서고, 맨 끝 건을 처리해도 앞에 남은 건이 있으면 «모두 처리했습니다» 가 뜨지 않는다.\n    for (const label of ['취소', '새로고침', '상세 보기']) {\n"
+        },
+        {
+          "beforeLine": 88,
+          "beforeCount": 1,
+          "afterLine": 90,
+          "afterCount": 4,
+          "start": 4353,
+          "before": "    expect(client).toMatch(/\\{hasNext && \\(/);\n",
+          "after": "    expect(client).toMatch(/<ListDetailNav/);\n    expect(client).toMatch(/next=\\{nextItem \\? nameOf\\(nextItem\\) : undefined\\}/);\n    expect(client).toMatch(/const at = Math\\.min\\(index, items\\.length - 1\\);/);\n    expect(client).toMatch(/if \\(items\\.length === 0 \\|\\| !current\\)/);\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "lib/design/components.tsx",
+      "beforeHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "afterHash": "3a8d6b8c9ba28a74f724fe8a28110dc595e4ee4053d76362cae8d3335ea4e596",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 4362,
+          "beforeCount": 1,
+          "afterLine": 4362,
+          "afterCount": 1,
+          "start": 149333,
+          "before": " * DetailRow: 상세 화면의 «속성 한 줄». 라벨은 왼쪽, 값은 오른쪽 끝.\n",
+          "after": " * DetailRow: 상세 화면의 «속성 한 줄». 장부 두 칸(이름 칸 · 값 칸)의 한 줄이다.\n"
+        },
+        {
+          "beforeLine": 4368,
+          "beforeCount": 0,
+          "afterLine": 4368,
+          "afterCount": 2,
+          "start": 149566,
+          "before": "",
+          "after": " * 2026-10-15 오너 결정(용어집 시안 A): 라벨 왼쪽 · 값 오른쪽 끝(사이가 휑하게 벌어짐)에서\n * «이름 칸 + 값 칸» 장부로 바꿨다. 줄 사이는 가는 선, 상자 없음. 반드시 `Ledger` 안에 둔다(dt · dd).\n"
+        },
+        {
+          "beforeLine": 4369,
+          "beforeCount": 1,
+          "afterLine": 4371,
+          "afterCount": 1,
+          "start": 149705,
+          "before": "export function DetailRow({ label, value }: { label: string; value: ReactNode }) {\n",
+          "after": "export function DetailRow({ label, value }: { label: ReactNode; value: ReactNode }) {\n"
+        },
+        {
+          "beforeLine": 4371,
+          "beforeCount": 3,
+          "afterLine": 4373,
+          "afterCount": 3,
+          "start": 149802,
+          "before": "    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: \"var(--qd-atelier-padding-00a9a83dda)\" }}>\n      <span style={{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], letterSpacing: labelTracking(label, QDText.tracking.vae83a9aee5), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>\n      <span style={{ fontFamily: QDScale.family.serif, fontSize: QDScale.font[13], color: T.text }}>{value}</span>\n",
+          "after": "    <div className=\"qa-ledger-row\">\n      <dt className=\"qa-ledger-label\">{label}</dt>\n      <dd className=\"qa-ledger-value\">{value}</dd>\n"
+        },
+        {
+          "beforeLine": 4378,
+          "beforeCount": 0,
+          "afterLine": 4380,
+          "afterCount": 238,
+          "start": 149959,
+          "before": "",
+          "after": "/**\n * Ledger: 이름 · 값 목록을 담는 장부(dl). 담긴 자리의 폭이 420 아래면 이름 위 · 값 아래로 쌓는다.\n * 겉 상자(Bx · 테두리 div)로 감싸지 않는다: 줄 사이 선이 이미 묶음을 보여 준다.\n */\nexport function Ledger({ children, ariaLabel, className }: { children: ReactNode; ariaLabel?: string; className?: string }) {\n  return (\n    <dl className={className ? `qa-ledger ${className}` : 'qa-ledger'} aria-label={ariaLabel}>\n      {children}\n    </dl>\n  );\n}\n\n/** 한 칸에서 상세 머리를 올릴 기준: 바깥 상자의 scroll-margin-top(폰 상단 바 높이)보다 위로 갔으면 올린다 */\nfunction listDetailAboveFold(host: HTMLElement): boolean {\n  return host.getBoundingClientRect().top < (parseFloat(getComputedStyle(host).scrollMarginTop) || 0);\n}\n\n/** 목록 + 상세에서 한 칸만 보일 때(담긴 자리 700 아래)인가: 상세 칸이 숨었거나 목록 칸이 숨었으면 한 칸이다 */\nfunction listDetailSingle(host: HTMLElement | null): boolean {\n  const list = host?.querySelector<HTMLElement>('.qa-ld-list');\n  const detail = host?.querySelector<HTMLElement>('.qa-ld-detail');\n  if (!list || !detail) return false;\n  return getComputedStyle(list).display === 'none' || getComputedStyle(detail).display === 'none';\n}\n\n/**\n * ListDetail: 왼쪽 목록 · 오른쪽 상세(2026-10-15 오너 결정 · 용어집 시안 C).\n *\n * 화면 폭이 아니라 «담긴 자리의 폭» 을 본다(@container). 용어집은 전용 화면과 AI 도우미의 좁은 탭이\n * 같은 부품이라, 같은 화면 폭에서도 자리마다 한 칸 · 두 칸이 갈린다.\n *   · 두 칸(700 이상): 목록과 상세가 각자 굴러간다. 선택은 면 색 + 굵은 제목(왼쪽 강조선 금지).\n *   · 한 칸: `view` 가 보일 칸을 고른다. 상세 위에 «← 목록» 글귀가 선다.\n * 목록에서 ↑ ↓ (Home · End)로 줄을 옮긴다. 두 칸이면 옮기는 즉시 상세가 바뀌고, 한 칸이면 초점만 옮긴다.\n * 선택 · 보기 상태는 쓰는 쪽이 쥔다(고르면 view 를 'detail' 로, 뒤로는 'list' 로).\n */\nexport function ListDetail({\n  list,\n  detail,\n  view,\n  onBack,\n  detailKey,\n  listLabel,\n  detailLabel,\n  backLabel = '목록',\n  height,\n}: {\n  list: ReactNode;\n  detail: ReactNode;\n  /** 한 칸일 때 보일 칸 */\n  view: 'list' | 'detail';\n  /** «← 목록» 을 눌렀을 때(한 칸에서만 보인다) */\n  onBack: () => void;\n  /** 상세가 바뀌는 열쇠(고른 항목 id). 바뀌면 상세가 맨 위에서 살짝 떠오른다 */\n  detailKey?: string | number;\n  listLabel: string;\n  detailLabel: string;\n  backLabel?: string;\n  /** 두 칸일 때 높이(CSS 값). 기본은 화면 높이에 맞춘 값 */\n  height?: string;\n}) {\n  const hostRef = useRef<HTMLDivElement>(null);\n  const detailRef = useRef<HTMLElement>(null);\n  const firstView = useRef(true);\n\n  // 상세가 바뀌면 상세 칸은 맨 위부터. 두 칸이면 상세 칸이 스스로 굴러가고,\n  // 한 칸이면 바깥(main · 서랍)이 굴러가므로 상세 머리가 화면 위로 지나갔을 때만 되돌린다(같은 분야 · 다음 건으로 건너갈 때)\n  useEffect(() => {\n    if (detailRef.current) detailRef.current.scrollTop = 0;\n    const host = hostRef.current;\n    if (host && view === 'detail' && listDetailSingle(host) && listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });\n  }, [detailKey]);\n\n  // 한 칸에서 칸을 바꾸면: 상세로 가면 상세 머리로 초점 · 화면을, 목록으로 오면 고른 줄로 되돌린다\n  useEffect(() => {\n    if (firstView.current) {\n      firstView.current = false;\n      return;\n    }\n    const host = hostRef.current;\n    if (!host || !listDetailSingle(host)) return;\n    if (view === 'detail') {\n      // 목록 아래쪽에서 골랐으면 상세 머리(← 목록)까지 올린다\n      if (listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });\n      detailRef.current?.focus({ preventScroll: true });\n    } else {\n      const row = host.querySelector<HTMLElement>('.qa-ld-row[aria-current=\"true\"]');\n      row?.scrollIntoView({ block: 'center' });\n      row?.focus({ preventScroll: true });\n    }\n  }, [view]);\n\n  const onListKey = (e: KeyboardEvent<HTMLElement>) => {\n    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End') return;\n    const rows = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>('[data-ld-row]'));\n    const at = rows.indexOf(document.activeElement as HTMLButtonElement);\n    if (at < 0) return;\n    e.preventDefault();\n    const to = e.key === 'Home' ? 0 : e.key === 'End' ? rows.length - 1 : Math.min(rows.length - 1, Math.max(0, at + (e.key === 'ArrowDown' ? 1 : -1)));\n    const row = rows[to];\n    row.focus();\n    if (!listDetailSingle(hostRef.current)) row.click();\n  };\n\n  return (\n    <div className=\"qa-ld-host\" ref={hostRef}>\n      <div className=\"qa-ld\" data-view={view} style={height ? ({ ['--qa-ld-height' as string]: height } as CSSProperties) : undefined}>\n        <section className=\"qa-ld-list\" aria-label={listLabel} onKeyDown={onListKey}>\n          {list}\n        </section>\n        <section className=\"qa-ld-detail\" aria-label={detailLabel} ref={detailRef} tabIndex={-1}>\n          <button type=\"button\" className=\"qa-ld-back\" onClick={onBack}>\n            ← {backLabel}\n          </button>\n          <div key={detailKey} className=\"qa-ld-in\">\n            {detail}\n          </div>\n        </section>\n      </div>\n    </div>\n  );\n}\n\n/** 목록 칸의 묶음 머리(분류 이름 + 건수). 두 칸일 때 목록 위에 붙어 따라온다 */\nexport function ListDetailGroup({ title, count }: { title: ReactNode; count?: number }) {\n  return (\n    <div className=\"qa-ld-gh\">\n      <span>{title}</span>\n      {count != null && <span className=\"qa-ld-n\">{count}</span>}\n    </div>\n  );\n}\n\n/**\n * 목록 칸의 한 줄. 고르면 면 색이 깔리고 제목이 굵어진다(aria-current).\n * 두 칸에서 이전 · 다음으로 고른 줄이 목록 밖으로 나가면 목록 칸만 굴려 보이게 한다(바깥 화면은 굴리지 않는다).\n */\nexport function ListDetailRow({\n  selected,\n  onSelect,\n  title,\n  sub,\n  code,\n  label,\n}: {\n  selected: boolean;\n  onSelect: () => void;\n  title: ReactNode;\n  sub?: ReactNode;\n  /** 제목이 약어 · 번호(DHF · ISO 13485 · CAPA-0012)면 고정폭 글꼴 */\n  code?: boolean;\n  /** 낭독기 이름(보이는 제목이 앞에 와야 한다) */\n  label?: string;\n}) {\n  const ref = useRef<HTMLButtonElement>(null);\n  useEffect(() => {\n    const row = ref.current;\n    const box = row?.closest<HTMLElement>('.qa-ld-list');\n    if (!selected || !row || !box || box.scrollHeight <= box.clientHeight) return;\n    if (getComputedStyle(box).overflowY === 'visible') return;\n    const r = row.getBoundingClientRect();\n    const b = box.getBoundingClientRect();\n    if (r.top < b.top + 40) box.scrollTop -= b.top + 40 - r.top;\n    else if (r.bottom > b.bottom) box.scrollTop += r.bottom - b.bottom;\n  }, [selected]);\n  return (\n    <button\n      ref={ref}\n      type=\"button\"\n      className=\"qa-ld-row\"\n      data-ld-row=\"\"\n      aria-current={selected ? 'true' : undefined}\n      aria-label={label}\n      onClick={onSelect}\n    >\n      <span className={code ? 'qa-ld-row-title is-code' : 'qa-ld-row-title'}>{title}</span>\n      {sub != null && sub !== '' && <span className=\"qa-ld-row-sub\">{sub}</span>}\n    </button>\n  );\n}\n\n/**\n * 상세 칸의 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 곁말 → 한 줄 요약.\n * 제목이 약어 · 번호면 `code` 로 고정폭 금색 큰 글자(용어집 시안 C 의 얼굴).\n */\nexport function ListDetailHead({\n  kicker,\n  position,\n  title,\n  code,\n  aside,\n  lede,\n}: {\n  kicker?: ReactNode;\n  /** 오른쪽 끝의 «3 / 140» */\n  position?: string;\n  title: ReactNode;\n  code?: boolean;\n  aside?: ReactNode;\n  lede?: ReactNode;\n}) {\n  return (\n    <header>\n      {(kicker != null || position) && (\n        <div className=\"qa-ld-kicker\">\n          {kicker}\n          {position && <span className=\"is-end\">{position}</span>}\n        </div>\n      )}\n      <h2 className={code ? 'qa-ld-title is-code' : 'qa-ld-title'}>{title}</h2>\n      {aside != null && aside !== '' && <p className=\"qa-ld-aside\">{aside}</p>}\n      {lede != null && lede !== '' && <p className=\"qa-ld-lede\">{lede}</p>}\n    </header>\n  );\n}\n\n/** 상세 칸 바닥의 이전 · 다음 글귀. 끝이면 그쪽 자리를 비운다 */\nexport function ListDetailNav({\n  prev,\n  next,\n  onPrev,\n  onNext,\n  disabled,\n}: {\n  prev?: string;\n  next?: string;\n  onPrev: () => void;\n  onNext: () => void;\n  /** 보내는 중(결재 서명 등)에는 건너가지 못하게 */\n  disabled?: boolean;\n}) {\n  return (\n    <nav className=\"qa-ld-nav\" aria-label=\"이전 · 다음\">\n      {prev ? <TextAction onClick={onPrev} disabled={disabled} label={`이전: ${prev}`}>← {prev}</TextAction> : <span />}\n      {next ? <TextAction onClick={onNext} disabled={disabled} label={`다음: ${next}`}>{next} →</TextAction> : <span />}\n    </nav>\n  );\n}\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "product",
+      "path": "lib/glossary.ts",
+      "beforeHash": "de754dc2b7c4043689ab15b5b9605f3eafcda7cd3633d752237d093d5646ab3a",
+      "afterHash": "88dbf03e08cf20a9f747044de1ad49ac6fded1a372323f3e858b9991ce3730f6",
+      "lineEnding": "crlf",
+      "edits": [
+        {
+          "beforeLine": 607,
+          "beforeCount": 0,
+          "afterLine": 607,
+          "afterCount": 12,
+          "start": 17498,
+          "before": "",
+          "after": "/** 분야 이름과 보이는 차례(용어집 목록의 묶음 순서) */\nexport const GLOSSARY_CATEGORIES: ReadonlyArray<{ id: GlossaryEntry['category']; label: string }> = [\n  { id: 'qms', label: '품질경영' },\n  { id: 'design', label: '설계 관리' },\n  { id: 'risk', label: '위험관리' },\n  { id: 'clinical', label: '임상' },\n  { id: 'sw', label: '소프트웨어' },\n  { id: 'sterile', label: '멸균 · 공정' },\n  { id: 'regulatory', label: '인허가' },\n  { id: 'general', label: '일반' },\n];\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "design",
+      "path": "patterns/foundation/atelier.css",
+      "beforeHash": "e3db63f655cb3cfad44b4199cb67c908a612d1e85e29eeeebd818302bfdfa4d8",
+      "afterHash": "579cc943b8224873ffbf6012f7eead9230b42f44c898648abcd94348ea882595",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 905,
+          "beforeCount": 0,
+          "afterLine": 905,
+          "afterCount": 292,
+          "start": 29375,
+          "before": "",
+          "after": "/* =============================================================================\n   장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)\n   A 장부 두 칸(Ledger · DetailRow): 이름 칸 + 값 칸, 상자 없이 줄 사이 가는 선. 좁으면 위아래로 쌓는다.\n   C 목록 + 상세(ListDetail): 왼쪽 목록 · 오른쪽 상세. 담긴 자리의 폭이 700 아래면 한 칸씩(목록 → 상세 → 목록).\n     화면 폭이 아니라 «담긴 자리» 를 본다: 용어집은 전용 화면과 AI 도우미의 좁은 탭이 같은 부품이다.\n   선택은 면 색 + 굵은 제목(왼쪽 강조선 금지 · no-side-accent). 한글 자간은 0.\n   ============================================================================= */\n.qa-ledger {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  margin: 0;\n}\n.qa-ledger-row {\n  display: grid;\n  grid-template-columns: minmax(6.5rem, var(--qa-ledger-label, 12rem)) minmax(0, 1fr);\n  column-gap: 24px;\n  row-gap: 2px;\n  align-items: baseline;\n  margin: 0;\n  padding: 11px 0 12px;\n  border-bottom: 1px solid var(--qa-border);\n}\n.qa-ledger > .qa-ledger-row:last-child {\n  border-bottom: none;\n}\n.qa-ledger-label {\n  margin: 0;\n  color: var(--qa-muted);\n  font-size: 13.5px;\n  line-height: var(--qa-lh-normal);\n  word-break: keep-all;\n  overflow-wrap: break-word;\n}\n.qa-ledger-value {\n  margin: 0;\n  min-width: 0;\n  color: var(--qa-text);\n  font-size: 14px;\n  line-height: var(--qa-lh-relaxed);\n  overflow-wrap: anywhere;\n}\n@container (max-width: 420px) {\n  .qa-ledger-row {\n    grid-template-columns: minmax(0, 1fr);\n    padding: 10px 0 11px;\n  }\n}\n\n.qa-ld-host {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  /* 한 칸에서 상세로 건너가 머리로 올릴 때 폰 상단 바(68)에 가리지 않게 */\n  scroll-margin-top: 80px;\n}\n.qa-ld {\n  display: grid;\n  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);\n  height: var(--qa-ld-height, min(760px, calc(100dvh - 220px)));\n  min-height: 420px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-list {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  border-right: 1px solid var(--qa-borderHi);\n  padding-bottom: 24px;\n}\n.qa-ld-gh {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  padding: 12px 16px 6px 0;\n  background: var(--qa-bg);\n  border-bottom: 1px solid var(--qa-border);\n  color: var(--qa-muted);\n  font-size: 12.5px;\n  font-weight: 600;\n}\n.qa-ld-n {\n  font-family: var(--qd-font-family-mono);\n  font-weight: 400;\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-row {\n  display: flex;\n  flex-direction: column;\n  gap: 1px;\n  width: 100%;\n  min-height: 52px;\n  margin: 0;\n  padding: 10px 16px 11px 10px;\n  border: none;\n  border-bottom: 1px solid var(--qa-border);\n  border-radius: 0;\n  background: transparent;\n  color: var(--qa-text);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n  transition: background-color 0.12s ease;\n}\n.qa-ld-row:hover {\n  background: var(--qa-surface);\n}\n.qa-ld-row[aria-current='true'] {\n  background: var(--qa-surface2);\n}\n.qa-ld-row:focus-visible {\n  outline: 2px solid var(--qa-champagne);\n  outline-offset: -2px;\n}\n.qa-ld-row-title {\n  font-size: 14px;\n  font-weight: 600;\n  line-height: var(--qa-lh-snug);\n  overflow-wrap: anywhere;\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-title {\n  font-weight: 800;\n}\n.qa-ld-row-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 13.5px;\n}\n.qa-ld-row-sub {\n  max-width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--qa-subtle);\n  font-size: 13px;\n  line-height: var(--qa-lh-normal);\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-sub {\n  color: var(--qa-text);\n}\n.qa-ld-detail {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  padding: 32px 8px 40px 44px;\n}\n.qa-ld-in {\n  max-width: 680px;\n  animation: qa-ld-in 0.24s ease both;\n}\n@keyframes qa-ld-in {\n  from { opacity: 0; transform: translateY(4px); }\n  to { opacity: 1; transform: none; }\n}\n.qa-ld-back {\n  display: none;\n  align-items: center;\n  gap: 4px;\n  min-height: 44px;\n  margin: 0 0 4px;\n  padding: 0;\n  border: none;\n  background: transparent;\n  color: var(--qa-subtle);\n  font: inherit;\n  font-size: 13.5px;\n  cursor: pointer;\n  text-decoration: underline;\n  text-decoration-color: var(--qa-border);\n  text-underline-offset: 3px;\n}\n.qa-ld-back:hover {\n  color: var(--qa-text);\n  text-decoration-color: var(--qa-champagne);\n}\n/* 상세 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 한 줄 요약 → 본문 */\n.qa-ld-kicker {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  gap: 4px 10px;\n  margin: 0 0 12px;\n  color: var(--qa-muted);\n  font-size: 12.5px;\n}\n.qa-ld-kicker .is-code {\n  font-family: var(--qd-font-family-mono);\n  color: var(--qa-champagne);\n}\n.qa-ld-kicker .is-end {\n  margin-left: auto;\n  font-family: var(--qd-font-family-mono);\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-title {\n  margin: 0;\n  color: var(--qa-text);\n  font-size: 24px;\n  font-weight: 700;\n  line-height: var(--qa-lh-heading);\n  overflow-wrap: anywhere;\n  text-wrap: balance;\n}\n.qa-ld-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 32px;\n  font-weight: 600;\n  line-height: var(--qa-lh-tight);\n  color: var(--qa-champagne);\n}\n.qa-ld-aside {\n  margin: 8px 0 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n.qa-ld-lede {\n  margin: 20px 0 0;\n  color: var(--qa-text);\n  font-size: 18px;\n  font-weight: 700;\n  line-height: var(--qa-lh-snug);\n}\n.qa-ld-body {\n  margin: 10px 0 0;\n  max-width: 62ch;\n  color: var(--qa-subtle);\n  font-size: 15px;\n  line-height: var(--qa-lh-loose);\n}\n.qa-ld-facts {\n  margin-top: 26px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-nav {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  gap: 8px 16px;\n  margin-top: 24px;\n}\n.qa-ld-empty {\n  padding: 40px 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n@container (max-width: 699px) {\n  .qa-ld {\n    display: block;\n    height: auto;\n    min-height: 0;\n  }\n  .qa-ld-list {\n    overflow: visible;\n    border-right: none;\n    padding-bottom: 0;\n  }\n  /* 한 칸일 때 목록은 바깥(main · 서랍)이 굴린다. 거기서 top 0 고정은 폰 상단 바 밑으로 숨으므로 풀어 둔다(sticky-inset) */\n  .qa-ld-gh {\n    position: static;\n  }\n  .qa-ld[data-view='detail'] .qa-ld-list,\n  .qa-ld[data-view='list'] .qa-ld-detail {\n    display: none;\n  }\n  .qa-ld-detail {\n    overflow: visible;\n    padding: 12px 0 32px;\n  }\n  /* 상세가 짧아도 머리(← 목록)를 상단 바 아래로 올릴 만큼의 높이(짧으면 바깥 스크롤이 끝에 걸려 머리가 바에 반쯤 가린다) */\n  .qa-ld[data-view='detail'] .qa-ld-detail {\n    min-height: 70dvh;\n  }\n  .qa-ld-back {\n    display: inline-flex;\n  }\n  .qa-ld-row {\n    padding-left: 0;\n  }\n  .qa-ld-row[aria-current='true'] {\n    padding-left: 10px;\n  }\n  .qa-ld-title.is-code {\n    font-size: 28px;\n  }\n}\n@media (prefers-reduced-motion: reduce) {\n  .qa-ld-in { animation: none; }\n  .qa-ld-row { transition: none; }\n}\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "design",
+      "path": "dist/q-design.foundation.atelier.css",
+      "beforeHash": "1c0470ec419ca6c4387f6034319755b62276ee48f4d4160eed903dfc7cd3d7cd",
+      "afterHash": "6c3a145ab729c80c5e32f939b2616c980641672b37b15cdfd1cdd543025cb631",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 1298,
+          "beforeCount": 0,
+          "afterLine": 1298,
+          "afterCount": 292,
+          "start": 47509,
+          "before": "",
+          "after": "/* =============================================================================\n   장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)\n   A 장부 두 칸(Ledger · DetailRow): 이름 칸 + 값 칸, 상자 없이 줄 사이 가는 선. 좁으면 위아래로 쌓는다.\n   C 목록 + 상세(ListDetail): 왼쪽 목록 · 오른쪽 상세. 담긴 자리의 폭이 700 아래면 한 칸씩(목록 → 상세 → 목록).\n     화면 폭이 아니라 «담긴 자리» 를 본다: 용어집은 전용 화면과 AI 도우미의 좁은 탭이 같은 부품이다.\n   선택은 면 색 + 굵은 제목(왼쪽 강조선 금지 · no-side-accent). 한글 자간은 0.\n   ============================================================================= */\n.qa-ledger {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  margin: 0;\n}\n.qa-ledger-row {\n  display: grid;\n  grid-template-columns: minmax(6.5rem, var(--qa-ledger-label, 12rem)) minmax(0, 1fr);\n  column-gap: 24px;\n  row-gap: 2px;\n  align-items: baseline;\n  margin: 0;\n  padding: 11px 0 12px;\n  border-bottom: 1px solid var(--qa-border);\n}\n.qa-ledger > .qa-ledger-row:last-child {\n  border-bottom: none;\n}\n.qa-ledger-label {\n  margin: 0;\n  color: var(--qa-muted);\n  font-size: 13.5px;\n  line-height: var(--qa-lh-normal);\n  word-break: keep-all;\n  overflow-wrap: break-word;\n}\n.qa-ledger-value {\n  margin: 0;\n  min-width: 0;\n  color: var(--qa-text);\n  font-size: 14px;\n  line-height: var(--qa-lh-relaxed);\n  overflow-wrap: anywhere;\n}\n@container (max-width: 420px) {\n  .qa-ledger-row {\n    grid-template-columns: minmax(0, 1fr);\n    padding: 10px 0 11px;\n  }\n}\n\n.qa-ld-host {\n  container-type: inline-size;\n  width: 100%;\n  min-width: 0;\n  /* 한 칸에서 상세로 건너가 머리로 올릴 때 폰 상단 바(68)에 가리지 않게 */\n  scroll-margin-top: 80px;\n}\n.qa-ld {\n  display: grid;\n  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);\n  height: var(--qa-ld-height, min(760px, calc(100dvh - 220px)));\n  min-height: 420px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-list {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  border-right: 1px solid var(--qa-borderHi);\n  padding-bottom: 24px;\n}\n.qa-ld-gh {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  padding: 12px 16px 6px 0;\n  background: var(--qa-bg);\n  border-bottom: 1px solid var(--qa-border);\n  color: var(--qa-muted);\n  font-size: 12.5px;\n  font-weight: 600;\n}\n.qa-ld-n {\n  font-family: var(--qd-font-family-mono);\n  font-weight: 400;\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-row {\n  display: flex;\n  flex-direction: column;\n  gap: 1px;\n  width: 100%;\n  min-height: 52px;\n  margin: 0;\n  padding: 10px 16px 11px 10px;\n  border: none;\n  border-bottom: 1px solid var(--qa-border);\n  border-radius: 0;\n  background: transparent;\n  color: var(--qa-text);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n  transition: background-color 0.12s ease;\n}\n.qa-ld-row:hover {\n  background: var(--qa-surface);\n}\n.qa-ld-row[aria-current='true'] {\n  background: var(--qa-surface2);\n}\n.qa-ld-row:focus-visible {\n  outline: 2px solid var(--qa-champagne);\n  outline-offset: -2px;\n}\n.qa-ld-row-title {\n  font-size: 14px;\n  font-weight: 600;\n  line-height: var(--qa-lh-snug);\n  overflow-wrap: anywhere;\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-title {\n  font-weight: 800;\n}\n.qa-ld-row-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 13.5px;\n}\n.qa-ld-row-sub {\n  max-width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--qa-subtle);\n  font-size: 13px;\n  line-height: var(--qa-lh-normal);\n}\n.qa-ld-row[aria-current='true'] .qa-ld-row-sub {\n  color: var(--qa-text);\n}\n.qa-ld-detail {\n  min-width: 0;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  padding: 32px 8px 40px 44px;\n}\n.qa-ld-in {\n  max-width: 680px;\n  animation: qa-ld-in 0.24s ease both;\n}\n@keyframes qa-ld-in {\n  from { opacity: 0; transform: translateY(4px); }\n  to { opacity: 1; transform: none; }\n}\n.qa-ld-back {\n  display: none;\n  align-items: center;\n  gap: 4px;\n  min-height: 44px;\n  margin: 0 0 4px;\n  padding: 0;\n  border: none;\n  background: transparent;\n  color: var(--qa-subtle);\n  font: inherit;\n  font-size: 13.5px;\n  cursor: pointer;\n  text-decoration: underline;\n  text-decoration-color: var(--qa-border);\n  text-underline-offset: 3px;\n}\n.qa-ld-back:hover {\n  color: var(--qa-text);\n  text-decoration-color: var(--qa-champagne);\n}\n/* 상세 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 한 줄 요약 → 본문 */\n.qa-ld-kicker {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  gap: 4px 10px;\n  margin: 0 0 12px;\n  color: var(--qa-muted);\n  font-size: 12.5px;\n}\n.qa-ld-kicker .is-code {\n  font-family: var(--qd-font-family-mono);\n  color: var(--qa-champagne);\n}\n.qa-ld-kicker .is-end {\n  margin-left: auto;\n  font-family: var(--qd-font-family-mono);\n  font-variant-numeric: tabular-nums;\n}\n.qa-ld-title {\n  margin: 0;\n  color: var(--qa-text);\n  font-size: 24px;\n  font-weight: 700;\n  line-height: var(--qa-lh-heading);\n  overflow-wrap: anywhere;\n  text-wrap: balance;\n}\n.qa-ld-title.is-code {\n  font-family: var(--qd-font-family-mono);\n  font-size: 32px;\n  font-weight: 600;\n  line-height: var(--qa-lh-tight);\n  color: var(--qa-champagne);\n}\n.qa-ld-aside {\n  margin: 8px 0 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n.qa-ld-lede {\n  margin: 20px 0 0;\n  color: var(--qa-text);\n  font-size: 18px;\n  font-weight: 700;\n  line-height: var(--qa-lh-snug);\n}\n.qa-ld-body {\n  margin: 10px 0 0;\n  max-width: 62ch;\n  color: var(--qa-subtle);\n  font-size: 15px;\n  line-height: var(--qa-lh-loose);\n}\n.qa-ld-facts {\n  margin-top: 26px;\n  border-top: 1px solid var(--qa-borderHi);\n}\n.qa-ld-nav {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  gap: 8px 16px;\n  margin-top: 24px;\n}\n.qa-ld-empty {\n  padding: 40px 0;\n  color: var(--qa-muted);\n  font-size: 14px;\n}\n@container (max-width: 699px) {\n  .qa-ld {\n    display: block;\n    height: auto;\n    min-height: 0;\n  }\n  .qa-ld-list {\n    overflow: visible;\n    border-right: none;\n    padding-bottom: 0;\n  }\n  /* 한 칸일 때 목록은 바깥(main · 서랍)이 굴린다. 거기서 top 0 고정은 폰 상단 바 밑으로 숨으므로 풀어 둔다(sticky-inset) */\n  .qa-ld-gh {\n    position: static;\n  }\n  .qa-ld[data-view='detail'] .qa-ld-list,\n  .qa-ld[data-view='list'] .qa-ld-detail {\n    display: none;\n  }\n  .qa-ld-detail {\n    overflow: visible;\n    padding: 12px 0 32px;\n  }\n  /* 상세가 짧아도 머리(← 목록)를 상단 바 아래로 올릴 만큼의 높이(짧으면 바깥 스크롤이 끝에 걸려 머리가 바에 반쯤 가린다) */\n  .qa-ld[data-view='detail'] .qa-ld-detail {\n    min-height: 70dvh;\n  }\n  .qa-ld-back {\n    display: inline-flex;\n  }\n  .qa-ld-row {\n    padding-left: 0;\n  }\n  .qa-ld-row[aria-current='true'] {\n    padding-left: 10px;\n  }\n  .qa-ld-title.is-code {\n    font-size: 28px;\n  }\n}\n@media (prefers-reduced-motion: reduce) {\n  .qa-ld-in { animation: none; }\n  .qa-ld-row { transition: none; }\n}\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "design",
+      "path": "patterns/component-implementations/atelier/lib/design/components.tsx",
+      "beforeHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "afterHash": "3a8d6b8c9ba28a74f724fe8a28110dc595e4ee4053d76362cae8d3335ea4e596",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 4362,
+          "beforeCount": 1,
+          "afterLine": 4362,
+          "afterCount": 1,
+          "start": 149333,
+          "before": " * DetailRow: 상세 화면의 «속성 한 줄». 라벨은 왼쪽, 값은 오른쪽 끝.\n",
+          "after": " * DetailRow: 상세 화면의 «속성 한 줄». 장부 두 칸(이름 칸 · 값 칸)의 한 줄이다.\n"
+        },
+        {
+          "beforeLine": 4368,
+          "beforeCount": 0,
+          "afterLine": 4368,
+          "afterCount": 2,
+          "start": 149566,
+          "before": "",
+          "after": " * 2026-10-15 오너 결정(용어집 시안 A): 라벨 왼쪽 · 값 오른쪽 끝(사이가 휑하게 벌어짐)에서\n * «이름 칸 + 값 칸» 장부로 바꿨다. 줄 사이는 가는 선, 상자 없음. 반드시 `Ledger` 안에 둔다(dt · dd).\n"
+        },
+        {
+          "beforeLine": 4369,
+          "beforeCount": 1,
+          "afterLine": 4371,
+          "afterCount": 1,
+          "start": 149705,
+          "before": "export function DetailRow({ label, value }: { label: string; value: ReactNode }) {\n",
+          "after": "export function DetailRow({ label, value }: { label: ReactNode; value: ReactNode }) {\n"
+        },
+        {
+          "beforeLine": 4371,
+          "beforeCount": 3,
+          "afterLine": 4373,
+          "afterCount": 3,
+          "start": 149802,
+          "before": "    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: \"var(--qd-atelier-padding-00a9a83dda)\" }}>\n      <span style={{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], letterSpacing: labelTracking(label, QDText.tracking.vae83a9aee5), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>\n      <span style={{ fontFamily: QDScale.family.serif, fontSize: QDScale.font[13], color: T.text }}>{value}</span>\n",
+          "after": "    <div className=\"qa-ledger-row\">\n      <dt className=\"qa-ledger-label\">{label}</dt>\n      <dd className=\"qa-ledger-value\">{value}</dd>\n"
+        },
+        {
+          "beforeLine": 4378,
+          "beforeCount": 0,
+          "afterLine": 4380,
+          "afterCount": 238,
+          "start": 149959,
+          "before": "",
+          "after": "/**\n * Ledger: 이름 · 값 목록을 담는 장부(dl). 담긴 자리의 폭이 420 아래면 이름 위 · 값 아래로 쌓는다.\n * 겉 상자(Bx · 테두리 div)로 감싸지 않는다: 줄 사이 선이 이미 묶음을 보여 준다.\n */\nexport function Ledger({ children, ariaLabel, className }: { children: ReactNode; ariaLabel?: string; className?: string }) {\n  return (\n    <dl className={className ? `qa-ledger ${className}` : 'qa-ledger'} aria-label={ariaLabel}>\n      {children}\n    </dl>\n  );\n}\n\n/** 한 칸에서 상세 머리를 올릴 기준: 바깥 상자의 scroll-margin-top(폰 상단 바 높이)보다 위로 갔으면 올린다 */\nfunction listDetailAboveFold(host: HTMLElement): boolean {\n  return host.getBoundingClientRect().top < (parseFloat(getComputedStyle(host).scrollMarginTop) || 0);\n}\n\n/** 목록 + 상세에서 한 칸만 보일 때(담긴 자리 700 아래)인가: 상세 칸이 숨었거나 목록 칸이 숨었으면 한 칸이다 */\nfunction listDetailSingle(host: HTMLElement | null): boolean {\n  const list = host?.querySelector<HTMLElement>('.qa-ld-list');\n  const detail = host?.querySelector<HTMLElement>('.qa-ld-detail');\n  if (!list || !detail) return false;\n  return getComputedStyle(list).display === 'none' || getComputedStyle(detail).display === 'none';\n}\n\n/**\n * ListDetail: 왼쪽 목록 · 오른쪽 상세(2026-10-15 오너 결정 · 용어집 시안 C).\n *\n * 화면 폭이 아니라 «담긴 자리의 폭» 을 본다(@container). 용어집은 전용 화면과 AI 도우미의 좁은 탭이\n * 같은 부품이라, 같은 화면 폭에서도 자리마다 한 칸 · 두 칸이 갈린다.\n *   · 두 칸(700 이상): 목록과 상세가 각자 굴러간다. 선택은 면 색 + 굵은 제목(왼쪽 강조선 금지).\n *   · 한 칸: `view` 가 보일 칸을 고른다. 상세 위에 «← 목록» 글귀가 선다.\n * 목록에서 ↑ ↓ (Home · End)로 줄을 옮긴다. 두 칸이면 옮기는 즉시 상세가 바뀌고, 한 칸이면 초점만 옮긴다.\n * 선택 · 보기 상태는 쓰는 쪽이 쥔다(고르면 view 를 'detail' 로, 뒤로는 'list' 로).\n */\nexport function ListDetail({\n  list,\n  detail,\n  view,\n  onBack,\n  detailKey,\n  listLabel,\n  detailLabel,\n  backLabel = '목록',\n  height,\n}: {\n  list: ReactNode;\n  detail: ReactNode;\n  /** 한 칸일 때 보일 칸 */\n  view: 'list' | 'detail';\n  /** «← 목록» 을 눌렀을 때(한 칸에서만 보인다) */\n  onBack: () => void;\n  /** 상세가 바뀌는 열쇠(고른 항목 id). 바뀌면 상세가 맨 위에서 살짝 떠오른다 */\n  detailKey?: string | number;\n  listLabel: string;\n  detailLabel: string;\n  backLabel?: string;\n  /** 두 칸일 때 높이(CSS 값). 기본은 화면 높이에 맞춘 값 */\n  height?: string;\n}) {\n  const hostRef = useRef<HTMLDivElement>(null);\n  const detailRef = useRef<HTMLElement>(null);\n  const firstView = useRef(true);\n\n  // 상세가 바뀌면 상세 칸은 맨 위부터. 두 칸이면 상세 칸이 스스로 굴러가고,\n  // 한 칸이면 바깥(main · 서랍)이 굴러가므로 상세 머리가 화면 위로 지나갔을 때만 되돌린다(같은 분야 · 다음 건으로 건너갈 때)\n  useEffect(() => {\n    if (detailRef.current) detailRef.current.scrollTop = 0;\n    const host = hostRef.current;\n    if (host && view === 'detail' && listDetailSingle(host) && listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });\n  }, [detailKey]);\n\n  // 한 칸에서 칸을 바꾸면: 상세로 가면 상세 머리로 초점 · 화면을, 목록으로 오면 고른 줄로 되돌린다\n  useEffect(() => {\n    if (firstView.current) {\n      firstView.current = false;\n      return;\n    }\n    const host = hostRef.current;\n    if (!host || !listDetailSingle(host)) return;\n    if (view === 'detail') {\n      // 목록 아래쪽에서 골랐으면 상세 머리(← 목록)까지 올린다\n      if (listDetailAboveFold(host)) host.scrollIntoView({ block: 'start' });\n      detailRef.current?.focus({ preventScroll: true });\n    } else {\n      const row = host.querySelector<HTMLElement>('.qa-ld-row[aria-current=\"true\"]');\n      row?.scrollIntoView({ block: 'center' });\n      row?.focus({ preventScroll: true });\n    }\n  }, [view]);\n\n  const onListKey = (e: KeyboardEvent<HTMLElement>) => {\n    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End') return;\n    const rows = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>('[data-ld-row]'));\n    const at = rows.indexOf(document.activeElement as HTMLButtonElement);\n    if (at < 0) return;\n    e.preventDefault();\n    const to = e.key === 'Home' ? 0 : e.key === 'End' ? rows.length - 1 : Math.min(rows.length - 1, Math.max(0, at + (e.key === 'ArrowDown' ? 1 : -1)));\n    const row = rows[to];\n    row.focus();\n    if (!listDetailSingle(hostRef.current)) row.click();\n  };\n\n  return (\n    <div className=\"qa-ld-host\" ref={hostRef}>\n      <div className=\"qa-ld\" data-view={view} style={height ? ({ ['--qa-ld-height' as string]: height } as CSSProperties) : undefined}>\n        <section className=\"qa-ld-list\" aria-label={listLabel} onKeyDown={onListKey}>\n          {list}\n        </section>\n        <section className=\"qa-ld-detail\" aria-label={detailLabel} ref={detailRef} tabIndex={-1}>\n          <button type=\"button\" className=\"qa-ld-back\" onClick={onBack}>\n            ← {backLabel}\n          </button>\n          <div key={detailKey} className=\"qa-ld-in\">\n            {detail}\n          </div>\n        </section>\n      </div>\n    </div>\n  );\n}\n\n/** 목록 칸의 묶음 머리(분류 이름 + 건수). 두 칸일 때 목록 위에 붙어 따라온다 */\nexport function ListDetailGroup({ title, count }: { title: ReactNode; count?: number }) {\n  return (\n    <div className=\"qa-ld-gh\">\n      <span>{title}</span>\n      {count != null && <span className=\"qa-ld-n\">{count}</span>}\n    </div>\n  );\n}\n\n/**\n * 목록 칸의 한 줄. 고르면 면 색이 깔리고 제목이 굵어진다(aria-current).\n * 두 칸에서 이전 · 다음으로 고른 줄이 목록 밖으로 나가면 목록 칸만 굴려 보이게 한다(바깥 화면은 굴리지 않는다).\n */\nexport function ListDetailRow({\n  selected,\n  onSelect,\n  title,\n  sub,\n  code,\n  label,\n}: {\n  selected: boolean;\n  onSelect: () => void;\n  title: ReactNode;\n  sub?: ReactNode;\n  /** 제목이 약어 · 번호(DHF · ISO 13485 · CAPA-0012)면 고정폭 글꼴 */\n  code?: boolean;\n  /** 낭독기 이름(보이는 제목이 앞에 와야 한다) */\n  label?: string;\n}) {\n  const ref = useRef<HTMLButtonElement>(null);\n  useEffect(() => {\n    const row = ref.current;\n    const box = row?.closest<HTMLElement>('.qa-ld-list');\n    if (!selected || !row || !box || box.scrollHeight <= box.clientHeight) return;\n    if (getComputedStyle(box).overflowY === 'visible') return;\n    const r = row.getBoundingClientRect();\n    const b = box.getBoundingClientRect();\n    if (r.top < b.top + 40) box.scrollTop -= b.top + 40 - r.top;\n    else if (r.bottom > b.bottom) box.scrollTop += r.bottom - b.bottom;\n  }, [selected]);\n  return (\n    <button\n      ref={ref}\n      type=\"button\"\n      className=\"qa-ld-row\"\n      data-ld-row=\"\"\n      aria-current={selected ? 'true' : undefined}\n      aria-label={label}\n      onClick={onSelect}\n    >\n      <span className={code ? 'qa-ld-row-title is-code' : 'qa-ld-row-title'}>{title}</span>\n      {sub != null && sub !== '' && <span className=\"qa-ld-row-sub\">{sub}</span>}\n    </button>\n  );\n}\n\n/**\n * 상세 칸의 머리: 위치 줄(번호 · 분류 · 몇 번째) → 큰 제목 → 곁말 → 한 줄 요약.\n * 제목이 약어 · 번호면 `code` 로 고정폭 금색 큰 글자(용어집 시안 C 의 얼굴).\n */\nexport function ListDetailHead({\n  kicker,\n  position,\n  title,\n  code,\n  aside,\n  lede,\n}: {\n  kicker?: ReactNode;\n  /** 오른쪽 끝의 «3 / 140» */\n  position?: string;\n  title: ReactNode;\n  code?: boolean;\n  aside?: ReactNode;\n  lede?: ReactNode;\n}) {\n  return (\n    <header>\n      {(kicker != null || position) && (\n        <div className=\"qa-ld-kicker\">\n          {kicker}\n          {position && <span className=\"is-end\">{position}</span>}\n        </div>\n      )}\n      <h2 className={code ? 'qa-ld-title is-code' : 'qa-ld-title'}>{title}</h2>\n      {aside != null && aside !== '' && <p className=\"qa-ld-aside\">{aside}</p>}\n      {lede != null && lede !== '' && <p className=\"qa-ld-lede\">{lede}</p>}\n    </header>\n  );\n}\n\n/** 상세 칸 바닥의 이전 · 다음 글귀. 끝이면 그쪽 자리를 비운다 */\nexport function ListDetailNav({\n  prev,\n  next,\n  onPrev,\n  onNext,\n  disabled,\n}: {\n  prev?: string;\n  next?: string;\n  onPrev: () => void;\n  onNext: () => void;\n  /** 보내는 중(결재 서명 등)에는 건너가지 못하게 */\n  disabled?: boolean;\n}) {\n  return (\n    <nav className=\"qa-ld-nav\" aria-label=\"이전 · 다음\">\n      {prev ? <TextAction onClick={onPrev} disabled={disabled} label={`이전: ${prev}`}>← {prev}</TextAction> : <span />}\n      {next ? <TextAction onClick={onNext} disabled={disabled} label={`다음: ${next}`}>{next} →</TextAction> : <span />}\n    </nav>\n  );\n}\n\n"
+        }
+      ]
+    },
+    {
+      "repo": "design",
+      "path": "source/component-roles.json",
+      "beforeHash": "50f31ffa178fcc4de09ba0344bccf7ff872681c5a1fa0b2560fdb6425af4a2ca",
+      "afterHash": "f82365c37e8fc3fe6e4617a55e62d04ead6a2ad6281fb4c1f33753af2ed51a20",
+      "lineEnding": "lf",
+      "edits": [
+        {
+          "beforeLine": 1316,
+          "beforeCount": 1,
+          "afterLine": 1316,
+          "afterCount": 2,
+          "start": 33923,
+          "before": "            \"DetailRow\"\n",
+          "after": "            \"DetailRow\",\n            \"Ledger\"\n"
+        },
+        {
+          "beforeLine": 1369,
+          "beforeCount": 1,
+          "afterLine": 1370,
+          "afterCount": 27,
+          "start": 35201,
+          "before": "      \"differences\": \"qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다.\"\n",
+          "after": "      \"differences\": \"qd-row는 괘선 항목의 기준이다. 모바일 카드 행·정의 목록·표 링크의 의미는 서로 달라 클래스 한 개로 전부 대체하지 않는다. Atelier 의 이름 · 값 목록은 2026-10-15 오너 결정(용어집 시안 A)으로 Ledger(dl) 안의 DetailRow 장부 두 칸이다.\"\n    },\n    {\n      \"id\": \"list-detail\",\n      \"label\": \"목록 + 상세(연속 검토)\",\n      \"canon\": {\n        \"status\": \"product-only\",\n        \"evidence\": [\n          \"docs/116-reference-sites-2026-10-15.md\",\n          \"patterns/foundation/atelier.css\"\n        ]\n      },\n      \"implementations\": [\n        {\n          \"product\": \"atelier\",\n          \"kind\": \"component\",\n          \"file\": \"lib/design/components.tsx\",\n          \"symbols\": [\n            \"ListDetail\",\n            \"ListDetailGroup\",\n            \"ListDetailRow\",\n            \"ListDetailHead\",\n            \"ListDetailNav\"\n          ]\n        }\n      ],\n      \"differences\": \"2026-10-15 오너 결정(용어집 시안 C). 담긴 자리가 700 이상이면 왼쪽 목록 · 오른쪽 상세, 좁으면 한 칸씩(← 목록). 선택은 면 색 + 굵은 제목. 무엇을 고르고 무엇을 결정하는지(결재 서명 · 용어 풀이)는 제품이 유지한다. Maison · Carnet 에는 아직 없다.\"\n"
+        }
+      ]
+    }
+  ]
+}

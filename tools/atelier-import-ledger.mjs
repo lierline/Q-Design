@@ -1,4 +1,6 @@
 import {beforeExpertFonts,expertFontPath} from './atelier-expert-font-source.mjs';
+// Like the expert font source, the newer ledger pattern source is read back to the exact source these decisions were proven on.
+import {beforeLedgerSourceIfLater} from './atelier-ledger-pattern-sources.mjs';
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';import {expressionProof,localBindings,sourceImports} from './atelier-style-proof.mjs';import {createAtelierProofContext,compositionNodes} from './atelier-proof-context.mjs';
 import {beforeForwardedLedger} from './atelier-forwarded-ledger.mjs';
@@ -23,7 +25,7 @@ export function createImportLedger(current){
  for(const [index,old]of before.records.entries()){
   const row=current.records[index];if(JSON.stringify(old)===JSON.stringify(row))continue;assert.equal(old.decision,'unknown','An earlier decision must remain identical');
   for(const key of new Set([...Object.keys(old),...Object.keys(row)]))if(!['decision','ruleId','reason','evidence'].includes(key))assert.deepEqual(row[key],old[key],'Argument, source and order are preserved: '+index+'.'+key);
-  if(!source.has(row.path))source.set(row.path,(row.path===expertFontPath?beforeExpertFonts(fs.readFileSync(product+'/'+row.path,'utf8')):fs.readFileSync(product+'/'+row.path,'utf8')));const proof=proveImportedComposition(row,source.get(row.path),context);
+  if(!source.has(row.path))source.set(row.path,(row.path===expertFontPath?beforeExpertFonts(fs.readFileSync(product+'/'+row.path,'utf8')):beforeLedgerSourceIfLater(row.path,fs.readFileSync(product+'/'+row.path,'utf8'))));const proof=proveImportedComposition(row,source.get(row.path),context);
   changes.push({index,path:row.path,line:row.line,property:row.property,argumentHash:row.argumentHash,beforeHash:hash(JSON.stringify(old)),afterHash:hash(JSON.stringify(row)),proof});
  }
  assert(changes.length);const count=r=>r.records.reduce((a,x)=>(a[x.decision]=(a[x.decision]??0)+1,a),{});assert.deepEqual(current.counts,count(current));const expectedCounts={...before.counts,unknown:736-changes.length,'token-reference-verified':before.counts['token-reference-verified']+changes.length};assert.deepEqual(current.counts,expectedCounts);

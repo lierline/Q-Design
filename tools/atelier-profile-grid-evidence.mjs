@@ -2,6 +2,8 @@ import fs from 'node:fs';import path from 'node:path';import assert from 'node:a
 import {profileGridPath,profileGridSources,normalizeProfileGrid} from './atelier-profile-grid-source.mjs';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {beforeResponsiveReview} from './atelier-profile-responsive-history.mjs';
+// The newer ledger pattern source is read back to the exact source this historical revalidation checked.
+import {beforeLedgerSourceIfLater} from './atelier-ledger-pattern-sources.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='8e0d7ed',req=createRequire(repo+'/package.json'),ts=req('typescript'),postcss=req('postcss'),properties=cssProperties(ts,fs.readFileSync(path.join(path.dirname(req.resolve('typescript')),'lib.dom.d.ts'),'utf8'));
 const bodies=profileGridSources(),read=p=>normalizeProfileGrid(fs.readFileSync(p,'utf8')),serialize=j=>JSON.stringify(j,null,2)+'\n';
 assert([bodies.beforeHash,bodies.afterHash].includes(hash(read(repo+'/'+profileGridPath))),'Unrelated product changes');
@@ -21,7 +23,7 @@ for(const name of [...new Set(names)]){
    for(const c of row.consumerContext??[]){const old=contexts(bodies.before,c.line,c.text);assert(old.length);assert.deepEqual(contexts(bodies.after,c.line,c.text),old,'Changed complete consumer AST cannot inherit a review');}
    row.sourceHash=bodies.afterHash;records++;
   }
-  for(const e of row.evidence??[])if(e.path===profileGridPath){assert.equal(e.hash,bodies.beforeHash);assert.equal(hash(row.path===profileGridPath?bodies.after:read(repo+'/'+row.path)),row.sourceHash);const old=bodies.before.split('\n')[e.line-1],next=bodies.after.split('\n')[e.line-1];assert(old!==undefined&&old===next,'Changed evidence line requires fresh review');e.hash=bodies.afterHash;evidence++;}
+  for(const e of row.evidence??[])if(e.path===profileGridPath){assert.equal(e.hash,bodies.beforeHash);assert.equal(hash(row.path===profileGridPath?bodies.after:beforeLedgerSourceIfLater(row.path,read(repo+'/'+row.path))),row.sourceHash);const old=bodies.before.split('\n')[e.line-1],next=bodies.after.split('\n')[e.line-1];assert(old!==undefined&&old===next,'Changed evidence line requires fresh review');e.hash=bodies.afterHash;evidence++;}
   if(JSON.stringify(row)!==JSON.stringify(before.records[index]))changes.push({index,before:before.records[index],after:row});
  }
  function metadata(value,location){

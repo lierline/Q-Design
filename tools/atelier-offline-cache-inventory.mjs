@@ -7,6 +7,7 @@ import {hash,runtimeFiles} from './style-arguments-core.mjs';
 import {copiedBody,copyProblems} from './audit-coverage-core.mjs';
 import {offlineRevision} from './build-foundation.mjs';
 import {PARTS} from './sync-parts.mjs';
+import {beforeLedgerInventory,ledgerFiles,ledgerSourceTexts} from './atelier-ledger-pattern-sources.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='45466f3f7ddf80bcd83dc0d1d7a2a67fa10538c4',file='public/q-design.offline-revision.js';
 const norm=s=>s.replaceAll('\r\n','\n');
 export function verifyOfflineRevisionSource(before,after,html,canonical){
@@ -18,9 +19,18 @@ export function verifyOfflineRevisionSource(before,after,html,canonical){
  const expected=norm(before).replace(norm(oldBody),body).replace(/(q-design-nav-sha256:\s*)[a-f0-9]{64}\b/,'$1'+marker);
  assert.equal(norm(after),expected,'Only the generated cache value and its copy fingerprint may change');
 }
+// The ledger pattern edits neither declares nor calls ChoiceGroup, so it cannot add or remove a caller.
+function ledgerKeepsChoiceCallers(){
+ for(const file of ledgerFiles()){
+  assert.notEqual(file,'app/(app)/m/field-ui.tsx','The ChoiceGroup owner needs its own review');
+  const {before,after}=ledgerSourceTexts(file),count=t=>(t.match(/\bChoiceGroup\b/g)??[]).length;
+  assert.equal(count(after),count(before),'ChoiceGroup references changed in '+file);
+ }
+}
 export function verifiesChoiceInventoryWithOfflineRevision(expected){
- const items=runtimeFiles(repo).filter(p=>/\.[jt]sx?$/.test(p)).map(p=>[p,hash(fs.readFileSync(repo+'/'+p,'utf8'))]);
+ let items=runtimeFiles(repo).filter(p=>/\.[jt]sx?$/.test(p)).map(p=>[p,hash(fs.readFileSync(repo+'/'+p,'utf8'))]);
  if(hash(JSON.stringify(items))===expected)return true;
+ if(items.some(([p])=>ledgerFiles().includes(p))){ledgerKeepsChoiceCallers();items=beforeLedgerInventory(items);if(hash(JSON.stringify(items))===expected)return true;}
  const before=execFileSync('git',['show',ref+':'+file],{cwd:repo,encoding:'utf8'}),after=fs.readFileSync(repo+'/'+file,'utf8');
  verifyOfflineRevisionSource(before,after,fs.readFileSync(root+'/dist/q-design.offline.atelier.html','utf8'),fs.readFileSync(root+'/dist/q-design.offline-revision.atelier.js','utf8'));
  const row=items.find(r=>r[0]===file);assert(row);row[1]=hash(before);

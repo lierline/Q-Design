@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import {createRequire} from 'node:module';
 import {createHeadingIconReview,inspectHeadingIconSources,beforeHeadingIconBoundaries} from './atelier-heading-icon-boundaries.mjs';
+import {beforeLedgerReport} from './atelier-ledger-pattern-review.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',require=createRequire(repo+'/package.json'),ts=require('typescript'),React=require('react'),render=require('react-dom/server').renderToStaticMarkup;
 const read=p=>fs.readFileSync(p,'utf8');
 function load(source,dependencies={}){const exports={};vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX,target:ts.ScriptTarget.ES2022}}).outputText,{exports,require:name=>dependencies[name]??require(name)});return exports;}
@@ -27,7 +28,8 @@ test('changed class wiring or icon consumer cannot inherit source evidence',()=>
  for(const[path,before,after]of [['lib/design/components.tsx','pageHeadingRules(headerClass)','pageHeadingRules(otherClass)'],['components/q-design-icons/_icon.tsx','void strokeWidth;','props.strokeWidth=strokeWidth;']])assert.throws(()=>inspectHeadingIconSources({[path]:read(repo+'/'+path).replace(before,after)}));
 });
 test('whole ledger reverses only the seven exact bindings and rejects unrelated or borrowed approvals',()=>{
- const current=JSON.parse(read(root+'/reviews/atelier-style-decisions.json')),old=beforeHeadingIconBoundaries(current);assert.equal(old.counts.unknown,580);assert.equal(current.counts.unknown,573);
+ // The ledger pattern layer is newer: its exact reviewed report reverses first to the report this ledger was written on.
+ const current=JSON.parse(read(root+'/reviews/atelier-style-decisions.json')),committed=beforeLedgerReport(current),old=beforeHeadingIconBoundaries(current);assert.equal(old.counts.unknown,580);assert.equal(committed.counts.unknown,573);assert.deepEqual(beforeHeadingIconBoundaries(committed),old);
  const unrelated=structuredClone(current);unrelated.records[0].decision='invented';assert.throws(()=>beforeHeadingIconBoundaries(unrelated));
  const borrowed=structuredClone(current);borrowed.records.find(r=>r.ruleId==='resolved-heading-selector-producer').evidence[0].hash='borrowed';assert.throws(()=>beforeHeadingIconBoundaries(borrowed));
 });

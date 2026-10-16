@@ -7,8 +7,11 @@ import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 import {applyBindings,termsForFile} from './copy-spacing.mjs';
 import {createParameterLeafReview} from './atelier-parameter-leaves-review.mjs';
+import {beforeLedgerReview} from './atelier-ledger-pattern-review.mjs';
 const root='D:/Claude/Q-Design',repo='D:/Claude/Q-Atelier',ref='e6df209',reportName='atelier-parameter-leaves-review.json',manifest=root+'/reviews/atelier-copy-leaf-offsets.json',serialize=j=>JSON.stringify(j,null,2)+'\n';
 export function beforeCopyLeafOffsets(name,current){
+ // The ledger pattern layer (2026-10-15) is the newest; it reverses only its exact reviewed reports.
+ current=beforeLedgerReview(name,current);
  if(name!==reportName||!fs.existsSync(manifest))return current;
  const p=JSON.parse(fs.readFileSync(manifest,'utf8'));if(hash(serialize(current))===p.beforeHash)return current;
  assert.equal(hash(serialize(current)),p.afterHash,'Unreviewed leaf offset report');
@@ -16,7 +19,8 @@ export function beforeCopyLeafOffsets(name,current){
  assert.equal(hash(serialize(before)),p.beforeHash);return before;
 }
 export function createCopyLeafOffsetReview(){
- const before=JSON.parse(execFileSync('git',['show',ref+':reviews/'+reportName],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})),after=createParameterLeafReview(),restored=structuredClone(after),changes=[];
+ // Later layers rebuild the leaf report; their exact reviewed rebuild reverses first to the report this proof was written on.
+ const before=JSON.parse(execFileSync('git',['show',ref+':reviews/'+reportName],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})),after=beforeLedgerReview(reportName,createParameterLeafReview()),restored=structuredClone(after),changes=[];
  const copy=JSON.parse(fs.readFileSync(root+'/reviews/atelier-professional-copy-revalidation.json','utf8')),terms=JSON.parse(fs.readFileSync(root+'/patterns/professional-atelier-copy.json','utf8')).terms,sources=new Map();
  for(const [i,flow]of before.flows.entries())for(const [j,leaf]of flow.leaves.entries()){
   const current=after.flows[i]?.leaves[j];assert(current);
@@ -36,6 +40,6 @@ export function createCopyLeafOffsetReview(){
  return {after,proof:{version:1,reviewRef:ref,scope:'Only lexical byte offsets moved by separately verified display-copy literals. Exact leaf text, line, callers, values, defaults and every other report field are unchanged. No new leaf or caller is approved.',beforeHash:hash(serialize(before)),afterHash:hash(serialize(after)),changes}};
 }
 if(path.resolve(process.argv[1]??'')===fileURLToPath(import.meta.url)){
- const {after,proof}=createCopyLeafOffsetReview();if(process.argv.includes('--write')){assert(!fs.existsSync(manifest));fs.writeFileSync(root+'/reviews/'+reportName,serialize(after));fs.writeFileSync(manifest,serialize(proof));}else{assert.deepEqual(JSON.parse(fs.readFileSync(manifest,'utf8')),proof);assert.deepEqual(JSON.parse(fs.readFileSync(root+'/reviews/'+reportName,'utf8')),after);}
+ const {after,proof}=createCopyLeafOffsetReview();if(process.argv.includes('--write')){assert(!fs.existsSync(manifest));fs.writeFileSync(root+'/reviews/'+reportName,serialize(after));fs.writeFileSync(manifest,serialize(proof));}else{assert.deepEqual(JSON.parse(fs.readFileSync(manifest,'utf8')),proof);assert.deepEqual(beforeLedgerReview(reportName,JSON.parse(fs.readFileSync(root+'/reviews/'+reportName,'utf8'))),after);}
  console.log(JSON.stringify({offsets:proof.changes.length,flows:after.flows.length,passed:true}));
 }

@@ -10,6 +10,7 @@ import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {createRequire} from 'node:module';
 import {beforeChoiceColumnsLedger} from './atelier-choice-columns-ledger.mjs';
 import {inspectGlobalTypographyLayer} from './typography-links-core.mjs';
+import {beforeLedgerSource} from './atelier-ledger-pattern-sources.mjs';
 export {inspectGlobalTypographyLayer} from './typography-links-core.mjs';
 
 const root='D:/Claude/Q-Design', product='D:/Claude/Q-Atelier';
@@ -25,7 +26,8 @@ export function createGlobalTypographyLedger(current,ref=JSON.parse(fs.readFileS
   current=beforeChoiceColumnsLedger(current);
   const before=JSON.parse(show(ref,'reviews/atelier-style-decisions.json'));
   const oldCentral=show(ref,centralPath),oldCopy=execFileSync('git',['show',JSON.parse(show(ref,'source/_ORIGIN.json'))['원본'].qa['커밋']+':'+copyPath],{cwd:product,encoding:'utf8',maxBuffer:32*1024*1024});
-  const central=fs.readFileSync(root+'/'+centralPath,'utf8'),copy=fs.readFileSync(product+'/'+copyPath,'utf8'),layer=fs.readFileSync(root+'/'+layerPath,'utf8');
+  // The ledger pattern layer (2026-10-15) later inserted its own recipe; this ledger reads the exact earlier pair.
+  const central=beforeLedgerSource(centralPath,fs.readFileSync(root+'/'+centralPath,'utf8'),'design'),copy=beforeLedgerSource(copyPath,fs.readFileSync(product+'/'+copyPath,'utf8'),'product'),layer=fs.readFileSync(root+'/'+layerPath,'utf8');
   const {ts,postcss,variables}=createAtelierProofContext();
   inspectGlobalTypographyLayer(layer,postcss);
   assert(variables.has('--qd-font-family-ui')&&variables.has('--qd-font-family-mono'));

@@ -1,6 +1,8 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {hash} from './style-arguments-core.mjs';import {responsiveDesignRef as ref,responsiveProfilePath,responsiveProfileSources} from './atelier-profile-responsive-source.mjs';import {createResponsiveProfileReview} from './atelier-profile-responsive-review.mjs';
 import {beforeResidualLedger} from './atelier-residual-ledger.mjs';
-const root='D:/Claude/Q-Design',serialize=j=>JSON.stringify(j,null,2)+'\n',before=JSON.parse(execFileSync('git',['show',ref+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024})),after=beforeResidualLedger(JSON.parse(fs.readFileSync(root+'/reviews/atelier-style-decisions.json','utf8'))),bodies=responsiveProfileSources(),fresh=createResponsiveProfileReview(),changes=[];
+// The responsive review is rebuilt after the newer ledger pattern; its exact reviewed rebuild reverses to the review this ledger was written on.
+import {beforeLedgerReview} from './atelier-ledger-pattern-review.mjs';
+const root='D:/Claude/Q-Design',serialize=j=>JSON.stringify(j,null,2)+'\n',before=JSON.parse(execFileSync('git',['show',ref+':reviews/atelier-style-decisions.json'],{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024})),after=beforeResidualLedger(JSON.parse(fs.readFileSync(root+'/reviews/atelier-style-decisions.json','utf8'))),bodies=responsiveProfileSources(),fresh=beforeLedgerReview('atelier-profile-responsive-review.json',createResponsiveProfileReview()),changes=[];
 assert.equal(before.records.length,53991);assert.equal(after.records.length,before.records.length);
 for(const [index,old]of before.records.entries()){
  const current=after.records[index],reviewed=fresh.records.find(r=>r.argumentHash===current.argumentHash);

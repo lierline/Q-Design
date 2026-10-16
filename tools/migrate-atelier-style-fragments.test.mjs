@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { transformStyleFragments } from './migrate-atelier-style-fragments.mjs';
+import { beforeLedgerSource } from './atelier-ledger-pattern-sources.mjs';
 const defaults = new Map([['--qd-border-width', '1px'], ['--qd-border-width-2', '2px']]);
 
 test('border templates centralize only literal fragments, preserving conditions and runtime color', () => {
@@ -39,7 +40,9 @@ test('every recorded migrated fragment still has the exact central default and a
   for (const file of ['foundation/atelier-values.css', 'foundation/atelier-core-values.css']) for (const match of readFileSync(new URL('../patterns/' + file, import.meta.url), 'utf8').matchAll(/(--qd-[\w-]+)\s*:\s*([^;{}]+);/g)) definitions.set(match[1], match[2].trim());
   const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8'));
   for (const file of ledger.files) {
-    const code = readFileSync('D:/Claude/Q-Atelier/' + file.path, 'utf8');
+    // The ledger pattern layer (2026-10-15) later replaced some migrated boxes with shared parts.
+    // This migration record is checked on the exact earlier source; later code has its own decisions.
+    const code = beforeLedgerSource(file.path, readFileSync('D:/Claude/Q-Atelier/' + file.path, 'utf8'));
     for (const edit of file.conversions) for (const value of edit.values) {
       assert.equal(definitions.get(value.token), value.value, file.path + ':' + edit.line);
       assert.ok(code.includes(`var(${value.token})`), file.path + ':' + edit.line);

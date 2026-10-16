@@ -1,6 +1,8 @@
 import {beforeAccentSourceRefresh} from './maison-accent-source-refresh.mjs';
 import {beforePublicFingerprints} from './atelier-public-contract-refresh.mjs';
 import {beforeNavigationInventory} from './maison-navigation-inventory-refresh.mjs';
+import {beforeLedgerReview} from './atelier-ledger-pattern-review.mjs';
+import {historicalLedgerEvidence} from './atelier-ledger-pattern-sources.mjs';
 // The six central glyph dimensions change representation, not their default size.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -71,6 +73,8 @@ function changesFor(name,before,sources){
  return {name,beforeHash:hash(serialize(before)),afterHash:hash(serialize(after)),changes,after};
 }
 export function beforeChoiceGlyphReview(name,current){
+ // The ledger pattern layer (2026-10-15) is the newest; it reverses only its exact reviewed reports.
+ current=beforeLedgerReview(name,current);
  if(name==='maison-accent-review.json')current=beforeAccentSourceRefresh(current);
  if(name==='atelier-style-decisions.json')current=beforePublicFingerprints(current);
  if(name==='maison-current-navigation-review.json')current=beforeNavigationInventory(current);
@@ -81,6 +85,8 @@ export function beforeChoiceGlyphReview(name,current){
  assert.equal(hash(serialize(before)),record.beforeHash);return before;
 }
 export function historicalChoiceGlyphEvidence(evidence,recordEvidence){
+ // The ledger pattern layer (2026-10-15) is newer; its exact fingerprints and positions read back first.
+ evidence=historicalLedgerEvidence(evidence,recordEvidence);
  if(!fs.existsSync(manifest))return evidence;
  const saved=JSON.parse(fs.readFileSync(manifest,'utf8'));
  const relevant=(recordEvidence??[]).filter(e=>saved.sources.some(s=>s.path===e.path));

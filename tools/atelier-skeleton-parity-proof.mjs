@@ -7,6 +7,7 @@ import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {hash,scanArguments,cssProperties} from './style-arguments-core.mjs';
 import {beforeSocialTouchReview} from './atelier-social-touch-review-inverse.mjs';
+import {beforeLedgerSource} from './atelier-ledger-pattern-sources.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const product=path.resolve(root,'../Q-Atelier'),target='lib/design/components.tsx';
 const req=createRequire(product+'/package.json'),ts=req('typescript'),postcss=req('postcss');
@@ -23,8 +24,11 @@ export function verifySkeletonBodies(before,after){
 }
 export function skeletonBodies(){
  const before=fs.readFileSync(root+'/reviews/fixtures/atelier-skeleton-components-before.tsx','utf8');
- const canonical=fs.readFileSync(root+'/patterns/component-implementations/atelier/'+target,'utf8');
- assert.equal(norm(fs.readFileSync(product+'/'+target,'utf8')),norm(canonical));
+ const live=fs.readFileSync(root+'/patterns/component-implementations/atelier/'+target,'utf8');
+ assert.equal(norm(fs.readFileSync(product+'/'+target,'utf8')),norm(live));
+ // The ledger pattern layer (2026-10-15) later edited DetailRow and appended Ledger and ListDetail.
+ // This proof reads the exact earlier canonical body; the live product copy must still equal the live canon.
+ const canonical=beforeLedgerSource('patterns/component-implementations/atelier/'+target,live,'design');
  return verifySkeletonBodies(before,canonical);
 }
 function contextNodes(code,line,text){
