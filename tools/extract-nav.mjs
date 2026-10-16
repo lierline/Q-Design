@@ -24,6 +24,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { loadQdValues } from './qd-adapter-values.mjs';
 import { read } from './probe.mjs';
 import { readRuntimeValues } from './atelier-runtime-values.mjs';
@@ -285,7 +286,7 @@ const zBlock = Object.entries(runtime.Z ?? tokens.z)
 const css = `/* =============================================================================
    q-design.nav.css · 차림표 정본
    생성물입니다. 손대지 마세요.  node tools/extract-nav.mjs
-   원본: Q-Atelier components/Sidebar.tsx (${new Date().toISOString().slice(0, 10)})
+   원본: Q-Atelier components/Sidebar.tsx
    =============================================================================
 
    ── 쓰는 법 ────────────────────────────────────────────────────────────────
@@ -596,7 +597,9 @@ ${bindBlock('light')}
 /* 대문자는 «이름» 에만 겁니다. 줄 전체에 걸면 v1.3.0 이 V1.3.0 이 됩니다 -
    판 번호는 사람이 적은 그대로 나와야 합니다 (띄워 찍어 보고 잡은 자리). */
 .qd-rail-version > :first-child { text-transform: uppercase; }
+/* 자간은 줄 전체(부모)에서 물려받으므로 한글 이름에서는 여기서 함께 풉니다(2026-10-16 · 한글 자간 검사가 잡음) */
 .qd-rail-version > :first-child[data-hangul] {
+  letter-spacing: 0;
   text-transform: none;
   word-spacing: var(--qd-hangul-word-space);
 }
@@ -804,9 +807,8 @@ ${bindBlock('light')}
   }
 }
 
-mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'q-design.nav.css'), css, 'utf8');
-writeFileSync(
+emit(join(OUT, 'q-design.nav.css'), css);
+emit(
   join(OUT, 'q-design.nav.json'),
   JSON.stringify(
     {
@@ -820,8 +822,10 @@ writeFileSync(
     null,
     2,
   ) + '\n',
-  'utf8',
 );
+
+emitDone('차림표');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 const lines = css.split('\n').length;
 console.log(`dist/q-design.nav.css   ${lines} 줄`);

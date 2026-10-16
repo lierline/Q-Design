@@ -22,13 +22,21 @@ export function assertNativePaletteAliases(xml){
   assert.equal(values.length,1,'One native palette consumer required: '+name);assert.equal(values[0][1].trim(),'@color/qd_native_'+name,'Native color must use central resource: '+name);
  }
 }
-export function assertIosPaletteConsumers(palette,launch,toast){
- const clean=source=>source.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\/\/[^\r\n]*/g,'');
- const paletteCode=clean(palette);
+const cleanSwift=source=>source.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\/\/[^\r\n]*/g,'');
+// Palette.swift 는 앱이 직접 쓰는 파일이라 이 검사는 감사(check.mjs --products)에서 돕니다.
+export function assertIosPaletteFields(palette){
+ const paletteCode=cleanSwift(palette);
  for(const [field,role] of [['accent','loadingAccent'],['accentBright','loadingAccentBright'],['mutedOnDark','mutedOnDark'],['mutedOnLight','mutedOnLight']]){
   const declarations=[...paletteCode.matchAll(new RegExp(`^\\s*static let ${field} = ([^\\r\\n]+)`,'gm'))];
   assert.equal(declarations.length,1,'One iOS palette field required: '+field);assert.equal(declarations[0][1].trim(),`UIColor(rgb: QDesignPalette.${role})`,'iOS palette must use generated role: '+field);
  }
+}
+export function assertIosPaletteConsumers(palette,launch,toast){
+ assertIosPaletteFields(palette);assertIosAppearanceConsumers(launch,toast);
+}
+// LaunchView · ToastView 는 Q-Design 이 만들어 내보내는 사본이라 Q-Design 쪽 출력만 보면 됩니다.
+export function assertIosAppearanceConsumers(launch,toast){
+ const clean=cleanSwift;
  const launchCode=clean(launch);
  for(const [field,expression] of [['r','CGFloat((QDesignPalette.launchGlint >> 16) & 0xFF) / 255.0'],['g','CGFloat((QDesignPalette.launchGlint >> 8) & 0xFF) / 255.0'],['b','CGFloat(QDesignPalette.launchGlint & 0xFF) / 255.0']]){
   const declarations=[...launchCode.matchAll(new RegExp(`^\\s*let ${field}: CGFloat = ([^\\r\\n]+)`,'gm'))];assert.equal(declarations.length,1,'One iOS glint channel required');assert.equal(declarations[0][1].trim(),expression,'iOS glint must use generated color');

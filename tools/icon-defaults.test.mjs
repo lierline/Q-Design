@@ -14,7 +14,6 @@ const { JSDOM } = require('jsdom');
 const ts = require('typescript');
 const postcss = require('postcss');
 const tailwind = require('tailwindcss');
-const loadConfig = require('tailwindcss/loadConfig');
 const selectorParser = createRequire(require.resolve('tailwindcss/package.json'))('postcss-selector-parser');
 
 // Execute the canonical factory itself. Product copies are checked by sync; this
@@ -35,8 +34,15 @@ canonical.walkRules(rule => {
   if (rule.selector.includes('qd-phosphor-icon')||rule.selector==='.qd-icon--sm') defaults.push(rule.clone());
 });
 assert.ok(defaults.length, 'The canonical icon dimension rule must exist');
+// 유틸리티는 Q-Design 정본 preset(메종 사본의 원본)으로 만듭니다. 제품 설정 파일은 읽지 않습니다.
+const presetSource = readFileSync(join(root, 'patterns/foundation/maison-tailwind.ts'), 'utf8');
+const presetModule = { exports: {} };
+new Function('require', 'module', 'exports', ts.transpileModule(presetSource, {
+  fileName: 'maison-tailwind.ts',
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+}).outputText)(require, presetModule, presetModule.exports);
 const utilityCss = (await postcss([tailwind({
-  ...loadConfig(join(maison, 'tailwind.config.ts')),
+  presets: [presetModule.exports.default],
   content: [{ raw: 'w-4 h-4 size-4', extension: 'html' }],
 })]).process('@tailwind utilities;', { from: undefined })).root;
 const utilities = utilityCss.nodes.filter(node => node.type === 'rule');
@@ -198,10 +204,5 @@ test('the named small-icon role binds both dimensions to its own central variabl
   for(const property of ['width','height']){
     assert.equal(dimension(svg,property,{size:'24px'}),'16px');
     assert.equal(dimension(svg,property,{size:'24px',smallSize:'18px'}),'18px');
-  }
-  for(const file of ['app/(app)/help/page.tsx','components/shared/theme-toggle.tsx']){
-    const code=readFileSync(join(maison,file),'utf8');
-    assert.ok(code.includes('className="qd-icon--sm"'));
-    assert.ok(!code.includes('size={16}'));
   }
 });

@@ -6,6 +6,9 @@
 //   node tools/app-icons.mjs --check   아무것도 쓰지 않고 대조만 합니다. 다르면 종료 코드 1
 //   렌더러는 app-icon-runtime.mjs 에 고정합니다. 다른 브라우저 버전은 쓰기 전에 거절합니다.
 //   --only=Q-Atelier,Q-Works,Q-Forge    선택 제품만 씁니다. 전체 렌더/읽기 검사는 유지합니다.
+//   --check --copies   그림 파일 사본만 대조합니다. 제품 코드(판 번호 주소 · 설치 앱 설명 · 붓 Q · 상단 바 색)는
+//                      읽지 않습니다. 늘 초록이어야 하는 검사(check.mjs)가 이 모드를 쓰고, 코드 쪽 대조는
+//                      check.mjs --products 감사로 돕니다(2026-10-16 · 군살 빼기 4단계).
 //   (extract-all.mjs 가 부릅니다: 만들기 · --sync · --check 에 각각 대응)
 //
 // 오너 결정 (2026-09-25): 「똑같이 검은 배경에 Q 만 있으면 헷갈리니까 특성을 넣어 달라」
@@ -98,6 +101,8 @@ const SRC = join(ROOT, 'source', 'brand', 'logo-dark.png');
 const write = process.argv.includes('--write');
 const checkOnly = process.argv.includes('--check');
 if (write && checkOnly) throw new Error('--write and --check cannot be combined');
+const copiesOnly = process.argv.includes('--copies');
+if (copiesOnly && !checkOnly) throw new Error('--copies goes with --check');
 const onlyTargets = parseIconTargets(process.argv.slice(2));
 
 const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페스트의 background_color 와 같음
@@ -827,14 +832,17 @@ async function main() {
   }
 
   // 제품 코드가 지금 판 번호로 부르는가 · 설치 앱 설명이 원본과 같은가 · 붓 Q 를 WebP 로 부르는가 · 상단 바가 금속 색인가
-  const refs = checkRefs();
-  const taglines = checkTaglines();
-  const markRefs = checkMarkRefs();
-  const titleBars = checkTitleBars();
+  const skipped = { good: 0, problems: [] };
+  const refs = copiesOnly ? skipped : checkRefs();
+  const taglines = copiesOnly ? skipped : checkTaglines();
+  const markRefs = copiesOnly ? skipped : checkMarkRefs();
+  const titleBars = copiesOnly ? skipped : checkTitleBars();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
-    console.log(`제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳 · 상단 바 색 ${titleBars.good}곳`);
+    console.log(copiesOnly
+      ? `제품 앱 아이콘 사본 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} (제품 코드 대조는 감사에서)`
+      : `제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳 · 상단 바 색 ${titleBars.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');

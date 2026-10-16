@@ -63,7 +63,7 @@ MedQraft 제품군의 디자인 정본입니다. 네 제품이 같은 집안으�
 입구는 하나입니다. 도구를 하나씩 돌리면 하나를 빠뜨리고, 그러면 일부만 갱신된 채 내보내집니다.
 
 ```bash
-node tools/extract-all.mjs --check   # 아무것도 쓰지 않고 어긋난 곳만 봅니다
+node tools/extract-all.mjs --check   # 검사 하나(tools/check.mjs). 아무것도 쓰지 않고, 늘 초록이어야 합니다
 node tools/extract-all.mjs           # Q-Design 안의 산출물을 다시 만듭니다
 node tools/extract-all.mjs --sync    # 만든 뒤 제품 저장소로 내보냅니다
 ```
@@ -91,12 +91,13 @@ node tools/sync.mjs --write --only=Q-Atelier   # 한 제품만 내보내기
 
 ```bash
 node tools/refresh-source.mjs      # source/ 가 제품 원본과 같은가 (--write 로 맞춤)
+node tools/check.mjs               # 검사 하나: 늘 초록이어야 합니다 (extract-all --check 와 같음)
+node tools/check.mjs --products    # 제품 감사: 제품 코드를 훑습니다 (빨강이어도 검사를 막지 않음)
 node tools/audit-coverage.mjs      # «다 뽑았나» 를 숫자로 답합니다 (제품별 색 커버리지 포함)
 node tools/contrast-table.mjs      # 대비 실측표 (--write 로 docs/02-color.md 에 씀)
 node tools/extract-mqdoc.mjs       # 종이 문서 v8 값 (docs/08-paper.md 생성 구간에 씀)
 node tools/check-chars.mjs         # 긴 줄표 같은 금지 문자
 node tools/check-voice.mjs         # 화면 글의 종결
-node tools/check-components.mjs    # 산출물을 다시 만들어 저장본과 같은지 · 남긴 시험
 node tools/app-icons.mjs           # 네 제품 앱 아이콘 (견본 dist/app-icons/sheet.png)
 ```
 

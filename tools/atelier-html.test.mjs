@@ -8,6 +8,8 @@ import { resolveHtmlPalette, resolveHtmlMetrics, buildHtmlPalette } from './buil
 import { readInputs } from './build-palette.mjs';
 const ROOT = resolve(import.meta.dirname, '..'), QA = resolve(ROOT, '../Q-Atelier');
 const ts = createRequire(resolve(QA, 'package.json'))('typescript');
+// 업무 템플릿은 커밋본에서 떠 온 고정 사본을 읽습니다(fixtures/atelier-html/SOURCE.md).
+const FIXTURES = resolve(ROOT, 'tools/fixtures/atelier-html');
 const read = file => readFileSync(resolve(ROOT, file), 'utf8');
 function load(file, dependencies) {
   const module = { exports: {} };
@@ -22,11 +24,11 @@ function templates(palette = generated.HTML_PALETTE, metrics = generated.HTML_ME
   const styles = { HTML_STYLE: canon.buildHtmlStyles(palette, metrics), EXPORT_STYLE: canon.buildExportStyles(palette, metrics) };
   const shared = { '@/lib/design/q-design-html': styles, '@/lib/design/q-design-html-palette': { HTML_PALETTE: palette } };
   return {
-    email: load(resolve(QA, 'lib/email.ts'), { ...shared,
+    email: load(resolve(FIXTURES, 'email.ts'), { ...shared,
       '@/lib/reviews/due': { describeDue: () => ({ has: true, tone: 'urgent', label: '3일' }) },
       '@/lib/date': { dateOnly: value => value }, '@/lib/observability/external-fetch': {}, '@/lib/observability/service-failure': {},
     }),
-    export: load(resolve(QA, 'lib/export/org-export.ts'), { ...shared, pizzip: {}, '@/lib/supabase/fetch-all-pages': {}, '@/lib/audit/retention': { AUDIT_RETENTION_YEARS: 10 } }),
+    export: load(resolve(FIXTURES, 'org-export.ts'), { ...shared, pizzip: {}, '@/lib/supabase/fetch-all-pages': {}, '@/lib/audit/retention': { AUDIT_RETENTION_YEARS: 10 } }),
   };
 }
 const request = { assessmentCode: '<CODE>', assessmentTitle: '<script>alert(1)</script>', requesterName: 'A & "B"', notes: '<img src=x onerror=bad()>', assignmentId: 'fixture', dueAt: '2026-10-13' };
@@ -34,18 +36,6 @@ const exportArgs = [{ orgName: '<script>bad()</script>', requesterName: 'A & B',
   { tables: [{ table: '<table>', rows: 2 }], excluded: [{ table: 'private', why: '<img src=x>' }], files: [], missingFiles: [] },
   { dbStartedAt: '2026-10-10', dbEndedAt: '2026-10-10', filesStartedAt: '2026-10-10', filesEndedAt: '2026-10-10' },
   { tables: 1, rows: 2, files: 0, bytes: 0 }];
-
-test('all five generated HTML adapters contain recipe references, not local CSS declarations', () => {
-  const files = ['lib/email.ts', 'lib/research/notify-doc-review.ts', 'lib/research/notify-license-change.ts', 'app/api/research/[code]/comments/route.ts', 'lib/export/org-export.ts'];
-  let count = 0;
-  for (const file of files) {
-    const source = readFileSync(resolve(QA, file), 'utf8');
-    for (const m of source.matchAll(/style="([^"]*)"/g)) { count++; assert.match(m[1], /^\$\{HTML_STYLE\./, file); }
-    for (const m of source.matchAll(/<style>([\s\S]*?)<\/style>/g)) assert.equal(m[1], '${EXPORT_STYLE}');
-    assert.doesNotMatch(source, /#[\da-f]{6}\b/i, file);
-  }
-  assert.equal(count, 165);
-});
 
 test('actual email and export retain escaped content and concrete client-compatible CSS', () => {
   const t = templates();

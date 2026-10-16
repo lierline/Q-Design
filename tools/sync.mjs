@@ -39,7 +39,7 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PARTS, HOLD, PRODUCTS } from './sync-parts.mjs';
+import { PARTS, HOLD, PENDING, PRODUCTS } from './sync-parts.mjs';
 import { publicAssetConsumerFiles } from './sync-html-consumers.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -237,11 +237,13 @@ const header = (srcRel, digest, lang = 'css') => {
 
 function main() {
   const args = process.argv.slice(2);
-  const unknown = args.filter((a) => !['--write', '--stamp'].includes(a) && !a.startsWith('--part=') && !a.startsWith('--only='));
+  const unknown = args.filter((a) => !['--write', '--stamp', '--consumers'].includes(a) && !a.startsWith('--part=') && !a.startsWith('--only='));
   if (unknown.length || (args.includes('--write') && args.includes('--stamp'))) {
-    throw new Error('Use sync.mjs [--write | --stamp] [--part=name] [--only=Q-Atelier,Q-Works,Q-Forge,Q-Sonar]. Unknown: ' + unknown.join(' '));
+    throw new Error('Use sync.mjs [--write | --stamp] [--consumers] [--part=name] [--only=Q-Atelier,Q-Works,Q-Forge,Q-Sonar]. Unknown: ' + unknown.join(' '));
   }
   const write = args.includes('--write');
+  /* 받는 제품의 코드를 훑어 «사본을 부르는 곳» 을 세는 감사. 검사(check.mjs)에는 넣지 않고 감사 모드에서만 돕니다 */
+  const consumers = args.includes('--consumers');
   const stamp = args.includes('--stamp');
   const partArg = args.find((a) => a.startsWith('--part='));
   const selectedPart = partArg?.slice('--part='.length);
@@ -264,6 +266,7 @@ function main() {
   }
 
   let drift = 0;
+  let compared = 0, waiting = 0;
   for (const part of PARTS) {
     if (selectedPart && part.name !== selectedPart) continue;
     const srcPath = join(ROOT, part.src);
@@ -284,11 +287,24 @@ function main() {
         console.log(`  묶어 둠  ${who}  (${HOLD[who].why})`);
         continue;
       }
+      compared++;
       const has = existsSync(path);
       const text = has ? 읽기(path) : '';
       const 본문같음 = has && sha(bodyOf(text, part.lang)) === digest;
       /* 본문이 같아도 머리표 지문이 낡았으면 어긋남입니다. 제품 쪽 판 파일 시험이 머리표를 대조합니다 */
       const same = 본문같음 && 머리지문(text) === digest;
+      /* 내보낼 차례가 정해진 어긋남은 실패로 세지 않습니다. 같아졌는데 줄이 남아 있으면 실패입니다 */
+      const 차례 = !write && PENDING[who]?.parts.includes(part.name) ? PENDING[who] : null;
+      if (차례) {
+        if (same) {
+          drift++;
+          console.log(`  같아짐  ${who}  ${path}  · sync-parts.mjs 의 PENDING 에서 이 조각을 지우십시오`);
+        } else {
+          waiting++;
+          console.log(`  차례 기다림  ${who}  ${path}  (${차례.until} · ${차례.why})`);
+        }
+        continue;
+      }
       if (!same) drift++;
       if (write) {
         /*
@@ -321,6 +337,9 @@ function main() {
    * import 줄, TS 는 확장자를 뺀 이름으로 끝나는 import 경로입니다. HTML 은 public 서비스
    * 워커와 문서의 정적 URL 참조를 함께 찾습니다. 시험 파일과 사본 자신은
    * 셈에서 뺍니다(시험이 읽는 것은 «쓰는» 것이 아닙니다). 알리기만 하고 멈추지는 않습니다.
+   *
+   * 2026-10-16(군살 빼기 4단계): 제품 코드 전체를 훑는 일이라 --consumers 를 붙일 때만 돕니다.
+   * 늘 초록이어야 하는 검사는 «사본이 원본과 같은가» 만 봅니다. 이 감사는 check.mjs --products 가 부릅니다.
    */
   const 건너뛸곳 = new Set(['node_modules', '.next', '.git', '.turbo', '.vercel', '.claude', '.codex', '.agents', '.superpowers', 'backups', 'capacitor-www', 'dist', 'build', 'out', 'coverage', 'reports', 'docs', 'public', 'test', 'tests', '__tests__', 'test-results', 'test-utils']);
   const 코드확장자 = /\.(css|tsx?|jsx?|mjs|cjs|html?)$/;
@@ -365,7 +384,7 @@ function main() {
     return 코드파일들(저장소뿌리(path)).filter((f) => resolve(f) !== 자신 && 찾기.test(소스읽기(f))).length;
   }
   const 안부름 = [];
-  for (const part of PARTS) {
+  for (const part of consumers ? PARTS : []) {
     if (selectedPart && part.name !== selectedPart) continue;
     for (const [who, path] of Object.entries(part.to)) {
       if (only && !only.has(who)) continue;
@@ -373,7 +392,9 @@ function main() {
     }
   }
   console.log('');
-  if (안부름.length) {
+  if (!consumers) {
+    console.log('사본을 부르는 곳 감사는 건너뜀 (--consumers 로 돌립니다)');
+  } else if (안부름.length) {
     console.log(`선택 범위에서 정적 참조를 찾지 못한 사본 ${안부름.length}곳 (동적 경로와 간접 연결은 별도 확인이 필요합니다)`);
     for (const line of 안부름) console.log(line);
   } else {
@@ -385,6 +406,7 @@ function main() {
     console.log(`  ${drift} 곳이 원본과 다릅니다. --write 로 갱신하세요.`);
     process.exit(1);
   }
+  if (!write) console.log(`사본 ${compared}곳 대조 · 같음 ${compared - waiting} · 차례 기다림 ${waiting}`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

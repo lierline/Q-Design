@@ -16,6 +16,7 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { readRuntimeTemplate } from './atelier-runtime-values.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -125,7 +126,10 @@ for (const r of rows.sort((a, b) => b.keyframes.length - a.keyframes.length || a
 }
 lines.push('');
 
-writeFileSync(join(ROOT, 'dist', 'inline-styles-index.md'), lines.join('\n'), 'utf8');
+emit(join(ROOT, 'dist', 'inline-styles-index.md'), lines.join('\n'));
+
+emitDone('인라인 색인');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log('생성 완료 · dist/inline-styles-index.md');
 console.log('  파일 ' + rows.length + '개 · 키프레임 전체 ' + total.size + '종 (CSS ' + cssKf.size + ' · 인라인 전용 ' + onlyInline.length + ')');

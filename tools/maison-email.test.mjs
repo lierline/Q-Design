@@ -20,9 +20,10 @@ function moduleAt(path, imports){
   vm.runInNewContext(js,{exports,require:name=>{if(!(name in imports))throw new Error(`Unexpected import: ${name}`);return imports[name];},Date},{filename:path});
   return exports;
 }
+// 겉모습은 정본 원본을, 업무 템플릿은 커밋본에서 떠 온 고정 사본을 읽습니다(fixtures/maison-email/SOURCE.md).
 function templates(p=palette){
-  const recipe=moduleAt(resolve(root,'../Q-Works/lib/design/q-design-email.ts'),{'./q-design-email-palette':{EMAIL_PALETTE:p}});
-  return moduleAt(resolve(root,'../Q-Works/lib/email/templates.ts'),{
+  const recipe=moduleAt(resolve(root,'patterns/foundation/maison-email.ts'),{'./q-design-email-palette':{EMAIL_PALETTE:p}});
+  return moduleAt(resolve(root,'tools/fixtures/maison-email/templates.ts'),{
     '@/lib/design/q-design-email':recipe,
     '@/lib/utils/app-url':{appUrl:()=> 'https://local.invalid'},
   });
@@ -50,23 +51,14 @@ test('invalid or missing palette roles fail instead of emitting undefined or uns
   assert.throws(()=>resolveEmailPalette(readInputs(root),{missing:{theme:'light',token:'--qa-missing'}}),/requires a resolved/);
   assert.throws(()=>resolveEmailPalette(readInputs(root),{ink:{theme:'light',token:'--qa-bg',value:'#fff'}}),/Invalid email mapping/);
 });
-test('request template preserves escaping, document metadata and multiline comments',()=>{
-  const {subject,html}=templates().approvalRequestEmail(request);
-  assert.equal(subject,'[결재 요청] QD-LOCAL-001 검증 문서 & 기록');
-  assert.ok(html.includes('검증 &lt;받는 사람&gt;'));
-  assert.ok(html.includes('검증 문서 &amp; 기록'));
-  assert.ok(html.includes('&lt;script&gt;unsafe&lt;/script&gt;'));
-  assert.ok(html.includes('https://local.invalid/doc?x=1&amp;y=&quot;two&quot;'));
-  assert.ok(html.includes('문서 검토하기'));
-  assert.ok(html.includes('white-space:pre-wrap;'));
-  assert.ok(!html.includes('<script>'));
-});
 test('all four result states retain business labels with centrally owned badge appearance',()=>{
   for(const [action,label] of Object.entries({approved:'승인됨',rejected:'반려됨',published:'발행됨',retired:'폐기됨'})){
     const output=templates().approvalResultEmail({...request,action,actorName:'처리자 <검증>'});
     assert.equal(output.subject,`[${label}] QD-LOCAL-001 검증 문서 & 기록`);
     assert.ok(output.html.includes(`background:${palette[action]};`));
     assert.ok(output.html.includes('처리자 &lt;검증&gt;'));
+    // 여러 줄 코멘트의 줄바꿈은 정본 comment 스타일이 지킵니다.
+    assert.ok(output.html.includes('white-space:pre-wrap;'));
   }
 });
 test('generic notification omits absent CTA and emits a complete standalone inline-styled document',()=>{
@@ -77,11 +69,4 @@ test('generic notification omits absent CTA and emits a complete standalone inli
   assert.ok(output.html.includes('width="560"'));
   assert.ok(!output.html.includes('text-align:center;'));
   assert.ok(!/var\(|undefined|NaN/.test(output.html));
-});
-test('product template owns no appearance literals and every inline declaration resolves',()=>{
-  const source=readFileSync(resolve(root,'../Q-Works/lib/email/templates.ts'),'utf8');
-  for(const match of source.matchAll(/style="([^"]+)"/g))assert.match(match[1],/^\$\{EMAIL_STYLES\.[\w.()]+\}$/);
-  assert.ok(!/#(?:[\da-f]{3}|[\da-f]{6})\b/i.test(source));
-  const html=templates().approvalRequestEmail(request).html;
-  assert.equal([...html.matchAll(/style="([^"]+)"/g)].length,24);
 });

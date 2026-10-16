@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 화면 바탕: Q-Design 정본 바탕(CSS 변수 qd-bg)의 밝은 쪽. 어두운 쪽은 values-night -->
+    <color name="app_bg">@color/qd_native_bg_light</color>
+    <!-- 아이콘 바탕 · 아래 탐색 막대: 붓 Q 의 먹색(Q-Design tools/app-icons.mjs 와 같은 값) -->
+    <color name="ic_bg">@color/qd_native_ic_bg</color>
+    <!-- 켜는 장면(2.5.0 · LaunchView): 기다림 실선은 패밀리 샴페인 금색(Q-Design), 어두운 바탕에서는 그 위를 오가는
+         밝은 금빛. 글자 Q-ATELIER 와 느림 안내는 바탕 밝기에 따라 흐린 글자색. 붓 Q 에 스치는 빛은 따뜻한 흰빛 -->
+    <color name="loading_accent">@color/qd_native_loading_accent</color>
+    <color name="loading_accent_bright">@color/qd_native_loading_accent_bright</color>
+    <color name="muted_on_dark">@color/qd_native_muted_on_dark</color>
+    <color name="launch_glint">@color/qd_native_launch_glint</color>
+    <!-- 밝은 시작 화면 바탕(밤 모드에서도 바뀌지 않는 값 · SplashLight) -->
+    <color name="splash_light">@color/qd_native_bg_light</color>
+    <color name="muted_on_light">@color/qd_native_muted_on_light</color>
+</resources>

@@ -3,7 +3,7 @@
 // =============================================================================
 //   node tools/extract-all.mjs            산출물을 전부 다시 만듭니다
 //   node tools/extract-all.mjs --sync     만든 뒤 세 제품으로 내보냅니다
-//   node tools/extract-all.mjs --check    만들지 않고 «어긋난 곳» 만 봅니다
+//   node tools/extract-all.mjs --check    만들지 않고 검사 하나(tools/check.mjs)를 돌립니다
 //
 // 「한 번에 패밀리에 적용」의 입구입니다. 추출기를 하나씩 기억해 돌리다 보면
 // 하나를 빠뜨리고, 그러면 **일부만 갱신된 채** 내보내집니다.
@@ -13,7 +13,7 @@
 //             사본이 낡았으면 그 뒤 전부가 «낡은 것에서 정확히 파생된» 값이 됩니다.
 //             실패가 아니라 초록불로 나오기 때문에 가장 위험합니다.
 //   tokens  → 다른 모든 것이 이 JSON 을 읽습니다 (색·크기의 뿌리)
-//   계단    → tokens 를 읽고, Q 계열 세 제품의 «실제 쓰임» 에서 샴페인 칸을 뽑습니다
+//   계단    → 정본 patterns/champagne-ramp.json 에서 씁니다(세 제품의 쓰임과 견주는 일은 감사 모드)
 //   대비표  → tokens JSON 에서 계산해 docs/02 에 «직접 씁니다»
 //   fonts   → tokens 와 독립이지만 dist 에 함께 있어야 합니다
 //   doc     → tokens 의 «라이트» 팔레트에서 파생합니다
@@ -38,10 +38,9 @@ const ROOT = resolve(HERE, '..');
 const args = process.argv.slice(2);
 const doSync = args.includes('--sync');
 const checkOnly = args.includes('--check');
-const withBrowser = args.includes('--browser');
 const only = args.filter(arg => arg.startsWith('--only='));
-if (only.length > 1 || withBrowser && !checkOnly || args.some(arg => !['--sync', '--check', '--browser'].includes(arg) && !arg.startsWith('--only='))) {
-  throw new Error('Use --check with optional --browser, --sync and optional --only=product,product.');
+if (only.length > 1 || checkOnly && (doSync || only.length) || args.some(arg => !['--sync', '--check'].includes(arg) && !arg.startsWith('--only='))) {
+  throw new Error('Use --check alone, or --sync with optional --only=product,product.');
 }
 parseCoverageArgs(only);
 
@@ -63,7 +62,7 @@ const STEPS = [
   { name: '앱 시작 장면', file: 'build-native-launcher.mjs', extra: [...only], why: 'Android 세 앱의 실제 시작 화면을 하나의 공통 표현 규칙에서 만듭니다' },
   { name: 'iOS 공용 장면', file: 'build-ios-components.mjs', extra: [...only], why: '기존 UIKit 시작 화면과 안내 메시지를 정본 구현에서 만듭니다' },
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
-  { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
+  { name: '계단', file: 'extract-ramp.mjs', extra: ['--write'], why: '정본 patterns/champagne-ramp.json 에서 샴페인 계단을 씁니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
   { name: '공통 모노 글꼴', file: 'build-mono-fonts.mjs', extra: ['--write'], why: '검증한 모노 글꼴 선언을 만듭니다(세 제품의 글꼴 파일은 --sync 에서 씁니다)' },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
@@ -71,6 +70,7 @@ const STEPS = [
   { name: '업무 아이콘 연결', file: 'sync-react-icons.mjs', extra: [doSync ? '--write' : '--check', ...only], why: '실제 업무 화면이 가져오는 아이콘 모듈과 공통 구현을 함께 내보내고 대조합니다' },
   { name: '대비 문서', file: 'contrast-table.mjs', extra: ['--write'], why: 'docs/02 의 대비표를 계산해서 직접 씁니다' },
   { name: '문서', file: 'extract-doc.mjs', why: '라이트 팔레트에서 파생 + 종이 위 AA 검증' },
+  { name: '대외 문서 토큰', file: 'extract-brief.mjs', why: 'MedQraft 브리핑 원본에서 대외 문서 토큰을 뽑고 종이 위 AA 를 검증합니다' },
   { name: '종이 문서 v8', file: 'extract-mqdoc.mjs', why: 'MedQraft 종이 문서 규격서 v8 에서 뽑고 회사 Word 변환기와 대조' },
   { name: '차림표', file: 'extract-nav.mjs' },
   { name: '목록', file: 'extract-list.mjs' },
@@ -85,43 +85,18 @@ const STEPS = [
 function run(file, extra = []) {
   const p = join(HERE, file);
   if (!existsSync(p)) return { missing: true, code: 1, out: file + ' 가 없습니다' };
-  const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8', ...(file==='check-components.mjs'?{stdio:'inherit'}:{}) });
+  const r = spawnSync(process.execPath, [p, ...extra], { cwd: ROOT, encoding: 'utf8' });
   return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
 }
 
 if (checkOnly) {
-  console.log('검사만 합니다 (아무것도 안 씁니다)');
-  console.log('');
-  // 사본이 낡았는지 먼저 봅니다. 낡은 source/ 에서 파생된 산출물은 «맞게 틀립니다».
-  const src = run('refresh-source.mjs', ['--check']);
-  console.log(src.out.trim());
-  const tbl = run('contrast-table.mjs', ['--check']);
-  console.log(tbl.out.trim() || tbl.err || '');
-  const palette = run('build-palette.mjs', ['--check']);
-  console.log(palette.out.trim());
-  const native = run('build-native-offline.mjs', ['--check', ...only]);
-  console.log(native.out.trim());
-  const copy = run('copy-spacing.mjs', ['--check']);
-  console.log(copy.out.trim());
-  const pull = run('extract-pull-presentation.mjs', ['--check']);
-  console.log(pull.out.trim());
-  const components = run('check-components.mjs', withBrowser ? ['--browser'] : []);
-  console.log(components.out.trim());
-  // 종이 문서 v8: 산출물이 규격서와 맞는가 · 변환기와의 차이가 알려진 것뿐인가
-  const mqd = run('extract-mqdoc.mjs', ['--check']);
-  console.log(mqd.out.trim());
-  console.log('');
-  // 「디자인 다 뽑았나」에 숫자로 답하는 자리입니다.
-  const cov = run('audit-coverage.mjs', only);
-  console.log(cov.out.trim());
-  console.log('');
-  const r = run('sync.mjs', only);
-  console.log(r.out.trim());
-  console.log('');
-  // 앱 아이콘: 제품 public 의 아이콘이 지금 원본으로 그린 것과 같은가 (그림 파일이라 지문 머리표 대신 전체 대조)
-  const ico = run('app-icons.mjs', ['--check']);
-  console.log(ico.out.trim());
-  process.exit((src.code || 0) || (tbl.code || 0) || (palette.code ?? 1) || (native.code ?? 1) || (copy.code ?? 1) || (pull.code ?? 1) || (components.code ?? 1) || (mqd.code || 0) || (cov.code || 0) || (r.code ?? 0) || (ico.code || 0));
+  /*
+   * 2026-10-16(군살 빼기 4단계): 검사는 tools/check.mjs 하나입니다. 예전에는 여기서 도구 열 개를 따로 불렀고,
+   * 그 안에 제품 코드를 훑는 감사(소비처 · 디자인 다 뽑았나)가 섞여 «원래 빨강» 이 늘 떠 있었습니다.
+   * 감사는 node tools/check.mjs --products 로 따로 돌립니다.
+   */
+  const gate = spawnSync(process.execPath, [join(HERE, 'check.mjs')], { cwd: ROOT, stdio: 'inherit' });
+  process.exit(gate.status ?? 1);
 }
 
 console.log('산출물 다시 만들기');

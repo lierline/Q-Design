@@ -30,6 +30,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { read, slice, probeAll, put, flat, assertFilled, bindingsBlock, px } from './probe.mjs';
 import { loadQdValues } from './qd-adapter-values.mjs';
 import { readRuntimeValues, readRuntimeTemplate } from './atelier-runtime-values.mjs';
@@ -801,9 +802,8 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 // Q-Design owns opt-in composition patterns; source/ remains an upstream mirror.
 const workspaceCss = read(join(ROOT, 'patterns', 'workspace.css'));
 const screenCss = css + '\n' + workspaceCss;
-mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'q-design.screen.css'), screenCss, 'utf8');
-writeFileSync(
+emit(join(OUT, 'q-design.screen.css'), screenCss);
+emit(
   join(OUT, 'q-design.screen.json'),
   JSON.stringify(
     {
@@ -817,8 +817,10 @@ writeFileSync(
     null,
     2,
   ) + '\n',
-  'utf8',
 );
+
+emitDone('뼈대');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log(`dist/q-design.screen.css   ${screenCss.split('\n').length} 줄`);
 console.log(`dist/q-design.screen.json  치수 ${flat(spec).length} 개`);

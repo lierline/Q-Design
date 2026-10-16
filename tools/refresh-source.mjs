@@ -111,6 +111,12 @@ const MAP = [
   },
   { dest: 'css', repo: 'qa', files: ['app/globals.css', 'app/experts/expert-theme.css', 'components/qms/sheet-paper.css'] },
   { dest: 'provider', repo: 'qa', files: ['lib/design/theme-provider.tsx', 'lib/design/modal-focus.ts'] },
+  /*
+   * 아뜰리에 글꼴 선언(@font-face 목록). 독립 시뮬레이터(build-atelier-simulator)가 글꼴 파일 주소와
+   * 글자 범위를 여기서 읽습니다. 예전에는 그 도구가 제품 작업 트리를 바로 읽었습니다(2026-10-16 · 군살 빼기
+   * 4단계에서 «원본 받기» 길로 옮김). 이름은 audit-coverage 의 CSS 파일 대조(source/css)와 겹치지 않게 따로 둡니다.
+   */
+  { dest: 'font-faces', repo: 'qa', files: [{ from: 'app/fonts.css', as: 'atelier-fonts.css' }] },
   {
     /* 화면: style 블록을 «가진» tsx 전부. 목록을 손으로 적으면 새 화면이 빠집니다. */
     dest: 'screens',

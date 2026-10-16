@@ -639,8 +639,7 @@ WCAG 2.4.1 (Bypass Blocks). 평소엔 화면 밖, Tab 하면 나타납니다.
 
    ```powershell
    node tools/extract-all.mjs            # 산출물을 Q-Design 안에서 다시 만듭니다
-   node tools/extract-all.mjs --check    # 만들지 않고 어긋난 곳만 봅니다
-   node tools/check-components.mjs       # 정본 산출물을 다시 만들어 저장본과 대조하고 남긴 시험을 돌립니다
+   node tools/check.mjs                  # 검사 하나: 다시 만들어 저장본과 대조 · 사본 대조 · 남긴 시험(아무것도 안 씀)
    ```
 
 3. **제품으로 내보냅니다.**

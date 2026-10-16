@@ -25,13 +25,16 @@ test('incomplete profiles, unregistered products and invalid values cannot creat
  for(const alter of [d=>{d.products.other=d.products.atelier;},d=>{delete d.shared.mutedOnLight;},d=>{d.products.atelier.loadingAccent='url(secret)';},d=>{d.shared.toastOpacity=1.1;},d=>{d.shared.toastOpacity='0.94';},d=>{d.version=2;}]){const changed=structuredClone(rules);alter(changed);write(changed);assert.throws(()=>nativePaletteRoles(workspace,'atelier'));}
  write(rules);assert.throws(()=>nativePaletteRoles(workspace,'other'));
 }));
+// 앱 파일은 고정 자료(fixtures/native-consumers, 출처는 SOURCE.md)로 읽고, 지금 앱의 실제 파일은 감사에서 봅니다.
+const consumers=root+'/tools/fixtures/native-consumers/';
 test('every existing Android native color consumer uses one central alias, not a literal or comment-only reference',()=>{
- for(const repo of ['Q-Atelier-App','Q-Maison-App','Q-Carnet-App'])assertNativePaletteAliases(fs.readFileSync('D:/Claude/'+repo+'/app/src/main/res/values/colors.xml','utf8'));
+ for(const product of ['atelier','maison','carnet'])assertNativePaletteAliases(fs.readFileSync(consumers+product+'.colors.xml','utf8'));
  const xml='<resources>'+Object.values(ANDROID_NATIVE_COLORS).map(name=>`<color name="${name}">@color/qd_native_${name}</color>`).join('')+'</resources>';assertNativePaletteAliases(xml);
  assert.throws(()=>assertNativePaletteAliases('<!--'+xml+'-->'));assert.throws(()=>assertNativePaletteAliases(xml+ '<color name="ic_bg">@color/qd_native_ic_bg</color>'));assert.throws(()=>assertNativePaletteAliases(xml.replace('@color/qd_native_loading_accent','#b8935a')));
 });
 test('existing iOS palette, glint and toast consumers retain exact generated role references',()=>{
- const dir='D:/Claude/Q-Atelier-iOS/QAtelier/Sources/',palette=fs.readFileSync(dir+'Palette.swift','utf8'),launch=fs.readFileSync(dir+'LaunchView.swift','utf8'),toast=fs.readFileSync(dir+'ToastView.swift','utf8');assertIosPaletteConsumers(palette,launch,toast);
+ // LaunchView · ToastView 는 Q-Design 이 내보내는 사본이라 Q-Design 출력을 읽습니다.
+ const dist=root+'/dist/native-components/ios/',palette=fs.readFileSync(consumers+'Palette.swift','utf8'),launch=fs.readFileSync(dist+'LaunchView.swift','utf8'),toast=fs.readFileSync(dist+'ToastView.swift','utf8');assertIosPaletteConsumers(palette,launch,toast);
  assert.throws(()=>assertIosPaletteConsumers(palette.replace('UIColor(rgb: QDesignPalette.loadingAccent)','UIColor(rgb: 0xB8935A)'),launch,toast));
  assert.throws(()=>assertIosPaletteConsumers(palette,launch.replace('CGFloat(QDesignPalette.launchGlint & 0xFF) / 255.0','0xEC / 255.0'),toast));
  assert.throws(()=>assertIosPaletteConsumers(palette,launch,toast.replace('QDesignNativeAppearance.toastOpacity','0.94')));

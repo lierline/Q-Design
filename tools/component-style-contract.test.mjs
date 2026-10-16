@@ -17,8 +17,8 @@ const read = path => readFileSync(path, 'utf8');
 const canonicalPath = join(root, 'patterns/components.css');
 const canonical = postcss.parse(read(canonicalPath), { from: canonicalPath });
 const part = PARTS.find(item => item.src === 'patterns/components.css');
-const products = { atelier: 'Q-Atelier', maison: 'Q-Works', carnet: 'DHR' };
-const file = (product, relative) => join(sibling, products[product], relative);
+// 부품 소스는 Q-Design 정본 사본(patterns/component-implementations)에서 읽습니다. 제품 저장소는 읽지 않습니다.
+const file = (product, relative) => join(root, 'patterns/component-implementations', product, relative);
 
 function cssShape(container) {
   return container.nodes.filter(node => node.type !== 'comment').map(node => {
@@ -114,7 +114,8 @@ function simpleClassStyles(classes) {
   return result;
 }
 
-test('every target imports an exact generated component canon after older canonical sheets', () => {
+// Q-Design 이 써 넣는 사본만 대조합니다. 제품 globals.css 의 import 순서는 제품 쪽 일입니다.
+test('every target holds an exact generated component canon in the components layer', () => {
   assert.ok(part, 'Missing component sync part');
   assert.equal(Object.keys(part.to).length, 3);
   for (const [product, target] of Object.entries(part.to)) {
@@ -122,16 +123,6 @@ test('every target imports an exact generated component canon after older canoni
     const layer = copy.nodes.find(node => node.type === 'atrule' && node.name === 'layer' && node.params === 'components');
     assert.ok(layer, `${product}: component copy must be in the components layer`);
     assert.deepEqual(cssShape(layer), cssShape(canonical), `${product}: regenerate the component copy`);
-    const globals = postcss.parse(read(join(dirname(target), 'globals.css')));
-    const imports = globals.nodes.filter(node => node.type === 'atrule' && node.name === 'import')
-      .map(node => node.params.match(/^["']([^"']+)["']/)?.[1]);
-    const index = imports.findIndex(path => path?.endsWith('/q-design.components.css'));
-    assert.ok(index >= 0, `${product}: canon is copied but not imported`);
-    assert.equal(imports.filter(path => path?.endsWith('/q-design.components.css')).length, 1);
-    for (const previous of ['q-design.screen.css', 'q-design.workspace.css']) {
-      const previousIndex = imports.findIndex(path => path?.endsWith('/' + previous));
-      if (previousIndex >= 0) assert.ok(index > previousIndex, `${product}: ${previous} would override the new canon`);
-    }
   }
 });
 
@@ -195,9 +186,6 @@ const adapters = [
   ['carnet', 'components/dialog.tsx', 'Dialog', ['qd-dialog-backdrop', 'qd-dialog-content', 'qd-dialog-title']],
   ['carnet', 'components/ui.tsx', 'Msg', ['qd-notice']],
   ['carnet', 'components/ui.tsx', 'Progress', ['qd-progress', 'qd-progress-fill']],
-  ['carnet', 'components/info-tip.tsx', 'InfoTip', ['qd-tooltip']],
-  ['carnet', 'components/stat-detail.tsx', 'StatDetail', ['qd-tooltip']],
-  ['carnet', 'app/(admin)/chrome.tsx', 'AdminChrome', ['qd-mobile-header', 'qd-drawer-content']],
 ];
 
 for (const [product, relative, name, roles] of adapters) {

@@ -28,8 +28,9 @@ test('a product without Prettier preserves source whitespace and explicit line b
 });
 
 test('the product formatter resolves its plugins from the product and relocates actual copy',async()=>{
+ // 설정은 Q-Works 의 커밋된 .prettierrc.json 을 떠 온 고정 자료에서 읽고, prettier 모듈만 Q-Works 에서 빌립니다.
  const before='const result = fail(ErrorCodes.VALIDATION, "사용 중인 창고만 선택할 수 있습니다.");';
- const formatted=await formatProductCopy('D:/Claude/Q-Works','app/(app)/shipping/actions.ts',before);
+ const formatted=await formatProductCopy(import.meta.dirname+'/fixtures/copy-spacing/maison','app/(app)/shipping/actions.ts',before,'D:/Claude/Q-Works');
  const bindings=[{line:1,kind:'StringLiteral',ordinal:0,original:'"사용중인 창고만 선택할 수 있습니다."',emitted:'"사용 중인 창고만 선택할 수 있습니다."'}];
  const relocated=relocateCopyBindings('copy.ts',before,formatted,bindings);
  assert.equal(relocated[0].line,3);

@@ -237,7 +237,7 @@ for (const p of PRODUCTS) {
 // ── 보고 ────────────────────────────────────────────────────────────────────
 let failed = 0;
 console.log('추출 완전성 감사 · 원본 ' + SRC);
-console.log('제품 작업트리와 보관본의 항목 대조입니다. 현재 UI 연결 검사는 check-components, 커밋 내용 대조는 refresh-source --check가 맡습니다.');
+console.log('제품 작업트리와 보관본의 항목 대조입니다. 정본 산출물 재현과 사본 대조는 check.mjs, 커밋 내용 대조는 refresh-source --check가 맡습니다.');
 console.log('');
 for (const r of results) {
   const n = typeof r.total === 'number' ? r.total : r.total;
@@ -255,7 +255,7 @@ for (const r of results) {
 console.log('');
 console.log('제품별 색 커버리지 · 중앙 배포 정본 ' + distributionColors.size + '색 (dist/ + PARTS가 배포하는 patterns/ ' + patternPaths.length + '개 파일)');
 console.log('커밋된 HEAD의 로컬 CSS import를 포함한 HEX 사용자 속성 정의만 대조합니다. 전체 테마 일치 검사가 아닙니다.');
-console.log('현재 세 제품의 HEX·RGB·HSL 팔레트와 UI 연결은 build-palette --check 및 check-components가 검사합니다.');
+console.log('현재 세 제품의 HEX·RGB·HSL 팔레트는 build-palette --check(check.mjs 의 한 걸음)가 검사합니다.');
 if (options.only) console.log('선택한 제품 색 범위: ' + [...options.only].join(', ') + ' (Atelier 파일 감사 ' + results.length + '개 축은 계속 검사)');
 if (options.only?.has('Q-Works')) console.log('Q-Works의 HSL 채널은 이 기존 HEX 감사 목록에 없습니다. 제품 팔레트·컴포넌트 검사 결과를 확인해야 합니다.');
 console.log('');

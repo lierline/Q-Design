@@ -22,6 +22,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { createHash } from 'node:crypto';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -96,7 +97,6 @@ const doc = {
     name: 'Q-Design 문서 토큰',
     note: '생성물입니다. 손으로 고치지 마세요. tools/extract-doc.mjs 를 다시 돌리세요.',
     derivedFrom: '웹 라이트 팔레트 (q-design.tokens.json · color.light)',
-    generatedAt: new Date().toISOString().slice(0, 10),
     paperSurfaces: [PAPER, PAPER_ALT],
     warning: '흰 종이만 보고 색을 고르지 마세요. 음영 표(' + PAPER_ALT + ') 위가 더 어렵습니다.',
   },
@@ -146,8 +146,7 @@ const doc = {
   },
 };
 
-mkdirSync(DIST, { recursive: true });
-writeFileSync(join(DIST, 'q-design.doc.json'), JSON.stringify(doc, null, 2) + '\n', 'utf8');
+emit(join(DIST, 'q-design.doc.json'), JSON.stringify(doc, null, 2) + '\n');
 
 // ── 산출: TS 모듈 (받는 쪽이 그대로 import) ─────────────────────────────────
 const bodyLines = [];
@@ -195,7 +194,7 @@ bodyLines.push('');
 // 머리표(사본 지문)는 `tools/sync.mjs` 가 내보낼 때 붙입니다. 여기서 붙이면 이중이 됩니다.
 const body = bodyLines.join('\n');
 const sha = createHash('sha256').update(body, 'utf8').digest('hex');
-writeFileSync(join(DIST, 'q-design.doc.ts'), body, 'utf8');
+emit(join(DIST, 'q-design.doc.ts'), body);
 
 // ── 산출: 인쇄 CSS ──────────────────────────────────────────────────────────
 // HTML 을 종이로 내보내는 경로(브라우저 인쇄·PDF)용. 화면 팔레트를 종이 팔레트로 덮습니다.
@@ -269,7 +268,10 @@ const printCss = [
 /* 거르개 띠(.qd-filter-bar)의 인쇄 규칙은 여기 없습니다. 목록 정본(extract-list.mjs)이 가집니다.
    이 파일을 불러 쓰는 제품은 Q-Maison 하나뿐이라, 여기 두면 나머지 셋에서는 «받아 두기만» 합니다(2026-09-25) */
 
-writeFileSync(join(DIST, 'q-design.print.css'), printCss, 'utf8');
+emit(join(DIST, 'q-design.print.css'), printCss);
+
+emitDone('문서 토큰');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log('생성 완료');
 console.log('  dist/q-design.doc.json   문서 토큰 (색 ' + Object.keys(doc.color).length + ' · 크기 ' + Object.keys(doc.sizeHalfPt).length + ' · 간격 ' + Object.keys(doc.spacingTwip).length + ')');

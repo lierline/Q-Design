@@ -74,7 +74,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
   assert.ok(child.startsWith('qd-extract-adapter-') && !child.includes(sep) && child !== '..');
   try {
     const files = [
-      'tools/extract-nav.mjs', 'tools/extract-list.mjs', 'tools/extract-screen.mjs', 'tools/extract-tokens.mjs', 'tools/probe.mjs', 'tools/qd-adapter-values.mjs', 'tools/atelier-runtime-values.mjs', 'tools/tag-metrics-probe.mjs',
+      'tools/extract-nav.mjs', 'tools/extract-list.mjs', 'tools/extract-screen.mjs', 'tools/extract-tokens.mjs', 'tools/emit.mjs', 'patterns/champagne-ramp.json', 'tools/probe.mjs', 'tools/qd-adapter-values.mjs', 'tools/atelier-runtime-values.mjs', 'tools/tag-metrics-probe.mjs',
       'source/design/atelier-runtime.ts', 'source/design/atelier-output.ts', 'tools/atelier-output-values.mjs', 'patterns/foundation/atelier-labels.ts',
       'source/components/Sidebar.tsx', 'source/components/components.tsx', 'source/components/TextAction.tsx',
       'source/components/LogoutButton.tsx', 'source/components/ListPager.tsx', 'source/components/ListToolbar.tsx',

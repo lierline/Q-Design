@@ -1,0 +1,1 @@
+- atelier-fonts.css: Q-Atelier `app/fonts.css` · 커밋 9f12cce2 · 2026-10-16 · tools/mono-fonts.test.mjs 의 고정 입력입니다(Pretendard 92면 중 앞 두 면과 JetBrains Mono 두 면만 남겼습니다).

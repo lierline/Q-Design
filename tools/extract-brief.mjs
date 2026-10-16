@@ -20,6 +20,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -116,7 +117,6 @@ const out = {
   $meta: {
     name: 'Q-Design 대외 문서 토큰 (MedQraft)',
     note: '생성물입니다. 원본은 MedQraft/templates/assets/colors_and_type.css 입니다.',
-    generatedAt: new Date().toISOString().slice(0, 10),
     scope: '제안서 · 견적서 · 계약서 · 요건서 · RFI · IR 덱',
     notThis: '앱이 만들어 내는 DOCX 는 이것이 아니라 q-design.doc.json 을 씁니다(제품 문서 브랜드).',
   },
@@ -182,8 +182,10 @@ if (staleExempt.length) {
   process.exit(1);
 }
 
-mkdirSync(DIST, { recursive: true });
-writeFileSync(join(DIST, 'q-design.brief.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');
+emit(join(DIST, 'q-design.brief.json'), JSON.stringify(out, null, 2) + '\n');
+
+emitDone('대외 문서 토큰');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log('생성 완료 · dist/q-design.brief.json');
 console.log('  변수 ' + Object.keys(vars).length + ' · 크기 ' + Object.keys(out.size).length + ' · 간격 ' + Object.keys(out.space).length);

@@ -1,8 +1,15 @@
 /*
  * 샴페인 계단 뽑기
  * =============================================================================
- *   node tools/extract-ramp.mjs            계단과 «누가 얼마나 움직이는지» 를 냅니다
- *   node tools/extract-ramp.mjs --write    dist/q-design.ramp.css 를 씁니다
+ *   node tools/extract-ramp.mjs --write    정본 patterns/champagne-ramp.json 에서 dist/q-design.ramp.css 를 씁니다
+ *   node tools/extract-ramp.mjs --check    다시 만들어도 같은지만 봅니다(제품을 읽지 않습니다)
+ *   node tools/extract-ramp.mjs            손으로 돌리는 감사: 세 제품이 커밋한 CSS 에서 계단을 다시 뽑아
+ *                                          정본과 견주고 «누가 얼마나 움직이는지» 를 냅니다
+ *   node tools/extract-ramp.mjs --adopt    감사로 뽑은 계단을 정본 파일에 적습니다(사람이 정할 때만)
+ *
+ * 🔑 2026-10-16(군살 빼기 4단계): 계단은 2026-09-10 에 뽑아 정본이 됐습니다. 예전에는 만들 때마다
+ *    제품 CSS 를 다시 읽어 뽑아서, 제품이 금색 하나를 바꾸면 Q-Design 산출물이 따라 흔들렸습니다.
+ *    이제 만들기와 검사는 정본 파일만 읽고, 제품을 읽는 일은 감사 모드에만 남깁니다.
  *
  * 왜 필요한가
  * -----------
@@ -25,10 +32,13 @@ import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { committedCssGraph, parseCoverageArgs } from './audit-coverage-imports.mjs';
+import { emit, emitDone } from './emit.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const WRITE = process.argv.includes('--write');
-const options = parseCoverageArgs(process.argv.slice(2).filter(arg => arg !== '--write'));
+const CANON = join(ROOT, 'patterns', 'champagne-ramp.json');
+const MODES = ['--write', '--check', '--adopt'];
+const mode = process.argv.slice(2).filter((arg) => MODES.includes(arg));
+if (mode.length > 1) throw new Error('--write · --check · --adopt 중 하나만 씁니다.');
 
 /* Q 계열만입니다. MedQraft 는 별도 브랜드입니다(2026-09-10 결정). */
 const FAMILY = [
@@ -59,6 +69,30 @@ function hsl(hex) {
   else h = (r - g) / d + 4;
   return [h * 60, s * 100, l * 100];
 }
+/** 정본 계단에서 CSS 를 만듭니다. 만들기 · 검사는 여기서 끝나고 제품을 읽지 않습니다. */
+function rampCss(steps) {
+  return [
+    '/* Q-Design · 샴페인 계단',
+    ' * 생성물입니다. tools/extract-ramp.mjs 가 만듭니다. 손대지 마십시오.',
+    ' *',
+    ' * 발명한 계단이 아니라 Q 계열 세 제품이 «이미 쓰고 있는» 값에서 뽑은 대표입니다.',
+    ' * deep = 진한 갈래 · mute = 채도를 낮춘 갈래 (라이트 테마의 브랜드 틴트에 쓰입니다)',
+    ' */',
+    ':root {',
+    ...steps.map((step) => '  ' + step.token + ': ' + step.hex + ';   /* L' + hsl(step.hex)[2].toFixed(1) + ' */'),
+    '}',
+    '',
+  ].join('\n');
+}
+const canon = JSON.parse(readFileSync(CANON, 'utf8')).steps;
+if (mode[0] === '--write' || mode[0] === '--check') {
+  emit(join(ROOT, 'dist', 'q-design.ramp.css'), rampCss(canon));
+  emitDone('샴페인 계단');
+  if (mode[0] === '--write') console.log('샴페인 계단 · 정본 ' + canon.length + '칸 → dist/q-design.ramp.css');
+  process.exit(process.exitCode ?? 0);
+}
+const options = parseCoverageArgs(process.argv.slice(2).filter((arg) => !MODES.includes(arg)));
+
 function lab(hex) {
   const f = (t) => (t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116);
   const [r, g, b] = px(hex)
@@ -172,30 +206,11 @@ if (loud.length) {
   for (const m of loud) console.log('     ' + m.hex + ' → ' + m.to + '  ' + m.who.join(' / ').slice(0, 60));
 }
 
-if (!WRITE) {
-  console.log('');
-  console.log('  쓰려면 --write 를 붙이십시오.');
-  process.exit(0);
-}
-
-const lines = [
-  '/* Q-Design · 샴페인 계단',
-  ' * 생성물입니다. tools/extract-ramp.mjs 가 만듭니다. 손대지 마십시오.',
-  ' *',
-  ' * 발명한 계단이 아니라 Q 계열 세 제품이 «이미 쓰고 있는» 값에서 뽑은 대표입니다.',
-  ' * deep = 진한 갈래 · mute = 채도를 낮춘 갈래 (라이트 테마의 브랜드 틴트에 쓰입니다)',
-  ' */',
-  ':root {',
-  ...steps.map((s) => '  ' + s.token + ': ' + s.hex + ';   /* L' + s.l.toFixed(1) + ' */'),
-  '}',
-  '',
-];
-writeFileSync(join(ROOT, 'dist', 'q-design.ramp.css'), lines.join('\n'), 'utf8');
-
-const jsonPath = join(ROOT, 'dist', 'q-design.tokens.json');
-const json = JSON.parse(readFileSync(jsonPath, 'utf8'));
-json.champagneRamp = Object.fromEntries(steps.map((s) => [s.token.replace('--qa-', ''), s.hex]));
-writeFileSync(jsonPath, JSON.stringify(json, null, 2) + '\n', 'utf8');
-
+const same = steps.length === canon.length && steps.every((step, k) => step.token === canon[k].token && step.hex === canon[k].hex);
 console.log('');
-console.log('  생성 완료 · dist/q-design.ramp.css (' + steps.length + '칸) + tokens.json 의 champagneRamp');
+console.log(same ? '  정본 계단과 같습니다.' : '  ⚠️ 정본 계단과 다릅니다. 정본을 바꾸려면 사람이 보고 --adopt 를 붙이십시오.');
+if (mode[0] !== '--adopt') process.exit(0);
+
+const next = { ...JSON.parse(readFileSync(CANON, 'utf8')), steps: steps.map((step) => ({ token: step.token, hex: step.hex })) };
+writeFileSync(CANON, JSON.stringify(next, null, 2) + '\n', 'utf8');
+console.log('  정본에 적었습니다 · ' + steps.length + '칸. 이어서 extract-all 로 다시 만드십시오.');

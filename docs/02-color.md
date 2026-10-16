@@ -318,7 +318,8 @@ background: var(--qa-champagne); color: var(--qa-on-accent);   /* ✓ */
 ## 샴페인 계단
 
 샴페인 칸이 하나뿐이면 나머지 농도를 `color-mix` 로 즉석에서 만들게 되고, 제품마다 금색 계단을 따로 발명합니다.
-그래서 정본이 계단을 냅니다. `tools/extract-ramp.mjs` 가 `dist/q-design.ramp.css` 를 만듭니다.
+그래서 정본이 계단을 냅니다. 계단의 정본은 `patterns/champagne-ramp.json` 이고, `tools/extract-ramp.mjs --write` 가 거기서 `dist/q-design.ramp.css` 를 만듭니다.
+만들기와 검사는 제품을 읽지 않습니다. 세 제품이 지금 쓰는 값과 견주는 일은 감사입니다(`node tools/extract-ramp.mjs`). 정본을 바꾸려면 사람이 감사 결과를 보고 `--adopt` 를 붙이거나 정본 파일을 고칩니다.
 
 🔑 **계단을 발명하지 않습니다.** 명도를 일정 간격으로 자른 «깔끔한» 계단은 가족의 실제 값과 평균 dE 4.2, 최대 14.8 벌어집니다.
 그런 계단으로 모으면 통일이 아니라 **재디자인**입니다. 그래서 가족이 이미 쓰는 값에서 대표를 골랐습니다(평균 dE 1.3).

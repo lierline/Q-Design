@@ -29,8 +29,10 @@ export function jsxDisplayText(raw){
  if(values.length!==1)throw Error('Expected one JSX text element');return values[0];
 }
 export function termsForFile(terms,product,file){return terms.filter(term=>(!term.products||term.products.includes(product))&&(!term.paths||term.paths.includes(file)));}
-export async function formatProductCopy(base,file,code){
- const require=createRequire(path.join(base,'package.json')),full=path.join(base,file);
+// moduleBase: prettier 와 그 플러그인을 빌려 올 폴더(기본은 제품 자신). 설정 파일은 base 쪽에서 찾습니다.
+// 시험은 설정을 고정 자료(tools/fixtures/copy-spacing)에서 읽고 모듈만 제품에서 빌립니다.
+export async function formatProductCopy(base,file,code,moduleBase=base){
+ const require=createRequire(path.join(moduleBase,'package.json')),full=path.join(base,file);
  let formatter;
  try{formatter=require.resolve('prettier');}catch(error){
   // A product without this formatter keeps its existing source layout. Only
@@ -89,12 +91,14 @@ export function copySourceFiles(base,product,owners=new Map()){
 // 2026-10-16(군살 빼기 결정 3): 제품 파일은 동기화(extract-all --sync)에서만 씁니다.
 //   --write           Q-Design 정본 파일과 그 연결만 씁니다(만들기 걸음). 제품에 갈 문구는 세어 알리기만 합니다
 //   --write-products  제품 파일과 그 연결만 씁니다(extract-all --sync 의 내보내기 걸음)
-//   --check           둘 다 보고, 맞추지 않은 문구가 있으면 실패합니다
+//   --check           둘 다 보고, 맞추지 않은 문구가 있으면 실패합니다(제품 코드 전체를 훑는 감사)
+//   --check-canon     Q-Design 이 가진 정본 구현 파일만 봅니다. 제품 저장소를 읽지 않습니다.
+//                     늘 초록이어야 하는 검사(check.mjs)가 씁니다(2026-10-16 · 군살 빼기 4단계)
 // 예전 --write 는 만들기만 돌려도 제품 저장소 파일을 직접 고쳐, 사본 동기화와 다른 두 번째 내보내기 길이었습니다.
-const MODES=['--write','--write-products','--check'];
+const MODES=['--write','--write-products','--check','--check-canon'];
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const args=process.argv.slice(2),mode=args.filter(a=>MODES.includes(a)),filters=args.filter(a=>a.startsWith('--only='));
- if(mode.length!==1||filters.length>1||args.some(a=>!MODES.includes(a)&&!a.startsWith('--only=')))throw Error('Use --write, --write-products or --check and optional --only=atelier,maison,carnet.');
+ if(mode.length!==1||filters.length>1||args.some(a=>!MODES.includes(a)&&!a.startsWith('--only=')))throw Error('Use --write, --write-products, --check or --check-canon and optional --only=atelier,maison,carnet.');
  const selected=filters.length?filters[0].slice(7).split(','):['atelier','maison','carnet'];
  if(!selected.length||new Set(selected).size!==selected.length||selected.some(p=>!['atelier','maison','carnet'].includes(p)))throw Error('Unknown or duplicate product scope.');
  const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.current.json','utf8'));
@@ -108,11 +112,13 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
  const owners=fs.existsSync(root+'/patterns/component-implementations.json')?implementationOwners(root):new Map();
  for(const term of terms)if(!term.from||!term.to||/[\r\n"'`$\\]/.test(term.to))throw Error('Copy terms must be plain single-line text.');
  const out=root+'/dist/q-design.copy-bindings.current.json';
- const prior=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')).files:[],records=[],baselines=[],pending=[];
+ const prior=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')).files:[],records=[],baselines=[],pending=[];let scanned=0;
  for(const [product,repo] of [['atelier','Q-Atelier'],['maison','Q-Works'],['carnet','DHR']]){
   if(!selected.includes(product))continue;
   const base=path.resolve(root,'..',repo);
-  for(const full of copySourceFiles(base,product,owners)){
+  const canonOnly=mode[0]==='--check-canon';
+  for(const full of canonOnly?[...owners.keys()].filter(key=>key.startsWith(product+':')).map(key=>path.join(base,key.slice(product.length+1))):copySourceFiles(base,product,owners)){
+   scanned++;
    const file=path.relative(base,full).replaceAll('\\','/'),canonical=owners.get(product+':'+file),before=fs.readFileSync(canonical?path.join(root,canonical):full,'utf8'),old=prior.find(row=>row.product===product&&row.path===file);
    let {after,changes}=applyBindings(file,before,old?.bindings??[],termsForFile(terms,product,file));
    if(!changes.length&&!old)continue;
@@ -131,9 +137,9 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
    if(changes.length){pending.push({product,path:file,count:changes.length,...(canonical?{canonical}:{})});baselines.push({product,repo,path:file,before,after,beforeHash:hash(before),afterHash:hash(after),changes,...(canonical?{canonical}:{})});}
   }
  }
- if(mode[0]==='--check'){
+ if(mode[0]==='--check'||mode[0]==='--check-canon'){
   if(pending.length)throw Error('Unsynchronized authored copy: '+JSON.stringify(pending));
-  console.log('Authored copy rules passed: '+records.length+' files. Scope: '+selected.join(', '));
+  console.log((mode[0]==='--check-canon'?'정본 구현 파일 ':'')+'Authored copy rules passed: '+records.length+' bound / '+scanned+' scanned files. Scope: '+selected.join(', '));
  }else{
   const kind=mode[0]==='--write'?'canonical':'product';
   const mine=baselines.filter(row=>(kind==='canonical')===Boolean(row.canonical));

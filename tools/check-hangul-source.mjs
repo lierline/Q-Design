@@ -24,8 +24,13 @@
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, extname } from 'node:path';
+import { customProperties, trackingOf } from './hangul-tracking.mjs';
 
 const DIST = 'D:/Claude/Q-Design/dist';
+const 변수정의 = customProperties([
+  ...readdirSync(DIST).filter((f) => f.endsWith('.css')).map((f) => join(DIST, f)),
+  ...readdirSync(join(DIST, '..', 'patterns')).filter((f) => f.endsWith('.css')).map((f) => join(DIST, '..', 'patterns', f)),
+]);
 const 저장소 = {
   'Q-Sonar': { root: 'D:/Claude/Lead-Radar', src: 'src' },
   'Q-Forge': { root: 'D:/Claude/DHR', src: '.' },
@@ -51,10 +56,9 @@ function 라틴자간클래스() {
        * em 은 그대로 통과시킵니다. 정본에서 em 으로 적힌 자리는 0.1em 이상이고
        * 그 자리 글자가 10~11px 이라 언제나 1px 을 넘습니다.
        */
+      /* 2026-10-16: var() 로 오는 자간도 변수 정의를 따라가 풉니다. 예전에는 parseFloat 가 NaN 이라 지나쳤습니다 */
       const 자간글 = ls?.[1].trim() ?? '';
-      const 보이는자간 = 자간글.endsWith('em')
-        ? parseFloat(자간글) >= 0.05
-        : parseFloat(자간글) >= 0.3;
+      const 보이는자간 = 자간글 ? trackingOf(자간글, 변수정의).visible : false;
       const 대문자 = /text-transform:\s*uppercase/.test(body);
       if (!보이는자간 && !대문자) continue;
       /*

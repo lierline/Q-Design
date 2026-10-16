@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 화면 바탕: 사이트 밝은 바탕(q-design 의 qd-bg 밝은 쪽 #faf9f6). 어두운 쪽은 values-night -->
+    <color name="app_bg">@color/qd_native_bg_light</color>
+    <!-- 아이콘 바탕 · 시작 화면 · 켜는 장면: 정본 다크 바탕 #0c0c0c (제품 아이콘의 바탕과 같다) -->
+    <color name="ic_bg">@color/qd_native_ic_bg</color>
+    <!-- 켜는 장면(LaunchView): 기다림 실선은 제품 금속 색(app-icons.mjs STROKE 가운데), 그 위를 오가는 밝은 금속 빛 -->
+    <color name="loading_accent">@color/qd_native_loading_accent</color>
+    <color name="loading_accent_bright">@color/qd_native_loading_accent_bright</color>
+    <color name="muted_on_dark">@color/qd_native_muted_on_dark</color>
+    <color name="launch_glint">@color/qd_native_launch_glint</color>
+    <!-- 밝은 시작 화면 바탕(밤 모드에서도 바뀌지 않는 값 · SplashLight) -->
+    <color name="splash_light">@color/qd_native_bg_light</color>
+    <color name="muted_on_light">@color/qd_native_muted_on_light</color>
+</resources>

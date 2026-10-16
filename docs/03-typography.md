@@ -92,6 +92,7 @@ text-rendering: optimizeLegibility;
 
 원본 globals 는 `html, body` 를 14px 로 두지만, 제품 기반 CSS 의 `html { font-size: var(--qd-root-size, 16px) }` 가
 뒤에 와서 html 은 16px 이 됩니다(Q-Atelier 운영 화면에서 html 16px · body 14px 로 쟀습니다).
+`dist/q-design.tokens.json` 의 `rootFontSize` 는 이 `--qd-root-size` 에서 읽어 적습니다. 손으로 적은 숫자가 아니라, 기반 값을 바꾸면 함께 바뀝니다.
 그래서 **body 를 물려받는 글은 14px, rem 으로 적은 글은 16px 기준**입니다. rem 을 14 로 환산하면 틀립니다.
 
 | 토큰 | 선언값 | 실렌더(16px 기준) |

@@ -18,8 +18,9 @@ const inputs = readInputs();
 const [tokens, mappings] = inputs;
 const outputs = buildPalettes(...inputs);
 const read = path => readFileSync(path, 'utf8');
-const products = { atelier: 'Q-Atelier', maison: 'Q-Works', carnet: 'DHR' };
-const toneSource = read(join(sibling, 'DHR/lib/tone.ts'));
+// 제품 입력은 커밋본에서 떠 온 고정 사본을 읽습니다(출처는 fixtures/palette/SOURCE.md).
+const fixtures = join(root, 'tools/fixtures/palette');
+const toneSource = read(join(fixtures, 'tone.ts'));
 async function loadTone(runtime = buildCarnetPaletteRuntime(...inputs)) {
   const source = runtime + '\n' + toneSource.replace(/import\s*\{\s*CARNET_PALETTE\s*\}\s*from\s*['"]\.\/design\/q-design-palette['"];?/, '');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } }).outputText;
@@ -86,8 +87,8 @@ test('generated runtime palette and CSS share changed contrast inputs and defaul
 
 test('native title bar metadata reads the generated identity value without executing source', () => {
   const runtime = buildCarnetPaletteRuntime(...inputs);
-  for (const path of ['app/layout.tsx', 'app/manifest.ts']) {
-    const source = read(join(sibling, 'DHR', path));
+  for (const path of ['layout.tsx', 'manifest.ts']) {
+    const source = read(join(fixtures, path));
     assert.equal(resolveIconTitleColor('CARNET_PALETTE.themeColor', source, runtime), '#3d281d');
   }
   assert.equal(resolveIconTitleColor("'#3d281d'", '', ''), '#3d281d');
@@ -97,7 +98,8 @@ test('native title bar metadata reads the generated identity value without execu
 
 test('Maison existing theme declarations retain their rendered RGB values', () => {
   let count = 0;
-  postcss.parse(read(join(sibling, 'Q-Works/app/q-design.foundation.css'))).walkRules(rule => {
+  // 제품의 q-design.foundation.css 는 이 정본 산출물의 사본입니다.
+  postcss.parse(read(join(root, 'dist/q-design.foundation.maison.css'))).walkRules(rule => {
     if (rule.parent.name !== 'layer' || rule.parent.params !== 'base') return;
     const theme = rule.selector === '.dark' ? 'dark' : rule.selector === ':root' ? 'light' : null;
     if (!theme) return;
@@ -112,7 +114,7 @@ test('Maison existing theme declarations retain their rendered RGB values', () =
 });
 
 test('Carnet preserves every existing non-brand hex color including its documented exceptions', () => {
-  const css = postcss.parse(read(join(sibling, 'DHR/app/q-design.foundation.css')));
+  const css = postcss.parse(read(join(root, 'dist/q-design.foundation.carnet.css')));
   const originals = { dark: {}, light: {} };
   css.walkRules(rule => {
     const theme = rule.selectors.includes("html[data-theme='dark']") ? 'dark' : rule.selectors.includes("html[data-theme='light']") ? 'light' : null;
@@ -134,22 +136,6 @@ test('Carnet default brand reproduces the actual runtime seven-step recipe', () 
       for (const [step, value] of Object.entries(derived)) assert.equal(value, original[`--dhr-brand${step === 'brand' ? '' : `-${step}`}`], `${color} ${theme} ${step}`);
     }
   }
-});
-
-test('custom company brands win while the historic default accepts central palette changes', () => {
-  for (const theme of ['dark', 'light']) {
-    const original = theme === 'dark' ? tone.darkVars : tone.lightVars;
-    for (const color of ['#b8935a', '#B8935A', '#562c8d']) {
-      const actual = parseVars(tone.companyBrandVars(color, theme));
-      const legacy = parseVars(original(color));
-      for (const [name, value] of Object.entries(legacy)) assert.equal(actual[name], value, 'paper declarations remain identical');
-      const custom = Object.keys(actual).filter(key => key.startsWith('--qd-company-brand'));
-      assert.equal(custom.length, color.toLowerCase() === '#b8935a' ? 0 : 7);
-      for (const key of custom) assert.equal(actual[key], legacy[key.replace('--qd-company-brand', '--dhr-brand')]);
-    }
-  }
-  assert.match(read(join(sibling, 'DHR/lib/brand.ts')), /companyBrandVars\(color, 'dark'\)/);
-  assert.match(read(join(sibling, 'DHR/lib/brand.ts')), /companyBrandVars\(color, 'light'\)/);
 });
 
 test('one central text or background change propagates to qa, Maison HSL and dhr variables', () => {
@@ -191,17 +177,13 @@ test('screen overrides do not rewrite paper or fixed legacy print colors', () =>
   }
 });
 
-test('all three products import the unlayered generated palette and copies match', () => {
-  for (const [product, directory] of Object.entries(products)) {
+// 제품 사본 대조는 sync.mjs 의 몫입니다. 여기서는 내보내는 정본 산출물이 지금 만든 값과 같은지 봅니다.
+test('all three generated palettes ship unlayered to one product each and the canonical output is current', () => {
+  for (const product of Object.keys(outputs)) {
     const part = PARTS.find(item => item.src === `dist/q-design.palette.${product}.css`);
     assert.equal(part.layer, false);
-    const destination = Object.values(part.to);
-    assert.equal(destination.length, 1);
-    assert.ok(read(destination[0]).replaceAll('\r\n', '\n').endsWith(outputs[product]));
-    const imports = [];
-    postcss.parse(read(join(sibling, directory, 'app/globals.css'))).walkAtRules('import', rule => imports.push(rule.params.replace(/['"]/g, '')));
-    assert.equal(imports.filter(path => path === './q-design.palette.css').length, 1);
-    assert.ok(imports.indexOf('./q-design.palette.css') > imports.indexOf('./q-design.components.css'));
+    assert.equal(Object.values(part.to).length, 1);
+    assert.equal(read(join(root, part.src)).replaceAll('\r\n', '\n'), outputs[product]);
   }
 });
 

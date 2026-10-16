@@ -30,6 +30,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { read, slice, probeAll, put, flat, assertFilled, bindingsBlock, px } from './probe.mjs';
 import { loadQdValues } from './qd-adapter-values.mjs';
 import { readRuntimeValues } from './atelier-runtime-values.mjs';
@@ -1128,9 +1129,8 @@ if (!/\.qa-list-toolbar \{ position: static; \}/.test(globals) || !/\.qa-list-to
   throw new Error('원본의 도구줄 인쇄 규칙(.qa-list-toolbar)이 바뀌었습니다. 목록 정본의 거르개 띠 인쇄 규칙을 다시 보세요.');
 }
 
-mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'q-design.list.css'), css, 'utf8');
-writeFileSync(
+emit(join(OUT, 'q-design.list.css'), css);
+emit(
   join(OUT, 'q-design.list.json'),
   JSON.stringify(
     {
@@ -1144,8 +1144,10 @@ writeFileSync(
     null,
     2,
   ) + '\n',
-  'utf8',
 );
+
+emitDone('목록');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log(`dist/q-design.list.css   ${css.split('\n').length} 줄`);
 console.log(`dist/q-design.list.json  치수 ${flat(spec).length} 개`);

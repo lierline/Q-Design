@@ -58,14 +58,15 @@ test('Skeleton implementation changes propagate only through the reviewed canoni
   buildComponentImplementations(f.root,{write:true,only:new Set(['Q-Atelier'])});assert.equal(fs.readFileSync(actual,'utf8'),after);buildComponentImplementations(f.root,{check:true});
  }finally{f.dispose();}
 });
-test('actual Skeleton variants render their central defaults and preserve explicit caller dimensions',()=>{
+test('canonical Skeleton variants render their central defaults and preserve explicit caller dimensions',()=>{
+ // 정본 사본(patterns)과 가져온 토큰 사본(source/tokens)을 그립니다. 제품 저장소에서는 라이브러리만 빌립니다.
  const product=path.resolve(root,'../Q-Atelier'),require=createRequire(product+'/package.json'),ts=require('typescript'),React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
- const read=file=>fs.readFileSync(product+'/'+file,'utf8');
+ const read=file=>fs.readFileSync(root+'/'+file,'utf8');
  const load=(code,deps={})=>{const exports={};vm.runInNewContext(ts.transpileModule(code,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText,{exports,require:name=>Object.hasOwn(deps,name)?deps[name]:require(name)});return exports;};
- const tokens=load(read('lib/design/tokens.ts')),runtime=readRuntimeValues(root);
- const grain=load(read('lib/design/grain.ts'),{'./tokens':tokens,'./q-design-runtime':runtime});
- const contract=load(read('lib/design/q-design-contract.ts'),{'./tokens':tokens,'./grain':grain}),scale=load(read('lib/design/q-design-scale.ts'),{'./tokens':tokens});
- const make=config=>load(read('components/Skeleton.tsx'),{'@/lib/design/tokens':tokens,'@/lib/design/q-design-runtime':config,'@/lib/design/q-design-contract':contract,'@/lib/design/q-design-scale':scale}).Skeleton;
+ const tokens=load(read('source/tokens/tokens.ts')),runtime=readRuntimeValues(root);
+ const grain=load(read('source/tokens/grain.ts'),{'./tokens':tokens,'./q-design-runtime':runtime});
+ const contract=load(read('source/tokens/q-design-contract.ts'),{'./tokens':tokens,'./grain':grain}),scale=load(read('source/tokens/q-design-scale.ts'),{'./tokens':tokens});
+ const make=config=>load(read('patterns/component-implementations/atelier/components/Skeleton.tsx'),{'@/lib/design/tokens':tokens,'@/lib/design/q-design-runtime':config,'@/lib/design/q-design-contract':contract,'@/lib/design/q-design-scale':scale}).Skeleton;
  const render=(Component,props={})=>renderToStaticMarkup(React.createElement(Component,props)),count=html=>(html.match(/qa-skeleton qd-skeleton/g)??[]).length;
  const original=make(runtime);
  assert.equal(count(render(original)),1);assert(render(original).includes('height:'+runtime.QDPresentation.skeletonHeight[14]+'px'));assert.match(render(original),/border-radius:var\(--qd-radius/);

@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { emit, emitDone, CHECK } from './emit.mjs';
 import { readSourceCss } from './probe.mjs';
 import { readRuntimeValues } from './atelier-runtime-values.mjs';
 import { centralTagMetrics } from './tag-metrics-probe.mjs';
@@ -27,6 +28,15 @@ const expertPath = join(SRC_ROOT, 'css', 'expert-theme.css');
 const tokens = { ...await import(pathToFileURL(tokensPath).href), ...readRuntimeValues(resolve(HERE, '..')) };
 const globalsCss = readSourceCss(globalsPath);
 const expertCss = readSourceCss(expertPath);
+
+// rem 기준은 손으로 적지 않고 기반 정본에서 읽습니다. 예전에는 14 를 손으로 적어 두어,
+// 2026-10-11 에 기반이 16px 로 바뀐 뒤에도 산출물이 «14px» 라고 말했습니다.
+const rootSize = /--qd-root-size:\s*(\d+(?:\.\d+)?)px\s*;/.exec(readFileSync(resolve(HERE, '..', 'patterns', 'foundation.css'), 'utf8'));
+if (!rootSize) {
+  console.error('patterns/foundation.css 에서 --qd-root-size 를 찾지 못했습니다.');
+  process.exit(1);
+}
+const ROOT_FONT_PX = Number(rootSize[1]);
 
 // ── CSS 변수 블록 파서 ───────────────────────────────────────────────────────
 // 셀렉터로 블록을 찾아 그 안의 «--이름: 값;» 을 모읍니다. 주석은 먼저 걷어냅니다:
@@ -166,9 +176,8 @@ const json = {
   $meta: {
     name: 'Q-Design',
     source: 'Q-Atelier · lib/design/tokens.ts + app/globals.css + app/experts/expert-theme.css',
-    generatedAt: new Date().toISOString().slice(0, 10),
     note: '손으로 고치지 마세요. tools/extract-tokens.mjs 를 다시 돌리세요.',
-    rootFontSizeWarning: 'rem 기준은 16px 이 아니라 14px 입니다. TYPE 의 rem 값을 16 으로 환산하면 전부 틀립니다.',
+    rootFontSizeWarning: `rem 기준은 html 의 ${ROOT_FONT_PX}px 입니다(patterns/foundation.css 의 --qd-root-size). 본문 글자는 body 가 따로 정합니다.`,
   },
   color: {
     dark: darkVars,
@@ -185,7 +194,7 @@ const json = {
     fontSize: tokens.FS,
     lineHeight: tokens.LH,
     type: tokens.TYPE,
-    rootFontSize: 14,
+    rootFontSize: ROOT_FONT_PX,
   },
   space: {
     scale: tokens.S,
@@ -201,10 +210,13 @@ const json = {
   icon: tokens.ICON,
   brand: tokens.BRAND,
   tag: { border: TAG_BORDER, dims: TAG_DIMS, heightDriver: tagDrivers },
+  // 계단은 정본 파일에서 싣습니다(2026-10-16). 예전에는 계단 도구가 이 파일을 다시 열어 덧붙였습니다.
+  champagneRamp: Object.fromEntries(
+    JSON.parse(readFileSync(resolve(HERE, '..', 'patterns', 'champagne-ramp.json'), 'utf8')).steps.map((step) => [step.token.replace('--qa-', ''), step.hex]),
+  ),
 };
 
-mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'q-design.tokens.json'), JSON.stringify(json, null, 2) + '\n', 'utf8');
+emit(join(OUT, 'q-design.tokens.json'), JSON.stringify(json, null, 2) + '\n');
 
 // ── CSS 변수 단독 파일 ───────────────────────────────────────────────────────
 // 앱 의존성 없이 <link> 한 줄로 쓸 수 있게. 스케일 토큰도 변수로 노출합니다
@@ -312,7 +324,7 @@ const css = [
   '',
 ].join('\n');
 
-writeFileSync(join(OUT, 'q-design.tokens.css'), css, 'utf8');
+emit(join(OUT, 'q-design.tokens.css'), css);
 
 /* ---------------------------------------------------------------------------
    상태색 · 위험 · 정상 · 주의 · 안내 (2026-09-09 감사 · Q-Sonar #11)
@@ -354,7 +366,10 @@ const stateCss = [
   '',
 ].join('\n');
 
-writeFileSync(join(OUT, 'q-design.state.css'), stateCss, 'utf8');
+emit(join(OUT, 'q-design.state.css'), stateCss);
+
+emitDone('토큰');
+if (CHECK) process.exit(process.exitCode ?? 0);
 
 console.log('생성 완료');
 console.log(
