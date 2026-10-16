@@ -13,6 +13,7 @@ const steps=[
   ['--test','tools/maison-contract-hint-copy.test.mjs'],
   ['tools/maison-login-session-notice.mjs','--check'],
   ['--test','tools/maison-login-session-notice.test.mjs'],
+  ['tools/maison-style-review.mjs','--fresh'],
   ['tools/maison-docx-remaining-fields.mjs','--check'],
   ['--test','tools/maison-docx-remaining-fields.test.mjs'],
   ['tools/maison-action-result-data.mjs','--check'],

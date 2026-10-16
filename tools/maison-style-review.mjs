@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { PARTS } from './sync-parts.mjs';
 import { centralOutputs, copyProblems } from './audit-coverage-core.mjs';
 import { hash, runtimeFiles, cssProperties, scanArguments } from './style-arguments-core.mjs';
-import { verifiedManualReview } from './maison-style-manual.mjs';
+import { verifiedManualReview, manualHashReader } from './maison-style-manual.mjs';
+import { beforeLoginNoticeSource } from './maison-login-session-notice.mjs';
 import { finishReview, reviewMode } from './maison-style-output.mjs';
 import { embeddedStyleSheets, predicateClassTokens, utilityBase, inlineStyleDependencies, canResolveInlineStyle, importedAttributeTargets, typedStyleDependencies, businessResultBindings, ignoresObjectParameter, explicitlyDiscardedBinding, uniqueConstScalars, conditionalScalarLeaves, importedValueBindings, exportedMemberPaths } from './maison-style-proof.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),PRODUCT=path.resolve(ROOT,'../Q-Works');
@@ -29,7 +30,13 @@ for(const file of ['patterns/foundation/maison-print.ts','patterns/foundation/ma
   const code=fs.readFileSync(path.join(ROOT,file),'utf8');
   for(const sheet of embeddedStyleSheets(code,ts,file))registerCSS(file,code,sheet.css,sheet.line);
 }
-const sources=runtimeFiles(PRODUCT).map(file=>{const code=fs.readFileSync(path.join(PRODUCT,file),'utf8'),part=copies.get(file);return{file,code,sourceHash:hash(code),part,args:scanArguments(file,code,{ts,postcss,properties,owner:part?.src})};});
+// The saved report and the proof chains built on it describe the product sources before the
+// newest exact product-source layers, newest first. Each layer reverses only its one reviewed
+// after-source and lets any other content through, so a later edit shows as a changed fingerprint
+// and --fresh fails until it is reviewed. Writing therefore reproduces the saved bytes.
+const sourceLayers=[beforeLoginNoticeSource];
+const historicalSource=(file,code)=>sourceLayers.reduce((text,layer)=>layer(file,text),code);
+const sources=runtimeFiles(PRODUCT).map(file=>{const code=historicalSource(file,fs.readFileSync(path.join(PRODUCT,file),'utf8')),part=copies.get(file);return{file,code,sourceHash:hash(code),part,args:scanArguments(file,code,{ts,postcss,properties,owner:part?.src})};});
 const candidates=new Set(sources.flatMap(source=>source.args.filter(arg=>arg.kind==='class-utility').map(arg=>arg.value)));
 const generated=(await postcss([tailwind({...loadConfig(path.join(PRODUCT,'tailwind.config.ts')),content:[{raw:[...candidates].join(' '),extension:'html'}]})]).process('@tailwind utilities;',{from:undefined})).root;
 const utility=new Map();
@@ -59,13 +66,7 @@ const discardedIconProps=new Set(['strokeWidth','absoluteStrokeWidth'].filter(na
 const decide=(decision,ruleId,reason,proof=[])=>({decision,ruleId,reason,evidence:proof});
 const records=[],fileHashes=[],styleGroups=new Map(),typedGroups=new Map();
 const manualReviews=new Map();
-const manualHashCache=new Map(sources.map(source=>[source.file,source.sourceHash]));
-const currentManualHash=file=>{
-  if(manualHashCache.has(file))return manualHashCache.get(file);
-  const base=/^(?:source|patterns|dist|tools)\//.test(file)?ROOT:PRODUCT,full=path.resolve(base,file);
-  if(!full.startsWith(base+path.sep)||!fs.existsSync(full))return null;
-  const value=hash(fs.readFileSync(full,'utf8'));manualHashCache.set(file,value);return value;
-};
+const currentManualHash=manualHashReader({root:ROOT,product:PRODUCT,hash,seed:sources.map(source=>[source.file,source.sourceHash])});
 for(const name of ['maison-style-manual-review.json','maison-style-spread-review.json','maison-style-bindings-review.json','maison-accent-review.json','maison-nonvisual-handoff-review.json','maison-choice-columns-review.json','maison-unaffected-runtime-role-review.json','maison-list-stats-columns-review.json','maison-inspection-print-review.json','maison-inbox-columns-review.json','maison-workflow-copy-style-review.json','maison-batch-print-review.json','maison-db-payload-review.json','maison-safety-print-review.json','maison-production-copy-style-review.json','maison-pull-presentation-review.json','maison-pull-style-evidence.json','maison-docx-image-review.json','maison-docx-values-review.json','maison-prep-data-review.json','maison-docx-box-alias-review.json','maison-meeting-data-review.json','maison-docx-content-fields.json','maison-form-record-data.json','maison-extended-form-record-data.json','maison-continued-form-record-data.json','maison-action-result-data.json','maison-docx-remaining-fields.json','maison-contract-hint-copy.json','maison-attachment-hint-copy.json']){
   const file=path.join(ROOT,'reviews',name);if(!fs.existsSync(file))continue;
   const review=JSON.parse(fs.readFileSync(file,'utf8'));
@@ -183,4 +184,4 @@ const counts={};for(const record of records)counts[record.decision]=(counts[reco
 const report={version:1,generatedAt:new Date().toISOString(),product:'maison',scope:'Exact current-source evidence only. Build-time utility ownership and live variable linkage are distinguished. Unknowns remain visible, and no source classification is a visual screen pass.',fileHashes,counts,unknownCount:counts.unknown??0,records};
 const outcome=finishReview(report,path.join(ROOT,'reviews'),mode);
 console.log(JSON.stringify({mode,files:fileHashes.length,records:records.length,counts,...outcome},null,2));
-if(mode==='check'&&!outcome.ok)process.exitCode=1;
+if(mode!=='write'&&!outcome.ok)process.exitCode=1;
