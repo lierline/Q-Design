@@ -12,6 +12,16 @@ test('a scoped copy build preserves every unselected product binding',()=>{
  }
 });
 
+test('a build writes canonical bindings only and leaves product rows for sync',()=>{
+ const prior=[{product:'atelier',path:'a.tsx',bindings:[{emitted:'old'}]},{product:'atelier',path:'c.tsx',canonical:'patterns/c.tsx',bindings:[{emitted:'old'}]}];
+ const records=[{product:'atelier',path:'a.tsx',bindings:[{emitted:'new'}]},{product:'atelier',path:'c.tsx',canonical:'patterns/c.tsx',bindings:[{emitted:'new'}]}];
+ assert.deepEqual(mergeCopyBindings(prior,records,['atelier'],'canonical'),[prior[0],records[1]]);
+ assert.deepEqual(mergeCopyBindings(prior,records,['atelier'],'product'),[records[0],prior[1]]);
+ // A file that changes owner keeps one row per file.
+ const moved=[{product:'atelier',path:'a.tsx',canonical:'patterns/a.tsx',bindings:[]},records[1]];
+ assert.deepEqual(mergeCopyBindings(prior,moved,['atelier'],'canonical'),moved);
+});
+
 test('a product without Prettier preserves source whitespace and explicit line breaks',async()=>{
  const code='const label = "경력 (년)";\r\nconst help = "첫 줄\\n둘째 줄";\r\n';
  assert.equal(await formatProductCopy('D:/Claude/Q-Atelier','app/experts/settings/profile-form.tsx',code),code);

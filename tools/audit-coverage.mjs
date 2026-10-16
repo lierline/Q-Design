@@ -12,7 +12,7 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, resolve, dirname, basename, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PARTS } from './sync-parts.mjs';
+import { PARTS, PRODUCTS as 받는제품 } from './sync-parts.mjs';
 import { centralOutputs, copyProblems, isTestSource, keyframesIn, slash } from './audit-coverage-core.mjs';
 import { canonicalPatternPaths, colorSet, committedCssGraph, HEXRE, normHex, parseCoverageArgs } from './audit-coverage-imports.mjs';
 
@@ -53,6 +53,8 @@ const read = (p) => readFileSync(p, 'utf8');
  */
 const central = centralOutputs(PARTS, 'Q-Atelier', 'D:/Claude/Q-Atelier');
 const centralPaths = new Set(central.map(part => part.path));
+/* 판 파일(2026-10-16)도 sync.mjs 가 써서 원본 안에 앉힌 파일입니다. 뽑아 올 원본이 아닙니다. */
+centralPaths.add(받는제품['Q-Atelier'].version);
 const sourcePath = path => slash(relative(SRC, path));
 const nativeRuntime = path => !centralPaths.has(sourcePath(path)) && !isTestSource(sourcePath(path));
 const kfIn = keyframesIn;

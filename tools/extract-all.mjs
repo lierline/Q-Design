@@ -21,6 +21,10 @@
 //   inline  → 색인(원본을 안 바꿈)
 //   앱 아이콘 → source/brand 의 크롬 Q 에서 네 제품의 홈 화면 · 파비콘 아이콘을 그립니다
 //             (크롬 렌더러를 띄우므로 몇 초 걸립니다). --sync 는 제품 public 에도 씁니다
+//
+// 🔑 제품 저장소에 쓰는 길은 --sync 하나입니다(2026-10-16 · 군살 빼기 결정 3). 만들기 걸음은 Q-Design
+//    안에만 씁니다. 화면 문구 · 모노 글꼴은 예전에 만들기만 돌려도 제품 파일을 고쳤는데, 그 쓰기를
+//    아래 «제품으로 내보내기» 쪽으로 옮겼습니다. 사본을 쓴 뒤 sync.mjs 가 제품마다 판 파일도 씁니다.
 
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -45,7 +49,7 @@ parseCoverageArgs(only);
 const STEPS = [
   { name: '카르넷 기록 유형 명칭', file: 'build-record-labels.mjs', why: '내부 기록 유형의 표시 명칭을 공통 규칙에서 만듭니다' },
   { name: '권한 설명 문구', file: 'build-permission-copy.mjs', why: '저장된 권한 설명의 표시 문구도 중앙 규칙에서 만듭니다' },
-  { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다' },
+  { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다(정본 파일만. 제품 파일은 --sync 에서)' },
   // 2026-10-16: 메종 안내 문구 증명 셋과 앱 시작 인자 목록화를 뺐습니다. 산출물을 만들지 않고 증명만 했습니다.
   { name: '원본 사본', file: 'refresh-source.mjs', extra: ['--write'], why: 'source/ 를 원본 저장소의 커밋된 내용으로 맞춥니다' },
   { name: '토큰', file: 'extract-tokens.mjs', why: '색·크기의 뿌리. 나머지가 이 JSON 을 읽습니다' },
@@ -61,7 +65,7 @@ const STEPS = [
   { name: '접근 시뮬레이터', file: 'build-atelier-simulator.mjs', why: '독립 접근 검토 화면도 공통 기반과 팔레트에서 만듭니다' },
   { name: '계단', file: 'extract-ramp.mjs', extra: ['--write', ...only], why: 'Q 계열이 쓰는 샴페인 값에서 계단을 뽑습니다' },
   { name: '글꼴', file: 'fetch-fonts.mjs', why: '이미 받아 둔 것은 건너뜁니다', optional: true },
-  { name: '공통 모노 글꼴', file: 'build-mono-fonts.mjs', extra: ['--write'], why: '검증한 모노 글꼴 선언과 실제 파일을 세 제품에 함께 내보냅니다' },
+  { name: '공통 모노 글꼴', file: 'build-mono-fonts.mjs', extra: ['--write'], why: '검증한 모노 글꼴 선언을 만듭니다(세 제품의 글꼴 파일은 --sync 에서 씁니다)' },
   { name: '업무 아이콘', file: 'build-icons.mjs', why: '고정 버전의 Phosphor SVG를 단색 업무 아이콘으로 내보냅니다' },
   { name: 'React 업무 아이콘', file: 'build-react-icons.mjs', why: '제품에서 직접 가져올 수 있는 개별 React 모듈을 만듭니다' },
   { name: '업무 아이콘 연결', file: 'sync-react-icons.mjs', extra: [doSync ? '--write' : '--check', ...only], why: '실제 업무 화면이 가져오는 아이콘 모듈과 공통 구현을 함께 내보내고 대조합니다' },
@@ -175,6 +179,20 @@ if (v.code === 0) {
   console.log('  ⚠️ 내보낸 뒤에도 어긋난 곳이 있습니다:');
   console.log(v.out.trim().split('\n').filter((l) => l.includes('어긋남') || l.includes('없음')).map((l) => '  ' + l).join('\n'));
   process.exit(1);
+}
+
+// 화면 문구와 모노 글꼴의 제품 파일도 여기서만 씁니다(2026-10-16 · 결정 3). 두 도구는 제품을
+// atelier · maison · carnet 으로 부르므로 --only 이름을 바꿔 넘깁니다. 고른 제품이 셋에 없으면 건너뜁니다.
+const 짧은이름 = { 'Q-Atelier': 'atelier', 'Q-Works': 'maison', 'Q-Forge': 'carnet' };
+const 고른제품 = only.length ? only[0].slice('--only='.length).split(',').map((x) => x.trim()) : null;
+const 셋중 = 고른제품 ? 고른제품.map((p) => 짧은이름[p]).filter(Boolean) : null;
+if (!셋중 || 셋중.length) {
+  const 범위 = 셋중 ? ['--only=' + 셋중.join(',')] : [];
+  for (const [이름, file] of [['화면 문구', 'copy-spacing.mjs'], ['모노 글꼴', 'build-mono-fonts.mjs']]) {
+    const r = run(file, ['--write-products', ...범위]);
+    console.log('  ' + (r.code === 0 ? 'OK    ' : '실패  ') + 이름.padEnd(12) + (r.out.trim().split('\n').pop() || '').slice(0, 90));
+    if (r.code !== 0) { console.log(r.out.trim().split('\n').slice(0, 8).map((l) => '        ' + l).join('\n')); process.exit(1); }
+  }
 }
 
 // 앱 아이콘도 제품 public 으로 냅니다. 이 도구는 쓴 뒤 다시 읽어 대조까지 합니다.

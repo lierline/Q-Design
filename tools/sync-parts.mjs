@@ -27,6 +27,19 @@
  */
 export const HOLD = {};  // 2026-10-10 오너가 Q-Sonar 묶음을 풀었다(구역 제목 C안 반영 때 «정본 전부 받기» 선택). 12px · 대비 4.5 규칙도 Sonar 에 들어간다.
 
+/*
+ * ── 받는 제품과 판 파일 자리 (2026-10-16 · 군살 빼기 2단계 · 오너 결정 2 A) ──────────────
+ * sync.mjs --write 가 사본을 쓴 뒤 제품마다 판 파일 한 장을 이 자리에 씁니다. 제품 쪽 시험 하나가
+ * «내 사본 지문 = 판 파일» 인지 보고, status.mjs 가 «판 파일 = 지금 정본» 인지 봅니다.
+ * 새 제품이 늘면 여기 한 줄과 그 제품의 판 파일 시험을 함께 더합니다.
+ */
+export const PRODUCTS = {
+  'Q-Atelier': { root: 'D:/Claude/Q-Atelier', version: 'lib/design/q-design.version.json', test: 'lib/design/q-design-version.test.ts' },
+  'Q-Works': { root: 'D:/Claude/Q-Works', version: 'lib/design/q-design.version.json', test: 'tests/unit/q-design-version.test.ts' },
+  'Q-Forge': { root: 'D:/Claude/DHR', version: 'lib/design/q-design.version.json', test: 'test/q-design-version.test.mjs' },
+  'Q-Sonar': { root: 'D:/Claude/Lead-Radar', version: 'src/lib/q-design.version.json', test: 'src/lib/q-design-version.test.ts' },
+};
+
 export const PARTS = [
   { name: '공통 당겨서 새로고침 표시', src: 'dist/q-design.pull.ts', lang: 'ts',
     to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-pull.ts' } },

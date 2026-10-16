@@ -68,19 +68,33 @@ export function applyBindings(file,code,bindings,terms){
  for(const change of [...changes].sort((a,b)=>b.start-a.start))after=after.slice(0,change.start)+change.emitted+after.slice(change.end);
  return {after,changes};
 }
-export function mergeCopyBindings(prior,records,selected){
- const byKey=new Map(records.map(r=>[r.product+':'+r.path,r])),merged=[];
- for(const row of prior){const key=row.product+':'+row.path;if(!selected.includes(row.product))merged.push(row);else if(byKey.has(key)){merged.push(byKey.get(key));byKey.delete(key);}}
- merged.push(...byKey.values());return merged;
+// kind 를 주면 그 갈래의 줄만 바꿉니다. 'canonical' 은 Q-Design 정본 파일, 'product' 는 제품 파일입니다.
+// 다른 갈래의 줄은 앞 기록 그대로 둡니다(그 파일은 아직 쓰지 않았으므로 연결도 옛 값이 맞습니다).
+export function mergeCopyBindings(prior,records,selected,kind){
+ const ofKind=row=>!kind||(kind==='canonical')===Boolean(row.canonical);
+ const byKey=new Map(records.filter(ofKind).map(r=>[r.product+':'+r.path,r])),merged=[],seen=new Set();
+ for(const row of prior){
+  const key=row.product+':'+row.path;
+  if(byKey.has(key)){if(!seen.has(key)){merged.push(byKey.get(key));seen.add(key);}}
+  else if(!selected.includes(row.product)||!ofKind(row))merged.push(row);
+ }
+ for(const [key,row] of byKey)if(!seen.has(key))merged.push(row);
+ return merged;
 }
 function files(dir){if(!fs.existsSync(dir))return [];return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?(['engine','__tests__','__fixtures__'].includes(e.name)||(e.name==='design'&&/(?:^|[\\/])lib$/.test(dir))?[]:files(path.join(dir,e.name))):/\.[jt]sx?$/.test(e.name)&&! /\.(?:test|spec)\./.test(e.name)?[path.join(dir,e.name)]:[]);}
 export function copySourceFiles(base,product,owners=new Map()){
  const explicit=[...owners.keys()].filter(key=>key.startsWith(product+':')).map(key=>path.join(base,key.slice(product.length+1)));
  return [...new Set([...['app','components','lib'].flatMap(dir=>files(path.join(base,dir))),...explicit])];
 }
+// 2026-10-16(군살 빼기 결정 3): 제품 파일은 동기화(extract-all --sync)에서만 씁니다.
+//   --write           Q-Design 정본 파일과 그 연결만 씁니다(만들기 걸음). 제품에 갈 문구는 세어 알리기만 합니다
+//   --write-products  제품 파일과 그 연결만 씁니다(extract-all --sync 의 내보내기 걸음)
+//   --check           둘 다 보고, 맞추지 않은 문구가 있으면 실패합니다
+// 예전 --write 는 만들기만 돌려도 제품 저장소 파일을 직접 고쳐, 사본 동기화와 다른 두 번째 내보내기 길이었습니다.
+const MODES=['--write','--write-products','--check'];
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- const args=process.argv.slice(2),mode=args.filter(a=>['--write','--check'].includes(a)),filters=args.filter(a=>a.startsWith('--only='));
- if(mode.length!==1||filters.length>1||args.some(a=>!['--write','--check'].includes(a)&&!a.startsWith('--only=')))throw Error('Use --write or --check and optional --only=atelier,maison,carnet.');
+ const args=process.argv.slice(2),mode=args.filter(a=>MODES.includes(a)),filters=args.filter(a=>a.startsWith('--only='));
+ if(mode.length!==1||filters.length>1||args.some(a=>!MODES.includes(a)&&!a.startsWith('--only=')))throw Error('Use --write, --write-products or --check and optional --only=atelier,maison,carnet.');
  const selected=filters.length?filters[0].slice(7).split(','):['atelier','maison','carnet'];
  if(!selected.length||new Set(selected).size!==selected.length||selected.some(p=>!['atelier','maison','carnet'].includes(p)))throw Error('Unknown or duplicate product scope.');
  const rules=JSON.parse(fs.readFileSync(root+'/patterns/copy-rules.current.json','utf8'));
@@ -121,10 +135,13 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   if(pending.length)throw Error('Unsynchronized authored copy: '+JSON.stringify(pending));
   console.log('Authored copy rules passed: '+records.length+' files. Scope: '+selected.join(', '));
  }else{
-  for(const record of baselines)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
-  const merged=mergeCopyBindings(prior,records,selected);
+  const kind=mode[0]==='--write'?'canonical':'product';
+  const mine=baselines.filter(row=>(kind==='canonical')===Boolean(row.canonical));
+  for(const record of mine)fs.writeFileSync(record.canonical?path.join(root,record.canonical):path.resolve(root,'..',record.repo,record.path),record.after);
+  const merged=mergeCopyBindings(prior,records,selected,kind);
   fs.writeFileSync(out,JSON.stringify({version:1,rules:'patterns/copy-rules.current.json',files:merged},null,2)+'\n');
   // 2026-10-16: 옮기기 기록(reviews/ · ../tmp) 쓰기를 뺐습니다. 아무도 읽지 않았습니다.
-  console.log(JSON.stringify({files:baselines.length,phrases:baselines.reduce((sum,row)=>sum+row.changes.length,0)}));
+  const waiting=kind==='canonical'?baselines.length-mine.length:0;
+  console.log(JSON.stringify({files:mine.length,phrases:mine.reduce((sum,row)=>sum+row.changes.length,0),...(waiting?{productFilesForSync:waiting}:{})}));
  }
 }
