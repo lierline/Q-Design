@@ -137,7 +137,7 @@ export function CardGridSkeleton({
   head = true,
 }: CardGridProps) {
   const grid = (
-    <section className={`grid gap-4 ${CARD_COLUMNS[columns]}`}>
+    <section className={`grid qd-responsive-grid gap-4 ${CARD_COLUMNS[columns]}`} style={{ '--qd-grid-columns': columns } as import('react').CSSProperties}>
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className={`${CARD_HEIGHT[height]} qd-skeleton border`} />
       ))}
@@ -268,7 +268,7 @@ export function BoardSkeleton({ cards = 3 }: BoardProps) {
   return (
     <div role="status" aria-label="불러오는 중" className="flex flex-col gap-5">
       <SkeletonHead />
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid qd-responsive-grid gap-4 md:grid-cols-2 xl:grid-cols-4" style={{ '--qd-grid-columns': BOARD_COLUMNS } as import('react').CSSProperties}>
         {Array.from({ length: BOARD_COLUMNS }).map((_, col) => (
           <div key={col} className="space-y-2">
             <div className={`h-5 w-24 ${line}`} />

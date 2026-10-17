@@ -46,6 +46,7 @@ parseCoverageArgs(only);
 
 /** 순서대로. 앞의 산출물을 뒤가 읽습니다. */
 const STEPS = [
+  { name: '문구 위치 재연결', file: 'reanchor-copy-bindings.mjs', extra: ['--write'], why: '내용이 정확히 같은 유일한 문구만 현재 위치로 옮깁니다' },
   { name: '카르넷 기록 유형 명칭', file: 'build-record-labels.mjs', why: '내부 기록 유형의 표시 명칭을 공통 규칙에서 만듭니다' },
   { name: '권한 설명 문구', file: 'build-permission-copy.mjs', why: '저장된 권한 설명의 표시 문구도 중앙 규칙에서 만듭니다' },
   { name: '화면 문구', file: 'copy-spacing.mjs', extra: ['--write'], why: '검토한 화면 문구를 공통 띄어쓰기 규칙으로 맞춥니다(정본 파일만. 제품 파일은 --sync 에서)' },

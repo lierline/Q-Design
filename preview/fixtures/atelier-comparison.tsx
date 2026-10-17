@@ -4,7 +4,7 @@ import { ChoiceChip } from '@/lib/design/segmented-choice';
 import { PageTabs } from '@/components/PageTabs';
 import { Skeleton } from '@/components/Skeleton';
 import ComparisonMatrix, { type ComparisonAdapters } from './comparison-matrix';
-const a: ComparisonAdapters = {
+export const a: ComparisonAdapters = {
   secondaryIcon: () => <IconBtn title="아이콘 보조 동작" className="qd-btn--secondary"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" strokeWidth="1.5" /></svg></IconBtn>,
   button: (text, options = {}) => <Btn p={!options.secondary} disabled={options.disabled} onClick={options.onClick}>{text}</Btn>,
   field: (id, label, child, error) => <Field id={id} label={label} required error={error}>{child}</Field>,

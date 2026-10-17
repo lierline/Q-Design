@@ -40,16 +40,6 @@ export const PENDING = {
     until: '군살 빼기 5단계',
     why: '2026-10-10 판 뒤의 정본을 아직 받지 않았습니다. 화면이 바뀌므로 5단계에서 폰 폭까지 재며 따라잡습니다',
   },
-  'Q-Forge': {
-    parts: ['차림표'],
-    until: '군살 빼기 5단계',
-    why: '머리 주석의 날짜 한 줄(2026-10-16 날짜 도장을 뺌)과 판 번호 줄 한글 이름의 자간 풀림 한 줄(한글 자간 검사가 잡음)이 다릅니다. 5단계 제품 반영 때 함께 내보냅니다',
-  },
-  'Q-Works': {
-    parts: ['차림표'],
-    until: '군살 빼기 5단계',
-    why: '머리 주석의 날짜 한 줄(2026-10-16 날짜 도장을 뺌)과 판 번호 줄 한글 이름의 자간 풀림 한 줄(한글 자간 검사가 잡음)이 다릅니다. 5단계 제품 반영 때 함께 내보냅니다',
-  },
 };
 
 /*
@@ -66,6 +56,10 @@ export const PRODUCTS = {
 };
 
 export const PARTS = [
+  { name: '공통 반응형 배치', src: 'patterns/responsive.ts', lang: 'ts',
+    to: { 'Q-Atelier': 'D:/Claude/Q-Atelier/lib/design/q-design-responsive.ts',
+      'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-responsive.ts',
+      'Q-Forge': 'D:/Claude/DHR/lib/design/q-design-responsive.ts' } },
   { name: '공통 당겨서 새로고침 표시', src: 'dist/q-design.pull.ts', lang: 'ts',
     to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-pull.ts' } },
   { name: '메종 생산 준비 표', src: 'patterns/foundation/maison-prep-table.css', layer: false,

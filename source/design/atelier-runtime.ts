@@ -1,6 +1,7 @@
 // Q-Design owns numeric presentation inputs required by JavaScript, SVG and media queries.
 // Measured coordinates, application data and locked engine tokens do not belong here.
 // Update this source and sync; do not edit the product copy.
+import { responsiveColumns } from '@/lib/design/q-design-responsive';
 
 export const BP = {
   "sm": 480,
@@ -518,14 +519,12 @@ export function pageHeadingRules(headerClass: string): string { return `
   .${headerClass}-row{align-items:flex-start}
 }`; }
 
-export function gridTemplateFor(cols: number | undefined, minCol: number): string {
-  if (typeof cols === 'number' && cols > 0) {
-    return `repeat(${cols}, minmax(0, 1fr))`;
-  }
-  return `repeat(auto-fit, minmax(${minCol}px, 1fr))`;
+export function gridTemplateFor(cols: number | undefined, minCol: number | string): string {
+  const count = typeof cols === 'number' && cols > 0 ? cols : undefined;
+  return responsiveColumns(count, minCol, 'var(--qd-grid-gap)');
 }
 
-export function gridRulesFor(className: string, cols: number | undefined, minCol: number, responsive?: {base?:number;sm?:number;md?:number;lg?:number;xl?:number}): string[] {
+export function gridRulesFor(className: string, cols: number | undefined, minCol: number | string, responsive?: {base?:number;sm?:number;md?:number;lg?:number;xl?:number}): string[] {
   const rules: string[] = [];
   if (responsive) {
     if (responsive.base) {

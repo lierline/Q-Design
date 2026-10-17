@@ -180,6 +180,39 @@ TOUCH.comfortable = 48
 
 ## 반응형 유틸리티
 
+### 세 제품 공통 크기 계약
+
+화면 너비보다 실제 부모 영역의 너비를 기준으로 열을 접습니다. 열 수는 최대치입니다.
+`patterns/responsive.ts`의 `responsiveColumns`를 세 제품의 `lib/design/q-design-responsive.ts`로 배포합니다.
+아뜰리에 `Grid`·`foldGrid`·`StatGrid`·로딩 지표, 메종 `StatRow`·로딩 카드, 공통 입력 양식 배치가 이 계약을 사용합니다.
+
+| 중앙 설정 | 역할 |
+| --- | --- |
+| `--qd-grid-min-width` | 일반 입력 열의 선호 최소 너비. 부모가 더 좁으면 부모 너비까지 축소 |
+| `--qd-kpi-min-width` | 지표 열의 선호 최소 너비 |
+| `--qd-grid-gap` | 열 너비 계산과 실제 간격에 함께 사용하는 값 |
+| `--qd-grid-columns` | `.qd-responsive-grid`의 최대 열 수 |
+| `--qd-overlay-screen-inset` | 팝업이 화면 가장자리와 유지하는 간격 |
+| `--qd-textarea-max-height` | 여러 줄 입력의 최대 높이. 넘는 내용은 내부 스크롤 |
+| `--qd-control-leading` | 버튼 문구가 여러 줄일 때의 줄 높이 |
+
+위 설정의 정본은 `patterns/foundation.css`입니다. 생성 후 `extract-all.mjs --sync --only=Q-Atelier,Q-Works,Q-Forge`로 배포합니다.
+`.grid`의 직접 자식이 `.qd-field` 또는 `.qd-kpi`이면 공통 배치가 자동 적용됩니다.
+새 배치에는 `.qd-responsive-grid`와 최대 열 수를 명시합니다. 네 칸 입력은 `.qd-form-grid--four`를 사용합니다.
+입력 양식의 열 병합 필드는 좁은 폭에서도 한 행 전체를 차지하며, 숨은 열을 추가하지 않습니다.
+
+카드와 입력의 너비는 부모 안에 들어가고 높이는 내용에 맞춰 늘어납니다. 긴 식별자는 필요한 지점에서 줄바꿈합니다.
+팝업과 서랍은 현재 화면의 너비·높이 안에 제한하고, 긴 본문은 내부에서 스크롤합니다.
+팝업 중앙 정렬은 열림 애니메이션의 변형과 분리해 애니메이션 도중에도 화면 밖으로 밀리지 않게 합니다.
+
+달력·숫자판의 의미 있는 열 수, 도면·SVG의 좌표, 인쇄 문서의 종이 치수는 유지합니다.
+표는 열을 무조건 압축하지 않고 표 영역 안에서 가로 스크롤합니다.
+이 예외를 일반 화면의 고정 너비 카드에 사용하지 않습니다.
+
+검증: `build-component-workbench.mjs` 후 `verify-responsive.mjs`를 실행합니다.
+실제 제품 컴포넌트로 320px부터 1920px까지, 짧은 가로 화면, 260px·120px 부모, 긴 문구, 팝업 하단 동작을 검사합니다.
+중앙 최소 너비를 바꿨을 때 세 제품의 열 수가 함께 변하는지도 검사합니다. 인증된 업무 화면 검수는 별도입니다.
+
 레이아웃을 CSS-in-JS 로 짜면 미디어 쿼리를 쓸 수 없어서, 전역 클래스로 보완합니다.
 
 ```css

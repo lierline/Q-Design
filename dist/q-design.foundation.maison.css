@@ -359,6 +359,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-native-text-inset: 24px;
 }
 @media screen {
+  :where(main, [role="main"]) > * { min-inline-size: 0; }
   body { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); }
 }
 .qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
@@ -390,6 +391,73 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 .qd-toast[data-sonner-toast] [data-close-button]:focus-visible { outline: var(--qd-focus-outline-width) solid var(--qd-accent); outline-offset: var(--qd-space-1); box-shadow: none; }
 /* Central copy policy also overrides unlayered notification-library defaults. */
 .qd-toast { word-break: var(--qd-copy-word-break) !important; overflow-wrap: var(--qd-copy-overflow-wrap) !important; }
+
+/* Intrinsic screen sizing. Paper, SVG geometry and semantic table columns keep
+   their own contracts. Change these roles here, then regenerate and sync. */
+:root {
+  --qd-grid-min-width: 180px;
+  --qd-control-leading: 1.4;
+  --qd-grid-gap: var(--qd-space-3);
+  --qd-kpi-min-width: 160px;
+  --qd-overlay-screen-inset: var(--qd-space-4);
+  --qd-textarea-max-height: min(60dvh, 32rem);
+}
+@media screen {
+  html :is(.qd-responsive-grid, .grid:has(> .qd-field), .grid:has(> .qd-kpi)) {
+    --qd-responsive-columns: repeat(auto-fit, minmax(min(100%, max(var(--qd-grid-min-width), calc((100% - (var(--qd-grid-columns, 2) - 1) * var(--qd-grid-gap)) / var(--qd-grid-columns, 2) - .5px))), 1fr));
+    display: grid;
+    min-inline-size: 0;
+    grid-template-columns: var(--qd-responsive-columns);
+    gap: var(--qd-grid-gap);
+  }
+  html :is(.qd-responsive-grid.qd-grid-kpi, .qd-responsive-grid:has(> .qd-kpi), .grid:has(> .qd-kpi)) { --qd-grid-min-width: var(--qd-kpi-min-width); }
+  html .qd-form-grid--four { --qd-grid-columns: 4; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-3"] { --qd-grid-columns: 3; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-4"] { --qd-grid-columns: 4; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-5"] { --qd-grid-columns: 5; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-6"] { --qd-grid-columns: 6; }
+  /* A spanning field is a full row at every width, never an implicit column. */
+  html .grid:has(> .qd-field) > [class*="col-span-"] { grid-column: 1 / -1; }
+  :where(.qd-responsive-grid, .qd-intrinsic-grid, .grid:has(> .qd-field)) > *,
+  :where(.qd-field, [data-shell], .qd-card, .qd-panel, .qd-dialog-body, .qd-drawer-body) {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  :where(main, [role="main"]) fieldset { min-inline-size: 0; }
+  html :is(.qd-input, .qa-input, .qd-field, .qd-combobox-trigger) {
+    box-sizing: border-box;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+  html :is(.qd-btn, .qd-choice, .qd-filter-submit, .qd-filter-clear) {
+    max-inline-size: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  html .qd-btn { line-height: var(--qd-control-leading); }
+  textarea.qd-input {
+    field-sizing: content;
+    max-block-size: var(--qd-textarea-max-height);
+    overflow-y: auto;
+  }
+  html .qd-dialog-content {
+    inline-size: min(100%, var(--qd-dialog-width));
+    max-inline-size: calc(100dvw - 2 * var(--qd-overlay-screen-inset));
+    max-block-size: calc(100dvh - 2 * var(--qd-overlay-screen-inset));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  /* Positioning stays independent of transform-based enter/exit animations. */
+  html .qd-dialog-content--centered { translate: -50% -50%; }
+  html .qd-drawer-content { max-inline-size: 100dvw; max-block-size: 100dvh; }
+  html :is(.qd-dialog-body, .qd-drawer-body) { overflow: auto; min-block-size: 0; }
+  html :is(.qd-dialog-header, .qd-dialog-actions, .qd-drawer-header, .qd-drawer-actions) {
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  html :is(.qd-table-scroll, .qa-scroll-table) { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
+}
 
 /* Q-Maison foundation adapter. Author here; the product imports the generated copy.
    Layer and media ordering preserve legacy screen/print and shell behavior. */

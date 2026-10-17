@@ -1,7 +1,7 @@
 {
   "version": 1,
   "manifest": "patterns/component-implementations.json",
-  "manifestHash": "a20b5f1a5836860b1c28e285cf48acec3edefcf277bf28337917c3fe9077d134",
+  "manifestHash": "4979291a4cd9002182e3438e71013b8e2c45c8e17746a82c075ac2a1078a8e8a",
   "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
   "records": [
     {
@@ -10,7 +10,7 @@
       "path": "lib/design/components.tsx",
       "target": "Q-Atelier/lib/design/components.tsx",
       "canonical": "patterns/component-implementations/atelier/lib/design/components.tsx",
-      "sourceHash": "3a8d6b8c9ba28a74f724fe8a28110dc595e4ee4053d76362cae8d3335ea4e596",
+      "sourceHash": "57102250347edd347a674e469efcad13ef4f819da57d4e9902abfbbe94bba313",
       "exports": [
         {
           "name": "Lbl",
@@ -368,7 +368,7 @@
       "path": "lib/design/segmented-choice.tsx",
       "target": "Q-Atelier/lib/design/segmented-choice.tsx",
       "canonical": "patterns/component-implementations/atelier/lib/design/segmented-choice.tsx",
-      "sourceHash": "fca3836cc8bf820d70d10bf19511728316d76fa81e686005f4357764962031cd",
+      "sourceHash": "1cc3934ee06583e89073b101888346b0e0a60e6db4708dd5489a2175ae382152",
       "exports": [
         {
           "name": "choiceLook",
@@ -446,7 +446,7 @@
       "path": "components/Skeleton.tsx",
       "target": "Q-Atelier/components/Skeleton.tsx",
       "canonical": "patterns/component-implementations/atelier/components/Skeleton.tsx",
-      "sourceHash": "0cf18109b4385486ac0911d0c32ec797a11a32c0efb239e892ae76a469c59b68",
+      "sourceHash": "b14c2876f417fd0d10d740edb8a926783b0a57b05079ab3432ea5227b19484af",
       "exports": [
         {
           "name": "Skeleton",
@@ -458,31 +458,31 @@
           "owner": "Skeleton",
           "member": "Row",
           "localName": "SkeletonRow",
-          "line": 37
+          "line": 38
         },
         {
           "owner": "Skeleton",
           "member": "Card",
           "localName": "SkeletonCard",
-          "line": 60
+          "line": 61
         },
         {
           "owner": "Skeleton",
           "member": "KPIGrid",
           "localName": "SkeletonKPIGrid",
-          "line": 68
+          "line": 69
         },
         {
           "owner": "Skeleton",
           "member": "PageHd",
           "localName": "SkeletonPageHd",
-          "line": 116
+          "line": 117
         },
         {
           "owner": "Skeleton",
           "member": "Table",
           "localName": "SkeletonTable",
-          "line": 129
+          "line": 130
         }
       ]
     },
@@ -630,7 +630,7 @@
       "path": "components/ui/dialog.tsx",
       "target": "Q-Works/components/ui/dialog.tsx",
       "canonical": "patterns/component-implementations/maison/components/ui/dialog.tsx",
-      "sourceHash": "8e2d158c691e8e86b7c05cc5b53f9ce4bb7214a44386f295c0139a678fb843b8",
+      "sourceHash": "20ec6b9b41b4839cf3b4fb8b0cfe1ff3edd3a155b353ef876cca5cc2d7a03a1f",
       "exports": [
         {
           "name": "Dialog",
@@ -680,7 +680,7 @@
       "path": "components/ui/field.tsx",
       "target": "Q-Works/components/ui/field.tsx",
       "canonical": "patterns/component-implementations/maison/components/ui/field.tsx",
-      "sourceHash": "c7dcd46530a27cbaf26c4967f209b00b96316fdf2dd48ae6cac6870e39e30e82",
+      "sourceHash": "b1394053cce16a0eaf146d28917b297537739b88a395a8b1da0ed092628fcb0a",
       "exports": [
         {
           "name": "useFieldControl",
@@ -870,7 +870,7 @@
       "path": "components/shared/page-skeleton.tsx",
       "target": "Q-Works/components/shared/page-skeleton.tsx",
       "canonical": "patterns/component-implementations/maison/components/shared/page-skeleton.tsx",
-      "sourceHash": "44a41bb4bf676bfca99af266a6a7bf9953fb817fd567a1485e41aea3c25d91b7",
+      "sourceHash": "e4ae3322ad48559d1815a1419347e96182aa8943c67336dbeed0bd1f0db999cd",
       "exports": [
         {
           "name": "SkeletonHead",
@@ -939,12 +939,30 @@
       ]
     },
     {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/shared/stat-block.tsx",
+      "target": "Q-Works/components/shared/stat-block.tsx",
+      "canonical": "patterns/component-implementations/maison/components/shared/stat-block.tsx",
+      "sourceHash": "18c0428d9829df8d6dad391dfa13ad1b8f06a8e9e3131e6cea2823c7ba9de7db",
+      "exports": [
+        {
+          "name": "StatBlock",
+          "kind": "value"
+        },
+        {
+          "name": "StatRow",
+          "kind": "value"
+        }
+      ]
+    },
+    {
       "product": "carnet",
       "key": "Q-Forge",
       "path": "components/ui.tsx",
       "target": "DHR/components/ui.tsx",
       "canonical": "patterns/component-implementations/carnet/components/ui.tsx",
-      "sourceHash": "bb674783bbf3c1e58114bdd87c98a0229c00d8f33bf2ced443525a47e3db6ad6",
+      "sourceHash": "3eef231231da34f94d9841255bea18a5dd63a3b1b8f185aa7d7be204e93e4f2a",
       "exports": [
         {
           "name": "Msg",

@@ -1,0 +1,26 @@
+import React, {useState, type ReactNode} from 'react';
+import type {ComparisonAdapters} from './comparison-matrix';
+type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode};
+export default function ResponsiveCases({adapters:a, grid, stats}:Props){
+  const [value,setValue]=useState('검토 문서'),[open,setOpen]=useState(false);
+  const control=(id:string)=>({id,value,onChange:(event:any)=>setValue(event.target.value)});
+  const fields=(id:string)=>['문서 이름','검토 부서','검토 상태','담당자'].map((label,i)=><React.Fragment key={label}>{a.field(id+i,label,a.input(control(id+i)))}</React.Fragment>);
+  return <div data-testid="responsive-cases">
+    <h2>화면과 부모 폭에 따른 배치</h2>
+    <section data-testid="responsive-wide">{grid(fields('wide-'))}</section>
+    <section data-testid="responsive-narrow" style={{width:'min(100%, 260px)',marginBlock:24}}>{grid(fields('narrow-'))}</section>
+    <section data-testid="responsive-tiny" style={{width:'min(100%, 120px)',marginBlock:24}}>{grid(fields('tiny-'))}</section>
+    <section data-testid="responsive-stats">{stats()}</section>
+    <section data-testid="responsive-long" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.card(<p>{'LONG_DOCUMENT_IDENTIFIER_'.repeat(12)}</p>)}{a.button('아주 긴 이름의 문서 검토 내용을 확인하고 저장합니다')}</section>
+    <section data-testid="responsive-table" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.table()}</section>
+    <section data-testid="responsive-textarea">{a.field('responsive-note','검토 의견',a.textarea(control('responsive-note')))}</section>
+    <section data-testid="responsive-select" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.field('responsive-select','검토 상태',a.select({...control('responsive-select'),value:'review'}))}</section>
+    <section data-testid="responsive-tabs" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.tabs()}</section>
+    <section data-testid="responsive-choice" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.choice(false)}{a.choice(true)}</section>
+    <section data-testid="responsive-empty" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.empty(false)}</section>
+    <section data-testid="responsive-skeleton" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.skeleton()}</section>
+    <section data-testid="responsive-progress" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.progress()}</section>
+    <span data-testid="responsive-open">{a.button('반응형 대화상자 열기',{onClick:()=>setOpen(true)})}</span>
+    {a.dialog(open,()=>setOpen(false),<div data-testid="responsive-dialog-body">{Array.from({length:20},(_,i)=><p key={i}>좁고 낮은 화면에서도 검토 내용을 읽고 하단 동작을 사용할 수 있어야 합니다.</p>)}</div>)}
+  </div>;
+}

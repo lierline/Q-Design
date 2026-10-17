@@ -181,7 +181,7 @@ export function Field({
   label, children, wide = false,
 }: { label: string; children: React.ReactNode; wide?: boolean }) {
   return (
-    <div className={wide ? 'sm:col-span-2' : undefined}>
+    <div className={wide ? 'qd-field sm:col-span-2' : 'qd-field'}>
       <div className="qd-field-label" data-hangul={tagHangul(label)}>{label}</div>
       <div className="text-sm text-ink">{children}</div>
     </div>

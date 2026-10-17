@@ -254,7 +254,7 @@ export function SegmentedChoice<V extends string>({
 
   const containerStyle: CSSProperties =
     layout === 'grid'
-      ? { display: 'grid', gridTemplateColumns: `repeat(auto-fit, minmax(${minCol}px, 1fr))`, gap }
+      ? { display: 'grid', minWidth: 0, gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${minCol}px), 1fr))`, gap }
       : layout === 'column'
         ? { display: 'flex', flexDirection: 'column', gap }
         : { display: 'flex', flexWrap: 'wrap', gap };

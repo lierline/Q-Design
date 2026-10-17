@@ -42,12 +42,12 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "qd-dialog-content fixed left-1/2 top-1/2 z-[var(--qd-z-modal)] flex max-h-[var(--qd-maison-max-height-calc-100dvh-negative--2rem)] w-[var(--qd-maison-width-calc-100percent-negative--2rem)]",
+        "qd-dialog-content qd-dialog-content--centered fixed left-1/2 top-1/2 z-[var(--qd-z-modal)] flex max-h-[var(--qd-maison-max-height-calc-100dvh-negative--2rem)] w-[var(--qd-maison-width-calc-100percent-negative--2rem)]",
         // 내용이 90vh 를 넘으면 스크롤한다. 없으면 하단 버튼(확인·삭제)이
         // 화면 밖으로 잘려 «격리 재고가 많은 부적합을 종결할 수 없는» 식의
         // 기능 차단이 생긴다.
         "overflow-y-auto overscroll-contain",
-        "-translate-x-1/2 -translate-y-1/2 flex-col gap-[var(--qd-dialog-gap)]",
+        "flex-col gap-[var(--qd-dialog-gap)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",

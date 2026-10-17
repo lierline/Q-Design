@@ -15,11 +15,31 @@
       ],
       "attachedRenderers": {
         "components/Skeleton.tsx": [
-          { "owner": "Skeleton", "member": "Row", "localName": "SkeletonRow" },
-          { "owner": "Skeleton", "member": "Card", "localName": "SkeletonCard" },
-          { "owner": "Skeleton", "member": "KPIGrid", "localName": "SkeletonKPIGrid" },
-          { "owner": "Skeleton", "member": "PageHd", "localName": "SkeletonPageHd" },
-          { "owner": "Skeleton", "member": "Table", "localName": "SkeletonTable" }
+          {
+            "owner": "Skeleton",
+            "member": "Row",
+            "localName": "SkeletonRow"
+          },
+          {
+            "owner": "Skeleton",
+            "member": "Card",
+            "localName": "SkeletonCard"
+          },
+          {
+            "owner": "Skeleton",
+            "member": "KPIGrid",
+            "localName": "SkeletonKPIGrid"
+          },
+          {
+            "owner": "Skeleton",
+            "member": "PageHd",
+            "localName": "SkeletonPageHd"
+          },
+          {
+            "owner": "Skeleton",
+            "member": "Table",
+            "localName": "SkeletonTable"
+          }
         ]
       }
     },
@@ -49,7 +69,8 @@
         "components/ui/time-picker.tsx",
         "components/shared/page-skeleton.tsx",
         "components/shared/choice-boxes.tsx",
-        "components/shared/check-chip.tsx"
+        "components/shared/check-chip.tsx",
+        "components/shared/stat-block.tsx"
       ]
     },
     {

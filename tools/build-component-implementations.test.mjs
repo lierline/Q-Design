@@ -66,7 +66,8 @@ test('canonical Skeleton variants render their central defaults and preserve exp
  const tokens=load(read('source/tokens/tokens.ts')),runtime=readRuntimeValues(root);
  const grain=load(read('source/tokens/grain.ts'),{'./tokens':tokens,'./q-design-runtime':runtime});
  const contract=load(read('source/tokens/q-design-contract.ts'),{'./tokens':tokens,'./grain':grain}),scale=load(read('source/tokens/q-design-scale.ts'),{'./tokens':tokens});
- const make=config=>load(read('patterns/component-implementations/atelier/components/Skeleton.tsx'),{'@/lib/design/tokens':tokens,'@/lib/design/q-design-runtime':config,'@/lib/design/q-design-contract':contract,'@/lib/design/q-design-scale':scale}).Skeleton;
+ const responsive=load(read('patterns/responsive.ts'));
+ const make=config=>load(read('patterns/component-implementations/atelier/components/Skeleton.tsx'),{'@/lib/design/q-design-responsive':responsive,'@/lib/design/tokens':tokens,'@/lib/design/q-design-runtime':config,'@/lib/design/q-design-contract':contract,'@/lib/design/q-design-scale':scale}).Skeleton;
  const render=(Component,props={})=>renderToStaticMarkup(React.createElement(Component,props)),count=html=>(html.match(/qa-skeleton qd-skeleton/g)??[]).length;
  const original=make(runtime);
  assert.equal(count(render(original)),1);assert(render(original).includes('height:'+runtime.QDPresentation.skeletonHeight[14]+'px'));assert.match(render(original),/border-radius:var\(--qd-radius/);

@@ -1,3 +1,4 @@
+import { responsiveColumns } from '@/lib/design/q-design-responsive';
 // =============================================================================
 // Skeleton: Loading 텍스트 대체 (champagne shimmer)
 // =============================================================================
@@ -76,7 +77,7 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+        gridTemplateColumns: responsiveColumns(cols, 'var(--qd-kpi-min-width)', 'var(--qd-space-3-5)'),
         gap: QDScale.space[3.5],
         marginBottom: QDScale.space[6],
       }}

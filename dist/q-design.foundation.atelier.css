@@ -359,6 +359,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-native-text-inset: 24px;
 }
 @media screen {
+  :where(main, [role="main"]) > * { min-inline-size: 0; }
   body { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); }
 }
 .qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
@@ -390,6 +391,73 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 .qd-toast[data-sonner-toast] [data-close-button]:focus-visible { outline: var(--qd-focus-outline-width) solid var(--qd-accent); outline-offset: var(--qd-space-1); box-shadow: none; }
 /* Central copy policy also overrides unlayered notification-library defaults. */
 .qd-toast { word-break: var(--qd-copy-word-break) !important; overflow-wrap: var(--qd-copy-overflow-wrap) !important; }
+
+/* Intrinsic screen sizing. Paper, SVG geometry and semantic table columns keep
+   their own contracts. Change these roles here, then regenerate and sync. */
+:root {
+  --qd-grid-min-width: 180px;
+  --qd-control-leading: 1.4;
+  --qd-grid-gap: var(--qd-space-3);
+  --qd-kpi-min-width: 160px;
+  --qd-overlay-screen-inset: var(--qd-space-4);
+  --qd-textarea-max-height: min(60dvh, 32rem);
+}
+@media screen {
+  html :is(.qd-responsive-grid, .grid:has(> .qd-field), .grid:has(> .qd-kpi)) {
+    --qd-responsive-columns: repeat(auto-fit, minmax(min(100%, max(var(--qd-grid-min-width), calc((100% - (var(--qd-grid-columns, 2) - 1) * var(--qd-grid-gap)) / var(--qd-grid-columns, 2) - .5px))), 1fr));
+    display: grid;
+    min-inline-size: 0;
+    grid-template-columns: var(--qd-responsive-columns);
+    gap: var(--qd-grid-gap);
+  }
+  html :is(.qd-responsive-grid.qd-grid-kpi, .qd-responsive-grid:has(> .qd-kpi), .grid:has(> .qd-kpi)) { --qd-grid-min-width: var(--qd-kpi-min-width); }
+  html .qd-form-grid--four { --qd-grid-columns: 4; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-3"] { --qd-grid-columns: 3; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-4"] { --qd-grid-columns: 4; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-5"] { --qd-grid-columns: 5; }
+  html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-6"] { --qd-grid-columns: 6; }
+  /* A spanning field is a full row at every width, never an implicit column. */
+  html .grid:has(> .qd-field) > [class*="col-span-"] { grid-column: 1 / -1; }
+  :where(.qd-responsive-grid, .qd-intrinsic-grid, .grid:has(> .qd-field)) > *,
+  :where(.qd-field, [data-shell], .qd-card, .qd-panel, .qd-dialog-body, .qd-drawer-body) {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  :where(main, [role="main"]) fieldset { min-inline-size: 0; }
+  html :is(.qd-input, .qa-input, .qd-field, .qd-combobox-trigger) {
+    box-sizing: border-box;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+  html :is(.qd-btn, .qd-choice, .qd-filter-submit, .qd-filter-clear) {
+    max-inline-size: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  html .qd-btn { line-height: var(--qd-control-leading); }
+  textarea.qd-input {
+    field-sizing: content;
+    max-block-size: var(--qd-textarea-max-height);
+    overflow-y: auto;
+  }
+  html .qd-dialog-content {
+    inline-size: min(100%, var(--qd-dialog-width));
+    max-inline-size: calc(100dvw - 2 * var(--qd-overlay-screen-inset));
+    max-block-size: calc(100dvh - 2 * var(--qd-overlay-screen-inset));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  /* Positioning stays independent of transform-based enter/exit animations. */
+  html .qd-dialog-content--centered { translate: -50% -50%; }
+  html .qd-drawer-content { max-inline-size: 100dvw; max-block-size: 100dvh; }
+  html :is(.qd-dialog-body, .qd-drawer-body) { overflow: auto; min-block-size: 0; }
+  html :is(.qd-dialog-header, .qd-dialog-actions, .qd-drawer-header, .qd-drawer-actions) {
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  html :is(.qd-table-scroll, .qa-scroll-table) { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
+}
 
 /* Q-Atelier authored foundation. Edit here; product copies are generated. */
 
@@ -1344,8 +1412,10 @@ textarea {
   }
 }
 
+/* 이름을 붙인 상자 둘: 한 칸 · 두 칸은 바깥(qa-ld-host)을, 상세 안의 두 줄기는 상세 칸(qa-ld-detail)을 잰다.
+   이름 없이 두면 상세 칸 안의 요소가 가장 가까운 상세 칸을 재서 두 칸인데도 «← 목록» 이 선다. */
 .qa-ld-host {
-  container-type: inline-size;
+  container: qa-ld-host / inline-size;
   width: 100%;
   min-width: 0;
   /* 한 칸에서 상세로 건너가 머리로 올릴 때 폰 상단 바(68)에 가리지 않게 */
@@ -1354,7 +1424,7 @@ textarea {
 .qa-ld {
   display: grid;
   grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-  height: var(--qa-ld-height, min(760px, calc(100dvh - 220px)));
+  height: var(--qa-ld-height, min(960px, calc(100dvh - 220px)));
   min-height: 420px;
   border-top: 1px solid var(--qa-borderHi);
 }
@@ -1438,14 +1508,22 @@ textarea {
   color: var(--qa-text);
 }
 .qa-ld-detail {
+  container: qa-ld-detail / inline-size;
   min-width: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 32px 8px 40px 44px;
+  /* 여백은 바깥 상자 폭을 따라 늘고 준다(좁으면 24 · 넓으면 56) */
+  padding: 32px clamp(12px, 2.5cqi, 40px) 40px clamp(24px, 3.5cqi, 56px);
 }
 .qa-ld-in {
   max-width: 680px;
   animation: qa-ld-in 0.24s ease both;
+}
+/* 두 줄기 상세(.qa-ld-split 이 든 것 · 용어집처럼 읽을 거리가 많은 것)는 680 제한 없이 상세 칸을 채우고,
+   아주 넓으면 가운데에 선다. 부품에 표시를 따로 달지 않고 내용으로 고른다 */
+.qa-ld-in:has(.qa-ld-split) {
+  max-width: 1040px;
+  margin-inline: auto;
 }
 @keyframes qa-ld-in {
   from { opacity: 0; transform: translateY(4px); }
@@ -1530,6 +1608,62 @@ textarea {
   margin-top: 26px;
   border-top: 1px solid var(--qa-borderHi);
 }
+/* 두 줄기 상세: 왼쪽 본문(절 여럿) · 오른쪽 곁줄(장부). 상세 칸이 880 아래면 한 줄로 쌓는다 */
+.qa-ld-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 28px;
+}
+@container qa-ld-detail (min-width: 880px) {
+  .qa-ld-split {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
+    column-gap: 56px;
+    align-items: start;
+  }
+}
+.qa-ld-main {
+  min-width: 0;
+  max-width: 46em;
+}
+.qa-ld-side {
+  min-width: 0;
+}
+.qa-ld-side > .qa-ledger {
+  border-top: 1px solid var(--qa-borderHi);
+}
+.qa-ld-sec + .qa-ld-sec {
+  margin-top: 28px;
+}
+.qa-ld-sec-t {
+  margin: 0 0 8px;
+  color: var(--qa-text);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: var(--qa-lh-snug);
+}
+.qa-ld-sec .qa-ld-body {
+  margin: 0;
+  max-width: none;
+}
+.qa-ld-points {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--qa-subtle);
+  font-size: 15px;
+  line-height: var(--qa-lh-loose);
+}
+.qa-ld-points li + li {
+  margin-top: 4px;
+}
+.qa-ld-points li::marker {
+  color: var(--qa-muted);
+}
+.qa-ld-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+}
 .qa-ld-nav {
   display: flex;
   flex-wrap: wrap;
@@ -1542,7 +1676,7 @@ textarea {
   color: var(--qa-muted);
   font-size: 14px;
 }
-@container (max-width: 699px) {
+@container qa-ld-host (max-width: 699px) {
   .qa-ld {
     display: block;
     height: auto;
@@ -2165,7 +2299,8 @@ select.qa-input::-ms-expand {
   /* 반투명 배경 합성용 RGB 채널 (rgba(var(--x-rgb), a)): light 모드 전환 지원. */
   /* 2026-08-25: champagne 을 rgba 로 쓰는 곳이 19군데 있었는데 전부 값을 박아 썼다.
      🔴 **밝은 모드에서 --champagne 은 #8a6838(어두운 금)로 바뀌는데 박은 값은 안 따라간다.**
-        즉 밝은 모드에서 금색이 두 가지였다. 기존 --ink-rgb 관례대로 rgb 변수를 둔다. */  /* 위험도 색 (2026-08-25 토큰화)
+        즉 밝은 모드에서 금색이 두 가지였다. 기존 --ink-rgb 관례대로 rgb 변수를 둔다. */
+  /* 위험도 색 (2026-08-25 토큰화)
      🔴 종전에는 자문 상세의 `riskLuxe()` 안에 hex 5개가 박혀 있었다. 의미 있는 색인데
         팔레트 밖에 있어서, 다른 화면에서 같은 위험도를 다른 색으로 그릴 위험이 있었다.
      ⚠️ MEDIUM 만 champagne 과 정확히 같다(#c9a86a). 나머지는 이 팔레트에만 있던 값이라
