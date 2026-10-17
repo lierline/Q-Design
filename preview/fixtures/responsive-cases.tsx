@@ -1,7 +1,7 @@
 import React, {useState, type ReactNode} from 'react';
 import type {ComparisonAdapters} from './comparison-matrix';
-type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode; choiceGroup?:()=>ReactNode; drawer?: (open:boolean,close:()=>void,child:ReactNode,side:'right'|'bottom')=>ReactNode};
-export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceGroup}:Props){
+type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode; actionHint?:ReactNode; choiceGroup?:()=>ReactNode; drawer?: (open:boolean,close:()=>void,child:ReactNode,side:'right'|'bottom')=>ReactNode};
+export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceGroup,actionHint}:Props){
   const [value,setValue]=useState('검토 문서'),[open,setOpen]=useState(false);
   const [drawerSide,setDrawerSide]=useState<'right'|'bottom'|null>(null);
   const control=(id:string)=>({id,value,onChange:(event:any)=>setValue(event.target.value)});
@@ -23,6 +23,7 @@ export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceG
     <section data-testid="responsive-empty" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.empty(false)}</section>
     <section data-testid="responsive-skeleton" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.skeleton()}</section>
     <section data-testid="responsive-progress" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.progress()}</section>
+    <section data-testid="responsive-actions" style={{width:'min(100%, 351px)',marginBlock:24}}><div className="flex justify-end gap-2">{a.button('취소')}{actionHint??<p className="qd-action-hint qd-field-hint">필수 항목 2개를 입력하세요: 품목명 · 판정 안 한 검사 항목 11개</p>}{a.button('등록',{disabled:true})}</div></section>
     <span data-testid="responsive-open">{a.button('반응형 대화상자 열기',{onClick:()=>setOpen(true)})}</span>
     {drawer && <div>{(['right','bottom'] as const).map(side=><span key={side} data-testid={'responsive-drawer-'+side}>{a.button(side==='right'?'측면 패널 열기':'하단 패널 열기',{onClick:()=>setDrawerSide(side)})}</span>)}</div>}
     {a.dialog(open,()=>setOpen(false),<div data-testid="responsive-dialog-body">{Array.from({length:20},(_,i)=><p key={i}>좁고 낮은 화면에서도 검토 내용을 읽고 하단 동작을 사용할 수 있어야 합니다.</p>)}</div>)}

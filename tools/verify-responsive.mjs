@@ -24,7 +24,7 @@ try{
       assert.deepEqual(errors,[],product+' fixture errors');
       const measured=await page.evaluate(()=>{
         const sizes={};
-        for(const name of ['wide','narrow','tiny','stats','long','table','editable-table','textarea','select','tabs','choice','choice-group','empty','skeleton','progress']){
+        for(const name of ['wide','narrow','tiny','stats','long','table','editable-table','textarea','select','tabs','choice','choice-group','empty','skeleton','progress','actions']){
           const el=document.querySelector(`[data-testid="responsive-${name}"]`);
           sizes[name]={client:el.clientWidth,scroll:el.scrollWidth};
         }
@@ -42,6 +42,8 @@ try{
       assert.equal(editable.inputs.length,4,'Editable table must contain real product inputs');
       assert(editable.inputs.every(size=>size>=120),JSON.stringify({product,theme,width,editable}));
       assert(editable.table>editable.frame,'Editable table must scroll inside its frame');
+      const submitLines=await page.getByTestId('responsive-actions').getByRole('button',{name:'등록',exact:true}).evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return new Set([...range.getClientRects()].map(rect=>rect.top.toFixed(1))).size;});
+      assert.equal(submitLines,1,'Short submit action must not be squeezed vertically by its hint');
       if(product==='maison'){
         const labels=await page.getByTestId('responsive-choice-group').locator('label > span').evaluateAll(elements=>elements.map(el=>{const range=document.createRange();range.selectNodeContents(el);return{text:el.textContent,lines:new Set([...range.getClientRects()].map(rect=>rect.top.toFixed(1))).size};}));
         assert.equal(labels.length,5,'Real five-option choice group must render');

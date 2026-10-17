@@ -1,7 +1,7 @@
 {
   "version": 1,
   "manifest": "patterns/component-implementations.json",
-  "manifestHash": "4979291a4cd9002182e3438e71013b8e2c45c8e17746a82c075ac2a1078a8e8a",
+  "manifestHash": "f7613be88c5e4034396d0d15cc48414e25cb07cced1459e5e1f1c40b4ffd4cd1",
   "scope": "Exact source ownership of explicitly reviewed product primitives. Shared CSS and token rules remain the family appearance authority. State, props, callbacks, preferences, caller styles and imported domain data are separate inputs. No argument decision or visual certification is inferred from a filename or full-file match.",
   "records": [
     {
@@ -952,6 +952,20 @@
         },
         {
           "name": "StatRow",
+          "kind": "value"
+        }
+      ]
+    },
+    {
+      "product": "maison",
+      "key": "Q-Works",
+      "path": "components/shared/missing-hint.tsx",
+      "target": "Q-Works/components/shared/missing-hint.tsx",
+      "canonical": "patterns/component-implementations/maison/components/shared/missing-hint.tsx",
+      "sourceHash": "4108f67b50adb8603972f27419dbe934d87c8a8056344ff412c6be7f60a24274",
+      "exports": [
+        {
+          "name": "MissingHint",
           "kind": "value"
         }
       ]

@@ -800,6 +800,11 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 }
 .qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
 .qd-file-name { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
+@media screen {
+  html .flex:has(> .qd-action-hint) { flex-wrap: wrap; align-items: center; }
+  html .flex:has(> .qd-action-hint) > .qd-btn { flex-shrink: 0; }
+  html .qd-action-hint { flex: 1 1 var(--qd-grid-min-width); min-inline-size: 0; overflow-wrap: anywhere; }
+}
 
 /* Shared feedback placement, including safe-area edges on installed apps. */
 :root {
