@@ -893,7 +893,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     flex-shrink: 0;
     flex-wrap: wrap;
   }
-  html :is(.qd-table-scroll, .qa-scroll-table) { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  html :is(.qd-table-scroll, .qa-scroll-table) { position: relative; min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
   html .qd-table--editable { min-inline-size: var(--qd-editable-table-min-width); }
   :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
 }

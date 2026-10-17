@@ -23,6 +23,7 @@ export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceG
     <section data-testid="responsive-empty" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.empty(false)}</section>
     <section data-testid="responsive-skeleton" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.skeleton()}</section>
     <section data-testid="responsive-progress" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.progress()}</section>
+    <section data-testid="responsive-access-table" style={{width:'min(100%, 260px)',marginBlock:24}}><div className="qd-table-scroll"><table className="qd-table" style={{minWidth:736}}><tbody><tr>{['시스템관리자','생산관리자','작업자','품질책임자','경영열람'].map(label=><td key={label}>{label}<span style={{position:'absolute',width:1,height:1,overflow:'hidden',clip:'rect(0,0,0,0)',whiteSpace:'nowrap'}}>열람</span></td>)}</tr></tbody></table></div></section>
     <section data-testid="responsive-actions" style={{width:'min(100%, 351px)',marginBlock:24}}><div className="flex justify-end gap-2">{a.button('취소')}{actionHint??<p className="qd-action-hint qd-field-hint">필수 항목 2개를 입력하세요: 품목명 · 판정 안 한 검사 항목 11개</p>}{a.button('등록',{disabled:true})}</div></section>
     <span data-testid="responsive-open">{a.button('반응형 대화상자 열기',{onClick:()=>setOpen(true)})}</span>
     {drawer && <div>{(['right','bottom'] as const).map(side=><span key={side} data-testid={'responsive-drawer-'+side}>{a.button(side==='right'?'측면 패널 열기':'하단 패널 열기',{onClick:()=>setDrawerSide(side)})}</span>)}</div>}

@@ -24,7 +24,7 @@ try{
       assert.deepEqual(errors,[],product+' fixture errors');
       const measured=await page.evaluate(()=>{
         const sizes={};
-        for(const name of ['wide','narrow','tiny','stats','long','table','editable-table','textarea','select','tabs','choice','choice-group','empty','skeleton','progress','actions']){
+        for(const name of ['wide','narrow','tiny','stats','long','table','editable-table','access-table','textarea','select','tabs','choice','choice-group','empty','skeleton','progress','actions']){
           const el=document.querySelector(`[data-testid="responsive-${name}"]`);
           sizes[name]={client:el.clientWidth,scroll:el.scrollWidth};
         }
