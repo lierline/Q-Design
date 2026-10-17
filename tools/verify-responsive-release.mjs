@@ -10,13 +10,13 @@ assert(selected.length>0&&selected.every(name=>Object.hasOwn(products,name)),'Un
 const canonical=fs.readFileSync(new URL('../patterns/foundation.css',import.meta.url),'utf8').match(/(?:^|\n):root\s*\{([^}]+)\}/)?.[1];
 assert(canonical,'Canonical root settings missing');
 const compact=value=>value.replace(/\s+/g,'');
-const tokens=['--qd-grid-min-width','--qd-kpi-min-width','--qd-grid-gap','--qd-control-leading','--qd-overlay-screen-inset','--qd-textarea-max-height'];
+const tokens=['--qd-grid-min-width','--qd-kpi-min-width','--qd-grid-gap','--qd-control-leading','--qd-overlay-screen-inset','--qd-textarea-max-height','--qd-header-action-inset','--qd-header-action-gap','--qd-header-action-leading-right','--qd-editable-table-min-width'];
 const expected=tokens.map(name=>{
  const matches=[...canonical.matchAll(new RegExp(name+':\\s*([^;]+);','g'))];
  assert.equal(matches.length,1,'Canonical token must be unique: '+name);
  return compact(name+':'+matches[0][1]+';');
 });
-const selectors=['.qd-responsive-grid','.qd-form-grid--four','.qd-dialog-content--centered','.qd-grid-stat'];
+const selectors=['.qd-responsive-grid','.qd-form-grid--four','.qd-dialog-content--centered','.qd-grid-stat','.qd-file-name','.qd-action-hint','.qd-table--editable'];
 async function read(url){const response=await fetch(url,{redirect:'follow',signal:AbortSignal.timeout(30000)});assert(response.ok,'HTTP '+response.status+' '+url);assert.equal(new URL(response.url).origin,new URL(url).origin,'Unexpected external redirect');return response.text();}
 for(const name of selected){
  const origin=products[name],html=await read(origin+'/login');
