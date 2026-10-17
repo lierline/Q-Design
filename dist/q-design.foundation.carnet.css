@@ -6,6 +6,9 @@
 
 :root {
   --qd-grid-min-width: 180px;
+  --qd-header-action-inset: var(--qd-space-3);
+  --qd-header-action-gap: var(--qd-space-2);
+  --qd-header-action-leading-right: calc(var(--qd-header-action-inset) + var(--qd-control-height) + var(--qd-header-action-gap));
   --qd-control-leading: 1.4;
   --qd-grid-gap: var(--qd-space-3);
   --qd-kpi-min-width: 160px;
@@ -369,6 +372,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   body { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); }
 }
 .qd-copy { word-break: var(--qd-copy-word-break); overflow-wrap: var(--qd-copy-overflow-wrap); word-spacing: var(--qd-copy-word-spacing); }
+.qd-file-name { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
 
 /* Shared feedback placement, including safe-area edges on installed apps. */
 :root {

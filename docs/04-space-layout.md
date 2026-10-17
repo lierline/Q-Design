@@ -195,6 +195,9 @@ TOUCH.comfortable = 48
 | `--qd-overlay-screen-inset` | 팝업이 화면 가장자리와 유지하는 간격 |
 | `--qd-textarea-max-height` | 여러 줄 입력의 최대 높이. 넘는 내용은 내부 스크롤 |
 | `--qd-control-leading` | 버튼 문구가 여러 줄일 때의 줄 높이 |
+| `--qd-header-action-inset` | 모바일 상단 아이콘의 오른쪽 여백 |
+| `--qd-header-action-gap` | 모바일 상단 아이콘 사이 간격 |
+| `--qd-header-action-leading-right` | 오른쪽 아이콘 너비와 간격으로 계산한 앞 아이콘 위치 |
 
 위 설정의 정본은 `patterns/foundation.css`입니다. 생성 후 `extract-all.mjs --sync --only=Q-Atelier,Q-Works,Q-Forge`로 배포합니다.
 `.grid`의 직접 자식이 `.qd-field` 또는 `.qd-kpi`이면 공통 배치가 자동 적용됩니다.
@@ -204,6 +207,8 @@ TOUCH.comfortable = 48
 정본 선택 부품의 기본값은 `--qd-space-24`입니다. 넓은 화면 안의 좁은 입력 칸에서도 짧은 선택지가 한 글자씩 갈라지지 않게 합니다.
 
 카드와 입력의 너비는 부모 안에 들어가고 높이는 내용에 맞춰 늘어납니다. 긴 식별자는 필요한 지점에서 줄바꿈합니다.
+첨부파일 표시는 사람이 읽을 수 있는 파일 이름을 사용하며, `.qd-file-name`으로 긴 이름도 부모 안에서 줄바꿈합니다.
+모바일 상단 아이콘은 `--qd-control-height`와 중앙 간격을 합산해 배치합니다. 화면 분기별 고정 오프셋으로 서로 겹치게 만들지 않습니다.
 팝업과 서랍은 현재 화면의 너비·높이 안에 제한하고, 긴 본문은 내부에서 스크롤합니다.
 팝업 중앙 정렬은 열림 애니메이션의 변형과 분리해 애니메이션 도중에도 화면 밖으로 밀리지 않게 합니다.
 
