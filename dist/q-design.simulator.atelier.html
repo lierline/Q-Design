@@ -1285,6 +1285,7 @@ html :is(input, textarea):is(:autofill, :-webkit-autofill):disabled {
 
 :root {
   --qd-grid-min-width: 180px;
+  --qd-editable-table-min-width: 40rem;
   --qd-header-action-inset: var(--qd-space-3);
   --qd-header-action-gap: var(--qd-space-2);
   --qd-header-action-leading-right: calc(var(--qd-header-action-inset) + var(--qd-control-height) + var(--qd-header-action-gap));
@@ -1741,6 +1742,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     flex-wrap: wrap;
   }
   html :is(.qd-table-scroll, .qa-scroll-table) { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  html .qd-table--editable { min-inline-size: var(--qd-editable-table-min-width); }
   :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
 }
 

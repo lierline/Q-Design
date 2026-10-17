@@ -198,6 +198,7 @@ TOUCH.comfortable = 48
 | `--qd-header-action-inset` | 모바일 상단 아이콘의 오른쪽 여백 |
 | `--qd-header-action-gap` | 모바일 상단 아이콘 사이 간격 |
 | `--qd-header-action-leading-right` | 오른쪽 아이콘 너비와 간격으로 계산한 앞 아이콘 위치 |
+| `--qd-editable-table-min-width` | 입력값을 읽을 수 있게 유지하는 편집용 표의 최소 너비 |
 
 위 설정의 정본은 `patterns/foundation.css`입니다. 생성 후 `extract-all.mjs --sync --only=Q-Atelier,Q-Works,Q-Forge`로 배포합니다.
 `.grid`의 직접 자식이 `.qd-field` 또는 `.qd-kpi`이면 공통 배치가 자동 적용됩니다.
@@ -214,6 +215,8 @@ TOUCH.comfortable = 48
 
 달력·숫자판의 의미 있는 열 수, 도면·SVG의 좌표, 인쇄 문서의 종이 치수는 유지합니다.
 표는 열을 무조건 압축하지 않고 표 영역 안에서 가로 스크롤합니다.
+항목명·측정값 등을 직접 입력하는 표에는 `.qd-table--editable`과 `.qd-table-scroll` 감싸개를 함께 사용합니다.
+모바일에서 입력 칸을 아이콘 수준으로 축소하지 않습니다. 스크롤 감싸개에는 영역 이름과 키보드 초점을 제공합니다.
 이 예외를 일반 화면의 고정 너비 카드에 사용하지 않습니다.
 
 검증: `build-component-workbench.mjs` 후 `verify-responsive.mjs`를 실행합니다.

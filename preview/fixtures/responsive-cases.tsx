@@ -14,6 +14,7 @@ export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceG
     <section data-testid="responsive-stats">{stats()}</section>
     <section data-testid="responsive-long" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.card(<p>{'LONG_DOCUMENT_IDENTIFIER_'.repeat(12)}</p>)}{a.button('아주 긴 이름의 문서 검토 내용을 확인하고 저장합니다')}</section>
     <section data-testid="responsive-table" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.table()}</section>
+    <section data-testid="responsive-editable-table" style={{width:'min(100%, 260px)',marginBlock:24}}><div className="qd-table-scroll"><table className="qd-table qd-table--editable"><thead><tr><th>항목</th><th>기준</th><th>측정값</th><th>판정</th></tr></thead><tbody><tr>{['제조사 또는 공급자','규격 또는 모델명','표시 또는 식별 상태','판정 대기'].map((label,i)=><td key={label}>{a.input({...control('editable-'+i),value:label})}</td>)}</tr></tbody></table></div></section>
     <section data-testid="responsive-textarea">{a.field('responsive-note','검토 의견',a.textarea(control('responsive-note')))}</section>
     <section data-testid="responsive-select" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.field('responsive-select','검토 상태',a.select({...control('responsive-select'),value:'review'}))}</section>
     <section data-testid="responsive-tabs" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.tabs()}</section>
