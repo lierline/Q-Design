@@ -1,8 +1,9 @@
 import React, {useState, type ReactNode} from 'react';
 import type {ComparisonAdapters} from './comparison-matrix';
-type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode};
-export default function ResponsiveCases({adapters:a, grid, stats}:Props){
+type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode; drawer?: (open:boolean,close:()=>void,child:ReactNode,side:'right'|'bottom')=>ReactNode};
+export default function ResponsiveCases({adapters:a, grid, stats, drawer}:Props){
   const [value,setValue]=useState('검토 문서'),[open,setOpen]=useState(false);
+  const [drawerSide,setDrawerSide]=useState<'right'|'bottom'|null>(null);
   const control=(id:string)=>({id,value,onChange:(event:any)=>setValue(event.target.value)});
   const fields=(id:string)=>['문서 이름','검토 부서','검토 상태','담당자'].map((label,i)=><React.Fragment key={label}>{a.field(id+i,label,a.input(control(id+i)))}</React.Fragment>);
   return <div data-testid="responsive-cases">
@@ -21,6 +22,8 @@ export default function ResponsiveCases({adapters:a, grid, stats}:Props){
     <section data-testid="responsive-skeleton" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.skeleton()}</section>
     <section data-testid="responsive-progress" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.progress()}</section>
     <span data-testid="responsive-open">{a.button('반응형 대화상자 열기',{onClick:()=>setOpen(true)})}</span>
+    {drawer && <div>{(['right','bottom'] as const).map(side=><span key={side} data-testid={'responsive-drawer-'+side}>{a.button(side==='right'?'측면 패널 열기':'하단 패널 열기',{onClick:()=>setDrawerSide(side)})}</span>)}</div>}
     {a.dialog(open,()=>setOpen(false),<div data-testid="responsive-dialog-body">{Array.from({length:20},(_,i)=><p key={i}>좁고 낮은 화면에서도 검토 내용을 읽고 하단 동작을 사용할 수 있어야 합니다.</p>)}</div>)}
+    {drawer && drawer(drawerSide!==null,()=>setDrawerSide(null),<div>{Array.from({length:20},(_,i)=><p key={i}>패널 안의 긴 검토 내용도 화면 안에서 읽을 수 있어야 합니다.</p>)}</div>,drawerSide??'right')}
   </div>;
 }

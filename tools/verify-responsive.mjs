@@ -12,7 +12,7 @@ let browser;
 try{
   await new Promise((resolve,reject)=>{server.stdout.on('data',()=>resolve());server.once('error',reject);server.once('exit',code=>reject(Error('Workbench server exited: '+code)));});
   browser=await chromium.launch(browserLaunchOptions());
-  const results=[];
+  const results=[];let drawerChecks=0;
   for(const product of ['atelier','maison','carnet'])for(const theme of ['light','dark']){
     const page=await browser.newPage();
     const errors=[];page.on('pageerror',error=>errors.push(error.message));
@@ -50,11 +50,22 @@ try{
       assert(bounds.left>=-1&&bounds.right<=width+1&&bounds.top>=-1&&bounds.bottom<=height+1,JSON.stringify({product,theme,width,height,bounds}));
       const close=dialog.getByRole('button',{name:'검토 저장',exact:true});
       await close.scrollIntoViewIfNeeded();await close.click();await dialog.waitFor({state:'hidden'});
+      for(const side of ['right','bottom']){
+        const trigger=page.getByTestId('responsive-drawer-'+side);
+        if(await trigger.count()===0)continue;
+        await trigger.getByRole('button').click();
+        const panel=page.getByRole('dialog');await panel.waitFor();
+        await panel.evaluate(async el=>{await Promise.all(el.getAnimations().map(animation=>animation.finished.catch(()=>{})));});
+        const box=await panel.boundingBox();
+        assert(box&&box.x>=-1&&box.y>=-1&&box.x+box.width<=width+1&&box.y+box.height<=height+1,JSON.stringify({product,theme,width,height,side,box}));
+        const dismiss=panel.getByRole('button',{name:'패널 닫기',exact:true});
+        await dismiss.scrollIntoViewIfNeeded();await dismiss.click();await panel.waitFor({state:'hidden'});drawerChecks++;
+      }
       results.push({product,theme,width,height,...measured,dialog:bounds});
       if(theme==='dark'&&width===375)await page.screenshot({path:`${out}/${product}-phone.png`,fullPage:true});
     }
     await page.close();
   }
   fs.writeFileSync(out+'/results.json',JSON.stringify({cases:results.length,passed:results.length,results},null,2)+'\n');
-  console.log(JSON.stringify({cases:results.length,passed:results.length,products:3,themes:2,centralMutationVerified:true,output:out}));
+  console.log(JSON.stringify({cases:results.length,passed:results.length,drawerChecks,products:3,themes:2,centralMutationVerified:true,output:out}));
 }finally{if(browser)await browser.close();server.kill();}

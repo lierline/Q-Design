@@ -41,6 +41,8 @@ import { WelcomeFlow } from '@/components/WelcomeFlow';
 import { resolveGsRole } from '@/lib/onboarding/getting-started';
 import { InstallAppPrompt } from '@/components/InstallAppPrompt';
 import { VaultProvider } from '@/lib/vault/vault-context';
+import { MenuAccessProvider } from '@/lib/nav/menu-access';
+import type { SidebarMenuId } from '@/lib/permissions/types';
 import { BreakpointsFirstGuess } from '@/lib/hooks/useBreakpoints';
 import { T } from '@/lib/design/tokens';
 import { isOrgOwner } from '@/lib/rules/who';
@@ -222,6 +224,17 @@ export default async function AppLayout({
   const sidebarGroups =
     !isExpert && !isMedqraftAdmin ? composeSidebarGroups(userRoles, gatedMenus) : null;
 
+  // 화면 안의 «다른 메뉴로 가는 연결»(용어집의 앱에서 보는 곳 등)이 읽는 값. 사이드바가 보여 주는 것과 같아야 한다:
+  // gatedMenus 에 소유자 갈래로 켜지는 셋(변경평가 · 적합성 점검 · 감사 로그)을 더한다.
+  const visibleMenus: SidebarMenuId[] = Array.from(
+    new Set<SidebarMenuId>([
+      ...gatedMenus,
+      ...(canSeeAssessments ? (['assessments'] as const) : []),
+      ...(canSeeCompliance ? (['compliance'] as const) : []),
+      ...(canSeeAudit ? (['audit'] as const) : []),
+    ]),
+  );
+
   // Counts: external expert assignments + 내부 RA/QA/RD/Exec 큐 + 메시지 미읽음
   const [{ count: pendingCount }, { count: unreadMessages }] =
     await Promise.all([
@@ -272,6 +285,7 @@ export default async function AppLayout({
       initialVaultEnabled={vaultEnabled}
       initialKeyVersion={vaultKeyVersion}
     >
+    <MenuAccessProvider menus={visibleMenus}>
     {/* 폰 앱이면 폭 판정의 첫 값을 폰으로(구독 칩 · 알림 종 · 머리띠가 서버 그림부터 폰 모양 · lib/hooks/useBreakpoints) */}
     <BreakpointsFirstGuess phone={phoneApp}>
     <div
@@ -469,6 +483,7 @@ export default async function AppLayout({
       <InstallAppPrompt />
     </div>
     </BreakpointsFirstGuess>
+    </MenuAccessProvider>
     </VaultProvider>
   );
 }

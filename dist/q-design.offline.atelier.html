@@ -843,7 +843,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   html .grid:is(:has(> .qd-field), :has(> .qd-kpi))[class*="grid-cols-6"] { --qd-grid-columns: 6; }
   /* A spanning field is a full row at every width, never an implicit column. */
   html .grid:has(> .qd-field) > [class*="col-span-"] { grid-column: 1 / -1; }
-  :where(.qd-responsive-grid, .qd-intrinsic-grid, .grid:has(> .qd-field)) > *,
+  :where(.qd-responsive-grid, .qd-intrinsic-grid, .grid:has(> .qd-field), .grid:has(> .qd-kpi)) > *,
   :where(.qd-field, [data-shell], .qd-card, .qd-panel, .qd-dialog-body, .qd-drawer-body) {
     min-inline-size: 0;
     overflow-wrap: anywhere;
@@ -854,7 +854,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     min-inline-size: 0;
     max-inline-size: 100%;
   }
-  html :is(.qd-btn, .qd-choice, .qd-filter-submit, .qd-filter-clear) {
+  html :is(.qd-btn, .qd-text-action, .qd-choice, .qd-filter-submit, .qd-filter-clear) {
     max-inline-size: 100%;
     white-space: normal;
     overflow-wrap: anywhere;

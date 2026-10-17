@@ -1,2 +1,2 @@
 // Generated from the standalone offline HTML. Import from the service worker.
-self.QD_OFFLINE_CACHE = 'q-offline-afc5be2ad3d3c14e';
+self.QD_OFFLINE_CACHE = 'q-offline-b8fc3dd4b185918f';
