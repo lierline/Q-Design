@@ -27,7 +27,7 @@ vi.mock('@/lib/design/q-design-runtime', async importOriginal => {
     QDRuntime: {
       ...original.QDRuntime,
       switch: { ...original.QDRuntime.switch, md: { w: 64, h: 32, knob: 24 }, inset: 4 },
-      grid: { minColumn: 300, foldMinColumn: 200, roundingAllowance: 2 },
+      grid: { roundingAllowance: 2 },
       ribbon: { durationSeconds: 2.25 },
       grain: { tint: 0.63 },
       alpha: { ...original.QDRuntime.alpha, tint0_1: 0.27 },
