@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
-import { choiceGridClass } from "@/lib/ui/choice-grid";
+import { choiceColumns, choiceGridClass } from "@/lib/ui/choice-grid";
+import { responsiveColumns } from "@/lib/design/q-design-responsive";
 import { CHOICE_ON } from "@/lib/ui/choice";
 
 function responsiveChoiceGrid(
@@ -22,6 +23,26 @@ function responsiveChoiceGrid(
   if (!responsive.some((token) => /^sm:grid-cols-/.test(token)))
     responsive.unshift("sm:" + base);
   return [...mobile, ...responsive].join(" ");
+}
+
+function intrinsicChoiceStyle(
+  cols: string | undefined,
+  labels: readonly string[],
+) {
+  const counts = [
+    ...(cols ?? "").matchAll(/(?:^|\s|:)grid-cols-(\d+)(?=\s|$)/g),
+  ].map((match) => Number(match[1]));
+  // Preserve explicitly authored non-numeric track recipes.
+  if (cols && counts.length === 0) return undefined;
+  const maximum = counts.length ? Math.max(...counts) : choiceColumns(labels);
+  return {
+    minWidth: 0,
+    gridTemplateColumns: responsiveColumns(
+      maximum,
+      "var(--qd-choice-min-width, var(--qd-space-24))",
+      "var(--qd-space-2)",
+    ),
+  };
 }
 
 /**
@@ -69,7 +90,14 @@ export function ChoiceBoxes({
     options.map((o) => o.label),
   );
   return (
-    <div role="radiogroup" className={cn("grid gap-2", grid)}>
+    <div
+      role="radiogroup"
+      className={cn("qd-intrinsic-grid grid gap-2", grid)}
+      style={intrinsicChoiceStyle(
+        cols,
+        options.map((o) => o.label),
+      )}
+    >
       {options.map((o) => (
         <label
           key={o.code}
@@ -137,10 +165,11 @@ export function ChoiceGrid({
     <div
       role="group"
       className={cn(
-        "grid gap-2",
+        "qd-intrinsic-grid grid gap-2",
         responsiveChoiceGrid(cols, labels),
         className,
       )}
+      style={intrinsicChoiceStyle(cols, labels)}
     >
       {children}
     </div>

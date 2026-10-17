@@ -1,7 +1,7 @@
 import React, {useState, type ReactNode} from 'react';
 import type {ComparisonAdapters} from './comparison-matrix';
-type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode; drawer?: (open:boolean,close:()=>void,child:ReactNode,side:'right'|'bottom')=>ReactNode};
-export default function ResponsiveCases({adapters:a, grid, stats, drawer}:Props){
+type Props = {adapters: ComparisonAdapters; grid: (children: ReactNode) => ReactNode; stats: () => ReactNode; choiceGroup?:()=>ReactNode; drawer?: (open:boolean,close:()=>void,child:ReactNode,side:'right'|'bottom')=>ReactNode};
+export default function ResponsiveCases({adapters:a, grid, stats, drawer,choiceGroup}:Props){
   const [value,setValue]=useState('검토 문서'),[open,setOpen]=useState(false);
   const [drawerSide,setDrawerSide]=useState<'right'|'bottom'|null>(null);
   const control=(id:string)=>({id,value,onChange:(event:any)=>setValue(event.target.value)});
@@ -18,6 +18,7 @@ export default function ResponsiveCases({adapters:a, grid, stats, drawer}:Props)
     <section data-testid="responsive-select" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.field('responsive-select','검토 상태',a.select({...control('responsive-select'),value:'review'}))}</section>
     <section data-testid="responsive-tabs" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.tabs()}</section>
     <section data-testid="responsive-choice" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.choice(false)}{a.choice(true)}</section>
+    <section data-testid="responsive-choice-group" style={{width:'min(100%, 333px)',marginBlock:24}}>{choiceGroup?choiceGroup():a.choice(false)}</section>
     <section data-testid="responsive-empty" style={{width:'min(100%, 260px)',marginBlock:24}}>{a.empty(false)}</section>
     <section data-testid="responsive-skeleton" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.skeleton()}</section>
     <section data-testid="responsive-progress" style={{width:'min(100%, 120px)',marginBlock:24}}>{a.progress()}</section>

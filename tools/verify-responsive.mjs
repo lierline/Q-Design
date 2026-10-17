@@ -24,7 +24,7 @@ try{
       assert.deepEqual(errors,[],product+' fixture errors');
       const measured=await page.evaluate(()=>{
         const sizes={};
-        for(const name of ['wide','narrow','tiny','stats','long','table','textarea','select','tabs','choice','empty','skeleton','progress']){
+        for(const name of ['wide','narrow','tiny','stats','long','table','textarea','select','tabs','choice','choice-group','empty','skeleton','progress']){
           const el=document.querySelector(`[data-testid="responsive-${name}"]`);
           sizes[name]={client:el.clientWidth,scroll:el.scrollWidth};
         }
@@ -38,11 +38,23 @@ try{
       }
       assert(measured.pageOverflow<=1,JSON.stringify({product,theme,width,measured}));
       for(const [name,size]of Object.entries(measured.sizes))assert(size.scroll<=size.client+1,JSON.stringify({product,theme,width,name,size}));
+      if(product==='maison'){
+        const labels=await page.getByTestId('responsive-choice-group').locator('label > span').evaluateAll(elements=>elements.map(el=>{const range=document.createRange();range.selectNodeContents(el);return{text:el.textContent,lines:new Set([...range.getClientRects()].map(rect=>rect.top.toFixed(1))).size};}));
+        assert.equal(labels.length,5,'Real five-option choice group must render');
+        for(const label of labels)assert.equal(label.lines,1,'Short choice must stay on one line: '+JSON.stringify(label));
+        const choiceColumns=await page.getByTestId('responsive-choice-group').getByRole('radiogroup').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
+        assert.equal(choiceColumns,width===320?2:3,'Choice columns must follow the 333px parent, not the viewport');
+      }
       if(width===1440){
         assert.equal(measured.columns.trim().split(/\s+/).length,4,product+' wide layout must retain four columns');
         await page.addStyleTag({content:':root{--qd-grid-min-width:500px !important}'});
         const columns=await page.evaluate(()=>getComputedStyle(document.querySelector('[data-testid="responsive-wide"] > div')).gridTemplateColumns.trim().split(/\s+/).length);
         assert.equal(columns,2,product+' central minimum must reach existing grids');
+        if(product==='maison'){
+          await page.addStyleTag({content:':root{--qd-choice-min-width:200px !important}'});
+          const count=await page.getByTestId('responsive-choice-group').getByRole('radiogroup').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
+          assert.equal(count,1,'Central choice minimum must reach real choice groups');
+        }
       }
       await page.getByTestId('responsive-open').getByRole('button').click();
       const dialog=page.getByRole('dialog');await dialog.waitFor();
