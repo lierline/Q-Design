@@ -11,6 +11,8 @@
  * 베끼면 모양을 한 번 고칠 때 스무 곳을 따라다녀야 한다.
  */
 
+import type { CSSProperties } from "react";
+
 /** 글줄 자리 (제목·설명처럼 배경 위에 뜨는 것) */
 const line = "qd-skeleton";
 /** 덩어리 자리 (표의 줄·카드처럼 테두리가 있는 것) */
@@ -137,7 +139,10 @@ export function CardGridSkeleton({
   head = true,
 }: CardGridProps) {
   const grid = (
-    <section className={`grid qd-responsive-grid gap-4 ${CARD_COLUMNS[columns]}`} style={{ '--qd-grid-columns': columns } as import('react').CSSProperties}>
+    <section
+      className={`qd-responsive-grid grid gap-4 ${CARD_COLUMNS[columns]}`}
+      style={{ "--qd-grid-columns": columns } as CSSProperties}
+    >
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className={`${CARD_HEIGHT[height]} qd-skeleton border`} />
       ))}
@@ -268,7 +273,14 @@ export function BoardSkeleton({ cards = 3 }: BoardProps) {
   return (
     <div role="status" aria-label="불러오는 중" className="flex flex-col gap-5">
       <SkeletonHead />
-      <section className="grid qd-responsive-grid gap-4 md:grid-cols-2 xl:grid-cols-4" style={{ '--qd-grid-columns': BOARD_COLUMNS } as import('react').CSSProperties}>
+      <section
+        className="qd-responsive-grid grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+        style={
+          {
+            "--qd-grid-columns": BOARD_COLUMNS,
+          } as CSSProperties
+        }
+      >
         {Array.from({ length: BOARD_COLUMNS }).map((_, col) => (
           <div key={col} className="space-y-2">
             <div className={`h-5 w-24 ${line}`} />

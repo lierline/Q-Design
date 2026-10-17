@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Grid } from './components';
 import { BP } from './q-design-runtime';
+import { responsiveColumns } from './q-design-responsive';
 
 // =============================================================================
 // Grid 배선 잠금: 클래스 룰이 인라인을 이깁니다 (2026-09-03 · M-06)
@@ -44,7 +45,7 @@ describe('Grid: 룰이 인라인을 이깁니다', () => {
     );
     const css = styleTag(html);
     expect(css).toContain(`@media (min-width:${BP.lg}px)`);
-    expect(css).toContain('repeat(4, minmax(0, 1fr))');
+    expect(css).toContain(responsiveColumns(4));
     // 태블릿(≥768) 2열 룰도 함께 나갑니다(cols≥3).
     expect(css).toContain(`@media (min-width:${BP.md}px)`);
     const style = gridDivStyle(html);
@@ -55,16 +56,16 @@ describe('Grid: 룰이 인라인을 이깁니다', () => {
   it('기본 템플릿 룰이 룰 맨 앞에 있어 뒤의 breakpoint 룰이 덮어씁니다', () => {
     const html = renderToStaticMarkup(<Grid cols={3}>x</Grid>);
     const css = styleTag(html);
-    expect(css).toMatch(
-      /^\.qa-grid-[^{]+\{grid-template-columns:repeat\(auto-fit, minmax\(240px, 1fr\)\)\}@media \(min-width:768px\)/,
-    );
+    const baseEnd = css.indexOf('}@media (min-width:768px)');
+    expect(baseEnd).toBeGreaterThan(0);
+    expect(css.slice(0, baseEnd)).toContain(responsiveColumns());
   });
 
   it('cols={1} 도 데스크톱 1열 룰을 냅니다(auto-fit 여러 열이 아닙니다)', () => {
     const html = renderToStaticMarkup(<Grid cols={1}>x</Grid>);
     const css = styleTag(html);
     expect(css).toContain(`@media (min-width:${BP.lg}px)`);
-    expect(css).toContain('repeat(1, minmax(0, 1fr))');
+    expect(css).toContain(responsiveColumns(1));
     expect(css).not.toContain(`@media (min-width:${BP.md}px)`);
     expect(gridDivStyle(html)).not.toContain('grid-template-columns');
   });
@@ -72,8 +73,8 @@ describe('Grid: 룰이 인라인을 이깁니다', () => {
   it('responsive: base 룰이 기본 템플릿 룰 «뒤» 에 와서 이깁니다', () => {
     const html = renderToStaticMarkup(<Grid responsive={{ base: 2, lg: 4 }}>x</Grid>);
     const css = styleTag(html);
-    const base = css.indexOf('repeat(auto-fit, minmax(240px, 1fr))');
-    const two = css.indexOf('repeat(2, minmax(0, 1fr))');
+    const base = css.indexOf(responsiveColumns());
+    const two = css.indexOf(responsiveColumns(2));
     expect(base).toBeGreaterThanOrEqual(0);
     expect(two).toBeGreaterThan(base);
     expect(gridDivStyle(html)).not.toContain('grid-template-columns');
@@ -82,7 +83,7 @@ describe('Grid: 룰이 인라인을 이깁니다', () => {
   it('룰이 없으면(cols·responsive 없음) 종전대로 인라인입니다', () => {
     const html = renderToStaticMarkup(<Grid>x</Grid>);
     expect(html).not.toContain('<style');
-    expect(gridDivStyle(html)).toContain('grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))');
+    expect(gridDivStyle(html)).toContain('grid-template-columns:' + responsiveColumns());
   });
 
   it('호출부 style 의 gridTemplateColumns 는 그대로 존중합니다(명시적 의도)', () => {

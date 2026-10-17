@@ -354,8 +354,7 @@ export function Btn({
   //     content-box 일 때 outline 이 2px 더 큼. border-box 로 묶고, primary
   //     에도 1px 투명 border 를 둬 padding box 가 항상 동일.
   //   - inline-flex + alignItems: center: 여러 줄/아이콘 children 도 정확히 정렬.
-  //   - whiteSpace: nowrap: 줄바꿈으로 높이 변동 차단.
-  //   - lineHeight: 1: 폰트 line-height 로 인한 미세한 상하 padding 차이 제거.
+  //   - 긴 문구의 줄바꿈과 줄 높이는 공통 qd-btn 규칙을 따른다.
   return (
     <button
       type={type}
@@ -382,11 +381,9 @@ export function Btn({
         // 주변 텍스트는 FS 정수 토큰을 쓰니 버튼만 0.5 어긋난 크기로 떠 있었다.
         // 「글씨 크기가 들쑥날쑥」의 큰 몫이 여기였다. raw 라서 토큰 치환도 닿지 않았다.
         fontSize: QD.controlSize,
-        lineHeight: QDScale.leading.none,
         // 2026-09-03 M-02: 한글 버튼 문구는 자간 0 · uppercase 해제. minWidth 는 호출부 불변.
         letterSpacing: labelTracking(children, QDText.tracking.v77ac319bfe),
         textTransform: labelCase(children),
-        whiteSpace: 'nowrap',
         cursor: pending ? 'progress' : disabled ? 'not-allowed' : 'pointer',
         // border 는 항상 1px: primary 는 transparent (시각 효과 없음, 사이즈만 통일)
         // danger=빨강 톤(채움/외곽선), 그 외 기본(cream 채움/중립 외곽선)
@@ -2225,7 +2222,7 @@ interface GridProps {
 
 export function Grid({
   cols,
-  minCol = QDRuntime.grid.minColumn,
+  minCol,
   responsive,
   children,
   style,
@@ -2237,10 +2234,11 @@ export function Grid({
   const className = `qa-grid-${id}`;
 
   // SSR 안전한 default: auto-fit 으로 시작 → media query 로 cols 강제.
-  const baseTemplate = gridTemplateFor(undefined, minCol);
+  const minimum = minCol ?? 'var(--qd-grid-min-width)';
+  const baseTemplate = gridTemplateFor(undefined, minimum);
 
   // breakpoint 별 룰 합성.
-  const rules = gridRulesFor(className, cols, minCol, responsive);
+  const rules = gridRulesFor(className, cols, minimum, responsive);
   const hasRules = rules.length > 0;
   if (hasRules) rules.unshift(`.${className}{grid-template-columns:${baseTemplate}}`);
 
@@ -2250,10 +2248,12 @@ export function Grid({
         <style dangerouslySetInnerHTML={{ __html: rules.join('') }} />
       )}
       <div
-        className={className}
+        className={`${className} qd-intrinsic-grid`}
         style={{
           display: 'grid',
           ...(hasRules ? {} : { gridTemplateColumns: baseTemplate }),
+          ...({ '--qd-grid-gap': typeof gap === 'number' ? `${gap}px` : gap } as CSSProperties),
+          minWidth: 0,
           gap,
           ...style,
         }}
@@ -2281,14 +2281,15 @@ export function foldGrid(
   gap: number | string,
   opts: { min?: number; rowGap?: number | string } = {},
 ): CSSProperties {
-  const min = opts.min ?? QDRuntime.grid.foldMinColumn;
+  const min = opts.min === undefined ? 'var(--qd-grid-min-width)' : `${opts.min}px`;
   // 1px 는 소수점 반올림으로 n 열이 «한 칸 모자라게» 접히는 것을 막는 여유
   const length = (value: number | string) => typeof value === 'number' ? `${value}px` : value;
   const totalGap = typeof gap === 'number' ? `${(n - 1) * gap}px` : `(${n - 1} * ${gap})`;
-  const track = `max(${min}px, calc((100% - ${totalGap}) / ${n} - ${QDRuntime.grid.roundingAllowance}px))`;
+  const track = `max(${min}, calc((100% - ${totalGap}) / ${n} - ${QDRuntime.grid.roundingAllowance}px))`;
   return {
     display: 'grid',
-    gridTemplateColumns: `repeat(auto-fit, minmax(${track}, 1fr))`,
+    gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${track}), 1fr))`,
+    minWidth: 0,
     gap: opts.rowGap === undefined ? gap : `${length(opts.rowGap)} ${length(gap)}`,
   };
 }
@@ -4344,12 +4345,13 @@ export function Stat({
 }
 
 /** Stat 을 담는 반응형 그리드: 좁아지면 자동 줄바꿈. */
-export function StatGrid({ children, minCol = QDPresentation.commonDefaults.statGridMinColumn }: { children: ReactNode; minCol?: number }) {
+export function StatGrid({ children, minCol }: { children: ReactNode; minCol?: number }) {
   return (
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(auto-fit, minmax(${minCol}px, 1fr))`,
+        gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${minCol === undefined ? 'var(--qd-kpi-min-width)' : `${minCol}px`}), 1fr))`,
+        minWidth: 0,
         gap: QDScale.space[3],
       }}
     >

@@ -150,6 +150,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
       .replace('var(--qd-status) 45%', 'var(--qd-status) 60%');
     writeFileSync(join(fixture, 'patterns/components.css'), changed);
     writeFileSync(join(fixture, 'patterns/foundation.css'), foundationCss
+      .replace('--qd-kpi-min-width: 160px;', '--qd-kpi-min-width: 170px;')
       .replace('--qd-font-size-14: 14px;', '--qd-font-size-14: 17px;')
       .replace('--qd-space-unit: 4px;', '--qd-space-unit: 5px;')
       .replace('--qd-leading-loose: 1.7;', '--qd-leading-loose: 1.9;'));
@@ -229,6 +230,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     assert.equal(screen.btn.radius, 14);
     assert.equal(screen.input.radius, 14);
     assert.equal(screen.kpi.gridMinCol, 190);
+    assert.equal(screen.stat.gridMinCol, 170);
     assert.equal(screen.kpi.gridGap, 17.5);
     assert.equal(screen.kpi.valueMin, 21);
     assert.equal(screen.kpi.valueFluid, 18);

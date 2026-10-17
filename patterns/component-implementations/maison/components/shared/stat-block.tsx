@@ -226,7 +226,12 @@ export function StatRow({
     <section
       aria-label={label}
       className="qd-grid-kpi qd-responsive-grid"
-      style={{ "--stat-cols": count, "--qd-grid-columns": count } as React.CSSProperties}
+      style={
+        {
+          "--stat-cols": count,
+          "--qd-grid-columns": count,
+        } as React.CSSProperties
+      }
     >
       {children}
     </section>

@@ -71,7 +71,7 @@ export function Field({
   };
 
   return (
-    <div className={['qd-field', className].filter(Boolean).join(' ')}>
+    <div className={["qd-field", className].filter(Boolean).join(" ")}>
       {/*
         칸 이름표는 정본 `.qd-field-label` 이다(원본 Lbl · 모노 10 · subtle). 칸과의 간격
         7 도 정본이 쥔다. 그래서 이름표는 아래 묶음(칸 · 오류 · 도움말)의 `space-y` 밖에

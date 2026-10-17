@@ -55,8 +55,6 @@ export const QDRuntime = {
     "inset": 3
   },
   "grid": {
-    "minColumn": 240,
-    "foldMinColumn": 150,
     "roundingAllowance": 1
   },
   "ribbon": {

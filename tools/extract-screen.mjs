@@ -94,7 +94,7 @@ const spec = probeAll([
   ['stat.labelGapBelow', Z.statLabel, /marginBottom: S\[([\d.]+)\],/, qd.step],
   ['stat.valueSize',  Z.statValue, /fontSize: FS\[(\d+)\],/, qd.font],
   ['stat.valueWeight', Z.statValue, /fontWeight: (\d+),/, Number],
-  ['stat.gridMinCol', Z.statGrid, /minCol = (\d+)/, Number],
+  ['stat.gridMinCol', Z.statGrid, /minCol === undefined \? '(var\(--qd-kpi-min-width\))'/, cssDimension],
   ['stat.gridGap',    Z.statGrid, /gap: S\[([\d.]+)\],/, qd.step],
 ]);
 
@@ -472,7 +472,7 @@ ${bind('light')}
    카드 «안» 에 여럿 늘어놓을 때. 위와 같은 문법이고 크기만 작습니다. */
 .qd-grid-stat {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(${px(spec.stat.gridMinCol)}, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--qd-kpi-min-width)), 1fr));
   gap: ${px(spec.stat.gridGap * 4)};
 }
 .qd-stat-label {

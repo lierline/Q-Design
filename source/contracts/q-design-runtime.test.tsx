@@ -15,7 +15,11 @@ vi.mock('@/lib/design/q-design-runtime', async importOriginal => {
   if (changed === source) throw new Error('Canonical breakpoint declarations were not found');
   const compiled = compiler.transpileModule(changed, { compilerOptions: { module: compiler.ModuleKind.CommonJS } }).outputText;
   const runtimeExports: Record<string, unknown> = {};
-  runInNewContext(compiled, { exports: runtimeExports });
+  const responsive = await import('@/lib/design/q-design-responsive');
+  runInNewContext(compiled, { exports: runtimeExports, require: (id: string) => {
+    if (id === '@/lib/design/q-design-responsive') return responsive;
+    throw new Error('Unexpected runtime dependency: ' + id);
+  } });
   return {
     ...original,
     gridRulesFor: runtimeExports.gridRulesFor as typeof original.gridRulesFor,
@@ -67,11 +71,11 @@ describe('central numeric presentation settings reach real renderers', () => {
 
   it('changes grid media queries and defaults without changing explicit caller geometry', () => {
     const html = renderToStaticMarkup(<Grid cols={4}><span>item</span></Grid>);
-    expect(html).toContain('minmax(300px, 1fr)');
+    expect(html).toContain('minmax(min(100%, var(--qd-grid-min-width)), 1fr)');
     expect(html).toContain('@media (min-width:800px)');
     expect(html).toContain('@media (min-width:1100px)');
-    expect(renderToStaticMarkup(<Grid minCol={172}><span>item</span></Grid>)).toContain('minmax(172px, 1fr)');
-    expect(foldGrid(3, 12).gridTemplateColumns).toContain('max(200px, calc((100% - 24px) / 3 - 2px))');
+    expect(renderToStaticMarkup(<Grid minCol={172}><span>item</span></Grid>)).toContain('minmax(min(100%, 172px), 1fr)');
+    expect(foldGrid(3, 12).gridTemplateColumns).toContain('min(100%, max(var(--qd-grid-min-width), calc((100% - 24px) / 3 - 2px)))');
     expect(foldGrid(3, 12, { min: 175 }).gridTemplateColumns).toContain('max(175px,');
   });
 

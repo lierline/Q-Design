@@ -20,7 +20,7 @@ describe('foldGrid: 최대 n 열 · 칸이 좁으면 줄어드는 격자 style',
     const s = foldGrid(2, 12);
     expect(s.display).toBe('grid');
     expect(s.gap).toBe(12);
-    expect(s.gridTemplateColumns).toBe('repeat(auto-fit, minmax(max(150px, calc((100% - 12px) / 2 - 1px)), 1fr))');
+    expect(s.gridTemplateColumns).toBe('repeat(auto-fit, minmax(min(100%, max(var(--qd-grid-min-width), calc((100% - 12px) / 2 - 1px))), 1fr))');
   });
 
   it('n 열이면 열 사이 간격 (n-1)개를 뺀다', () => {
@@ -41,7 +41,7 @@ describe('foldGrid: 최대 n 열 · 칸이 좁으면 줄어드는 격자 style',
     const gap = 'var(--qd-space-3, 12px)';
     const s = foldGrid(3, gap);
     expect(s.gap).toBe(gap);
-    expect(s.gridTemplateColumns).toBe('repeat(auto-fit, minmax(max(150px, calc((100% - (2 * var(--qd-space-3, 12px))) / 3 - 1px)), 1fr))');
+    expect(s.gridTemplateColumns).toBe('repeat(auto-fit, minmax(min(100%, max(var(--qd-grid-min-width), calc((100% - (2 * var(--qd-space-3, 12px))) / 3 - 1px))), 1fr))');
     expect(foldGrid(1, gap).gridTemplateColumns).toContain('(0 * var(--qd-space-3, 12px))');
   });
 
