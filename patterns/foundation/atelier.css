@@ -1503,9 +1503,12 @@ textarea {
   to   { opacity: 1; transform: translateY(0); }
 }
 /* 순차 reveal: 작고 빠르게(6px·360ms, 간격 35ms). 이전 10px·560ms·간격 70ms
-   (최대 600ms 딜레이)는 위젯이 차례로 뜨며 "제각각/떠걱" 으로 느껴졌음(2026-06-06). */
+   (최대 600ms 딜레이)는 위젯이 차례로 뜨며 "제각각/떠걱" 으로 느껴졌음(2026-06-06).
+   🔴 채움은 backwards 다(2026-10-18). both 는 끝난 뒤에도 transform: translateY(0) 을 붙들어 자식마다 쌓임 층을
+   남겼고, 위 자식의 ⓘ 팝업(z-index 가 그 층 안에서만 통함)이 다음 자식 밑으로 깔렸다(심사 준비도 «결정적 결함» ·
+   위젯 판). 끝 모습은 원래 모습(불투명 · 제자리)과 같으므로 backwards 로 충분하다. */
 .qa-stagger > * {
-  animation: qa-stagger-rise 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: qa-stagger-rise 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .qa-stagger > *:nth-child(1) { animation-delay: 0ms; }
 .qa-stagger > *:nth-child(2) { animation-delay: 35ms; }

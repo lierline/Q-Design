@@ -1177,13 +1177,17 @@ export function Field({
 export function FormSection({
   title,
   description,
+  source,
   children,
 }: {
   title: string;
   /** 구역 제목 옆 ⓘ 안에 들어갈 설명 (선택). 화면에는 깔리지 않는다. */
   description?: ReactNode;
+  /** 이 구역 데이터가 어디서 오는가(2026-10-18). ⓘ 안 «데이터 출처» 로 붙는다. null 은 «데이터 없는 구역». */
+  source?: ReactNode;
   children: ReactNode;
 }) {
+  description = withSource(description, source);
   return (
     <section style={{ marginTop: QDScale.space[5] }}>
       <div
@@ -1416,6 +1420,11 @@ interface PageHdProps {
   desc?: ReactNode;
   /** 화면 머리 ⓘ(2026-10-08): desc 줄 끝의 ⓘ 팝업. 설명 문장은 desc 가 아니라 여기로. desc 는 짧은 이름표로 둔다. */
   info?: ReactNode;
+  /**
+   * 이 화면 데이터가 어디서 오는가(2026-10-18). 제목 옆 ⓘ 안 «데이터 출처» 로 붙는다. 화면 머리 안내(PageGuide)가 있는
+   * 화면은 PAGE_GUIDES 의 dataSource 에 적고 여기는 비운다. null 은 «데이터 없는 화면».
+   */
+  source?: ReactNode;
   actions?: ReactNode;
   /** title 위에 1.5px × 32px champagne 가로선 accent. 기본 true. */
   accent?: boolean;
@@ -1426,7 +1435,8 @@ interface PageHdProps {
    */
   display?: boolean;
 }
-export function PageHd({ title, sub, desc, info, actions, accent = true }: PageHdProps) {
+export function PageHd({ title, sub, desc, info, source, actions, accent = true }: PageHdProps) {
+  info = withSource(info, source);
   // 안전망: 이름표가 제목과 같은 글자(공백 무시)면 그리지 않는다(화면 검토 A35 · A66 · 2026-09-27).
   // 🔴 걸러낸 값을 새 이름에 담지 않고 매개변수를 다시 대입한다. Q-Design 추출기
   //    (tools/extract-screen.mjs)가 아래 JSX 의 이름표 조각을 글자 그대로 찾아 값을 뽑는다.
@@ -2305,6 +2315,7 @@ export function KPI({
   sub,
   color,
   tooltip,
+  source,
 }: {
   label: string;
   value: number | string;
@@ -2312,7 +2323,10 @@ export function KPI({
   color?: string;
   /** 호버 (또는 모바일에서 tap) 시 카드 아래에 표시할 풍부한 안내 컨텐츠 */
   tooltip?: ReactNode;
+  /** 이 숫자가 어디서 오는가(2026-10-18). 팝업 안 «데이터 출처» 로 붙는다. */
+  source?: ReactNode;
 }) {
+  tooltip = withSource(tooltip, source);
   const [hover, setHover] = useState(false);
   const [tapOpen, setTapOpen] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
@@ -2869,6 +2883,56 @@ export function LegalNote({ children, style }: { children: ReactNode; style?: CS
   );
 }
 
+// ─── DATA SOURCE: ⓘ 안의 «데이터 출처» 한 칸 ──────────────────────────────────────
+/*
+ * 2026-10-18 오너 결정 «가 안»: 빈 화면을 처음 본 사람은 «이 숫자 · 이 줄은 어디서 왔지?» 를 먼저 묻는다.
+ * 그래서 세 층 ⓘ 안에 «데이터 출처» 자리를 둔다. 설명(info)과 같은 팝업 안, 가는 선 아래에 붙는다.
+ *   · 화면 머리: PAGE_GUIDES 의 dataSource(PageGuide 가 «데이터는 어디서 오나요?» 로 보인다) 또는 PageHd source=.
+ *   · 구역: Section · SectionCard · SectionTitleInfo · SectionTitle · FormSection 의 source=.
+ *   · 지표: KPI source=. 직접 적는 기록부(Register)는 «이 회사가 이 칸에서 직접 적은 줄» 이 기본으로 붙는다.
+ * 🔑 source={null} 은 «데이터를 담지 않는 구역(안내 · 단추 묶음)» 이라는 명시적 선언이다. 아무것도 그리지 않지만
+ *    가드는 «출처를 따져 봤다» 로 센다. 가드: lib/design/data-source-contract.test.ts.
+ * 문장 결은 page-guides 와 같은 합니다체. «이 회사가 어느 화면에서 적은 것인지 · MedQraft 가 기본으로 넣어 둔 것인지 ·
+ * 다른 기록을 세어 계산한 것인지 · 바깥 공개 자료인지 · MedQraft Core 가 분석한 것인지» 를 쉬운 말로 쓴다.
+ */
+export const SOURCE_TITLE = '데이터 출처';
+
+const present = (v: ReactNode) => v !== undefined && v !== null && v !== false && v !== '';
+
+export function SourceNote({ children, divided = false }: { children: ReactNode; divided?: boolean }) {
+  return (
+    <span
+      style={{
+        display: 'block',
+        ...(divided
+          ? {
+              marginTop: QDScale.space[2],
+              paddingTop: QDScale.space[2],
+              borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-95c01bc47f) ${T.border}`,
+            }
+          : {}),
+      }}
+    >
+      <span style={{ display: 'block', color: T.text, fontWeight: "var(--qd-font-weight-semibold)", marginBottom: QDScale.space[0.5] }}>
+        {SOURCE_TITLE}
+      </span>
+      {children}
+    </span>
+  );
+}
+
+/** 설명(info)과 출처(source)를 ⓘ 팝업 한 벌로 합친다. 둘 다 없으면 undefined(ⓘ 를 그리지 않는다). */
+export function withSource(info: ReactNode, source: ReactNode): ReactNode {
+  if (!present(source)) return present(info) ? info : undefined;
+  if (!present(info)) return <SourceNote>{source}</SourceNote>;
+  return (
+    <>
+      {info}
+      <SourceNote divided>{source}</SourceNote>
+    </>
+  );
+}
+
 // ─── SECTION TITLE ───────────────────────────────────────────────────────────
 // 2026-10-10 글자 단계 C안(오너 결정): 구역 제목은 16px 굵게 본문색, 금색은 앞의 모노 번호에만 남긴다.
 //   번호는 CSS 카운터(globals.css .qa-sec-t::before)가 붙인다. 예전 12px 금색 모노 자간 넓힘은 구역이 데이터 줄에 묻혔다.
@@ -2886,6 +2950,7 @@ export function SectionTitle({
   children,
   noMargin,
   as: Comp = 'div',
+  source,
 }: {
   children: ReactNode;
   /** flex 헤더 행(제목+배지)에서 세로 중앙정렬이 깨지지 않도록 하단 마진 제거용. */
@@ -2895,17 +2960,25 @@ export function SectionTitle({
    * 제목 탐색으로 구역을 못 찾았다. 화면의 «큰 구역» 제목에만 쓸 것(중첩은 h3).
    */
   as?: 'div' | 'h2' | 'h3';
+  /** 이 구역 데이터가 어디서 오는가(2026-10-18). 주면 제목 옆 ⓘ 안에 «데이터 출처» 로 보인다. null 은 «데이터 없는 구역». */
+  source?: ReactNode;
 }) {
-  return (
-    <Comp
-      className="qa-sec-t"
-      style={{
-        ...SECTION_TITLE,
-        marginBottom: noMargin ? "var(--qd-atelier-margin-bottom-dba5d0300b)" : "var(--qd-atelier-margin-bottom-f0e60d1fe1)",
-      }}
-    >
+  const hasSource = present(source);
+  const marginBottom = noMargin ? "var(--qd-atelier-margin-bottom-dba5d0300b)" : "var(--qd-atelier-margin-bottom-f0e60d1fe1)";
+  // 제목 태그는 한 벌만 둔다. 출처가 있으면 아래 여백은 ⓘ 와 함께 묶은 줄이 진다(section-title-contract 가 4곳을 센다)
+  const title = (
+    <Comp className="qa-sec-t" style={hasSource ? SECTION_TITLE : { ...SECTION_TITLE, marginBottom }}>
       {children}
     </Comp>
+  );
+  if (!hasSource) return title;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[1.5], marginBottom }}>
+      {title}
+      <InfoDot label={typeof children === 'string' ? `${children}: 데이터 출처 보기` : '구역 데이터 출처 보기'}>
+        <SourceNote>{source}</SourceNote>
+      </InfoDot>
+    </div>
   );
 }
 
@@ -2914,9 +2987,17 @@ export function SectionTitle({
 // (FinalJudgmentPanel·OpinionForm·PageGuide 의 Section 은 고유 UI: 별개 유지.)
 
 /** 라벨형 섹션: mono uppercase 헤더 + 본문(카드 없이 그룹 구분). [id] 폼 표준. */
-export function Section({ title, info, children }: { title: ReactNode; /** 구역 제목 ⓘ(2026-10-08) */ info?: ReactNode; children: ReactNode }) {
+export function Section({ title, info, source, children }: {
+  title: ReactNode;
+  /** 구역 제목 ⓘ(2026-10-08) */
+  info?: ReactNode;
+  /** 이 구역 데이터가 어디서 오는가(2026-10-18). ⓘ 안 «데이터 출처» 로 붙는다. null 은 «데이터 없는 구역». */
+  source?: ReactNode;
+  children: ReactNode;
+}) {
   // qa-section-body: 칸과 칸 사이를 띄운다(globals.css). 화면 검토 A81 · 2026-09-27: 간격이 0 이라
   //   이름표가 위 칸과 아래 칸 사이 가운데 떠서 어느 칸의 이름인지 헷갈렸다(공급자 상세 등 [id] 양식).
+  info = withSource(info, source);
   return (
     <div className="qa-section-body" style={{ marginBottom: QDScale.space[6] }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[1.5], marginBottom: QDScale.space[3] }}>
@@ -2935,14 +3016,18 @@ export function SectionCard({
   title,
   subtitle,
   info,
+  source,
   children,
 }: {
   title: ReactNode;
   subtitle?: ReactNode;
   /** 구역 제목 옆 ⓘ 팝업(2026-10-08 ⓘ 묶음 3): 설명 문장은 본문에 깔지 않고 여기로 */
   info?: ReactNode;
+  /** 이 구역 데이터가 어디서 오는가(2026-10-18). ⓘ 안 «데이터 출처» 로 붙는다. null 은 «데이터 없는 구역». */
+  source?: ReactNode;
   children: ReactNode;
 }) {
+  info = withSource(info, source);
   return (
     <Bx
       style={{
@@ -2976,12 +3061,16 @@ export function SectionCard({
 export function SectionTitleInfo({
   children,
   info,
+  source,
 }: {
   children: ReactNode;
   /** 호버 시 팝업으로 보일 설명. 없으면 일반 SectionTitle 과 동일. */
   info?: ReactNode;
+  /** 이 구역 데이터가 어디서 오는가(2026-10-18). ⓘ 안 «데이터 출처» 로 붙는다. null 은 «데이터 없는 구역». */
+  source?: ReactNode;
 }) {
   // 2026-10-08: ⓘ 는 초보자 모드와 상관없이 늘 보인다(오너 결정). 손잡이 · 팝업은 InfoDot 하나.
+  info = withSource(info, source);
   if (!info) return <SectionTitle>{children}</SectionTitle>;
   return (
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: QDScale.space[1.5], marginBottom: QDScale.space[3.5] }}>

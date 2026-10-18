@@ -280,7 +280,7 @@ put(spec, 'panel.radius', qd.pixels('QD.radius'));
     ['tabs.weightOn',   Q.tab,     /fontWeight: on \? (\d+) : \d+,/, Number],
     ['tabs.weightOff',  Q.tab,     /fontWeight: on \? \d+ : (\d+),/, Number],
     ['section.fontSize', Q.section, /fontSize: (QD\.sectionSize),/, qd.pixels],
-    ['section.gapBelow', Q.section, /marginBottom: noMargin \? 0 : (\d+),/, Number],
+    ['section.gapBelow', Q.section, /marginBottom(?::| =) noMargin \? 0 : (\d+)[,;]/, Number], // 출처 ⓘ 줄과 나눠 쓰려고 상수로 뺐다(2026-10-18)
     ['section.weight',   Q.section, /fontWeight: (\d+),/, Number],
     ['field.fontSize',  Q.field,   /fontSize: (QD\.captionSize),/, qd.pixels],
     ['field.tracking',  Q.field,   /letterSpacing: labelTracking\(children, ([\d.]+)\),/, Number],
