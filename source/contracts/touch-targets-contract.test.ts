@@ -70,7 +70,8 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
 describe('공용 부품이 이름표를 단다', () => {
   it.each([
     // 2026-10-07: 검색 단추는 공용 Btn 이 됐다(이름표는 Btn 이 스스로 단다). 남은 것은 검색 칸 · 정렬 둘
-    ['components/ListToolbar.tsx', /className="qa-touch-44"/g, 2, '검색 칸 · 정렬'],
+    // 2026-10-20: 정렬은 공용 고르기(Sel)가 되어 qa-input 이름표를 든다. qa-input 도 같은 44 규칙(터치 화면 · 640 이하)에 걸린다
+    ['components/ListToolbar.tsx', /className="qa-touch-44"/g, 1, '검색 칸'],
     ['components/ListPager.tsx', /className="qa-touch-44"/g, 2, '이전 · 다음 페이지'],
     ['components/NotificationBell.tsx', /className="qa-touch-44sq"/g, 1, '알림 종'],
     ['components/SubscriptionIndicator.tsx', /className="qa-touch-44"/g, 1, '구독 칩'],

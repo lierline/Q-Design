@@ -19,10 +19,10 @@ import { Z } from '@/lib/design/q-design-runtime';
 import { labelTracking, QDText } from '@/lib/design/q-design-labels';
 import { QDPresentation } from '@/lib/design/q-design-runtime';
 import { QDScale } from '@/lib/design/q-design-scale';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Search } from '@/components/q-design-icons/Search';
 import { ListPager } from '@/components/ListPager';
-import { Btn } from '@/lib/design/components';
+import { Btn, Sel } from '@/lib/design/components';
 import { TOP_BAND_HEIGHT } from '@/components/TopHeaderBand';
 import { PAGE_SIZE, pageWindow, type SortOption } from '@/lib/api/list-page';
 import { useBreakpoints } from '@/lib/hooks/useBreakpoints';
@@ -71,6 +71,8 @@ export function ListToolbar({
   size = PAGE_SIZE,
 }: ListToolbarProps) {
   const ref = useRef<HTMLDivElement>(null);
+  // GET 폼이 sort 를 싣는다. 공용 고르기는 값을 쥐고 있어야 해서 처음 값만 받아 둔다(종전 defaultValue 와 같은 동작)
+  const [정렬, set정렬] = useState(sort?.key ?? sorts?.[0]?.key ?? '');
   const pad = useScrollHostPadding(ref);
   const { isMobile } = useBreakpoints();
 
@@ -170,20 +172,18 @@ export function ListToolbar({
           />
         </span>
 
+        {/* 공용 고르기 작은 판: 찾기 칸 · 검색 단추(sm)와 같은 36, 터치 화면에서는 셋 다 44 */}
         {sorts && sorts.length > 1 && (
-          <select
-            name="sort"
-            defaultValue={sort?.key ?? sorts[0].key}
-            aria-label="정렬"
-            className="qa-touch-44"
-            style={{ ...칸, padding: `0 ${QDScale.space[3]}`, flex: "var(--qd-atelier-flex-8037400c24)" }}
-          >
-            {sorts.map((o) => (
-              <option key={o.key} value={o.key}>
-                {o.label}
-              </option>
-            ))}
-          </select>
+          <span style={{ flex: "var(--qd-atelier-flex-8037400c24)" }}>
+            <Sel
+              sm
+              name="sort"
+              value={정렬}
+              onChange={(e) => set정렬(e.target.value)}
+              ariaLabel="정렬"
+              opts={sorts.map((o) => ({ v: o.key, l: o.label }))}
+            />
+          </span>
         )}
 
         <Btn p={false} sm type="submit" style={{ flex: "var(--qd-atelier-flex-8037400c24)" }}>

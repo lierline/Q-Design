@@ -39,7 +39,9 @@ describe('Q-Design runtime adapter', () => {
     expect(fields).toHaveLength(2);
     for (const field of fields) {
       expect(field).toContain(`font-size:${QD.controlSize}`);
-      expect(field).toContain('class="qa-touch-44"');
+      // 검색 칸은 qa-touch-44, 정렬은 공용 고르기(Sel)라 qa-input 이다(2026-10-20). 두 이름표는 터치 화면 · 640 이하 창에서
+      // 같은 44 규칙에 걸린다(q-design.foundation.css)
+      expect(field).toMatch(/name="sort"/.test(field) ? /class="qa-input qd-input"/ : /class="qa-touch-44"/);
     }
     const pager = renderToStaticMarkup(<ListPager basePath="/documents" page={1} total={250} params={{ q: 'plan' }} />);
     const links = pager.match(/<a\b[^>]*>/g) ?? [];

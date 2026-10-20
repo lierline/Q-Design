@@ -13,6 +13,9 @@
  *     app/(app)/m · 전문가 포털 · 전역 오류 화면은 별도 테마라 뺀다.
  *   · 입력칸(input): type 이 글자인 <input> 에 border 를 직접 그린 것. In 자리.
  *   · 글귀 단추(text): 배경 · 테두리 없는 <button> 중 흐린 글자(T.subtle) · 금색 글자(T.champagne) · 밑줄. TextAction 자리.
+ *   · 고르기(<select>)는 모양을 따지지 않고 전부 입력칸으로 센다. Sel 자리다. 2026-10-20 에 손으로 짠 고르기 52곳을
+ *     걷을 때 보니 이 계약이 <select> 를 아예 세지 않아 그 자리들이 기준선 밖에서 살아남아 있었다(오너 «네모 높이 맞춰
+ *     줘야 통일성»). 높이 · 테두리를 칸마다 따로 그려 옆 단추 · 글 칸과 키가 갈렸다.
  * 기준선은 «남아 있는 것» 의 목록이다. 줄어들면 기준선도 줄여야 하고(안 줄이면 «남은 게 있다» 는 거짓 안내가 남는다),
  * 늘면 빨강이다. 영영 남길 것은 이유를 적는다.
  */
@@ -79,7 +82,8 @@ function styleOf(tag: string): string {
   return '';
 }
 
-export function classify(tag: string, kind: 'button' | 'input'): 'boxed' | 'input' | 'text' | null {
+export function classify(tag: string, kind: 'button' | 'input' | 'select'): 'boxed' | 'input' | 'text' | null {
+  if (kind === 'select') return 'input';
   const s = resolveStyleValues(styleOf(tag));
   if (kind === 'input') {
     const type = (tag.match(/type=["']([a-z]+)/) || [])[1] || 'text';
@@ -112,11 +116,11 @@ export function scan(): Map<string, Counts> {
     const rel = relative(REPO_ROOT, f).replace(/\\/g, '/');
     if (SKIP_FILE.has(rel) || SKIP_DIR(rel)) continue;
     const src = codeOnly(readFileSync(f, 'utf8'));
-    const re = /<(button|input)\b/g;
+    const re = /<(button|input|select)\b/g;
     let m: RegExpExecArray | null;
     while ((m = re.exec(src))) {
       const tag = src.slice(m.index, tagEnd(src, m.index) + 1);
-      const c = classify(tag, m[1] as 'button' | 'input');
+      const c = classify(tag, m[1] as 'button' | 'input' | 'select');
       if (!c) continue;
       const cur = per.get(rel) ?? { boxed: 0, input: 0, text: 0 };
       cur[c]++;
@@ -141,7 +145,7 @@ describe('단추 · 칩 · 입력칸은 공용 부품으로(날것 사본은 기
   it('기준선에 없는 파일에 날것 사본이 생기지 않았다', () => {
     const extra = [...found.entries()].filter(([f]) => !expected.has(f)).map(([f, c]) => `${f} ${JSON.stringify(c)}`);
     if (extra.length) console.log('현재 상태의 기준선:\n' + literal(found, expected));
-    expect(extra, '새 날것 단추 · 입력칸. Btn · ChoiceChip · FilterChip · In · TextAction 을 쓰거나 이유를 적고 기준선에 더할 것').toEqual([]);
+    expect(extra, '새 날것 단추 · 입력칸 · 고르기. Btn · ChoiceChip · FilterChip · In · Sel · TextAction 을 쓰거나 이유를 적고 기준선에 더할 것').toEqual([]);
   });
 
   it('기준선의 개수가 실제와 같다(줄었으면 기준선도 줄일 것 · 늘었으면 되돌릴 것)', () => {
@@ -177,5 +181,6 @@ describe('단추 · 칩 · 입력칸은 공용 부품으로(날것 사본은 기
     expect(classify(`<input type="text" style={{ padding: '8px 12px', border: \`1px solid \${T.border}\` }} />`, 'input')).toBe('input');
     expect(classify(`<input type="text" className="qa-input" style={{ border: 'none' }} />`, 'input')).toBeNull();
     expect(classify(`<input type="checkbox" style={{ border: '1px solid red' }} />`, 'input')).toBeNull();
+    expect(classify(`<select className="qa-input qd-input" value={v} onChange={f}>`, 'select')).toBe('input');
   });
 });
