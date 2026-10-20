@@ -466,8 +466,8 @@ export default async function AppLayout({
       />
       <GlobalSearch isMedqraftAdmin={isMedqraftAdmin} />
       {/* 무반응 15분 자동 로그아웃: 켜짐(2026-09-30 오너 결정 · 8-20 에 껐던 것을 다시 켬).
-          스위치는 SessionIdleMonitor 의 IDLE_LOGOUT_ENABLED 하나뿐이라, 마운트는
-          늘 두고 거기서 켜고 끈다. 여기서 지우면 되돌릴 때 두 곳을 고쳐야 한다.
+          모든 기기의 스위치는 SessionIdleMonitor 의 IDLE_LOGOUT_ENABLED, 기기 하나는 설정 → 로그인 의 스위치다
+          (2026-10-20). 마운트는 늘 두고 거기서 켜고 끈다. 여기서 지우면 되돌릴 때 두 곳을 고쳐야 한다.
           창 닫기 로그아웃은 인증 쿠키를 세션 쿠키로 심는 것이 맡는다(lib/supabase/session-policy.ts). */}
       <SessionIdleMonitor />
       {/* AI 도우미는 AIQuickAccessFab 안으로 통합됨 (메뉴 "💬 AI 도우미").
