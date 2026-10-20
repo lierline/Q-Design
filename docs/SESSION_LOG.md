@@ -22,6 +22,10 @@
   기본 UI 구현 1걸음 · 시험 1건은 12:41 에 다른 작업이 Q-Atelier 의 `lib/design/components.tsx` 를 커밋 없이 고치는 중이라 났다. Q-Atelier 커밋본은 정본과 바이트로 같다.
 - 원본 2곳은 같은 날 `refresh-source --write` 로 받았다(Q-Atelier 9641a195 → b610ca8f). ⓘ «데이터 출처» 묶음에서 감사 화면의 KPI 두 칸 · 구역 제목에 `source` 글이 붙고, 데이터 출처 계약 시험이 줄었다.
   받은 뒤에도 재현 26걸음이 그대로다(뼈대가 읽는 감사 화면 KPI 격자 값은 안 바뀜).
+- 오너 지시 «작업본 그대로 정본에». 5단계 «장부 표» 로 Q-Atelier 작업본(커밋 전, 12:41)의 `lib/design/components.tsx` 에 들어간 DataTable `expandedRow`(줄 아래 펼친 칸)를
+  정본 `patterns/component-implementations/atelier/lib/design/components.tsx` 로 바이트 그대로 옮기고 부품 목록(`dist/q-design.component-implementations.json`)의 정본 지문을 새로 적었다.
+  내보내는 이름 190 은 그대로다. 검사 걸음 35 · 시험 191 모두 초록. 제품 감사는 걸음별 결과가 같고, Q-Atelier 아이콘 쓰는 곳 191 → 190 은 같은 작업이 고치는 구성원 화면 작업본 때문이다.
+  🔴 Q-Atelier 쪽 커밋 · 6장 DataTable 설명은 그 작업이 할 일이다. 그 작업본이 더 바뀌면 이 걸음이 다시 빨강이 된다.
 
 ## 운영 업무 화면 모바일 직접 검수 · 2026-10-17
 
