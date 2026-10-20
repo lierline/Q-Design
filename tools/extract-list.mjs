@@ -262,7 +262,8 @@ put(spec, 'table.transition', tokens.motion.fast);
     barField: slice(barSrc, 'const 칸: React.CSSProperties = {', '};', 'ListToolbar.field'),
     barLabel: slice(barSrc, 'const 라벨 = (text: string): React.CSSProperties => ({', '});', 'ListToolbar.label'),
     barSearch: slice(barSrc, "<span style={{ position: 'relative'", '<input', 'ListToolbar.search'),
-    barSelect: slice(barSrc, 'aria-label="정렬"', '>', 'ListToolbar.select'),
+    /* 2026-10-20(Q-Atelier 85555d48) 원본이 손수 짠 정렬 고르기를 공용 Sel(sm)로 걷었다. 가로 여백은 Sel 의 작은 판에서 읽는다 */
+    barSelect: slice(comp, 'export function Sel({', '</select>', 'Sel'),
     /* 2026-10-07(b3179fa8) 원본이 손수 짠 submit 단추를 공용 Btn(p={false} sm)으로 걷었다. 치수는 Btn 에서 읽는다 */
     barSubmit: slice(comp, 'export function Btn({', '// ─── ICON BUTTON', 'Btn'),
     barSubmitText: slice(barSrc, 'const 검색글 = ', ';', 'ListToolbar.submitText'),
@@ -308,7 +309,7 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['bar.searchBasis',   Q.barSearch,  /flex: '1 1 (\d+)px'/, Number],
     ['bar.iconSize',      Q.barSearch,  /size=\{(\d+)\}/, Number],
     ['bar.iconLeft',      Q.barSearch,  /left: (\d+),/, Number],
-    ['bar.selectPadX',    Q.barSelect,  /padding: `0 \$\{S\[([\d.]+)\]\}px`,/, qd.space],
+    ['bar.selectPadX',    Q.barSelect,  /sm \? \{ minHeight: QD\.controlHeightSm, padding: `\$\{QD\.\w+\} \$\{(QD\.\w+)\}` \}/, qd.pixels],
     ['bar.submitHeight',  Q.barSubmit,  /const minHeight = sm \? (QD\.\w+) : QD\.\w+;/, qd.pixels],
     ['bar.submitPadX',    Q.barSubmit,  /padding: sm \? (QD\.\w+) :/, expression => {
       const padding = qd.resolve(expression).match(/^[\d.]+px ([\d.]+)px$/);
