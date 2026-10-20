@@ -93,6 +93,7 @@ export function TextLinkAction({
   href,
   target,
   onClick,
+  label,
 }: {
   children: ReactNode;
   href: string;
@@ -100,6 +101,11 @@ export function TextLinkAction({
   target?: '_blank';
   /** 누르면 함께 할 일(폰 서랍을 닫는 등). 이동은 href 가 한다 */
   onClick?: () => void;
+  /**
+   * 낭독기가 읽을 이름. 줄마다 같은 글귀(「보기」 「조치」)가 되풀이되는 목록에서 대상까지 적는다
+   * (TextAction 의 label 과 같은 뜻 · 보이는 글귀가 앞에 오게 · 2026-10-20 대시보드 A)
+   */
+  label?: string;
 }) {
   const [hover, setHover] = useState(false);
   const style = {
@@ -124,6 +130,7 @@ export function TextLinkAction({
         href={href}
         target={target}
         rel={target ? 'noopener' : undefined}
+        aria-label={label}
         className="qa-touch-44 qd-text-action"
         onClick={onClick}
         onMouseEnter={() => setHover(true)}
@@ -139,6 +146,7 @@ export function TextLinkAction({
       href={href}
       target={target}
       rel={target ? 'noopener' : undefined}
+      aria-label={label}
       className="qa-touch-44 qd-text-action"
       onClick={onClick}
       onMouseEnter={() => setHover(true)}

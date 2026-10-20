@@ -5884,3 +5884,24 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
 @media (hover: none) and (pointer: coarse) {
   .qa-auth-form-wrap a.qa-social-link::after { inset: var(--qd-space-0); }
 }
+
+/*
+ * 변경평가 줄 머리(RevisionRowExpandable): 좁은 폭에서는 세 줄로 접는다.
+ * 칸이 도넛 44 · Rev 64 · 번호 100 · 상태 240 · 펼침 24 고정이라 합이 약 540px 였고, 폰(412 · 375)에서 옆으로 넘쳤다
+ * (2026-10-20 대시보드 A 실측). 넓을 때는 종전 한 줄 그대로다. 칸 차례: 도넛 · Rev · 번호 · 제목 · 상태 · 펼침.
+ */
+.qa-rev-row { container-type: inline-size; }
+@container (max-width: 600px) {
+  .qa-rev-row > .qa-rev-head {
+    grid-template-columns: 44px auto minmax(0, 1fr) 24px !important;
+    grid-template-areas: 'ring rev code chev' 'ring title title chev' 'ring state state chev';
+    column-gap: var(--qd-space-2-5) !important;
+    row-gap: var(--qd-space-1) !important;
+  }
+  .qa-rev-head > :nth-child(1) { grid-area: ring; }
+  .qa-rev-head > :nth-child(2) { grid-area: rev; }
+  .qa-rev-head > :nth-child(3) { grid-area: code; min-width: 0; }
+  .qa-rev-head > :nth-child(4) { grid-area: title; min-width: 0; overflow-wrap: anywhere; }
+  .qa-rev-head > :nth-child(5) { grid-area: state; justify-content: flex-start !important; flex-wrap: wrap; }
+  .qa-rev-head > :nth-child(6) { grid-area: chev; }
+}

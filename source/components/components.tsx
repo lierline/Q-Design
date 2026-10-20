@@ -3274,6 +3274,7 @@ export function DataTable<T>({
   getRowStyle,
   ariaLabel,
   phoneRow,
+  expandedRow,
 }: {
   columns: DataTableColumn<T>[];
   rows: readonly T[];
@@ -3315,6 +3316,12 @@ export function DataTable<T>({
    * 좁아져 글이 세로로 흘러내렸다(운영 규칙표 · 평가 세트 · 폰 412 실측).
    */
   phoneRow?: (row: T, index: number) => ReactNode;
+  /**
+   * 줄 아래로 펼친 칸(2026-10-20 · 5단계 «장부 표»). 값을 돌려주는 줄만 그 아래에 표 폭 전체의 칸이 하나 더 붙는다
+   * (줄 끝 글귀로 연 편집기 · 보조 동작). 펼친 줄과 그 칸은 한 묶음이라 둘 사이에는 선을 긋지 않는다.
+   * 폰 카드 줄(phoneRow)은 이것을 읽지 않으므로, 폰에서도 펼치려면 phoneRow 안에서 같은 내용을 그린다.
+   */
+  expandedRow?: (row: T, index: number) => ReactNode;
 }) {
   const template = columns.map((c) => c.width ?? 'minmax(0, 1fr)').join(' ');
   const padY = dense ? 'var(--qd-table-pad-y-dense)' : 'var(--qd-table-pad-y, 11px)';
@@ -3368,10 +3375,12 @@ export function DataTable<T>({
     ) : (
       rows.map((row, i) => {
         const isLast = i === rows.length - 1;
+        const expanded = expandedRow?.(row, i) ?? null;
+        const ruleBelow = `var(--qd-border-width) ${dividers} ${T.border}`;
         const rowStyle: CSSProperties = {
           display: 'grid',
           gridTemplateColumns: template,
-          borderBottom: isLast || dividers === 'none' ? 'none' : `var(--qd-border-width) ${dividers} ${T.border}`,
+          borderBottom: expanded !== null || isLast || dividers === 'none' ? 'none' : ruleBelow,
           transition: `background ${QD.motionFast}`,
           textDecoration: QDText.textDecoration.v30a0924a33,
           color: 'inherit',
@@ -3400,14 +3409,11 @@ export function DataTable<T>({
           </div>
         ));
         const key = getRowKey(row, i);
-        if (rowHref) {
-          return (
-            <Link key={key} href={rowHref(row)} role="row" className="qa-row-clickable" style={rowStyle}>
-              {cells}
-            </Link>
-          );
-        }
-        return (
+        const line = rowHref ? (
+          <Link key={key} href={rowHref(row)} role="row" className="qa-row-clickable" style={rowStyle}>
+            {cells}
+          </Link>
+        ) : (
           <div
             key={key}
             role="row"
@@ -3417,6 +3423,17 @@ export function DataTable<T>({
           >
             {cells}
           </div>
+        );
+        if (expanded === null) return line;
+        return (
+          <Fragment key={key}>
+            {line}
+            <div role="row" style={{ borderBottom: isLast || dividers === 'none' ? 'none' : ruleBelow }}>
+              <div role="cell" className="qa-dt-expanded" style={{ padding: `0 var(--qd-table-pad-x, 12px) ${padY}`, minWidth: 0 }}>
+                {expanded}
+              </div>
+            </div>
+          </Fragment>
         );
       })
     );

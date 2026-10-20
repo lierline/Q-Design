@@ -521,6 +521,58 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-workspace .qd-work-metric dd { margin-top: 10px; font-size: 30px; line-height: 1.2; font-weight: 600; font-variant-numeric: tabular-nums; }
 .qd-workspace .qd-work-metric dd span { margin-left: 6px; font-size: 13px; font-weight: 400; color: var(--qd-subtle); }
 .qd-workspace .qd-work-metric p { margin-top: 8px; font-size: 13px; color: var(--qd-subtle); }
+/* 요약 지표 칸 수는 data-cols 로 고른다(없으면 세 칸). 부제는 dl 안에서 바른 dd.qd-work-metric-sub 로도 둔다 */
+.qd-workspace .qd-work-summary[data-cols='1'] { grid-template-columns: minmax(0,1fr); }
+.qd-workspace .qd-work-summary[data-cols='2'] { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.qd-workspace .qd-work-summary[data-cols='4'] { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.qd-workspace .qd-work-summary[data-cols] .qd-work-metric:first-child { padding-left: 0; }
+.qd-workspace .qd-work-metric .qd-work-metric-sub { margin-top: 8px; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--qd-subtle); }
+/* 번호 붙은 괘선 구역: 상자 없이 쌓는 현황 구역. 번호는 보이는 차례대로 CSS 가 센다(숨기거나 빈 구역은 건너뛴다) */
+.qd-workspace .qd-work-sections { counter-reset: qd-work-section; }
+.qd-workspace .qd-work-sections-list { display: flex; flex-direction: column; gap: 40px; }
+.qd-workspace .qd-work-section { counter-increment: qd-work-section; min-width: 0; }
+.qd-workspace .qd-work-section-title { display: inline-flex; align-items: baseline; gap: 10px; min-width: 0; }
+.qd-workspace .qd-work-section-num { font-family: var(--qd-font-mono); font-size: 12px; font-weight: 500; color: var(--qd-accent); font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-section-num::before { content: counter(qd-work-section, decimal-leading-zero); }
+.qd-workspace .qd-work-subhead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin-top: 20px; padding-bottom: 8px; font-size: 13px; font-weight: 600; color: var(--qd-subtle); border-bottom: 1px solid var(--qd-border); }
+.qd-workspace .qd-work-subhead > span { min-width: 0; overflow-wrap: anywhere; }
+.qd-workspace .qd-work-subhead small { font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-subhead .qd-work-line-code { margin-right: 8px; font-weight: 400; }
+/* 묶음 소제목(제품 하나 = 한 묶음): 이름은 본문 색으로 조금 크게 */
+.qd-workspace .qd-work-subhead--group { margin-top: 28px; font-size: 14px; color: var(--qd-text); }
+/* 줄 목록: 한 줄에 한 건. 앞 칸(구분 글자) · 본문 · 메타 · 행동을 괘선으로 가른다 */
+.qd-workspace .qd-work-lines { container-type: inline-size; display: flex; flex-direction: column; }
+.qd-workspace .qd-work-line { display: grid; grid-template-columns: 4.5rem minmax(0,1fr) auto auto; gap: 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--qd-border); font-size: 14px; line-height: 1.5; }
+.qd-workspace .qd-work-line-tag { font-size: 13px; font-weight: 600; color: var(--qd-subtle); }
+.qd-workspace .qd-work-line-main { min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.qd-workspace .qd-work-line-detail { font-size: 13px; color: var(--qd-muted); }
+.qd-workspace .qd-work-line-meta { font-size: 12px; color: var(--qd-subtle); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-line-act { justify-self: end; font-size: 13px; }
+.qd-workspace .qd-work-line--project { grid-template-columns: 7.5rem minmax(0,1fr) 11rem auto; }
+.qd-workspace .qd-work-line-code { font-family: var(--qd-font-mono); font-size: 12px; color: var(--qd-subtle); }
+.qd-workspace .qd-work-line-empty { padding: 14px 0; font-size: 13px; color: var(--qd-subtle); border-bottom: 1px solid var(--qd-border); }
+.qd-workspace .qd-work-more { padding-top: 8px; font-size: 13px; }
+.qd-workspace .qd-work-bar { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.qd-workspace .qd-work-bar-track { flex: 1; height: 4px; border-radius: 2px; background: var(--qd-surface2); overflow: hidden; }
+.qd-workspace .qd-work-bar-fill { display: block; height: 100%; background: var(--qd-text); opacity: .55; }
+.qd-workspace .qd-work-bar-n { font-family: var(--qd-font-mono); font-size: 12px; color: var(--qd-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* 단계 줄: 한글 단계 이름에는 자간 · 대문자를 걸지 않는다 */
+.qd-workspace .qd-work-stages { list-style: none; margin: 14px 0 6px; padding: 0; display: flex; flex-wrap: wrap; row-gap: 6px; }
+.qd-workspace .qd-work-stage { display: flex; align-items: baseline; gap: 6px; padding: 4px 14px 4px 0; margin-right: 14px; border-right: 1px solid var(--qd-border); font-size: 13px; color: var(--qd-muted); }
+.qd-workspace .qd-work-stage:last-child { border-right: 0; margin-right: 0; }
+.qd-workspace .qd-work-stage[data-on] { color: var(--qd-text); }
+.qd-workspace .qd-work-stage-n { font-family: var(--qd-font-mono); font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-stage[data-on] .qd-work-stage-n { font-weight: 600; }
+@container (max-width: 640px) {
+  .qd-workspace .qd-work-line { grid-template-columns: minmax(0,1fr) auto; grid-template-areas: 'tag meta' 'main act'; row-gap: 4px; }
+  .qd-workspace .qd-work-line-tag { grid-area: tag; }
+  .qd-workspace .qd-work-line-meta { grid-area: meta; justify-self: end; }
+  .qd-workspace .qd-work-line-main { grid-area: main; }
+  .qd-workspace .qd-work-line-act { grid-area: act; }
+  .qd-workspace .qd-work-line--project { grid-template-areas: 'code act' 'main main' 'bar bar'; }
+  .qd-workspace .qd-work-line--project > .qd-work-line-code { grid-area: code; }
+  .qd-workspace .qd-work-line--project > .qd-work-bar { grid-area: bar; }
+}
 .qd-workspace .qd-work-columns { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 36px; }
 .qd-workspace .qd-work-columns > * { min-width: 0; }
 .qd-workspace .qd-work-section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--qd-borderHi); }
@@ -575,6 +627,13 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
   .qd-workspace .qd-work-metric { padding: 18px 10px; }
   .qd-workspace .qd-work-metric dd { font-size: 26px; }
   .qd-workspace .qd-work-metric p { display: none; }
+  .qd-workspace .qd-work-summary:not([data-cols]) .qd-work-metric-sub,
+  .qd-workspace .qd-work-summary[data-cols='3'] .qd-work-metric-sub { display: none; }
+  /* 네 칸은 두 줄 두 칸이 된다. 칸이 넓어지므로 부제를 남긴다 */
+  .qd-workspace .qd-work-summary[data-cols='4'] { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric { padding: 14px 14px 16px; }
+  .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric:nth-child(n+3) { border-top: 1px solid var(--qd-border); }
   .qd-workspace .qd-work-row { align-items: flex-start; flex-direction: column; gap: 14px; }
   .qd-workspace .qd-work-actions { width: 100%; }
   .qd-workspace .qd-work-actions .qd-work-status { margin-right: auto; }
