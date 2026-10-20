@@ -20,6 +20,8 @@
   이 다섯은 playwright 가 1.60.0(Q-Atelier 맨 위) 에서 1.62.1 로 바뀐다.
 - 🔴 같은 시각 검사의 빨강은 이 일과 별개다. 원본 2곳(Q-Atelier 가 새로 커밋한 data-source-contract 시험 · audit 화면을 아직 안 받음)은 바꾸기 전부터 빨강이었고,
   기본 UI 구현 1걸음 · 시험 1건은 12:41 에 다른 작업이 Q-Atelier 의 `lib/design/components.tsx` 를 커밋 없이 고치는 중이라 났다. Q-Atelier 커밋본은 정본과 바이트로 같다.
+- 원본 2곳은 같은 날 `refresh-source --write` 로 받았다(Q-Atelier 9641a195 → b610ca8f). ⓘ «데이터 출처» 묶음에서 감사 화면의 KPI 두 칸 · 구역 제목에 `source` 글이 붙고, 데이터 출처 계약 시험이 줄었다.
+  받은 뒤에도 재현 26걸음이 그대로다(뼈대가 읽는 감사 화면 KPI 격자 값은 안 바뀜).
 
 ## 운영 업무 화면 모바일 직접 검수 · 2026-10-17
 

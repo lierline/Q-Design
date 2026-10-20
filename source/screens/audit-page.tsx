@@ -195,12 +195,12 @@ export default async function AuditPage({ searchParams }: PageProps) {
         이 쪽 기준이라 같은 줄의 전체 숫자와 섞여 «사용자 3명» 을 그대로 믿으면 틀렸다.
       */}
       <Grid cols={QDPresentation.rendererInputs.gridColumns[2]} minCol={QDPresentation.gridMinColumn[180]} gap={QDScale.space[3.5]} style={{ marginBottom: QDScale.space[7] }}>
-        <KPI
+        <KPI source="감사 로그 기록 수이며, 위 필터를 걸면 필터 결과 기준으로 바뀝니다."
           label="총 활동"
           value={totalCount}
           sub={filterActive ? '필터 결과 전체' : '전체 기록'}
         />
-        <KPI
+        <KPI source="최근 24시간 동안 남은 감사 로그 기록 수이며, 필터를 걸면 필터 결과 기준으로 바뀝니다."
           label="최근 24시간"
           value={last24h}
           sub="활동 기록"
@@ -208,7 +208,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
       </Grid>
 
 
-      <SectionTitle>활동 기록</SectionTitle>
+      <SectionTitle source="저장 · 결재 때 서버가 자동으로 남긴 기록이라 고치거나 지울 수 없고 10년 보관합니다. 한 쪽에 100건씩 최신 순이며, 활동 종류 필터에는 최근 200건에 나온 종류만 보입니다.">활동 기록</SectionTitle>
       {logList.length === 0 ? (
         <EmptyState
           title={filterActive ? '필터 결과 없음' : '아직 활동 로그가 없습니다'}
