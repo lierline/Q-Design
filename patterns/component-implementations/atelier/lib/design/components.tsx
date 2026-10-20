@@ -212,11 +212,18 @@ export function In({
 export interface SelOpt {
   v: string;
   l: string;
+  /** 지금은 고를 수 없는 갈래(결재 · 권한 잠금). 목록에는 보인다 */
+  disabled?: boolean;
+}
+/** 묶음 제목(<optgroup>) 아래 갈래들 */
+export interface SelGroup {
+  g: string;
+  opts: Array<SelOpt | string>;
 }
 interface SelProps {
   value: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  opts: Array<SelOpt | string>;
+  opts: Array<SelOpt | SelGroup | string>;
   ro?: boolean;
   disabled?: boolean;
   // F-04: Field(htmlFor=id) 와 라벨 연결을 위해 id 를 DOM 으로 전달(In 과 동일 계약).
@@ -226,8 +233,31 @@ interface SelProps {
   invalid?: boolean;
   /** 오류 · 도움말 글귀의 id. 보통 Field 가 끼워 넣는다(In 과 같은 계약) */
   'aria-describedby'?: string;
+  // 2026-10-20 손으로 짠 고르기 52곳을 이 부품으로 걷으며 더한 것(오너 «네모 높이 맞춰 줘야 통일성»)
+  /** 보이는 칸 이름(label)이 없을 때의 낭독 이름(In 과 같은 계약) */
+  ariaLabel?: string;
+  title?: string;
+  /**
+   * 목록 줄 · 도구줄 안의 작은 고르기. 키가 Btn sm 과 같은 36 이다.
+   * 터치 화면과 좁은 창(640 이하)에서는 공용 규칙이 Btn sm 과 함께 44 로 올린다.
+   */
+  sm?: boolean;
+  /**
+   * 테두리 색으로 상태를 알릴 때(바뀐 칸 · 걸린 거르개 · 상태별 색). 글자 · 바탕은 바꾸지 않는다.
+   * 마우스를 올리거나 초점이 가면 공용 규칙의 테두리가 이긴다.
+   */
+  accent?: string;
 }
-export function Sel({ value, onChange, opts, ro, disabled, id, name, required, invalid, 'aria-describedby': ariaDescribedBy }: SelProps) {
+function selOption(o: SelOpt | string) {
+  const v = typeof o === 'string' ? o : o.v;
+  const l = typeof o === 'string' ? o : o.l;
+  return (
+    <option key={v} value={v} disabled={typeof o === 'string' ? undefined : o.disabled}>
+      {l}
+    </option>
+  );
+}
+export function Sel({ value, onChange, opts, ro, disabled, id, name, required, invalid, 'aria-describedby': ariaDescribedBy, ariaLabel, title, sm, accent }: SelProps) {
   return (
     <select
       value={value}
@@ -238,18 +268,25 @@ export function Sel({ value, onChange, opts, ro, disabled, id, name, required, i
       required={required}
       aria-invalid={invalid || undefined}
       aria-describedby={ariaDescribedBy}
+      aria-label={ariaLabel}
+      title={title}
       className="qa-input qd-input"
-      style={inputStyle}
+      data-size={sm ? 'sm' : 'md'}
+      style={{
+        ...inputStyle,
+        ...(sm ? { minHeight: QD.controlHeightSm, padding: `${QD.space1} ${QD.space3}` } : {}),
+        ...(accent ? { borderColor: accent } : {}),
+      }}
     >
-      {opts.map((o) => {
-        const v = typeof o === 'string' ? o : o.v;
-        const l = typeof o === 'string' ? o : o.l;
-        return (
-          <option key={v} value={v}>
-            {l}
-          </option>
-        );
-      })}
+      {opts.map((o) =>
+        typeof o !== 'string' && 'g' in o ? (
+          <optgroup key={o.g} label={o.g}>
+            {o.opts.map(selOption)}
+          </optgroup>
+        ) : (
+          selOption(o)
+        ),
+      )}
     </select>
   );
 }

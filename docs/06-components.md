@@ -157,6 +157,16 @@ Txt  resize vertical · 기본 3줄 · 최소 높이 80 (--qd-textarea-min-heigh
 
 `Sel` 은 `qd-input` 을 함께 달아 공용 규칙(`select.qd-input`: `appearance: auto` · `background-image: none` · 오른쪽 여백 32px)을 받으므로 OS 화살표를 씁니다. 금색 SVG 화살표는 `qd-input` 없이 `qa-input` 만 단 select 에 남아 있습니다(부록 «select 화살표»).
 
+`Sel` 의 키는 두 단입니다(2026-10-20, 손으로 짠 고르기 52곳을 걷으며). 한 줄에 선 조작 상자는 같은 키를 씁니다.
+
+```
+Sel       44  ·  In · Btn 과 한 줄(입력 양식 · 조회 줄)
+Sel sm    36  ·  Btn sm 과 한 줄(목록 줄 안의 상태 고르기 · 도구줄 정렬)
+          터치 화면 · 640 이하에서는 둘 다 44(Btn sm 과 함께 오릅니다)
+```
+
+폭은 `Sel` 이 아니라 감싸는 자리가 정합니다(`Sel` 은 늘 100%). 갈래마다 `disabled` 를 줄 수 있고, `{ g, opts }` 로 묶음 제목(`optgroup`)을 답니다. 보이는 이름이 없으면 `ariaLabel`, 상태를 테두리 색으로 알릴 때는 `accent`(바뀐 칸 · 걸린 거르개 · 상태별 색)를 씁니다.
+
 1023px 이하에서 입력 글자는 조작 글자 크기(13px)를 지킵니다. iOS 는 16px 미만 입력에 초점이 가면 자동 확대하지만, 디자인 통일을 우선해 13px 를 택했습니다(사용자 결정, `patterns/foundation/atelier.css` 주석).
 
 ### `Field` 가 오류 · 도움말을 칸에 연결합니다
