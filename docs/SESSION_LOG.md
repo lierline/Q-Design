@@ -4,6 +4,16 @@
 
 ---
 
+## 5단계 «화면에 힘 쓰기» 반영 · 2026-10-20
+
+- 오너가 고른 시안(멤버 A · 설정 B · 대시보드 A)을 Q-Atelier 에 반영하며 공용 규칙을 정본에 먼저 두었다(357fa57). `patterns/workspace.css` 에 숫자 띠 칸 수(`data-cols`), 번호 괘선 구역(`qd-work-sections` · CSS counter), 줄 목록(`qd-work-line`), 단계 줄(`qd-work-stages`), 묶음 머리(`qd-work-subhead--group`). 모두 `.qd-workspace` 안의 새 이름이라 그 이름을 안 쓰는 메종 · 카르넷 화면은 그대로다(두 제품은 `.qd-workspace` · `--overview` 만 쓴다, 대조함).
+- `patterns/foundation/atelier.css` 에 변경 줄 접기(`.qa-rev-row` 컨테이너 질의, 600 이하 3줄). 412 폭 가로 넘침의 뿌리였다.
+- 기본안 A 대로 제품으로 나가는 CSS 주석의 옛 문서 번호를 새 장으로 고쳤다(7fd7eb8). 정본 소스 9곳 → 산출물 12줄. docs/24 → 08-paper.md «문서 결», docs/11 · 15 · 16 · 17 · 25 → 07-screens.md 의 해당 절, 보관된 docs/22 는 뺐다. 산출물에 옛 번호 0.
+- 🔑 정본을 커밋하기 전에 `--sync` 하면 제품 판 파일의 `since` · `date` 가 비고 status 가 «커밋 안 됨» 이라 한다. 정본 커밋 뒤 한 번 더 맞추고, 제품 커밋 뒤 `refresh-source --write` 로 `_ORIGIN.json` 을 마지막 커밋에 맞춘다.
+- 사본 따라잡기: Q-Works · DHR 사본, 폰 앱 오프라인 화면(Q-Atelier-App d6d2ad0 · Q-Carnet-App c4f0fce).
+- 검사 35걸음 · 시험 191 초록. 세 제품 사본 대조 시험 통과(아뜰리에 81 · 메종 154 · 카르넷 82).
+- 남은 것: 제품 개발자가 손으로 쓴 주석의 옛 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). Q-Sonar 3조각이 10-10 판에 머묾. 제품 main 푸시는 오너 승인 대기.
+
 ## 라이브러리 빌림 끊기 · 2026-10-20
 
 - 군살 빼기의 남은 결합 하나를 끊었다. Q-Design 에 자기 `package.json`(비공개)과 잠금 파일을 두고 개발 의존성 13개를 정확한 판으로 넣었다. 처음 받으면 `npm ci`.
