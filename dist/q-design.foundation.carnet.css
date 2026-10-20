@@ -566,14 +566,14 @@ html { font-size: var(--qd-carnet-root-size); }
 }
 /* 차림표 정본. Q-Design 이 Q-Atelier 의 Sidebar.tsx 를 «읽어» 만든 생성물의 사본이다.
    손으로 고치지 말 것 · `scripts/check-nav.mjs` 가 지문을 대조한다.
-   규격과 뼈대: D:/Claude/Q-Design/docs/15-navigation-canon.md */
+   규격과 뼈대: D:/Claude/Q-Design/docs/07-screens.md «차림표 정본» */
 /* 목록 정본. 표(.qd-table) · 항목 카드(.qd-row) · 배지(.qd-tag) 의 치수가 여기서 온다.
    세 벌 모두 @layer components 안이고 이 파일의 components 층보다 먼저 온다(2e3d34d 부터).
    그래서 Tailwind 유틸리티가 정본을 이기고, 아래 층에 같은 세기로 다시 적어도 이긴다 -
    정본 값을 여기 다시 적으면 정본이 바뀌어도 이 제품만 옛 값으로 남는다.
-   규격: D:/Claude/Q-Design/docs/16-list-canon.md */
+   규격: D:/Claude/Q-Design/docs/07-screens.md «목록 정본» */
 /* 화면 뼈대 정본. 요약 지표(.qd-kpi) · 구역 이름표(.qd-label) · 셸 폭(.qd-shell-*).
-   규격: D:/Claude/Q-Design/docs/17-screen-canon.md */
+   규격: D:/Claude/Q-Design/docs/07-screens.md «화면 뼈대 정본» */
 
 /* ---------------------------------------------------------------------------
    클라이언트 부품이 쓰는 회사 표시

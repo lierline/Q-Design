@@ -2034,7 +2034,7 @@ textarea {
 }
 
 /* ── 사이드바 선택 표시: 진입 시 한 번만 ─────────────────────────────────
-   2026-09-27 «문서 결»(오너 결정 · Q-Design docs/24): 글자 밑 짧은 금색 선이 진입 시 한 번 왼쪽부터
+   2026-09-27 «문서 결»(오너 결정 · Q-Design docs/08-paper.md): 글자 밑 짧은 금색 선이 진입 시 한 번 왼쪽부터
    펼쳐진다. 반복하지 않는다(지속 깜빡임은 불편). 종전의 금색 점 펄스(qa-nav-active-dot)는 걷었다. */
 @keyframes qa-nav-active-underline-in {
   from { transform: scaleX(0); }
