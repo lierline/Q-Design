@@ -452,6 +452,8 @@ Ring  size 56 · stroke 5 · SVG · -90deg 회전 · 트랙 border 색
 빈 행 padding 20px 12px
 컬럼  minmax(0, 1fr) 로 grid template 구성
 phoneRow → 폰 폭에서 카드 줄로 바꿈 · minWidth · stickyFirstCol → 가로 스크롤 표(ScrollTable)
+expandedRow → 값을 돌려준 줄 아래에 표 폭 전체 칸 하나(편집기 · 보조 동작) · 줄과 칸 사이 선 없음
+              phoneRow 는 이것을 읽지 않음 · 폰에서도 펼치려면 phoneRow 안에서 그림 (2026-10-20 · 장부 표)
 ```
 
 ### `EntityRow`
