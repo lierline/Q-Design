@@ -4,6 +4,10 @@
 
 ---
 
+## 단계 줄 폰 두 칸 · 2026-10-20 (운영 직접 점검 뒤)
+
+- 오너 지적 «직접 다 보고 수정해 줘야지» 로 운영 Q-Atelier 를 Demo co. 계정으로 PC 1366 · 폰 412 · 375 에서 열어 봤다. `qd-work-stages` 가 폰에서 두 줄로 흐르며 줄 끝마다 세로 괘선이 남았다. `patterns/workspace.css` 의 640 이하 규칙에 두 칸 격자 · 괘선 없음을 더했다. 이 이름은 Q-Atelier 대시보드만 쓴다(메종 · 카르넷은 안 씀).
+
 ## 5단계 «화면에 힘 쓰기» 반영 · 2026-10-20
 
 - 오너가 고른 시안(멤버 A · 설정 B · 대시보드 A)을 Q-Atelier 에 반영하며 공용 규칙을 정본에 먼저 두었다(357fa57). `patterns/workspace.css` 에 숫자 띠 칸 수(`data-cols`), 번호 괘선 구역(`qd-work-sections` · CSS counter), 줄 목록(`qd-work-line`), 단계 줄(`qd-work-stages`), 묶음 머리(`qd-work-subhead--group`). 모두 `.qd-workspace` 안의 새 이름이라 그 이름을 안 쓰는 메종 · 카르넷 화면은 그대로다(두 제품은 `.qd-workspace` · `--overview` 만 쓴다, 대조함).

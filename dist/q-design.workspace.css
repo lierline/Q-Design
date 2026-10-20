@@ -167,6 +167,9 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
   .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric { padding: 14px 14px 16px; }
   .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric:nth-child(odd) { border-left: 0; padding-left: 0; }
   .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric:nth-child(n+3) { border-top: 1px solid var(--qd-border); }
+  /* 단계 띠는 폰에서 두 칸 줄이 된다. 흘려 두면 줄 끝마다 세로 괘선이 남는다(2026-10-20 운영 375 실측) */
+  .qd-workspace .qd-work-stages { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 18px; row-gap: 2px; }
+  .qd-workspace .qd-work-stage { margin-right: 0; padding: 4px 0; border-right: 0; }
   .qd-workspace .qd-work-row { align-items: flex-start; flex-direction: column; gap: 14px; }
   .qd-workspace .qd-work-actions { width: 100%; }
   .qd-workspace .qd-work-actions .qd-work-status { margin-right: auto; }

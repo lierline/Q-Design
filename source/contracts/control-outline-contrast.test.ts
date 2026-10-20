@@ -90,7 +90,9 @@ describe('조작 윤곽 --qa-ctl 은 인접 면과 3:1 이상', () => {
       }
     }
     expect(bad, '입력 칸 테두리는 CTL(--qa-ctl)을 쓸 것').toEqual([]);
-  });
+    // app · components 의 화면 파일을 전부 읽는다. 따로 돌리면 3초대지만 시험 전체를 한꺼번에 돌리면
+    // 기본 30초를 넘겨 main 올리기 전 훅이 시간 초과로 막혔다(2026-10-20, 세 번 연달아). 한도만 늘린다.
+  }, 120_000);
 
   it('목록 쪽 이동 단추 · 거르개 칸도 CTL 을 쓴다', () => {
     for (const f of ['components/ListPager.tsx', 'components/ListToolbar.tsx']) {
