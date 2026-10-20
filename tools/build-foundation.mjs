@@ -7,7 +7,7 @@ import { readRuntimeValues, resolveAtelierMedia } from './atelier-runtime-values
 import { readOutputValues, resolveAtelierOutputCss } from './atelier-output-values.mjs';
 import { validateTypographyLinks } from './typography-links-core.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(join(ROOT, '../Q-Works/package.json'));
+const require = createRequire(import.meta.url);
 const postcss = require('postcss');
 export const PRODUCTS = ['atelier', 'maison', 'carnet'];
 const normalized = value => value.replaceAll('\r\n', '\n');

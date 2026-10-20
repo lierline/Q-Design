@@ -138,7 +138,17 @@ node tools/status.mjs                 # 제품마다 받은 판 · 뒤처짐 · 
 | 시험 | `tools/*.test.mjs` 전부. 제품 파일 대신 정본이나 고정 자료(`tools/fixtures/`, 출처는 폴더마다 `SOURCE.md`)를 읽습니다 |
 
 **검사 안에서 제품 저장소를 읽는 일은 둘뿐입니다.** 원본 받기(커밋된 내용만)와 사본 대조입니다(2026-10-16 웹 제품, 10-17 앱 저장소까지 추적기로 확인).
-남은 결합은 하나입니다. typescript · react · prettier · playwright 같은 라이브러리를 제품의 `node_modules` 에서 빌려 씁니다. Q-Design 이 자기 `package.json` 을 가지면 없어집니다.
+라이브러리는 Q-Design 자기 `package.json` 에 판 번호를 고정해 둡니다(2026-10-20). 처음 받으면 `npm ci` 로 깝니다.
+예전에는 도구 30개 파일의 35곳이 typescript · postcss · vite · react · prettier · playwright 같은 라이브러리를 제품의 `node_modules` 에서 빌려 썼습니다(Q-Atelier 26 · Q-Works 9).
+이제 검사와 감사를 돌리는 동안 제품 `node_modules` 를 여는 일은 0번입니다(파일 읽기와 모듈 찾기를 모두 적는 추적기로 확인).
+
+일부러 제품 것을 쓰는 자리는 둘뿐입니다. 빌림이 아니라 제품 결을 지키는 것입니다.
+
+- 작업대(`build-component-workbench`)가 제품 부품을 그 제품의 react · tailwind 로 그리는 곳
+- 문구 도구(`copy-spacing`)가 제품 코드를 고쳐 쓸 때 그 제품의 정렬기(prettier)로 맞추는 곳
+
+판 번호는 Q-Works 가 쓰는 판에 맞췄습니다. 앱 아이콘 렌더러(playwright 1.62.1 · sharp 0.34.5)만은 승인된 아이콘을 바이트까지 재현하는 고정 판입니다(`tools/app-icon-runtime.mjs`).
+판을 올리면 검사를 돌려 산출물이 바이트까지 그대로인지 봅니다.
 
 제품 코드 전체를 훑어 «쓰이는가 · 지켜지는가» 를 보는 일은 감사로 뺐습니다. 감사는 빨강이 나와도 검사를 막지 않고, 제품을 고치는 날 함께 봅니다.
 

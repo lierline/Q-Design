@@ -66,7 +66,7 @@ test('release check rejects a missing or changed generated file even if product 
 }));
 
 test('the actual runtime resolves the approved Chromium metadata and native image encoders', () => {
-  const runtime = loadIconRuntime(resolve(root, '../Q-Atelier'));
+  const runtime = loadIconRuntime(root);
   assert.equal(runtime.provenance.chromiumRevision, '1234');
   assert.equal(runtime.provenance.playwright, '1.62.1');
   assert.equal(runtime.sharp.versions.sharp, '0.34.5');

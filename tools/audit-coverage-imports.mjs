@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { posix } from 'node:path';
 
-const require = createRequire(new URL('../../Q-Works/package.json', import.meta.url));
+const require = createRequire(import.meta.url);
 const postcss = require('postcss');
 
 // Q-Works is a valid pipeline target. Its HSL channel palette is checked by the

@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 import {implementationOwners} from './build-component-implementations.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const ts=createRequire(path.resolve(root,'../Q-Atelier/package.json'))('typescript');
+const ts=createRequire(import.meta.url)('typescript');
 export function copyNodes(file,code){
  const scriptKind=/\.tsx$/.test(file)?ts.ScriptKind.TSX:/\.jsx$/.test(file)?ts.ScriptKind.JSX:/\.js$/.test(file)?ts.ScriptKind.JS:ts.ScriptKind.TS;
  const ast=ts.createSourceFile(file,code,ts.ScriptTarget.Latest,true,scriptKind),nodes=[],ordinals=new Map();
@@ -29,8 +29,9 @@ export function jsxDisplayText(raw){
  if(values.length!==1)throw Error('Expected one JSX text element');return values[0];
 }
 export function termsForFile(terms,product,file){return terms.filter(term=>(!term.products||term.products.includes(product))&&(!term.paths||term.paths.includes(file)));}
-// moduleBase: prettier 와 그 플러그인을 빌려 올 폴더(기본은 제품 자신). 설정 파일은 base 쪽에서 찾습니다.
-// 시험은 설정을 고정 자료(tools/fixtures/copy-spacing)에서 읽고 모듈만 제품에서 빌립니다.
+// moduleBase: prettier 와 그 플러그인을 찾을 폴더(기본은 제품 자신). 설정 파일은 base 쪽에서 찾습니다.
+// 제품 코드를 고쳐 쓸 때는 일부러 그 제품의 정렬기로 맞춥니다(빌림이 아니라 제품 결 지키기).
+// 시험은 설정을 고정 자료(tools/fixtures/copy-spacing)에서 읽고 모듈은 Q-Design 자기 것을 씁니다.
 export async function formatProductCopy(base,file,code,moduleBase=base){
  const require=createRequire(path.join(moduleBase,'package.json')),full=path.join(base,file);
  let formatter;

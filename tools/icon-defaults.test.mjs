@@ -6,8 +6,8 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const maison = join(dirname(root), 'Q-Works');
-const require = createRequire(join(maison, 'package.json'));
+// 라이브러리는 Q-Design 자기 package.json 의 것입니다(tailwindcss 는 메종과 같은 3 판).
+const require = createRequire(import.meta.url);
 const React = require('react');
 const { renderToStaticMarkup } = require('react-dom/server');
 const { JSDOM } = require('jsdom');

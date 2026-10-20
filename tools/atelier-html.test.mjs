@@ -6,8 +6,8 @@ import { runInNewContext } from 'node:vm';
 import { resolve } from 'node:path';
 import { resolveHtmlPalette, resolveHtmlMetrics, buildHtmlPalette } from './build-atelier-html.mjs';
 import { readInputs } from './build-palette.mjs';
-const ROOT = resolve(import.meta.dirname, '..'), QA = resolve(ROOT, '../Q-Atelier');
-const ts = createRequire(resolve(QA, 'package.json'))('typescript');
+const ROOT = resolve(import.meta.dirname, '..');
+const ts = createRequire(import.meta.url)('typescript');
 // 업무 템플릿은 커밋본에서 떠 온 고정 사본을 읽습니다(fixtures/atelier-html/SOURCE.md).
 const FIXTURES = resolve(ROOT, 'tools/fixtures/atelier-html');
 const read = file => readFileSync(resolve(ROOT, file), 'utf8');

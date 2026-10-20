@@ -3,7 +3,7 @@
 //
 //   node tools/shoot-preview.mjs
 //
-// Q-Atelier 의 playwright 를 빌려 씁니다 (이 저장소는 의존성을 두지 않습니다).
+// playwright 는 Q-Design 자기 package.json 의 것을 씁니다.
 // 서버가 4800 에 떠 있어야 합니다:
 //   python -m http.server 4800 --directory D:/Claude/Q-Design
 
@@ -13,7 +13,7 @@ import { mkdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('D:/Claude/Q-Atelier/node_modules/playwright');
+const { chromium } = require('playwright');
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(HERE, '..', 'preview', 'screens', 'tokens');

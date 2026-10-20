@@ -6,7 +6,7 @@ import {inspectGlobalTypographyLayer,validateTypographyLinks} from './typography
 import {composeFoundation,buildFoundation} from './build-foundation.mjs';
 
 const root='D:/Claude/Q-Design';
-const postcss=createRequire('D:/Claude/Q-Atelier/package.json')('postcss');
+const postcss=createRequire(import.meta.url)('postcss');
 const shared=fs.readFileSync(root+'/patterns/foundation.css','utf8');
 const layer=fs.readFileSync(root+'/patterns/typography-links.css','utf8');
 

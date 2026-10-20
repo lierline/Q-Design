@@ -28,8 +28,8 @@ import { join } from 'node:path';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('D:/Claude/Q-Atelier/node_modules/playwright');
-const { createClient } = require('D:/Claude/Q-Atelier/node_modules/@supabase/supabase-js');
+const { chromium } = require('playwright');
+const { createClient } = require('@supabase/supabase-js');
 
 const OUT = 'D:/Claude/Q-Design/preview/screens/audit/family';
 mkdirSync(OUT, { recursive: true });

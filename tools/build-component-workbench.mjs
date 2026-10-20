@@ -9,7 +9,8 @@ const cache = join(WORKSPACE, 'tmp/qd-component-workbench/cache');
 mkdirSync(cache, { recursive: true });
 process.env.TEMP = cache;
 process.env.TMP = cache;
-const buildRequire = createRequire(join(WORKSPACE, 'Q-Works/package.json'));
+// 빌드 도구(vite · postcss-import)는 Q-Design 자기 것입니다. 제품 부품은 아래 별칭으로 그 제품의 react · tailwind 로 그립니다.
+const buildRequire = createRequire(import.meta.url);
 const { build } = await import(pathToFileURL(buildRequire.resolve('vite')));
 const definitions = [
   { id: 'atelier', repo: 'Q-Atelier', title: 'Q-Atelier' },

@@ -10,7 +10,7 @@ import {fileURLToPath} from 'node:url';
 import {runtimeFiles,hash} from './style-arguments-core.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const targets=[['Q-Atelier','Q-Atelier'],['Q-Works','Q-Works'],['Q-Forge','DHR']];
-let tsModule;const tsLib=()=>tsModule??=createRequire(root+'/../Q-Atelier/package.json')('typescript');
+let tsModule;const tsLib=()=>tsModule??=createRequire(import.meta.url)('typescript');
 export function interfaceIconModules(file,code){
  const ts=tsLib();
  const sf=ts.createSourceFile(file,code,ts.ScriptTarget.Latest,true,file.endsWith('x')?ts.ScriptKind.TSX:ts.ScriptKind.TS);

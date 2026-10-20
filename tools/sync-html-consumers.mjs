@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { relative, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 
-const ts = createRequire(new URL('../../Q-Atelier/package.json', import.meta.url))('typescript');
+const ts = createRequire(import.meta.url)('typescript');
 const portable = value => value.replaceAll('\\', '/');
 const inside = value => value !== '..' && !value.startsWith('../') && !/^[A-Za-z]:/.test(value);
 

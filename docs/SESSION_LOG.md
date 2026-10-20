@@ -4,6 +4,23 @@
 
 ---
 
+## 라이브러리 빌림 끊기 · 2026-10-20
+
+- 군살 빼기의 남은 결합 하나를 끊었다. Q-Design 에 자기 `package.json`(비공개)과 잠금 파일을 두고 개발 의존성 13개를 정확한 판으로 넣었다. 처음 받으면 `npm ci`.
+  판은 Q-Works 가 지금 쓰는 판에 맞췄다(typescript 5.9.3 · postcss 8.5.28 · vite 8.3.2 · postcss-import 17.0.0 · react 19.2.6 · jsdom 25.0.1 · tailwindcss 3.4.19 · prettier 3.8.3 · 플러그인 0.6.14 · supabase-js 2.112.4).
+  앱 아이콘 렌더러는 고정 판 그대로다(playwright 1.62.1 · sharp 0.34.5, 설치 뒤 libvips 8.17.3 · png 1.6.50 · webp 1.6.0 · zlib-ng 2.2.5 까지 고정값과 같음).
+- 빌리던 곳: 도구 30개 파일 35곳(Q-Atelier 26 · Q-Works 9). 모두 `createRequire(import.meta.url)` 또는 맨 이름 `require('playwright')` 로 바꿨다. 앱 아이콘 · 반응형 확인은 `loadIconRuntime(Q-Design)`.
+  일부러 둔 두 곳: 작업대가 제품 부품을 그 제품의 react · tailwind 로 그리는 별칭, 문구 도구가 제품 코드를 그 제품의 prettier 로 맞추는 기본값.
+- 시험 둘을 손봤다. «prettier 없는 제품» 은 Q-Atelier 대신 Q-Design 밖 임시 폴더로 흉내 낸다(Q-Design 안에서는 자기 prettier 가 찾아지므로). 계단 시험의 읽기 감시는 이제 제품 `node_modules` 도 «제품 읽기» 로 센다.
+- 대조: 파일 읽기 · 모듈 찾기를 모두 적는 추적기를 자식 프로세스까지 걸고 검사와 감사를 돌렸다. 제품 `node_modules` 를 연 일 0번(옛 빌림 모양, 곧 제품 `package.json` 에서 모듈 찾기를 같은 추적기가 자식 프로세스에서도 잡는 것을 먼저 확인).
+  재현 26걸음이 전부 저장본과 바이트로 같다(postcss 가 아뜰리에 쪽 8.4.31 에서 8.5.28 로 바뀌었어도). 제품 감사는 걸음별 결과 · 내용이 전과 같다(줄 번호 하나 밀린 것만).
+  작업대 빌드(Q-Design 자기 vite)도 세 제품 모두 돈다.
+  `verify-responsive`(Q-Design 자기 playwright)도 42조합 · 패널 56건 통과로 전과 같다. `npm ci` 로 잠금 파일만 보고 다시 깔아도 같다.
+  로그인이 필요한 손 도구 다섯(audit-family · check-focus · diff-rails · shoot-preview · shoot-rails)은 문법과 모듈 찾기만 봤고 실제로 돌려 보지 않았다.
+  이 다섯은 playwright 가 1.60.0(Q-Atelier 맨 위) 에서 1.62.1 로 바뀐다.
+- 🔴 같은 시각 검사의 빨강은 이 일과 별개다. 원본 2곳(Q-Atelier 가 새로 커밋한 data-source-contract 시험 · audit 화면을 아직 안 받음)은 바꾸기 전부터 빨강이었고,
+  기본 UI 구현 1걸음 · 시험 1건은 12:41 에 다른 작업이 Q-Atelier 의 `lib/design/components.tsx` 를 커밋 없이 고치는 중이라 났다. Q-Atelier 커밋본은 정본과 바이트로 같다.
+
 ## 운영 업무 화면 모바일 직접 검수 · 2026-10-17
 
 - 마무리: 사용자가 현재 조직에서 가능한 범위로 종료하도록 지정했다. 데이터가 없는 상세·수정, 별도 관리자·전문가 권한, 구독 제한 화면은 미검수로 남긴다. 최종 운영 배포는 아뜰리에 `fd4c3867`, 메종 `761f9313`, 카르넷 `192e229` 모두 READY이며 각 운영 도메인 연결을 확인했다. 세 운영 사이트가 제공하는 공통 변수 10개·선택자 7개도 전부 대조 통과했다.

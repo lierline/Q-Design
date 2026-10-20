@@ -5,7 +5,7 @@ import { resolveEmailPalette } from './build-maison-email.mjs';
 import { readInputs } from './build-palette.mjs';
 import { createRequire } from 'node:module';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const postcss = createRequire(resolve(ROOT, '../Q-Atelier/package.json'))('postcss');
+const postcss = createRequire(import.meta.url)('postcss');
 
 export function resolveHtmlMetrics(componentCss, foundationCss) {
   const values = {};

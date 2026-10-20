@@ -18,7 +18,7 @@
 //
 // Q-Atelier 는 매직링크 콜백 라우트가 있어 대리 서버가 필요 없습니다.
 //
-// playwright 는 Q-Atelier 것을 빌려 씁니다 (이 저장소는 의존성을 두지 않습니다).
+// playwright 는 Q-Design 자기 package.json 의 것을 씁니다.
 // =============================================================================
 
 import { readFileSync, mkdirSync } from 'node:fs';
@@ -27,8 +27,8 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('D:/Claude/Q-Atelier/node_modules/playwright');
-const { createClient } = require('D:/Claude/Q-Atelier/node_modules/@supabase/supabase-js');
+const { chromium } = require('playwright');
+const { createClient } = require('@supabase/supabase-js');
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(HERE, '..', 'preview', 'screens', 'rails');

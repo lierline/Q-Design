@@ -6,7 +6,7 @@ import {loadIconRuntime} from './app-icon-runtime.mjs';
 import {browserLaunchOptions} from './browser-launch.mjs';
 const root='D:/Claude/Q-Design',out='D:/Claude/tmp/qd-responsive';
 fs.mkdirSync(out,{recursive:true});
-const {chromium}=loadIconRuntime('D:/Claude/Q-Atelier');
+const {chromium}=loadIconRuntime(root);
 const server=spawn(process.execPath,['tools/serve-component-workbench.mjs'],{cwd:root,env:{...process.env,QD_AUDIT_PORT:'4829'},stdio:['ignore','pipe','pipe'],windowsHide:true});
 let browser;
 try{

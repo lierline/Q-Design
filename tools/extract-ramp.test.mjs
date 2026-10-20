@@ -10,14 +10,14 @@ const read = path => readFileSync(path, 'utf8');
 const PRODUCT = /Claude[\\/]+(?:Q-Atelier|Q-Works|DHR|Lead-Radar)(?![\w-])/i;
 
 // 자식 프로세스에 미리 심는 감시입니다. 경로가 pattern 에 걸리는 파일 읽기와 명령 실행을
-// 표준 오류에 「제품 읽기」 로 남깁니다. 빌려 쓰는 라이브러리(node_modules)는 세지 않습니다.
+// 표준 오류에 「제품 읽기」 로 남깁니다. 제품의 node_modules 도 셉니다(2026-10-20 부터 라이브러리는 Q-Design 자기 것).
 function guard(source) {
   const fs = process.getBuiltinModule('node:fs');
   const cp = process.getBuiltinModule('node:child_process');
   const pattern = new RegExp(source, 'i');
   const note = value => {
     const text = String(value instanceof URL ? value.pathname : value);
-    if (pattern.test(text) && !/node_modules/i.test(text)) fs.writeSync(2, `제품 읽기: ${text}\n`);
+    if (pattern.test(text)) fs.writeSync(2, `제품 읽기: ${text}\n`);
   };
   for (const name of ['readFileSync', 'readdirSync', 'existsSync', 'statSync', 'lstatSync', 'openSync']) {
     const original = fs[name];

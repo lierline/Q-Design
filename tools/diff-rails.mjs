@@ -22,8 +22,8 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('D:/Claude/Q-Atelier/node_modules/playwright');
-const { createClient } = require('D:/Claude/Q-Atelier/node_modules/@supabase/supabase-js');
+const { chromium } = require('playwright');
+const { createClient } = require('@supabase/supabase-js');
 
 const THEME = process.env.THEME === 'light' ? 'light' : 'dark';
 

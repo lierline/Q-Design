@@ -13,8 +13,9 @@
 //    · 사본 대조  Q-Design 이 제품에 써 넣은 파일이 원본과 같은지
 //    제품 코드 전체를 훑어 «쓰이는가 · 지켜지는가» 를 보는 일은 --products 감사로 뺐습니다.
 //    감사는 빨강이 나와도 이 검사를 막지 않습니다. 5단계처럼 제품을 고치는 날 함께 봅니다.
-//    (남은 결합: typescript · react · playwright 같은 라이브러리를 Q-Atelier 의 node_modules 에서 빌려 씁니다.
-//     파일 내용을 읽는 것은 아니지만, Q-Design 이 자기 package.json 을 갖기 전까지 남습니다.)
+//    라이브러리(typescript · postcss · react · playwright 등)는 Q-Design 자기 package.json 의 것입니다(2026-10-20).
+//    제품 node_modules 를 찾는 자리는 일부러 제품 것을 쓰는 두 곳뿐입니다. 작업대(build-component-workbench)가
+//    제품 부품을 그 제품의 react · tailwind 로 그리는 곳, 문구 도구(copy-spacing)가 고친 문구를 그 제품의 정렬기로 맞추는 곳.
 //
 // 걸음은 서로 읽기만 하므로 몇 개씩 함께 돌리고, 결과는 적힌 순서대로 찍습니다.
 // extract-all.mjs --check 가 이 파일을 부릅니다.

@@ -59,8 +59,8 @@ test('Skeleton implementation changes propagate only through the reviewed canoni
  }finally{f.dispose();}
 });
 test('canonical Skeleton variants render their central defaults and preserve explicit caller dimensions',()=>{
- // 정본 사본(patterns)과 가져온 토큰 사본(source/tokens)을 그립니다. 제품 저장소에서는 라이브러리만 빌립니다.
- const product=path.resolve(root,'../Q-Atelier'),require=createRequire(product+'/package.json'),ts=require('typescript'),React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
+ // 정본 사본(patterns)과 가져온 토큰 사본(source/tokens)을 Q-Design 자기 라이브러리로 그립니다.
+ const require=createRequire(import.meta.url),ts=require('typescript'),React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
  const read=file=>fs.readFileSync(root+'/'+file,'utf8');
  const load=(code,deps={})=>{const exports={};vm.runInNewContext(ts.transpileModule(code,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText,{exports,require:name=>Object.hasOwn(deps,name)?deps[name]:require(name)});return exports;};
  const tokens=load(read('source/tokens/tokens.ts')),runtime=readRuntimeValues(root);

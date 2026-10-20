@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 import {permissionCopySource} from './build-permission-copy.mjs';
-const ts=createRequire(path.resolve('D:/Claude/Q-Works/package.json'))('typescript');
+const ts=createRequire(import.meta.url)('typescript');
 const rules=JSON.parse(fs.readFileSync(new URL('../patterns/copy-rules.json',import.meta.url),'utf8'));
 const load=terms=>{const source=ts.transpileModule(permissionCopySource(terms),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;const exports={};Function('exports',source)(exports);return exports.formatPermissionDescription;};
 test('central display term formats descriptions without changing permission codes or inputs',()=>{

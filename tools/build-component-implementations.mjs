@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {hash} from './style-arguments-core.mjs';
 import {COLOR_AUDIT_TARGETS,parseCoverageArgs} from './audit-coverage-imports.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const ts=createRequire(path.resolve(ROOT,'../Q-Atelier/package.json'))('typescript');
+const ts=createRequire(import.meta.url)('typescript');
 const identity={atelier:{key:'Q-Atelier',repo:'Q-Atelier'},maison:{key:'Q-Works',repo:'Q-Works'},carnet:{key:'Q-Forge',repo:'DHR'}};
 const norm=s=>s.replaceAll('\r\n','\n');
 export function checkedImplementationPath(file){

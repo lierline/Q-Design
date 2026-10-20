@@ -91,11 +91,10 @@ import { parseIconTargets, canWriteIconTarget } from './icon-targets.mjs';
 import { resolveIconTitleColor } from './icon-title-color.mjs';
 import { loadIconRuntime, assertIconBrowserVersion, assertIconVersion, assertStoredIconFile } from './app-icon-runtime.mjs';
 
-const APP = 'D:/Claude/Q-Atelier';
-const { chromium, sharp, provenance: renderer, installCommand } = loadIconRuntime(APP);
-
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
+// 렌더러(playwright · sharp)는 Q-Design 자기 package.json 의 고정 판을 씁니다.
+const { chromium, sharp, provenance: renderer, installCommand } = loadIconRuntime(ROOT);
 const OUT = join(ROOT, 'dist', 'app-icons');
 const SRC = join(ROOT, 'source', 'brand', 'logo-dark.png');
 const write = process.argv.includes('--write');

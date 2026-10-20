@@ -10,7 +10,7 @@ import { browserLaunchOptions } from './browser-launch.mjs';
 import { parseIconTargets, canWriteIconTarget } from './icon-targets.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(join(root, '../Q-Atelier/package.json'));
+const require = createRequire(import.meta.url);
 const ts = require('typescript');
 const read = path => readFileSync(join(root, path), 'utf8');
 function alteredReader(relative, mutate) {

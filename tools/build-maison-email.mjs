@@ -4,7 +4,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 import { buildPalettes, readInputs } from './build-palette.mjs';
 const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const require=createRequire(resolve(ROOT,'../Q-Works/package.json'));
+const require=createRequire(import.meta.url);
 const postcss=require('postcss');
 
 // Resolve through the same validated shared override pipeline as the web UI.

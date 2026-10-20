@@ -8,7 +8,7 @@ import {resolveHtmlMetrics} from './build-atelier-html.mjs';
 import {buildNativeBackgrounds,readInputs} from './build-palette.mjs';
 import {nativePaletteRoles,ANDROID_NATIVE_COLORS,assertNativePaletteAliases,assertIosPaletteConsumers,assertIosAppearanceConsumers} from './native-palette-roles.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const postcss=createRequire(path.resolve(ROOT,'../Q-Works/package.json'))('postcss');
+const postcss=createRequire(import.meta.url)('postcss');
 export const NATIVE_OFFLINE=[
   {key:'Q-Atelier',product:'atelier',name:'Q-Atelier',scheme:'qatelier-app',targets:['Q-Atelier-App/app/src/main/assets/offline.html','Q-Atelier-iOS/QAtelier/Resources/offline.html']},
   {key:'Q-Works',product:'maison',name:'Q-Maison',scheme:'maison-app',targets:['Q-Maison-App/app/src/main/assets/offline.html']},

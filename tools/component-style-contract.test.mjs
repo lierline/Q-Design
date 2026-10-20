@@ -9,8 +9,7 @@ import { PARTS } from './sync-parts.mjs';
 // Source contracts complement the real-browser fixtures. They do not claim to
 // measure rendered geometry, contrast, focus behavior, or arbitrary CSS overrides.
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const sibling = dirname(root);
-const require = createRequire(join(sibling, 'Q-Atelier/package.json'));
+const require = createRequire(import.meta.url);
 const postcss = require('postcss');
 const ts = require('typescript');
 const read = path => readFileSync(path, 'utf8');

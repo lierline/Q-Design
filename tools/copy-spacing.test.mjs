@@ -1,5 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
 import {applyBindings,normalizeCopy,termsForFile,relocateCopyBindings,formatProductCopy,mergeCopyBindings} from './copy-spacing.mjs';
 const terms=[{from:'작성중',to:'작성 중'}];
 test('a scoped copy build preserves every unselected product binding',()=>{
@@ -23,14 +26,16 @@ test('a build writes canonical bindings only and leaves product rows for sync',(
 });
 
 test('a product without Prettier preserves source whitespace and explicit line breaks',async()=>{
- const code='const label = "경력 (년)";\r\nconst help = "첫 줄\\n둘째 줄";\r\n';
- assert.equal(await formatProductCopy('D:/Claude/Q-Atelier','app/experts/settings/profile-form.tsx',code),code);
+ // prettier 가 없는 제품을 Q-Design 밖 임시 폴더로 흉내 냅니다. Q-Design 안에서는 자기 node_modules 의 prettier 가 찾아집니다.
+ const code='const label = "경력 (년)";\r\nconst help = "첫 줄\\n둘째 줄";\r\n',bare=mkdtempSync(path.join(tmpdir(),'qd-no-prettier-'));
+ try{assert.equal(await formatProductCopy(bare,'app/experts/settings/profile-form.tsx',code),code);}
+ finally{rmSync(bare,{recursive:true,force:true});}
 });
 
-test('the product formatter resolves its plugins from the product and relocates actual copy',async()=>{
- // 설정은 Q-Works 의 커밋된 .prettierrc.json 을 떠 온 고정 자료에서 읽고, prettier 모듈만 Q-Works 에서 빌립니다.
+test('the product formatter resolves its plugins from the module base and relocates actual copy',async()=>{
+ // 설정은 Q-Works 의 커밋된 .prettierrc.json 을 떠 온 고정 자료에서 읽고, prettier 와 플러그인은 Q-Design 자기 것(Q-Works 와 같은 판)을 씁니다.
  const before='const result = fail(ErrorCodes.VALIDATION, "사용 중인 창고만 선택할 수 있습니다.");';
- const formatted=await formatProductCopy(import.meta.dirname+'/fixtures/copy-spacing/maison','app/(app)/shipping/actions.ts',before,'D:/Claude/Q-Works');
+ const formatted=await formatProductCopy(import.meta.dirname+'/fixtures/copy-spacing/maison','app/(app)/shipping/actions.ts',before,path.resolve(import.meta.dirname,'..'));
  const bindings=[{line:1,kind:'StringLiteral',ordinal:0,original:'"사용중인 창고만 선택할 수 있습니다."',emitted:'"사용 중인 창고만 선택할 수 있습니다."'}];
  const relocated=relocateCopyBindings('copy.ts',before,formatted,bindings);
  assert.equal(relocated[0].line,3);

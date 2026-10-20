@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const postcss = createRequire(join(ROOT, '../Q-Atelier/package.json'))('postcss');
+const postcss = createRequire(import.meta.url)('postcss');
 const normalized = text => text.replaceAll('\r\n', '\n');
 
 export function composeSimulator({ template, components, foundation, palette, recipe, fontResources }) {

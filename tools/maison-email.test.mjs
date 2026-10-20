@@ -9,7 +9,7 @@ import { resolveEmailPalette, buildEmailPalette } from './build-maison-email.mjs
 import { readInputs } from './build-palette.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const require=createRequire(resolve(root,'../Q-Works/package.json'));
+const require=createRequire(import.meta.url);
 const ts=require('typescript');
 const mapping=JSON.parse(readFileSync(join(root,'patterns/foundation/maison-email-palette.json'),'utf8'));
 const palette=resolveEmailPalette(readInputs(root),mapping);

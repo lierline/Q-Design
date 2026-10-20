@@ -10,8 +10,7 @@ import { resolveIconTitleColor } from './icon-title-color.mjs';
 import { PARTS } from './sync-parts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const sibling = dirname(root);
-const require = createRequire(join(sibling, 'Q-Atelier/package.json'));
+const require = createRequire(import.meta.url);
 const postcss = require('postcss');
 const ts = require('typescript');
 const inputs = readInputs();

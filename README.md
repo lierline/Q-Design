@@ -61,8 +61,10 @@ MedQraft 제품군의 디자인 정본입니다. 네 제품이 같은 집안으�
 ## 만들기와 내보내기
 
 입구는 하나입니다. 도구를 하나씩 돌리면 하나를 빠뜨리고, 그러면 일부만 갱신된 채 내보내집니다.
+도구가 쓰는 라이브러리는 이 저장소의 `package.json` 에 판 번호를 고정해 두었습니다. 처음 받으면 `npm ci` 를 한 번 돌립니다.
 
 ```bash
+npm ci                               # 처음 한 번. 제품 저장소의 node_modules 는 빌리지 않습니다
 node tools/extract-all.mjs --check   # 검사 하나(tools/check.mjs). 아무것도 쓰지 않고, 늘 초록이어야 합니다
 node tools/extract-all.mjs           # Q-Design 안의 산출물을 다시 만듭니다
 node tools/extract-all.mjs --sync    # 만든 뒤 제품 저장소로 내보냅니다
