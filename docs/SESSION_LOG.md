@@ -12,7 +12,7 @@
 - 🔑 정본을 커밋하기 전에 `--sync` 하면 제품 판 파일의 `since` · `date` 가 비고 status 가 «커밋 안 됨» 이라 한다. 정본 커밋 뒤 한 번 더 맞추고, 제품 커밋 뒤 `refresh-source --write` 로 `_ORIGIN.json` 을 마지막 커밋에 맞춘다.
 - 사본 따라잡기: Q-Works · DHR 사본, 폰 앱 오프라인 화면(Q-Atelier-App d6d2ad0 · Q-Carnet-App c4f0fce).
 - 검사 35걸음 · 시험 191 초록. 세 제품 사본 대조 시험 통과(아뜰리에 81 · 메종 154 · 카르넷 82).
-- 남은 것: 제품 개발자가 손으로 쓴 주석의 옛 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). Q-Sonar 3조각이 10-10 판에 머묾. 제품 main 푸시는 오너 승인 대기.
+- 남은 것: 제품 개발자가 손으로 쓴 주석의 옛 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). Q-Sonar 3조각이 10-10 판에 머묾. 제품 main 은 오너 승인으로 같은 날 올렸다(Q-Atelier 86df3bb7 · Q-Works 6bae1bfe · DHR a073c47, 버셀 배포 셋 모두 완료). Q-Atelier 는 올리기 전 훅이 시험 둘의 30초 시간 초과로 두 번 막혀 한도만 120초로 늘렸다.
 
 ## 라이브러리 빌림 끊기 · 2026-10-20
 
