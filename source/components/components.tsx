@@ -4263,26 +4263,32 @@ export function StageTimeline({
    */
   fill?: boolean;
 }) {
+  // 담긴 자리가 좁으면(460 미만 · 폰) 연결선을 걷고 두 칸 격자로 접는다(2026-10-20 오너 «모든 컴포넌트 반응형»).
+  // 종전엔 폰에서 가로로 밀어야 마지막 단계가 보였고 날짜가 «2026-10- / 06» 으로 쪼개졌다.
+  // 규칙은 정본 CSS 의 .qd-stage-host 한 곳(대시보드 단계 줄 qd-work-stages 의 폰 두 칸과 같은 결)
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: fill ? "var(--qd-atelier-gap-dfec023665)" : "var(--qd-atelier-gap-ab5acf201a)",
-        minWidth: fill ? undefined : "var(--qd-atelier-min-width-73e2326cbc)",
-        width: fill ? "var(--qd-atelier-width-b7aa1ec004)" : undefined,
-        position: 'relative',
-      }}
-    >
-      {nodes.map((n, i) => (
-        <StageTimelineItem
-          key={n.id}
-          node={n}
-          isLast={i === nodes.length - 1}
-          nodeMinWidth={nodeMinWidth}
-          fill={fill}
-        />
-      ))}
+    <div className="qd-stage-host">
+      <div
+        className="qd-stage-timeline"
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          gap: fill ? "var(--qd-atelier-gap-dfec023665)" : "var(--qd-atelier-gap-ab5acf201a)",
+          minWidth: fill ? undefined : "var(--qd-atelier-min-width-73e2326cbc)",
+          width: fill ? "var(--qd-atelier-width-b7aa1ec004)" : undefined,
+          position: 'relative',
+        }}
+      >
+        {nodes.map((n, i) => (
+          <StageTimelineItem
+            key={n.id}
+            node={n}
+            isLast={i === nodes.length - 1}
+            nodeMinWidth={nodeMinWidth}
+            fill={fill}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -4367,6 +4373,7 @@ function StageTimelineItem({
 
   return (
     <div
+      className="qd-stage-item"
       style={{
         display: 'flex',
         alignItems: 'flex-start',
@@ -4395,6 +4402,7 @@ function StageTimelineItem({
       {/* 연결선: fill 이면 flex:1 로 늘어나 노드 사이를 균등하게 벌림 */}
       {!isLast && (
         <div
+          className="qd-stage-line"
           style={{
             flex: fill ? "var(--qd-atelier-flex-b8d2a02f9a)" : "var(--qd-atelier-flex-8037400c24)",
             width: fill ? 'auto' : "var(--qd-atelier-width-1ea5e112d4)",
