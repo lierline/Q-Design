@@ -4,6 +4,18 @@
 
 ---
 
+## 아뜰리에 전 화면 반응형 훑기 뒤 정본 고침 · 2026-10-20
+
+- 오너 지적 «모든 컴포넌트를 반응형으로 · 이런 네모칸도 사이즈 통일 · 네모 높이 맞춰 줘야 통일성 · 디자인 얘기는 모두 큐 디자인에». Q-Atelier 로컬 스택에서 대표 144곳 · 운영진 27곳을 1920 · 1280 · 768 · 375 로 잰 뒤, 배치 규칙은 모두 정본에 두고 `--sync --only=Q-Atelier` 로만 내보냈다.
+- `patterns/foundation/atelier.css`
+  - `.qa-ld-in`: 상세 한 장 680 · 왼쪽 붙음 → 상세 칸을 채우다 1040 에서 멈춰 가운데. 용어집만 풀던 `:has(.qa-ld-split)` 예외는 걷었다.
+  - `.qd-seg-wrap`: `SegmentedChoice` 의 wrap 배치를 같은 폭 · 같은 높이 칸(가장 긴 칸 기준)으로. 480 미만은 `--qd-seg-min`(minCol) 격자로 접힌다.
+  - `.qd-stage-host` · `.qd-stage-timeline`: `StageTimeline` 이 담긴 자리가 460 미만이면 연결선을 걷고 두 칸 격자(컨테이너 질의). 폰에서 가로로 밀던 흐름도의 뿌리.
+  - `.qa-users-grid`: 운영진 사용자 표(6칸)가 600~1023 에서 고정 폭 넷에 눌려 36px 넘치던 것을 비율 칸 + 칸별 최소 폭으로.
+- `component-implementations/atelier/lib/design/segmented-choice.tsx` · `components.tsx`: 위 클래스를 붙이는 자리만 바꿨다(값은 CSS 한 곳).
+- `docs/06-components.md` 의 SegmentedChoice · ListDetail 설명을 새 동작에 맞췄다.
+- 🔑 정본 CSS 의 값 파일(`atelier-core-values.css`)은 `atelier.css` 규칙보다 뒤에 붙는다. `:root` 변수를 미디어 질의로 덮으려 하면 뒤의 정의가 이긴다. 폭마다 다른 격자는 변수를 덮지 말고 클래스 규칙(`!important`, 인라인 격자를 이겨야 함)으로 둔다.
+
 ## 단계 줄 폰 두 칸 · 2026-10-20 (운영 직접 점검 뒤)
 
 - 오너 지적 «직접 다 보고 수정해 줘야지» 로 운영 Q-Atelier 를 Demo co. 계정으로 PC 1366 · 폰 412 · 375 에서 열어 봤다. `qd-work-stages` 가 폰에서 두 줄로 흐르며 줄 끝마다 세로 괘선이 남았다. `patterns/workspace.css` 의 640 이하 규칙에 두 칸 격자 · 괘선 없음을 더했다. 이 이름은 Q-Atelier 대시보드만 쓴다(메종 · 카르넷은 안 씀).

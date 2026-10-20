@@ -252,17 +252,21 @@ export function SegmentedChoice<V extends string>({
     }
   }
 
+  // wrap(기본)은 같은 크기 칸 묶음이다(2026-10-20 오너 «네모칸 크기 통일»). 칸마다 글자 길이대로 폭이 달라
+  // 들쭉날쭉했다(165 · 173). 이제 가장 긴 칸에 맞춘 같은 폭 · 같은 높이로 서고, 폰에서는 minCol 기준으로 접힌다.
+  // 배치 규칙은 정본 CSS 의 .qd-seg-wrap 한 곳에 있다(미디어 조건은 인라인으로 못 쓴다)
   const containerStyle: CSSProperties =
     layout === 'grid'
       ? { display: 'grid', minWidth: 0, gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${minCol}px), 1fr))`, gap }
       : layout === 'column'
         ? { display: 'flex', flexDirection: 'column', gap }
-        : { display: 'flex', flexWrap: 'wrap', gap };
+        : ({ gap, '--qd-seg-min': `${minCol}px` } as CSSProperties);
 
   return (
     <div
       id={id}
       role="radiogroup"
+      className={layout === 'wrap' ? 'qd-seg-wrap' : undefined}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       aria-readonly={readOnly || undefined}
