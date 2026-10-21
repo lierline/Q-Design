@@ -6,14 +6,13 @@ import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
 import type { JobRole } from '@/lib/permissions';
-import { gateMenusByModules, gateMenusByFeatures, moduleAllowsMenu, MENU_REQUIRED_MODULES } from '@/lib/permissions/module-menus';
+import { gateMenusByModules, gateMenusByFeatures, moduleAllowsMenu, lockedModuleOf } from '@/lib/permissions/module-menus';
 import { isFamilyLinkEnabled } from '@/lib/family-link/gate';
 import { canAccessFieldSurface } from '@/lib/permissions/field-mode';
-import { loadEnabledModules } from '@/lib/subscription/module-gate';
-import { allowedModulesFor, ALL_MODULES, MODULE_LABEL_KR, SELF_SERVE_MODULES } from '@/lib/subscription/plan-policy';
+import { loadScreenModules } from '@/lib/subscription/module-gate';
 import { menuForPath } from '@/lib/nav/menu-for-path';
 import { isPhoneAppRequest, PHONE_COOKIE } from '@/lib/nav/phone-mode';
-import { ModuleLockedNotice } from '@/components/ModuleLockedNotice';
+import { ModuleLockedScreen } from '@/components/ModuleLockedNotice';
 import { PhoneModeGate } from '@/components/PhoneModeGate';
 import { AdminPhoneLanding } from '@/components/AdminPhoneLanding';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
@@ -47,6 +46,7 @@ import { BreakpointsFirstGuess } from '@/lib/hooks/useBreakpoints';
 import { T } from '@/lib/design/tokens';
 import { isOrgOwner } from '@/lib/rules/who';
 import { canDo } from '@/lib/rules/actions';
+import { HUB_MENUS, canEnterHub } from '@/lib/permissions/hub-entry';
 
 // 사이드바 배지 카운트(미읽음 알림, 검토 큐 등)가 매 요청 최신이어야 함
 export const dynamic = 'force-dynamic';
@@ -152,10 +152,8 @@ export default async function AppLayout({
   // 메뉴를 사이드바에서 게이팅. QMS 코어(문서·부적합·CAPA·불만)는 매핑에 없어 항상 노출.
   // medqraft admin 은 운영 계정이라 게이팅 제외(전체 노출).
   // 운영 계정도 PILOT_MODULES 밖의 가지는 못 본다(allowedModulesFor 가 교집합을 낸다).
-  const enabledModules =
-    membership && !isMedqraftAdmin
-      ? await loadEnabledModules(supabase, membership.org_id as string)
-      : allowedModulesFor(ALL_MODULES);
+  // 화면이 스스로 다는 문(현장 모드 guard)도 같은 식(loadScreenModules)을 쓴다.
+  const enabledModules = await loadScreenModules(supabase, membership?.org_id as string | undefined, isMedqraftAdmin);
   // gatedMenus = caps 메뉴에서 비활성 모듈 전속 메뉴를 제거한 단일 진실.
   // 사이드바 가시성(menus prop)·canSee* 플래그·멀티롤 그룹이 모두 이걸 사용(누수 0).
   // 조직별 켜짐 스위치 메뉴(제품 연동, 0436): 운영진이 켠 조직에서만 보인다. 못 읽으면 닫아 둔다(보이지 않는 쪽이 안전).
@@ -179,32 +177,29 @@ export default async function AppLayout({
   // 화면으로 redirect 하지 말 것: 로그인 뒤 router.push 로 들어오면 넘김이 껍데기 조각에 남아 결재함을 끝없이
   // 다시 부른다(2026-09-28 폰 앱 «로그인 뒤 검은 화면»). 잠금: lib/nav/phone-mode.test.ts
 
-  const pathMenu = menuForPath(pathname);
-  const lockedModule: (typeof ALL_MODULES)[number] | null =
-    pathMenu && !moduleAllowsMenu(pathMenu, enabledModules)
-      ? (MENU_REQUIRED_MODULES[pathMenu] ?? [])[0] ?? null
-      : null;
-  const lockedIsOffered = lockedModule != null && (SELF_SERVE_MODULES as string[]).includes(lockedModule);
+  // 🔴 2026-10-21 실측: 이 껍데기는 화면 안 이동(링크 · router.push)에서 다시 그려지지 않는다. 그래서 이 문은
+  //    «주소로 열 때» 만 서고, 화면 안에서 옮겨 가면 열린 채 지나가거나 이미 띄운 안내가 남는다. 화면이 스스로
+  //    다는 문(현장 모드 app/(app)/m/guard.tsx 의 fieldModuleLock)이 같은 판정(lockedModuleOf)을 한 번 더 한다.
+  const lockedModule = lockedModuleOf(menuForPath(pathname), enabledModules);
 
   // 감사 추적: owner(L110) 외에 bundle sidebarMenus 에 'audit' 가진 직무
   // (RA/QA·Lead·R&D 팀장)도 메뉴 노출. page 가드(audit/page.tsx)와 동기.
   if (!isExpert && gatedMenus.has('audit')) canSeeAudit = true;
-  const canSeeResearch = gatedMenus.has('research');
-  const canSeeRAWorkspace = gatedMenus.has('ra-workspace');
-  const canSeeQAWorkspace = gatedMenus.has('qa-workspace');
-  // 생산 워크스페이스: 현장 모드 허브. 모듈(production 가지) ∩ 직무 번들로 이미 걸러진다.
-  const canSeeProduction = gatedMenus.has('field-mode');
+  // 부서 허브(R&D · RA · QA · 생산) 중 이 사람이 «들어갈 수 있는» 곳: 화면의 문지기와 같은 판정(hub-entry).
+  // 사이드바는 이것으로 연계 부서 이름을 허브 링크로 만든다(2026-10-21 · 종전 canSee* 넷은 사이드바가 읽지 않았다).
+  const enterableHubs = HUB_MENUS.filter(
+    (h) => moduleAllowsMenu(h, enabledModules) && canEnterHub({ profile, orgRole: role }, h),
+  );
   // 임상평가는 RA Phase 3(2026-06-07) 흐름 일원화로 사이드바 진입점 철수
   // (clinical 직무 deprecate + 임상문서 category:'ra'). 목록은 읽기전용 코크핏 유지,
   // 작성=제품 흐름 「작업대 열기」, 감시=RA 워크스페이스(/ra)·대시보드 위젯.
-  const isOrgAdmin = isOrgOwner(role);
-  // ISO 13485 자가 점검: bundle 의 menus 에 'compliance' 가 있거나 owner/admin.
-  // ★ owner OR 분기도 모듈 게이팅: RA/QA 모듈 미구매 조직의 owner 에게 노출되는 누수 차단.
+  // 🔴 2026-10-21 전수 감사: 아래 두 메뉴는 «번들에 메뉴가 있는가» 를 물었고 화면은 동작 규칙을 물었다.
+  //    그래서 RA 팀장에게 「적합성 점검」, 임상 직무에게 「변경평가」 가 보였는데 누르면 막혔다.
+  //    메뉴도 화면과 같은 규칙(compliance.manage · assessment.view)을 묻는다. 모듈 문은 그대로.
   const canSeeCompliance =
-    (gatedMenus.has('compliance') || isOrgAdmin) && moduleAllowsMenu('compliance', enabledModules);
-  // 변경평가: bundle 의 menus 에 'assessments' 가 있거나 owner/admin (모듈 게이팅 동일).
+    canDo({ profile, orgRole: role }, 'compliance.manage') && moduleAllowsMenu('compliance', enabledModules);
   const canSeeAssessments =
-    (gatedMenus.has('assessments') || isOrgAdmin) && moduleAllowsMenu('assessments', enabledModules);
+    canDo({ profile, orgRole: role }, 'assessment.view') && moduleAllowsMenu('assessments', enabledModules);
   // 대표/임원 간소화(결제 · 구독 메뉴): 동작 규칙 billing.manage(exec 직무 또는 조직 소유자). admin 은 별도.
   const isOwnerExec = !isMedqraftAdmin && canDo({ profile, orgRole: role }, 'billing.manage');
 
@@ -331,10 +326,7 @@ export default async function AppLayout({
         role={role}
         plan={plan}
         canSeeAudit={canSeeAudit}
-        canSeeResearch={canSeeResearch}
-        canSeeRAWorkspace={canSeeRAWorkspace}
-        canSeeQAWorkspace={canSeeQAWorkspace}
-        canSeeProduction={canSeeProduction}
+        enterableHubs={enterableHubs}
         canSeeCompliance={canSeeCompliance}
         canSeeAssessments={canSeeAssessments}
         isMedqraftAdmin={isMedqraftAdmin}
@@ -412,25 +404,7 @@ export default async function AppLayout({
           {/* 운영진(직무 admin)은 폰 앱에서도 모든 화면을 안내 없이 연다(오너 결정 2026-09-28 · 즉시 대응) */}
           <PhoneModeGate initialPhone={phoneApp} unrestricted={isMedqraftAdmin}>
           {lockedModule ? (
-            <ModuleLockedNotice
-              title={MODULE_LABEL_KR[lockedModule]}
-              moduleId={lockedModule}
-              offered={lockedIsOffered}
-              canActivate={lockedIsOffered && canDo({ profile, orgRole: role }, 'modules.toggle')}
-              /* 화면 검토 A72 · 2026-09-27: 「첫 판매 · 가지 · 세 기둥」 은 파는 쪽의 말이었다. 고객이 알아듣는 말로,
-                 알려 달라면 알릴 길(도입 문의)을 함께 둔다(ModuleLockedNotice 의 offered=false 갈래). */
-              headline={
-                lockedIsOffered
-                  ? `${MODULE_LABEL_KR[lockedModule]} 업무를 시작할 준비가 되면 켜십시오`
-                  : `${MODULE_LABEL_KR[lockedModule]} 기능은 지금 제공하지 않습니다`
-              }
-              description={
-                lockedIsOffered
-                  ? '이 화면의 업무 기능이 비활성화되어 있습니다. 기능을 활성화하면 메뉴와 화면을 이용할 수 있습니다.'
-                  // «세 기둥 · 가지» 는 사내 비유라 고객 말로. 아래 주 단추가 «도입 문의» 다 (화면 검토 A31 · A72 · 2026-09-27)
-                  : '지금은 제품 개발 · 품질 · 인허가 관리 기능을 제공합니다. 이 기능이 필요하면 아래 「도입 문의」로 알려 주십시오.'
-              }
-            />
+            <ModuleLockedScreen moduleId={lockedModule} canToggle={canDo({ profile, orgRole: role }, 'modules.toggle')} />
           ) : (
             children
           )}

@@ -65,6 +65,17 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
     expect(block).toMatch(/\.qa-touch-hit\s*\{\s*position:\s*relative;/);
     expect(block).toMatch(/\.qa-touch-hit::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*-10px -6px;/);
   });
+
+  it('qa-touch-hit-end 는 줄 끝 단추의 누르는 자리를 오른쪽 끝에 맞춰 왼쪽으로 · 세로는 가운데로 44 까지 넓힌다', () => {
+    expect(block).toMatch(/\.qa-touch-hit-end\s*\{\s*position:\s*relative;/);
+    const after = /\.qa-touch-hit-end::after\s*\{([^}]*)\}/.exec(block)?.[1] ?? '';
+    const half = 'min\\(0px, calc\\(\\(100% - var\\(--qd-control-height, 44px\\)\\) / 2\\)\\)';
+    expect(after).toMatch(/content:\s*'';\s*position:\s*absolute;/);
+    expect(after).toMatch(new RegExp(`top:\\s*${half};`));
+    expect(after).toMatch(/right:\s*0;/);
+    expect(after).toMatch(new RegExp(`bottom:\\s*${half};`));
+    expect(after).toMatch(/left:\s*min\(0px, calc\(100% - var\(--qd-control-height, 44px\)\)\);/);
+  });
 });
 
 describe('공용 부품이 이름표를 단다', () => {
@@ -79,6 +90,10 @@ describe('공용 부품이 이름표를 단다', () => {
     // 2026-09-27: 켜고 끄는 선택 칩(ChoiceChip)이 같은 파일에 더해졌다 (화면 검토 A11 · A62)
     ['lib/design/segmented-choice.tsx', /className="qa-touch-44(?: [^"]*)?"/g, 2, '둘 중 고르기 · 선택 칩'],
     ['components/PageGuide.tsx', /className="qa-touch-hit"/g, 1, '이 페이지 사용법'],
+    // 2026-10-21: 연계 부서 이름이 허브 링크가 되어(2778f8e1) 화살표를 빗맞히면 다른 화면으로 넘어갔다
+    ['components/Sidebar.tsx', /className="qa-touch-hit-end"/g, 1, '부서 줄 펼침 화살표'],
+    // 허브 없는 부서 이름(펼치기 단추)은 40 으로 그려져, 줄이 44 가 아니면 화살표의 44 가 옆 줄과 겹친다
+    ['components/Sidebar.tsx', /className="qa-touch-44"/g, 1, '허브 없는 부서 이름'],
     // 2026-10-07: «위젯 편집» 토글이 공용 선택 칩(ChoiceChip · qa-touch-44)이 되어 이 파일에는 qa-touch-hit 가 남지 않는다
     ['components/dashboard/CustomizableWidgetBoard.tsx', /className="qa-touch-hit"/g, 0, '위젯 편집(이제 ChoiceChip 이 이름표를 든다)'],
     ['lib/design/components.tsx', /className="qa-touch-44(?: [^"]*)?"/g, 1, '거르기 칩(FilterChip)'],

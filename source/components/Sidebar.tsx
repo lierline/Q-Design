@@ -62,13 +62,11 @@ interface SidebarProps {
   role: string;
   plan: string;
   canSeeAudit: boolean;
-  canSeeResearch?: boolean;
-  /** RA 워크스페이스 (RA 전용): 허가 준비 + 허가 후 변경 통합 */
-  canSeeRAWorkspace?: boolean;
-  /** QA 워크스페이스 (QA 전용): R&D QMS 검토 + 변경평가 QA 의견 */
-  canSeeQAWorkspace?: boolean;
-  /** 생산 워크스페이스: 현장 모드 허브(§7.4.3·§7.5·§8.3·§8.2.6). */
-  canSeeProduction?: boolean;
+  /**
+   * 들어갈 수 있는 부서 허브(research · ra-workspace · qa-workspace · field-mode). 레이아웃이 화면의
+   * 문지기와 같은 판정(lib/permissions/hub-entry)으로 계산한다. 연계 부서 이름은 여기 있으면 허브 링크다.
+   */
+  enterableHubs?: SidebarMenuId[];
   /** ISO 13485 자가 점검 (owner/admin/QA/RA/medqraft_admin) */
   canSeeCompliance?: boolean;
   /** 변경평가 메뉴 (RA/QA/owner/admin/exec/medqraft_admin): R&D 는 숨김 */
@@ -365,6 +363,7 @@ function SidebarBody({
   unreadMessages = 0,
   sidebarGroups,
   menus = [],
+  enterableHubs = [],
   isOnboarding = false,
   theme,
   mode,
@@ -497,6 +496,12 @@ function SidebarBody({
     { group: 'qms', label: 'QA', icon: ClipboardCheck, hub: 'qa-workspace', hubHref: '/qa' },
     { group: 'production', label: '생산', icon: HardHat, hub: 'field-mode', hubHref: '/m' },
   ];
+  // 🔑 2026-10-21 오빠 지적: 「대표 계정에서 R&D 를 누르면 메뉴 온오프밖에 안 된다」.
+  //    대표는 네 부서 화면에 모두 들어가는데(운영 실측) 경영진 번들에는 허브 메뉴가 없어
+  //    (exec-sidebar-contract) 연계 부서 이름이 펼침 단추로만 동작했다. «들어갈 수는 있는데 가는 길이 없는» 형태다.
+  //    이제 연계 부서 이름은 «그 허브 화면에 들어갈 수 있으면» 허브 링크다. 판정은 화면의 문지기와 같은 규칙
+  //    (lib/permissions/hub-entry → 레이아웃이 enterableHubs 로 넘김). 화살표는 펼치기만 한다. 번들은 그대로.
+  const hubOpen = new Set<SidebarMenuId>(enterableHubs);
   /** 허브가 없어 갈 곳이 없던 모듈들을 부서별로 묶은 것. 비어 있는 부서는 빠진다. */
   const leftoverByDept = DEPT_META.map((d) => ({
     ...d,
@@ -650,10 +655,11 @@ function SidebarBody({
             {/* 허브가 없어 갈 곳이 없던 도메인 모듈: 「관련 모듈」이라는 한 통에 쏟지 않고
                 **부서별로 나눠** 보여 준다(2026-08-21). 이름이 있어야 찾을 수 있다. */}
             {leftoverByDept.length > 0 && (
-              <CollapsibleNavGroup label="연계 부서" groupKey="multi-linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={hrefsOf(leftoverByDept.flatMap((d) => d.modules))}>
+              <CollapsibleNavGroup label="연계 부서" groupKey="multi-linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={[...leftoverByDept.filter((d) => hubOpen.has(d.hub)).map((d) => d.hubHref), ...hrefsOf(leftoverByDept.flatMap((d) => d.modules))]}>
                 {leftoverByDept.map((d) => (
                   <WorkspaceNavGroup
                     key={d.group}
+                    hubHref={hubOpen.has(d.hub) ? d.hubHref : undefined}
                     label={d.label}
                     icon={d.icon}
                     modules={d.modules}
@@ -783,12 +789,17 @@ function SidebarBody({
                   const mods = hasHubMenu
                     ? workspaceModules[d.hub] ?? []
                     : leftoverModules.filter((m) => NAV_ITEMS[m]?.group === d.group);
+                  // 들어갈 수 있는 허브는 연계 부서 이름이 곧 허브 링크라 모듈 줄로 한 번 더 넣지 않는다.
+                  // 🔑 부서가 «새로» 생기지는 않는다: 종전에 허브 한 줄만 담던 부서(품질의 생산 · /m)가 남을 뿐이다.
+                  const hubAsLabel = hubOpen.has(d.hub);
                   return {
                     ...d,
                     mineDept,
-                    modules: mineDept || !hasHubMenu ? mods : [d.hub, ...mods],
+                    hubAsLabel,
+                    keepForHub: hasHubMenu && hubAsLabel,
+                    modules: mineDept || !hasHubMenu || hubAsLabel ? mods : [d.hub, ...mods],
                   };
-                }).filter((d) => d.mineDept || d.modules.length > 0);
+                }).filter((d) => d.mineDept || d.modules.length > 0 || d.keepForHub);
                 if (depts.length === 0) return null;
                 // ★ 소속을 그룹으로 가른다(2026-08-21, 오빠 지적: 「이 계정 QA 권한이
                 //   없는 계정 아니야?」). 허브 보유 = **내 부서**, 모듈만 있음 = **연계**.
@@ -819,11 +830,13 @@ function SidebarBody({
                     {linked.length > 0 && (
                       /* 연계 부서: 내 부서는 아니지만 접근 권한이 있는 도메인.
                          라벨이 링크가 아니라 표제인 이유가 여기 있다(허브에 못 들어간다).
+                         단, 그 허브에 들어갈 수 있으면(대표 · 경영진 등) 라벨이 허브 링크다(위 hubOpen).
                          기본 접힘: 내 부서보다 뒤에 있고 자주 쓰지 않는다. */
-                      <CollapsibleNavGroup label="연계 부서" groupKey="linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={hrefsOf(linked.flatMap((d) => d.modules))}>
+                      <CollapsibleNavGroup label="연계 부서" groupKey="linked-depts" collapsed={collapsedNav} defaultOpen={false} activeHrefs={[...linked.filter((d) => d.hubAsLabel).map((d) => d.hubHref), ...hrefsOf(linked.flatMap((d) => d.modules))]}>
                         {linked.map((d) => (
                           <WorkspaceNavGroup
                             key={d.group}
+                            hubHref={d.hubAsLabel ? d.hubHref : undefined}
                             label={d.label}
                             icon={d.icon}
                             modules={d.modules}
@@ -1580,9 +1593,12 @@ function WorkspaceNavGroup({
             <NavLink href={hubHref} label={label} icon={icon} collapsed={false} />
           ) : (
             /* 허브 화면이 없는 부서: 라벨을 누르면 펼침/접힘. NavLink 와 **같은 치수**로
-               그려야 형제 부서와 계층이 나란히 보인다(패딩·간격·글자·아이콘 크기 일치). */
+               그려야 형제 부서와 계층이 나란히 보인다(패딩·간격·글자·아이콘 크기 일치).
+               단추는 링크보다 4px 낮게 그려진다(40). 터치 화면에서는 qa-touch-44 로 44 에 맞춘다. 줄이 40 이면
+               옆 화살표의 누르는 자리(44)가 위아래 줄과 2px 씩 겹쳐 42 만 남았다(2026-10-21 폰 실측). */
             <button
               type="button"
+              className="qa-touch-44"
               onClick={toggle}
               aria-expanded={open}
               style={{
@@ -1621,8 +1637,11 @@ function WorkspaceNavGroup({
             </button>
           )}
         </div>
+        {/* 화살표는 펼치기만 한다. 터치 화면에서는 모양(30×34)은 두고 누르는 자리만 44×44 로 넓힌다(qa-touch-hit-end).
+            빗맞히면 옆 이름 링크를 눌러 다른 화면으로 넘어갔다(2026-10-21 폰 실측). */}
         <button
           type="button"
+          className="qa-touch-hit-end"
           onClick={toggle}
           aria-expanded={open}
           aria-label={`${label} 모듈 ${open ? '접기' : '펼치기'}`}
