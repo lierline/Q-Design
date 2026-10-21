@@ -661,8 +661,10 @@ h1:where(:not(.qd-page-head-title)) { letter-spacing: -0.025em; font-weight: var
  *    지워진다(실측 2026-09-25 · 여섯 모두 outline none). 정본이 고리를 거는 이름은
  *    check-nav 4e 가 정본 사본에서 읽어 이 목록과 대조한다 - 정본이 늘면 여기서 운다.
  *    (같은 날 정본이 「검색 지우기」(.qd-filter-clear)에도 고리를 걸어 실제로 울었고 목록에 더했다)
+ *    (2026-10-21 숫자 띠 칸(.qd-work-metric-link)도 더했다. 정본은 그 고리를 글자가 아니라 칸
+ *    둘레(::after)에 건다. 빼지 않으면 이 고리가 글자 둘레에 한 겹 더 생긴다)
  */
-:focus-visible:where(:not(.qd-btn, .qd-input, .qd-tab, .qd-pager-btn, .qd-filter-input, .qd-filter-select, .qd-filter-submit, .qd-filter-clear, .qd-empty-hint)) { outline: none; box-shadow: var(--ring); }
+:focus-visible:where(:not(.qd-btn, .qd-input, .qd-tab, .qd-pager-btn, .qd-filter-input, .qd-filter-select, .qd-filter-submit, .qd-filter-clear, .qd-empty-hint, .qd-work-metric-link)) { outline: none; box-shadow: var(--ring); }
 
 /* Supplier rate editing keeps a complete native date visible. The item and
    supplier can wrap before the price/date pair becomes narrower than its inputs. */
