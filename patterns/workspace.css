@@ -60,6 +60,28 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-workspace .qd-work-summary[data-cols='4'] { grid-template-columns: repeat(4,minmax(0,1fr)); }
 .qd-workspace .qd-work-summary[data-cols] .qd-work-metric:first-child { padding-left: 0; }
 .qd-workspace .qd-work-metric .qd-work-metric-sub { margin-top: 8px; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--qd-subtle); }
+/* 지표 칸 막대 · 범례(2026-10-21 오너 결정 «시안 A»): 큰 숫자 아래 얇은 막대 하나와 같은 색 점의 범례 한 줄.
+   막대 조각 · 점의 색은 화면이 아래 구역과 같은 표에서 넣는다(style). 여기는 길이 · 굵기 · 간격만 쥔다.
+   dd 기본 규칙(큰 숫자 30 · 굵게)과 dd span 규칙(단위 13 · 흐림)을 이겨야 해서 .qd-work-metric 을 한 번 더 적는다 */
+.qd-workspace .qd-work-metric .qd-work-meter { position: relative; margin-top: 14px; height: 6px; font-size: 0; line-height: 0; }
+.qd-workspace .qd-work-metric .qd-work-meter-track { display: flex; gap: 2px; height: 6px; margin-left: 0; border-radius: 3px; overflow: hidden; background: var(--qd-border); }
+.qd-workspace .qd-work-metric .qd-work-meter-track > i { display: block; flex: 1 1 0; min-width: 0; height: 100%; }
+.qd-workspace .qd-work-metric .qd-work-meter-mark { position: absolute; top: -3px; width: 2px; height: 12px; margin-left: -1px; border-radius: 1px; background: var(--qd-text); }
+.qd-workspace .qd-work-metric .qd-work-legend { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 10px; font-size: 13px; line-height: 1.5; font-weight: 400; color: var(--qd-subtle); }
+.qd-workspace .qd-work-metric .qd-work-legend > span { margin-left: 0; font-size: inherit; font-weight: inherit; color: inherit; white-space: nowrap; }
+.qd-workspace .qd-work-metric .qd-work-legend b { font-weight: 600; color: var(--qd-text); font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-metric .qd-work-legend-dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; vertical-align: 1px; }
+/* 누르면 아래 구역으로 가는 칸: 칸 이름 링크를 칸 전체로 늘린다. 이름 앞 번호는 그 구역 머리 번호와 같은 값 */
+.qd-workspace .qd-work-metric[data-go] { position: relative; }
+.qd-workspace .qd-work-metric .qd-work-metric-head { display: flex; align-items: baseline; gap: 8px; }
+.qd-workspace .qd-work-metric .qd-work-metric-no { font-family: var(--qd-font-mono); font-size: 11px; font-weight: 500; color: var(--qd-accent); font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-metric .qd-work-metric-link { color: inherit; text-decoration: none; transition: color .15s; }
+.qd-workspace .qd-work-metric .qd-work-metric-link::after { content: ''; position: absolute; inset: 0; }
+.qd-workspace .qd-work-metric .qd-work-metric-link:focus-visible { outline: none; }
+.qd-workspace .qd-work-metric .qd-work-metric-link:focus-visible::after { outline: var(--qd-focus-outline-width) solid var(--qd-accent); outline-offset: 4px; border-radius: var(--qd-radius); }
+.qd-workspace .qd-work-metric .qd-work-metric-go { margin-left: auto; font-size: 12px; color: var(--qd-muted); white-space: nowrap; transition: color .15s; }
+.qd-workspace .qd-work-metric[data-go]:hover :is(.qd-work-metric-link, .qd-work-metric-go),
+.qd-workspace .qd-work-metric[data-go]:has(.qd-work-metric-link:focus-visible) :is(.qd-work-metric-link, .qd-work-metric-go) { color: var(--qd-text); }
 /* 번호 붙은 괘선 구역: 상자 없이 쌓는 현황 구역. 번호는 보이는 차례대로 CSS 가 센다(숨기거나 빈 구역은 건너뛴다) */
 .qd-workspace .qd-work-sections { counter-reset: qd-work-section; }
 .qd-workspace .qd-work-sections-list { display: flex; flex-direction: column; gap: 40px; }
@@ -184,7 +206,12 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
   .qd-workspace .qd-work-metric dd { font-size: 26px; }
   .qd-workspace .qd-work-metric p { display: none; }
   .qd-workspace .qd-work-summary:not([data-cols]) .qd-work-metric-sub,
-  .qd-workspace .qd-work-summary[data-cols='3'] .qd-work-metric-sub { display: none; }
+  .qd-workspace .qd-work-summary[data-cols='3'] .qd-work-metric-sub,
+  .qd-workspace .qd-work-summary:not([data-cols]) .qd-work-legend,
+  .qd-workspace .qd-work-summary[data-cols='3'] .qd-work-legend { display: none; }
+  /* 폰에서는 칸 전체가 누르는 자리라 «보기 →» 글귀를 걷고 범례를 한 단 줄인다 */
+  .qd-workspace .qd-work-metric .qd-work-metric-go { display: none; }
+  .qd-workspace .qd-work-metric .qd-work-legend { gap: 2px 8px; font-size: 12px; }
   /* 네 칸은 두 줄 두 칸이 된다. 칸이 넓어지므로 부제를 남긴다 */
   .qd-workspace .qd-work-summary[data-cols='4'] { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .qd-workspace .qd-work-summary[data-cols='4'] .qd-work-metric { padding: 14px 14px 16px; }
