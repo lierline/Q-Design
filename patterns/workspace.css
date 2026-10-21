@@ -74,7 +74,7 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 /* 누르면 아래 구역으로 가는 칸: 칸 이름 링크를 칸 전체로 늘린다. 이름 앞 번호는 그 구역 머리 번호와 같은 값 */
 .qd-workspace .qd-work-metric[data-go] { position: relative; }
 .qd-workspace .qd-work-metric .qd-work-metric-head { display: flex; align-items: baseline; gap: 8px; }
-.qd-workspace .qd-work-metric .qd-work-metric-no { font-family: var(--qd-font-mono); font-size: 11px; font-weight: 500; color: var(--qd-accent); font-variant-numeric: tabular-nums; }
+.qd-workspace .qd-work-metric .qd-work-metric-no { font-family: var(--qd-font-mono); font-size: 12px; font-weight: 500; color: var(--qd-accent); font-variant-numeric: tabular-nums; }
 .qd-workspace .qd-work-metric .qd-work-metric-link { color: inherit; text-decoration: none; transition: color .15s; }
 .qd-workspace .qd-work-metric .qd-work-metric-link::after { content: ''; position: absolute; inset: 0; }
 .qd-workspace .qd-work-metric .qd-work-metric-link:focus-visible { outline: none; }
