@@ -473,6 +473,7 @@ padding 14px 6px · minHeight 68 · gap 14
 background transparent · 아래 1px 괘선만 · radius 0 · 전환 background 160ms
 아이콘 칩 36×36 원형 · 코드 mono 12 champagne · 제목 14 medium 한 줄 · 보조 13 subtle
 누를 수 있으면 qa-row-clickable (올리면 surface2)
+expanded → 펼치는 줄이면 지금 펼쳐졌는지 aria-expanded 로 알림 · 누를 수 있는 줄에만 붙음
 ```
 
 항목 행은 상자가 아니라 괘선 행입니다(오너 결정 2026-09-27 «문서 결»). 상태는 왼쪽 색 띠가 아니라 배지와 글귀로 나타냅니다.
@@ -647,6 +648,8 @@ WCAG 2.4.1 (Bypass Blocks). 평소엔 화면 밖, Tab 하면 나타납니다.
 
 ## 바꾸는 절차
 
+언제 시안을 먼저 받는지, 걸음마다 무엇을 재야 끝났다고 보는지는 [10장 «고치고 키우는 흐름»](10-rules.md)에 있습니다. 이 절은 명령만 적습니다.
+
 1. **고칠 원본을 고릅니다.** 위 «원본과 책임» 표대로입니다. 부품 치수 · 상태는 `patterns/components.css`, 기반은 `patterns/foundation.css` · `patterns/foundation/`, 화면 색은 `patterns/palette-overrides.json` · `patterns/palette-mappings.json`, 업무 화면 조합은 `patterns/workspace.css`, 마크업 · 접근성은 `patterns/component-implementations/` 입니다.
 2. **Q-Design 안에서 만들고 맞춰 봅니다.** 명령은 `D:/Claude/Q-Design` 에서 실행합니다.
 
@@ -664,7 +667,8 @@ WCAG 2.4.1 (Bypass Blocks). 평소엔 화면 밖, Tab 하면 나타납니다.
 
 제품 사본은 손으로 고치지 않습니다. 제품 저장소에 쓰는 길은 `node tools/extract-all.mjs --sync` 하나입니다(군살 빼기 결정 3, 2026-10-16). 어느 조각이 어느 제품 파일로 가는지는 [tools/sync-parts.mjs](../tools/sync-parts.mjs) 가 정합니다.
 
-내보낼 때 제품마다 판 파일 `q-design.version.json` 을 함께 씁니다. 제품 시험이 «내 사본의 지문 = 판 파일» 을 대조하므로, 사본을 손으로 고치면 제품 시험이 실패합니다. `node tools/status.mjs` 는 제품마다 판 파일이 지금 정본과 같은지, 제품 사본과 같은지, 원격 main 에 올라갔는지를 봅니다. 파일을 복사한 것만으로 적용이 끝났다고 판단하지 않습니다.
+내보낼 때 제품마다 판 파일 `q-design.version.json` 을 함께 씁니다. 제품 시험이 «내 사본의 지문 = 판 파일» 을 대조하므로, 사본을 손으로 고치면 제품 시험이 실패합니다.
+2026-10-22 부터 판 파일은 공용 부품 파일(기본 UI 구현)의 확인값도 듭니다. 제품에서 부품 파일을 고치면 제품 시험이 실패하고, 내보내기는 그 파일을 덮지 않고 멈춥니다. 급해서 제품에서 먼저 고쳤으면 커밋한 뒤 `node tools/build-component-implementations.mjs --adopt --only=제품` 으로 정본에 받고 다시 내보냅니다. `node tools/status.mjs` 는 제품마다 판 파일이 지금 정본과 같은지, 제품 사본과 같은지, 원격 main 에 올라갔는지를 봅니다. 파일을 복사한 것만으로 적용이 끝났다고 판단하지 않습니다.
 
 - `extract-all` 은 맨 앞에서 `source/` 를 원본 저장소의 커밋된 내용으로 다시 맞춥니다. 커밋하지 않은 제품 수정을 전달하는 데 쓰지 않습니다.
 - 제품의 CSS 변수 변경은 로드된 CSS 로 바로 적용되고, Tailwind preset 과 정적 인쇄 값 변경은 제품 빌드를 거쳐 적용됩니다. 설치 앱에 들어가는 변경은 재빌드 · 서명 · 배포가 필요합니다.
