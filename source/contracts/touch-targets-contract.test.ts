@@ -122,7 +122,7 @@ describe('공용 부품이 이름표를 단다', () => {
     // 2026-10-22 폰 실측(누르는 자리를 elementFromPoint 로 찍어 잼): 여러 화면이 함께 쓰는 작은 링크 · 단추
     ['components/RaStatusNotice.tsx', /className="qa-touch-hit"/g, 1, '「제품 R&D 흐름 열기」(인허가 여섯 화면)'],
     ['components/calendar/CalendarClient.tsx', /className="qa-touch-44 qa-touch-hit"/g, 1, '달 넘기기 ◀ · ▶ · 오늘(폭 31)'],
-    ['app/(app)/m/field-ui.tsx', /className="qa-touch-hit"/g, 1, '현장 화면 마무리 링크(38)'],
+    ['app/(app)/m/field-ui.tsx', /className="qa-touch-hit"/g, 3, '현장 화면 머리 돌아가기 링크 · 단추(38), 마무리 링크(38)'],
   ])('%s', (file, re, count, what) => {
     expect((readSource(file).match(re) ?? []).length, what).toBe(count);
   });
