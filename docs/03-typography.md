@@ -243,8 +243,17 @@ textTransform: labelCase(children),
 - **`textTransform` 은 `undefined` 가 아니라 `'none'` 을 적어야 합니다.** 상속 속성이라 자기 값을 안 적으면 부모의 `uppercase` 가 그대로 내려옵니다. 그래서 `labelCase()` 를 씁니다.
 - **자간을 0 으로 해도 어절 공백이 남습니다.** 모노 체인에서 공백은 JetBrains Mono 가 그려 Pretendard 공백보다 두 배 넘게 넓습니다. `labelWordSpacing()` 이 그 폭을 좁힙니다.
 
-계약(Q-Atelier `lib/design/label-tracking-contract.test.ts`)이 강제합니다:
-**uppercase 근처에 raw `letterSpacing` 리터럴이 있으면 실패**합니다.
+계약(Q-Atelier `lib/design/label-tracking-contract.test.ts`)이 두 겹으로 강제합니다.
+
+- **1부**: `lib/design/components.tsx` 에서 **uppercase 근처에 raw `letterSpacing` 리터럴이 있으면 실패**합니다.
+- **2부**(2026-10-22): `app/` · `components/` 의 모든 .tsx 를 구문 트리로 훑습니다. `var(--qd-…)` 토큰과 `QDText.tracking.*` 까지 px 로 풀어,
+  **0.3px 넘는 양수 자간이 걸린 글귀가 한글이면 실패**합니다. 글귀는 끝까지 따라갑니다:
+  함수가 돌려준 객체의 속성(`resolveKind(k).label`), 부품을 부르는 곳이 넘긴 props(`<Field hint="선택" />`),
+  배열을 도는 콜백의 원소(`OPTIONS.map((o) => o.label)`), 매개변수의 타입.
+  그래도 정할 수 없는 자리(DB 에서 온 코드 · 날짜 등)는 «모름» 으로 세어 시험 파일 안의 파일별 기준선(`UNKNOWN_BASELINE`)과 맞춥니다.
+  새 파일에 «모름» 이 생기면 실패하고, 실패 메시지가 붙여 넣을 기준선을 그대로 보여 줍니다.
+
+1부만 있던 때는 `"var(--qd-atelier-letter-spacing-…)"` 꼴의 자간을 읽지 못해 운영 화면의 한글 자간을 놓쳤습니다(거짓 초록).
 
 > 이 규칙은 한국어 UI 를 만드는 어느 프로젝트에나 그대로 옮길 가치가 있습니다.
 > CJK 전반에 해당합니다.

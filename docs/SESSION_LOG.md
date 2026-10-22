@@ -444,6 +444,8 @@
 - dev 3600 실화면(1440 · 412): 왼쪽 강조선 0 · 12px 미만 글자 0 · 가로 넘침 0.
   🔴 대시보드 R&D 단계 이름표에 한글 자간 1.2px + 대문자 변환(Q-Atelier `components/OwnerResearchPipelineClient.tsx`), «시행» 꼬리표 0.48px.
   `label-tracking-contract.test.ts` 는 `lib/design/components.tsx` 만 보고, 정규식이 `"var(--qd-…)"` 문자열을 못 읽어 거짓 초록이었다.
+  → 10-22 Q-Atelier 에서 2부를 더해 고쳤다: `app/` · `components/` 전체 · var() 토큰 · 함수 반환 · 부르는 쪽 props 까지 따라가고,
+  정할 수 없는 자리는 파일별 기준선으로 센다. 규칙은 [03 글자](03-typography.md) · [10 규칙](10-rules.md) ⑩.
 - 장부형 계획 3 · 4단계(패턴 층)는 제품에 없다. 테두리 상자 목록이 용어집 69 · 멤버 14 · 설정 14 · 대시보드 15, /settings/usage 에 상자 중첩 1.
   🔴 Q-Sonar 사본 셋(nav · list · screen)이 10-10 판에 멈춰 있다. 10-10 오너가 묶음을 풀었는데(`sync-parts.mjs` HOLD 비움),
   10-11 부터 문서 06 의 절차가 `--only=Q-Atelier,Q-Works,Q-Forge` 라 Q-Sonar 가 빠졌다. `globals.css:53` 에는 정본에서 10-11 에 뺀 #aaa395 가 남아 있다.
