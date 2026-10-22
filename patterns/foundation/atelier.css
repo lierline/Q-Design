@@ -579,12 +579,25 @@ textarea {
   .qa-legal-shell footer a {
     position: relative;
   }
+  /* 가로는 모자란 만큼만 넓힌다(2026-10-22 폰 실측: 「로그인」 31 + 12 = 43). 6 보다 덜 넓히지는 않는다 */
   .qa-auth-form-wrap a::after,
   .qa-legal-shell header a::after,
   .qa-legal-shell footer a::after {
     content: '';
     position: absolute;
-    inset: -16px -6px;
+    inset: -16px min(-6px, calc((100% - var(--qd-control-height, 44px)) / 2));
+  }
+  /* 전문가 포털의 글귀 링크 · 비밀번호 「보기」, 빈 화면의 다음 할 일 링크(2026-10-22 폰 실측 21 ~ 33).
+     비밀번호 보기는 칸 안에 absolute 로 서 있으므로 position 을 건드리지 않고 ::after 만 단다 */
+  .expert-portal-root :is(.link-gold, .link-quiet),
+  .qd-empty-hints a {
+    position: relative;
+  }
+  .expert-portal-root :is(.link-gold, .link-quiet, .luxe-pw-toggle)::after,
+  .qd-empty-hints a::after {
+    content: '';
+    position: absolute;
+    inset: min(0px, calc((100% - var(--qd-control-height, 44px)) / 2));
   }
   .qa-touch-hit {
     position: relative;

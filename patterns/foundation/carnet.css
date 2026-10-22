@@ -2097,6 +2097,8 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
 @media (max-width: 767px), (pointer: coarse) {
   .btn, .btn-primary, .btn-ghost, .btn-danger, .btn-quiet { min-height: var(--qd-control-height); min-width: var(--qd-control-height); }
   .qd-input, .qd-filter-input, .qd-filter-submit, input.qd-input, select.qd-input { min-height: var(--qd-control-height); }
+  /* 색 고르기 칸은 옆 글 칸(qd-input)과 같은 높이로(2026-10-22 폰 실측 · 상표 설정의 강조색 40) */
+  input[type="color"] { min-height: var(--qd-control-height); }
   :is(a, button)[class*="text-brand"][class*="text-xs"],
   summary[class*="text-xs"],
   button[class*="w-full"][class*="text-xs"],
