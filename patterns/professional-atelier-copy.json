@@ -2,7 +2,7 @@
   "version": 1,
   "scope": "Reviewed Atelier interface labels, notices and error messages only. Preserve business codes, authorization, user content and regulatory quotations.",
   "terms": [
-    {"id":"atelier-disabled-module-message","from":"이 화면은 아직 켜지 않은 업무에 속합니다. 켜면 차림표와 화면이 함께 열립니다.","to":"이 화면의 업무 기능이 비활성화되어 있습니다. 기능을 활성화하면 메뉴와 화면을 이용할 수 있습니다.","products":["atelier"],"paths":["app/(app)/layout.tsx"]},
+    {"id":"atelier-disabled-module-message","from":"이 화면은 아직 켜지 않은 업무에 속합니다. 켜면 차림표와 화면이 함께 열립니다.","to":"이 화면의 업무 기능이 비활성화되어 있습니다. 기능을 활성화하면 메뉴와 화면을 이용할 수 있습니다.","products":["atelier"],"paths":["components/ModuleLockedNotice.tsx"]},
     {"id":"atelier-main-menu-label","from":"주 차림표","to":"주 메뉴","products":["atelier"],"paths":["components/Sidebar.tsx"]},
     {"id":"atelier-disposition-workflow-summary","from":"처분 하나가 한 줄 · 추가 → 승인 → 실행 완료","to":"처분별 실행 이력 · 등록 → 승인 → 실행 완료","products":["atelier"],"paths":["app/(app)/nonconformances/[id]/dispositions-section.tsx"]},
     {"id":"atelier-disposition-workflow-help","from":"처분 하나가 한 줄입니다. 추가하고, 승인받고, 실행을 마치면 그 줄이 잠깁니다. 실행이 끝나지 않은 처분이 있으면 부적합을 종결할 수 없습니다. 위의 처분 결정은 대표 처분이고, 실제 수량과 실행은 여기에 한 줄씩 남깁니다.","to":"처분별 등록·승인·실행 이력을 관리합니다. 실행이 완료되면 기록이 잠깁니다. 미완료 처분이 있으면 부적합을 종결할 수 없습니다. 상단의 처분 결정은 대표 처분이며, 실제 수량과 실행 이력은 개별 등록합니다.","products":["atelier"],"paths":["app/(app)/nonconformances/[id]/dispositions-section.tsx"]},
