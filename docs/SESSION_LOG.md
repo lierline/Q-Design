@@ -31,7 +31,7 @@
 
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
-- 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 셋. `/vigilance` 「초과 37일」 알약 자간 0.48px(`app/(app)/vigilance/page.tsx` 285줄 근처, 한글이면 0), `/research/<과제>/reviews` 날짜 자간 0.5px(그린 부품을 아직 못 찾음), `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기).
+- 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 제품 개발자가 손으로 쓴 주석의 옛 문서 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). README «옛 문서 번호» 표로 찾을 수 있어 급하지 않다.
 
 도구의 빈틈
