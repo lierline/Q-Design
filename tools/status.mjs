@@ -16,7 +16,7 @@ import { spawnSync } from 'node:child_process';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PRODUCTS, HOLD } from './sync-parts.mjs';
-import { 읽기, bodyOf, 머리지문, sha, 조각본문, 제품조각, 들어온커밋, 판읽기, 묶음지문 } from './sync.mjs';
+import { 읽기, bodyOf, 머리지문, sha, 조각본문, 제품조각, 들어온커밋, 판읽기, 묶음지문, 부품파일 } from './sync.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -62,6 +62,16 @@ for (const [who, info] of Object.entries(PRODUCTS)) {
     뒤처짐.push(`${part.name}  받은 판 ${got.date ?? '날짜 모름'} ${짧게(got.since)} · 지금 ${지금?.date ?? '커밋 전'} ${짧게(지금?.since)}${묶음 ? '  (묶어 둠)' : ''}`);
   }
   for (const file of 받은.keys()) 안보냄.push(file);
+  /* 공용 부품 파일(2026-10-22): 판 파일 = 제품 파일 · 판 파일 = 지금 정본 */
+  const short = { 'Q-Atelier': 'atelier', 'Q-Works': 'maison', 'Q-Forge': 'carnet' }[who];
+  const 적힌부품 = new Map((판.implementations ?? []).map((p) => [p.file, p.sha256]));
+  const 부품 = 부품파일(who), 부품다름 = [], 부품뒤처짐 = [];
+  for (const file of 부품) {
+    const got = 적힌부품.get(file);
+    const path = join(info.root, file);
+    if (!got || !existsSync(path) || sha(읽기(path)) !== got) 부품다름.push(file);
+    else if (sha(읽기(join(ROOT, 'patterns/component-implementations', short, file))) !== got) 부품뒤처짐.push(file);
+  }
   /* 3. 판 파일이 커밋 · 원격 main 에 있나 */
   const 판글 = readFileSync(join(info.root, info.version), 'utf8');
   const 커밋안됨 = (git(info.root, ['status', '--porcelain', '--', info.version]) ?? '').trim() !== '';
@@ -69,10 +79,12 @@ for (const [who, info] of Object.entries(PRODUCTS)) {
   const 원격 = 원격판 === null ? '원격에 없음' : 원격판.replace(/\r\n/g, '\n') === 판글.replace(/\r\n/g, '\n') ? '원격 같음' : '원격과 다름';
   const 지문맞음 = 묶음지문(판.parts) === 판.fingerprint;
 
-  const 문제 = 뒤처짐.length + 새조각.length + 다른사본.length + 안보냄.length + (커밋안됨 ? 1 : 0) + (원격 === '원격 같음' ? 0 : 1) + (지문맞음 ? 0 : 1);
+  const 문제 = 뒤처짐.length + 새조각.length + 다른사본.length + 안보냄.length + 부품다름.length + 부품뒤처짐.length + (커밋안됨 ? 1 : 0) + (원격 === '원격 같음' ? 0 : 1) + (지문맞음 ? 0 : 1);
   if (문제) 볼곳++;
-  const 조각 = `조각 ${slots.length} · 최신 ${최신}` + (뒤처짐.length ? ` · 뒤처짐 ${뒤처짐.length}` : '');
-  console.log(`${who.padEnd(10)} 판 ${판.fingerprint}  ${조각.padEnd(22)} ${커밋안됨 ? '커밋 안 됨 · ' : ''}${원격}`);
+  const 조각 = `조각 ${slots.length} · 최신 ${최신}` + (뒤처짐.length ? ` · 뒤처짐 ${뒤처짐.length}` : '') + (부품.length ? ` · 부품 ${부품.length - 부품다름.length - 부품뒤처짐.length}/${부품.length}` : '');
+  console.log(`${who.padEnd(10)} 판 ${판.fingerprint}  ${조각.padEnd(34)} ${커밋안됨 ? '커밋 안 됨 · ' : ''}${원격}`);
+  if (부품다름.length) 자세히.push(`  ${who}  판 파일과 다른 부품 파일  ${부품다름.join(' · ')}  (제품에서 고쳤거나 판 파일에 아직 안 적었습니다)`);
+  if (부품뒤처짐.length) 자세히.push(`  ${who}  정본이 앞선 부품 파일  ${부품뒤처짐.join(' · ')}  (extract-all --sync 로 받습니다)`);
   for (const line of 뒤처짐) 자세히.push(`  ${who}  뒤처짐  ${line}`);
   if (새조각.length) 자세히.push(`  ${who}  판 파일에 없는 조각  ${새조각.join(' · ')}  (sync.mjs --write 로 받습니다)`);
   if (안보냄.length) 자세히.push(`  ${who}  더는 보내지 않는 조각  ${안보냄.join(' · ')}`);

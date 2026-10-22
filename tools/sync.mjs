@@ -176,12 +176,29 @@ export function 판읽기(who) {
   try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return null; }
 }
 
+/*
+ * ── 공용 부품 파일 (2026-10-22 · 고치고 키우는 흐름) ───────────────────────────────
+ * 기본 UI 구현(patterns/component-implementations.json 에 적은 파일)은 머리표 없이 제품 소스 그대로
+ * 들어갑니다. 그래서 사본처럼 «손으로 고쳤나» 를 머리표로 알 수 없었고, 제품에서 바로 고치면
+ * Q-Design 검사만 다음에 빨개졌습니다(10-21 Q-Atelier 커밋 셋). 판 파일에 파일마다 확인값을 적어
+ * 제품 시험이 «내 부품 파일 = 판 파일» 을 보게 합니다. 내보내기는 이 값으로 «제품이 손댄 파일» 과
+ * «정본이 앞선 파일» 을 가릅니다(build-component-implementations.mjs).
+ */
+const 부품목록 = () => JSON.parse(readFileSync(join(ROOT, 'patterns/component-implementations.json'), 'utf8')).products;
+/** 이 제품이 받는 공용 부품 파일(제품 저장소 뿌리에서 본 경로). 없으면 빈 배열. */
+export function 부품파일(who) {
+  return 부품목록().find((p) => p.key === who)?.files ?? [];
+}
+
 /**
  * 지금 제품에 있는 사본대로 판을 짓습니다. 손으로 고친 사본(본문 지문 ≠ 머리표 지문)이 있으면
  * 판을 짓지 않습니다. 앞 판에 같은 지문이 있으면 그 커밋을 그대로 씁니다(다시 찾지 않음).
+ * 공용 부품 파일은 정본과 같거나 앞 판에 적힌 값과 같을 때만 적습니다. 둘 다 아니면 제품에서
+ * 손댄 것이라 손댐으로 셉니다.
  */
 export function 판짓기(who) {
-  const 앞 = new Map((판읽기(who)?.parts ?? []).filter((p) => p.since).map((p) => [p.file + '\t' + p.sha256, p]));
+  const 앞판 = 판읽기(who);
+  const 앞 = new Map((앞판?.parts ?? []).filter((p) => p.since).map((p) => [p.file + '\t' + p.sha256, p]));
   const parts = [], 빠짐 = [], 손댐 = [];
   for (const { part, path, file } of 제품조각(who)) {
     if (!existsSync(path)) { 빠짐.push(file); continue; }
@@ -193,14 +210,30 @@ export function 판짓기(who) {
     parts.push({ name: part.name, file, lang: part.lang ?? 'css', sha256: digest, since: came?.since ?? null, date: came?.date ?? null });
   }
   parts.sort(판순서);
-  return { 판: { format: 1, product: who, fingerprint: 묶음지문(parts), parts }, 빠짐, 손댐 };
+  const 판 = { format: 1, product: who, fingerprint: 묶음지문(parts), parts };
+  const files = 부품파일(who);
+  if (files.length) {
+    const 적힌값 = new Map((앞판?.implementations ?? []).map((p) => [p.file, p.sha256]));
+    const short = { 'Q-Atelier': 'atelier', 'Q-Works': 'maison', 'Q-Forge': 'carnet' }[who];
+    판.implementations = [];
+    for (const file of files) {
+      const path = join(PRODUCTS[who].root, file);
+      if (!existsSync(path)) { 빠짐.push(file); continue; }
+      const digest = sha(읽기(path));
+      const 정본 = sha(읽기(join(ROOT, 'patterns/component-implementations', short, file)));
+      if (digest !== 정본 && digest !== 적힌값.get(file)) { 손댐.push(file); continue; }
+      판.implementations.push({ file, sha256: digest });
+    }
+    판.implementations.sort(판순서);
+  }
+  return { 판, 빠짐, 손댐 };
 }
 
 /** 판 파일을 씁니다. 내용이 같으면 손대지 않습니다. 쓰지 못했으면 false. */
 function 판쓰기(who) {
   const { 판, 빠짐, 손댐 } = 판짓기(who);
   if (손댐.length) {
-    console.log(`  판 파일  ${who}  쓰지 않음: 머리표 지문과 본문이 다른 사본 ${손댐.length}곳(손으로 고친 것) ${손댐.join(', ')}`);
+    console.log(`  판 파일  ${who}  쓰지 않음: 손으로 고친 사본 · 부품 파일 ${손댐.length}곳 ${손댐.join(', ')}`);
     return false;
   }
   const path = join(PRODUCTS[who].root, PRODUCTS[who].version);
@@ -209,6 +242,7 @@ function 판쓰기(who) {
   if (had !== next) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, next, 'utf8'); }
   const 커밋전 = 판.parts.filter((p) => !p.since).length;
   console.log(`  판 파일  ${who}  ${판.fingerprint}  ${had === null ? '신규' : had === next ? '그대로' : '갱신'}  조각 ${판.parts.length}`
+    + (판.implementations ? `  · 부품 파일 ${판.implementations.length}` : '')
     + (빠짐.length ? `  · 사본 없음 ${빠짐.length}` : '') + (커밋전 ? `  · Q-Design 커밋 전 내용 ${커밋전}` : ''));
   return true;
 }

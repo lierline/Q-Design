@@ -7,7 +7,9 @@ import vm from 'node:vm';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {readRuntimeValues} from './atelier-runtime-values.mjs';
-import {buildComponentImplementations,checkedImplementationPath,implementationOwners} from './build-component-implementations.mjs';
+import {spawnSync} from 'node:child_process';
+import {adoptComponentImplementations,buildComponentImplementations,checkedImplementationPath,implementationOwners} from './build-component-implementations.mjs';
+import {hash} from './style-arguments-core.mjs';
 import {applyBindings,copySourceFiles} from './copy-spacing.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),manifest=JSON.parse(fs.readFileSync(root+'/patterns/component-implementations.json','utf8'));
 function fixture(){
@@ -30,6 +32,33 @@ test('changed implementations preserve product line endings without altering can
   const after=before.replace('var(--qd-control-height)','calc(var(--qd-control-height) + 1px)');assert.notEqual(before,after);f.write(canonical,after);
   buildComponentImplementations(f.root,{write:true});assert.equal(fs.readFileSync(actual,'utf8'),after.replaceAll('\n','\r\n'));buildComponentImplementations(f.root,{check:true});
  }finally{f.dispose();}
+});
+test('a product-edited implementation is never overwritten once the version file records what was shipped',()=>{
+ const f=fixture();try{
+  const actual=f.workspace+'/Q-Atelier/components/Toast.tsx',canonical=f.root+'/patterns/component-implementations/atelier/components/Toast.tsx',before=fs.readFileSync(actual,'utf8');
+  f.write(f.workspace+'/Q-Atelier/lib/design/q-design.version.json',JSON.stringify({format:1,product:'Q-Atelier',fingerprint:'x',parts:[],implementations:[{file:'components/Toast.tsx',sha256:hash(before)}]}));
+  const canonAfter=before.replace('var(--qd-toast-width)','calc(var(--qd-toast-width) - 1px)');assert.notEqual(canonAfter,before);f.write(canonical,canonAfter);
+  const edited=before+'\n// product-first fix\n';f.write(actual,edited);
+  assert.throws(()=>buildComponentImplementations(f.root,{write:true,only:new Set(['Q-Atelier'])}),/Product edited shared component files/);
+  assert.equal(fs.readFileSync(actual,'utf8'),edited);
+  f.write(actual,before);buildComponentImplementations(f.root,{write:true,only:new Set(['Q-Atelier'])});assert.equal(fs.readFileSync(actual,'utf8'),canonAfter);
+ }finally{f.dispose();}
+});
+test('adopting takes only committed product content and refuses when the canonical moved too',()=>{
+ const f=fixture(),repo=f.workspace+'/Q-Atelier';try{
+  const actual=repo+'/components/Toast.tsx',canonical=f.root+'/patterns/component-implementations/atelier/components/Toast.tsx',before=fs.readFileSync(actual,'utf8');
+  const git=(...args)=>{const r=spawnSync('git',['-C',repo,'-c','user.email=t@t','-c','user.name=t','-c','core.autocrlf=false',...args],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);};
+  f.write(repo+'/lib/design/q-design.version.json',JSON.stringify({format:1,product:'Q-Atelier',fingerprint:'x',parts:[],implementations:[{file:'components/Toast.tsx',sha256:hash(before)}]}));
+  git('init','-q');git('add','-A');git('commit','-qm','base');
+  const fixed=before+'\n// product-first fix\n';f.write(actual,fixed);
+  assert.throws(()=>adoptComponentImplementations(f.root,{only:new Set(['Q-Atelier'])}),/Commit the product change/);
+  git('commit','-qam','fix');
+  f.write(canonical,before.replace('var(--qd-toast-width)','calc(var(--qd-toast-width) - 1px)'));
+  assert.throws(()=>adoptComponentImplementations(f.root,{only:new Set(['Q-Atelier'])}),/Canonical also changed/);
+  f.write(canonical,before);
+  assert.deepEqual(adoptComponentImplementations(f.root,{only:new Set(['Q-Atelier'])}),['Q-Atelier/components/Toast.tsx']);
+  assert.equal(fs.readFileSync(canonical,'utf8'),fixed);
+ }finally{fs.rmSync(repo+'/.git',{recursive:true,force:true});f.dispose();}
 });
 test('all five attached Skeleton renderers are explicit and changes cannot escape the public API review',()=>{
  const f=fixture();try{

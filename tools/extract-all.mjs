@@ -142,6 +142,12 @@ if (!doSync) {
 console.log('');
 console.log('제품으로 내보내기');
 console.log('');
+// 공용 부품 파일을 판 파일보다 먼저 씁니다(2026-10-22). 이 걸음은 제품 판 파일에 적힌 값으로
+// «제품에서 손댄 파일» 을 알아보고 덮지 않고 멈춥니다. 판 파일을 먼저 새로 쓰면 그 값이 사라집니다.
+// 멈추면 다른 제품 파일은 아무것도 쓰지 않은 상태입니다.
+const implementations = run('build-component-implementations.mjs', ['--write', ...only]);
+console.log(implementations.out.trim());
+if (implementations.code !== 0) process.exit(1);
 const s = run('sync.mjs', ['--write', ...only]);
 console.log(s.out.trim().split('\n').map((l) => '  ' + l).join('\n'));
 if (s.code !== 0) process.exit(1);
@@ -186,6 +192,3 @@ if (nativeLaunch.code !== 0) process.exit(1);
 const iosComponents = run('build-ios-components.mjs', ['--write', ...only]);
 console.log(iosComponents.out.trim());
 if (iosComponents.code !== 0) process.exit(1);
-const implementations = run('build-component-implementations.mjs', ['--write', ...only]);
-console.log(implementations.out.trim());
-if (implementations.code !== 0) process.exit(1);
