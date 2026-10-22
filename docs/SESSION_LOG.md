@@ -12,6 +12,7 @@
 
 - Q-Sonar 따라잡기. 차림표 · 목록 · 뼈대 세 조각이 10-10 판에 머물러 있다(`sync-parts.mjs` 의 PENDING). 받으면 Q-Sonar 화면이 달라진다.
 - 화면 글 말투. Q-Maison 82곳, Q-Carnet 12곳(상한 11). 정식 기록 문장과 검사기 오탐이 섞여 있어 바꿀 문장 목록부터 보여 드린다.
+- 10-22 전수 검수의 «바꿈» 후보(아래 그날 기록). 세 제품 왼쪽 띠의 「THEME / DARK」 영문, Q-Atelier InfoDot · 「필수 아님」 글자색(대비 2.4 ~ 2.5), 대비 4.0 ~ 4.45 에 걸린 토큰들과 Q-Maison 알약 색, Q-Carnet 바닥글 상표(투명도 .35 · 대비 1.6), 「Documented.」 글자표. 로그인 영문 머리글은 로그인 첫 화면을 다시 짜는 세션이 맡았다.
 - Q-Sonar 흐린 글자 가운데 단계 `#aaa395`. Q-Sonar 는 흐린 글자가 세 단계(#b7b0a5 · #aaa395 · #898271)이고 정본 어두운 테마는 둘(subtle · muted)이다. 가운데를 위나 아래로 합치거나, 정본에 단계를 하나 더하는 안을 실제 화면에 입혀 보여 드린다.
 
 오너 결정을 기다리는 것
@@ -30,8 +31,34 @@
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
 - 제품 개발자가 손으로 쓴 주석의 옛 문서 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). README «옛 문서 번호» 표로 찾을 수 있어 급하지 않다.
+- 폰 누름 자리 44 미만(10-22 실측 묶음: Q-Atelier 90 · Q-Maison 31 · Q-Carnet 알약 `a.chip.chip-pick` 22px). 행 전체로 늘린 링크(`after:absolute after:inset-0`)는 측정기가 요소 상자만 재서 거짓 경보다. 그것을 걸러 낸 뒤 제품별로 정리한다. Q-Maison 에는 누름 자리만 넓히는 공용 규칙(`qa-touch-hit` 같은 것)이 없다.
+
+도구의 빈틈
+
+- `check-hangul-source.mjs` 는 정본 클래스만 본다. Tailwind `tracking-[…]`, 제품 CSS(`.login-submit` 같은), 인라인 `letterSpacing` 을 못 보고 Q-Atelier 는 아예 대상이 아니다. 10-22 에 화면 실측으로만 잡은 한글 자간이 Q-Atelier 10곳(로그인 6곳 별도) · Q-Carnet 3곳 · Q-Maison 인쇄 3곳이었다.
+- 전수 검수 측정기(`D:/Claude/.claude/design-sweep`)가 못 연 동적 주소: Q-Maison 103 · Q-Atelier 22 · Q-Carnet 9(인쇄). 자료가 있는 상세 화면을 찾아 넣는 일이 남았다.
 
 ---
+
+## 세 제품 화면 전수 검수 · 2026-10-22
+
+- 오너 «/frontend-design 전체 검수», 범위는 «소나 제외하고 나머지 3제품을 깊게». 운영 화면을 읽기만으로 잰다(쓰기 요청은 막음). 폭 1366 · 412 · 375, 다크 · 라이트, 차림표 화면 · 쓰기 · 상세 · 팝업. 세 제품 상태 3,000여 개.
+- 측정기는 제품 밖 `D:/Claude/.claude/design-sweep` 에 둔다(정본에 제품 측정 도구를 두지 않는다). 고침안 CSS 를 덧입혀 다시 재고 묶음을 대조하는 A/B(`--inject` · `compare.mjs`)로 정본 고침을 먼저 확인했다.
+- 🔴 측정기의 거짓 빨강 둘을 먼저 잡았다. 접힌 `<details>` 속은 자리를 잡아도 그려지지 않아(content-visibility) 글 겹침 29묶음이 전부 거짓이었다(`checkVisibility`). 새로 돈 세션이 이미 쓴 새로 고침 토큰을 다시 내밀지 않게 로그인 상태를 이어 쓴다.
+- 정본 고침(1f2e513).
+  - 표 칸 · 단추류 `overflow-wrap: break-word`. `anywhere` 가 칸까지 물려 내려와 표가 열을 한 글자 너비로 줄였다(「설 / 비번 / 호」). A/B: Q-Carnet 낱말 쪼개짐 13 → 5, Q-Maison 3묶음 사라짐, Q-Atelier 변화 없음, 셋 다 새 넘침 0.
+  - `qa-touch-hit::after` 를 모자란 만큼만 가운데로 넓히는 계산으로(ⓘ 34×42 → 44×44).
+  - Q-Carnet 로그인 칸 초점 고리(고른 칸의 금 그림자가 덮었다), 「로그인」 단추의 라틴 자간 · 대문자 걷음.
+  - 거둬들인 공용 부품: Q-Atelier 지표 설명 창(화면 아래 카드에서 바닥 밖 최대 315px → 위로 열림), Q-Maison 달력(폰 한 달 · 태블릿 두 달) · 기간 고르기(열면 초점이 안으로).
+- 제품 고침(로컬 커밋, 오너 승인 뒤 운영).
+  - Q-Atelier 5e4ce3c5 · 8d96b3d4: 상태 알약 · 위젯 · 차림 단추 · 점수 띠 · 구독 창의 한글 자간, 폰 서랍과 폰 구독 창 초점.
+  - Q-Works 12939105 · 6260aec4 · 9f8a27da: 「관련 문서」 차림이 375 에서 화면 밖 · Esc, 문서 나무 제목 「문..」, 인쇄 표지 한글 회사명 자간.
+  - DHR 706c3b1 · c6adace: 설비 카드 머리 · 첫 설정 걸음 줄 · 공정 이름 줄바꿈, 상표 미리 보기 대비 1.9, PIN 칸 자간.
+  - 앱 오프라인 사본 넷(Q-Atelier-App · Q-Atelier-iOS · Q-Maison-App · Q-Carnet-App)도 정본을 따라잡았다.
+- 넘긴 것: Q-Atelier 로그인 화면 자간 6건은 로그인 첫 화면을 다시 짜는 세션이 맡았다.
+- 결함이 아니었던 것: Q-Maison `/safety/monthly/print` 「페이지를 찾을 수 없」 는 달 없이 주소만 연 측정기 탓(화면은 늘 달을 붙여 연다). Q-Maison 날짜 한 칸 고르기 창이 초점을 입력칸에 두는 것은 의도(커서를 뺏지 않는다).
+- 🔴 걸려 넘어진 것: npm 저장소(DHR)에서 `pnpm typecheck` 를 부르면 pnpm 이 설치를 시도해 `pnpm-lock.yaml` · `pnpm-workspace.yaml` 을 만들고 node_modules 를 pnpm 배치로 바꾼다. 지우고 `npm ci` 로 되돌렸다. DHR 검사는 `./node_modules/.bin/tsc` 와 `package.json` 의 test 줄을 직접 부른다.
+- Q-Sonar 사본은 `--sync` 가 매번 써 넣지만 PENDING 이라 두 번 다 되돌렸다.
 
 ## 고치고 키우는 흐름 · 정본을 건너뛰는 길 막기 · 2026-10-22
 
