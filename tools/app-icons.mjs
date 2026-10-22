@@ -66,6 +66,10 @@
 //   원본은 source/brand/app-icon-<제품>.webp(투명 바탕 1254px · PRODUCTS 의 art). 그림의 알파 상자를 잘라
 //   먹색 판 가운데 ART_BOX 크기로 앉힙니다(작은 판은 조금 키움). 판 번호 v=4.
 //
+// 오너 결정 (2026-10-22): 로그인 첫 화면을 세 제품마다 «제품 배경 그림 + 입체 금속 Q + 이름 · 한 줄» 로
+//   («가» · 강조색은 세 제품 공통 샴페인). 이 도구가 세 제품에 로그인 그림 셋을 나눠 줍니다(아래 LOGIN).
+//   금속 Q 는 위 완성 그림을 그대로 줄인 것이고, 배경은 코덱스가 그린 여섯 장입니다(source/brand/login).
+//
 // ── 크기마다 따로 그립니다 ───────────────────────────────────────────────────
 //   any       둥근 먹색 판. 데스크톱 설치 앱 · 작업 표시줄 · 안드로이드가 아닌 곳   192 · 512
 //   maskable  판 없이 가득 찬 먹색. 안드로이드가 원 · 둥근 네모로 오려 냅니다.
@@ -117,6 +121,8 @@ const BG = '#0c0c0c'; // 정본 다크 바탕 (--qd-bg) · 세 제품 매니페�
  * native 는 iOS 앱 아이콘(1024 · 알파 없음)을 받는 파일입니다(2026-09-28 · 머리의 오너 결정). iOS 앱이 있는 제품만.
  * titleBarIn 은 설치 앱 창의 상단 바 색(theme_color · themeColor)을 적는 파일입니다(2026-09-29 · 머리의 오너 결정).
  * 값은 금속에서 나오므로(titleBarOf) 여기 적지 않습니다. --check 가 그 파일들의 색 자리가 모두 그 값인지 봅니다.
+ * loginIn 은 로그인 첫 화면의 금속 Q(LOGIN)를 그리는 파일입니다(2026-10-22 · 머리의 오너 결정). 로그인을 다시 짠
+ * 세 제품만 받습니다. 배경 두 장은 정본 CSS(patterns/foundation)가 부르므로 여기서 보지 않습니다.
  */
 const PRODUCTS = [
   {
@@ -126,24 +132,28 @@ const PRODUCTS = [
     marksIn: ['components/Logo.tsx', 'components/expert/BrandLogo.tsx'],
     native: ['D:/Claude/Q-Atelier-iOS/QAtelier/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png'],
     titleBarIn: ['public/manifest.json', 'app/layout.tsx', 'app/experts/layout.tsx'],
+    loginIn: ['app/(auth)/login/page.tsx'],
   },
   {
     key: 'maison', name: 'Q-Maison', metal: 'gold', frame: 'house', art: 'app-icon-maison.webp', root: 'D:/Claude/Q-Works', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: 'ISO 9001 품질경영 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: [], native: [],
     titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
+    loginIn: ['components/auth/auth-frame.tsx'],
   },
   {
     key: 'carnet', name: 'Q-Carnet', metal: 'copper', frame: 'notebook', art: 'app-icon-carnet.webp', root: 'D:/Claude/DHR', refs: ['app/manifest.ts', 'app/layout.tsx'],
     tagline: '의료기기 제조기록서 시스템', taglineIn: ['app/manifest.ts'],
     marksIn: ['components/q-mark.tsx'], native: [],
     titleBarIn: ['app/manifest.ts', 'app/layout.tsx'],
+    loginIn: ['app/login/page.tsx'],
   },
   {
     key: 'sonar', name: 'Q-Sonar', metal: 'steel', frame: 'waves', art: 'app-icon-sonar.webp', root: 'D:/Claude/Lead-Radar', refs: ['src/app/manifest.ts', 'src/app/layout.tsx'],
     tagline: '의료기기 잠재고객 발굴 시스템', taglineIn: ['src/lib/brand.ts'],
     marksIn: ['src/components/QMark.tsx'], native: [],
     titleBarIn: ['src/app/manifest.ts', 'src/app/layout.tsx'],
+    loginIn: [],
   },
 ].map((p) => ({ ...p, pub: `${p.root}/public` }));
 const NATIVE_ICON = 'ios-app-icon-1024.png';
@@ -159,6 +169,16 @@ const MARKS = {
   'q-mark-on-light.webp': join(ROOT, 'source', 'brand', 'logo-light.png'), // 검정 Q · 밝은 면 위
 };
 const OLD_MARK_PNGS = ['logo-dark.png', 'logo-light.png', 'logo-mark.png', 'logo-mark-light.png', 'q-mark-on-dark.png', 'q-mark-on-light.png'];
+
+/*
+ * 로그인 첫 화면의 그림 셋 (2026-10-22 · 머리의 오너 결정). 이름은 받는 세 제품이 같습니다.
+ *   login-mark.webp     앱 아이콘의 금속 Q(artworks 가 알파 상자로 오린 그림)를 너비 LOGIN_MARK_PX 로.
+ *                       넓은 화면은 너비 200 · 폰은 64 로 그리므로 2.4배 화면까지 견딥니다
+ *   login-bg-dark.jpg   배경(source/brand/login/bg-<제품>-<테마>.jpg · 가로 1600 · 화질 92 · 색 줄임 없음).
+ *   login-bg-light.jpg  바이트 그대로 옮깁니다. WebP 는 어두운 민 면이 얼룩져 쓰지 않았습니다(같은 날 시안 실측)
+ * 설치 앱 아이콘이 아니므로 판 번호(ICON_VERSION) 지문에 넣지 않습니다(붓 Q 와 같은 이유).
+ */
+const LOGIN_MARK_PX = 480;
 
 /*
  * 아이콘 판 번호. 제품 코드는 아이콘을 «?v=판 번호» 를 붙여 부릅니다(refs 의 파일들).
@@ -584,6 +604,38 @@ async function displayMarks() {
   return out;
 }
 
+/** 로그인 그림 셋. 로그인을 받는 제품(loginIn 이 있는 제품)마다 { 이름: 바이트 } */
+async function loginAssets(art) {
+  const out = {};
+  for (const p of PRODUCTS.filter((x) => x.loginIn.length)) {
+    const bg = (theme) => readFileSync(join(ROOT, 'source', 'brand', 'login', `bg-${p.key}-${theme}.jpg`));
+    out[p.key] = {
+      'login-mark.webp': await sharp(art[p.key].png)
+        .resize({ width: LOGIN_MARK_PX, kernel: 'lanczos3' })
+        .webp({ quality: 90, alphaQuality: 100, effort: 6 })
+        .toBuffer(),
+      'login-bg-dark.jpg': bg('dark'),
+      'login-bg-light.jpg': bg('light'),
+    };
+  }
+  return out;
+}
+
+/** 로그인 화면 파일(loginIn)이 금속 Q 를 부르는가. 옛 붓 Q 로 돌아가면 여기서 드러납니다 */
+function checkLoginRefs() {
+  const problems = [];
+  let good = 0;
+  for (const p of PRODUCTS) {
+    for (const rel of p.loginIn) {
+      const file = join(p.root, rel);
+      if (!existsSync(file)) { problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: 파일이 없습니다`); continue; }
+      if (readFileSync(file, 'utf8').includes('/login-mark.webp')) good++;
+      else problems.push(`  ❌ ${p.name.padEnd(9)} ${rel}: /login-mark.webp 를 부르지 않습니다`);
+    }
+  }
+  return { good, problems };
+}
+
 /**
  * 붓 Q 를 그리는 파일(marksIn)이 WebP 두 장을 부르고, 옛 PNG 사본을 부르지 않는가.
  * 한 제품이 옛 PNG 로 되돌아가면 첫 방문에 다시 400KB 가 실립니다.
@@ -808,6 +860,34 @@ async function main() {
   }
 
   /*
+   * 로그인 그림 셋(2026-10-22). 붓 Q 처럼 판 번호 지문 «뒤에» 다루고, 쓰고 · 다시 읽어 대조합니다.
+   * dist 에는 제품별 폴더(login/<제품>)로 남겨 --check 가 사본과 견줍니다.
+   */
+  const login = await loginAssets(Q.art);
+  for (const p of PRODUCTS.filter((x) => login[x.key])) {
+    const dir = join(OUT, 'login', p.key);
+    if (checkOnly) for (const [name, buf] of Object.entries(login[p.key])) assertStoredIconFile(join(dir, name), buf);
+    if (!checkOnly) {
+      mkdirSync(dir, { recursive: true });
+      for (const [name, buf] of Object.entries(login[p.key])) writeFileSync(join(dir, name), buf);
+    }
+    const writeProduct = canWriteIconTarget(write, onlyTargets, p.key);
+    for (const [name, buf] of Object.entries(login[p.key])) {
+      const target = join(p.pub, name);
+      const has = existsSync(target);
+      const same = has && sha(readFileSync(target)) === sha(buf);
+      if (writeProduct && !same) {
+        writeFileSync(target, buf);
+        if (sha(readFileSync(target)) !== sha(buf)) {
+          report.push(`  ❌ 쓴 뒤에도 다름  ${p.name.padEnd(9)} ${name}`);
+          continue;
+        }
+      }
+      report.push(`  ${writeProduct ? (same ? '그대로' : has ? '갱신  ' : '신규  ') : same ? '같음  ' : has ? '어긋남' : '없음  '}  ${p.name.padEnd(9)} ${name}${write && !writeProduct ? ' (선택 제외, 쓰지 않음)' : ''}`);
+    }
+  }
+
+  /*
    * iOS 앱 아이콘(2026-09-28). 판 번호 지문 «뒤에» 다룹니다(지문에 넣지 않음 · 머리의 오너 결정).
    * 받는 파일은 앱 저장소의 아이콘 자리입니다. 쓰고 · 다시 읽어 대조하는 방식은 위와 같습니다.
    */
@@ -836,12 +916,13 @@ async function main() {
   const taglines = copiesOnly ? skipped : checkTaglines();
   const markRefs = copiesOnly ? skipped : checkMarkRefs();
   const titleBars = copiesOnly ? skipped : checkTitleBars();
+  const loginRefs = copiesOnly ? skipped : checkLoginRefs();
 
   if (checkOnly) {
     const drift = report.filter((l) => /어긋남|없음/.test(l));
     console.log(copiesOnly
       ? `제품 앱 아이콘 사본 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} (제품 코드 대조는 감사에서)`
-      : `제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳 · 상단 바 색 ${titleBars.good}곳`);
+      : `제품 앱 아이콘 대조: ${report.length - drift.length}/${report.length} 같음 · 판 v=${ICON_VERSION} 주소 ${refs.good}곳 · 설치 앱 설명 ${taglines.good}곳 · 화면 붓 Q ${markRefs.good}곳 · 상단 바 색 ${titleBars.good}곳 · 로그인 금속 Q ${loginRefs.good}곳`);
     if (drift.length) {
       console.log(drift.join('\n'));
       console.log('반영하려면 node tools/app-icons.mjs --write');
@@ -850,7 +931,8 @@ async function main() {
     if (taglines.problems.length) console.log(taglines.problems.join('\n'));
     if (markRefs.problems.length) console.log(markRefs.problems.join('\n'));
     if (titleBars.problems.length) console.log(titleBars.problems.join('\n'));
-    process.exit(drift.length || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length ? 1 : 0);
+    if (loginRefs.problems.length) console.log(loginRefs.problems.join('\n'));
+    process.exit(drift.length || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length || loginRefs.problems.length ? 1 : 0);
   }
 
   // 한 장짜리 견본: 제품마다 둥근 판 · 안드로이드 원형 오림 · 작은 판 48 · 32 · 16 (실제 크기)
@@ -891,6 +973,8 @@ async function main() {
     '화면용 붓 Q: `marks/q-mark-on-dark.webp`(은색 · 어두운 면 위) · `marks/q-mark-on-light.webp`(검정 · 밝은 면 위).',
     `너비 ${MARK_PX}px · WebP 90 · 원본 비율 그대로. 받는 곳은 붓 Q 를 화면에 그리는 제품(PRODUCTS 의 marksIn)이고, 판 번호와 무관합니다.`,
     '',
+    `로그인 그림: \`login/<제품>/login-mark.webp\`(금속 Q · 너비 ${LOGIN_MARK_PX}px · WebP 90) · \`login-bg-dark.jpg\` · \`login-bg-light.jpg\`(source/brand/login 그대로). 받는 곳은 로그인을 다시 짠 세 제품(PRODUCTS 의 loginIn)이고, 판 번호와 무관합니다.`,
+    '',
     `iOS 앱 아이콘: \`${NATIVE_ICON}\`(1024 · 알파 없음 · apple 그림을 줄이지 않은 것). 받는 곳은 PRODUCTS 의 native(앱 저장소의 아이콘 자리)이고, 판 번호와 무관합니다.`,
     '',
     `제품 코드는 아이콘을 \`?v=${ICON_VERSION}\` 를 붙여 부릅니다. 그림을 바꾸면 판 번호를 올립니다(\`version.json\` 이 지킴).`,
@@ -918,7 +1002,11 @@ async function main() {
     console.log('\n상단 바 색이 금속 색(titleBarOf)과 다릅니다(PRODUCTS 의 titleBarIn):');
     console.log(titleBars.problems.join('\n'));
   }
-  if (broken || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length) process.exit(1);
+  if (loginRefs.problems.length) {
+    console.log('\n로그인 화면이 금속 Q 를 부르지 않습니다(PRODUCTS 의 loginIn):');
+    console.log(loginRefs.problems.join('\n'));
+  }
+  if (broken || refs.problems.length || taglines.problems.length || markRefs.problems.length || titleBars.problems.length || loginRefs.problems.length) process.exit(1);
 }
 
 main().catch((e) => {

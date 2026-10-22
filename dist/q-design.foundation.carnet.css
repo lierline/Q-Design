@@ -71,7 +71,7 @@
   --qd-underline-offset: 4px;
   --qd-focus-outline-width: 2px;
   --qd-auth-form-width: 440px;
-  --qd-auth-columns: 1.15fr 1fr;
+  --qd-auth-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   --qd-auth-brand-padding: 56px 64px;
   --qd-auth-form-padding: 56px;
   --qd-auth-mobile-padding: 40px 24px 32px;
@@ -489,6 +489,149 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
 }
 
+/* ── 로그인 첫 화면: 왼쪽 판과 등장 (2026-10-22 오너 결정) ─────────────────────────────
+   세 제품(Q-Atelier · Q-Maison · Q-Carnet)이 같은 짜임 · 같은 박자로 선다. 오너가 시안 넷 가운데 «가» 를 골랐다:
+   제품 배경 그림 위에 입체 금속 Q · 제품 이름 · 한글 한 줄. 강조색은 세 제품 공통 샴페인 그대로다.
+   등장은 «부드러운 가속 후 부드러운 감속 후 정지» (같은 날 오너). 첫 장면은 판이 화면 전체를 덮고 Q 가 떠오른 뒤,
+   판이 제 넓이로 물러나며 폼이 한 줄씩 선다. 전체 3초. 폰(1024 미만)은 판이 없어 폼 위 작은 Q 와 글이 1초 남짓에 선다.
+
+   쓰는 법
+     뿌리 요소       .qd-auth-stage + data-qd-intro="on" | "off". 제품의 작은 클라이언트 부품이 처음엔 on 으로
+                     그리고, 누르거나 키를 치면 또는 3.1초 뒤에 off 로 바꾼다(그 뒤 새로 붙는 줄은 움직이지 않는다).
+                     🔑 3초는 제품의 등장 길이 상수와 같아야 한다. 이 박자를 바꾸면 그 상수도 바꾼다.
+     왼쪽 판         .qd-auth-panel (제품의 넓은 화면 판 요소에 함께 붙인다 · 보이기와 sticky 는 제품 규칙)
+       배경          .qd-auth-panel-bg (화면 크기로 깔려 판이 좁아지면 왼쪽만 남는다)
+       가운데        .qd-auth-panel-center > .qd-auth-mark + .qd-auth-ident
+     금속 Q          .qd-auth-mark > img.qd-auth-mark-img(src /login-mark.webp) + .qd-auth-mark-sheen
+     이름 · 한 줄    .qd-auth-ident > .qd-auth-name + .qd-auth-line
+     폰 머리         .qd-auth-phone (폼 위 · 같은 .qd-auth-mark · .qd-auth-ident 를 담는다 · 보이기는 제품 규칙)
+     늦게 오는 것    .qd-auth-late (밝기 고르개)
+     폼의 줄         data-qd-row="0" ~ "11" (위에서부터 차례 · 같은 번호면 같이 선다 · 줄 안에 줄을 넣지 않는다)
+   제품이 테마마다 정하는 값: --qd-auth-panel-image(배경 그림 url) · --qd-auth-panel-surface(그림이 오기 전 바탕) ·
+     --qd-auth-mark-dim(어두운 테마에서 Q 가 어둡게 시작하는 정도) · --qd-auth-sheen-color · --qd-auth-sheen-opacity.
+   그림 셋(login-mark.webp · login-bg-dark.jpg · login-bg-light.jpg)은 tools/app-icons.mjs 가 제품 public 에 나눠 준다.
+   판은 칸 넓이를 넘어 화면 전체로 시작하므로, 두 칸은 minmax(0, …) 여야 판이 오른쪽 칸을 밀어내지 않는다
+   (--qd-auth-columns). 넘친 만큼은 뿌리 요소가 overflow: clip 으로 자른다.
+   키프레임은 시작 모습(from)만 적는다. 끝 모습은 늘 제 모양이라, 움직임이 꺼져도(off · 움직임 줄이기) 같은 화면이다. */
+.qd-auth-stage {
+  --qd-auth-mark-size: 200px;
+  --qd-auth-mark-size-phone: 64px;
+  --qd-auth-name-size: 28px;
+  --qd-auth-name-size-phone: 22px;
+  --qd-auth-line-size: 14px;
+  --qd-auth-line-size-phone: 13px;
+  --qd-auth-intro-ease: cubic-bezier(0.45, 0, 0.2, 1);
+  --qd-auth-intro-smooth: cubic-bezier(0.37, 0, 0.63, 1);
+  --qd-auth-intro-sheen-ease: cubic-bezier(0.5, 0, 0.3, 1);
+  --qd-auth-bg-fade: 1000ms;
+  --qd-auth-bg-settle: 3000ms;
+  --qd-auth-mark-for: 600ms;
+  --qd-auth-dim-for: 1400ms;
+  --qd-auth-sheen-at: 350ms;
+  --qd-auth-sheen-for: 600ms;
+  --qd-auth-open-at: 900ms;
+  --qd-auth-open-for: 1500ms;
+  --qd-auth-ident-at: 1700ms;
+  --qd-auth-ident-for: 700ms;
+  --qd-auth-late-at: 2000ms;
+  --qd-auth-late-for: 700ms;
+  --qd-auth-rows-at: 1700ms;
+  --qd-auth-row-step: 50ms;
+  --qd-auth-row-for: 600ms;
+  overflow: clip;
+}
+@media (max-width: 1023.98px) {
+  .qd-auth-stage {
+    --qd-auth-mark-for: 500ms;
+    --qd-auth-dim-for: 900ms;
+    --qd-auth-sheen-at: 150ms;
+    --qd-auth-sheen-for: 500ms;
+    --qd-auth-ident-at: 200ms;
+    --qd-auth-ident-for: 500ms;
+    --qd-auth-late-at: 400ms;
+    --qd-auth-late-for: 500ms;
+    --qd-auth-rows-at: 300ms;
+    --qd-auth-row-step: 40ms;
+    --qd-auth-row-for: 500ms;
+  }
+}
+.qd-auth-panel { box-sizing: border-box; width: 100%; overflow: clip; flex-direction: column; align-items: center; justify-content: center; background: var(--qd-auth-panel-surface, var(--qd-bg)); }
+.qd-auth-panel-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--qd-auth-panel-image, none) center / cover no-repeat;
+  pointer-events: none;
+}
+.qd-auth-panel-center { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--qd-space-5); text-align: center; }
+.qd-auth-mark { position: relative; display: block; flex-shrink: 0; width: var(--qd-auth-mark-size); line-height: 0; }
+.qd-auth-mark-img { display: block; width: 100%; max-inline-size: none; height: auto; }
+.qd-auth-mark-sheen {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--qd-auth-sheen-color, transparent);
+  opacity: var(--qd-auth-sheen-opacity, 0.5);
+  -webkit-mask-image: url("/login-mark.webp"), linear-gradient(105deg, transparent 44%, rgb(0 0 0) 50%, transparent 56%);
+  mask-image: url("/login-mark.webp"), linear-gradient(105deg, transparent 44%, rgb(0 0 0) 50%, transparent 56%);
+  -webkit-mask-size: 100% 100%, 300% 100%;
+  mask-size: 100% 100%, 300% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center, 100% 0;
+  mask-position: center, 100% 0;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.qd-auth-ident { position: relative; z-index: 1; text-align: center; line-height: 1.3; }
+.qd-auth-name { margin: 0; font-family: var(--qd-font-family-ui); font-size: var(--qd-auth-name-size); font-weight: var(--qd-font-weight-bold); letter-spacing: -0.015em; word-spacing: normal; color: var(--qd-text); }
+.qd-auth-line { margin: var(--qd-space-2) 0 0; font-family: var(--qd-font-family-ui); font-size: var(--qd-auth-line-size); letter-spacing: 0; word-spacing: normal; color: color-mix(in oklab, var(--qd-text) 60%, transparent); }
+.qd-auth-phone { flex-direction: column; align-items: center; gap: var(--qd-space-3); margin-bottom: var(--qd-space-7); }
+.qd-auth-phone .qd-auth-mark { width: var(--qd-auth-mark-size-phone); }
+.qd-auth-phone .qd-auth-name { font-size: var(--qd-auth-name-size-phone); }
+.qd-auth-phone .qd-auth-line { margin-top: var(--qd-space-1); font-size: var(--qd-auth-line-size-phone); }
+[data-qd-row="1"] { --qd-row: 1; }
+[data-qd-row="2"] { --qd-row: 2; }
+[data-qd-row="3"] { --qd-row: 3; }
+[data-qd-row="4"] { --qd-row: 4; }
+[data-qd-row="5"] { --qd-row: 5; }
+[data-qd-row="6"] { --qd-row: 6; }
+[data-qd-row="7"] { --qd-row: 7; }
+[data-qd-row="8"] { --qd-row: 8; }
+[data-qd-row="9"] { --qd-row: 9; }
+[data-qd-row="10"] { --qd-row: 10; }
+[data-qd-row="11"] { --qd-row: 11; }
+@keyframes qd-auth-fade { from { opacity: 0; } }
+@keyframes qd-auth-rise { from { opacity: 0; transform: translateY(8px); } }
+@keyframes qd-auth-settle { from { transform: scale(1.04); } }
+@keyframes qd-auth-dim { 0%, 40% { filter: var(--qd-auth-mark-dim, none); } }
+@keyframes qd-auth-sheen {
+  from { -webkit-mask-position: center, 100% 0; mask-position: center, 100% 0; }
+  to { -webkit-mask-position: center, 0% 0; mask-position: center, 0% 0; }
+}
+@keyframes qd-auth-open { from { width: 100vw; } }
+@media (prefers-reduced-motion: no-preference) {
+  [data-qd-intro="on"] .qd-auth-panel-bg {
+    animation: qd-auth-fade var(--qd-auth-bg-fade) var(--qd-auth-intro-ease) backwards, qd-auth-settle var(--qd-auth-bg-settle) var(--qd-auth-intro-smooth) backwards;
+  }
+  [data-qd-intro="on"] .qd-auth-mark { animation: qd-auth-fade var(--qd-auth-mark-for) var(--qd-auth-intro-ease) backwards; }
+  [data-qd-intro="on"] .qd-auth-mark-img { animation: qd-auth-dim var(--qd-auth-dim-for) linear backwards; }
+  [data-qd-intro="on"] .qd-auth-mark-sheen { display: block; animation: qd-auth-sheen var(--qd-auth-sheen-for) var(--qd-auth-intro-sheen-ease) var(--qd-auth-sheen-at) both; }
+  [data-qd-intro="on"] .qd-auth-ident { animation: qd-auth-rise var(--qd-auth-ident-for) var(--qd-auth-intro-smooth) var(--qd-auth-ident-at) backwards; }
+  [data-qd-intro="on"] .qd-auth-late { animation: qd-auth-fade var(--qd-auth-late-for) var(--qd-auth-intro-ease) var(--qd-auth-late-at) backwards; }
+  [data-qd-intro="on"] [data-qd-row] {
+    animation: qd-auth-rise var(--qd-auth-row-for) var(--qd-auth-intro-smooth) calc(var(--qd-auth-rows-at) + var(--qd-row, 0) * var(--qd-auth-row-step)) backwards;
+  }
+}
+/* 판이 화면 전체에서 제 넓이로 물러난다. 넓이를 움직이므로 판 안의 Q 와 글은 판 한가운데를 따라 왼쪽으로 간다 */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  [data-qd-intro="on"] .qd-auth-panel { animation: qd-auth-open var(--qd-auth-open-for) var(--qd-auth-intro-smooth) var(--qd-auth-open-at) backwards; }
+}
+
 /* Q-Carnet authored foundation. Q-Design owns screen and exact paper recipes. */
 /* Values unique to the Carnet decorative artwork stay centrally editable here. */
 :root {
@@ -518,12 +661,18 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-carnet-drawer-layer: 50;
 }
 html { font-size: var(--qd-carnet-root-size); }
-.carnet-auth { position: relative; display: grid; min-height: 100dvh; background: var(--qd-auth-background); }
-.carnet-auth-theme { position: absolute; top: var(--qd-auth-theme-inset); right: var(--qd-auth-theme-inset); z-index: var(--qd-auth-theme-layer); min-height: var(--qd-control-height); padding-inline: var(--qd-space-3); }
+.carnet-auth { position: relative; display: grid; min-height: 100dvh; background: var(--qd-auth-background); word-break: keep-all; overflow-wrap: break-word; }
+/* 로그인 첫 화면(2026-10-22 오너 결정 «가»): 왼쪽 판은 공용 .qd-auth-panel(patterns/foundation.css «로그인 첫 화면»).
+   여기에는 Q-Carnet 판의 그림 · 어둡힘 · 빛의 세기만 둔다. 색 값(판 바탕 · 구리 Q 의 빛: 다크에서 밝은 구리,
+   라이트에서 가운데 구리)은 아래 테마 블록 두 곳에 있다. Q-Carnet 은 색을 테마 블록에서만 정한다(scripts/check-theme.mjs) */
+.carnet-auth { --qd-auth-panel-image: url("/login-bg-dark.jpg"); --qd-auth-mark-dim: brightness(0.55); --qd-auth-sheen-opacity: 0.5; }
+html[data-theme='light'] .carnet-auth { --qd-auth-panel-image: url("/login-bg-light.jpg"); --qd-auth-mark-dim: none; --qd-auth-sheen-opacity: 0.55; }
+/* 밝기 고르개: 아이콘 하나만 든 44 칸(세 제품 같은 자리 · 같은 모양 · 2026-10-22) */
+.carnet-auth .carnet-auth-theme { position: absolute; top: var(--qd-auth-theme-inset); right: var(--qd-auth-theme-inset); z-index: var(--qd-auth-theme-layer); display: inline-flex; align-items: center; justify-content: center; width: var(--qd-control-height); height: var(--qd-control-height); min-height: var(--qd-control-height); padding: 0; }
 .carnet-auth-form { width: 100%; max-width: var(--qd-auth-form-width); }
-.login-brand { display: none; position: relative; z-index: 1; flex-direction: column; overflow: hidden; padding: var(--qd-auth-brand-padding); }
+.login-brand { display: none; position: relative; z-index: 2; }
 .login-form-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--qd-auth-mobile-padding); }
-.carnet-auth-footer { margin-top: var(--qd-space-7); border-top: var(--qd-border-width) solid var(--qd-border); padding-top: var(--qd-space-4); text-align: center; font-family: var(--qd-font-family-mono); font-size: var(--qd-caption-size); line-height: var(--qd-auth-footer-line-height); color: var(--qd-muted); }
+.carnet-auth-footer { margin-top: var(--qd-space-7); border-top: var(--qd-border-width) solid var(--qd-border); padding-top: var(--qd-space-4); text-align: center; font-family: var(--qd-font-family-ui); font-size: var(--qd-caption-size); line-height: var(--qd-auth-footer-line-height); color: var(--qd-muted); }
 .carnet-auth-single, .carnet-state-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100dvh; padding: var(--qd-auth-mobile-padding); background: var(--qd-auth-background); }
 .carnet-auth-single-title, .carnet-state-title { margin-top: var(--qd-space-6); font-size: var(--qd-title-size); font-weight: var(--qd-font-weight-semibold); line-height: var(--qd-leading-heading); color: var(--qd-text); }
 .carnet-state-card { width: 100%; max-width: var(--qd-status-width); }
@@ -577,9 +726,10 @@ html { font-size: var(--qd-carnet-root-size); }
 .carnet-ribbon-ambient .carnet-ribbon-path-primary { d: var(--qd-carnet-ribbon-path-ambient); stroke-width: var(--qd-carnet-ribbon-width-ambient); }
 .carnet-ribbon-vignette { background: var(--dhr-vignette); }
 @media (min-width: 1024px) {
-  .carnet-auth { grid-template-columns: var(--qd-auth-columns); }
-  .login-brand { display: flex; }
-  .login-form-wrap { padding: var(--qd-auth-form-padding); }
+  .carnet-auth { grid-template-columns: var(--qd-auth-columns); align-items: start; }
+  /* 왼쪽 판은 화면 높이로 서서 제자리에 붙는다(오른쪽이 길어지면 페이지만 스크롤) */
+  .login-brand { display: flex; position: sticky; top: 0; min-height: 100vh; min-height: 100dvh; }
+  .login-form-wrap { padding: var(--qd-auth-form-padding); min-height: 100vh; min-height: 100dvh; }
 }
 /* 차림표 정본. Q-Design 이 Q-Atelier 의 Sidebar.tsx 를 «읽어» 만든 생성물의 사본이다.
    손으로 고치지 말 것 · `scripts/check-nav.mjs` 가 지문을 대조한다.
@@ -825,6 +975,10 @@ html[data-theme='dark'] {
   --sh-1: 0 2px 8px rgb(0 0 0 / .25);
   --sh-2: 0 6px 18px rgb(0 0 0 / .35);
   --sh-3: 0 20px 60px rgb(0 0 0 / .55);
+
+  /* 로그인 첫 화면(2026-10-22): 판 바탕(그림이 뜨기 전) · 구리 Q 위를 지나는 빛. 공용 .qd-auth-panel 이 읽는다 */
+  --qd-auth-panel-surface: #0e0e0e;
+  --qd-auth-sheen-color: #f1c6ab;
 }
 
 /* ── 라이트 ──────────────────────────────────────────────────────────────── */
@@ -923,6 +1077,10 @@ html[data-theme='light'],
   --sh-1: 0 2px 8px rgb(80 65 40 / .10);
   --sh-2: 0 6px 18px rgb(80 65 40 / .14);
   --sh-3: 0 20px 50px rgb(80 65 40 / .18);
+
+  /* 로그인 첫 화면(2026-10-22): 판 바탕 · 구리 Q 위를 지나는 빛 */
+  --qd-auth-panel-surface: #f4f2ed;
+  --qd-auth-sheen-color: #c7784f;
 }
 
 /* ── 테마 축이 아닌 것 ───────────────────────────────────────────────────── */
@@ -2056,20 +2214,15 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 }
 
 /* ---------------------------------------------------------------------------
-   로그인 (Q-Atelier 로그인의 배경과 바닥글을 그대로 옮김 · 오너 지시 2026-09-14)
+   로그인 (세 제품 같은 짜임 · 2026-10-22 오너 결정 «가»)
 
-   두 면을 반투명으로 둔다. 뒤의 리본(components/ribbon · full)이 비쳐야 그
-   제품과 같은 결이 난다. 왼쪽은 머리띠 색 75% 에 금 6% 로 기우는 기울기,
-   오른쪽은 바탕 82% 에서 깊은 바탕 70% 로 기울고 1px 흐림으로 글을 지킨다.
-   기울기를 «색» 으로 쓰지 않는다는 규칙(.band-solid 주석)은 그대로다 - 같은 색의
-   투명도만 달라진다.
+   왼쪽 판은 공용 .qd-auth-panel 이 그린다(제품 배경 그림 · 구리 Q · 이름 · 한 줄).
+   여기에는 판의 테두리와 오른쪽 판의 바탕만 둔다. 로그인에는 리본을 깔지 않는다.
 
-   리본 두 겹의 표류는 그 제품의 32s / 38s 그대로. 움직임을 줄인 설정은 멈춘다.
+   리본 두 겹의 표류(32s / 38s)는 앱 틀의 리본(app/layout.tsx)이 쓴다. 움직임을 줄인 설정은 멈춘다.
 --------------------------------------------------------------------------- */
 .login-brand {
-  background: var(--color-indigo-deep);
   border-right: 1px solid var(--color-line);
-  color: var(--color-on-dark);
 }
 .login-form-wrap {
   background: var(--qd-auth-background);
@@ -2089,35 +2242,15 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 .dhr-ribbon-1 { animation: dhr-ribbon-drift-1 var(--qd-background-ribbon-primary-duration) ease-in-out infinite; transform-origin: 50% 50%; will-change: transform; }
 .dhr-ribbon-2 { animation: dhr-ribbon-drift-2 var(--qd-background-ribbon-secondary-duration) ease-in-out infinite; transform-origin: 50% 50%; will-change: transform; }
 /* 움직임 감소는 파일 끝의 한 블록이 맡는다 (check-theme 가 그 블록 하나만 본다). 이름을 거기 더했다 */
-/* 로그인 왼쪽 위 시계 (그 제품의 KstClock 과 같은 모양) */
-.login-clock { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: var(--qd-caption-size); letter-spacing: var(--qd-auth-clock-tracking); text-transform: uppercase; color: var(--color-on-dark-mute); }
-.login-clock-dot { display: inline-block; width: 6px; height: 6px; background: var(--color-brand); opacity: 0.85; }
-/* 로그인 왼쪽 판의 글 (Q-Atelier 왼쪽 판과 같은 치수 · 오너 지시 2026-09-14 저녁) */
-.login-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: var(--qd-caption-size); letter-spacing: var(--qd-auth-eyebrow-tracking); text-transform: uppercase; color: var(--color-brand); margin-bottom: 28px; }
-.login-eyebrow-line { width: 36px; height: 1px; background: var(--color-brand); opacity: 0.7; }
-.login-headline { margin: 0; font-family: var(--qd-font-family-display); font-size: var(--qd-auth-title-size); line-height: 1.12; letter-spacing: -0.015em; font-weight: var(--qd-font-weight-medium); color: var(--color-on-dark); text-wrap: balance; }
-.login-subhead { margin: 24px 0 0; font-size: var(--qd-auth-subhead-size); line-height: var(--qd-auth-subhead-line-height); color: var(--color-on-dark-mute); max-width: 480px; }
-.login-tagline { margin-top: 20px; font-family: var(--font-mono); font-size: var(--qd-caption-size); letter-spacing: var(--qd-auth-eyebrow-tracking); text-transform: uppercase; color: var(--color-on-dark-mute); }
-/* 로그인 오른쪽 판: Q-Atelier 의 카드 그대로 (오너 지시 2026-09-14 저녁 · 「제안한 거 진행」 · 「세 사이트 통일」)
-   위에 표식 · 이름 · 모노 부제 한 줄과 밑선, 아래 카드(면 · 테두리 · 10px · 금 코너 브래킷 ⌜ ⌟ · 그림자).
-   칸은 이름표(모노 10px) + 값 상자(면 위 테두리 · 고르면 금). 단추는 먹색 면에 밝은 글자.
+/* 로그인 오른쪽 판(2026-10-22): 폼은 판 위에 바로 선다(상자 · 그림자 없이). 맨 위에 이 기록의 주인(제조소)이 작게 온다.
+   칸은 이름표 + 값 상자(면 위 테두리 · 고르면 금). 단추는 먹색 면에 밝은 글자.
    장갑 낀 손이 누르는 자리라 값 상자와 단추의 높이는 --tap-touch(56px)를 지킨다. */
-.login-desktop-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; padding-bottom: 22px; border-bottom: 1px solid var(--color-line); }
-.login-desktop-brand-title { font-size: var(--qd-font-size-18); font-weight: var(--qd-font-weight-normal); color: var(--color-ink); line-height: 1.2; letter-spacing: -0.005em; }
-.login-desktop-brand-sub { font-family: var(--font-mono); font-size: var(--qd-caption-size); letter-spacing: var(--qd-auth-clock-tracking); text-transform: uppercase; color: var(--color-muted); margin-top: 3px; }
-.login-card {
-  position: relative; padding: var(--qd-auth-card-padding);
-  background: var(--qd-auth-surface); border: 1px solid var(--color-line); border-radius: var(--r-md);
-  box-shadow: var(--qd-auth-shadow);
-}
-.login-card::before, .login-card::after {
-  display: var(--qd-auth-card-corner-display);
-  content: ''; position: absolute; width: 22px; height: 22px; pointer-events: none;
-  border: 0 solid color-mix(in oklab, var(--color-brand) 60%, transparent);
-}
-.login-card::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; border-top-left-radius: var(--r-md); }
-.login-card::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; border-bottom-right-radius: var(--r-md); }
-.login-field-label { display: block; font-family: var(--font-mono); font-size: var(--qd-caption-size); font-weight: var(--qd-font-weight-medium); color: var(--color-muted); margin-bottom: 7px; word-spacing: var(--qd-hangul-word-space, normal); }
+.carnet-auth-org { display: flex; justify-content: center; margin-bottom: var(--qd-space-6); }
+/* 제조소 표식은 폭(min(8rem, 40%))을 받은 상자 안에서 왼쪽에 붙는다(.carnet-logo-left · 차림표 자리 기준).
+   여기는 가운데 축이라 글자와 그림을 상자 가운데로 옮긴다(2026-10-22 폰 412 실측: 이름이 24px 왼쪽으로 치우쳤다) */
+.carnet-auth-org :is(img, span) { text-align: center; object-position: center; }
+.login-card { position: relative; }
+.login-field-label { display: block; font-family: var(--font-sans); font-size: var(--qd-caption-size); font-weight: var(--qd-font-weight-medium); color: var(--color-muted); margin-bottom: 7px; word-spacing: normal; }
 .login-field {
   font-size: var(--qd-auth-control-size);
   display: flex; align-items: center; gap: 12px; width: 100%; min-height: var(--tap-touch); padding: 0 14px; text-align: left;
@@ -2135,15 +2268,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 }
 .login-submit:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
 .login-submit:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-.login-hint { margin-top: 12px; font-family: var(--font-mono); font-size: var(--qd-caption-size); color: var(--color-faint); text-align: center; word-spacing: var(--qd-hangul-word-space, normal); }
-/* 로그인 머리글의 마지막 낱말: 집안 모티프인 금 기울기 글자 (Q-Atelier BRAND.goldGradient 와 같은 합성) */
-.login-headline-accent {
-  background-image: linear-gradient(135deg, var(--color-brand) 0%, color-mix(in oklab, var(--color-brand) 55%, white) 50%, color-mix(in oklab, var(--color-brand) 82%, black) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: var(--qd-font-weight-semibold);
-}
+.login-hint { margin-top: 12px; font-family: var(--font-sans); font-size: var(--qd-caption-size); color: var(--color-faint); text-align: center; word-spacing: normal; }
 /* 판 오른쪽 위의 설명 i (components/info-tip · 오빠 지시 2026-09-15 「설명은 i 에 넣고 올리면 뜨게」).
    공통 44px 조작부 · 모노 i · 조용한 테두리. 판(.info-tip-panel)은 body 에 그린다 */
 .info-tip-btn {

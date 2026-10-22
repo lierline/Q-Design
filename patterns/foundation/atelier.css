@@ -4561,6 +4561,23 @@ html[data-theme='light'] .expert-portal-root .brand-logo img.brand-logo-light { 
 /* qd-source-end: components/qms/sheet-paper.css */
 
 /* qd-source-start: app/(auth)/login/page.tsx */
+/* 로그인 첫 화면(2026-10-22 오너 결정 «가»): 왼쪽 판은 공용 .qd-auth-panel(patterns/foundation.css 의 «로그인 첫 화면»).
+   여기에는 Q-Atelier 판의 자리 · 테마 값 · 오른쪽 폼만 둔다. 영어 문구 · 시계 · 리본 배경은 걷었다(오너 «영어 문구 같은 거 없어도»). */
+.qa-auth-page {
+  --qd-auth-panel-image: url("/login-bg-dark.jpg");
+  --qd-auth-panel-surface: #0e0e0e;
+  --qd-auth-mark-dim: brightness(0.55);
+  --qd-auth-sheen-color: #f4f4f4;
+  --qd-auth-sheen-opacity: 0.5;
+}
+html[data-theme='light'] .qa-auth-page {
+  --qd-auth-panel-image: url("/login-bg-light.jpg");
+  --qd-auth-panel-surface: #f4f2ed;
+  --qd-auth-mark-dim: none;
+  --qd-auth-sheen-color: #b9b9b9;
+  --qd-auth-sheen-opacity: 0.55;
+}
+
 .qa-auth-split {
   position: relative;
   z-index: 1;
@@ -4589,17 +4606,10 @@ html[data-theme='light'] .expert-portal-root .brand-logo img.brand-logo-light { 
 .qa-auth-form-inner {
   width: 100%;
   max-width: var(--qd-auth-mobile-form-width, 460px);
-  animation: qa-auth-rise 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .qa-auth-mobile-brand {
   display: flex;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
-.qa-auth-desktop-brand {
-  display: none;
 }
 
 .qa-auth-tabs {
@@ -4608,26 +4618,21 @@ html[data-theme='light'] .expert-portal-root .brand-logo img.brand-logo-light { 
   border-bottom: 1px solid var(--qa-border);
 }
 
-.qa-auth-card {
-  padding: var(--qd-auth-card-padding, 28px 30px);
-  background: var(--qa-surface);
-  border: 1px solid var(--qa-border);
-  border-radius: var(--qd-radius, 10px); /* 2026-09-14 오빠 결정: 액자 모티프보다 통일. 브래킷도 같은 곡률 */
-}
-
-@keyframes qa-auth-rise {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* 폼은 판 위에 바로 선다(상자 · 그림자 없이). 비밀번호 찾기 · 재설정 화면의 .qa-auth-card 는 그대로 상자다 */
+.qa-auth-split .qa-auth-card {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 /* ── Desktop split (>= 1024px) ─────────────────────────── */
 @media (min-width: qd-bp(lg)) {
   /* 2026-09-28 오빠 지적 «오류가 뜨면 화면 구조가 다 틀어진다»: 오른쪽 칸이 화면보다 길어지면(오류 상자 ·
-     지문 단추 · 회원가입 탭) 두 칸이 한 줄이라 왼쪽 판도 그 길이만큼 늘어났다. 그 바람에 큰 제목이 가운데를
-     따라 아래로 밀리고(1440x900 에서 42px) 아래의 버전 표시가 화면 밖으로 나갔다. 이제 왼쪽 판은 화면 높이로
+     지문 단추 · 회원가입 탭) 두 칸이 한 줄이라 왼쪽 판도 그 길이만큼 늘어났다. 이제 왼쪽 판은 화면 높이로
      서서 제자리에 붙어 있고(sticky), 길어진 만큼은 페이지가 스크롤한다. 늘 가운데인 오른쪽 판은 그대로다. */
   .qa-auth-split {
-    grid-template-columns: var(--qd-auth-columns, 1.15fr 1fr);
+    grid-template-columns: var(--qd-auth-columns, minmax(0, 1.15fr) minmax(0, 1fr));
     align-items: start;
   }
   /* 스크롤 막대가 생기고 없어질 때마다 두 판이 옆으로 흔들리지 않게 막대 자리를 늘 비워 둔다(이 화면에만). */
@@ -4635,170 +4640,30 @@ html[data-theme='light'] .expert-portal-root .brand-logo img.brand-logo-light { 
     scrollbar-gutter: stable;
   }
 
-  /* 라이트/다크 자동 대응. 다크에선 bg 70% 로 살짝 가리고, 라이트에선
-     champagne tint 가 더 진하게 (라이트 흰색 위에서 champagne 3% 는 거의 안 보임). */
   .qa-auth-brand {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--qd-auth-brand-padding, 56px 64px);
-    background: linear-gradient(
-      105deg,
-      color-mix(in oklab, var(--qa-bg) 75%, transparent) 0%,
-      color-mix(in oklab, var(--qa-champagne) 6%, transparent) 100%
-    );
-    border-right: 1px solid color-mix(in oklab, var(--qa-border) 60%, transparent);
-    /* 화면 높이로 서서 스크롤해도 제자리(위 주석). 글이 화면보다 긴 아주 낮은 창에서는 min 이라 늘어난다. */
+    border-right: 1px solid var(--qd-border);
+    /* 화면 높이로 서서 스크롤해도 제자리(위 주석). 판 밖으로 넘치는 배경 그림은 자른다(스크롤 상자는 만들지 않는다). */
     position: sticky;
     top: 0;
     min-height: 100vh;
     min-height: 100dvh;
     z-index: 2;
-    animation: qa-auth-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    overflow: clip;
   }
 
   .qa-auth-form-wrap {
-    /* 2026-09-14: 잠시 «위에서 89px 고정» 으로 바꿨다가 되돌렸다. 세 제품의 시작점을 같게 하려던
-       것인데, 900px 보다 큰 화면에서 판이 위로 떠 버린다(오빠 지적). 오른쪽 판은 위아래 가운데다.
-       세 제품 사이의 차이는 로그인 고유 내용(탭 · 번호판)의 높이만큼이고 그것은 둔다. */
+    /* 오른쪽 판은 위아래 가운데다(2026-09-14 «위에서 89px 고정» 을 되돌린 결정). */
     align-items: center;
     padding: var(--qd-auth-form-padding, 56px);
-    /* 폼 가독성 보호: 살짝 진한 surface 톤 */
-    background: linear-gradient(
-      255deg,
-      color-mix(in oklab, var(--qa-bg) 82%, transparent) 0%,
-      color-mix(in oklab, var(--qa-surface) 70%, transparent) 100%
-    );
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 
   .qa-auth-form-inner {
     max-width: var(--qd-auth-form-width, 440px);
   }
 
-  /* Mobile-only logo hidden on desktop */
+  /* 넓은 화면에서는 왼쪽 판이 Q 와 이름을 든다 */
   .qa-auth-mobile-brand { display: none; }
-
-  /* Desktop-only horizontal brand row */
-  .qa-auth-desktop-brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 32px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--qa-border);
-  }
-
-  /* Card 위에 살짝 광채: glassmorphism feel. 그림자는 테마 인지(라이트=sepia). */
-  .qa-auth-card {
-    box-shadow:
-      var(--qa-shadow-lg),
-      0 0 0 1px color-mix(in oklab, var(--qa-champagne) 6%, transparent);
-  }
-}
-
-/* ── Brand panel typography ───────────────────────────── */
-.qa-auth-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--qd-font-family-mono, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace);
-  font-size: 12px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--qa-champagne);
-  margin-bottom: 28px;
-}
-.qa-auth-eyebrow-line {
-  width: 36px;
-  height: 1px;
-  background: var(--qa-champagne);
-  opacity: 0.7;
-}
-.qa-auth-headline {
-  margin: 0;
-  /* 럭셔리 디스플레이 세리프 (Cormorant Garamond): F.display 토큰.
-     이전 'Times New Roman'(제네릭 시스템 세리프) 임시값 → 정식 브랜드 서체로 교체.
-     영문 전용 히어로라 한글 폴백 이슈 없음(메인 앱 Pretendard 정책과 무관). */
-  font-family: var(--qd-font-family-display, var(--qa-font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, Georgia, serif);
-  font-size: var(--qd-auth-title-size, clamp(36px, 4.4vw, 56px));
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  font-weight: 500;
-  color: var(--qa-text);
-  text-wrap: balance;
-}
-.qa-auth-headline-accent {
-  /* 패밀리 모티프(A안): 랜딩(medqraft.co.kr) 골드 그라디언트 텍스트.
-     tokens.ts BRAND.goldGradient 와 동일 합성(테마 자동 대응). */
-  background-image: linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* 강조는 골드 그라디언트로만: italic 은 제거.
-     브랜드 규칙(반복 확정): Cormorant italic 절대 금지(전문가 layout 과 동일 정책).
-     italic 제거 보완으로 weight 를 500→600 살짝 올려 헤드라인 대비 강조 유지. */
-  font-style: normal;
-  font-weight: 600;
-}
-
-/* 패밀리 모티프(A안): 랜딩 히어로 액자의 골드 코너 브래킷(⌜ ⌟)을 폼 카드에. */
-.qa-auth-card {
-  position: relative;
-}
-.qa-auth-card::before,
-.qa-auth-card::after {
-  display: var(--qd-auth-card-corner-display, none);
-  content: '';
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  pointer-events: none;
-  border: 0 solid color-mix(in oklab, var(--qa-champagne) 60%, transparent);
-}
-.qa-auth-card::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; border-top-left-radius: var(--qd-radius, 10px); }
-.qa-auth-card::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; border-bottom-right-radius: var(--qd-radius, 10px); }
-
-/* 패밀리 모티프(A안): 브랜드 태그라인(랜딩 로고 서브 동일 문구). */
-.qa-auth-tagline {
-  margin-top: 20px;
-  font-family: var(--qd-font-family-mono, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace);
-  font-size: 12px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--qa-muted);
-}
-.qa-auth-subhead {
-  margin: 24px 0 0;
-  font-family: inherit;
-  font-size: 14.5px;
-  line-height: var(--qd-leading-loose, 1.7);
-  color: var(--qa-subtle);
-  max-width: 480px;
-}
-
-/* ── Foot mark (좌측 패널 하단 Rule Engine 표시): eyebrow 와 같은 톤 ── */
-.qa-auth-foot-mark {
-  margin-bottom: 0;
-  margin-top: 36px;
-  opacity: 0.85;
-}
-
-.qa-auth-desktop-brand-title {
-  font-family: inherit;
-  font-size: 18px;
-  color: var(--qa-text);
-  line-height: var(--qd-leading-tight, 1.2);
-  letter-spacing: -0.005em;
-}
-.qa-auth-desktop-brand-sub {
-  font-family: var(--qd-font-family-mono, 'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace);
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--qa-muted);
-  margin-top: 3px;
 }
 
 /* ── 입장 연출 (로그인 성공 → 대시보드) ──────── */
@@ -5224,7 +5089,7 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
 .qa-auth-compact-page { min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: var(--qd-auth-mobile-padding); background: var(--qd-auth-background); color: var(--qd-text); }
 .qa-auth-compact-form { width: var(--qd-auth-mobile-form-width, 460px); max-width: 100%; }
 .qa-auth-card { background: var(--qd-auth-surface); border-radius: var(--qd-radius); box-shadow: var(--qd-auth-shadow); }
-.qa-auth-theme { position: fixed; top: max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-top)); right: max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-right)); z-index: var(--qd-auth-theme-layer, 50); border-radius: var(--qd-radius); background: var(--qd-surface); border: 1px solid var(--qd-ctl); color: var(--qd-subtle); font-size: var(--qd-control-size); font-family: var(--qd-font-family-mono); letter-spacing: .1em; text-transform: uppercase; padding: var(--qd-space-2) var(--qd-space-3-5); min-height: var(--qd-control-height); cursor: pointer; display: flex; align-items: center; gap: var(--qd-space-2); transition: color var(--qd-motion-fast) ease, border-color var(--qd-motion-fast) ease; }
+.qa-auth-theme { position: fixed; top: max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-top)); right: max(var(--qd-auth-theme-inset, 24px), env(safe-area-inset-right)); z-index: var(--qd-auth-theme-layer, 50); border-radius: var(--qd-radius); background: var(--qd-surface); border: 1px solid var(--qd-ctl); color: var(--qd-subtle); padding: 0; width: var(--qd-control-height); height: var(--qd-control-height); min-height: var(--qd-control-height); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: color var(--qd-motion-fast) ease, border-color var(--qd-motion-fast) ease; }
 .qa-auth-theme:hover { color: var(--qd-text); border-color: var(--qd-accent); }
 .qa-auth-theme-icon { color: var(--qd-accent); display: inline-flex; line-height: var(--qd-leading-none); }
 .qa-auth-theme-icon svg { width: var(--qd-space-4); height: var(--qd-space-4); }
@@ -5237,7 +5102,8 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
 .qa-status-meta { font-size: var(--qd-caption-size); font-family: var(--qd-font-family-mono); line-height: var(--qd-leading-normal); color: var(--qd-muted); margin-bottom: var(--qd-space-8); overflow-wrap: anywhere; }
 .qa-status-action { display: inline-flex; align-items: center; justify-content: center; padding: var(--qd-control-pad-y) var(--qd-control-pad-x); min-height: var(--qd-control-height); background: var(--qd-accent); color: var(--qa-on-accent); border: 1px solid var(--qd-accent); border-radius: var(--qd-radius); font-family: var(--qd-font-family-ui); font-size: var(--qd-control-size); font-weight: 600; text-decoration: none; cursor: pointer; }
 .expert-portal-root .panel, .expert-portal-root .luxe-card, .expert-portal-root .app-topbar, .expert-portal-root .bottom-nav { background: var(--qd-surface); backdrop-filter: none; -webkit-backdrop-filter: none; }
-@media (max-width: qd-bp(sm-max)) { .qa-auth-compact-page { padding: var(--qd-space-6) var(--qd-space-4); } .qa-auth-theme { top: max(var(--qd-space-3), env(safe-area-inset-top)); right: max(var(--qd-space-3), env(safe-area-inset-right)); } }
+/* 밝기 고르개는 폰에서도 24 안쪽(세 제품 같은 자리 · 2026-10-22). 전에는 12 였다 */
+@media (max-width: qd-bp(sm-max)) { .qa-auth-compact-page { padding: var(--qd-space-6) var(--qd-space-4); } }
 @media (prefers-reduced-motion: reduce) { .qa-auth-theme, .qa-auth-split { transition: none !important; } }
 /* qd-source-end: auth-status-adapters */
 

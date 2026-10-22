@@ -113,7 +113,8 @@ test('each product icon, mark and native target write remains under the scoped w
     ts.forEachChild(node, visit);
   }
   visit(source);
-  assert.equal(targetWrites, 3);
+  // 앱 아이콘 · 화면 붓 Q · 로그인 그림(2026-10-22) · iOS 앱 아이콘
+  assert.equal(targetWrites, 4);
   const calls = [...source.text.matchAll(/canWriteIconTarget\(write, onlyTargets, p\.key\)/g)];
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 4);
 });

@@ -12,7 +12,7 @@
 
 - Q-Sonar 따라잡기. 차림표 · 목록 · 뼈대 세 조각이 10-10 판에 머물러 있다(`sync-parts.mjs` 의 PENDING). 받으면 Q-Sonar 화면이 달라진다.
 - 화면 글 말투. Q-Maison 82곳, Q-Carnet 12곳(상한 11). 정식 기록 문장과 검사기 오탐이 섞여 있어 바꿀 문장 목록부터 보여 드린다.
-- 10-22 전수 검수의 «바꿈» 후보(아래 그날 기록). 세 제품 왼쪽 띠의 「THEME / DARK」 영문, Q-Atelier InfoDot · 「필수 아님」 글자색(대비 2.4 ~ 2.5), 대비 4.0 ~ 4.45 에 걸린 토큰들과 Q-Maison 알약 색, Q-Carnet 바닥글 상표(투명도 .35 · 대비 1.6), 「Documented.」 글자표. 로그인 영문 머리글은 로그인 첫 화면을 다시 짜는 세션이 맡았다.
+- 10-22 전수 검수의 «바꿈» 후보(아래 그날 기록). 세 제품 왼쪽 띠의 「THEME / DARK」 영문, Q-Atelier InfoDot · 「필수 아님」 글자색(대비 2.4 ~ 2.5), 대비 4.0 ~ 4.45 에 걸린 토큰들과 Q-Maison 알약 색, Q-Carnet 바닥글 상표(투명도 .35 · 대비 1.6), 「Documented.」 글자표.
 - Q-Sonar 흐린 글자 가운데 단계 `#aaa395`. Q-Sonar 는 흐린 글자가 세 단계(#b7b0a5 · #aaa395 · #898271)이고 정본 어두운 테마는 둘(subtle · muted)이다. 가운데를 위나 아래로 합치거나, 정본에 단계를 하나 더하는 안을 실제 화면에 입혀 보여 드린다.
 - 폰 누름 자리 «바꿈» 13곳(10-22 비교판을 오너께 보냄 · 아래 그날 기록). 모양이 바뀌어야만 44 가 되는 것들이다. 오너가 번호로 고르면 그것만 고친다.
 
@@ -42,6 +42,23 @@
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
 
 ---
+
+## 로그인 첫 화면 새 짜임 · 열 때마다 판이 열리는 등장 · 세 제품 · 2026-10-22
+
+- 오너 요청: Login 의 첫 접속 움직임을 Q 세 제품에도, 조금 더 고급스럽고 심플하게. 그림 만들기 · 디자인 검토는 코덱스와 함께. 오너가 고른 것: 짜임 A + «판이 열린다», 왼쪽 판은 제품 배경 그림 위에 입체 금속 Q · 제품 이름 · 한글 한 줄(«가»), 폼 강조색은 세 제품 공통 샴페인, 움직임은 부드러운 가속 → 감속 → 정지, 영어 문구 없음, 한 줄 문구는 그대로, 로그인 화면을 열 때마다. 배경 그림은 «이대로 좋아요», 반영은 «바로 운영까지».
+- 정본(`patterns/foundation.css`)에 공용 로그인 묶음 `qd-auth-*` 을 새로 둔다.
+  - 판 `qd-auth-panel` · `-bg` · `-center`, 표지 `qd-auth-mark` 와 빛 `qd-auth-sheen`, 이름 `qd-auth-name` · 한 줄 `qd-auth-line`, 폰 머리 `qd-auth-phone`, 늦게 오는 것 `qd-auth-late`, 폼 줄 `[data-qd-row]`.
+  - 상태는 `data-qd-intro` 하나. on 으로 시작해 3.1초 뒤, 또는 첫 누름 · 키에서 off. 움직임은 전부 `prefers-reduced-motion: no-preference` 안이라 움직임 줄이기 설정이면 돌지 않는다.
+  - 순서: 판이 화면을 덮은 채 Q 가 떠오르고 빛이 한 번 지나감 → 0.9초부터 1.5초 동안 판이 제 넓이로 물러남(데스크톱만) → 이름 · 한 줄 1.7초 → 폼 줄 1.7초부터 0.05초 간격 → 밝기 고르개 2.0초.
+- 제품 결(`foundation/{atelier,maison,carnet}.css`)은 배경 그림 · 판 바탕색 · 빛 색 · 표지 어둡기만 변수로 준다. Q-Carnet 은 색 변수를 테마 블록 안에 둔다(DHR `check-theme` 이 블록 밖 16진 색을 막는다. 가림 그라데이션도 `rgb(0 0 0)`).
+- 그림: `source/brand/login/`(만든 글 PROMPTS.md · 배경 · 표지 원본). `tools/app-icons.mjs` 가 세 제품 public 에 `login-mark.webp` · `login-bg-dark.jpg` · `login-bg-light.jpg` 를 쓴다(`asset-pipeline.test` 쓰기 수 4).
+- 코덱스 검토(최종 그림 아홉 장). 받은 것 넷: Q-Maison 자동 로그인 체크 상자를 칸 왼쪽 끝(24)에 맞춤, Q-Atelier 폰 밝기 고르개를 24 안쪽으로(전에는 12), Q-Atelier 소셜 링크 테두리 없앰, Q-Atelier 바닥 약관 링크 누름 자리 44. 안 받은 것 둘: 점선 밑줄은 정본 `qd-text-action` 의 결이고, Q-Carnet 테두리 «i» 는 제품 전체가 쓰는 InfoTip 부품이라 로그인만 바꾸면 세 번째 변종이 된다.
+- 잰 것: 세 제품 × 1440 · 1366 · 412 · 375 × 어둡게 · 밝게. 가로 넘침 0, 밝기 고르개 44 · 오른쪽 위 24/24, ⓘ 44, 키보드로 움직임 끊김 · 초점 윤곽 보임. 판 넓이 1440 → 1376(1.2초) → 997(1.8초) → 765(2.4초). Q-Carnet 제조소 이름이 폰에서 24 왼쪽으로 쏠려 있던 것을 가운데로(188 · 화면 가운데 187.5). `check.mjs` 35/35.
+- 🔴 걸려 넘어진 것
+  - 숨은 미리보기 창에서는 rAF · 타이머가 느려져 시각별 재기가 멈춘다. `document.getAnimations()` 를 멈추고 `currentTime` 을 옮겨 가며 상태를 찍었다.
+  - DHR `check-theme` 의 종료 코드가 `| tail` 에 가려 초록처럼 보였다. `PIPESTATUS[0]` 로 봐야 한다.
+  - Q-Maison `canon-polish` 시험은 foundation 사본에서 첫 `@media (min-width: 1024px)` 를 찾는다. 합친 미디어 질의는 `prefers-reduced-motion` 을 앞에 써서 그 자리를 뺏지 않게 했다.
+  - Q-Maison `q-design-sync` 시험이 걷은 리본(`.qm-ribbon-1`)을 찾고 있었다. 새 판(`.qd-auth-panel`)으로 바꿨다.
 
 ## 폰 누름 자리 44 · 세 제품 · 2026-10-22
 
