@@ -61,9 +61,10 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
     expect(readSource('components/AdminLayoutShell.tsx')).toMatch(/className="qa-admin-touch"/);
   });
 
-  it('qa-touch-hit 은 모양을 두고 누르는 자리만 넓힌다(보이지 않는 ::after)', () => {
+  it('qa-touch-hit 은 모양을 두고 누르는 자리만 모자란 만큼 가운데로 44 까지 넓힌다(보이지 않는 ::after)', () => {
     expect(block).toMatch(/\.qa-touch-hit\s*\{\s*position:\s*relative;/);
-    expect(block).toMatch(/\.qa-touch-hit::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*-10px -6px;/);
+    // 2026-10-22: 고정 -10px -6px 로는 ⓘ(22×22)가 34×42 에 머물렀다
+    expect(block).toMatch(/\.qa-touch-hit::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*min\(0px, calc\(\(100% - var\(--qd-control-height, 44px\)\) \/ 2\)\);/);
   });
 
   it('qa-touch-hit-end 는 줄 끝 단추의 누르는 자리를 오른쪽 끝에 맞춰 왼쪽으로 · 세로는 가운데로 44 까지 넓힌다', () => {
@@ -75,6 +76,17 @@ describe('터치 화면 규칙이 인라인을 이긴다', () => {
     expect(after).toMatch(/right:\s*0;/);
     expect(after).toMatch(new RegExp(`bottom:\\s*${half};`));
     expect(after).toMatch(/left:\s*min\(0px, calc\(100% - var\(--qd-control-height, 44px\)\)\);/);
+  });
+
+  // 2026-10-22 폰 실측: 전문가 포털 「로그인으로 돌아가기」 22 · 비밀번호 보기 24, 빈 화면 「홈으로」 33, 법적 안내 「로그인」 43
+  it('전문가 포털 글귀 링크 · 비밀번호 보기 · 빈 화면의 다음 할 일 링크는 모자란 만큼 가운데로 44 까지', () => {
+    expect(block).toMatch(/\.expert-portal-root :is\(\.link-gold, \.link-quiet, \.luxe-pw-toggle\)::after,\s*\.qd-empty-hints a::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*min\(0px, calc\(\(100% - var\(--qd-control-height, 44px\)\) \/ 2\)\);/);
+    // 비밀번호 보기는 칸 안에 absolute 로 선다. relative 로 바꾸면 칸 아래로 밀려난다
+    expect(block).not.toMatch(/\.luxe-pw-toggle[^{]*\{\s*position:\s*relative/);
+  });
+
+  it('법적 안내 머리 · 바닥과 로그인 칸 링크는 가로도 모자란 만큼 넓힌다(6 보다 덜 넓히지는 않는다)', () => {
+    expect(block).toMatch(/\.qa-legal-shell footer a::after\s*\{\s*content:\s*'';\s*position:\s*absolute;\s*inset:\s*-16px min\(-6px, calc\(\(100% - var\(--qd-control-height, 44px\)\) \/ 2\)\);/);
   });
 });
 
@@ -107,6 +119,10 @@ describe('공용 부품이 이름표를 단다', () => {
     ['components/RegulatoryDeadlinesWidget.tsx', /className="qa-touch-44"/g, 1, '규제 일정 전체 보기'],
     ['app/(app)/admin/page.tsx', /className="qa-touch-44sq"/g, 2, '운영 홈의 이동 글귀(비어 있는 줄 · 허브 탭)'],
     ['app/(app)/admin/page.tsx', /className="qa-touch-44"/g, 1, '운영 홈의 허브 제목 링크'],
+    // 2026-10-22 폰 실측(누르는 자리를 elementFromPoint 로 찍어 잼): 여러 화면이 함께 쓰는 작은 링크 · 단추
+    ['components/RaStatusNotice.tsx', /className="qa-touch-hit"/g, 1, '「제품 R&D 흐름 열기」(인허가 여섯 화면)'],
+    ['components/calendar/CalendarClient.tsx', /className="qa-touch-44 qa-touch-hit"/g, 1, '달 넘기기 ◀ · ▶ · 오늘(폭 31)'],
+    ['app/(app)/m/field-ui.tsx', /className="qa-touch-hit"/g, 1, '현장 화면 마무리 링크(38)'],
   ])('%s', (file, re, count, what) => {
     expect((readSource(file).match(re) ?? []).length, what).toBe(count);
   });

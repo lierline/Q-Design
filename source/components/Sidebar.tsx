@@ -1185,6 +1185,7 @@ const FIXED_NAV_HREFS = [
   '/admin/experts',
   '/admin/expert-invites',
   '/admin/subscriptions',
+  '/admin/billing',
   '/admin/screening',
   '/admin/activity',
   '/admin/multi-view',

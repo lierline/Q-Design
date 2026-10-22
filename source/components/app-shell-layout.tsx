@@ -21,6 +21,7 @@ import { AppPushSync } from '@/components/AppPushSync';
 import { RibbonBackground } from '@/components/RibbonBackground';
 import { Sidebar } from '@/components/Sidebar';
 import { SubscriptionIndicator, type SubscriptionSummaryData } from '@/components/SubscriptionIndicator';
+import { SubscriptionPhaseNotice } from '@/components/SubscriptionPhaseNotice';
 import { NotificationBell } from '@/components/NotificationBell';
 import { TopHeaderBand } from '@/components/TopHeaderBand';
 import { BackButton } from '@/components/BackButton';
@@ -407,6 +408,8 @@ export default async function AppLayout({
           )}
           <NotificationBell placement="static" userId={user.id} isRdLead={caps.sidebarMenus.has('rd-review')} />
         </TopHeaderBand>
+        {/* 만료 유예 · 읽기 전용 안내(구독 1단계 2026-10-22). 판정은 lib/subscription/lifecycle.ts */}
+        {subscriptionData && <SubscriptionPhaseNotice row={subscriptionData} />}
         <PageTransition>
           {/* 운영진의 폰 첫 화면 = 운영 홈(세션마다 한 번 · 오너 2026-09-28 «운영 홈이든 홈이든 한 곳으로 먼저») */}
           {isMedqraftAdmin && <AdminPhoneLanding initialPhone={phoneApp} />}
