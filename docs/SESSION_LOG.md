@@ -30,6 +30,7 @@
 
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
+- 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 셋. `/vigilance` 「초과 37일」 알약 자간 0.48px(`app/(app)/vigilance/page.tsx` 285줄 근처, 한글이면 0), `/research/<과제>/reviews` 날짜 자간 0.5px(그린 부품을 아직 못 찾음), `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기).
 - 제품 개발자가 손으로 쓴 주석의 옛 문서 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). README «옛 문서 번호» 표로 찾을 수 있어 급하지 않다.
 - 폰 누름 자리 44 미만(10-22 실측 묶음: Q-Atelier 90 · Q-Maison 31 · Q-Carnet 알약 `a.chip.chip-pick` 22px). 행 전체로 늘린 링크(`after:absolute after:inset-0`)는 측정기가 요소 상자만 재서 거짓 경보다. 그것을 걸러 낸 뒤 제품별로 정리한다. Q-Maison 에는 누름 자리만 넓히는 공용 규칙(`qa-touch-hit` 같은 것)이 없다.
 
@@ -59,6 +60,9 @@
 - 결함이 아니었던 것: Q-Maison `/safety/monthly/print` 「페이지를 찾을 수 없」 는 달 없이 주소만 연 측정기 탓(화면은 늘 달을 붙여 연다). Q-Maison 날짜 한 칸 고르기 창이 초점을 입력칸에 두는 것은 의도(커서를 뺏지 않는다).
 - 🔴 걸려 넘어진 것: npm 저장소(DHR)에서 `pnpm typecheck` 를 부르면 pnpm 이 설치를 시도해 `pnpm-lock.yaml` · `pnpm-workspace.yaml` 을 만들고 node_modules 를 pnpm 배치로 바꾼다. 지우고 `npm ci` 로 되돌렸다. DHR 검사는 `./node_modules/.bin/tsc` 와 `package.json` 의 test 줄을 직접 부른다.
 - Q-Sonar 사본은 `--sync` 가 매번 써 넣지만 PENDING 이라 두 번 다 되돌렸다.
+- 운영 올림 · 다시 재기(같은 날 오너 승인). 세 제품 main 에 올려 배포 완료를 본 뒤 운영을 처음과 같은 조건으로 다시 쟀다. 처음 측정에서 사라진 묶음 Q-Carnet 20 · Q-Atelier 101 · Q-Maison 15.
+  - 새로 생긴 `touchCovered` 는 누름 자리 세션이 측정기에 더한 알림(«요소는 작아도 실제 누름 자리는 44 이상»)이라 결함이 아니다.
+  - 🔴 Q-Maison 가림 7묶음은 측정기 탓이다. 누름 자리 재기(`probeHit`)가 화면 밖 요소를 가운데로 굴린 뒤 창 스크롤만 되돌린다. 본문 안에서 스크롤하는 Q-Maison 은 본문이 굴린 자리에 남은 채로 가림을 재서, 붙박이 띠(`qm-main-band` · 고정 거르기 줄 · 고정 첫 칸)가 덮은 것으로 셌다. 배포 전에 새 측정기로 잰 판(`maison-touch1`)에도 같은 7묶음이 있다. 누름 자리 세션에 넘겼다.
 
 ## 고치고 키우는 흐름 · 정본을 건너뛰는 길 막기 · 2026-10-22
 
