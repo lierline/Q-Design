@@ -1130,68 +1130,6 @@
     line-height: 1.6;
   }
 
-  /* ── 폼 아래 글귀 (보조 동작은 상자 단추가 아니라 글귀) ── */
-  .qm-auth-after {
-    margin-top: 14px;
-    text-align: center;
-  }
-  .qm-auth-link {
-    display: inline-flex;
-    align-items: center;
-    /* 터치에서 누를 자리를 넉넉히. 글과 밑줄은 그대로 (원본 R-05) */
-    min-height: var(--qd-control-height);
-    padding: 0 8px;
-    border-bottom: 1px dashed var(--qd-border);
-    font-family: var(--qd-font-ui);
-    font-size: var(--qd-caption-size);
-    color: var(--qd-muted);
-    text-decoration: none;
-    word-spacing: normal;
-    transition: color var(--qd-motion-fast) ease;
-  }
-  .qm-auth-link:hover {
-    color: var(--qd-text);
-  }
-  .qm-auth-note {
-    font-family: var(--qd-font-ui);
-    font-size: var(--qd-caption-size);
-    line-height: var(--qd-auth-footer-line-height);
-    color: var(--qd-muted);
-    word-spacing: normal;
-  }
-  .qm-auth-link + .qm-auth-note {
-    margin-top: 22px;
-  }
-  .qm-auth-note-link {
-    color: var(--qd-accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  /* ── 바닥글 ── */
-  .qm-auth-footer {
-    margin-top: 28px;
-    padding-top: 16px;
-    border-top: 1px solid var(--qd-border);
-    text-align: center;
-    font-family: var(--qd-font-ui);
-    font-size: var(--qd-caption-size);
-    line-height: var(--qd-auth-footer-line-height);
-    color: var(--qd-muted);
-    word-spacing: normal;
-  }
-  .qm-auth-footer-name {
-    font-weight: var(--qd-font-weight-medium);
-    color: var(--qd-accent);
-  }
-  .qm-auth-footer-note {
-    margin-top: 10px;
-    line-height: 1.7;
-  }
-  .qm-auth-footer-note + .qm-auth-footer-caps {
-    margin-top: 6px;
-  }
-
   /* ── 오른쪽 위 밝기 고르개 (components/shared/theme-toggle.tsx) ──
      아이콘 하나만 든 44 칸(2026-10-22 · 세 제품 같은 자리 · 같은 모양) */
   .qm-auth-theme {
@@ -1496,20 +1434,6 @@
     }
   }
 
-  /* 로그인 · 가입 바닥의 법적 고지 줄 (app/(auth)/layout.tsx) */
-  .qm-auth-footer-legal {
-    margin-top: 10px;
-    font-family: var(--qd-font-ui);
-    font-size: var(--qd-caption-size);
-  }
-  .qm-auth-footer-legal a {
-    color: var(--qd-muted);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .qm-auth-footer-legal a:hover {
-    color: var(--qd-text);
-  }
 }
 
 /* Match native control chrome to the app theme without changing control semantics. */

@@ -205,6 +205,12 @@
   --qd-auth-eyebrow-tracking: 2.5px;
   --qd-auth-clock-tracking: 1.5px;
   --qd-auth-footer-line-height: 1.9;
+  --qd-auth-sublink-height: 32px;
+  --qd-auth-social-size: 32px;
+  --qd-auth-social-icon-size: 16px;
+  --qd-auth-social-icon-stroke: 1.8;
+  --qd-auth-link-underline-offset: 3px;
+  --qd-auth-legal-underline-offset: 2px;
   --qd-auth-subhead-size: 14px;
   --qd-auth-subhead-line-height: 1.7;
   --qd-auth-field-height: var(--qd-field-control-height);
@@ -631,6 +637,59 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
   [data-qd-intro="on"] .qd-auth-panel { animation: qd-auth-open var(--qd-auth-open-for) var(--qd-auth-intro-smooth) var(--qd-auth-open-at) backwards; }
 }
+
+/* ── 로그인 폼 아래 · 바닥글 (2026-10-22 오빠 «배치 규칙 통일» · 값은 Q-Atelier 기준) ──
+   세 제품이 같은 차례 · 같은 간격 · 같은 글 크기를 쓴다. 제품마다 다른 것은 글 내용과 강조색(--qd-accent)뿐이고,
+   제품에 없는 칸은 그리지 않는다(빈자리를 남기지 않는다). 숫자는 위 칸과의 사이(px).
+     폼 아래 줄      .qd-auth-after        폼에서 14 · 가운데
+       보조 글귀     .qd-auth-sublink      비밀번호 찾기 · 로그인으로 돌아가기. 점선 밑줄 · 보이는 높이 32 · 터치는 qd-touch-hit 로 44
+       다음 할 일    .qd-auth-help         → 와 한 줄. 화살표는 .qd-auth-help-arrow, 누르는 낱말은 .qd-auth-help-link. 보조 글귀 다음이면 22
+     바닥글          .qd-auth-foot         폼 아래 줄에서 28 · 위 가는 선 · 안쪽 16
+       ©             첫 줄(이름표 없음)
+       만든 사람     .qd-auth-foot-credit  2 · 이름은 .qd-auth-foot-name(강조색)
+       바깥 고리     .qd-auth-foot-social  12 · 32 칸 · 사이 8 · 폰 폭과 터치에서는 44 칸
+       법적 고지     .qd-auth-foot-legal   8 · 밑줄 글귀(qd-touch-hit)
+       고지 글       .qd-auth-foot-note    10 · 줄 간격 1.7 · 낱말 단위로 접고 줄 길이를 고른다
+       권리 영문     .qd-auth-foot-caps    6
+*/
+.qd-auth-after { display: flex; flex-direction: column; align-items: center; margin-top: var(--qd-space-3-5); text-align: center; }
+.qd-auth-sublink {
+  display: inline-flex; align-items: center; min-height: var(--qd-auth-sublink-height); padding: 0 var(--qd-space-2);
+  border: 0; border-bottom: var(--qd-border-width) dashed var(--qd-border); border-radius: 0; background: none;
+  font-family: var(--qd-font-family-ui); font-size: var(--qd-caption-size); line-height: var(--qd-leading-relaxed);
+  color: var(--qd-muted); text-decoration: none; word-spacing: normal; cursor: pointer; transition: color var(--qd-motion-fast) ease;
+}
+.qd-auth-sublink:hover { color: var(--qd-text); }
+.qd-auth-help { font-family: var(--qd-font-family-ui); font-size: var(--qd-caption-size); line-height: var(--qd-leading-relaxed); color: var(--qd-muted); word-spacing: normal; word-break: keep-all; text-wrap: balance; }
+.qd-auth-sublink + .qd-auth-help { margin-top: var(--qd-space-5-5); }
+.qd-auth-help-arrow { margin-right: var(--qd-space-1); color: var(--qd-accent); }
+.qd-auth-help-link { padding: 0; border: 0; background: none; font: inherit; color: var(--qd-accent); text-decoration: underline; text-underline-offset: var(--qd-auth-link-underline-offset); cursor: pointer; }
+.qd-auth-foot {
+  margin-top: var(--qd-space-7); padding-top: var(--qd-space-4); border-top: var(--qd-border-width) solid var(--qd-border);
+  text-align: center; font-family: var(--qd-font-family-ui); font-size: var(--qd-caption-size); line-height: var(--qd-auth-footer-line-height);
+  color: var(--qd-muted); word-spacing: normal;
+}
+.qd-auth-foot-credit { margin-top: var(--qd-space-0-5); }
+.qd-auth-foot-name { font-weight: var(--qd-font-weight-medium); color: var(--qd-accent); white-space: nowrap; }
+.qd-auth-foot-social { display: flex; justify-content: center; gap: var(--qd-space-2); margin-top: var(--qd-space-3); }
+.qd-auth-foot-social > a {
+  display: inline-flex; align-items: center; justify-content: center; width: var(--qd-auth-social-size); height: var(--qd-auth-social-size);
+  border-radius: var(--qd-radius); color: var(--qd-muted); text-decoration: none;
+  transition: color var(--qd-motion-fast) ease, background var(--qd-motion-fast) ease;
+}
+.qd-auth-foot-social > a:hover { color: var(--qd-accent); background: color-mix(in oklab, var(--qd-accent) 6%, transparent); }
+.qd-auth-foot-social svg { width: var(--qd-auth-social-icon-size); height: var(--qd-auth-social-icon-size); }
+.qd-auth-foot-social svg[stroke="currentColor"] { stroke-width: var(--qd-auth-social-icon-stroke); }
+/* 폰 폭과 터치에서는 칸 자체를 44 로. 사이가 8 이라 ::after 로 넓히면 이웃 고리의 자리와 겹친다 */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .qd-auth-foot-social > a { width: var(--qd-control-height); height: var(--qd-control-height); }
+}
+.qd-auth-foot-legal { margin-top: var(--qd-space-2); }
+.qd-auth-foot-legal a { color: var(--qd-muted); text-decoration: underline; text-underline-offset: var(--qd-auth-legal-underline-offset); }
+.qd-auth-foot-legal a:hover { color: var(--qd-text); }
+/* 좁은 폭에서 낱말 하나만 다음 줄로 떨어지지 않게(2026-10-22 폰 375 실측 · Q-Carnet 「도구이며,」) 낱말 단위로 접고 줄 길이를 고른다 */
+.qd-auth-foot-note { margin-top: var(--qd-space-2-5); line-height: var(--qd-leading-loose); word-break: keep-all; text-wrap: balance; }
+.qd-auth-foot-caps { margin-top: var(--qd-space-1-5); }
 
 /* Q-Atelier authored foundation. Edit here; product copies are generated. */
 
@@ -6460,12 +6519,9 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   }
 }
 
-/* Social controls keep separate, non-overlapping targets on small or touch screens. */
-@media (max-width: 767px), (hover: none) and (pointer: coarse) {
-  .qa-auth-form-wrap a.qa-social-link { min-width: var(--qd-control-height); min-height: var(--qd-control-height); }
-}
+/* 바닥글 바깥 고리는 터치에서 칸 자체가 44 다(정본 .qd-auth-foot-social). 위의 폼 고리 넓힘이 이웃 고리와 겹치지 않게 끈다 */
 @media (hover: none) and (pointer: coarse) {
-  .qa-auth-form-wrap a.qa-social-link::after { inset: var(--qd-space-0); }
+  .qa-auth-form-wrap .qd-auth-foot-social > a::after { inset: var(--qd-space-0); }
 }
 
 /*

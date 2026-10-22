@@ -5826,12 +5826,9 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   }
 }
 
-/* Social controls keep separate, non-overlapping targets on small or touch screens. */
-@media (max-width: qd-bp(md-max)), (hover: none) and (pointer: coarse) {
-  .qa-auth-form-wrap a.qa-social-link { min-width: var(--qd-control-height); min-height: var(--qd-control-height); }
-}
+/* 바닥글 바깥 고리는 터치에서 칸 자체가 44 다(정본 .qd-auth-foot-social). 위의 폼 고리 넓힘이 이웃 고리와 겹치지 않게 끈다 */
 @media (hover: none) and (pointer: coarse) {
-  .qa-auth-form-wrap a.qa-social-link::after { inset: var(--qd-space-0); }
+  .qa-auth-form-wrap .qd-auth-foot-social > a::after { inset: var(--qd-space-0); }
 }
 
 /*
