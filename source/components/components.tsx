@@ -353,8 +353,8 @@ interface BtnProps {
    */
   pending?: boolean;
 }
-// 화면에서는 안 보이고 낭독기만 읽는 글귀(WCAG 시각 숨김 관용구)
-const SR_ONLY: CSSProperties = {
+// 화면에서는 안 보이고 낭독기만 읽는 글귀(WCAG 시각 숨김 관용구). 화면이 낭독기용 머리 · 이름을 붙일 때도 이것을 쓴다(사본을 두지 않는다)
+export const SR_ONLY: CSSProperties = {
   position: 'absolute',
   width: "var(--qd-atelier-width-7f153c20f1)",
   height: "var(--qd-atelier-height-2264278404)",
@@ -3099,18 +3099,21 @@ export function SectionTitleInfo({
   children,
   info,
   source,
+  noMargin,
 }: {
   children: ReactNode;
   /** 호버 시 팝업으로 보일 설명. 없으면 일반 SectionTitle 과 동일. */
   info?: ReactNode;
   /** 이 구역 데이터가 어디서 오는가(2026-10-18). ⓘ 안 «데이터 출처» 로 붙는다. null 은 «데이터 없는 구역». */
   source?: ReactNode;
+  /** 제목 줄(제목 + 건수 알약 등)에 들어갈 때 아래 여백을 뺀다. SectionTitle 의 noMargin 과 같다. */
+  noMargin?: boolean;
 }) {
   // 2026-10-08: ⓘ 는 초보자 모드와 상관없이 늘 보인다(오너 결정). 손잡이 · 팝업은 InfoDot 하나.
   info = withSource(info, source);
-  if (!info) return <SectionTitle>{children}</SectionTitle>;
+  if (!info) return <SectionTitle noMargin={noMargin}>{children}</SectionTitle>;
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: QDScale.space[1.5], marginBottom: QDScale.space[3.5] }}>
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: QDScale.space[1.5], marginBottom: noMargin ? "var(--qd-atelier-margin-bottom-dba5d0300b)" : QDScale.space[3.5] }}>
       <span className="qa-sec-t" style={SECTION_TITLE}>
         {children}
       </span>
@@ -3684,10 +3687,13 @@ export function EntityRow({
   title,
   meta,
   right,
+  expanded,
 }: {
   /** 있으면 Link, 없으면 div(+onClick). */
   href?: string;
   onClick?: () => void;
+  /** 펼치는 줄이면 지금 펼쳐졌는가. onClick 줄에서만 aria-expanded 로 붙는다 */
+  expanded?: boolean;
   /** 상태/심각도 색. 아이콘 칩의 기본 색(2026-09-27 부터 왼쪽 색 띠는 없다). */
   accent: string;
   /** 이미 색을 입힌 아이콘 엘리먼트 (없으면 칩 생략). */
@@ -3828,7 +3834,7 @@ export function EntityRow({
   }
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} className="qa-row-clickable" style={rowStyle}>
+      <button type="button" onClick={onClick} aria-expanded={expanded} className="qa-row-clickable" style={rowStyle}>
         {inner}
       </button>
     );

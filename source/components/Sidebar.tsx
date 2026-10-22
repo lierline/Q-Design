@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { ChevronLeft } from '@/components/q-design-icons/ChevronLeft';
 import { Menu } from '@/components/q-design-icons/Menu';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState, type ComponentType, type CSSProperties } from 'react';
+import { Children, useEffect, useRef, useState, type ComponentType, type CSSProperties } from 'react';
 import { LayoutDashboard } from '@/components/q-design-icons/LayoutDashboard';
 import { ClipboardList } from '@/components/q-design-icons/ClipboardList';
 import { Package } from '@/components/q-design-icons/Package';
@@ -864,8 +864,10 @@ function SidebarBody({
                 )}
                 {/* 외부 전문가 풀 = owner 전용 통계 화면(/experts 가 owner 아니면 튕긴다).
                     페이지 권한과 메뉴 노출을 일치시켜 빈 화면을 막는다. (R&D/RA/QA·Lead 의
-                    자문 '의뢰'는 서류·평가 상세의 "외부 자문 요청" 버튼으로 한다) */}
-                {!isOwnerExec && isOrgOwner(role) && (
+                    자문 '의뢰'는 서류·평가 상세의 "외부 자문 요청" 버튼으로 한다)
+                    🔴 2026-10-21: 조건에 `!isOwnerExec` 가 있었다. 소유자는 전부 isOwnerExec(billing.manage)라
+                    이 줄은 «아무에게도» 그려지지 않았고, 겸직 경로만 그렸다. 오빠 결정: 모든 소유자에게 보인다. */}
+                {isOrgOwner(role) && (
                   <NavLink href="/experts" label="외부 전문가" icon={Users} collapsed={collapsedNav} />
                 )}
                 {canSeeAudit && (
@@ -1471,6 +1473,10 @@ function CollapsibleNavGroup({
       return next;
     });
   }
+
+  // 담을 것이 없으면 이름표도 그리지 않는다. 생산 직무에게 «업무» 가 이름표만 덩그러니 떠 있었다
+  // (2026-10-21 홈 전수 점검 03절 결정 2). 조건부 줄이 전부 false 면 여기서 걸린다.
+  if (Children.toArray(children).length === 0) return null;
 
   if (collapsed) {
     return (

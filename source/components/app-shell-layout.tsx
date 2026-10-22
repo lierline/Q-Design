@@ -6,13 +6,14 @@ import { createClient } from '@/lib/supabase/server';
 import { hasRole, getRoles } from '@/lib/permissions/has-role';
 import { composeFor, composeSidebarGroups, BUNDLES } from '@/lib/permissions';
 import type { JobRole } from '@/lib/permissions';
-import { gateMenusByModules, gateMenusByFeatures, moduleAllowsMenu, lockedModuleOf } from '@/lib/permissions/module-menus';
+import { gateMenusByModules, gateMenusByFeatures, moduleAllowsMenu } from '@/lib/permissions/module-menus';
 import { isFamilyLinkEnabled } from '@/lib/family-link/gate';
 import { canAccessFieldSurface } from '@/lib/permissions/field-mode';
 import { loadScreenModules } from '@/lib/subscription/module-gate';
-import { menuForPath } from '@/lib/nav/menu-for-path';
+import { ALL_MODULES } from '@/lib/subscription/plan-policy';
 import { isPhoneAppRequest, PHONE_COOKIE } from '@/lib/nav/phone-mode';
 import { ModuleLockedScreen } from '@/components/ModuleLockedNotice';
+import { ModulePathGate } from '@/components/ModulePathGate';
 import { PhoneModeGate } from '@/components/PhoneModeGate';
 import { AdminPhoneLanding } from '@/components/AdminPhoneLanding';
 import { RealtimeNotifications } from '@/components/RealtimeNotifications';
@@ -47,6 +48,7 @@ import { T } from '@/lib/design/tokens';
 import { isOrgOwner } from '@/lib/rules/who';
 import { canDo } from '@/lib/rules/actions';
 import { HUB_MENUS, canEnterHub } from '@/lib/permissions/hub-entry';
+import { withOwnerMenus } from '@/lib/permissions/owner-menus';
 
 // 사이드바 배지 카운트(미읽음 알림, 검토 큐 등)가 매 요청 최신이어야 함
 export const dynamic = 'force-dynamic';
@@ -160,15 +162,27 @@ export default async function AppLayout({
   const familyLinkOn = membership
     ? await isFamilyLinkEnabled(supabase as never, membership.org_id as string).catch(() => false)
     : false;
-  const gatedMenus = gateMenusByFeatures(gateMenusByModules(caps.sidebarMenus, enabledModules), { familyLink: familyLinkOn });
+  // 🔑 2026-10-21 오빠 결정(A①): 소유자는 직무와 상관없이 자기 조직 화면에 들어가므로(menuAllowed) 들어갈 수 있는
+  //    부서 화면은 메뉴에도 보인다(lib/permissions/owner-menus). 내 직무가 아닌 부서는 사이드바가 「연계 부서」 에 접는다.
+  const ownMenus = withOwnerMenus(caps.sidebarMenus, !isMedqraftAdmin && isOrgOwner(role));
+  const gatedMenus = gateMenusByFeatures(gateMenusByModules(ownMenus, enabledModules), { familyLink: familyLinkOn });
 
   // 🔴 2026-09-18 (CTO 감사 3번): 꺼진 가지의 화면은 «주소를 쳐도» 열리지 않는다.
   //    화면 파일마다 assertMenuAccess 를 적는 방식은 50/164 에서 멈춰 있었고, /new · /m ·
-  //    /sterilization 은 로그인만 보고 열렸다. 미들웨어가 실어 준 x-pathname 으로 메뉴를
-  //    찾아(menuForPath, href 정본은 NAV_ITEMS) 사이드바와 같은 판정(moduleAllowsMenu)을 한다.
-  //    운영 계정(isMedqraftAdmin)은 enabledModules 자체가 파일럿 전체라 자연히 통과한다.
+  //    /sterilization 은 로그인만 보고 열렸다. 경로로 메뉴를 찾아(menuForPath, href 정본은 NAV_ITEMS)
+  //    사이드바와 같은 판정(moduleAllowsMenu)을 한다. 운영 계정(isMedqraftAdmin)은 enabledModules 자체가
+  //    파일럿 전체라 자연히 통과한다.
+  // 🔴 2026-10-21: 경로는 여기(서버)서 읽지 않고 ModulePathGate 가 화면 쪽에서 읽는다. 이 껍데기는 화면 안
+  //    이동에서 다시 그려지지 않아, 종전 x-pathname 판정은 «주소로 열 때» 만 섰고 옮겨 가면 열린 채 지나가거나
+  //    이미 띄운 안내가 남았다(실측 · 폰 «부적합 등록» 을 눌러도 «기능 제공 안 함» 이 남음).
   const reqHeaders = await headers();
-  const pathname = reqHeaders.get('x-pathname');
+  const canToggleModules = canDo({ profile, orgRole: role }, 'modules.toggle');
+  const lockedNotices = Object.fromEntries(
+    ALL_MODULES.filter((m) => !enabledModules.includes(m)).map((m) => [
+      m,
+      <ModuleLockedScreen key={m} moduleId={m} canToggle={canToggleModules} />,
+    ]),
+  );
 
   // 폰 앱은 «알림과 결재만»(오너 결정 2026-09-26 · lib/nav/phone-mode.ts). 서버는 화면 크기를 모르므로
   // 화면이 남긴 쿠키와 앱 사용자 에이전트를 함께 본다. 첫 방문(쿠키 없음)은 화면(PhoneModeGate)이 판다.
@@ -176,11 +190,6 @@ export default async function AppLayout({
   // 폰 앱의 /dashboard → 결재함 넘김은 미들웨어가 한다(lib/supabase/middleware.ts). 🔴 여기서 이 껍데기 아래
   // 화면으로 redirect 하지 말 것: 로그인 뒤 router.push 로 들어오면 넘김이 껍데기 조각에 남아 결재함을 끝없이
   // 다시 부른다(2026-09-28 폰 앱 «로그인 뒤 검은 화면»). 잠금: lib/nav/phone-mode.test.ts
-
-  // 🔴 2026-10-21 실측: 이 껍데기는 화면 안 이동(링크 · router.push)에서 다시 그려지지 않는다. 그래서 이 문은
-  //    «주소로 열 때» 만 서고, 화면 안에서 옮겨 가면 열린 채 지나가거나 이미 띄운 안내가 남는다. 화면이 스스로
-  //    다는 문(현장 모드 app/(app)/m/guard.tsx 의 fieldModuleLock)이 같은 판정(lockedModuleOf)을 한 번 더 한다.
-  const lockedModule = lockedModuleOf(menuForPath(pathname), enabledModules);
 
   // 감사 추적: owner(L110) 외에 bundle sidebarMenus 에 'audit' 가진 직무
   // (RA/QA·Lead·R&D 팀장)도 메뉴 노출. page 가드(audit/page.tsx)와 동기.
@@ -403,11 +412,9 @@ export default async function AppLayout({
           {isMedqraftAdmin && <AdminPhoneLanding initialPhone={phoneApp} />}
           {/* 운영진(직무 admin)은 폰 앱에서도 모든 화면을 안내 없이 연다(오너 결정 2026-09-28 · 즉시 대응) */}
           <PhoneModeGate initialPhone={phoneApp} unrestricted={isMedqraftAdmin}>
-          {lockedModule ? (
-            <ModuleLockedScreen moduleId={lockedModule} canToggle={canDo({ profile, orgRole: role }, 'modules.toggle')} />
-          ) : (
-            children
-          )}
+          <ModulePathGate enabledModules={enabledModules} notices={lockedNotices}>
+            {children}
+          </ModulePathGate>
           </PhoneModeGate>
         </PageTransition>
       </main>
@@ -429,13 +436,16 @@ export default async function AppLayout({
         showNcReport={!isExpert && canAccessFieldSurface(profile, role, 'nc')}
         initialPhoneApp={phoneApp}
       />
-      {/* 신규 사용자 first-time tooltip: 한 번만 노출 (localStorage) */}
+      {/* 신규 사용자 first-time tooltip: 한 번만 노출 (localStorage)
+          메뉴 목록의 윗선 옆에 붙인다. 사이드바 전체의 가운데에 맞추면 본문 한가운데에 떠서 주 단추를 덮었다
+          (2026-10-21 홈 전수 점검 03절 결정 1) */}
       <Coachmark
         id="sidebar-intro-v1"
         title="여기서 모든 일이 시작됩니다"
         body="좌측 사이드바에서 R&D 아이디어 등록, 변경평가, 문서 관리까지 한 번에. 위 ⌘K (Ctrl+K) 로 빠른 검색·이동이 가능합니다."
         targetSelector='[data-coachmark="sidebar"]'
         placement="right"
+        alignTopTo='[data-coachmark="sidebar"] nav'
         delayMs={QDPresentation.coachmarkDelay[1200]}
       />
       <GlobalSearch isMedqraftAdmin={isMedqraftAdmin} />
