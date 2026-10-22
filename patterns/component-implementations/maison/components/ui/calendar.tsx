@@ -6,6 +6,7 @@ import { ChevronsLeft } from "@/components/q-design-icons/ChevronsLeft";
 import { ChevronsRight } from "@/components/q-design-icons/ChevronsRight";
 import { addMonths, monthGrid, todayKst } from "@/lib/utils/dates";
 import { inRange, type DateRange } from "@/lib/utils/calendar";
+import { cn } from "@/lib/utils/cn";
 
 /**
  * 달력 격자: 단일 선택과 기간 선택이 **같은 격자**를 쓴다.
@@ -66,6 +67,14 @@ export function Calendar({
   const disabled = (ymd: string) =>
     (min != null && ymd < min) || (max != null && ymd > max);
 
+  /*
+   * 좁은 화면에서는 뒤의 달을 접는다(폰 1 · 패드 2 · 넓으면 다 편다).
+   * 석 달을 375 폭에 나란히 두면 칸이 눌려 날짜 숫자가 겹쳤다(「3031」 · 실측 2026-10-22).
+   * 넘김 단추는 여전히 한 달씩이라, 접힌 달은 넘기면 나온다.
+   */
+  const fold = (i: number) =>
+    i === 1 ? "max-md:hidden" : i >= 2 ? "max-lg:hidden" : undefined;
+
   return (
     <div className="select-none">
       {/* 달 이동: «는 1년, ‹ 는 1달. 재작년 자료를 찾을 때 12번 누르지 않게 */}
@@ -90,7 +99,10 @@ export function Calendar({
             return (
               <span
                 key={m}
-                className="qd-control-label font-semibold tabular-nums"
+                className={cn(
+                  "qd-control-label font-semibold tabular-nums",
+                  fold(i),
+                )}
               >
                 {m.slice(0, 4)}. {m.slice(5, 7)}.
               </span>
@@ -119,7 +131,7 @@ export function Calendar({
           const [y, mm] = m.split("-").map(Number);
           const cells = monthGrid(y!, mm!);
           return (
-            <div key={m} className="min-w-0">
+            <div key={m} className={cn("min-w-0", fold(i))}>
               <div className="mb-1 grid grid-cols-7 text-center">
                 {WEEKDAYS.map((w, wi) => (
                   <span

@@ -44,8 +44,15 @@ export function DateRangePicker({
   // 왼쪽 끝 달: 열 때 «시작일이 보이는 자리»에 맞춘다
   const [cursor, setCursor] = React.useState(() => addMonths(today, -1));
   const rootRef = React.useRef<HTMLDivElement>(null);
+  const panelRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => setDraft(value), [value]);
+
+  // 열면 초점이 창 안 첫 단추로 간다. 단추로 열고 Tab 을 치면 창을 건너뛰고 뒤의
+  // 거르개로 갔다(실측 2026-10-22). Esc 로 닫으면 여는 단추로 돌아온다.
+  React.useEffect(() => {
+    if (open) panelRef.current?.querySelector<HTMLElement>("button")?.focus();
+  }, [open]);
 
   React.useEffect(() => {
     if (!open) return;
@@ -53,7 +60,9 @@ export function DateRangePicker({
       if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      rootRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
     };
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
@@ -117,6 +126,7 @@ export function DateRangePicker({
 
       {open && (
         <div
+          ref={panelRef}
           role="dialog"
           aria-label="기간 선택"
           className="qd-popover absolute left-0 top-full z-[var(--qd-z-tooltip)] mt-1 w-max max-w-[var(--qd-maison-max-width-calc-100vw-negative--2rem)] overflow-x-auto"

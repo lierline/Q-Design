@@ -168,6 +168,22 @@ export function Sidebar(props: SidebarProps) {
     return () => window.removeEventListener('keydown', onKey);
   }, [isMobile, drawerOpen]);
 
+  // 열면 초점을 서랍 안으로, 닫으면 연 단추로 돌려준다. 초점이 뒤 화면에 남아 있으면 키보드 ·
+  // 화면 읽기로는 열린 서랍을 찾을 수 없었다(2026-10-22 폰 375 실측). 메뉴를 눌러 주소가 바뀌어
+  // 닫힌 때는 돌려주지 않는다: 새 화면에서 초점이 단추로 튀면 안 된다.
+  const drawerRef = useRef<HTMLDivElement | null>(null);
+  const fabRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    if (!isMobile || !drawerOpen) return;
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const openedAt = window.location.pathname;
+    drawerRef.current?.querySelector<HTMLElement>('a[href], button:not([disabled])')?.focus();
+    return () => {
+      if (window.location.pathname !== openedAt) return;
+      (opener?.isConnected ? opener : fabRef.current)?.focus();
+    };
+  }, [isMobile, drawerOpen]);
+
   // 좌측 swipe(왼쪽으로 끌어 닫기) 감지
   useEffect(() => {
     if (!isMobile || !drawerOpen) return;
@@ -275,6 +291,7 @@ export function Sidebar(props: SidebarProps) {
       {/* Hamburger FAB: 좌상단 fixed. drawer 닫혀있을 때만 보임. */}
       {!drawerOpen && (
         <button
+          ref={fabRef}
           onClick={() => setDrawerOpen(true)}
           aria-label="사이드바 열기"
           aria-expanded={false}
@@ -302,6 +319,7 @@ export function Sidebar(props: SidebarProps) {
           {/* 창 표시(role · aria-modal): 폰 앱(2.7.0)의 뒤로가 이 서랍만 닫는다(Esc 와 같은 길 · 앱 bridge.js __qatelierBack).
               표시가 없으면 뒤로가 서랍 뒤의 이전 화면으로 넘어갔다(2026-09-28 가상 폰 실측). 당겨서 새로 고침도 이 표시를 보고 멈춘다 */}
           <div
+            ref={drawerRef}
             role="dialog"
             aria-modal="true"
             aria-label="메뉴"

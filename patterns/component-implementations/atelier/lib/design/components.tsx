@@ -4,7 +4,7 @@ import { pageHeadingRules, gridTemplateFor, gridRulesFor, drawerMotionRules, Z }
 import { labelCase, labelTracking, labelWordSpacing, QDText, QDType } from '@/lib/design/q-design-labels';
 import { QDPresentation } from '@/lib/design/q-design-runtime';
 import { QDScale } from '@/lib/design/q-design-scale';
-import { Children, Fragment, cloneElement, isValidElement, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { Children, Fragment, cloneElement, isValidElement, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
@@ -2384,6 +2384,23 @@ export function KPI({
     }
   }, [isOpen]);
 
+  // 아래 자리가 모자라면 카드 위로 연다. 화면 아래쪽 카드(1366×768 첫 화면 기준)의 설명 창이
+  // 바닥 밖으로 최대 315px 나가 끝을 읽을 수 없었다(실측 2026-10-22 · /qa · /ra · /design-trace).
+  const tipRef = useRef<HTMLDivElement | null>(null);
+  const [tipAbove, setTipAbove] = useState(false);
+  useLayoutEffect(() => {
+    const el = tipRef.current;
+    if (!isOpen || !tooltipRect || !el) {
+      setTipAbove(false);
+      return;
+    }
+    const gap = QDPresentation.visual.tooltipAnchorGap;
+    const h = el.offsetHeight;
+    const fitsBelow = tooltipRect.bottom + gap + h <= window.innerHeight - gap;
+    const fitsAbove = tooltipRect.top - gap - h >= gap;
+    setTipAbove(!fitsBelow && fitsAbove);
+  }, [isOpen, tooltipRect]);
+
   // count-up animation: value 가 number 이고 reduced-motion 아닐 때만.
   const reducedMotion = usePrefersReducedMotion();
   const isNumeric = typeof value === 'number' && Number.isFinite(value);
@@ -2547,6 +2564,7 @@ export function KPI({
       {/* 팝업: portal로 body에 직접 렌더해 위젯 stacking context 겹침 방지 */}
       {tooltip && isOpen && tooltipRect && typeof document !== 'undefined' && createPortal(
         <div
+          ref={tipRef}
           id={tooltipId}
           role="tooltip"
           className="qd-tooltip"
@@ -2554,7 +2572,9 @@ export function KPI({
           style={{
             borderRadius: QD.radius,
             position: 'fixed',
-            top: tooltipRect.bottom + QDPresentation.visual.tooltipAnchorGap,
+            ...(tipAbove
+              ? { bottom: window.innerHeight - tooltipRect.top + QDPresentation.visual.tooltipAnchorGap }
+              : { top: tooltipRect.bottom + QDPresentation.visual.tooltipAnchorGap }),
             left: tooltipRect.left,
             width: tooltipRect.width,
             background: QD.surface,
@@ -2570,6 +2590,8 @@ export function KPI({
             <button
               type="button"
               aria-label="툴팁 닫기"
+              /* 28×28 이라 폰에서 44 에 모자랐다(실측 2026-10-22). 모양은 두고 누르는 자리만 넓힌다 */
+              className="qa-touch-hit"
               onClick={(e) => {
                 e.stopPropagation();
                 setTapOpen(false);

@@ -435,16 +435,21 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     min-inline-size: 0;
     overflow-wrap: anywhere;
   }
+  /* 표 칸은 낱말 너비 밑으로 줄지 않게 한다. 위의 anywhere 가 칸까지 물려 내려오면 표가 열 너비를
+     계산할 때 한 글자까지 줄일 수 있다고 여겨, 폰에서 「설비번호」 가 「설 / 비번 / 호」 로 쪼개졌다.
+     break-word 는 넘칠 때만 끊고 열 너비 계산에는 끼지 않는다(2026-10-22 세 제품 실측 · 새 넘침 0). */
+  html :where(th, td, [role="columnheader"], [role="cell"]) { overflow-wrap: break-word; }
   :where(main, [role="main"]) fieldset { min-inline-size: 0; }
   html :is(.qd-input, .qa-input, .qd-field, .qd-combobox-trigger) {
     box-sizing: border-box;
     min-inline-size: 0;
     max-inline-size: 100%;
   }
+  /* break-word: anywhere 이면 좁은 칸에서 단추 글이 「심각 / 도」 처럼 한 글자씩 끊겼다(같은 실측). */
   html :is(.qd-btn, .qd-text-action, .qd-choice, .qd-filter-submit, .qd-filter-clear) {
     max-inline-size: 100%;
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
   html .qd-btn { line-height: var(--qd-control-leading); }
   textarea.qd-input {
@@ -1063,10 +1068,12 @@ textarea {
   .qa-touch-hit {
     position: relative;
   }
+  /* 2026-10-22 폰 실측: 고정 -10px -6px 로는 ⓘ(22×22)가 34×42 에 머물렀다. 모자란 만큼만 가운데로 넓혀
+     가로 · 세로 44 를 채운다. 44 이상인 쪽은 넓히지 않으므로 넓은 알약이 옆 칸을 덮지 않는다. */
   .qa-touch-hit::after {
     content: '';
     position: absolute;
-    inset: -10px -6px;
+    inset: min(0px, calc((100% - var(--qd-control-height, 44px)) / 2));
   }
   .qa-touch-hit-end {
     position: relative;

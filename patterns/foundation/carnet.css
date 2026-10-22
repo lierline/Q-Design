@@ -1634,10 +1634,13 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   color: var(--color-ink); cursor: pointer; transition: border-color var(--qd-motion-fast) var(--qd-ease), box-shadow var(--qd-motion-fast) var(--qd-ease);
 }
 .login-field[aria-current="true"] { border-color: var(--color-brand); box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-brand) 40%, transparent); }
+/* 고른 칸(aria-current)의 금 테두리 그림자가 초점 고리를 덮어, Tab 으로 와도 달라지는 것이 없었다(실측 2026-10-22) */
+.login-field:focus-visible { box-shadow: var(--ring); }
+/* 글이 「로그인」 한 낱말이라 라틴 자간 · 대문자를 걸지 않는다(한글 자간 규칙 · 실측 1.2px) */
 .login-submit {
   width: 100%; min-height: var(--tap-touch); padding: 13px 24px; border: 1px solid transparent; border-radius: var(--r-md);
   background: var(--color-ink); color: var(--color-canvas); font-family: var(--font-sans); font-size: var(--qd-auth-control-size); font-weight: var(--qd-font-weight-medium);
-  letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; transition: opacity var(--qd-motion-fast) var(--qd-ease), transform var(--qd-motion-fast) var(--qd-ease);
+  cursor: pointer; transition: opacity var(--qd-motion-fast) var(--qd-ease), transform var(--qd-motion-fast) var(--qd-ease);
 }
 .login-submit:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
 .login-submit:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }

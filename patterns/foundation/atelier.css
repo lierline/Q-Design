@@ -589,10 +589,12 @@ textarea {
   .qa-touch-hit {
     position: relative;
   }
+  /* 2026-10-22 폰 실측: 고정 -10px -6px 로는 ⓘ(22×22)가 34×42 에 머물렀다. 모자란 만큼만 가운데로 넓혀
+     가로 · 세로 44 를 채운다. 44 이상인 쪽은 넓히지 않으므로 넓은 알약이 옆 칸을 덮지 않는다. */
   .qa-touch-hit::after {
     content: '';
     position: absolute;
-    inset: -10px -6px;
+    inset: min(0px, calc((100% - var(--qd-control-height, 44px)) / 2));
   }
   .qa-touch-hit-end {
     position: relative;
