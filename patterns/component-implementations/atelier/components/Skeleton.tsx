@@ -88,8 +88,9 @@ Skeleton.KPIGrid = function SkeletonKPIGrid({
         <div
           key={i}
           style={{
+            // 실 지표 칸과 같은 장부형: 아래 괘선 하나 · 모서리 없음(로딩↔실화면 점프 방지 · 2026-10-23 «B»)
             border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
-            borderRadius: QD.radius, // 실 카드(Bx)와 동일 모서리(로딩↔실화면 점프 방지)
+            borderWidth: '0 0 var(--qd-border-width)',
             padding: "var(--qd-atelier-padding-0230ce59c8)",
             minHeight,
             display: 'flex',
@@ -137,8 +138,9 @@ Skeleton.Table = function SkeletonTable({
   return (
     <div
       style={{
+        // 실 표 상자와 같은 장부형: 위아래 괘선 · 모서리 없음(2026-10-23 «B»)
         border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
-        borderRadius: QD.radius, // 실 테이블 카드와 동일
+        borderWidth: 'var(--qd-border-width) 0',
         overflow: 'hidden',
       }}
       aria-busy="true"

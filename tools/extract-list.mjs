@@ -151,10 +151,24 @@ put(spec, 'panel.radius', qd.pixels('QD.radius'));
   /* 장부형 갈래(2026-10-23 «B»). 아래 .qd-panel 장부형 규칙 · .qd-empty 가 이 모양을 그대로 옮깁니다 */
   for (const [what, re] of [
     ['면 없음', /background: ledger \? 'transparent' : T\.surface,/],
-    ['위아래 괘선만 · 표 밑바탕은 화면 바탕', /ledger \? \(\{ borderWidth: '1px 0', '--qd-table-fill': T\.bg \}/],
+    ['위아래 괘선만 · 표 밑바탕은 놓인 자리의 바탕', /ledger \? \(\{ borderWidth: '1px 0', '--qd-table-fill': `var\(--qd-card-fill, \$\{T\.bg\}\)` \}/],
     ['모서리 없음', /borderRadius: ledger \? 0 :/],
   ]) {
     if (!re.test(bx)) throw new Error(`Bx 의 장부형 갈래가 바뀌었습니다: ${what}. 정본 .qd-panel 장부형 규칙을 다시 보세요.`);
+  }
+  /* 위 괘선 카드(2026-10-23 «3»). 아래 .qd-panel 기본값이 원본 RULE_CARD 와 같은 변수를 읽습니다.
+     상자로 돌아가는 자리(떠 있는 층 · 고른 칸 · 상태 판 · --box)는 patterns/components.css 가 변수로 정합니다. */
+  const rc = slice(comp, 'export const RULE_CARD = {', '} as CSSProperties;', 'RULE_CARD');
+  for (const [what, re] of [
+    ['면은 변수 · 기본 없음', /background: 'var\(--qd-card-face, transparent\)',/],
+    ['위 괘선만', /borderWidth: 'var\(--qd-card-rule, 1px 0 0\)',/],
+    ['모서리는 변수 · 기본 없음', /borderRadius: 'var\(--qd-card-radius, 0\)',/],
+    ['표 밑바탕은 놓인 자리의 바탕', /'--qd-table-fill': `var\(--qd-card-fill, \$\{T\.bg\}\)`,/],
+  ]) {
+    if (!re.test(rc)) throw new Error(`원본 RULE_CARD 가 바뀌었습니다: ${what}. 정본 .qd-panel 기본값을 다시 보세요.`);
+  }
+  if (!/const rule = !ledger && !accentColor && !box && isPlainCard\(style\);/.test(bx)) {
+    throw new Error('Bx 가 일반 카드를 위 괘선 카드로 그리지 않습니다(RULE_CARD 갈래). 정본 .qd-panel 기본값을 다시 보세요.');
   }
   put(spec, 'panel.accentMix', Number(g[1]));
 }
@@ -487,14 +501,24 @@ ${bind('light')}
    목록은 캔버스 위에 맨몸으로 놓이지 않고 **판 하나 안에** 들어갑니다.
    판이 없으면 표의 첫 줄과 마지막 줄이 어디서 시작하고 끝나는지 흐려집니다.
 
-   모서리는 «맥락을 읽습니다». 각진 모서리를 브랜드로 쓰는 자매 테마가 있어서,
-   그쪽은 \`--qd-radius-card: 0\` 한 줄로 자기 언어를 말합니다. 값을 두 벌로 두지
-   않고 폴백으로 처리한 저쪽 설계를 그대로 옮겼습니다. */
+   판은 장부형입니다(2026-10-23 오너 결정 «3» · docs/08-paper.md). 면 · 옆 선 · 아랫선 · 모서리를
+   걷고 **위 괘선 하나**로 구역을 가릅니다. 떠 있는 섬이 화면을 조각내지 않게, 판이 문서의 한
+   단락처럼 화면 바탕 위에 놓입니다(원본 Bx 의 RULE_CARD 와 같은 변수를 읽습니다).
+
+   상자로 돌아가는 자리는 patterns/components.css 가 변수(--qd-card-face · -rule · -radius · -fill)로
+   정합니다: 떠 있는 층(창 · 메뉴 · 말풍선) 안, 고른 칸, 상태 판(--accent · --ok · --warn · --danger),
+   그리고 직접 거는 --box. 변수는 물려받으므로 창 안의 판은 저절로 상자입니다.
+
+   상자일 때의 모서리는 «맥락을 읽습니다». 각진 모서리를 브랜드로 쓰는 자매 테마가 있어서,
+   그쪽은 \`--qd-radius-card: 0\` 한 줄로 자기 언어를 말합니다(components.css 의 상자 값이 읽습니다). */
 .qd-panel {
   box-sizing: border-box;
-  background: var(--qd-surface);
+  background: var(--qd-card-face, transparent);
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, ${qd.css('QD.radius')});
+  border-width: var(--qd-card-rule, 1px 0 0);
+  border-radius: var(--qd-card-radius, 0);
+  /* 면이 없으면 표의 따라오는 머리글 · 고정 칸이 덮을 바탕은 놓인 자리의 바탕입니다 */
+  --qd-table-fill: var(--qd-card-fill, var(--qd-bg));
 }
 /* 표 상자 · 빈 칸 판은 장부형입니다(2026-10-23 오너 결정 «B» · docs/08-paper.md).
    면 · 옆 선 · 모서리를 걷고 위아래 괘선만 남깁니다. 떠 있는 섬이 화면을 조각내지 않게,
@@ -504,11 +528,12 @@ ${bind('light')}
    카르네는 서식 · 잠금 창 · 경고 상자에도 .qd-panel 을 써서, 기본값을 통째로 바꾸면 그쪽까지 줄만 남습니다.
    짜임이 달라 판별이 안 되는 자리는 --ledger 를 직접 겁니다.
 
-   면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 화면 바탕입니다. */
+   면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 놓인 자리의 바탕입니다
+   (화면 위면 화면 바탕, 창 안이면 창의 면). */
 .qd-panel:has(> .qd-table-scroll, > .qd-table, > .qd-empty),
 .qd-panel.qd-table-scroll,
 .qd-panel--ledger {
-  --qd-table-fill: var(--qd-bg);
+  --qd-table-fill: var(--qd-card-fill, var(--qd-bg));
   background: transparent;
   border-width: 1px 0;
   border-radius: 0;

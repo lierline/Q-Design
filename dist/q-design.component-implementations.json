@@ -10,7 +10,7 @@
       "path": "lib/design/components.tsx",
       "target": "Q-Atelier/lib/design/components.tsx",
       "canonical": "patterns/component-implementations/atelier/lib/design/components.tsx",
-      "sourceHash": "8588b991c3dd7dca5d5fdc23ca33ca4ab4324c623856339299cac98cd793d9e3",
+      "sourceHash": "2058a65a532dca63144bd6e04cfeafec9b92f6ad68ad4a8625c9193fb3bcc7bb",
       "exports": [
         {
           "name": "Lbl",
@@ -46,6 +46,10 @@
         },
         {
           "name": "IconBtn",
+          "kind": "value"
+        },
+        {
+          "name": "RULE_CARD",
           "kind": "value"
         },
         {
@@ -466,7 +470,7 @@
       "path": "components/Skeleton.tsx",
       "target": "Q-Atelier/components/Skeleton.tsx",
       "canonical": "patterns/component-implementations/atelier/components/Skeleton.tsx",
-      "sourceHash": "b14c2876f417fd0d10d740edb8a926783b0a57b05079ab3432ea5227b19484af",
+      "sourceHash": "195e5bd2472fdf1be3b927decc82bd970eefc375eb5b3e950eee32bbcb722198",
       "exports": [
         {
           "name": "Skeleton",
@@ -496,13 +500,13 @@
           "owner": "Skeleton",
           "member": "PageHd",
           "localName": "SkeletonPageHd",
-          "line": 117
+          "line": 118
         },
         {
           "owner": "Skeleton",
           "member": "Table",
           "localName": "SkeletonTable",
-          "line": 130
+          "line": 131
         }
       ]
     },
@@ -890,7 +894,7 @@
       "path": "components/shared/page-skeleton.tsx",
       "target": "Q-Works/components/shared/page-skeleton.tsx",
       "canonical": "patterns/component-implementations/maison/components/shared/page-skeleton.tsx",
-      "sourceHash": "0135928a5e90272e543970e6dd0f61209e5427fe255de874952cbbfeeb726197",
+      "sourceHash": "a673d25d6f5806e5d88233bec1f701651e4423e995edb9f9372ebdd34e96df4e",
       "exports": [
         {
           "name": "SkeletonHead",

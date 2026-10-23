@@ -555,7 +555,37 @@ QMS 문서세트에 더한 것(오너 결정 2026-09-24)
 - 개요 작업대의 덮어쓰기(`patterns/workspace.css`)에는 개요만의 여백 · 글자 크기만 남았습니다.
 - 생성기가 원본의 장부형 갈래(`Bx` 의 면 없음 · 위아래 선 · 모서리 0 · 표 밑바탕, `KPI` 의 아래 선 하나, `EmptyState` 의 `ledger`)를
   못 찾으면 멈춥니다(`extract-list.mjs` · `extract-screen.mjs`).
-- 이번 범위 밖: 아틀리에 `SectionCard` · 일반 `Bx` 카드, 메종 `qd-card` · `bg-card` 상자. 글 판이라 상자로 둡니다.
+- 이때 범위 밖에 두었던 일반 카드 · 구역 카드는 같은 날 «3» 으로 뒤따랐습니다(아래 절).
+
+### 일반 카드 · 구역 카드는 위 괘선 하나 (오너 결정 2026-10-23 «3»)
+
+«B» 뒤에도 글 · 입력을 담은 카드(아틀리에 `SectionCard` · 일반 `Bx`, 메종 `qd-card` · 손으로 그린 `bg-card` 상자,
+카르네 글 판)는 상자로 남아 있었습니다. 지금 · 2(위아래 괘선) · 3(위 괘선만) 그림 가운데 오너가 **3** 을 골랐습니다.
+이제 정본 기본값입니다.
+
+| 자리 | 모양 | 원본(Q-Atelier) | 정본 CSS |
+|---|---|---|---|
+| 일반 카드 · 구역 카드 · 글 판 | 면 · 옆 선 · 아랫선 · 모서리 없음, **위 괘선 하나** | `Bx` 의 보통 갈래 → `RULE_CARD`(`Card` · `Panel` · `SectionCard` 가 모두 거침), 화면이 손으로 그린 카드도 `...RULE_CARD` | `.qd-card` · `.qd-panel` 기본값 |
+| 표 상자 · 빈 칸 · 지표 띠 | «B» 그대로(위아래 괘선 · 아래 괘선) | 위 절 | 위 절 |
+
+상자로 남는 자리는 **변수 넷**으로 정합니다(`patterns/components.css`): `--qd-card-face`(면) · `--qd-card-rule`(선 굵기) ·
+`--qd-card-radius`(모서리) · `--qd-card-fill`(표 밑바탕). 카드 · 판은 이 변수를 읽고, 없으면 장부형 값으로 떨어집니다.
+변수는 선언한 자리에서 값이 정해져 아래로 물려 내려가므로, 상자 맥락 안의 카드는 저절로 상자입니다.
+
+- **떠 있는 층**: `dialog` · `[role=dialog|alertdialog|menu|listbox|tooltip]` · Radix 말풍선 감싸개 · `.qd-dialog-content` · `.qd-drawer-content` · `.qd-popover` · `.qd-tooltip`.
+  창 · 메뉴 안의 카드는 면이 있어야 창 면과 섞이지 않습니다.
+- **고른 칸**: `aria-current` · `aria-pressed=true` · `aria-selected=true` 인 카드 · 판. 면과 네 변으로 고른 것을 알립니다.
+- **상태 판**: `.qd-panel--accent` · `--ok` · `--warn` · `--danger`. 테두리 색이 뜻을 거듭니다.
+- **직접 거는 상자**: `.qd-card--box` · `.qd-panel--box`(아틀리에는 `<Bx box>`). 카르네는 유틸리티로 색을 입힌 경고 · 확인 판
+  (`bg-warn-bg` 처럼)과 앱 설치 안내에 겁니다. 정본 판이 층 안(components)이라 색 유틸리티가 이기지만, 선 굵기 · 모서리는
+  정본이 주므로 상자 표시를 함께 걸어야 네 변이 섭니다.
+- 아틀리에 원본에서 상자로 남는 것: 상태 색 · 장부형 · `box` 갈래, 그리고 `style` 이 면(surface 가 아닌) · 테두리 색 ·
+  위치(fixed · sticky) · 그림자를 따로 주는 카드(`isPlainCard`). 들어간 면(surface2 · bg) · 단추 · 글자 칸 · 그림도 그대로입니다.
+- 손이 얹히면: 아틀리에 `lift` 카드는 뜨지 않고 면이 한 단계 밝아집니다(`.qa-card-lift[data-card='rule']:hover` 가
+  `--qd-card-face` 를 surface2 로). 카르네 `card-lift` · 메종 `hover:border-*` 는 면 · 윗선 색으로 알립니다.
+- 카르네 현장 화면(`.touch`)이 판 모서리를 다시 적던 사본 줄을 걷었습니다. 남겨 두면 위 괘선 판까지 둥글어집니다.
+- 그대로 둔 것: 메종 단추 · 코드 칸 · 따라오는 띠 · 출하 인쇄 지면, 점선 자리 · 선택 칩 · 현장 타일, 인쇄 서식.
+- 생성기가 원본 `RULE_CARD` 의 네 값(면 · 위 괘선 · 모서리 · 표 밑바탕)과 `Bx` 의 갈래 조건을 못 찾으면 멈춥니다(`extract-list.mjs`).
 
 ### 되돌아오지 않게
 

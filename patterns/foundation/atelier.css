@@ -1485,6 +1485,13 @@ textarea {
     0 0 0 1px color-mix(in srgb, var(--qa-champagne) 18%, transparent);
   border-color: color-mix(in srgb, var(--qa-champagne) 30%, var(--qa-border));
 }
+/* 장부형 카드(위 괘선만 · 2026-10-23 오너 결정 «3»)는 뜨지 않는다. 그림자를 지면 종이 위의
+   괘선이 상자로 돌아간다. 손이 얹히면 면이 한 단계 밝아지고 윗선이 금빛으로 선다. */
+.qa-card-lift[data-card='rule']:hover {
+  transform: none;
+  box-shadow: none;
+  --qd-card-face: var(--qd-surface2, var(--qa-surface2));
+}
 
 /* ── Top loading progress bar: 라우트 전환 시 champagne hairline ──── */
 .qa-top-progress {

@@ -213,7 +213,7 @@ export function FormSkeleton({ fields = 6, submit = true }: FormProps) {
   return (
     <div role="status" aria-label="불러오는 중" className="flex flex-col gap-5">
       <SkeletonHead actions={false} />
-      <div className="flex flex-col gap-4 rounded-md border bg-card p-5">
+      <div className="qd-card flex flex-col gap-4 p-5">
         {Array.from({ length: fields }).map((_, i) => (
           <div key={i} className="flex flex-col gap-2">
             <div className={`h-4 w-24 ${line}`} />

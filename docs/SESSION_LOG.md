@@ -46,6 +46,29 @@
 
 ---
 
+## 일반 카드 · 구역 카드 위 괘선 «3» · 정본 기본값 · 세 제품 · 2026-10-23
+
+«B» 뒤에 오빠가 «남은 일반 카드 · 구역 카드도 장부형으로 바꿔 줘. 먼저 그림부터». 카르네 기한 판 · 메종 홈을
+지금 · 2(위아래 괘선) · 3(위 괘선만)으로 입혀 보여 드렸고 «3번(위 괘선만)으로 세 제품 모든 카드에 반영».
+
+- 정본: `.qd-card` · `.qd-panel` 기본값이 면 · 옆 선 · 아랫선 · 모서리 없이 위 괘선 하나. 값은 변수 넷
+  (`--qd-card-face` · `-rule` · `-radius` · `-fill`)으로 읽고, 떠 있는 층 · 고른 칸 · 상태 판 · `--box` 가 상자 값을
+  선언한다(`patterns/components.css`). 변수가 물려 내려가 창 안의 카드는 저절로 상자다. 규격은 [8장](08-paper.md) «일반 카드 · 구역 카드는 위 괘선 하나».
+- 원본(Q-Atelier ee4b0b94): `Bx` 의 보통 갈래가 `RULE_CARD`. `Card` · `Panel` · `SectionCard` 가 모두 거친다.
+  `style` 이 면 · 테두리 색 · 위치 · 그림자를 따로 주면 상자로 남는다(`isPlainCard`). 화면이 손으로 그린 카드 93곳도 `...RULE_CARD`.
+  뼈대(`Skeleton`)는 지표 칸 아래 괘선 · 표 위아래 괘선으로 실제와 맞췄다(B 때 빠졌던 것).
+- Q-Works 4425b49d: `rounded-md border bg-card` 488곳 → `qd-card`, 표 감싸개 4곳 → 표 상자. 단추 · 코드 칸 · 따라오는 띠 · 출하 인쇄 지면은 그대로.
+- DHR: 유틸리티로 색을 입힌 경고 · 확인 판 16곳과 앱 설치 안내에 `qd-panel--box`. 현장(`.touch`)의 판 모서리 사본 줄을 걷었다.
+- 🔑 카르네 `check-nav` 는 `qd-panel card` 를 붙은 글자로 센다. 상자 표시는 `qd-panel card qd-panel--box` 처럼 `card` 뒤에 둔다
+  (앞에 끼웠더니 «정본 판을 29곳만 찾았습니다» 로 멈췄다).
+- 🔴 파이썬으로 고친 메종 파일 넷이 CRLF → LF 로 바뀌어 `reanchor-copy-bindings` 가 «Missing or ambiguous unchanged copy» 로 멈췄다.
+  문구 기록이 줄바꿈까지 대조한다. 기록이 CRLF 를 기대하는 파일만 되돌렸다. 고칠 때는 바이트로 읽고 쓸 것.
+- 🔴 제품의 공용 부품(Q-Atelier `components.tsx` · `Skeleton.tsx`, Q-Works `page-skeleton.tsx`)을 고쳤으면 제품 커밋 뒤
+  `build-component-implementations.mjs --adopt --only=<제품>` 이 먼저다. 커밋 전에는 «Commit the product change before adopting» 으로 거절한다.
+- 로컬 아틀리에(운영 DB · Demo co.) 열 화면 실측: 남은 상자는 준수 점수 띠(상태 색 판) 하나뿐.
+
+---
+
 ## 지표 띠 · 표 상자 · 빈 칸 장부형 «B» · 정본 기본값 · 세 제품 · 2026-10-23
 
 오빠 질문 «이건 왜 큐 디자인이 싱크가 안된거 같지..? 아이솔레이션 아일랜드 이야기 한적있지 않을까?»(카르네 경영 현황의 떠 있는 지표 카드).

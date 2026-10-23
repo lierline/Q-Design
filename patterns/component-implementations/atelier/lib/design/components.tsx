@@ -569,12 +569,41 @@ const ACCENT_MAP: Record<AccentColor, string> = {
   muted: T.muted,
 };
 
+// 일반 카드 · 구역 카드는 장부형: 면 · 옆 선 · 아래 선 · 모서리 없이 **위 괘선 하나**(2026-10-23 오너 결정 «3»).
+// 카드가 위아래로 붙어도 선이 한 겹이라 문서의 장 머리처럼 읽힌다. 정본 `.qd-card` · `.qd-panel` 과 같은 모양이다.
+// 모양은 정본 변수로 읽는다. 창 · 서랍 · 팝업 · 메뉴 안에서는 정본(q-design.components.css)이 변수를
+// 상자 값으로 바꿔, 그 안의 카드는 예전처럼 면 · 네 변 · 모서리를 가진다.
+// 화면에서 손수 그린 카드도 이 값을 펼쳐 쓴다(`...RULE_CARD`).
+export const RULE_CARD = {
+  background: 'var(--qd-card-face, transparent)',
+  border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+  borderWidth: 'var(--qd-card-rule, var(--qd-border-width) 0 0)',
+  borderRadius: 'var(--qd-card-radius, 0)',
+  boxShadow: 'none',
+  // 면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 화면 바탕이다
+  '--qd-table-fill': `var(--qd-card-fill, ${T.bg})`,
+} as CSSProperties;
+
+// 상자로 남길 카드인가. 색 든 테두리 · 면(상태 · 고른 표시), 붙박이 위치, 따로 그은 위 · 아래 선은 상자다.
+// 호출부가 상자 기본값(T.surface · T.border · 모서리)을 다시 적은 것은 일반 카드로 본다.
+function isPlainCard(s: CSSProperties | undefined): boolean {
+  if (!s) return true;
+  if (s.position === 'fixed' || s.position === 'sticky') return false;
+  if (s.borderColor !== undefined && s.borderColor !== T.border) return false;
+  if (s.background !== undefined && s.background !== T.surface) return false;
+  if (s.backgroundColor !== undefined || s.borderTop !== undefined || s.borderBottom !== undefined || s.borderStyle !== undefined) return false;
+  if (s.border !== undefined && !String(s.border).endsWith(T.border)) return false;
+  if (s.boxShadow !== undefined && s.boxShadow !== 'none') return false;
+  return true;
+}
+
 export function Bx({
   children,
   style,
   accent,
   lift = false,
   ledger = false,
+  box = false,
   className,
   onClick,
   role,
@@ -593,6 +622,12 @@ export function Bx({
    * 정본 `.qd-panel` · `.qd-empty` 가 이 갈래를 읽어 같은 모양을 낸다(Q-Design tools/extract-list.mjs).
    */
   ledger?: boolean;
+  /**
+   * 상자로 남긴다(면 · 네 변 · 모서리). 일반 카드는 위 괘선 하나라(2026-10-23 오너 결정 «3»),
+   * 그 위에 따로 떠야 하는 것(인쇄 서류 한 장 · 고른 칸처럼 테두리로 뜻을 말하는 자리)만 쓴다.
+   * 색 든 테두리 · 면을 받은 상자와 창 안의 카드는 따로 적지 않아도 상자로 남는다.
+   */
+  box?: boolean;
   className?: string;
   /** 카드 전체를 클릭 가능하게: role='button'·tabIndex={0}·onKeyDown 과 함께 접근성 확보.
    *  이벤트 인자 제공 → 호출부가 내부 인터랙티브 자식(Link 등) 버블을 e.target 으로 구분 가능
@@ -604,9 +639,29 @@ export function Bx({
   ariaLabel?: string;
 }) {
   const accentColor = accent ? ACCENT_MAP[accent] : null;
+  const rule = !ledger && !accentColor && !box && isPlainCard(style);
   const klass = [lift ? 'qa-card-lift' : '', className ?? '']
     .filter(Boolean)
     .join(' ');
+  if (rule) {
+    // 호출부가 다시 적은 상자 기본값(면 · 테두리 · 모서리 · 그림자)은 걷고 자리 · 여백만 받는다
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { background, border, borderColor, borderRadius, boxShadow, ...own } = style ?? {};
+    return (
+      <div
+        className={klass || undefined}
+        data-card="rule"
+        onClick={onClick}
+        role={role}
+        tabIndex={tabIndex}
+        onKeyDown={onKeyDown}
+        aria-label={ariaLabel}
+        style={{ boxSizing: 'border-box', ...RULE_CARD, ...own }}
+      >
+        {children}
+      </div>
+    );
+  }
   return (
     <div
       className={klass || undefined}
@@ -621,7 +676,7 @@ export function Bx({
         border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
         // 장부형은 위아래 괘선만. 옆 선은 폭 0 으로 걷는다(왼쪽 선 이름을 쓰지 않는다: 문서 결 가드)
         // 면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 화면 바탕이다
-        ...(ledger ? ({ borderWidth: 'var(--qd-border-width) 0', '--qd-table-fill': T.bg } as CSSProperties) : {}),
+        ...(ledger ? ({ borderWidth: 'var(--qd-border-width) 0', '--qd-table-fill': `var(--qd-card-fill, ${T.bg})` } as CSSProperties) : {}),
         // 🔴 2026-08-26: 이 카드가 **전문가 포털 안에서도** 10px 둥근 모서리로 떴다.
         //    포털은 각진 모서리(`--radius: 0`)가 브랜드인데, 공용 카드 하나가
         //    다른 디자인 언어를 들고 들어와 「카드 안의 다른 카드」로 보였다.

@@ -142,11 +142,23 @@ test('shared dimensions preserve the approved scale and meaningful touch targets
 });
 
 test('overlay and feedback surfaces are opaque, token driven, and never blur the background', () => {
-  for (const selector of ['.qd-dialog-content', '.qd-drawer-content', '.qd-tooltip', '.qd-popover', '.qd-notice', '.qd-toast', '.qd-card']) {
+  for (const selector of ['.qd-dialog-content', '.qd-drawer-content', '.qd-tooltip', '.qd-popover', '.qd-notice', '.qd-toast']) {
     const styles = declarations(selector);
     assert.equal(styles.background, 'var(--qd-surface)', `${selector}: surface ownership`);
     assert.equal(styles['border-radius'], 'var(--qd-radius)', `${selector}: radius ownership`);
   }
+  // 카드는 장부형(위 괘선 하나 · 2026-10-23 오너 결정 «3»). 떠 있는 층 안에서는 같은 변수가 상자 값이 된다.
+  const card = declarations('.qd-card');
+  assert.equal(card.background, 'var(--qd-card-face, transparent)', '.qd-card: 면 없음');
+  assert.equal(card['border-width'], 'var(--qd-card-rule, 1px 0 0)', '.qd-card: 위 괘선만');
+  assert.equal(card['border-radius'], 'var(--qd-card-radius, 0)', '.qd-card: 모서리 없음');
+  let boxed = null;
+  canonical.walkRules(rule => { if (rule.selector.includes(".qd-dialog-content") && rule.selector.includes('.qd-card--box')) boxed = rule; });
+  assert.ok(boxed, '떠 있는 층 · 상자로 남길 자리의 묶음');
+  const box = Object.fromEntries(boxed.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+  assert.equal(box['--qd-card-face'], 'var(--qd-surface)', '창 안의 카드: 면');
+  assert.equal(box['--qd-card-radius'], 'var(--qd-radius-card, var(--qd-radius))', '창 안의 카드: 모서리');
+  for (const role of ["[role='dialog']", "[role='menu']", '.qd-popover', '.qd-panel--warn']) assert.ok(boxed.selector.includes(role), `상자로 남는 자리: ${role}`);
   canonical.walkDecls(/backdrop-filter$/, decl => assert.equal(decl.value, 'none'));
   for (const selector of ['.qd-dialog-backdrop', '.qd-drawer-backdrop']) {
     assert.equal(declarations(selector)['backdrop-filter'], 'none');

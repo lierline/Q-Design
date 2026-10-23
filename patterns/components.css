@@ -287,8 +287,40 @@ select.qd-input { appearance: auto !important; background-image: none !important
 .qd-skeleton { border-radius: var(--qd-radius); background: var(--qd-surface2); animation: qd-skeleton-pulse 1.6s ease-in-out infinite; }
 @keyframes qd-skeleton-pulse { 50% { opacity: 0.5; } }
 
-/* Containers use a quiet edge. Repeated rows remain governed by q-design.list. */
-.qd-card { min-width: 0; border: 1px solid var(--qd-border); border-radius: var(--qd-radius); background: var(--qd-surface); color: var(--qd-text); box-shadow: none; }
+/* 카드 · 판 · 구역 카드는 장부형: 면 · 옆 선 · 아래 선 · 모서리 없이 **위 괘선 하나**
+   (2026-10-23 오너 결정 «3» · docs/08-paper.md). 카드가 위아래로 붙어도 선이 한 겹이라
+   문서의 장 머리처럼 읽힙니다. 표 상자 · 빈 칸은 q-design.list 의 위아래 괘선 그대로입니다.
+
+   모양은 변수로 읽습니다. 떠 있는 층(창 · 서랍 · 팝업 · 메뉴)과 «상자로 남길» 자리는 아래 묶음이
+   변수를 상자 값으로 바꿔, 그 안의 카드는 예전처럼 면 · 네 변 · 모서리를 가집니다.
+   상태 판(--accent · --ok · --warn · --danger)은 테두리 색이 뜻을 거들므로 상자로 남습니다.
+   변수는 선언한 자리에서 값이 정해져 아래로 물려 내려갑니다(상자 안의 카드도 상자). */
+:where(dialog, [role='dialog'], [role='alertdialog'], [role='menu'], [role='listbox'], [role='tooltip'], [data-radix-popper-content-wrapper],
+  .qd-dialog-content, .qd-drawer-content, .qd-popover, .qd-tooltip,
+  .qd-card--box, .qd-panel--box, .qd-panel--accent, .qd-panel--ok, .qd-panel--warn, .qd-panel--danger) {
+  --qd-card-face: var(--qd-surface);
+  --qd-card-rule: 1px;
+  --qd-card-radius: var(--qd-radius-card, var(--qd-radius));
+  --qd-card-fill: var(--qd-surface);
+}
+/* 고른 칸은 면과 네 변으로 고른 것을 알립니다 */
+:where(.qd-card, .qd-panel):is([aria-current]:not([aria-current='false']), [aria-pressed='true'], [aria-selected='true']) {
+  --qd-card-face: var(--qd-surface);
+  --qd-card-rule: 1px;
+  --qd-card-radius: var(--qd-radius-card, var(--qd-radius));
+  --qd-card-fill: var(--qd-surface);
+}
+/* Repeated rows remain governed by q-design.list. 면이 없으니 표의 따라오는 머리글이 덮을 바탕은 화면 바탕입니다. */
+.qd-card {
+  min-width: 0;
+  border: 1px solid var(--qd-border);
+  border-width: var(--qd-card-rule, 1px 0 0);
+  border-radius: var(--qd-card-radius, 0);
+  background: var(--qd-card-face, transparent);
+  --qd-table-fill: var(--qd-card-fill, var(--qd-bg));
+  color: var(--qd-text);
+  box-shadow: none;
+}
 .qd-card-header, .qd-card-content, .qd-card-footer { padding: var(--qd-space-6); }
 .qd-card-header + .qd-card-content, .qd-card-content + .qd-card-footer { padding-top: 0; }
 .qd-card-title { margin: 0; font-size: var(--qd-section-size); font-weight: 600; line-height: 1.4; letter-spacing: 0; }

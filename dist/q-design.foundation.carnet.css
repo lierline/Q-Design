@@ -1852,7 +1852,8 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   /* 정본 배지(.qd-tag)도 현장에서는 한 단계 크게 읽힌다. 관리 화면 크기로 줄지 않게
      옛 .chip 의 현장 크기를 그대로 준다 (2026-09-24 · 배지를 정본으로 옮기면서) */
   .touch .qd-tag { font-size: var(--qd-font-size-13); padding: 0.1875rem 0.5625rem; }
-  .touch .card, .touch .card-raised { border-radius: var(--r-xl); }
+  /* 현장 판의 모서리도 정본 .qd-panel 이 준다. 여기서 r-xl(= 정본 모서리)을 다시 적으면
+     위 괘선만 긋는 장부형 판(2026-10-23 오너 결정 «3»)까지 둥글어진다 */
   .touch .section-head { padding: 1rem 1.25rem; }
 
   /* 큰 선택 타일. 현장에서 손가락으로 고르는 모든 것 */
