@@ -74,7 +74,7 @@ body {
 .wrap { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 3rem; max-width: 82rem; margin: 0 auto; padding: 0 1.5rem; }
 
 /* ── 목차 레일 ─────────────────────────────────────────────────────────── */
-.rail { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 2.5rem 0 4rem; border-right: 1px solid var(--rule); display: flex; flex-direction: column; }
+.rail { position: sticky; top: 0; align-self: start; height: 100vh; height: 100dvh; overflow-y: auto; padding: 2.5rem 0 4rem; border-right: 1px solid var(--rule); display: flex; flex-direction: column; }
 .brand { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .35rem; }
 .brand b { font-family: var(--display); font-size: 1.35rem; font-weight: 700; letter-spacing: -.01em; }
 .brand span { font-family: var(--label); font-size: .7rem; letter-spacing: 0; color: var(--gold); } /* 한글이라 자간 0 (Q-Design) */

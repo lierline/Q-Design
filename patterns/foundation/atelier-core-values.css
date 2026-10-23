@@ -245,8 +245,8 @@
   --qd-atelier-box-shadow-4e3a320a2e: 0 0 0 0 transparent;
   --qd-atelier-left-b77c85b911: 12px;
   --qd-atelier-margin-af3c2c2206: 4px 0 0;
-  --qd-atelier-max-height-10313ebafa: calc(100vh - 80px);
-  --qd-atelier-max-height-70b738b89c: min(560px, calc(100vh - 80px));
+  --qd-atelier-max-height-10313ebafa: calc(100dvh - 80px);
+  --qd-atelier-max-height-70b738b89c: min(560px, calc(100dvh - 80px));
   --qd-atelier-max-height-98ef83fc64: calc(100dvh - 176px);
   --qd-atelier-max-height-c37aced585: calc(100dvh - 96px);
   --qd-atelier-min-height-d1125e45f1: 8px;
@@ -271,7 +271,7 @@
 
 /* Reviewed function defaults: source/style-adapters/atelier-function-values.json. */
 :root {
-  --qd-atelier-min-height-33a0c459af: 70vh;
+  --qd-atelier-min-height-33a0c459af: 70dvh;
   --qd-atelier-padding-a1041a2446: 24px 16px calc(120px + env(safe-area-inset-bottom, 0px));
   --qd-atelier-transition-1460dce093: all 120ms ease;
 }
@@ -311,7 +311,7 @@
   --qd-atelier-flex-ea169cb88e: 0 1 auto;
   --qd-atelier-flex-ef5d1a5772: 0 1 300px;
   --qd-atelier-font-weight-51f1217b48: 500;
-  --qd-atelier-max-height-dead6c5528: 100vh;
+  --qd-atelier-max-height-dead6c5528: 100dvh;
   --qd-atelier-scroll-margin-top-056e6d9c19: 72px;
   --qd-atelier-scroll-margin-top-319b6655dd: 24px;
   --qd-atelier-scroll-margin-top-d4d92efb48: 80px;

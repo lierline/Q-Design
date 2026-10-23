@@ -2741,6 +2741,7 @@ select.qa-input::-ms-expand {
 
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--ink);
   color: var(--cream);
   font-family: var(--sans);
@@ -3206,6 +3207,7 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
    ============================================================================= */
 .expert-portal-root .page-frame {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -5275,6 +5277,7 @@ html[data-theme='light'] .qa-auth-page {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
   /* 한글은 낱말 단위로 줄을 바꾼다(2026-09-28 · 폰 폭 360 에서 바닥글이 «오픈소 / 스» · «지 / 원하는» ·
@@ -5293,6 +5296,7 @@ html[data-theme='light'] .qa-auth-page {
   justify-content: center;
   padding: var(--qd-auth-mobile-padding, 40px 24px 32px);
   min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
 }
 
@@ -6703,15 +6707,15 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-margin-top-9c745fb12c: 3px;
   --qd-atelier-margin-top-ebd484e183: 1px;
   --qd-atelier-max-height-0e2b855ea4: 240px;
-  --qd-atelier-max-height-21315af407: 86vh;
-  --qd-atelier-max-height-342e92505a: 60vh;
-  --qd-atelier-max-height-575294ac74: 90vh;
+  --qd-atelier-max-height-21315af407: 86dvh;
+  --qd-atelier-max-height-342e92505a: 60dvh;
+  --qd-atelier-max-height-575294ac74: 90dvh;
   --qd-atelier-max-height-66dac8be60: 220px;
-  --qd-atelier-max-height-6b3fe0470b: 85vh;
+  --qd-atelier-max-height-6b3fe0470b: 85dvh;
   --qd-atelier-max-height-8fa9d8eb17: 100px;
-  --qd-atelier-max-height-a80878c177: min(480px, 62vh);
+  --qd-atelier-max-height-a80878c177: min(480px, 62dvh);
   --qd-atelier-max-height-bb10ed9944: 120px;
-  --qd-atelier-max-height-c0d95d762d: 70vh;
+  --qd-atelier-max-height-c0d95d762d: 70dvh;
   --qd-atelier-max-height-c74b40970a: 280px;
   --qd-atelier-max-height-d330673408: calc(100dvh - 160px);
   --qd-atelier-max-height-ea4ed0aaf8: 600px;
@@ -6752,7 +6756,7 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-min-height-5300b80d5c: 96px;
   --qd-atelier-min-height-558c2060a3: 0px;
   --qd-atelier-min-height-5750051dfc: 70px;
-  --qd-atelier-min-height-57b2eb2748: 100vh;
+  --qd-atelier-min-height-57b2eb2748: 100dvh;
   --qd-atelier-min-height-5eb6d2095f: 80px;
   --qd-atelier-min-height-65fab897d1: 120px;
   --qd-atelier-min-height-7339485943: 76px;
@@ -6982,7 +6986,7 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-right-fe377c2b5c: 5px;
   --qd-atelier-top-0025c53646: 6px;
   --qd-atelier-top-02a3a6bea5: var(--qd-atelier-mobile-control-top);
-  --qd-atelier-top-0bdc9afcd2: 5vh;
+  --qd-atelier-top-0bdc9afcd2: 5dvh;
   --qd-atelier-top-13ae86191f: 0px;
   --qd-atelier-top-18405c4d95: 4px;
   --qd-atelier-top-1f4f254c30: 50%;
@@ -7000,7 +7004,7 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-top-bde774c7d2: -8px;
   --qd-atelier-top-cdd75e945e: 8px;
   --qd-atelier-top-d4b2b8a0ba: -4px;
-  --qd-atelier-top-dd7510d76c: 15vh;
+  --qd-atelier-top-dd7510d76c: 15dvh;
   --qd-atelier-top-e3495f0644: -7px;
   --qd-atelier-top-eaa713deb9: 11px;
   --qd-atelier-top-ef7712dd39: calc(100% + 6px);
@@ -7366,8 +7370,8 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-box-shadow-4e3a320a2e: 0 0 0 0 transparent;
   --qd-atelier-left-b77c85b911: 12px;
   --qd-atelier-margin-af3c2c2206: 4px 0 0;
-  --qd-atelier-max-height-10313ebafa: calc(100vh - 80px);
-  --qd-atelier-max-height-70b738b89c: min(560px, calc(100vh - 80px));
+  --qd-atelier-max-height-10313ebafa: calc(100dvh - 80px);
+  --qd-atelier-max-height-70b738b89c: min(560px, calc(100dvh - 80px));
   --qd-atelier-max-height-98ef83fc64: calc(100dvh - 176px);
   --qd-atelier-max-height-c37aced585: calc(100dvh - 96px);
   --qd-atelier-min-height-d1125e45f1: 8px;
@@ -7392,7 +7396,7 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
 
 /* Reviewed function defaults: source/style-adapters/atelier-function-values.json. */
 :root {
-  --qd-atelier-min-height-33a0c459af: 70vh;
+  --qd-atelier-min-height-33a0c459af: 70dvh;
   --qd-atelier-padding-a1041a2446: 24px 16px calc(120px + env(safe-area-inset-bottom, 0px));
   --qd-atelier-transition-1460dce093: all 120ms ease;
 }
@@ -7432,7 +7436,7 @@ html[data-theme='light'] .qa-meeting-compose-fields { --qd-date-picker-filter: i
   --qd-atelier-flex-ea169cb88e: 0 1 auto;
   --qd-atelier-flex-ef5d1a5772: 0 1 300px;
   --qd-atelier-font-weight-51f1217b48: 500;
-  --qd-atelier-max-height-dead6c5528: 100vh;
+  --qd-atelier-max-height-dead6c5528: 100dvh;
   --qd-atelier-scroll-margin-top-056e6d9c19: 72px;
   --qd-atelier-scroll-margin-top-319b6655dd: 24px;
   --qd-atelier-scroll-margin-top-d4d92efb48: 80px;

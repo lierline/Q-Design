@@ -2048,6 +2048,7 @@ select.qa-input::-ms-expand {
 
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--ink);
   color: var(--cream);
   font-family: var(--sans);
@@ -2513,6 +2514,7 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
    ============================================================================= */
 .expert-portal-root .page-frame {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -4582,6 +4584,7 @@ html[data-theme='light'] .qa-auth-page {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
   /* 한글은 낱말 단위로 줄을 바꾼다(2026-09-28 · 폰 폭 360 에서 바닥글이 «오픈소 / 스» · «지 / 원하는» ·
@@ -4600,6 +4603,7 @@ html[data-theme='light'] .qa-auth-page {
   justify-content: center;
   padding: var(--qd-auth-mobile-padding, 40px 24px 32px);
   min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
 }
 

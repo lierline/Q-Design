@@ -1013,6 +1013,7 @@
     --qd-auth-sheen-opacity: 0.55;
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     background: var(--qd-auth-background);
   }
   .dark .qm-auth {
@@ -1026,6 +1027,7 @@
     position: relative;
     z-index: 1;
     min-height: 100vh;
+    min-height: 100dvh;
     display: grid;
     grid-template-columns: 1fr;
     word-break: keep-all;
@@ -1041,6 +1043,7 @@
     justify-content: center;
     padding: var(--qd-auth-mobile-padding);
     min-height: 100vh;
+    min-height: 100dvh;
   }
   .qm-auth-form-inner {
     width: 100%;
@@ -1441,8 +1444,8 @@
 
 /* Maison business layout arguments: preserve current values; edit here. */
 :root {
-  --qd-maison-max-height-60vh: 60vh;
-  --qd-maison-min-height-40vh: 40vh;
+  --qd-maison-max-height-60vh: 60dvh;
+  --qd-maison-min-height-40vh: 40dvh;
   --qd-maison-max-width-80percent: 80%;
   --qd-maison-max-width-92percent: 92%;
   --qd-maison-max-height-11-75rem: 11.75rem;
@@ -1455,7 +1458,7 @@
   --qd-maison-min-width-420px: 420px;
   --qd-maison-min-width-640px: 640px;
   --qd-maison-min-height-6rem: 6rem;
-  --qd-maison-max-height-70vh: 70vh;
+  --qd-maison-max-height-70vh: 70dvh;
   --qd-maison-min-width-720px: 720px;
   --qd-maison-width-30percent: 30%;
   --qd-maison-min-width-900px: 900px;
@@ -1466,7 +1469,7 @@
   --qd-maison-max-width-22rem: 22rem;
   --qd-maison-vertical-align-negative-1px: -1px;
   --qd-maison-z-index-60: 60;
-  --qd-maison-max-height-50vh: 50vh;
+  --qd-maison-max-height-50vh: 50dvh;
   --qd-maison-flex-basis-calc-240px-380px-1rem: calc(240px + 380px + 1rem);
   --qd-maison-grid-template-rows-minmax-240px-0-8fr-minmax-380px-1-2fr: minmax(240px,0.8fr) minmax(380px,1.2fr);
   --qd-maison-min-width-6rem: 6rem;
@@ -1477,7 +1480,7 @@
   --qd-maison-flex-1-5: 1.5;
   --qd-maison-grid-template-columns-minmax-0-2fr-minmax-0-1fr: minmax(0,2fr) minmax(0,1fr);
   --qd-maison-grid-template-columns-minmax-0-1fr-minmax-0-1fr: minmax(0,1fr) minmax(0,1fr);
-  --qd-maison-height-70vh: 70vh;
+  --qd-maison-height-70vh: 70dvh;
   --qd-maison-grid-template-columns-minmax-0-1-4fr-minmax-0-1fr: minmax(0,1.4fr) minmax(0,1fr);
   --qd-maison-max-width-180px: 180px;
   --qd-maison-width-18px: 18px;
@@ -1521,8 +1524,8 @@
   --qd-maison-min-width-960px: 960px;
   --qd-maison-grid-template-columns-minmax-0-3fr-minmax-0-1fr: minmax(0,3fr) minmax(0,1fr);
   --qd-maison-min-width-1040px: 1040px;
-  --qd-maison-max-height-92vh: 92vh;
-  --qd-maison-height-85vh: 85vh;
+  --qd-maison-max-height-92vh: 92dvh;
+  --qd-maison-height-85vh: 85dvh;
   --qd-maison-max-width-calc-100vw-negative--2rem: calc(100vw - 2rem);
   --qd-maison-min-width-9-5rem: 9.5rem;
   --qd-maison-max-height-calc-100dvh-negative--280px: calc(100dvh - 280px);

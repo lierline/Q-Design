@@ -892,6 +892,12 @@ ${spec.state.surfaceDeclarations}
   top: var(--qd-sticky-top, 0px);
   z-index: var(--qd-z-sticky, ${spec.bar.z});
 }
+/* 낮은 화면(작은 폰 세로 · 폰 가로)에서는 따라오지 않습니다. 좁으면 띠가 여러 줄로 접혀
+   머리띠와 함께 화면의 절반 넘게 덮었습니다(2026-10-23 실측: Q-Carnet 품목 320×568 에서 남는 높이 227px,
+   Q-Maison 재고 이동 228px). 노트북 낮은 창(1280×600)은 띠가 한 줄이라 그대로 붙습니다. */
+@media (max-height: 580px) {
+  .qd-filter-bar--sticky { position: static; }
+}
 .qd-filter-row {
   display: flex;
   flex-wrap: wrap;
