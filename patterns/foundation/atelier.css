@@ -724,17 +724,39 @@ textarea {
 /* 낮은 화면에서 왼쪽 차림표의 위아래를 줄인다 (오너 결정 2026-09-27 「낮은 화면만 줄이기」).
    높이 820 이하(패드 가로 · 아이패드 · 작은 노트북)에서는 위 로고 자리(130)와 아래 고정 영역이 화면의 60% 를
    차지해, 메뉴가 616 중 290 만 보였다(가상 패드 1024x768 실측). 로고 108 → 56, 판 번호 두 줄을 접으면 411.
-   큰 화면은 그대로다. 로고는 크기를 img 속성으로 받으므로 CSS 가 덮는다(인라인에 폭 · 높이가 없다). */
+   큰 화면은 그대로다. 로고는 크기를 img 속성으로 받으므로 CSS 가 덮는다(인라인에 폭 · 높이가 없다).
+   2026-10-23 오너 결정 «A안»(비교 그림을 보고 고름 · 세 제품 같은 값): 위아래 여백 22 → 12 · 로고 56 → 52 ·
+   로고 아래 14 → 8 · 테마 줄 위아래 12 → 6 · 테마 단추 안쪽 10 14 → 6 12 · 바닥 위 12 → 8 · 계정 줄 아래 12 → 6.
+   계정 · 화면 잠금은 바닥에 그대로 고정이다(M-16). 1366x657 노트북에서 Q-Carnet 차림표가 9개 중 2개만 보였다.
+   🔑 이 블록이 낮은 화면 차림표의 «한 곳» 이다. tools/extract-nav.mjs 가 여기 값을 읽어 q-design.nav.css 의
+   .qd-rail-* 에 같은 규칙을 낸다(Q-Maison · Q-Carnet). 값을 고치면 그쪽도 함께 바뀐다. */
 @media (max-height: 820px) {
+  .qa-sidebar-aside {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
   .qa-sidebar-logo {
-    margin-bottom: 14px !important;
+    margin-bottom: 8px !important;
   }
   .qa-sidebar-logo img {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
   }
   .qa-sidebar-versions {
     display: none;
+  }
+  .qa-sidebar-row {
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+  }
+  .qa-sidebar-theme {
+    padding: 6px 12px !important;
+  }
+  .qa-sidebar-foot {
+    padding-top: 8px !important;
+  }
+  .qa-sidebar-user {
+    margin-bottom: 6px !important;
   }
 }
 

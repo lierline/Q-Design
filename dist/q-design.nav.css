@@ -512,6 +512,22 @@ html[data-theme='light'] {
   .qd-rail-logout { min-height: 44px; }
 }
 
+/* ── 낮은 화면 ─────────────────────────────────────────────────────────────
+   높이가 낮으면(작은 노트북 · 패드 가로) 위 로고와 아래 고정 영역이 차림표를 가립니다
+   (1366x657 에서 Q-Carnet 차림표가 9개 중 2개만 보였습니다 · 2026-10-23 실측).
+   원본 Q-Atelier 의 «낮은 화면만 줄이기»(오너 결정 2026-09-27 · 2026-10-23 A안)와 같은 값을
+   patterns/foundation/atelier.css 한 곳에서 읽어 옵니다. 계정 · 잠금은 바닥에 그대로 고정입니다(M-16). */
+@media (max-height: 820px) {
+  .qd-rail { padding-top: 12px; padding-bottom: 12px; }
+  .qd-rail-brand { margin-bottom: 8px; }
+  .qd-rail-mark { width: 52px; }
+  .qd-rail-version { display: none; }
+  .qd-rail-row { margin-top: 6px; margin-bottom: 6px; }
+  .qd-rail-theme { padding: 6px 12px; }
+  .qd-rail-foot { padding-top: 8px; }
+  .qd-rail-user { margin-bottom: 6px; }
+}
+
 /* ── 좁은 화면 ─────────────────────────────────────────────────────────────
    1024px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지
    않게 여기서 못 박습니다. 각자 정하면 세 제품의 «접히는 순간» 이 달라집니다. */

@@ -229,6 +229,57 @@ for (const [path, zone, re, cast] of PROBES) {
   put('foot.avatarWeight', Number(weight[1]));
 }
 
+// 낮은 화면(작은 노트북 · 패드 가로)의 차림표는 원본 바탕 CSS 한 곳이 정합니다
+// (patterns/foundation/atelier.css · 오너 결정 2026-09-27 «낮은 화면만 줄이기» · 2026-10-23 «A안»).
+// 그 블록의 .qa-sidebar-* 를 짝지은 .qd-rail-* 로 옮깁니다. 값은 여기 적지 않습니다.
+// 원본 블록에 짝이 없는 이름표가 생기면 멈춥니다(Q-Atelier 만 줄고 두 제품은 그대로인 채 조용히 갈리지 않게).
+// 셋째 칸은 옮기지 않는 속성과 그 까닭입니다. 적지 않은 속성은 모두 옮깁니다.
+const LOW_PAIRS = [
+  ['.qa-sidebar-aside', '.qd-rail'],
+  ['.qa-sidebar-logo', '.qd-rail-brand'],
+  ['.qa-sidebar-logo img', '.qd-rail-mark', { height: '정본 표식(.qd-rail-mark)은 폭만 정하고 안쪽 그림이 비율대로 따라온다' }],
+  ['.qa-sidebar-versions', '.qd-rail-version'],
+  ['.qa-sidebar-row', '.qd-rail-row'],
+  ['.qa-sidebar-theme', '.qd-rail-theme'],
+  ['.qa-sidebar-foot', '.qd-rail-foot'],
+  ['.qa-sidebar-user', '.qd-rail-user'],
+];
+{
+  const FOUNDATION = join(ROOT, 'patterns', 'foundation', 'atelier.css');
+  const text = readFileSync(FOUNDATION, 'utf8').replace(/\r\n/g, '\n');
+  const heads = [...text.matchAll(/@media \((max-height: \d+px)\) \{\n/g)];
+  const blocks = heads.map((h) => {
+    let depth = 1, i = h.index + h[0].length;
+    for (; i < text.length && depth > 0; i++) depth += text[i] === '{' ? 1 : text[i] === '}' ? -1 : 0;
+    return { query: h[1], body: text.slice(h.index + h[0].length, i - 1) };
+  }).filter((b) => b.body.includes('.qa-sidebar-logo'));
+  if (blocks.length !== 1) throw new Error(`낮은 화면 차림표 블록(.qa-sidebar-logo 가 든 @media max-height)이 ${blocks.length} 개입니다 (1 이어야 합니다): ${FOUNDATION}`);
+  const rules = [...blocks[0].body.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(([, sel, decls]) => ({
+    sel: sel.replace(/\/\*[\s\S]*?\*\//g, '').trim(),
+    decls: decls.split(';').map((d) => d.trim()).filter(Boolean).map((d) => {
+      const [prop, ...rest] = d.split(':');
+      return [prop.trim(), rest.join(':').replace(/!important/, '').trim()];
+    }),
+  }));
+  const known = new Map(LOW_PAIRS.map(([qa, qd]) => [qa, qd]));
+  const skips = new Map(LOW_PAIRS.map(([qa, , skip]) => [qa, skip ?? {}]));
+  const stray = rules.filter((r) => !known.has(r.sel)).map((r) => r.sel);
+  if (stray.length) throw new Error(`낮은 화면 차림표 블록에 짝이 없는 이름표가 있습니다: ${stray.join(', ')}. LOW_PAIRS 에 .qd-rail-* 짝을 적으세요.`);
+  const missing = LOW_PAIRS.filter(([qa]) => !rules.some((r) => r.sel === qa)).map(([qa]) => qa);
+  if (missing.length) throw new Error(`낮은 화면 차림표 블록에서 못 찾은 이름표: ${missing.join(', ')}. 원본이 바뀌었으면 LOW_PAIRS 를 고치세요.`);
+  put('low.query', blocks[0].query);
+  for (const [qa, , skip] of LOW_PAIRS) {
+    for (const prop of Object.keys(skip ?? {})) {
+      if (!rules.find((r) => r.sel === qa).decls.some(([p]) => p === prop)) throw new Error(`낮은 화면 차림표: ${qa} 에 ${prop} 가 없는데 «옮기지 않음» 으로 적혀 있습니다. LOW_PAIRS 를 고치세요.`);
+    }
+  }
+  put('low.rules', rules.map((r) => ({
+    from: r.sel,
+    to: known.get(r.sel),
+    decls: Object.fromEntries(r.decls.filter(([p]) => !(p in skips.get(r.sel)))),
+  })));
+}
+
 // ── 검증: 뽑은 값이 말이 되는가 ──────────────────────────────────────────────
 // 「없으면 undefined 가 CSS 로 새어 나가 조용히 깨진다」를 여기서 막습니다.
 const flat = (o, p = '') =>
@@ -766,6 +817,15 @@ ${bindBlock('light')}
   .qd-rail-logout { min-height: ${px(spec.logout.touchMin)}; }
 }
 
+/* ── 낮은 화면 ─────────────────────────────────────────────────────────────
+   높이가 낮으면(작은 노트북 · 패드 가로) 위 로고와 아래 고정 영역이 차림표를 가립니다
+   (1366x657 에서 Q-Carnet 차림표가 9개 중 2개만 보였습니다 · 2026-10-23 실측).
+   원본 Q-Atelier 의 «낮은 화면만 줄이기»(오너 결정 2026-09-27 · 2026-10-23 A안)와 같은 값을
+   patterns/foundation/atelier.css 한 곳에서 읽어 옵니다. 계정 · 잠금은 바닥에 그대로 고정입니다(M-16). */
+@media (${spec.low.query}) {
+${spec.low.rules.map((r) => `  ${r.to} { ${Object.entries(r.decls).map(([p, v]) => `${p}: ${v};`).join(' ')} }`).join('\n')}
+}
+
 /* ── 좁은 화면 ─────────────────────────────────────────────────────────────
    ${runtime.BP.lg}px 미만은 레일을 감추고 서랍으로 바꿉니다. 그 폭을 프로젝트가 정하지
    않게 여기서 못 박습니다. 각자 정하면 세 제품의 «접히는 순간» 이 달라집니다. */
@@ -814,7 +874,7 @@ emit(
     {
       $meta: {
         generatedBy: 'tools/extract-nav.mjs',
-        source: 'source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css',
+        source: 'source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css + patterns/foundation/atelier.css',
         note: '손으로 고치지 마세요. 원본을 고치고 다시 돌리세요.',
       },
       ...spec,

@@ -1,7 +1,7 @@
 {
   "$meta": {
     "generatedBy": "tools/extract-nav.mjs",
-    "source": "source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css",
+    "source": "source/components/Sidebar.tsx + source/css/globals.css + source/components/components.tsx + source/components/TextAction.tsx + source/tokens/q-design-contract.ts + patterns/components.css + patterns/foundation/atelier.css",
     "note": "손으로 고치지 마세요. 원본을 고치고 다시 돌리세요."
   },
   "rail": {
@@ -79,5 +79,68 @@
     "minHeightCss": "var(--qd-control-height-sm, 36px)",
     "touchMin": 44,
     "hint": "LogoutButton → TextAction (글귀 · 오너 결정 2026-09-28)"
+  },
+  "low": {
+    "query": "max-height: 820px",
+    "rules": [
+      {
+        "from": ".qa-sidebar-aside",
+        "to": ".qd-rail",
+        "decls": {
+          "padding-top": "12px",
+          "padding-bottom": "12px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-logo",
+        "to": ".qd-rail-brand",
+        "decls": {
+          "margin-bottom": "8px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-logo img",
+        "to": ".qd-rail-mark",
+        "decls": {
+          "width": "52px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-versions",
+        "to": ".qd-rail-version",
+        "decls": {
+          "display": "none"
+        }
+      },
+      {
+        "from": ".qa-sidebar-row",
+        "to": ".qd-rail-row",
+        "decls": {
+          "margin-top": "6px",
+          "margin-bottom": "6px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-theme",
+        "to": ".qd-rail-theme",
+        "decls": {
+          "padding": "6px 12px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-foot",
+        "to": ".qd-rail-foot",
+        "decls": {
+          "padding-top": "8px"
+        }
+      },
+      {
+        "from": ".qa-sidebar-user",
+        "to": ".qd-rail-user",
+        "decls": {
+          "margin-bottom": "6px"
+        }
+      }
+    ]
   }
 }

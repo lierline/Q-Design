@@ -586,7 +586,7 @@ function SidebarBody({
         <Link
           href="/dashboard"
           aria-label="홈으로"
-          // qa-sidebar-logo: 높이 820 이하 화면에서 로고를 줄인다(globals.css · 오너 결정 2026-09-27)
+          // qa-sidebar-logo: 높이 820 이하 화면에서 로고를 줄인다(q-design.foundation.css · 오너 결정 2026-09-27)
           className="qa-sidebar-logo"
           style={{
             marginBottom: QDScale.space[5.5],
@@ -1017,7 +1017,9 @@ function SidebarBody({
           flexShrink:0 으로 줄어들지 않게.
           ★ 디자인 통일: RuleEngineBadge 의 'left brand / right version' 레이아웃을
             동일 패턴으로 Q-Atelier 에도 적용. fontSize / letterSpacing / color tone 정렬. */}
-      {/* qa-sidebar-versions: 높이 820 이하 화면에서는 접는다(globals.css · 오너 결정 2026-09-27 「낮은 화면만 줄이기」) */}
+      {/* qa-sidebar-versions: 높이 820 이하 화면에서는 접는다(q-design.foundation.css · 오너 결정 2026-09-27 「낮은 화면만 줄이기」).
+          같은 자리에서 위아래 여백 · 테마 줄(qa-sidebar-row · qa-sidebar-theme) · 바닥(qa-sidebar-foot · qa-sidebar-user)도 줄인다(2026-10-23 A안).
+          정본 q-design.nav.css 가 이 값을 읽어 Q-Maison · Q-Carnet 차림표에도 같은 규칙을 낸다. */}
       <div className="qa-sidebar-versions" style={{ flexShrink: 0 }}>
         <RuleEngineBadge variant="sidebar" compact={collapsed && !isMobile} />
         {!(collapsed && !isMobile) && (
@@ -1043,6 +1045,7 @@ function SidebarBody({
       {/* Theme + Collapse 행 (한 줄에 묶기): flexShrink:0 으로 줄어들지 않게. */}
       {collapsed && !isMobile ? (
         <div
+          className="qa-sidebar-row"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -1067,11 +1070,11 @@ function SidebarBody({
           </IconBtn>
         </div>
       ) : (
-        <div style={{ display: 'flex', gap: QDScale.space[1.5], marginTop: QDScale.space[3], marginBottom: QDScale.space[3], alignItems: 'stretch', flexShrink: 0 }}>
+        <div className="qa-sidebar-row" style={{ display: 'flex', gap: QDScale.space[1.5], marginTop: QDScale.space[3], marginBottom: QDScale.space[3], alignItems: 'stretch', flexShrink: 0 }}>
           <button
             type="button"
             onClick={toggleTheme}
-            className="qa-nav-item"
+            className="qa-nav-item qa-sidebar-theme"
             title={`화면 테마: ${mode === 'system' ? `System (현재 ${theme === 'dark' ? 'Dark' : 'Light'})` : mode === 'dark' ? 'Dark' : 'Light'}. 누를 때마다 Dark → Light → System 순서로 바뀝니다.`}
             style={{
               flex: "var(--qd-atelier-flex-83725d2c6e)",
@@ -1104,7 +1107,7 @@ function SidebarBody({
       )}
 
       {/* Footer (avatar + logout): flexShrink:0 (잘림 방지) */}
-      <div style={{ paddingTop: QDScale.space[3], borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`, flexShrink: 0 }}>
+      <div className="qa-sidebar-foot" style={{ paddingTop: QDScale.space[3], borderTop: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`, flexShrink: 0 }}>
         {collapsed && !isMobile ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: QDScale.space[2.5] }}>
             <Avatar name={userName} email={userEmail} size={QDPresentation.avatarSize[34]} userId={userId} avatarVersion={avatarVersion} />
@@ -1112,7 +1115,7 @@ function SidebarBody({
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[2.5], marginBottom: QDScale.space[3] }}>
+            <div className="qa-sidebar-user" style={{ display: 'flex', alignItems: 'center', gap: QDScale.space[2.5], marginBottom: QDScale.space[3] }}>
               <Avatar name={userName} email={userEmail} size={QDPresentation.avatarSize[32]} userId={userId} avatarVersion={avatarVersion} />
               <div style={{ minWidth: "var(--qd-atelier-min-width-f24a3b2189)", flex: "var(--qd-atelier-flex-83725d2c6e)" }}>
                 <p
