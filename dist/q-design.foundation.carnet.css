@@ -1759,8 +1759,10 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     white-space: nowrap;
   }
 
-  /* 표가 가로로 넘칠 때 오른쪽에 고정되는 칸. 배경이 없으면 글자가 겹쳐 보인다 */
-  .td.sticky, .th.sticky { background: var(--color-surface); }
+  /* 표가 가로로 넘칠 때 오른쪽에 고정되는 칸. 배경이 없으면 글자가 겹쳐 보인다.
+     면은 표가 놓인 바탕(--qd-table-fill)을 따른다. 장부형 판은 화면 바탕이라, 판 색을 쓰면
+     빈 머리 칸 하나만 네모로 떠 보였다(2026-10-23 운영 실측 · 장부형 «B») */
+  .td.sticky, .th.sticky { background: var(--qd-table-fill, var(--color-surface)); }
   .qd-table tbody tr:hover .td.sticky { background: var(--color-surface-sub); }
 
   .chip {
