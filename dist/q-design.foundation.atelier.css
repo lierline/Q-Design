@@ -1401,9 +1401,9 @@ textarea {
   position: sticky;
   left: 0;
   z-index: 1;
-  /* surface 색으로 덮어 뒷 컬럼이 비치지 않게. row 자체 background 가
-     있으면 그것이 우선. */
-  background: var(--qa-surface);
+  /* 표가 놓인 자리의 바탕으로 덮어 뒷 컬럼이 비치지 않게. row 자체 background 가
+     있으면 그것이 우선. 장부형 판(면 없음) 안이면 판이 --qd-table-fill 을 화면 바탕으로 준다 */
+  background: var(--qd-table-fill, var(--qa-surface));
 }
 
 /* DataTable 칸: 칸 안의 부품이 칸보다 넓어지지 않게 (2026-09-26 패드 점검).

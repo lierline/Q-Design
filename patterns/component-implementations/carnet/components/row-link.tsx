@@ -44,7 +44,8 @@ export function RowLink({ href, children }: { href: string; children: React.Reac
       className="group cursor-pointer"
     >
       {children}
-      <td aria-hidden className="td sticky right-0 w-0 bg-surface text-right">
+      {/* 붙는 칸은 표가 놓인 자리의 바탕으로 덮는다. 장부형 판(면 없음) 안이면 화면 바탕(정본 --qd-table-fill) */}
+      <td aria-hidden className="td sticky right-0 w-0 bg-[var(--qd-table-fill,var(--color-surface))] text-right">
         <span className="text-base leading-none text-faint transition-colors group-hover:text-brand">
           &rsaquo;
         </span>

@@ -148,6 +148,14 @@ put(spec, 'panel.radius', qd.pixels('QD.radius'));
     throw new Error('Bx 의 상태 색 테두리(borderColor: tintBorder(accentColor))를 못 찾았습니다.');
   }
   if (/borderLeft/.test(bx)) throw new Error('Bx 에 왼쪽 선이 다시 생겼습니다. docs/08-paper.md 의 문서 결을 보세요.');
+  /* 장부형 갈래(2026-10-23 «B»). 아래 .qd-panel 장부형 규칙 · .qd-empty 가 이 모양을 그대로 옮깁니다 */
+  for (const [what, re] of [
+    ['면 없음', /background: ledger \? 'transparent' : T\.surface,/],
+    ['위아래 괘선만 · 표 밑바탕은 화면 바탕', /ledger \? \(\{ borderWidth: '1px 0', '--qd-table-fill': T\.bg \}/],
+    ['모서리 없음', /borderRadius: ledger \? 0 :/],
+  ]) {
+    if (!re.test(bx)) throw new Error(`Bx 의 장부형 갈래가 바뀌었습니다: ${what}. 정본 .qd-panel 장부형 규칙을 다시 보세요.`);
+  }
   put(spec, 'panel.accentMix', Number(g[1]));
 }
 
@@ -372,9 +380,9 @@ put(spec, 'table.transition', tokens.motion.fast);
   ]) {
     if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
   }
-  /* 빈 목록은 Bx(판) 위에 섭니다: surface · border · 카드 모서리 */
-  if (!/<Bx\s+className=\{`qd-empty\$\{compact \? ' qd-empty--compact' : ''\}`\}\s*\n\s*style=\{\{\s*\n\s*padding: compact \?/.test(empty)) {
-    throw new Error('빈 목록이 더는 Bx 판 위에 서지 않습니다. 판 규칙을 다시 보세요.');
+  /* 빈 목록은 장부형 Bx(판) 위에 섭니다: 면 없음 · 위아래 괘선 · 모서리 없음(2026-10-23 «B») */
+  if (!/<Bx\s+ledger\s+className=\{`qd-empty\$\{compact \? ' qd-empty--compact' : ''\}`\}\s*\n\s*style=\{\{\s*\n\s*padding: compact \?/.test(empty)) {
+    throw new Error('빈 목록이 더는 장부형 Bx 판 위에 서지 않습니다. 판 규칙을 다시 보세요.');
   }
   /* 두 건수 글(목록 아래 · 도구줄)은 한 모양이어야 합니다. 갈리면 사람이 두 셈을 못 믿습니다 */
   if (spec.pager.labelSize !== spec.bar.labelSize || spec.pager.labelTracking !== spec.bar.labelTracking) {
@@ -488,6 +496,23 @@ ${bind('light')}
   border: 1px solid var(--qd-border);
   border-radius: var(--qd-radius-card, ${qd.css('QD.radius')});
 }
+/* 표 상자 · 빈 칸 판은 장부형입니다(2026-10-23 오너 결정 «B» · docs/08-paper.md).
+   면 · 옆 선 · 모서리를 걷고 위아래 괘선만 남깁니다. 떠 있는 섬이 화면을 조각내지 않게,
+   목록이 문서의 한 단락처럼 화면 바탕 위에 놓입니다(원본 Bx 의 ledger 갈래와 같은 모양).
+
+   «표나 빈 칸을 바로 담은 판» 만 해당합니다. 글 · 입력 · 경고를 담은 판은 그대로 판입니다.
+   카르네는 서식 · 잠금 창 · 경고 상자에도 .qd-panel 을 써서, 기본값을 통째로 바꾸면 그쪽까지 줄만 남습니다.
+   짜임이 달라 판별이 안 되는 자리는 --ledger 를 직접 겁니다.
+
+   면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 화면 바탕입니다. */
+.qd-panel:has(> .qd-table-scroll, > .qd-table, > .qd-empty),
+.qd-panel.qd-table-scroll,
+.qd-panel--ledger {
+  --qd-table-fill: var(--qd-bg);
+  background: transparent;
+  border-width: 1px 0;
+  border-radius: 0;
+}
 /* 상태 판 · 강조 판. 2026-09-27 «문서 결»(오너 결정 · docs/08-paper.md): 왼쪽 3px 세로줄을 걷고
    **테두리 전체를 옅은 상태 색**으로 칠합니다(원본 Bx 의 accent 와 같은 규칙 · ${Math.round(spec.panel.accentMix * 100)}%).
 
@@ -547,7 +572,8 @@ ${bind('light')}
   position: sticky;
   top: 0;
   z-index: 1;
-  background: var(--qd-surface);
+  /* 덮는 바탕은 표가 놓인 자리의 바탕입니다. 장부형 판(면 없음) 안이면 화면 바탕(.qd-panel 규칙이 줍니다) */
+  background: var(--qd-table-fill, var(--qd-surface));
 }
 .qd-table {
   width: 100%;
@@ -712,11 +738,15 @@ ${spec.state.surfaceDeclarations}
   box-sizing: border-box;
   padding: ${spec.empty.padding};
   text-align: center;
-  background-color: var(--qd-surface);
-  /* 빛무리(radial-gradient)와 장식 글리프(.qd-empty-icon)는 2026-09-28 원본에서 걷혔다. 판은 면 하나다 */
+  /* 빛무리(radial-gradient)와 장식 글리프(.qd-empty-icon)는 2026-09-28 원본에서 걷혔다.
+     2026-10-23 오너 결정 «B»: 면 · 옆 선 · 모서리도 걷고 위아래 괘선만 남는다(원본 EmptyState 의 Bx ledger) */
+  background-color: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, ${px(tokens.radius.md)});
+  border-width: 1px 0;
+  border-radius: 0;
 }
+/* 판 안의 빈 칸은 겉 판이 이미 괘선을 그으므로 제 선을 내려놓습니다(겹줄 방지) */
+.qd-panel > .qd-empty { border: 0; }
 .qd-empty--compact {
   padding: ${spec.empty.paddingCompact};
 }

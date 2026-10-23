@@ -110,7 +110,8 @@ export function TwoLine({
 /** 맨 오른쪽 동작 칸. 표가 가로로 넘쳐도 붙어 있는다. */
 export function ActionTd({ children }: { children: React.ReactNode }) {
   return (
-    <td className="td sticky right-0 border-l border-line bg-surface text-right">
+    /* 붙는 칸은 표가 놓인 자리의 바탕으로 덮는다. 장부형 판(면 없음) 안이면 화면 바탕(정본 --qd-table-fill) */
+    <td className="td sticky right-0 border-l border-line bg-[var(--qd-table-fill,var(--color-surface))] text-right">
       {children}
     </td>
   );

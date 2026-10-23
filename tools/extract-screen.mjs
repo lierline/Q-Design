@@ -65,6 +65,11 @@ const Z = {
   statGrid: P.statGrid,
 };
 
+/* 지표 칸은 장부형 Bx 위에 섭니다: 면 · 모서리 없이 아래 괘선 하나(2026-10-23 «B»). 아래 .qd-kpi 가 이 모양을 옮깁니다 */
+if (!/<Bx[\s\S]*?\n\s*ledger\s*\n\s*style=\{\{\s*\n\s*padding: '[^']+',\s*\n\s*borderWidth: '0 0 1px',/.test(P.kpi)) {
+  throw new Error('원본 KPI 가 더는 장부형(Bx ledger · 아래 괘선 하나)이 아닙니다. .qd-kpi 틀을 다시 보세요.');
+}
+
 const spec = probeAll([
   // ── KPI 카드 ────────────────────────────────────────────────────────────
   ['kpi.padding',     Z.kpiBox,   /padding: '([^']+)',/, String],
@@ -407,9 +412,12 @@ ${bind('light')}
   padding: ${spec.kpi.padding};
   /* 값 글자가 칸 폭(cqw)을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 clamp 와 한 벌) */
   container-type: inline-size;
-  background: var(--qd-surface);
+  /* 지표 띠는 장부형입니다(2026-10-23 오너 결정 «B»). 면 · 모서리 없이 칸마다 아래 괘선 하나.
+     원본 KPI 가 Bx ledger 에 아래 선만 남긴 것과 같은 모양입니다(위에서 원본을 읽어 확인합니다) */
+  background: transparent;
   border: 1px solid var(--qd-border);
-  border-radius: var(--qd-radius-card, ${px(spec.panel.radius)});
+  border-width: 0 0 1px;
+  border-radius: 0;
   color: inherit;
   text-decoration: none;
 }

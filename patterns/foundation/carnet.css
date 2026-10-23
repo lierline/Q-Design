@@ -780,12 +780,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     margin-bottom: 14px;
   }
 
-  /*
-   * 판 안의 빈 목록. 정본 `.qd-empty` 는 스스로 판(면 · 선 · 모서리)이라 판 안에 놓이면
-   * 판 안 판이 된다. 겉 판이 이미 그리므로 빈 목록은 제 선만 내려놓는다 - 여백 · 글자 ·
-   * 은은한 빛은 정본 그대로라, 판을 통째로 대신한 원본 EmptyState 와 같은 모양이 된다.
-   */
-  .qd-panel > .qd-empty { border: 0; border-radius: 0; }
+  /* 판 안의 빈 목록이 제 선을 내려놓는 줄은 2026-10-23 부터 정본(q-design.list.css)이 낸다 */
 
   /*
    * 거르개 띠 안의 갈래 탭(components/shell.tsx FilterBar). 정본 탭 줄의 아래 여백(20)은

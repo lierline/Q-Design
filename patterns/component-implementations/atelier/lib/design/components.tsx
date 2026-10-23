@@ -574,6 +574,7 @@ export function Bx({
   style,
   accent,
   lift = false,
+  ledger = false,
   className,
   onClick,
   role,
@@ -586,6 +587,12 @@ export function Bx({
   accent?: AccentColor;
   /** hover 시 살짝 떠오르는 효과 + champagne shadow (qa-card-lift 클래스) */
   lift?: boolean;
+  /**
+   * 장부형 판(2026-10-23 오너 결정 «B»: 지표 띠 · 표 상자 · 빈 칸을 괘선형으로).
+   * 면 · 옆 테두리 · 모서리를 걷고 위아래 괘선만 남긴다. 떠 있는 섬을 걷는 10-10 장부형 방향의 판 차례다.
+   * 정본 `.qd-panel` · `.qd-empty` 가 이 갈래를 읽어 같은 모양을 낸다(Q-Design tools/extract-list.mjs).
+   */
+  ledger?: boolean;
   className?: string;
   /** 카드 전체를 클릭 가능하게: role='button'·tabIndex={0}·onKeyDown 과 함께 접근성 확보.
    *  이벤트 인자 제공 → 호출부가 내부 인터랙티브 자식(Link 등) 버블을 e.target 으로 구분 가능
@@ -610,8 +617,11 @@ export function Bx({
       aria-label={ariaLabel}
       style={{
         boxSizing: 'border-box',
-        background: T.surface,
+        background: ledger ? 'transparent' : T.surface,
         border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+        // 장부형은 위아래 괘선만. 옆 선은 폭 0 으로 걷는다(왼쪽 선 이름을 쓰지 않는다: 문서 결 가드)
+        // 면이 없으니 표의 따라오는 머리글 · 고정 칸이 덮을 바탕(--qd-table-fill)은 화면 바탕이다
+        ...(ledger ? ({ borderWidth: 'var(--qd-border-width) 0', '--qd-table-fill': T.bg } as CSSProperties) : {}),
         // 🔴 2026-08-26: 이 카드가 **전문가 포털 안에서도** 10px 둥근 모서리로 떴다.
         //    포털은 각진 모서리(`--radius: 0`)가 브랜드인데, 공용 카드 하나가
         //    다른 디자인 언어를 들고 들어와 「카드 안의 다른 카드」로 보였다.
@@ -619,7 +629,8 @@ export function Bx({
         // 🔑 사본을 만들지 않는다. 값을 두 벌로 두는 대신 **주변 맥락을 읽을 수 있게** 한다.
         //    폴백이 RADIUS.md 라 내부 앱은 한 픽셀도 바뀌지 않고,
         //    포털만 `.expert-portal-root { --qa-radius-card: 0 }` 로 자기 언어를 말한다.
-        borderRadius: `var(--qd-radius, var(--qa-radius-card, ${QDScale.radius}))`, // 럭셔리 표준: 카드 10px 라운드
+        // 장부형은 모서리가 없다(괘선 끝이 굽지 않게). 카드는 그대로 10px 라운드
+        borderRadius: ledger ? 0 : `var(--qd-radius, var(--qa-radius-card, ${QDScale.radius}))`, // 럭셔리 표준: 카드 10px 라운드
         ...(accentColor ? { borderColor: tintBorder(accentColor) } : {}),
         ...style,
       }}
@@ -2139,6 +2150,7 @@ function Spinner() {
 // ─── EMPTY STATE ─────────────────────────────────────────────────────────────
 // 넉넉한 여백(96px) + 제목 · 설명 · 다음 할 일. compact 모드는 사이드 패널 등 좁은 영역용(32px 패딩).
 // 큰 장식 글리프(✦ 등)와 배경 번짐 빛은 걷었다: 장식보다 읽힘 (화면 검토 A38 · A76 · 2026-09-28).
+// 판은 장부형이다: 면 · 옆 선 · 모서리 없이 위아래 괘선만(2026-10-23 오너 결정 «B»).
 // hints: 사용자가 다음에 할 행동 1-3개 chip: 신규/빈 화면에서 navigation hint.
 export function EmptyState({
   title,
@@ -2155,7 +2167,7 @@ export function EmptyState({
   compact?: boolean;
 }) {
   return (
-    <Bx className={`qd-empty${compact ? ' qd-empty--compact' : ''}`}
+    <Bx ledger className={`qd-empty${compact ? ' qd-empty--compact' : ''}`}
       style={{
         padding: compact ? "var(--qd-atelier-padding-2de4de37b2)" : "var(--qd-atelier-padding-b5b76465e0)",
         textAlign: 'center',
@@ -2482,8 +2494,11 @@ export function KPI({
       <Bx
         // 폰(599 이하)에서는 여백 · 최소 높이를 줄인다(globals.css .qa-kpi-card · 2026-09-28 운영 화면 폰 · 패드)
         className="qa-kpi-card"
+        // 지표 띠는 장부형: 면 · 모서리 없이 칸마다 아래 괘선 하나(2026-10-23 오너 결정 «B»)
+        ledger
         style={{
           padding: "var(--qd-atelier-padding-0230ce59c8)",
+          borderWidth: '0 0 var(--qd-border-width)',
           // 값 글자가 칸 폭(cqw)을 재도록 카드를 크기 컨테이너로 (위 fontSize clamp 와 한 벌)
           containerType: 'inline-size',
           display: 'flex',
@@ -3398,7 +3413,7 @@ export function DataTable<T>({
         gridTemplateColumns: template,
         borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
         ...(stickyHeader
-          ? { position: 'sticky' as const, top: "var(--qd-atelier-top-13ae86191f)", zIndex: Z.sticky, background: T.surface }
+          ? { position: 'sticky' as const, top: "var(--qd-atelier-top-13ae86191f)", zIndex: Z.sticky, background: `var(--qd-table-fill, ${T.surface})` }
           : null),
       }}
     >
