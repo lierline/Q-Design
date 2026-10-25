@@ -46,6 +46,15 @@
 
 ---
 
+## 전체 점검 · 화면 문구 자리 한 곳 다시 잇기 · 2026-10-25
+
+전체 시스템 점검에서 `check.mjs` 는 35걸음 모두 초록이었다. `check.mjs --products` 의 «화면 문구(제품 코드 전체)» 만 도구가 멈췄다
+(`Copy binding changed outside Q-Design: components/ProductProfileWizard.tsx:571`). Q-Atelier 커밋본에서 그 글귀가 한 줄 아래(572)로
+밀린 것이라 글자는 그대로다. `reanchor-copy-bindings.mjs --write` 로 줄 번호만 옮겼고(moved 1), 다시 돌린 감사에서 «145 bound» 초록.
+남은 빨강 둘(«다 뽑았나» Q-Sonar 색 · «말투»)은 위 «남은 일» 의 다음 바퀴 몫 그대로다.
+
+---
+
 ## 일반 카드 · 구역 카드 위 괘선 «3» · 정본 기본값 · 세 제품 · 2026-10-23
 
 «B» 뒤에 오빠가 «남은 일반 카드 · 구역 카드도 장부형으로 바꿔 줘. 먼저 그림부터». 카르네 기한 판 · 메종 홈을
