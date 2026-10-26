@@ -241,6 +241,20 @@ primary 에도 투명 1px 테두리를 두는 것이 요령입니다. 그러지 
 hover → color text (danger 는 red) · border-color muted  ·  전환 160ms  ·  disabled opacity 0.4
 ```
 
+### `TextAction` · `TextLinkAction` (보조 글귀 · 이동 글귀)
+
+```
+보조 글귀        글자만 · 높이 36(터치 44) · 흐린 색 → 올리면 본문색 + 밑줄
+이동 글귀 (go)   본문색(먹) · 굵기 600 · 끝 꺾쇠 › 14px · 글자와 사이 4 · 올리면 밑줄
+                 정본 .qd-text-action--go · 아뜰리에 <TextLinkAction go>
+```
+
+안내 문구 · 구역 머리 옆에 홀로 서서 다른 화면으로 가는 글귀(「변경평가 목록으로」 「전체 보기」 「N건 더」)는 이동 글귀입니다(오너 결정 2026-10-27 «F»).
+흐린 보조 글귀로 두었더니 옆 설명 문장과 구별되지 않았습니다. 안내 줄은 `justify-content: space-between` 으로 두어 이동 글귀를 줄 오른쪽 끝에 붙입니다.
+
+- 줄마다 되풀이되는 열기 · 보기, 내려받기, 취소 · 뒤로 · 홈으로 · 로그인으로는 흐린 보조 글귀 그대로입니다. 다 진하게 하면 무게가 다시 같아집니다.
+- 글귀 끝에 « →» 를 손으로 적지 않습니다. 꺾쇠가 대신합니다.
+
 ### `Switch` · `Checkbox` · `FilterChip`
 
 ```
@@ -604,7 +618,7 @@ WCAG 2.4.1 (Bypass Blocks). 평소엔 화면 밖, Tab 하면 나타납니다.
 | 역할 | Q-Atelier | Q-Maison | Q-Carnet | 정본 상태와 근거 | 제품 차이 |
 | --- | --- | --- | --- | --- | --- |
 | 주 행동·아이콘 버튼 | `Btn` · `IconBtn` <br> [lib/design/components.tsx](../../Q-Atelier/lib/design/components.tsx) | `Button` <br> [components/ui/button.tsx](../../Q-Works/components/ui/button.tsx) | `.qd-btn` <br> [app/q-design.screen.css](../../DHR/app/q-design.screen.css) | CSS 정본<br>[07-screens.md](07-screens.md) | 공통 버튼 CSS는 있으나 Atelier는 원본 React, Maison은 CVA 래퍼, Carnet은 native button 클래스가 중심이다. Carnet 현장 .btn-*는 별도 역할로 남는다. |
-| 보조 글자 행동 | `TextAction` · `TextLinkAction` <br> [components/TextAction.tsx](../../Q-Atelier/components/TextAction.tsx)<br>`BackButton` <br> [components/BackButton.tsx](../../Q-Atelier/components/BackButton.tsx) | `Button` <br> [components/ui/button.tsx](../../Q-Works/components/ui/button.tsx) | 공용 래퍼 미등록 | CSS 정본<br>[patterns/components.css](../patterns/components.css)<br>[patterns/action-targets.css](../patterns/action-targets.css)<br>[dist/q-design.workspace.css](../dist/q-design.workspace.css) | Maison Button의 link·ghost, 정렬 머리와 닫기·수정 글귀는 qd-text-action을 사용한다. Atelier 전용 TextAction 및 Carnet 행동 링크의 API는 제품별로 유지한다. 보조 행동을 글자로 두는 결정은 같다. |
+| 보조 글자 행동 | `TextAction` · `TextLinkAction` <br> [components/TextAction.tsx](../../Q-Atelier/components/TextAction.tsx)<br>`BackButton` <br> [components/BackButton.tsx](../../Q-Atelier/components/BackButton.tsx) | `Button` <br> [components/ui/button.tsx](../../Q-Works/components/ui/button.tsx) | 공용 래퍼 미등록 | CSS 정본<br>[patterns/components.css](../patterns/components.css)<br>[patterns/action-targets.css](../patterns/action-targets.css)<br>[dist/q-design.workspace.css](../dist/q-design.workspace.css) | Maison Button의 link·ghost, 정렬 머리와 닫기·수정 글귀는 qd-text-action을 사용한다. Atelier 전용 TextAction 및 Carnet 행동 링크의 API는 제품별로 유지한다. 보조 행동을 글자로 두는 결정은 같다. 홀로 선 이동 글귀는 `.qd-text-action--go`(먹색 · 600 · 꺾쇠, 2026-10-27 «F»). |
 | 문자·숫자 입력 | `In` <br> [lib/design/components.tsx](../../Q-Atelier/lib/design/components.tsx) | `Input` <br> [components/ui/input.tsx](../../Q-Works/components/ui/input.tsx)<br>`MoneyInput` <br> [components/ui/money-input.tsx](../../Q-Works/components/ui/money-input.tsx)<br>`PasswordInput` <br> [components/ui/password-input.tsx](../../Q-Works/components/ui/password-input.tsx)<br>`SuggestInput` <br> [components/ui/suggest-input.tsx](../../Q-Works/components/ui/suggest-input.tsx) | `.qd-input` <br> [app/q-design.screen.css](../../DHR/app/q-design.screen.css) | CSS 정본 | 공통 입력 외형은 연결되어 있다. 금액·비밀번호·추천 입력의 동작은 Maison 래퍼이며 Carnet 현장 .input과 숫자판은 별도로 남는다. |
 | 선택·검색 선택 | `Sel` <br> [lib/design/components.tsx](../../Q-Atelier/lib/design/components.tsx) | `Select` <br> [components/ui/select.tsx](../../Q-Works/components/ui/select.tsx)<br>`Combobox` <br> [components/ui/combobox.tsx](../../Q-Works/components/ui/combobox.tsx) | `.qd-input` <br> [app/q-design.screen.css](../../DHR/app/q-design.screen.css) | CSS 정본 | 세 제품 native select와 Maison 검색형 Combobox를 구분한다. Maison 팝오버 표면·옵션 상태는 중앙 규칙을 사용한다. OS 선택기와 검색·키보드·값 전달 동작은 제품 어댑터에 남는다. |
 | 여러 줄 입력 | `Txt` <br> [lib/design/components.tsx](../../Q-Atelier/lib/design/components.tsx) | `Textarea` <br> [components/ui/textarea.tsx](../../Q-Works/components/ui/textarea.tsx) | `.qd-input` <br> [app/q-design.screen.css](../../DHR/app/q-design.screen.css) | CSS 정본 | Atelier·Maison에는 래퍼가 있고 Carnet은 textarea에 공통 클래스를 붙인다. 행 수·크기 조절·읽기 전용 처리의 인터페이스는 다르다. |

@@ -566,6 +566,7 @@ QMS 문서세트에 더한 것(오너 결정 2026-09-24)
 | 자리 | 모양 | 원본(Q-Atelier) | 정본 CSS |
 |---|---|---|---|
 | 일반 카드 · 구역 카드 · 글 판 | 면 · 옆 선 · 아랫선 · 모서리 없음, **위 괘선 하나** | `Bx` 의 보통 갈래 → `RULE_CARD`(`Card` · `Panel` · `SectionCard` 가 모두 거침), 화면이 손으로 그린 카드도 `...RULE_CARD` | `.qd-card` · `.qd-panel` 기본값 |
+| 작업대 구역(대표 홈 위젯 · 번호 구역) | 상자 없이 **위 괘선 하나**(밝은 테 색) · 괘선과 제목 사이 24 · 제목 아래 괘선 없음 (2026-10-27 오너 결정 «A») | `qd-work-sections` 를 쓰는 화면 | `.qd-workspace .qd-work-section` (`patterns/workspace.css`) |
 | 표 상자 · 빈 칸 · 지표 띠 | «B» 그대로(위아래 괘선 · 아래 괘선) | 위 절 | 위 절 |
 
 상자로 남는 자리는 **변수 넷**으로 정합니다(`patterns/components.css`): `--qd-card-face`(면) · `--qd-card-rule`(선 굵기) ·

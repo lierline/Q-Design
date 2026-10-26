@@ -1331,7 +1331,7 @@ function NavLink({
         fontSize: QDScale.font[14],
         fontFamily: QDScale.family.ui,
         fontWeight: active ? "var(--qd-font-weight-semibold)" : "var(--qd-font-weight-normal)",
-        letterSpacing: "var(--qd-atelier-letter-spacing-4a873a4bd2)",
+        letterSpacing: "var(--qd-atelier-letter-spacing-1029873b1c)",
         transition: "var(--qd-atelier-transition-4db5304ca2)",
       }}
     >
@@ -1520,6 +1520,8 @@ function CollapsibleNavGroup({
           alignItems: 'center',
           justifyContent: 'space-between',
           width: "var(--qd-atelier-width-b7aa1ec004)",
+          // 높이는 적어서 둔다(32). 단추 줄간격이 1.4 가 되며 여백으로 내던 높이가 32.8 이 됐다(2026-10-27 오너 결정 «차림표는 그대로»)
+          height: "var(--qd-atelier-height-bea2031474)",
           padding: "var(--qd-atelier-padding-f5778c8c22)",
           fontSize: QDScale.font[12],
           fontFamily: QDScale.family.mono,
@@ -1634,6 +1636,8 @@ function WorkspaceNavGroup({
                 alignItems: 'center',
                 gap: QDScale.space[3],
                 width: "var(--qd-atelier-width-b7aa1ec004)",
+                // 높이는 적어서 둔다(40). 단추 줄간격이 1.4 가 되며 여백으로 내던 높이가 41.6 이 됐다(2026-10-27 오너 결정 «차림표는 그대로»)
+                height: "var(--qd-atelier-height-bab11f1424)",
                 padding: NAV_ITEM_PADDING,
                 paddingLeft: "var(--qd-atelier-padding-left-2da5cadfb6)", // NavLink 과 같은 글자 자리(종전 투명 3px 왼쪽 선 대신 · 2026-09-27)
                 background: 'transparent',
@@ -1642,7 +1646,7 @@ function WorkspaceNavGroup({
                 fontSize: QDScale.font[14],
                 fontFamily: QDScale.family.ui,
                 fontWeight: "var(--qd-font-weight-normal)",
-                letterSpacing: "var(--qd-atelier-letter-spacing-4a873a4bd2)",
+                letterSpacing: "var(--qd-atelier-letter-spacing-1029873b1c)",
                 textAlign: 'left',
                 cursor: 'pointer',
               }}

@@ -227,7 +227,10 @@ CSS 는 `--qd-leading-none · tight · snug · relaxed` 와 크기별 짝(`--qd-
 아뜰리에는 TS 상수 `LH` 와 CSS 변수 `--qa-lh-*` 양쪽에 있어 계약(`lib/design/lh-css-sync.test.ts`)이 둘의 키와 값을 대조합니다.
 옛 사본 이름 `--qd-line-height-*` 는 걷었습니다(정본 시험이 다시 생기면 실패합니다).
 
-입력칸 · 단추는 줄간격을 물려받지 않는 브라우저 기본값(`normal`)을 씁니다. 그래서 선택 단추(`--qd-choice-line-height`)는 1.4, `textarea.qd-input` 은 1.6 을 따로 적어 둡니다.
+입력칸 · 단추는 줄간격을 물려받지 않아 브라우저 기본값(`normal`)이 돌았습니다. 2026-10-27 부터 아뜰리에 foundation 리셋이 `button, input, select, textarea` 에 1.4(`--qd-leading-snug`)를 줍니다.
+메종(테일윈드 3)은 preflight 가 `line-height: inherit`, 카르넷(테일윈드 4)은 `font: inherit` 로 바깥 줄간격을 물려받습니다.
+줄간격을 따로 적은 부품은 그쪽이 이깁니다(선택 단추 `--qd-choice-line-height` 1.4, `textarea.qd-input` 1.6).
+높이를 여백으로 내던 아뜰리에 차림표 단추 둘(묶음 머리 32 · «생산» 부서 묶음 40)은 높이를 적어 그대로 두었고, 내 할 일 탭 · 변경평가 두 줄 탭은 3.6px 늘었습니다(오너 결정 «차림표만 고정, 탭은 1.4»).
 
 ### 배지 높이는 이제 `minHeight` 가 정합니다
 

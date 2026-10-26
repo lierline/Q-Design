@@ -222,12 +222,15 @@ html {
   scrollbar-color: color-mix(in srgb, var(--qa-champagne) 22%, var(--qa-border)) var(--qa-bg);
 }
 
+/* 줄간격: 단추 · 입력칸은 본문을 물려받지 않아 브라우저 기본값(normal)이 돌았다. 글자 사다리의 조작 값 1.4 로
+   둔다(2026-10-27). 줄간격을 따로 적은 부품은 그쪽이 이긴다. 높이를 여백으로 내던 차림표 단추 둘은 높이를 적어 그대로 두었다. */
 button,
 input,
 select,
 textarea {
   font-family: inherit;
   font-size: inherit;
+  line-height: var(--qd-leading-snug);
   outline: none;
 }
 

@@ -1493,7 +1493,7 @@ export function FldError({ children, id }: { children: ReactNode; id?: string })
         fontFamily: QDScale.family.ui,
         marginTop: QDScale.space[1.5],
         lineHeight: QDScale.leading.snug,
-        letterSpacing: "var(--qd-atelier-letter-spacing-4a873a4bd2)",
+        letterSpacing: "var(--qd-atelier-letter-spacing-1029873b1c)",
         animation: `qa-fld-error-rise ${QD.motionNormal} both`,
       }}
     >

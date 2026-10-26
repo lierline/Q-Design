@@ -9,9 +9,12 @@
 //
 // TextLinkAction 은 같은 모양의 «링크» 다(화면 검토 A11 · A63 · 2026-09-27). 양식 바닥의 «취소» 가
 // `<Link><Btn p={false}>취소</Btn></Link>` 상자로 여러 화면에 있었다. 가는 곳이 주소면 이것을 쓴다.
+// 안내 문구 · 구역 머리 옆에 홀로 선 이동 글귀는 go 를 붙인다(먹색 · 굵기 600 · 끝 꺾쇠, 2026-10-27 오너 결정 «F»).
 
 import { QDText } from '@/lib/design/q-design-labels';
 import { QDScale } from '@/lib/design/q-design-scale';
+import { QDPresentation } from '@/lib/design/q-design-runtime';
+import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
 import { useState, type ReactNode, type Ref } from 'react';
 import Link from 'next/link';
 import { F, S, T } from '@/lib/design/tokens';
@@ -94,6 +97,7 @@ export function TextLinkAction({
   target,
   onClick,
   label,
+  go,
 }: {
   children: ReactNode;
   href: string;
@@ -106,6 +110,12 @@ export function TextLinkAction({
    * (TextAction 의 label 과 같은 뜻 · 보이는 글귀가 앞에 오게 · 2026-10-20 대시보드 A)
    */
   label?: string;
+  /**
+   * 이동 글귀: 안내 문구 · 구역 머리 옆에 홀로 서서 다른 화면으로 가는 글귀(「변경평가 목록으로」 「전체 보기」 「N건 더」).
+   * 흐린 글귀는 옆 설명 문장과 구별되지 않았다(2026-10-27 오너 지적). 색 · 굵기 · 올렸을 때 밑줄은 정본
+   * `.qd-text-action--go` 가 쥐고, 여기서는 끝 꺾쇠만 붙인다. 줄마다 되풀이되는 열기 · 보기와 취소 · 뒤로에는 쓰지 않는다.
+   */
+  go?: boolean;
 }) {
   const [hover, setHover] = useState(false);
   const style = {
@@ -113,12 +123,13 @@ export function TextLinkAction({
     minHeight: QD.controlHeightSm,
     fontFamily: QDScale.family.ui,
     fontSize: QD.controlSize,
-    color: hover ? T.text : T.muted,
-    textDecoration: 'none',
+    ...(go ? {} : { color: hover ? T.text : T.muted, textDecoration: 'none' }),
     transition: `color ${QD.motionFast}`,
     display: 'inline-flex',
     alignItems: 'center',
   } as const;
+  const className = go ? 'qa-touch-44 qd-text-action qd-text-action--go' : 'qa-touch-44 qd-text-action';
+  const body = go ? <>{children}<ChevronRight size={QDPresentation.iconSize[14]} aria-hidden /></> : children;
   /*
    * 내려받기 같은 API 주소(/api/…)는 next/link 로 걸면 화면에 보일 때 미리 불러오기(prefetch)가
    * 그 주소를 부른다(문서를 만들어 버린다). API 주소는 보통 <a> 로 건다.
@@ -131,13 +142,13 @@ export function TextLinkAction({
         target={target}
         rel={target ? 'noopener' : undefined}
         aria-label={label}
-        className="qa-touch-44 qd-text-action"
+        className={className}
         onClick={onClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={style}
       >
-        {children}
+        {body}
       </a>
     );
   }
@@ -147,13 +158,13 @@ export function TextLinkAction({
       target={target}
       rel={target ? 'noopener' : undefined}
       aria-label={label}
-      className="qa-touch-44 qd-text-action"
+      className={className}
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={style}
     >
-      {children}
+      {body}
     </Link>
   );
 }
