@@ -32,6 +32,8 @@
 
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
+- 10-27 운영 재측정에서 남은 글자 사다리 둘(Q-Atelier). ① 차림표 글자 한글 자간 0.1px(0.007em). 정본 `atelier-core-values.css` 의 `--qd-atelier-letter-spacing-4a873a4bd2` 한 줄이 출처이고 `Sidebar.tsx` 두 곳 · `components.tsx` 한 곳이 쓴다. 결정 Q1(자간 0)과 어긋난다. ② 줄간격을 안 적은 단추 · 입력칸이 브라우저 기본값(`normal`)이다. 차림표 묶음 머리(연계 부서 · 업무 · 공통 · 설정), 화면 밝기 단추, 사용량 단추, 알림 단추, 용어 검색칸. 대표 홈에서 잰 단추는 높이가 32 · 44px 로 고정이라 보이는 차이는 없다(검색칸 높이는 아직 안 쟀다).
+
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 10-23 반응형 검수에서 남긴 패드(768 · 터치) 누름 자리. 폰 «바꿈» 13곳과 겹치지 않는 것: Q-Atelier 피드백 «긍정» 32, Q-Carnet 원가 «빈 기록 고치러 가기» 링크 14, Q-Maison 홈 «전체 →» 16 · 감사 모의 «관련 메뉴로 이동 →» 16 등 글귀 링크. 넓히면 옆을 덮는지부터 본다.
 - 제품 개발자가 손으로 쓴 주석의 옛 문서 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). README «옛 문서 번호» 표로 찾을 수 있어 급하지 않다.
@@ -56,7 +58,11 @@
 - 정본: foundation 세 벌 · components · 추출기(nav · screen · list) · 작업대가 새 값만 쓴다. 옛 이름 `--qd-line-height-*` 를 걷었다.
   새 시험 `tools/type-ladder.test.mjs` 가 patterns · tools · dist 를 훑어 사다리 밖 값을 막고, 세 제품 기반 CSS 에 `b, strong { 600 }` 이 있는지 본다.
 - 제품: Q-Atelier 456e7b07 · f001d12b · 4df8f908 · d352f0f7 · 23d036a9, Q-Maison(Q-Works) c4c630bc · b1a7a024 · b3ddbbf9, Q-Carnet(DHR) 7acee50 · 8060110 · 20388d6.
-  앱 사본은 Q-Atelier-App · iOS · Q-Maison-App · Q-Carnet-App 에 각각 두 커밋. 🔴 **모두 커밋만 했고 푸시하지 않았다**(오너가 «확인 뒤 내가 말할 때» 를 고름).
+  앱 사본은 Q-Atelier-App · iOS · Q-Maison-App · Q-Carnet-App 에 각각 두 커밋(메종 · 카르넷 앱은 원격이 없어 이 PC 에만).
+- ✅ 10-27 오너 지시로 운영 반영: Q-Atelier · Q-Works · DHR main 푸시, Q-Design · Q-Atelier-App · iOS 푸시. 세 제품 운영 배포 Ready.
+  메종 · 카르넷 운영 CSS 에 `b, strong` 600 규칙이 실린 것을 받아 확인했다.
+- 운영 Q-Atelier 재측정(10-27 · Demo co. 대표 · 1440 × 900): 대표 홈 크기 10 → 7가지 · 굵기 5 → 3 · 줄간격 6 → 4, 용어집 크기 10 → 6 · 굵기 5 → 3 · 줄간격 7 → 4.
+  10-26 에 출처를 못 찾았던 12.5 · 13.5px 와 굵기 650 · 800 도 사라졌다. 남은 것 둘은 위 «남은 일» 에 적었다.
 - 시험: Q-Atelier 전체 543 파일 · tsc 통과. Q-Maison 은 새 `type-ladder` 시험 포함 통과(실명 검사 하나가 다른 세션의 무시된 작업 폴더 때문에 빨강, 이번 일과 무관). Q-Carnet 전체 통과 · OQ 302건(f45e5a9 · bc227d8). 정본 `check.mjs` 35걸음 초록.
 - 실화면 대조: 진열판 여섯 화면(세 제품 × 부품 진열 · 제품 대조)에서 글자를 가진 요소를 모두 재 보니 반영 전에는 13 · 15 · 22 · 36px, 굵기 700, 줄간격 1.3 ~ 2 와 `normal` 이 있었고, 반영 뒤에는 사다리 밖 값이 0개.
 - Q-Atelier 설명서 문서 양식(`lib/manual/q-design-styles.ts` · 700 · 1.35 · 1.5)은 화면이 아니라 문서 양식이라 일부러 그대로 뒀다.
