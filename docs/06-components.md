@@ -33,7 +33,7 @@
 
 공용 부품의 치수와 상태를 바꿀 때는 `patterns/components.css` 를 고칩니다. 공통 화면 색은 `patterns/palette-overrides.json` 의 `shared.dark` 와 `shared.light` 를 고칩니다. 제품에 생긴 사본과 생성 CSS 는 손으로 고치지 않습니다.
 
-`source/components`, `source/screens`, `source/tokens` 는 Q-Atelier 커밋에서 가져오는 사본이라 새 원본으로 고치지 않습니다. `dist/q-design.tokens.css` 와 `dist/q-design.tokens.json` 은 팔레트 기준값을 뽑은 생성물입니다. 팔레트 생성기는 이 기준값에 Q-Design 의 override 와 제품 매핑을 얹으므로, 원본을 다시 뽑아도 중앙 색 변경이 남습니다. 엔진 검증 근거인 제품 `tokens.ts` 와 잠금 파일은 스타일을 바꾸는 수단으로 쓰지 않습니다. 변수 대응과 예외는 [02-color.md](02-color.md) 를 따릅니다.
+`source/components`, `source/screens`, `source/tokens` 는 Q-Atelier 커밋에서 가져오는 사본이라 새 원본으로 고치지 않습니다. `dist/q-design.tokens.css` 와 `dist/q-design.tokens.json` 은 팔레트 기준값을 뽑은 생성물입니다. 팔레트 생성기는 이 기준값에 Q-Design 의 override 와 제품 매핑을 얹으므로, 원본을 다시 뽑아도 중앙 색 변경이 남습니다. 엔진 검증 근거인 잠금 파일은 스타일을 바꾸는 수단으로 쓰지 않습니다. 제품 `tokens.ts` 는 2026-10-26 에 엔진과 떼어(Q-Atelier f5d7d14a) 고쳐도 엔진 근거가 바뀌지 않습니다. 변수 대응과 예외는 [02-color.md](02-color.md) 를 따릅니다.
 
 제품은 기존 테마를 `--qd-*-src` 에 연결합니다. Maison 의 HSL 상태색과 Carnet 의 테마 변수처럼 표현이 달라도 공용 부품은 `--qd-text`, `--qd-surface`, `--qd-ctl` 같은 역할 이름을 씁니다. 이 연결부를 고정색으로 덮으면 중앙 변경이 끊깁니다.
 

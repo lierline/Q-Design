@@ -33,7 +33,6 @@ import { EmptyState } from "@/components/shared/empty-state";
 import { SortHeaderButton } from "@/components/shared/sort-header-button";
 import { StepProgress } from "@/components/shared/step-progress";
 import { AuthCard } from "@/components/auth/auth-card";
-import { RibbonBackground } from "@/components/auth/ribbon-background";
 
 export default function Fixture() {
   const [checked, setChecked] = useState(false);
@@ -280,7 +279,6 @@ export default function Fixture() {
         action={<Button variant="outline">검토 항목 등록</Button>}
       />
       <section className="qm-auth relative isolate" data-testid="foundation-auth" aria-label="메종 로그인 기반">
-        <RibbonBackground />
         <div className="qm-auth-split">
           <aside className="qm-auth-brand">
             <div>

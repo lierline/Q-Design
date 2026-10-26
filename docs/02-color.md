@@ -144,7 +144,7 @@ background: var(--qa-champagne); color: var(--qa-on-accent);   /* ✓ */
 
 - 두 층을 섞지 않습니다. 구분선에 `--qa-ctl` 을 쓰면 장부가 격자로 보이고, 조작부에 구분선 색을 쓰면 칸이 사라집니다.
 - 호버는 `--qa-muted`. 초점은 기존 전역 규칙(2px 윤곽 · 간격 2px, 채운 단추는 4px)을 그대로 씁니다.
-- 🔴 값은 `tokens.ts` 가 아니라 CSS 의 `--qa-ctl` 에 두고, TS 는 `lib/design/grain.ts` 의 `CTL`(`var(--qa-ctl)`)로 부릅니다. CSS 원본은 Q-Design `patterns/foundation/atelier.css` 의 `app/globals.css` 구역입니다. `tokens.ts` 는 요구사항 엔진 검증 근거라 한 줄만 더해도 엔진 근거가 «다시 해야 함» 으로 바뀝니다.
+- 🔴 값은 `tokens.ts` 가 아니라 CSS 의 `--qa-ctl` 에 두고, TS 는 `lib/design/grain.ts` 의 `CTL`(`var(--qa-ctl)`)로 부릅니다. CSS 원본은 Q-Design `patterns/foundation/atelier.css` 의 `app/globals.css` 구역입니다. 그때는 `tokens.ts` 가 요구사항 엔진 검증 근거라 한 줄만 더해도 엔진 근거가 «다시 해야 함» 으로 바뀌었습니다(2026-10-26 에 엔진과 뗐습니다 · Q-Atelier f5d7d14a).
 - 가드: Q-Atelier `lib/design/control-outline-contrast.test.ts` (두 테마 × 세 면 3:1, 공용 부품이 `CTL` 을 쓰는지).
 
 ---

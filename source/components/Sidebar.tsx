@@ -1121,13 +1121,13 @@ function SidebarBody({
                 <p
                   style={{
                     margin: "var(--qd-space-0)",
-                    fontSize: QDScale.font[13],
+                    fontSize: QDScale.font[14],
                     color: T.text,
                     fontWeight: "var(--qd-font-weight-medium)",
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    lineHeight: QDScale.leading.heading,
+                    lineHeight: QDScale.leading.snug,
                   }}
                   title={userName || userEmail}
                 >
@@ -1297,8 +1297,8 @@ function NavLink({
               background: T.red,
               padding: "var(--qd-atelier-padding-03e93ce316)",
               fontFamily: QDScale.family.mono,
-              lineHeight: QDScale.leading.heading,
-              fontWeight: "var(--qd-font-weight-bold)",
+              lineHeight: QDScale.leading.snug,
+              fontWeight: "var(--qd-font-weight-semibold)",
               minWidth: "var(--qd-atelier-min-width-491600e090)",
               textAlign: 'center',
               borderRadius: QDScale.radiusFull,
@@ -1368,8 +1368,8 @@ function NavLink({
             background: T.red,
             padding: "var(--qd-atelier-padding-b26b9ada6f)",
             fontFamily: QDScale.family.mono,
-            lineHeight: QDScale.leading.heading,
-            fontWeight: "var(--qd-font-weight-bold)",
+            lineHeight: QDScale.leading.snug,
+            fontWeight: "var(--qd-font-weight-semibold)",
             borderRadius: QDScale.radiusFull,
             minWidth: "var(--qd-atelier-min-width-a8fa375fbf)",
             textAlign: 'center',

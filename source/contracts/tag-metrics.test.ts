@@ -25,7 +25,7 @@ describe('Tag 높이: 무엇이 높이를 결정하는가', () => {
         `minHeight → lineHeight 로 넘어갔다면, 이제 LH.snug 를 바꿀 때마다 배지 박스가\n` +
         `움직입니다(97파일 영향). 반대 방향이면 배지가 규격대로 고정된 것이니 환영.\n` +
         `의도한 변경이면 이 기대값을 고치세요.`,
-    ).toEqual({ xs: 'minHeight', sm: 'minHeight', md: 'lineHeight' });
+    ).toEqual({ xs: 'minHeight', sm: 'minHeight', md: 'minHeight' });
   });
 
   // ── 브라우저 실측 대조 (2026-08-06, Chromium / dev 서버) ──────────────────
@@ -39,11 +39,13 @@ describe('Tag 높이: 무엇이 높이를 결정하는가', () => {
   // 높이를 정하는 쪽은 그대로 두었다: xs · sm 은 minHeight(20 · 24), md 는 줄 높이(28.2 > 28).
   // 위 브라우저 실측은 옛 값(10 · 11 · 11.5) 때의 기록이다. 새 값은 정본 12px 화면 측정에서 다시 쟀다.
 
-  it('md 는 minHeight 를 0.2px 이긴다. 이 여유가 사라지면 지배가 뒤집힌다', () => {
-    expect(tagContentHeight('md')).toBeCloseTo(28.2, 5);
+  // ── 2026-10-26 글자 사다리(12 · 14 · 16 …)에 맞춰 md 글자를 14 로, 위아래 여백을 3 으로 ─────────
+  // 14 × 1.4 + 3×2 + 1×2 = 27.6 < 28. 이제 세 크기 모두 minHeight 가 높이를 정한다(줄 간격을 만져도 배지가 안 움직인다).
+
+  it('md 도 minHeight 가 정한다(여유 0.4px)', () => {
+    expect(tagContentHeight('md')).toBeCloseTo(27.6, 5);
     expect(TAG_DIMS.md.minH).toBe(28);
-    // 여유가 아주 얇다는 사실 자체가 위험 신호다. 기록으로 남긴다.
-    expect(tagContentHeight('md') - TAG_DIMS.md.minH).toBeLessThan(0.5);
+    expect(TAG_DIMS.md.minH - tagContentHeight('md')).toBeLessThan(0.5);
   });
 
   it('sm 은 여유가 1.2px 이다(minHeight 가 높이를 정한다)', () => {
@@ -55,7 +57,7 @@ describe('Tag 높이: 무엇이 높이를 결정하는가', () => {
   it('실제 렌더 높이 = max(minHeight, 콘텐츠)', () => {
     expect(tagHeight('xs')).toBe(20);
     expect(tagHeight('sm')).toBe(24);
-    expect(tagHeight('md')).toBeCloseTo(28.2, 5);
+    expect(tagHeight('md')).toBe(28);
   });
 
   it('LH.snug 를 올리면 세 크기 모두 lineHeight 지배로 넘어간다', () => {
@@ -70,7 +72,7 @@ describe('Tag 높이: 무엇이 높이를 결정하는가', () => {
     expect(TAG_BORDER).toBe(1);
     expect(TAG_DIMS.xs).toMatchObject({ minH: 20, fs: 12, padY: 0, padX: 6, dotSize: 5, gap: 4 });
     expect(TAG_DIMS.sm).toMatchObject({ minH: 24, fs: 12, padY: 2, padX: 8, dotSize: 6, gap: 4 });
-    expect(TAG_DIMS.md).toMatchObject({ minH: 28, fs: 13, padY: 4, padX: 10, dotSize: 7, gap: 5 });
+    expect(TAG_DIMS.md).toMatchObject({ minH: 28, fs: 14, padY: 3, padX: 10, dotSize: 7, gap: 5 });
     // 보조 글씨 최소 12px (오너 결정 2026-09-27)
     for (const d of Object.values(TAG_DIMS)) expect(d.fs).toBeGreaterThanOrEqual(12);
   });

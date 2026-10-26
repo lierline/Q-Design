@@ -1,6 +1,7 @@
 /* Central Tailwind 4.3.3 primitive defaults, pinned from the installed theme.
    Numeric media/container breakpoints are compile-time rules. The live aliases
-   below override shared typography, spacing, radii and motion. */
+   below override shared typography, spacing, radii and motion.
+   글자 굵기 · 줄 간격은 여기 두지 않는다: 아래 연결 블록이 이름공간을 비우고 정한 값만 둔다(2026-10-26). */
 @theme {
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
@@ -374,28 +375,12 @@
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
 
-  --font-weight-thin: 100;
-  --font-weight-extralight: 200;
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  --font-weight-black: 900;
-
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0em;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
-
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
 
   --radius-xs: 0.125rem;
   --radius-sm: 0.25rem;
@@ -514,15 +499,13 @@
 
 /* Product compatibility names and live Q-Design bridges. */
 @theme inline {
-  --font-weight-thin: var(--qd-font-weight-thin);
-  --font-weight-extralight: var(--qd-font-weight-extralight);
-  --font-weight-light: var(--qd-font-weight-light);
+  /* 2026-10-26 오너 결정: 굵기는 400 · 500 · 600, 줄 간격은 1 · 1.2 · 1.4 · 1.6 만 둔다.
+     이름공간을 비워 위의 고정 기본값과 tailwindcss 기본값(700 · 1.5 · 2 등)이 클래스를 만들지 않게 한다. */
+  --font-weight-*: initial;
+  --leading-*: initial;
   --font-weight-normal: var(--qd-font-weight-normal);
   --font-weight-medium: var(--qd-font-weight-medium);
   --font-weight-semibold: var(--qd-font-weight-semibold);
-  --font-weight-bold: var(--qd-font-weight-bold);
-  --font-weight-extrabold: var(--qd-font-weight-extrabold);
-  --font-weight-black: var(--qd-font-weight-black);
   --tracking-tighter: var(--qd-tracking-tighter);
   --tracking-tight: var(--qd-tracking-tight);
   --tracking-normal: var(--qd-tracking-normal);
@@ -535,37 +518,35 @@
   --shadow-sm: var(--qd-shadow-sm);
   --shadow-md: var(--qd-shadow-md);
   --text-xs: var(--qd-font-size-12);
-  --text-xs--line-height: var(--qd-line-height-12);
+  --text-xs--line-height: var(--qd-leading-xs);
   --text-sm: var(--qd-font-size-14);
-  --text-sm--line-height: var(--qd-line-height-14);
+  --text-sm--line-height: var(--qd-leading-sm);
   --text-base: var(--qd-font-size-16);
-  --text-base--line-height: var(--qd-line-height-16);
+  --text-base--line-height: var(--qd-leading-base);
   --text-lg: var(--qd-font-size-18);
-  --text-lg--line-height: var(--qd-line-height-18);
+  --text-lg--line-height: var(--qd-leading-lg);
   --text-xl: var(--qd-font-size-20);
-  --text-xl--line-height: var(--qd-line-height-20);
+  --text-xl--line-height: var(--qd-leading-xl);
   --text-2xl: var(--qd-font-size-24);
-  --text-2xl--line-height: var(--qd-line-height-24);
-  --text-3xl: var(--qd-font-size-30);
-  --text-3xl--line-height: var(--qd-line-height-30);
-  --text-4xl: var(--qd-font-size-36);
-  --text-4xl--line-height: var(--qd-line-height-36);
+  --text-2xl--line-height: var(--qd-leading-2xl);
+  --text-3xl: var(--qd-font-size-32);
+  --text-3xl--line-height: var(--qd-leading-3xl);
+  --text-4xl: var(--qd-font-size-40);
+  --text-4xl--line-height: var(--qd-leading-4xl);
   --text-5xl: var(--qd-font-size-48);
-  --text-5xl--line-height: var(--qd-line-height-48);
+  --text-5xl--line-height: var(--qd-leading-display);
   --text-6xl: var(--qd-font-size-60);
-  --text-6xl--line-height: var(--qd-line-height-60);
+  --text-6xl--line-height: var(--qd-leading-display);
   --text-7xl: var(--qd-font-size-72);
-  --text-7xl--line-height: var(--qd-line-height-72);
+  --text-7xl--line-height: var(--qd-leading-display);
   --text-8xl: var(--qd-font-size-96);
-  --text-8xl--line-height: var(--qd-line-height-96);
+  --text-8xl--line-height: var(--qd-leading-display);
   --text-9xl: var(--qd-font-size-128);
-  --text-9xl--line-height: var(--qd-line-height-128);
-  --leading-none: var(--qd-line-height-none);
-  --leading-tight: var(--qd-line-height-tight);
-  --leading-snug: var(--qd-line-height-snug);
-  --leading-normal: var(--qd-line-height-normal);
-  --leading-relaxed: var(--qd-line-height-relaxed);
-  --leading-loose: var(--qd-line-height-loose);
+  --text-9xl--line-height: var(--qd-leading-display);
+  --leading-none: var(--qd-leading-none);
+  --leading-tight: var(--qd-leading-tight);
+  --leading-snug: var(--qd-leading-snug);
+  --leading-relaxed: var(--qd-leading-relaxed);
   --radius-sm: var(--qd-radius-sm);
   --radius-md: var(--qd-radius-md);
   --radius-lg: var(--qd-radius-lg);

@@ -33,5 +33,5 @@ test('standalone bundle resolves required variables locally and rejects a typo o
   const original = inputs();
   assert.match(composeSimulator(original), /\.sum \.num b\{display:block; font-size:var\(--qd-kpi-size\)/);
   assert.throws(() => composeSimulator({ ...original, recipe: original.recipe.replace('var(--qd-kpi-size)', 'var(--qd-font-size-25)') }), /Unbound standalone CSS variables: --qd-font-size-25/);
-  assert.throws(() => composeSimulator({ ...original, components: original.components.replace(/--qd-kpi-size:\s*36px;/, '') }), /--qd-kpi-size/);
+  assert.throws(() => composeSimulator({ ...original, components: original.components.replace(/--qd-kpi-size:\s*40px;/, '') }), /--qd-kpi-size/);
 });

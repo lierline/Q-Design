@@ -296,7 +296,7 @@ put(spec, 'table.transition', tokens.motion.fast);
     emptyBox: slice(empty, 'padding: compact ?', 'textAlign', 'EmptyState.box'),
     /* 빛무리(backgroundImage radial-gradient)와 큰 장식 글리프(icon)는 원본이 2026-09-28(2081910f)에 걷었다
        (금지 목록: 배경 radial glow · 제목 위 장식). 정본도 같은 날짜 기준으로 두 구역을 뺀다. */
-    emptyTitle: slice(empty, 'fontFamily: F.serif, fontWeight: 700,', '{title}', 'EmptyState.title'),
+    emptyTitle: slice(empty, 'fontFamily: F.serif, fontWeight: 600,', '{title}', 'EmptyState.title'),
     emptyDesc: slice(empty, '{description && (', '{description}', 'EmptyState.desc'),
     emptyAction: slice(empty, '{action && <div', '{action}', 'EmptyState.action'),
     emptyHintRow: slice(empty, '{hints && hints.length > 0 && (', '{hints.map', 'EmptyState.hintRow'),
@@ -389,7 +389,7 @@ put(spec, 'table.transition', tokens.motion.fast);
     ['거르개 단추 = 공용 Btn 보조(투명 · 조작 윤곽(QD.ctl) · subtle)', Q.barSubmit, /: `1px solid \$\{QD\.ctl\}`,[\s\S]*?p \? QD\.text : 'transparent',[\s\S]*?p \? QD\.bg : QD\.subtle,/],
     ['건수 글(도구줄) = 한글은 본문체 · 숫자는 모노 · muted', Q.barLabel, /fontFamily: hasHangul\(text\) \? F\.ui : F\.mono,[\s\S]*color: T\.muted,/],
     ['빈 목록 제목 = subtle', Q.emptyTitle, /color: T\.subtle,/],
-    ['빈 목록 설명 = muted · LH.loose', Q.emptyDesc, /color: T\.muted,\s*lineHeight: LH\.loose,/],
+    ['빈 목록 설명 = muted · LH.relaxed', Q.emptyDesc, /color: T\.muted,\s*lineHeight: LH\.relaxed,/],
     ['다음 할 일 표지 = champagne · 모노 · QD.radius', Q.emptyHint, /borderRadius: QD\.radius,[\s\S]*color: T\.champagne,[\s\S]*fontFamily: F\.mono,/],
   ]) {
     if (!re.test(zone)) throw new Error(`원본의 뜻이 바뀌었습니다: ${what}`);
@@ -414,10 +414,8 @@ put(spec, 'table.transition', tokens.motion.fast);
     if (typeof relaxed !== 'number') throw new Error('LH.relaxed 를 토큰에서 못 읽었습니다.');
     put(spec, 'body.lineHeight', relaxed);
   }
-  /* 설명 줄간격(LH.loose)과 붙어 따라오는 층(Z.sticky)은 토큰에서 옵니다. 없으면 멈춥니다 */
-  const loose = qd.leading('loose');
-  if (typeof loose !== 'number') throw new Error('LH.loose 를 토큰에서 못 읽었습니다.');
-  put(spec, 'empty.lineHeight', loose);
+  /* 설명 줄간격(LH.relaxed)과 붙어 따라오는 층(Z.sticky)은 토큰에서 옵니다. 없으면 멈춥니다 */
+  put(spec, 'empty.lineHeight', qd.leading('relaxed'));
   if (typeof tokens.z.sticky !== 'number') throw new Error('Z.sticky 를 토큰에서 못 읽었습니다.');
   put(spec, 'bar.z', tokens.z.sticky);
 }
@@ -778,7 +776,7 @@ ${spec.state.surfaceDeclarations}
 .qd-empty-title {
   font-family: var(--qd-font-ui);
   font-size: ${px(spec.empty.titleSize)};
-  font-weight: 700;
+  font-weight: 600;
   /* 원본은 본문 줄간격(${spec.body.lineHeight})을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
   line-height: ${spec.body.lineHeight};
   letter-spacing: ${spec.empty.titleTracking};

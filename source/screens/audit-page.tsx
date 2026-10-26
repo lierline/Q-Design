@@ -269,7 +269,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
                   style={{
                     // 줄마다 테두리 칩(한 화면 수십 개)이던 것을 보통 글로: 표 칸이 이미 경계다 (화면 검토 A35 · 2026-09-28)
                     color: T.text,
-                    fontSize: QDScale.font[13],
+                    fontSize: QDScale.font[14],
                     fontFamily: QDScale.family.ui,
                     fontWeight: "var(--qd-atelier-font-weight-51f1217b48)",
                   }}
@@ -342,7 +342,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
       */}
       {Object.keys(byAction).length > 0 && (
         <details style={{ marginTop: QDScale.space[5], marginBottom: QDScale.space[5] }}>
-          <summary style={{ cursor: 'pointer', fontSize: QDScale.font[13], color: T.subtle, fontFamily: QDScale.family.ui }}>
+          <summary style={{ cursor: 'pointer', fontSize: QDScale.font[14], color: T.subtle, fontFamily: QDScale.family.ui }}>
             종류별 보기 (이 쪽의 기록 {logList.length}건 기준 · {Object.keys(byAction).length}종)
           </summary>
           {/* 이름 · 건수 두 칸 목록(가는 구분선). 상자 무리는 금지 장치였다(화면 검토 A35 · 2026-09-28) */}
@@ -363,8 +363,8 @@ export default async function AuditPage({ searchParams }: PageProps) {
                       borderBottom: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
                     }}
                   >
-                    <span style={{ fontSize: QDScale.font[13], color: T.text, fontFamily: QDScale.family.ui }}>{actionLabel(action)}</span>
-                    <span style={{ fontSize: QDScale.font[13], color: T.subtle, fontFamily: QDScale.family.mono, fontVariantNumeric: 'tabular-nums' }}>{count}건</span>
+                    <span style={{ fontSize: QDScale.font[14], color: T.text, fontFamily: QDScale.family.ui }}>{actionLabel(action)}</span>
+                    <span style={{ fontSize: QDScale.font[14], color: T.subtle, fontFamily: QDScale.family.mono, fontVariantNumeric: 'tabular-nums' }}>{count}건</span>
                   </div>
                 ))}
             </div>

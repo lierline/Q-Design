@@ -159,9 +159,10 @@ for (const size of Object.keys(TAG_DIMS)) {
 }
 if (!(Number.isFinite(TAG_BORDER) && TAG_BORDER >= 0 && Object.keys(TAG_DIMS).length === 3)) {
   problems.push('Tag 규격 파싱이 온전하지 않습니다');
-} else if (tagDrivers.md !== 'lineHeight' || tagDrivers.sm !== 'minHeight') {
+} else if (Object.values(tagDrivers).some((driver) => driver !== 'minHeight')) {
+  // 2026-10-26: md 글자를 14 로 올리며 위아래 여백을 3 으로 줄여, 세 크기 모두 최소 높이가 높이를 정한다.
   problems.push(
-    'Tag 높이 지배 요인이 알려진 값과 다릅니다 (md=lineHeight·sm=minHeight 여야 함): ' +
+    'Tag 높이 지배 요인이 알려진 값과 다릅니다 (세 크기 모두 minHeight 여야 함): ' +
       JSON.stringify(tagDrivers),
   );
 }

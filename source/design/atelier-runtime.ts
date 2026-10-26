@@ -220,8 +220,8 @@ export const QDPresentation = {
         },
         "md": {
           "minH": 28,
-          "fs": 13,
-          "padY": 4,
+          "fs": 14,
+          "padY": 3,
           "padX": 10,
           "dotSize": 7,
           "gap": 5
@@ -511,7 +511,7 @@ export const Z = {
 export const workflowDivider = (color: string, faded: string): string => `linear-gradient(90deg, ${color}, ${faded}, transparent)`;
 
 export function pageHeadingRules(headerClass: string): string { return `
-.${headerClass}-title{font-size:var(--qd-title-size, 22px)}
+.${headerClass}-title{font-size:var(--qd-title-size, 24px)}
 @media (max-width:${BP.md - 1}px){
   .${headerClass}-actions{width:100%;flex-wrap:wrap}
   .${headerClass}-row{align-items:flex-start}

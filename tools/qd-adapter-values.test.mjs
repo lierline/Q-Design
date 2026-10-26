@@ -20,10 +20,10 @@ test('UI scales resolve foundation mutations while source normalization only pre
   const changed = make({ foundationCss: foundationCss
     .replace('--qd-font-size-14: 14px;', '--qd-font-size-14: 17px;')
     .replace('--qd-space-unit: 4px;', '--qd-space-unit: 5px;')
-    .replace('--qd-leading-loose: 1.7;', '--qd-leading-loose: 1.9;') });
+    .replace('--qd-leading-relaxed: 1.6;', '--qd-leading-relaxed: 1.9;') });
   assert.equal(changed.pixels('QDScale.font[14]'), 17);
   assert.equal(changed.pixels('QDScale.space[3]'), 15);
-  assert.equal(changed.leading('loose'), 1.9);
+  assert.equal(changed.leading('relaxed'), 1.9);
   assert.equal(changed.css('QDScale.font[14]'), 'var(--qd-font-size-14, 14px)');
   assert.equal(normalizeScaleSyntax('fontSize: QDScale.font[14],'), 'fontSize: FS[14],');
   assert.equal(normalizeScaleSyntax('padding: `${QDScale.space[3]} 0`'), 'padding: `${S[3]}px 0`');
@@ -33,7 +33,7 @@ test('UI scales resolve foundation mutations while source normalization only pre
 
 test('canonical dimension mutations change extraction while emitted variables remain live', () => {
   const current = make();
-  const changed = make({ css: css.replace('--qd-radius: 10px;', '--qd-radius: 14px;').replace('--qd-control-size: 13px;', '--qd-control-size: 15px;') });
+  const changed = make({ css: css.replace('--qd-radius: 10px;', '--qd-radius: 14px;').replace('--qd-control-size: 14px;', '--qd-control-size: 15px;') });
   assert.equal(current.pixels('QD.radius'), 10);
   assert.equal(changed.pixels('QD.radius'), 14);
   assert.equal(changed.pixels('QD.controlSize'), 15);
@@ -45,10 +45,10 @@ test('canonical dimension mutations change extraction while emitted variables re
 test('source property changes are followed and ambiguous or unsupported probes fail closed', () => {
   const values = make();
   assert.equal(values.pixels(values.property('fontSize: QD.captionSize,', 'fontSize')), 12);
-  assert.equal(values.pixels(values.property('fontSize: FS[13],', 'fontSize')), 13);
+  assert.equal(values.pixels(values.property('fontSize: FS[14],', 'fontSize')), 14);
   assert.equal(values.pixels(values.property('padding: S[3],', 'padding')), tokens.space.scale[3]);
   assert.equal(values.property('/* fontSize: FS[99], */ fontSize: QD.controlSize,', 'fontSize'), 'QD.controlSize');
-  assert.throws(() => values.property('fontSize: FS[12], fontSize: FS[13],', 'fontSize'), /found 2/);
+  assert.throws(() => values.property('fontSize: FS[12], fontSize: FS[14],', 'fontSize'), /found 2/);
   assert.throws(() => values.property('fontSize: readFromNetwork(),', 'fontSize'), /found 0/);
   assert.throws(() => values.css('process.exit(1)'), /Unsupported/);
   assert.throws(() => values.pixels('QD.missing'), /Unknown QD/);
@@ -138,8 +138,8 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     const changed = css.replace('--qd-radius: 10px;', '--qd-radius: 14px;')
       .replace('--qd-control-height-sm: 36px;', '--qd-control-height-sm: 40px;')
       .replace('--qd-control-height: 44px;', '--qd-control-height: 48px;')
-      .replace('--qd-control-size: 13px;', '--qd-control-size: 15px;')
-      .replace('--qd-title-size: 22px;', '--qd-title-size: 24px;')
+      .replace('--qd-control-size: 14px;', '--qd-control-size: 15px;')
+      .replace('--qd-title-size: 24px;', '--qd-title-size: 28px;')
       .replace('--qd-section-size: 16px;', '--qd-section-size: 18px;')
       .replace('--qd-field-gap: var(--qd-space-1);', '--qd-field-gap: 9px;')
       .replace('--qd-kpi-min-size: 20px;', '--qd-kpi-min-size: 21px;')
@@ -153,14 +153,14 @@ test('nav, list and screen regeneration follows central changes and rejects brok
       .replace('--qd-kpi-min-width: 160px;', '--qd-kpi-min-width: 170px;')
       .replace('--qd-font-size-14: 14px;', '--qd-font-size-14: 17px;')
       .replace('--qd-space-unit: 4px;', '--qd-space-unit: 5px;')
-      .replace('--qd-leading-loose: 1.7;', '--qd-leading-loose: 1.9;'));
+      .replace('--qd-leading-relaxed: 1.6;', '--qd-leading-relaxed: 1.9;'));
     const auditFile = join(fixture, 'source/screens/audit-page.tsx');
     writeFileSync(auditFile, readFileSync(auditFile, 'utf8').replace(/minCol=\{180\} gap=\{14\}/, 'minCol={QDPresentation.gridMinColumn[180]} gap={QDScale.space[3.5]}'));
     const core = readFileSync(join(fixture, 'patterns/foundation/atelier-core-values.css'), 'utf8')
       .replace('--qd-tag-sm-min-height: 24px;', '--qd-tag-sm-min-height: 32px;')
       .replace('--qd-atelier-width-aebc026e77: 240px;', '--qd-atelier-width-aebc026e77: 260px;')
       .replace('--qd-atelier-height-e737496ec6: 1.5px;', '--qd-atelier-height-e737496ec6: 2.5px;')
-      .replace('--qd-atelier-section-leading: 1.35;', '--qd-atelier-section-leading: 1.45;')
+      .replace('--qd-atelier-section-leading: 1.4;', '--qd-atelier-section-leading: 1.45;')
       .replace('--qd-atelier-hub-link-underline-offset: 3px;', '--qd-atelier-hub-link-underline-offset: 4px;');
     writeFileSync(join(fixture, 'patterns/foundation/atelier-core-values.css'), core);
     const densityComponent=join(fixture,'source/components/components.tsx');
@@ -216,7 +216,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     assert.equal(list.bar.fieldSize, 15);
     assert.equal(list.bar.fieldPadIcon, 40);
     assert.equal(list.pager.btnSize, 15);
-    assert.equal(screen.head.titleSize, 24);
+    assert.equal(screen.head.titleSize, 28);
     assert.equal(screen.head.stackBelow, 799);
     assert.equal(screen.input.narrowBelow, 1099);
     assert.equal(screen.shell.detail, 900);

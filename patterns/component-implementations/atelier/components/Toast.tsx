@@ -190,7 +190,7 @@ function ToastBubble({ t, onDismiss }: { t: ToastItem; onDismiss: () => void }) 
           style={{
             fontSize: QD.controlSize,
             color: T.text,
-            lineHeight: QDScale.leading.notice,
+            lineHeight: QDScale.leading.relaxed,
           }}
         >
           {t.message}

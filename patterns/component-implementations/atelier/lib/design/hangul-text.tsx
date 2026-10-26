@@ -8,7 +8,7 @@ import { QDText } from '@/lib/design/q-design-labels';
 // 손으로 준 자간(0.06em 등)까지 붙어 낱글자로 흩어져 보였다.
 //
 // 🔑 'use client' 를 달지 않는다: 서버 화면(page.tsx)도 이 함수를 부른다. 클라이언트 모듈의 함수는 서버에서 못 부른다.
-//    lib/design/tokens.ts 는 엔진 검증 근거(validation-manifest)에 걸려 있어 여기에 따로 둔다.
+//    (처음 따로 둔 까닭은 tokens.ts 가 엔진 검증 근거였기 때문이다. 2026-10-26 엔진과 떼었다.)
 import { QDScale } from '@/lib/design/q-design-scale';
 import type { CSSProperties, ReactNode } from 'react';
 import { F, FS, T, hasHangul } from '@/lib/design/tokens';

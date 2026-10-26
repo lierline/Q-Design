@@ -30,6 +30,8 @@ export const TAG_BORDER = QDPresentation.visual.tag.border;
  * 2026-09-28: 글자를 12 · 12 · 13 으로 올렸다(보조 글씨 최소 12px · 오너 결정 2026-09-27 · 화면 검토 M77 · M43).
  * 전에는 10 · 11 · 11.5 라 표 안의 «재평가 필요» · «높음» 배지가 가장 작은 글씨였다. 높이도 함께 올려
  * 높이를 정하는 쪽(xs · sm 은 minHeight, md 는 줄 높이)이 전과 같게 했다(tag-metrics.test).
+ * 2026-10-26: 글자 사다리(12 · 14 · 16 …)에 맞춰 md 를 14 로 올리고 위아래 여백을 4 에서 3 으로 줄였다.
+ * 이제 세 크기 모두 minHeight 가 높이를 정해, 줄 간격을 만져도 배지 높이가 움직이지 않는다.
  */
 export const TAG_DIMS = QDPresentation.visual.tag.dims;
 

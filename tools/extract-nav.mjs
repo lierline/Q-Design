@@ -297,6 +297,13 @@ if (!/^\d+(?:\.\d+)?px \d+(?:\.\d+)?px$/.test(spec.item.padding)) throw new Erro
 // ── CSS 만들기 ───────────────────────────────────────────────────────────────
 const C = tokens.color;
 const px = (n) => `${n}px`;
+// 아바타 머리글자는 원본(components/Avatar.tsx)과 같은 식으로 잰다: 지름 × 비율을 글자 사다리에서 올려 잡는다
+// (2026-10-26 오너 결정, docs/03-typography.md). 비율 · 최소는 런타임 값이 정본이다.
+const TYPE_LADDER = [12, 14, 16, 18, 20, 24, 28, 32, 40];
+const avatarInitialSize = (size) => {
+  const raw = Math.max(runtime.QDRuntime.avatar.minFontSize, size * runtime.QDRuntime.avatar.fontScale);
+  return TYPE_LADDER.find((step) => step >= raw) ?? TYPE_LADDER.at(-1);
+};
 
 // 색 이름은 프로젝트마다 다릅니다(gold · brand · champagne). 그래서 이 파일은
 // `--qd-*` 만 읽고, 바닥값으로 Q-Atelier 의 `--qa-*` 를 겁니다. 둘 다 없을 때
@@ -612,8 +619,8 @@ ${bindBlock('light')}
   padding: ${spec.item.badgePadding};
   font-family: var(--qd-font-mono);
   font-size: ${px(spec.version.fontSize)};
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 600;
+  line-height: 1.4;
   border-radius: 9999px;
   min-width: 22px;
   text-align: center;
@@ -748,16 +755,11 @@ ${bindBlock('light')}
   background: ${spec.foot.avatarBackground.replace(/--qa-champagne/g, '--qd-accent').replace(/--qa-surface2/g, '--qd-surface2')};
   color: var(--qd-text);
   font-weight: ${spec.foot.avatarWeight};
-  /* 🔴 반올림하지 않습니다. 원본(components/Avatar.tsx)이 이렇게 씁니다.
-
-       fontSize: Math.max(11, size * 0.45)
-
-     여기에 Math.round 를 넣었더니 32 x 0.45 = 14.4 가 14 로 깎여서, 원본은
-     14.4px 로 그리는데 사본 두 벌만 14px 로 그리고 있었습니다. 0.4px 이라
-     눈에는 안 보이지만 «사본이 원본과 다르다» 는 것 자체가 이 정본이 막으려는
-     것입니다. tools/diff-rails.mjs 가 세 제품을 다 재게 고치고 나서야
-     드러났습니다. */
-  font-size: ${px(Math.max(11, spec.foot.avatarSize * 0.45))};
+  /* 원본(components/Avatar.tsx)과 같은 식입니다: 지름 × 비율을 글자 사다리에서 올려 잡습니다
+     (2026-10-26). 전에는 32 x 0.45 = 14.4px 를 그대로 썼고, 그보다 앞서 Math.round 로 14 로
+     깎았다가 사본 두 벌만 원본과 갈린 적이 있습니다(tools/diff-rails.mjs 가 찾음).
+     식을 여기서 따로 적지 말고 avatarInitialSize 를 쓰세요. */
+  font-size: ${px(avatarInitialSize(spec.foot.avatarSize))};
   line-height: 1;
   letter-spacing: 0;
   user-select: none;
@@ -768,7 +770,7 @@ ${bindBlock('light')}
   font-size: ${px(spec.foot.nameFontSize)};
   color: var(--qd-text);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: var(--qd-leading-snug);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

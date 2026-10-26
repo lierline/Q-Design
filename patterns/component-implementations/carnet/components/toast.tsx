@@ -91,7 +91,7 @@ export default function Toasts({ states }: { states: (FormState | undefined)[] }
           data-tone={n.tone === 'danger' ? 'error' : 'success'}
           className="qd-toast pointer-events-auto"
         >
-          <span aria-hidden className={`mt-px shrink-0 font-bold ${n.tone === 'ok' ? 'text-ok' : ''}`}>
+          <span aria-hidden className={`mt-px shrink-0 font-semibold ${n.tone === 'ok' ? 'text-ok' : ''}`}>
             {n.tone === 'danger' ? '!' : '✓'}
           </span>
           <span className="flex-1" style={{ minWidth: 'var(--qd-space-0)' }}>{n.text}</span>

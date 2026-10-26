@@ -54,6 +54,8 @@ describe('central numeric presentation settings reach real renderers', () => {
   it('changes avatar sizing and popover defaults while explicit dimensions still win', () => {
     expect(renderToStaticMarkup(<Avatar name="검토" />)).toContain('width:40px;height:40px;font-size:20px');
     expect(renderToStaticMarkup(<Avatar name="검토" size={20} />)).toContain('width:20px;height:20px;font-size:14px');
+    // 30 x 0.5 = 15 는 사다리에 없어 16 으로 올라간다(2026-10-26 글자 사다리)
+    expect(renderToStaticMarkup(<Avatar name="검토" size={30} />)).toContain('width:30px;height:30px;font-size:16px');
     expect(infoPopoverStyle().width).toBe(410);
     expect(infoPopoverStyle({ width: 280 }).width).toBe(280);
     expect(infoPopoverStyle().maxWidth).toBe('var(--qd-atelier-popover-max-width)');

@@ -922,7 +922,7 @@ export function SectionProgressCard({
     <div style={{ marginBottom: QDScale.space[6], padding: QDScale.space[4.5], borderRadius: QD.radius, border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`, background: alpha(T.champagne, QDRuntime.alpha.tint0_02) }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: QDScale.space[2] }}>
         <span style={{ fontFamily: QDScale.family.mono, fontSize: QDScale.font[12], letterSpacing: labelTracking(label, QDText.tracking.v7c1681a74c), wordSpacing: labelWordSpacing(label), color: T.subtle, textTransform: labelCase(label) }}>{label}</span>
-        <span style={{ fontFamily: QDScale.family.serif, fontSize: QDScale.font[20], fontWeight: "var(--qd-font-weight-bold)", color: fill }}>{value}%</span>
+        <span style={{ fontFamily: QDScale.family.serif, fontSize: QDScale.font[20], fontWeight: "var(--qd-font-weight-semibold)", color: fill }}>{value}%</span>
       </div>
       <ProgressBar value={value} />
     </div>
@@ -1033,7 +1033,7 @@ export function Checkbox({
         onChange={(e) => onChange(e.target.checked)}
         style={{ width: size ?? QDPresentation.cssDefaults.checkboxGlyph, height: size ?? QDPresentation.cssDefaults.checkboxGlyph, accentColor: accent, cursor: disabled ? 'default' : 'pointer', flexShrink: 0, ...(startAlign ? { marginTop: QDScale.space[0.5] } : {}) }}
       />
-      <span style={{ fontSize: QD.controlSize, color: T.text, lineHeight: QDScale.leading.notice }}>{children}</span>
+      <span style={{ fontSize: QD.controlSize, color: T.text, lineHeight: QDScale.leading.relaxed }}>{children}</span>
     </label>
   );
 }
@@ -1594,10 +1594,10 @@ export function PageHd({ title, sub, desc, info, source, actions, accent = true 
               // 항상 Pretendard: 한글/영문 혼용에서 글꼴 섞임 방지.
               // "디스플레이" 톤은 weight 700 + tight letter-spacing 으로 표현.
               fontFamily: QDScale.family.serif,
-              fontWeight: "var(--qd-font-weight-bold)",
+              fontWeight: "var(--qd-font-weight-semibold)",
               // 제목 크기는 위 규칙의 --qd-title-size 로 이어진다.
               color: T.text,
-              lineHeight: QDScale.leading.heading,
+              lineHeight: QDScale.leading.tight,
               letterSpacing: "var(--qd-atelier-letter-spacing-0eb1693ce1)",
               margin: "var(--qd-space-0)",
               // ⓘ 가 제목 줄에 붙을 때만 줄 안 상자로(없으면 종전 그대로 블록)
@@ -1619,7 +1619,7 @@ export function PageHd({ title, sub, desc, info, source, actions, accent = true 
                 marginTop: QDScale.space[2],
                 maxWidth: "var(--qd-atelier-max-width-108516c287)",
                 fontFamily: QDScale.family.ui,
-                fontSize: QDScale.font[13],
+                fontSize: QDScale.font[14],
                 lineHeight: QDScale.leading.relaxed,
                 color: T.subtle,
                 // 한글은 낱말 단위로 줄을 바꾼다(폰 폭에서 낱말 가운데서 끊기지 않게)
@@ -1680,10 +1680,10 @@ export function Card({ label, value, color, sub, children, style, minHeight = QD
         <div
           style={{
             // 한글이 섞여도 글꼴이 튀지 않도록 Pretendard 통일.
-            // 럭셔리 톤은 weight 700 + tabular-nums + tight letter-spacing 으로.
+            // 숫자 톤은 굵기 600(사다리 맨 위) + tabular-nums + 좁은 자간으로.
             fontFamily: QDScale.family.serif,
-            fontWeight: "var(--qd-font-weight-bold)",
-            fontSize: QDScale.font[36],
+            fontWeight: "var(--qd-font-weight-semibold)",
+            fontSize: QDScale.font[40],
             color: color || T.text,
             lineHeight: "var(--qd-atelier-line-height-89aa2d62d2)",
             letterSpacing: "var(--qd-atelier-letter-spacing-0eb1693ce1)",
@@ -1694,7 +1694,7 @@ export function Card({ label, value, color, sub, children, style, minHeight = QD
         </div>
       )}
       {!isContainerMode && sub && (
-        <div style={{ fontSize: QDScale.font[12], color: T.muted, marginTop: QDScale.space[2.5], lineHeight: QDScale.leading.normal }}>{sub}</div>
+        <div style={{ fontSize: QDScale.font[12], color: T.muted, marginTop: QDScale.space[2.5], lineHeight: QDScale.leading.relaxed }}>{sub}</div>
       )}
       {children}
     </Bx>
@@ -1720,7 +1720,7 @@ export function InfoBox({
       style={{
         padding: "var(--qd-atelier-padding-93cf53dedd)",
         ...ruleBand(c),
-        fontSize: QDScale.font[13],
+        fontSize: QDScale.font[14],
         color: T.subtle,
         lineHeight: QDScale.leading.relaxed,
         ...style,
@@ -1812,7 +1812,7 @@ export function Alert({ kind, children, title, onClose, style }: AlertProps) {
 
       <div style={{ flex: "var(--qd-atelier-flex-83725d2c6e)", minWidth: "var(--qd-atelier-min-width-f24a3b2189)" }}>
         {/* 라벨: 종류 말(색 · 낭독기는 아이콘 이름으로 이미 읽으므로 숨김) + 제목 */}
-        <div style={{ fontSize: QDScale.font[12], fontWeight: "var(--qd-font-weight-semibold)", lineHeight: QDScale.leading.normal, marginBottom: "var(--qd-space-0-5)" }}>
+        <div style={{ fontSize: QDScale.font[12], fontWeight: "var(--qd-font-weight-semibold)", lineHeight: QDScale.leading.relaxed, marginBottom: "var(--qd-space-0-5)" }}>
           <span aria-hidden="true" style={{ color: c }}>{말}</span>
           {title && <span style={{ color: T.text }}> · {title}</span>}
         </div>
@@ -2233,7 +2233,7 @@ export function EmptyState({
       <div style={{ position: 'relative', zIndex: "var(--qd-atelier-z-index-8fc771a8bb)" }}>
         <div className="qd-empty-title"
           style={{
-            fontFamily: QDScale.family.serif, fontWeight: "var(--qd-font-weight-bold)",
+            fontFamily: QDScale.family.serif, fontWeight: "var(--qd-font-weight-semibold)",
             fontSize: compact ? "var(--qd-atelier-font-size-c4c2451b3f)" : "var(--qd-atelier-font-size-281e2e0411)",
             color: T.subtle,
             letterSpacing: "var(--qd-atelier-letter-spacing-b926f96940)",
@@ -2245,9 +2245,9 @@ export function EmptyState({
         {description && (
           <div className="qd-empty-desc"
             style={{
-              fontSize: QDScale.font[13],
+              fontSize: QDScale.font[14],
               color: T.muted,
-              lineHeight: QDScale.leading.loose,
+              lineHeight: QDScale.leading.relaxed,
               maxWidth: "var(--qd-atelier-max-width-4a4cc8febf)",
               margin: action || hints ? "var(--qd-atelier-margin-56bc7ec797)" : "var(--qd-atelier-margin-4a5cbbd240)",
             }}
@@ -2594,16 +2594,16 @@ export function KPI({
         <div
           style={{
             // Pretendard 통일: 한글이 섞여도 글꼴이 튀지 않도록.
-            // 럭셔리 톤은 weight 700 + tabular-nums + tight letter-spacing 으로.
+            // 숫자 톤은 굵기 600(사다리 맨 위) + tabular-nums + 좁은 자간으로.
             fontFamily: QDScale.family.serif,
-            fontWeight: "var(--qd-font-weight-bold)",
+            fontWeight: "var(--qd-font-weight-semibold)",
             // 🔴 2026-09-15 오빠 지적(Q-Forge 「이번 달 자재 지출 4,370,000원」 이 칸 밖으로 넘침).
             //    36px 고정이면 좁은 칸에서 긴 금액이 넘친다. 카드를 크기 컨테이너로 두고(아래 kpiBox 의
             //    containerType) 칸 폭의 16% 로 줄어들되 36px 를 넘지 않고 20px 아래로는 안 내려간다.
             //    16%: 안쪽 폭 225px 이상이면 36px 그대로(큐아뜰리에 지표 카드), 173px(Q-Forge 8칸 띠)면 28px 로
             //    「4,370,000원」 이 들어간다. 12% 로 했더니 넓은 카드에서도 20px 로 줄어 인상이 죽었다(실측).
             //    정본(Q-Design extract-screen)이 이 세 값을 그대로 읽어 세 제품에 내보낸다.
-            fontSize: `clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size, ${QDScale.font[36]}))`,
+            fontSize: `clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size, ${QDScale.font[40]}))`,
             lineHeight: "var(--qd-atelier-line-height-89aa2d62d2)",
             letterSpacing: "var(--qd-atelier-letter-spacing-0eb1693ce1)",
             color: color ?? T.text,
@@ -2623,7 +2623,7 @@ export function KPI({
             fontFamily: QDScale.family.ui,
             marginTop: QDScale.space[2.5],
             letterSpacing: "var(--qd-atelier-letter-spacing-7ced33ba9c)",
-            lineHeight: QDScale.leading.normal,
+            lineHeight: QDScale.leading.relaxed,
             minHeight: "var(--qd-atelier-min-height-353f128cde)",
             visibility: sub ? 'visible' : 'hidden',
           }}
@@ -2950,7 +2950,7 @@ export function InfoDot({
           background: 'transparent',
           color: open ? T.champagne : T.muted,
           fontFamily: QDScale.family.ui,
-          fontSize: QDScale.font[13],
+          fontSize: QDScale.font[14],
           fontWeight: "var(--qd-font-weight-normal)",
           lineHeight: "var(--qd-atelier-line-height-3e0b4c5306)",
           letterSpacing: "var(--qd-atelier-letter-spacing-1029873b1c)",
@@ -2978,7 +2978,7 @@ export function InfoDot({
             fontSize: QD.captionSize,
             fontWeight: "var(--qd-font-weight-normal)",
             color: T.subtle,
-            lineHeight: QDScale.leading.loose,
+            lineHeight: QDScale.leading.relaxed,
             letterSpacing: "var(--qd-atelier-letter-spacing-1029873b1c)",
             wordSpacing: 0,
             textAlign: 'left',
@@ -3069,7 +3069,7 @@ export function withSource(info: ReactNode, source: ReactNode): ReactNode {
 export const SECTION_TITLE = {
   margin: 0,
   fontSize: QD.sectionSize,
-  fontWeight: 'var(--qd-font-weight-bold)',
+  fontWeight: 'var(--qd-font-weight-semibold)',
   color: T.text,
   fontFamily: QDScale.family.ui,
   lineHeight: 'var(--qd-atelier-section-leading)',
@@ -3685,7 +3685,7 @@ export function CardRow({
             display: 'flex',
             flexWrap: 'wrap',
             gap: "var(--qd-atelier-gap-813e1ff4f7)",
-            fontSize: QDScale.font[13],
+            fontSize: QDScale.font[14],
             color: T.text,
             fontVariantNumeric: 'tabular-nums',
           }}
@@ -3888,7 +3888,7 @@ export function EntityRow({
           <div
             style={{
               fontFamily: QDScale.family.serif,
-              fontSize: QDScale.font[13],
+              fontSize: QDScale.font[14],
               color: T.subtle,
               marginTop: QDScale.space[0.5],
               lineHeight: QDScale.leading.snug,
@@ -4060,7 +4060,7 @@ export function Modal({
                     fontSize: QD.overlayTitleSize,
                     fontWeight: "var(--qd-font-weight-semibold)",
                     color: T.text,
-                    lineHeight: QDScale.leading.heading,
+                    lineHeight: QDScale.leading.snug,
                   }}
                 >
                   {title}
@@ -4070,10 +4070,10 @@ export function Modal({
                 <div
                   style={{
                     fontFamily: QDScale.family.serif,
-                    fontSize: QDScale.font[13],
+                    fontSize: QDScale.font[14],
                     color: T.subtle,
                     marginTop: QDScale.space[1],
-                    lineHeight: QDScale.leading.normal,
+                    lineHeight: QDScale.leading.relaxed,
                   }}
                 >
                   {sub}
@@ -4238,7 +4238,7 @@ export function Drawer({
                 <div
                   id={headingId}
                   className="qd-drawer-title"
-                  style={{ fontFamily: QDScale.family.serif, fontSize: QD.overlayTitleSize, fontWeight: "var(--qd-font-weight-semibold)", color: T.text, lineHeight: QDScale.leading.heading }}
+                  style={{ fontFamily: QDScale.family.serif, fontSize: QD.overlayTitleSize, fontWeight: "var(--qd-font-weight-semibold)", color: T.text, lineHeight: QDScale.leading.snug }}
                 >
                   {title}
                 </div>
@@ -4468,7 +4468,7 @@ function StageTimelineItem({
         ) : marker === 'check' ? (
           <CheckCircle2 size={QDPresentation.iconSize[20]} style={{ color: T.bg }} />
         ) : marker === 'cancel' ? (
-          <span style={{ fontSize: QDScale.font[16], color, fontWeight: "var(--qd-font-weight-bold)", lineHeight: QDScale.leading.none }}>✕</span>
+          <span style={{ fontSize: QDScale.font[16], color, fontWeight: "var(--qd-font-weight-semibold)", lineHeight: QDScale.leading.none }}>✕</span>
         ) : marker === 'dot' ? (
           <span style={{ width: "var(--qd-atelier-width-7001be5058)", height: "var(--qd-atelier-height-7ec4898503)", borderRadius: "var(--qd-atelier-border-radius-f44e751c2d)", background: color }} />
         ) : marker === 'circle' ? (
@@ -4483,7 +4483,7 @@ function StageTimelineItem({
             fontSize: QD.captionSize,
             color: selected ? T.champagne : emphasis ? T.text : filled ? T.subtle : T.muted,
             fontFamily: QDScale.family.serif,
-            fontWeight: selected || emphasis ? "var(--qd-font-weight-bold)" : "var(--qd-font-weight-normal)",
+            fontWeight: selected || emphasis ? "var(--qd-font-weight-semibold)" : "var(--qd-font-weight-normal)",
             letterSpacing: "var(--qd-atelier-letter-spacing-7ced33ba9c)",
             whiteSpace: 'nowrap',
           }}

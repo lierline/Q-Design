@@ -19,7 +19,7 @@
   --qd-icon-size: 20px;
   --qd-icon-size-sm: 16px;
   --qd-icon-align: -0.18em;
-  --qd-control-size: 13px;
+  --qd-control-size: 14px;
   --qd-control-pad-y: 11px;
   --qd-control-pad-x: 22px;
   --qd-control-pad-sm-y: 7px;
@@ -29,18 +29,18 @@
   --qd-field-gap: var(--qd-space-1);
   --qd-textarea-min-height: 80px;
   --qd-select-end-padding: calc(var(--qd-space-4) * 2);
-  --qd-title-size: 22px;
+  --qd-title-size: 24px;
   --qd-section-size: 16px;
   --qd-overlay-title-size: 18px;
-  --qd-row-title-size: 15px;
-  --qd-table-size: 13px;
+  --qd-row-title-size: 16px;
+  --qd-table-size: 14px;
   --qd-table-pad-y: 11px;
   --qd-table-pad-y-dense: var(--qd-space-2);
   --qd-table-pad-x: 12px;
   --qd-table-scroll-max-height: 70dvh;
   --qd-table-header-layer: 2;
   --qd-table-description-min-width: 160px;
-  --qd-kpi-size: 36px;
+  --qd-kpi-size: 40px;
   --qd-kpi-min-size: 20px;
   --qd-kpi-fluid-size: 16cqw;
   --qd-motion-fast: 160ms;
@@ -357,7 +357,7 @@ select.qd-input { appearance: auto !important; background-image: none !important
 .qd-calendar-day[data-in-range='true'] { background: var(--qd-surface2); }
 .qd-calendar-day[aria-current='date'] { border-color: var(--qd-ctl); }
 .qd-calendar-day[aria-pressed='true'] { background: var(--qd-text); color: var(--qd-bg); font-weight: 600; }
-.qd-calendar-weekday { color: var(--qd-muted); text-align: center; font-size: var(--qd-caption-size); line-height: 2; }
+.qd-calendar-weekday { color: var(--qd-muted); text-align: center; font-size: var(--qd-caption-size); line-height: 1.6; }
 
 .qd-mobile-header { position: sticky; top: 0; display: flex; align-items: center; gap: var(--qd-space-3); min-height: var(--qd-mobile-header-height); padding: var(--qd-space-2) var(--qd-space-4); border-bottom: 1px solid var(--qd-border); background: var(--qd-bg); color: var(--qd-text); }
 .qd-mobile-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--qd-section-size); font-weight: 600; }

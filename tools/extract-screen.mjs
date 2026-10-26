@@ -58,7 +58,7 @@ const P = {
 const Z = {
   kpiBox: slice(P.kpi, "          padding: '18px 20px',", '<div', 'kpiBox'),
   kpiLabel: slice(P.kpi, '            fontSize: FS[12],\n            color: T.subtle,', '{label}', 'kpiLabel'),
-  kpiValue: slice(P.kpi, '            fontFamily: F.serif,\n            fontWeight: 700,', '{displayedValue}', 'kpiValue'),
+  kpiValue: slice(P.kpi, '            fontFamily: F.serif,\n            fontWeight: 600,', '{displayedValue}', 'kpiValue'),
   kpiSub: slice(P.kpi, '            fontSize: FS[12],\n            color: T.muted,', '{sub ??', 'kpiSub'),
   statLabel: slice(P.stat, 'fontFamily: F.mono,', '{label}', 'statLabel'),
   statValue: slice(P.stat, '<div style={{ fontSize:', '</div>', 'statValue'),
@@ -149,7 +149,7 @@ Object.assign(spec, probeAll([
   ['head.titleSize',    H.hdCss,     /font-size:(var\(--qd-title-size, \d+px\))/, cssDimension],
   ['head.stackBp',      H.hdCss,     /max-width:\$\{BP\.(\w+) - 1\}px/, String],
   ['head.titleWeight',  H.hdTitle,   /fontWeight: (\d+),/, Number],
-  ['head.titleLine',    H.hdTitle,   /lineHeight: LH\.(heading),/, qd.leading],
+  ['head.titleLine',    H.hdTitle,   /lineHeight: LH\.(none|tight|snug|relaxed),/, qd.leading],
   ['head.titleTracking', H.hdTitle,  /letterSpacing: '(-?[\d.]+em)',/, String],
   ['head.ruleGapAbove', H.hdRule,    /marginTop: S\[([\d.]+)\],/, qd.step],
 
@@ -466,7 +466,7 @@ ${bind('light')}
   min-height: ${px(spec.kpi.subMinHeight)};
   font-size: ${px(spec.kpi.subSize)};
   letter-spacing: 0.2px;
-  line-height: 1.5;
+  line-height: var(--qd-leading-snug);
   color: var(--qd-muted);
 }
 /* 0 은 눌러 둡니다. 0 을 강조하면 아무 일도 없는 것이 일처럼 보입니다. */
@@ -534,7 +534,7 @@ ${bind('light')}
   font-family: var(--qd-font-ui);
   font-size: ${qd.css('QD.sectionSize')};
   font-weight: ${spec.section.weight};
-  line-height: 1.35;
+  line-height: var(--qd-leading-snug);
   color: var(--qd-text);
 }
 /* 번호: 화면(main) 안에서 구역 제목이 나오는 차례대로 01 · 02 … (원본 globals.css .qa-sec-t::before) */

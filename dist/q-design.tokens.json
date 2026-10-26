@@ -208,87 +208,68 @@
       "display": "var(--qa-font-cormorant), 'Cormorant Garamond', var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, Georgia, serif"
     },
     "fontSize": {
-      "8": 8,
-      "9": 9,
-      "10": 10,
-      "11": 11,
       "12": 12,
-      "13": 13,
       "14": 14,
-      "15": 15,
       "16": 16,
-      "17": 17,
       "18": 18,
-      "19": 19,
       "20": 20,
-      "22": 22,
       "24": 24,
-      "26": 26,
       "28": 28,
-      "30": 30,
       "32": 32,
-      "36": 36,
-      "38": 38,
-      "40": 40,
-      "48": 48,
-      "80": 80
+      "40": 40
     },
     "lineHeight": {
       "none": 1,
       "tight": 1.2,
       "snug": 1.4,
-      "normal": 1.5,
-      "relaxed": 1.6,
-      "loose": 1.7,
-      "heading": 1.3,
-      "notice": 1.55
+      "relaxed": 1.6
     },
     "type": {
       "display": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
-        "fontSize": "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)",
-        "fontWeight": 700,
+        "fontSize": "2.5rem",
+        "fontWeight": 600,
         "letterSpacing": "-0.02em",
-        "lineHeight": 1.05
+        "lineHeight": 1.2
       },
       "h1": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
-        "fontSize": "clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem)",
-        "fontWeight": 700,
+        "fontSize": "clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem)",
+        "fontWeight": 600,
         "letterSpacing": "-0.015em",
-        "lineHeight": 1.15
+        "lineHeight": 1.2
       },
       "h2": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
         "fontSize": "clamp(1.25rem, 1rem + 0.8vw, 1.5rem)",
         "fontWeight": 600,
         "letterSpacing": "-0.01em",
-        "lineHeight": 1.25
+        "lineHeight": 1.2
       },
       "h3": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
-        "fontSize": "1.0625rem",
+        "fontSize": "1.125rem",
         "fontWeight": 600,
         "letterSpacing": "-0.005em",
-        "lineHeight": 1.35
+        "lineHeight": 1.4
       },
       "body": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
-        "fontSize": "0.9375rem",
+        "fontSize": "1rem",
         "fontWeight": 400,
         "letterSpacing": 0,
-        "lineHeight": 1.65
+        "lineHeight": 1.6
       },
       "caption": {
         "fontFamily": "var(--qa-font-pretendard), 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', 'Noto Sans KR', sans-serif",
-        "fontSize": "0.8125rem",
+        "fontSize": "0.875rem",
         "fontWeight": 400,
         "letterSpacing": 0,
-        "lineHeight": 1.55
+        "lineHeight": 1.6
       },
       "mono": {
         "fontFamily": "'JetBrains Mono', 'Consolas', 'Menlo', ui-monospace, var(--qa-font-pretendard), 'Pretendard Variable', monospace",
-        "fontSize": "0.6875rem",
+        "fontSize": "0.75rem",
         "fontWeight": 500,
         "letterSpacing": "0.08em",
         "lineHeight": 1.4,
@@ -432,8 +413,8 @@
       },
       "md": {
         "minH": 28,
-        "fs": 13,
-        "padY": 4,
+        "fs": 14,
+        "padY": 3,
         "padX": 10,
         "dotSize": 7,
         "gap": 5
@@ -442,7 +423,7 @@
     "heightDriver": {
       "xs": "minHeight",
       "sm": "minHeight",
-      "md": "lineHeight"
+      "md": "minHeight"
     }
   },
   "champagneRamp": {

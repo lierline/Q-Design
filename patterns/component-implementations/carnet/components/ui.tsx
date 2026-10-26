@@ -21,7 +21,7 @@ export function Msg({ state, className = '' }: { state: FormState; className?: s
         data-tone="error"
         className={`qd-notice mt-2.5 ${className}`}
       >
-        <span aria-hidden className="mt-px shrink-0 font-bold">!</span>
+        <span aria-hidden className="mt-px shrink-0 font-semibold">!</span>
         <span>{state.error}</span>
       </p>
     );
@@ -33,7 +33,7 @@ export function Msg({ state, className = '' }: { state: FormState; className?: s
         data-tone="success"
         className={`qd-notice mt-2.5 ${className}`}
       >
-        <span aria-hidden className="mt-px shrink-0 font-bold text-ok">&#10003;</span>
+        <span aria-hidden className="mt-px shrink-0 font-semibold text-ok">&#10003;</span>
         <span>{state.message}</span>
       </p>
     );
@@ -283,7 +283,7 @@ export function Warnings({ items }: { items: { kind: string; detail: string }[] 
   if (items.length === 0) return null;
   return (
     <div className="qd-notice block" data-tone="warning" role="note">
-      <p className="text-[length:var(--qd-font-size-12)] font-bold tracking-wide text-warn">확인하고 진행하십시오</p>
+      <p className="text-[length:var(--qd-font-size-12)] font-semibold tracking-wide text-warn">확인하고 진행하십시오</p>
       <ul className="mt-2 space-y-1.5">
         {items.map((w, i) => (
           <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-ink">

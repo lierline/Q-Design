@@ -349,8 +349,8 @@ html[data-theme='light'] {
 }
 .qd-empty-title {
   font-family: var(--qd-font-ui);
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   /* 원본은 본문 줄간격(1.6)을 물려받습니다. 제품마다 바탕 줄간격이 달라 못 박습니다 */
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -360,8 +360,8 @@ html[data-theme='light'] {
 .qd-empty-desc {
   max-width: 460px;
   margin: 0 auto;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--qd-muted);
 }
 .qd-empty-title + .qd-empty-desc { margin-top: 10px; }
@@ -471,7 +471,7 @@ html[data-theme='light'] {
   background: transparent;
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: var(--qd-control-size, 13px);
+  font-size: var(--qd-control-size, 14px);
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -556,7 +556,7 @@ html[data-theme='light'] {
   background: var(--qd-surface);
   color: var(--qd-text);
   font-family: var(--qd-font-ui);
-  font-size: var(--qd-control-size, 13px);
+  font-size: var(--qd-control-size, 14px);
 }
 .qd-filter-input {
   flex: 1;
@@ -574,7 +574,7 @@ html[data-theme='light'] {
   /* 원본은 공용 Btn 보조 단추(2026-10-07)다: 글자는 subtle, 옆 여백 14px(전에는 text · 16) */
   color: var(--qd-subtle);
   font-family: var(--qd-font-ui);
-  font-size: var(--qd-control-size, 13px);
+  font-size: var(--qd-control-size, 14px);
   line-height: 1;
   cursor: pointer;
 }
@@ -682,7 +682,7 @@ a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2) !impo
 }
 .qd-row-meta {
   margin-top: 2px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--qd-subtle);
   line-height: 1.4;
 }
@@ -740,8 +740,8 @@ a.qd-row:hover, button.qd-row:hover { background-color: var(--qd-surface2) !impo
 
 .qd-tag--md {
   min-height: var(--qd-tag-md-min-height, 28px);
-  font-size: var(--qd-tag-md-size, 13px);
-  padding: var(--qd-tag-md-padding-y, 4px) var(--qd-tag-md-padding-x, 10px);
+  font-size: var(--qd-tag-md-size, 14px);
+  padding: var(--qd-tag-md-padding-y, 3px) var(--qd-tag-md-padding-x, 10px);
   gap: var(--qd-tag-md-gap, 5px);
 }
 .qd-tag--md .qd-tag-dot { width: var(--qd-tag-md-dot-size, 7px); height: var(--qd-tag-md-dot-size, 7px); }

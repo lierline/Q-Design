@@ -27,15 +27,9 @@
   --qd-font-display-stack: var(--qd-font-family-display);
   --qd-brand-font: var(--qd-font-family-brand);
   --qd-spacing-unit: 0.25rem;
-  --qd-font-weight-thin: 100;
-  --qd-font-weight-extralight: 200;
-  --qd-font-weight-light: 300;
   --qd-font-weight-normal: 400;
   --qd-font-weight-medium: 500;
   --qd-font-weight-semibold: 600;
-  --qd-font-weight-bold: 700;
-  --qd-font-weight-extrabold: 800;
-  --qd-font-weight-black: 900;
   --qd-tracking-tighter: -.05em;
   --qd-tracking-tight: -.025em;
   --qd-tracking-normal: 0em;
@@ -43,15 +37,7 @@
   --qd-tracking-wider: .05em;
   --qd-tracking-widest: .1em;
   --qd-space-unit: 4px;
-  --qd-line-height-none: 1;
   --qd-leading-none: 1;
-  --qd-leading-heading: 1.3;
-  --qd-leading-notice: 1.55;
-  --qd-line-height-tight: 1.25;
-  --qd-line-height-snug: 1.375;
-  --qd-line-height-normal: 1.5;
-  --qd-line-height-relaxed: 1.625;
-  --qd-line-height-loose: 2;
   /* Rectangular surfaces share one radius, regardless of utility size name. */
   --qd-radius-sm: var(--qd-radius);
   --qd-radius-md: var(--qd-radius);
@@ -115,30 +101,16 @@
   --qd-space-5-5: calc(var(--qd-space-unit) * 5.5);
   --qd-space-6-5: calc(var(--qd-space-unit) * 6.5);
   --qd-space-7-5: calc(var(--qd-space-unit) * 7.5);
-  --qd-font-size-8: 8px;
-  --qd-font-size-9: 9px;
-  --qd-font-size-10: 10px;
-  --qd-font-size-11: 11px;
   --qd-font-size-12: 12px;
-  --qd-font-size-13: 13px;
   --qd-font-size-14: 14px;
-  --qd-font-size-15: 15px;
   --qd-font-size-16: 16px;
-  --qd-font-size-17: 17px;
   --qd-font-size-18: 18px;
-  --qd-font-size-19: 19px;
   --qd-font-size-20: 20px;
-  --qd-font-size-22: 22px;
   --qd-font-size-24: 24px;
-  --qd-font-size-26: 26px;
   --qd-font-size-28: 28px;
-  --qd-font-size-30: 30px;
   --qd-font-size-32: 32px;
-  --qd-font-size-36: 36px;
-  --qd-font-size-38: 38px;
   --qd-font-size-40: 40px;
   --qd-font-size-48: 48px;
-  --qd-font-size-80: 80px;
   --qd-ribbon-full-opacity-1: var(--qd-background-ribbon-primary-opacity);
   --qd-ribbon-full-opacity-2: var(--qd-background-ribbon-secondary-opacity);
   --qd-ribbon-ambient-opacity-1: calc(var(--qd-background-ribbon-primary-opacity) * .5);
@@ -153,9 +125,7 @@
   --qd-auth-theme-layer: 50;
   --qd-leading-tight: 1.2;
   --qd-leading-snug: 1.4;
-  --qd-leading-normal: 1.5;
   --qd-leading-relaxed: 1.6;
-  --qd-leading-loose: 1.7;
   --qd-scrollbar-size: 10px;
   --qd-scrollbar-inset: 3px;
   --qd-main-band-height: 68px;
@@ -166,18 +136,19 @@
   --qd-ribbon-width-1: 200;
   --qd-ribbon-width-2: 120;
   --qd-reading-width: 820px;
-  --qd-reading-line-height: 1.85;
+  --qd-reading-line-height: 1.6;
   --qd-document-title-size: 28px;
   --qd-radius-mark: 6px;
   --qd-radius-circle: 9999px;
-  --qd-leading-xs: 1.333333;
-  --qd-leading-sm: 1.428571;
-  --qd-leading-lg: 1.555556;
-  --qd-leading-xl: 1.4;
-  --qd-leading-2xl: 1.333333;
-  --qd-leading-3xl: 1.2;
-  --qd-leading-4xl: 1.111111;
-  --qd-leading-display: 1;
+  --qd-leading-xs: var(--qd-leading-snug);
+  --qd-leading-sm: var(--qd-leading-snug);
+  --qd-leading-base: var(--qd-leading-relaxed);
+  --qd-leading-lg: var(--qd-leading-snug);
+  --qd-leading-xl: var(--qd-leading-tight);
+  --qd-leading-2xl: var(--qd-leading-tight);
+  --qd-leading-3xl: var(--qd-leading-tight);
+  --qd-leading-4xl: var(--qd-leading-tight);
+  --qd-leading-display: var(--qd-leading-none);
   --qd-main-pad-mobile-x: 16px;
   --qd-main-pad-mobile-y: 24px;
   --qd-main-band-z: 20;
@@ -192,7 +163,6 @@
   --qd-chart-point-radius: 3.5px;
   --qd-chart-point-radius-active: 5.5px;
   --qd-chart-label-size: 12px;
-  --qd-font-size-34: 34px;
   --qd-font-size-60: 60px;
   --qd-font-size-72: 72px;
   --qd-font-size-96: 96px;
@@ -203,7 +173,7 @@
   --qd-field-key-size: 24px;
   --qd-auth-eyebrow-tracking: 2.5px;
   --qd-auth-clock-tracking: 1.5px;
-  --qd-auth-footer-line-height: 1.9;
+  --qd-auth-footer-line-height: 1.6;
   --qd-auth-sublink-height: 32px;
   --qd-auth-social-size: 32px;
   --qd-auth-social-icon-size: 16px;
@@ -211,7 +181,7 @@
   --qd-auth-link-underline-offset: 3px;
   --qd-auth-legal-underline-offset: 2px;
   --qd-auth-subhead-size: 14px;
-  --qd-auth-subhead-line-height: 1.7;
+  --qd-auth-subhead-line-height: 1.6;
   --qd-auth-field-height: var(--qd-field-control-height);
   --qd-auth-card-shadow: none;
   --qd-auth-card-corner-display: none;
@@ -224,7 +194,7 @@
   --qd-watermark-tile-width: 620px;
   --qd-watermark-tile-height: 360px;
   --qd-watermark-opacity: 0.04;
-  --qd-watermark-font-size: 13px;
+  --qd-watermark-font-size: 14px;
   --qd-watermark-font-weight: 600;
   --qd-watermark-tracking: 0.06em;
   --qd-watermark-angle: -24deg;
@@ -232,19 +202,6 @@
   --qd-install-transition: 320ms;
   --qd-focus-ring-width: 3px;
   --qd-focus-ring-alpha: 34%;
-  --qd-line-height-12: 16px;
-  --qd-line-height-14: 20px;
-  --qd-line-height-16: 24px;
-  --qd-line-height-18: 28px;
-  --qd-line-height-20: 28px;
-  --qd-line-height-24: 32px;
-  --qd-line-height-30: 36px;
-  --qd-line-height-36: 40px;
-  --qd-line-height-48: 1;
-  --qd-line-height-60: 1;
-  --qd-line-height-72: 1;
-  --qd-line-height-96: 1;
-  --qd-line-height-128: 1;
 }
 
 /* Common role weights must outrank product resets and generated literal weights.
@@ -257,16 +214,16 @@ html .qd-card-title, html .qd-dialog-title, html .qd-drawer-title { font-weight:
 :root {
   --qd-choice-padding-y: 7px;
   --qd-choice-padding-x: 14px;
-  --qd-choice-line-height: normal;
+  --qd-choice-line-height: var(--qd-leading-snug);
   --qd-tab-padding-y: 12px;
   --qd-tab-padding-x: 18px;
   --qd-empty-padding-y: 96px;
   --qd-empty-padding-y-compact: 32px;
   --qd-empty-padding-x: 24px;
-  --qd-empty-title-size: 22px;
+  --qd-empty-title-size: 24px;
   --qd-empty-title-size-compact: 16px;
   --qd-empty-description-size: var(--qd-control-size);
-  --qd-empty-description-leading: 1.7;
+  --qd-empty-description-leading: 1.6;
   --qd-empty-description-max-width: 460px;
   --qd-empty-description-gap: 10px;
   --qd-empty-action-gap: 18px;
@@ -291,7 +248,7 @@ html .qd-tab.px-2\.5 { padding-left: calc(var(--qd-tab-padding-x) * 5 / 9) !impo
 html .qd-tab[aria-selected='true'], html .qd-tab[aria-current='page'], html .qd-tab--active { font-weight: var(--qd-font-weight-semibold); }
 html .qd-empty { padding: var(--qd-empty-padding-y) var(--qd-empty-padding-x) !important; }
 html .qd-empty--compact { padding-top: var(--qd-empty-padding-y-compact) !important; padding-bottom: var(--qd-empty-padding-y-compact) !important; }
-html .qd-empty-title { font-family: var(--qd-font-family-ui) !important; font-size: var(--qd-empty-title-size) !important; font-weight: var(--qd-font-weight-bold) !important; margin: 0 !important; }
+html .qd-empty-title { font-family: var(--qd-font-family-ui) !important; font-size: var(--qd-empty-title-size) !important; font-weight: var(--qd-font-weight-semibold) !important; margin: 0 !important; }
 html .qd-empty--compact .qd-empty-title { font-size: var(--qd-empty-title-size-compact) !important; }
 html .qd-empty-desc { font-size: var(--qd-empty-description-size) !important; line-height: var(--qd-empty-description-leading) !important; max-width: var(--qd-empty-description-max-width) !important; margin: var(--qd-empty-description-gap) auto 0 !important; }
 html .qd-empty-actions { margin-bottom: 0 !important; }
@@ -382,7 +339,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-copy-word-break: keep-all;
   --qd-copy-overflow-wrap: break-word;
   --qd-copy-word-spacing: normal;
-  --qd-native-wordmark-size: 11px;
+  --qd-native-wordmark-size: 12px;
   --qd-native-text-inset: 24px;
 }
 @media screen {
@@ -470,6 +427,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   }
   html .qd-btn { line-height: var(--qd-control-leading); }
   textarea.qd-input {
+    line-height: var(--qd-leading-relaxed);
     field-sizing: content;
     max-block-size: var(--qd-textarea-max-height);
     overflow-y: auto;
@@ -522,9 +480,9 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   --qd-auth-mark-size: 200px;
   --qd-auth-mark-size-phone: 64px;
   --qd-auth-name-size: 28px;
-  --qd-auth-name-size-phone: 22px;
+  --qd-auth-name-size-phone: 24px;
   --qd-auth-line-size: 14px;
-  --qd-auth-line-size-phone: 13px;
+  --qd-auth-line-size-phone: 14px;
   --qd-auth-intro-ease: cubic-bezier(0.45, 0, 0.2, 1);
   --qd-auth-intro-smooth: cubic-bezier(0.37, 0, 0.63, 1);
   --qd-auth-intro-sheen-ease: cubic-bezier(0.5, 0, 0.3, 1);
@@ -592,8 +550,8 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
 }
-.qd-auth-ident { position: relative; z-index: 1; text-align: center; line-height: 1.3; }
-.qd-auth-name { margin: 0; font-family: var(--qd-font-family-ui); font-size: var(--qd-auth-name-size); font-weight: var(--qd-font-weight-bold); letter-spacing: -0.015em; word-spacing: normal; color: var(--qd-text); }
+.qd-auth-ident { position: relative; z-index: 1; text-align: center; line-height: 1.4; }
+.qd-auth-name { margin: 0; font-family: var(--qd-font-family-ui); font-size: var(--qd-auth-name-size); font-weight: var(--qd-font-weight-semibold); letter-spacing: -0.015em; word-spacing: normal; color: var(--qd-text); }
 .qd-auth-line { margin: var(--qd-space-2) 0 0; font-family: var(--qd-font-family-ui); font-size: var(--qd-auth-line-size); letter-spacing: 0; word-spacing: normal; color: color-mix(in oklab, var(--qd-text) 60%, transparent); }
 .qd-auth-phone { flex-direction: column; align-items: center; gap: var(--qd-space-3); margin-bottom: var(--qd-space-7); }
 .qd-auth-phone .qd-auth-mark { width: var(--qd-auth-mark-size-phone); }
@@ -687,5 +645,5 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 .qd-auth-foot-legal a { color: var(--qd-muted); text-decoration: underline; text-underline-offset: var(--qd-auth-legal-underline-offset); }
 .qd-auth-foot-legal a:hover { color: var(--qd-text); }
 /* 좁은 폭에서 낱말 하나만 다음 줄로 떨어지지 않게(2026-10-22 폰 375 실측 · Q-Carnet 「도구이며,」) 낱말 단위로 접고 줄 길이를 고른다 */
-.qd-auth-foot-note { margin-top: var(--qd-space-2-5); line-height: var(--qd-leading-loose); word-break: keep-all; text-wrap: balance; }
+.qd-auth-foot-note { margin-top: var(--qd-space-2-5); line-height: var(--qd-leading-relaxed); word-break: keep-all; text-wrap: balance; }
 .qd-auth-foot-caps { margin-top: var(--qd-space-1-5); }

@@ -19,6 +19,17 @@ const qDesignMaison: Config = {
         ["slate", "gray", "zinc", "neutral", "stone", "red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose"].map(name => [name, defaultColors[name as keyof typeof defaultColors]]),
       ),
     },
+    /*
+     * 줄 간격 · 굵기는 기본값을 덮어쓰고(extend 아님) 정한 값만 남긴다(2026-10-26 오너 결정).
+     * 줄 간격은 1 · 1.2 · 1.4 · 1.6, 굵기는 400 · 500 · 600. 없앤 이름(font-bold · leading-normal ·
+     * leading-6 같은 숫자)은 클래스가 생기지 않으므로, 제품 계약 시험이 화면 코드에서 막는다.
+     */
+    lineHeight: Object.fromEntries(
+      ["none", "tight", "snug", "relaxed"].map((key) => [key, `var(--qd-leading-${key})`]),
+    ),
+    fontWeight: Object.fromEntries(
+      ["normal", "medium", "semibold"].map((weight) => [weight, `var(--qd-font-weight-${weight})`]),
+    ),
     container: {
       center: true,
       padding: "2rem",
@@ -147,27 +158,19 @@ const qDesignMaison: Config = {
         full: "var(--qd-radius-circle, 9999px)",
       },
       fontSize: {
-        xs: ["var(--qd-caption-size)", { lineHeight: "var(--qd-leading-xs, 1.333333)" }],
-        sm: ["var(--qd-body-size)", { lineHeight: "var(--qd-leading-sm, 1.428571)" }],
-        base: ["var(--qd-font-size-16)", { lineHeight: "var(--qd-line-height-normal)" }],
-        lg: ["var(--qd-font-size-18)", { lineHeight: "var(--qd-leading-lg, 1.555556)" }],
-        xl: ["var(--qd-font-size-20)", { lineHeight: "var(--qd-leading-xl, 1.4)" }],
-        "2xl": ["var(--qd-font-size-24)", { lineHeight: "var(--qd-leading-2xl, 1.333333)" }],
-        "3xl": ["var(--qd-font-size-30)", { lineHeight: "var(--qd-leading-3xl, 1.2)" }],
-        "4xl": ["var(--qd-font-size-36)", { lineHeight: "var(--qd-leading-4xl, 1.111111)" }],
-        "5xl": ["var(--qd-font-size-48)", { lineHeight: "var(--qd-leading-display, 1)" }],
-        "6xl": ["var(--qd-font-size-60)", { lineHeight: "var(--qd-leading-display, 1)" }],
-        "7xl": ["var(--qd-font-size-72)", { lineHeight: "var(--qd-leading-display, 1)" }],
-        "8xl": ["var(--qd-font-size-96)", { lineHeight: "var(--qd-leading-display, 1)" }],
-        "9xl": ["var(--qd-font-size-128)", { lineHeight: "var(--qd-leading-display, 1)" }],
-      },
-      lineHeight: {
-        none: "1",
-        tight: "var(--qd-line-height-tight)",
-        snug: "var(--qd-line-height-snug, 1.375)",
-        normal: "var(--qd-line-height-normal)",
-        relaxed: "var(--qd-line-height-relaxed)",
-        loose: "var(--qd-line-height-loose, 2)",
+        xs: ["var(--qd-caption-size)", { lineHeight: "var(--qd-leading-xs)" }],
+        sm: ["var(--qd-body-size)", { lineHeight: "var(--qd-leading-sm)" }],
+        base: ["var(--qd-font-size-16)", { lineHeight: "var(--qd-leading-base)" }],
+        lg: ["var(--qd-font-size-18)", { lineHeight: "var(--qd-leading-lg)" }],
+        xl: ["var(--qd-font-size-20)", { lineHeight: "var(--qd-leading-xl)" }],
+        "2xl": ["var(--qd-font-size-24)", { lineHeight: "var(--qd-leading-2xl)" }],
+        "3xl": ["var(--qd-font-size-32)", { lineHeight: "var(--qd-leading-3xl)" }],
+        "4xl": ["var(--qd-font-size-40)", { lineHeight: "var(--qd-leading-4xl)" }],
+        "5xl": ["var(--qd-font-size-48)", { lineHeight: "var(--qd-leading-display)" }],
+        "6xl": ["var(--qd-font-size-60)", { lineHeight: "var(--qd-leading-display)" }],
+        "7xl": ["var(--qd-font-size-72)", { lineHeight: "var(--qd-leading-display)" }],
+        "8xl": ["var(--qd-font-size-96)", { lineHeight: "var(--qd-leading-display)" }],
+        "9xl": ["var(--qd-font-size-128)", { lineHeight: "var(--qd-leading-display)" }],
       },
       // Includes tailwindcss-animate's default duration and transition-[r].
       transitionDuration: {
@@ -187,11 +190,6 @@ const qDesignMaison: Config = {
         wordmark: ["var(--qd-font-family-brand)"],
         mono: ["var(--qd-font-family-mono)"],
       },
-      fontWeight: Object.fromEntries(
-        ["thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black"].map(
-          (weight) => [weight, `var(--qd-font-weight-${weight})`],
-        ),
-      ),
       letterSpacing: {
         ...Object.fromEntries(
           ["tighter", "tight", "normal", "wide", "wider", "widest"].map(

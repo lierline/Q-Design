@@ -89,7 +89,7 @@ export function IdCell({
    */
   return (
     <td className="td whitespace-nowrap">
-      <div className="font-mono text-[length:var(--qd-font-size-13)] font-bold text-ink">{id}</div>
+      <div className="font-mono text-[length:var(--qd-font-size-14)] font-semibold text-ink">{id}</div>
       {sub && <div className="mt-0.5 text-xs text-faint">{sub}</div>}
     </td>
   );

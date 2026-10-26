@@ -184,18 +184,13 @@ export type SpaceKey = keyof typeof S;
 //     작다는 지적이 있었기 때문이다.
 //     ★ 키를 **지운 것 자체가 가드다**: 0.5 를 다시 쓰면 타입 에러로 즉시 막힌다.
 // ─────────────────────────────────────────────────────────────────────────────
+// ─ 2026-10-26 오너 결정(Q-Design 03 «크기 9단»): 12 · 14 · 16 · 18 · 20 · 24 · 28 · 32 · 40 만 남겼다.
+//   사이 값은 큰 쪽으로 접었다(13→14 · 15→16 · 17→18 · 19→20 · 22→24 · 26→28 · 30→32 · 36 · 38 · 48→40).
+//   1px 차이는 눈으로 갈리지 않아 단계만 늘렸다. 12 미만(8~11)은 화면에 쓰지 않아(보조 글씨 최소 12px) 함께 지웠다.
+//   ★ 하프스텝 때처럼 키를 지운 것이 가드다. 사이 값을 다시 쓰면 타입 에러로 막힌다.
 export const FS = {
-  8: 8,
-  9: 9,
-  10: 10,
-  11: 11,
-  12: 12,
-  13: 13,
-  14: 14,
-  15: 15, 16: 16, 17: 17, 18: 18,
-  // 대형 raw(KPI 숫자·글리프): clamp 아닌 고정 대형값 흡수용. 페이지 제목이면 TYPE 승격.
-  19: 19, 20: 20, 22: 22, 24: 24, 26: 26, 28: 28,
-  30: 30, 32: 32, 36: 36, 38: 38, 40: 40, 48: 48, 80: 80,
+  12: 12, 14: 14, 16: 16, 18: 18, 20: 20,
+  24: 24, 28: 28, 32: 32, 40: 40,
 } as const;
 
 export type FontSizeKey = keyof typeof FS;
@@ -216,35 +211,23 @@ export type FontSizeKey = keyof typeof FS;
 //   ▶ 미포함 표류값(1.55·1.65·1.45·1.75·1.35 등)은 키를 만들지 않는다:
 //     접기는 육안 확인이 필요해 별도 라운드로 둔다.
 // ─────────────────────────────────────────────────────────────────────────────
+// ─ 2026-10-26 오너 결정(Q-Design 03 «줄 간격 세 값»): 큰 글(20px 이상) 1.2 · 한 줄 글 1.4 · 문단과 목록 1.6.
+//   1 은 비율이 아니라 정렬 리셋이라 따로 둔다. 지운 키는 이렇게 접었다:
+//   normal(1.5) · notice(1.55) · loose(1.7) → relaxed · heading(1.3) → snug(20px 이상 글이면 tight).
 export const LH = {
   /** 정렬 리셋: 아이콘·버튼·대형 숫자 (비율 아님) */
   none: 1,
-  /** 타이틀·대형 텍스트 */
+  /** 큰 글(20px 이상): 제목 · 큰 숫자 */
   tight: 1.2,
   /**
-   * 배지·칩·한 줄 라벨 · 카드/리스트 아이템 타이틀.
+   * 한 줄 글: 배지 · 칩 · 라벨 · 카드/목록 제목 · 표.
    *
-   * ⚠️ **소비자가 둘이고, 하나는 이 값으로 «높이»가 정해진다.**
-   *   · `TYPE.mono.lineHeight`: 앱의 모든 mono 라벨
-   *   · `Tag`(97파일): md 는 11.5×1.4 + padding 8 + border 2 = **26.1 > minHeight 26** 이라
-   *     minHeight 가 아니라 이 값이 배지 높이를 결정한다(브라우저 실측 26.094).
-   * 즉 여기를 1px 만 만지면 라벨 줄간격과 배지 박스가 «동시에» 움직인다.
-   * lib/design/tag-metrics.test.ts 가 그 사슬을 잠근다. 바꾸면 거기서 알려준다.
+   * ⚠️ 이 값으로 배지 «높이» 가 정해질 수 있다(Tag 크기마다 글자 × 1.4 + 위아래 여백 + 테두리 와
+   *   minHeight 중 큰 쪽). lib/design/tag-metrics.test.ts 가 그 사슬을 잠근다. 바꾸면 거기서 알려준다.
    */
   snug: 1.4,
-  /** 본문 기본 */
-  normal: 1.5,
-  /** 안내문·설명 문단 (앱 최빈값) */
+  /** 문단과 목록: 설명 · 안내문 · 긴 글 (body 상속 기준선) */
   relaxed: 1.6,
-  /** 긴 산문·도움말 */
-  loose: 1.7,
-
-  // ── 역할 칸: 추상 스케일의 «사이값». 억지 추상어(tighter/snugger) 대신 역할명을
-  //    쓴다. 사이값은 이름이 곧 용도라야 다음 사람이 어느 칸을 쓸지 헷갈리지 않는다.
-  /** 카드·모달·드로어 제목 (1.3): Modal/Drawer 가 이 값을 쓴다 */
-  heading: 1.3,
-  /** 안내문·콜아웃 캡션 (1.55): TYPE.caption 과 같은 leading */
-  notice: 1.55,
 } as const;
 
 export type LineHeightKey = keyof typeof LH;
@@ -310,71 +293,64 @@ export const riskColor = (risk: string): string => {
 // LUXE TYPOGRAPHY SCALE: 위계 컨트라스트 강화 (2026-05-27 럭셔리 톤 재검토)
 // 본문 vs heading weight 차이를 명확히: 럭셔리 호텔 카탈로그 톤.
 //
-// ⚠️ rem 기준은 16px 이 아니라 **14px** 이다. app/globals.css:129 `font-size: 14px`.
-//    아래 rem 값을 16 으로 환산하면 전부 틀린다. 실렌더 환산:
-//      body 0.9375rem = 13.125px (15px 아님) · caption 0.8125rem = 11.375px (13px 아님)
-//      h3 1.0625rem = 14.875px · mono 0.6875rem = 9.625px
-//    2026-08-06 lineHeight 감사에서 이 전제를 잘못 잡아 「1.65 니까 TYPE.body 로 승격」
-//    판단이 어긋날 뻔했다. 픽셀 계산 전에 이 줄을 먼저 읽을 것.
+// 2026-10-26 오너 결정(Q-Design 03): 크기는 9단 사다리 위에서만, 굵기는 600 까지, 줄 간격은 LH 세 값.
+// rem 기준은 html 의 16px 이다(Q-Design 03 «기준 크기» · 운영 화면 실측). body 의 14px 와 섞어 환산하지 말 것.
 // ─────────────────────────────────────────────────────────────────────────────
 export const TYPE = {
-  /** 디스플레이: 랜딩/세션 헤더 */
+  /** 디스플레이: 랜딩/세션 헤더 (사다리 맨 위 40px) */
   display: {
     fontFamily: F.serif,
-    fontSize: 'clamp(2.5rem, 1.5rem + 4vw, 4.5rem)',
-    fontWeight: 700,
+    fontSize: '2.5rem',
+    fontWeight: 600,
     letterSpacing: '-0.02em',
-    lineHeight: 1.05,
+    lineHeight: LH.tight,
   },
-  /** H1: 페이지 타이틀 */
+  /** H1: 페이지 타이틀 (폰 28 ~ 넓은 화면 40) */
   h1: {
     fontFamily: F.serif,
-    fontSize: 'clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem)',
-    fontWeight: 700,
+    fontSize: 'clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem)',
+    fontWeight: 600,
     letterSpacing: '-0.015em',
-    lineHeight: 1.15,
+    lineHeight: LH.tight,
   },
-  /** H2: 섹션 타이틀 */
+  /** H2: 섹션 타이틀 (20 ~ 24) */
   h2: {
     fontFamily: F.serif,
     fontSize: 'clamp(1.25rem, 1rem + 0.8vw, 1.5rem)',
     fontWeight: 600,
     letterSpacing: '-0.01em',
-    lineHeight: 1.25,
+    lineHeight: LH.tight,
   },
-  /** H3: 카드 헤더 */
+  /** H3: 카드 헤더 (18) */
   h3: {
     fontFamily: F.serif,
-    fontSize: '1.0625rem',
+    fontSize: '1.125rem',
     fontWeight: 600,
     letterSpacing: '-0.005em',
-    lineHeight: 1.35,
+    lineHeight: LH.snug,
   },
-  /** Body: 본문 */
+  /** Body: 본문 (16) */
   body: {
     fontFamily: F.serif,
-    fontSize: '0.9375rem',
+    fontSize: '1rem',
     fontWeight: 400,
     letterSpacing: 0,
-    lineHeight: 1.65,
+    lineHeight: LH.relaxed,
   },
-  /** Caption: 보조 정보 */
+  /** Caption: 보조 정보 (14) */
   caption: {
     fontFamily: F.serif,
-    fontSize: '0.8125rem',
+    fontSize: '0.875rem',
     fontWeight: 400,
     letterSpacing: 0,
-    lineHeight: 1.55,
+    lineHeight: LH.relaxed,
   },
-  /** Mono: 코드/라벨/뱃지 */
+  /** Mono: 코드/라벨/뱃지 (12) */
   mono: {
     fontFamily: F.mono,
-    fontSize: '0.6875rem',
+    fontSize: '0.75rem',
     fontWeight: 500,
     letterSpacing: '0.08em',
-    // LH 배선: 값 동일(1.4). LH 는 이 파일 위쪽(FS 다음)에 선언돼 TDZ 없음.
-    // 나머지 TYPE 키(1.05·1.15·1.25·1.35·1.55·1.65)는 LH 사다리에 없는 값이라
-    // 배선하지 않는다. 억지로 맞추면 헤딩·본문 줄간격이 바뀐다.
     lineHeight: LH.snug,
     textTransform: 'uppercase' as const,
   },

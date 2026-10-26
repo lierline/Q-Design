@@ -58,7 +58,7 @@ export function choiceLook(on: boolean): CSSProperties {
 export function ChoiceCheck({ on, color }: { on: boolean; color?: string }) {
   if (!on) return null;
   return (
-    <span aria-hidden style={{ color: color ?? T.text, fontWeight: "var(--qd-font-weight-bold)", marginRight: QDScale.space[1] }}>
+    <span aria-hidden style={{ color: color ?? T.text, fontWeight: "var(--qd-font-weight-semibold)", marginRight: QDScale.space[1] }}>
       ✓
     </span>
   );

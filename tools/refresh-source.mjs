@@ -68,7 +68,8 @@ const MAP = [
   {
     dest: 'tokens',
     repo: 'qa',
-    /* grain.ts: «문서 결» 의 상태 색 비율(2026-09-27). tokens.ts 는 엔진 검증 근거가 지문을 들어 따로 뒀다 */
+    /* grain.ts: «문서 결» 의 상태 색 비율(2026-09-27). 그때 tokens.ts 가 엔진 검증 근거여서 따로 뒀다
+       (2026-10-26 에 엔진과 뗐다 · Q-Atelier f5d7d14a) */
     files: ['lib/design/tokens.ts', 'lib/design/grain.ts', 'lib/design/tag-metrics.ts', 'lib/design/sticky-inset.ts', 'lib/design/main-padding.ts', 'lib/design/print.ts', 'lib/design/q-design-contract.ts', 'lib/design/q-design-scale.ts'],
   },
   {

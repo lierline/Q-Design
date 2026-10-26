@@ -77,12 +77,8 @@ html[data-theme='light'] {
 :root {
   --qa-lh-none: 1;
   --qa-lh-tight: 1.2;
-  --qa-lh-heading: 1.3;
   --qa-lh-snug: 1.4;
-  --qa-lh-normal: 1.5;
-  --qa-lh-notice: 1.55;
   --qa-lh-relaxed: 1.6;
-  --qa-lh-loose: 1.7;
 }
 
 /* ── 스케일: 원본에선 TS 상수. CSS 만 쓰는 곳을 위해 변수로도 냅니다 ────── */
@@ -116,30 +112,15 @@ html[data-theme='light'] {
   --qa-space-24: 96px;
 
   /* 글자 크기: 값보존 사다리. 의미가 하나로 수렴하면 TYPE 을 쓰세요 */
-  --qa-fs-8: 8px;
-  --qa-fs-9: 9px;
-  --qa-fs-10: 10px;
-  --qa-fs-11: 11px;
   --qa-fs-12: 12px;
-  --qa-fs-13: 13px;
   --qa-fs-14: 14px;
-  --qa-fs-15: 15px;
   --qa-fs-16: 16px;
-  --qa-fs-17: 17px;
   --qa-fs-18: 18px;
-  --qa-fs-19: 19px;
   --qa-fs-20: 20px;
-  --qa-fs-22: 22px;
   --qa-fs-24: 24px;
-  --qa-fs-26: 26px;
   --qa-fs-28: 28px;
-  --qa-fs-30: 30px;
   --qa-fs-32: 32px;
-  --qa-fs-36: 36px;
-  --qa-fs-38: 38px;
   --qa-fs-40: 40px;
-  --qa-fs-48: 48px;
-  --qa-fs-80: 80px;
 
   /* 모서리: md(10px) 이 카드·버튼·입력의 표준 */
   --qa-radius-sm: 6px;

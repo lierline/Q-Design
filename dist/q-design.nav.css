@@ -307,8 +307,8 @@ html[data-theme='light'] {
   padding: 2px 8px;
   font-family: var(--qd-font-mono);
   font-size: 12px;
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 600;
+  line-height: 1.4;
   border-radius: 9999px;
   min-width: 22px;
   text-align: center;
@@ -443,16 +443,11 @@ html[data-theme='light'] {
   background: color-mix(in srgb, var(--qd-accent) 22%, var(--qd-surface2));
   color: var(--qd-text);
   font-weight: 600;
-  /* 🔴 반올림하지 않습니다. 원본(components/Avatar.tsx)이 이렇게 씁니다.
-
-       fontSize: Math.max(11, size * 0.45)
-
-     여기에 Math.round 를 넣었더니 32 x 0.45 = 14.4 가 14 로 깎여서, 원본은
-     14.4px 로 그리는데 사본 두 벌만 14px 로 그리고 있었습니다. 0.4px 이라
-     눈에는 안 보이지만 «사본이 원본과 다르다» 는 것 자체가 이 정본이 막으려는
-     것입니다. tools/diff-rails.mjs 가 세 제품을 다 재게 고치고 나서야
-     드러났습니다. */
-  font-size: 14.4px;
+  /* 원본(components/Avatar.tsx)과 같은 식입니다: 지름 × 비율을 글자 사다리에서 올려 잡습니다
+     (2026-10-26). 전에는 32 x 0.45 = 14.4px 를 그대로 썼고, 그보다 앞서 Math.round 로 14 로
+     깎았다가 사본 두 벌만 원본과 갈린 적이 있습니다(tools/diff-rails.mjs 가 찾음).
+     식을 여기서 따로 적지 말고 avatarInitialSize 를 쓰세요. */
+  font-size: 16px;
   line-height: 1;
   letter-spacing: 0;
   user-select: none;
@@ -460,10 +455,10 @@ html[data-theme='light'] {
 .qd-rail-user-text { min-width: 0; flex: 1; }
 .qd-rail-user-name {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--qd-text);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: var(--qd-leading-snug);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -499,7 +494,7 @@ html[data-theme='light'] {
   border: 0;
   color: var(--qd-muted);
   font-family: var(--qd-font-ui);
-  font-size: var(--qd-control-size, 13px);
+  font-size: var(--qd-control-size, 14px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;

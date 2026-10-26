@@ -22,10 +22,10 @@ export const HTML_PALETTE = {
 export const HTML_METRICS = {
   "radius": "10px",
   "controlHeight": "44px",
-  "controlSize": "13px",
+  "controlSize": "14px",
   "bodySize": "14px",
   "captionSize": "12px",
-  "titleSize": "22px",
+  "titleSize": "24px",
   "sectionSize": "16px",
   "overlayTitleSize": "18px",
   "fontUI": "'Pretendard Variable', 'Pretendard Variable', Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif",

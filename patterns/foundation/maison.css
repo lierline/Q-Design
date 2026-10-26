@@ -47,6 +47,10 @@
 @layer base {
   @media screen { body { font-size: var(--qd-body-size); } }
 }
+/* 2026-10-26 글자 사다리: 굵기는 400 · 500 · 600 만 쓴다(docs/03-typography.md). 테일윈드 preflight 의
+   b, strong { font-weight: bolder } 는 바깥 글씨가 400 이면 700, 600 이면 900 으로 올린다(세 제품에 200 ~ 300곳).
+   base 층에 두어 preflight 는 이기고, b 에 붙인 font-medium 같은 유틸리티에는 진다. */
+@layer base { b, strong { font-weight: var(--qd-font-weight-semibold); } }
 /* ---------------------------------------------------------------------
  * Q-Maison 색 토큰 - Q 제품군 정본에서 왔다
  *
@@ -1063,7 +1067,7 @@
   .qm-auth-card-title {
     font-size: var(--qd-overlay-title-size);
     font-weight: var(--qd-font-weight-semibold);
-    line-height: 1.3;
+    line-height: 1.4;
     color: var(--qd-text);
   }
   .qm-auth-card-desc {
@@ -1301,7 +1305,7 @@
     align-items: center;
     gap: 10px;
     font-weight: var(--qd-font-weight-semibold);
-    font-size: 15px;
+    font-size: 16px;
     color: var(--qd-text);
     text-decoration: none;
   }
@@ -1335,15 +1339,15 @@
   .qm-legal-doc h1 {
     margin: 0 0 8px;
     font-size: var(--qd-document-title-size);
-    font-weight: var(--qd-font-weight-bold);
+    font-weight: var(--qd-font-weight-semibold);
     letter-spacing: -0.015em;
-    line-height: 1.25;
+    line-height: 1.2;
   }
   .qm-legal-doc .qm-legal-meta {
     margin: 0 0 32px;
     font-family: var(--qd-font-mono);
     font-size: var(--qd-caption-size);
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--qd-muted);
   }
   .qm-legal-doc h2 {
@@ -1359,7 +1363,7 @@
     margin: 24px 0 8px;
     font-size: var(--qd-body-size);
     font-weight: var(--qd-font-weight-semibold);
-    line-height: 1.45;
+    line-height: 1.4;
   }
   .qm-legal-doc p,
   .qm-legal-doc li {
@@ -1397,7 +1401,7 @@
     min-width: 460px;
     border-collapse: collapse;
     font-size: var(--qd-control-size);
-    line-height: 1.7;
+    line-height: 1.6;
   }
   .qm-legal-doc th,
   .qm-legal-doc td {
@@ -1418,7 +1422,7 @@
     border-top: 1px solid var(--qd-border);
     text-align: center;
     font-size: var(--qd-caption-size);
-    line-height: 1.85;
+    line-height: 1.6;
     color: var(--qd-muted);
   }
   .qm-legal-footer a {

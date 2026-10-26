@@ -18,8 +18,8 @@
   --qd-carnet-icon-size: 20px;
   --qd-carnet-icon-size-sm: 16px;
   --qd-carnet-paper-root-font-size: 16px;
-  --qd-carnet-paper-root-line-height: 1.5;
-  --qd-carnet-field-body-size: 17px;
+  --qd-carnet-paper-root-line-height: 1.6;
+  --qd-carnet-field-body-size: 18px;
   --qd-carnet-sticky-layer: 20;
   --qd-carnet-floating-layer: 40;
   --qd-carnet-drawer-layer: 50;
@@ -37,7 +37,7 @@ html[data-theme='light'] .carnet-auth { --qd-auth-panel-image: url("/login-bg-li
 .login-brand { display: none; position: relative; z-index: 2; }
 .login-form-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--qd-auth-mobile-padding); }
 .carnet-auth-single, .carnet-state-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100dvh; padding: var(--qd-auth-mobile-padding); background: var(--qd-auth-background); }
-.carnet-auth-single-title, .carnet-state-title { margin-top: var(--qd-space-6); font-size: var(--qd-title-size); font-weight: var(--qd-font-weight-semibold); line-height: var(--qd-leading-heading); color: var(--qd-text); }
+.carnet-auth-single-title, .carnet-state-title { margin-top: var(--qd-space-6); font-size: var(--qd-title-size); font-weight: var(--qd-font-weight-semibold); line-height: var(--qd-leading-tight); color: var(--qd-text); }
 .carnet-state-card { width: 100%; max-width: var(--qd-status-width); }
 .carnet-auth-primary, .carnet-auth-secondary { width: 100%; min-height: var(--qd-field-control-height); }
 .carnet-pin-slot { position: relative; display: flex; width: 100%; min-height: var(--qd-field-control-height); align-items: center; gap: var(--qd-space-4); padding: var(--qd-space-3-5) var(--qd-space-4); text-align: left; background: var(--qd-surface); transition: background-color var(--qd-motion-fast) var(--qd-ease); }
@@ -539,7 +539,7 @@ html, body { height: 100%; }
 
 body {
   font-size: var(--qd-body-size);
-  line-height: var(--qd-line-height-normal);
+  line-height: var(--qd-leading-relaxed);
   background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
@@ -603,8 +603,12 @@ body {
  * 정본을 언제나 이겨 굵기 700 · 자간 -0.25px 로 섰다(실측 · 정본은 500 · 0). 무게는
  * 맨 h2 · h3 와 같게(0,0,1) 둔다 - 아래 h1 줄의 설명과 같다.
  */
-h2:where(:not(.qd-section-title)), h3:where(:not(.qd-section-title)) { letter-spacing: -0.025em; font-weight: var(--qd-font-weight-bold); }
-h2:where(:not(.qd-section-title)) { line-height: 1.3; }
+h2:where(:not(.qd-section-title)), h3:where(:not(.qd-section-title)) { letter-spacing: -0.025em; font-weight: var(--qd-font-weight-semibold); }
+h2:where(:not(.qd-section-title)) { line-height: 1.4; }
+/* 2026-10-26 글자 사다리: 굵기는 400 · 500 · 600 만 쓴다(docs/03-typography.md). 테일윈드 preflight 의
+   b, strong { font-weight: bolder } 는 바깥 글씨가 400 이면 700, 600 이면 900 으로 올린다(세 제품에 200 ~ 300곳).
+   base 층에 두어 preflight 는 이기고, b 에 붙인 font-medium 같은 유틸리티에는 진다. */
+@layer base { b, strong { font-weight: var(--qd-font-weight-semibold); } }
 /*
  * h1 은 층 밖에 두고 정본 제목만 뺀다 (2026-09-24).
  *
@@ -622,7 +626,7 @@ h2:where(:not(.qd-section-title)) { line-height: 1.3; }
  *
  * 입력칸 줄높이(normal)는 정본 `.qd-input` 이 스스로 정하므로 여기 두지 않는다.
  */
-h1:where(:not(.qd-page-head-title)) { letter-spacing: -0.025em; font-weight: var(--qd-font-weight-bold); line-height: 1.22; }
+h1:where(:not(.qd-page-head-title)) { letter-spacing: -0.025em; font-weight: var(--qd-font-weight-semibold); line-height: 1.2; }
 
 /* 표시용 서체. 큰 글자 하나에만 */
 .display {
@@ -877,7 +881,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   .label {
     display: block;
     font-size: var(--qd-caption-size);
-    line-height: 1rem;
+    line-height: var(--qd-leading-snug);
     font-weight: var(--qd-font-weight-semibold);
     color: var(--color-muted);
     margin-bottom: 0.375rem;
@@ -956,7 +960,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     transition: border-color var(--qd-motion-fast) var(--qd-ease), box-shadow var(--qd-motion-fast) var(--qd-ease), background-color var(--qd-motion-fast) var(--qd-ease);
   }
   select.input { padding-right: 0.5rem; }
-  textarea.input { height: auto; min-height: 5rem; padding: 0.5rem 0.75rem; line-height: 1.65; }
+  textarea.input { height: auto; min-height: 5rem; padding: 0.5rem 0.75rem; line-height: 1.6; }
   .input:hover:not(:disabled):not(:focus) { border-color: var(--color-faint); }
   .input:focus { border-color: var(--color-brand); box-shadow: var(--ring); }
   .input:disabled { background: var(--color-canvas); color: var(--color-faint); cursor: not-allowed; }
@@ -1079,8 +1083,8 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     padding: 0.125rem 0.5rem;
     border-radius: var(--qd-radius);
     font-size: var(--qd-caption-size);
-    line-height: 1.125rem;
-    font-weight: var(--qd-font-weight-bold);
+    line-height: var(--qd-leading-snug);
+    font-weight: var(--qd-font-weight-semibold);
     letter-spacing: -0.005em;
     white-space: nowrap;
   }
@@ -1155,10 +1159,10 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   }
   .touch .td { padding: 0.875rem 1rem; font-size: var(--qd-font-size-16); }
   .touch .th { padding: 0.75rem 1rem; font-size: var(--qd-caption-size); }
-  .touch .chip { font-size: var(--qd-font-size-13); padding: 0.1875rem 0.5625rem; border-radius: var(--r-sm); }
+  .touch .chip { font-size: var(--qd-font-size-14); padding: 0.1875rem 0.5625rem; border-radius: var(--r-sm); }
   /* 정본 배지(.qd-tag)도 현장에서는 한 단계 크게 읽힌다. 관리 화면 크기로 줄지 않게
      옛 .chip 의 현장 크기를 그대로 준다 (2026-09-24 · 배지를 정본으로 옮기면서) */
-  .touch .qd-tag { font-size: var(--qd-font-size-13); padding: 0.1875rem 0.5625rem; }
+  .touch .qd-tag { font-size: var(--qd-font-size-14); padding: 0.1875rem 0.5625rem; }
   /* 현장 판의 모서리도 정본 .qd-panel 이 준다. 여기서 r-xl(= 정본 모서리)을 다시 적으면
      위 괘선만 긋는 장부형 판(2026-10-23 오너 결정 «3»)까지 둥글어진다 */
   .touch .section-head { padding: 1rem 1.25rem; }
@@ -1217,7 +1221,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     transform: translateY(1px);
   }
   .padkey-alt {
-    font-size: var(--qd-font-size-15);
+    font-size: var(--qd-font-size-16);
     font-weight: var(--qd-font-weight-semibold);
     color: var(--color-muted);
     background: var(--color-surface-sub);
@@ -1316,7 +1320,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     border-radius: 50%;
     flex-shrink: 0;
     user-select: none;
-    font-weight: var(--qd-font-weight-bold);
+    font-weight: var(--qd-font-weight-semibold);
     line-height: 1;
     background: var(--color-surface-sub);
     border: 1px solid var(--color-line-strong);
@@ -1336,8 +1340,8 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
      안 된다.
   --------------------------------------------------------------------------- */
   .page-title {
-    font-size: var(--qd-font-size-26);      /* 글자 계단의 «화면 제목» */
-    font-weight: var(--qd-font-weight-bold);
+    font-size: var(--qd-font-size-28);      /* 글자 계단의 «화면 제목» */
+    font-weight: var(--qd-font-weight-semibold);
     line-height: 1.2;
     letter-spacing: -0.025em;
     color: var(--color-ink);
@@ -1422,8 +1426,8 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
     border: 1px solid var(--color-line);
     border-radius: var(--r-md);
     background: var(--color-surface);
-    font-size: var(--qd-font-size-13);
-    font-weight: var(--qd-font-weight-bold);
+    font-size: var(--qd-font-size-14);
+    font-weight: var(--qd-font-weight-semibold);
     color: var(--color-muted);
   }
   .stage[data-on='true'] {
@@ -1467,7 +1471,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
    */
   .meta {
     font-family: var(--font-mono);
-    font-size: var(--qd-font-size-11);
+    font-size: var(--qd-font-size-12);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-faint);
@@ -1633,7 +1637,7 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--qd-control-icon); min-height: var(--qd-control-icon); border-radius: var(--qd-radius);
   border: 1px solid var(--color-line-strong); background: transparent; color: var(--color-faint);
-  font-family: var(--font-mono); font-size: var(--qd-caption-size); font-weight: var(--qd-font-weight-bold); line-height: 1; cursor: help;
+  font-family: var(--font-mono); font-size: var(--qd-caption-size); font-weight: var(--qd-font-weight-semibold); line-height: 1; cursor: help;
   transition: color var(--qd-motion-fast), border-color var(--qd-motion-fast), background-color var(--qd-motion-fast);
 }
 .info-tip-btn:hover, .info-tip-btn:focus-visible, .info-tip-btn[aria-expanded="true"] {
@@ -1767,7 +1771,7 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
   border: 1px solid #333;
   padding: 4px 6px;
   font-size: 12px;
-  line-height: 1.45;
+  line-height: 1.4;
   vertical-align: top;
   font-family: var(--font-sans);
 }
@@ -1790,7 +1794,7 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
 .print-table .nb { white-space: nowrap; }
 .print-table th {
   background: #f0f0f0;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
@@ -1889,8 +1893,8 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
   border: 1px solid var(--color-line-strong);
   box-shadow: var(--qd-shadow-overlay);
 
-  font-size: var(--qd-font-size-13);
-  font-weight: var(--qd-font-weight-bold);
+  font-size: var(--qd-font-size-14);
+  font-weight: var(--qd-font-weight-semibold);
   cursor: pointer;
   transition: border-color var(--qd-motion-fast) var(--qd-ease), background var(--qd-motion-fast) var(--qd-ease);
 }

@@ -4,9 +4,8 @@
 // 상태 색을 가는 선에 섞는 비율을 한 곳에 둔다. Bx accent · Alert · InfoBox · KPI 도움말과 화면들이
 // 함께 부르고, Q-Design 정본 생성기(extract-list)도 이 값을 읽는다. 값을 옮겨 적지 말 것.
 //
-// 🔴 tokens.ts 에 두지 않은 까닭: tokens.ts 는 요구사항 엔진의 검증 근거(lib/engine/validation-manifest)가
-//    지문을 드는 파일이라, 한 줄만 더해도 엔진 근거가 «다시 해야 함» 으로 바뀌고 배포 빌드 첫 단계가 멈춘다
-//    (2026-09-27 이 값을 처음 tokens.ts 에 넣었다가 validation-manifest 시험 2건이 빨개져 옮겼다).
+// tokens.ts 에 두지 않은 까닭(지난 일): 2026-09-27 에는 tokens.ts 가 요구사항 엔진의 검증 근거였다.
+//    2026-10-26 엔진을 디자인 파일에서 떼어(lib/biocompat.ts) 지금은 tokens.ts 를 고쳐도 엔진 근거가 그대로다.
 import { alpha } from './tokens';
 import { QDRuntime } from './q-design-runtime';
 
