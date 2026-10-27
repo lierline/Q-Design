@@ -62,7 +62,7 @@
 - 구역 경계(오너 지적: 어두운 대표 홈에서 위젯 경계가 흐리다). 네 안(위 괘선 하나 · 굵은 먹 괘선 · 여백만 · 얇은 테 상자)을 입혀 보여 드리고 오너가 «A» 를 골랐다:
   `.qd-work-section` 위에 괘선 하나(밝은 테 색) · 괘선과 제목 사이 24, 제목 아래 괘선은 걷음. 일반 카드 «위 괘선 하나»(10-23 «3»)와 같은 말이다([08-paper.md](08-paper.md) 표).
 - 커밋: Q-Atelier 3739b6bb · fd70eb33, Q-Maison(Q-Works) 84435a2b, Q-Carnet(DHR) f8e080c · 20b18e7(OQ 기록),
-  앱 사본 Q-Atelier-App f07277a · iOS 04830ed · Q-Maison-App de22fb9 · Q-Carnet-App 96cc1e2. 운영 반영은 오너 말을 기다린다.
+  앱 사본 Q-Atelier-App f07277a · iOS 04830ed · Q-Maison-App de22fb9 · Q-Carnet-App 96cc1e2. ✅ 10-27 오너 지시로 운영 반영: Q-Atelier · Q-Works · DHR main, Q-Design · Q-Atelier-App · iOS 푸시. 세 제품 배포 Ready, 운영 CSS 에 새 규칙이 실린 것을 받아 확인했다(메종은 이동 글귀를 쓰는 화면이 없어 테일윈드가 그 규칙을 깎는다 · 정상).
 - 시험: Q-Atelier 543 파일 · 5,889건 · tsc 통과. Q-Maison tsc 통과, 시험은 세 제품을 한꺼번에 돌려 31건이 5초 시간 초과로 빨강이었고 그 20 파일만 다시 돌려 254건 통과.
   실명 검사 하나는 10-26 과 같이 다른 세션의 무시된 작업 폴더(`.claude/worktrees/security`) 때문이다(걸린 178줄이 모두 그 폴더 안). Q-Carnet tsc · OQ 302건 통과. 정본 `check.mjs` 35걸음 초록.
 - 로컬 화면 실측(운영 DB · 시연 회사 · 1440): 이동 글귀 먹색 rgb(28, 26, 22) · 600 · 꺾쇠 있음 · 줄 오른쪽 끝. 차림표 묶음 머리 넷 모두 32(«생산» 묶음은 시연 회사에 없어 못 잼).
