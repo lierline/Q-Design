@@ -247,7 +247,7 @@ hover → color text (danger 는 red) · border-color muted  ·  전환 160ms  �
 ```
 보조 글귀        글자만 · 높이 36(터치 44) · 흐린 색 → 올리면 본문색 + 밑줄
 이동 글귀 (go)   본문색(먹) · 굵기 600 · 끝 꺾쇠 › 14px · 글자와 사이 4 · 올리면 밑줄
-                 정본 .qd-text-action--go · 아뜰리에 <TextLinkAction go>
+                 정본 .qd-text-action--go · 아뜰리에 <TextLinkAction go> · 카르넷 <GoLink>
 ```
 
 안내 문구 · 구역 머리 옆에 홀로 서서 다른 화면으로 가는 글귀(「변경평가 목록으로」 「전체 보기」 「N건 더」)는 이동 글귀입니다(오너 결정 2026-10-27 «F»).

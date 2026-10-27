@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { Lock } from '@/components/q-design-icons/Lock';
+import { ChevronRight } from '@/components/q-design-icons/ChevronRight';
 import InfoTip from '@/components/info-tip';
 import type { FormState } from '@/lib/forms';
 
@@ -312,6 +314,26 @@ export function LockMark({ children }: { children?: React.ReactNode }) {
       {children}
     </span>
   );
+}
+
+/*
+ * 이동 글귀 (2026-10-27 오빠 결정 «F» · 정본 `.qd-text-action--go`).
+ *
+ * 판 머리 · 안내 문구 옆에 홀로 서서 다른 화면으로 가는 글귀(「전체 보기」 「생산으로」 「감사 추적」).
+ * 전에는 화면마다 금색 링크(text-xs font-semibold text-brand)를 손으로 짰다. 먹색 · 굵기 600 ·
+ * 올렸을 때 밑줄은 정본이 쥐고, 여기서는 끝 꺾쇠만 붙인다. 줄마다 되풀이되는 열기 · 고치기와
+ * 취소 · 뒤로에는 쓰지 않는다(다 진하면 다시 같은 무게가 된다).
+ * native: 인쇄 화면처럼 <a> 로 거는 자리.
+ */
+export function GoLink({ href, children, native = false }: {
+  href: string;
+  children: React.ReactNode;
+  native?: boolean;
+}) {
+  const body = <>{children}<ChevronRight className="size-3.5" /></>;
+  return native
+    ? <a href={href} className="qd-text-action qd-text-action--go">{body}</a>
+    : <Link href={href} className="qd-text-action qd-text-action--go">{body}</Link>;
 }
 
 /* 되돌릴 수 없는 조작 앞에 두는 안내. */
