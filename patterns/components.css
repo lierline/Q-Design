@@ -26,6 +26,7 @@
   --qd-control-pad-sm-x: 14px;
   --qd-body-size: 14px;
   --qd-caption-size: 12px;
+  --qd-tag-min-width: 6.5em;
   --qd-field-gap: var(--qd-space-1);
   --qd-textarea-min-height: 80px;
   --qd-select-end-padding: calc(var(--qd-space-4) * 2);
@@ -92,6 +93,10 @@
 .qd-input { display: block; border-radius: var(--qd-radius); font-size: var(--qd-control-size); background: var(--qd-surface); color: var(--qd-text); }
 .qd-section-title { font-size: var(--qd-section-size); }
 .qd-field-label, .qd-tag { font-size: var(--qd-caption-size); }
+/* 알약은 글자 수와 상관없이 같은 크기(2026-10-27 오너 지시 «알약 크기를 정본에서 통일성 있게»). 한 표 칸에서
+   «종료» 49px · «재단 완료» 73px 로 갈렸다. 바닥은 «4글자 + 상태 점» 이 같은 크기가 되는 6.5em(12px 배지 78px).
+   카르넷 43화면 452개를 세니 4글자 이하가 95% 였고, 그보다 긴 드문 이름만 늘어난다. em 이라 배지 크기를 따른다 */
+.qd-tag { min-width: var(--qd-tag-min-width); }
 .qd-tab { font-size: var(--qd-control-size); }
 .qd-page-head-title { font-size: var(--qd-title-size); }
 .qd-table { font-size: var(--qd-table-size); }

@@ -381,7 +381,17 @@ marginBottom: 30
 ```
 fontFamily: mono  ·  lineHeight: 1.4  ·  radius 10  ·  letterSpacing: labelTracking(children, 1)
 치수 변수: --qd-tag-{xs|sm|md}-{min-height|size|padding-y|padding-x|dot-size|gap}
+너비 바닥: min-width var(--qd-tag-min-width) = 6.5em  (components.css · 세 제품 공통)
 ```
+
+**알약은 글자 수와 상관없이 같은 크기입니다** (2026-10-27 오너 지시 «알약 크기를 정본에서 통일성 있게»).
+
+- 한 표 칸에서 «종료» 49px · «재단 완료» 73px 처럼 글자 수대로 갈리던 것을, 너비 바닥 하나로 묶었습니다. 가운데 맞춤이라 점과 글이 알약 한가운데 섭니다.
+- 바닥은 «4글자 + 상태 점» 이 같은 크기가 되는 6.5em 입니다(12px 배지 78px · 14px 91px). 카르넷 43화면 452개 · 메종 50화면 344개를 세니 4글자 이하가 94 ~ 95% 였고, 그보다 긴 드문 이름만 늘어납니다. 6.25em 이면 «저장 안 됨» + 점(75.5px)만 비어져 나와 한 칸에서 다시 갈립니다.
+- `em` 이라 xs · sm · md 와 현장 크기(`.touch`)를 따릅니다. 바닥을 바꿀 때는 이 변수 하나만 고칩니다(`component-style-contract.test` 가 잠급니다).
+- 문서 레벨(QM · QP · SOP) 같은 짧은 부호도 같은 바닥을 받습니다. 한 열이 같은 크기로 서는 것이 목적입니다.
+- 고정 폭 칸에 알약을 넣을 때는 칸 폭이 «바닥 + 칸 여백(좌우 12px)» 이상이어야 합니다(102px 이상). 2026-10-27 에 Q-Atelier 의 70 · 84 · 90px 칸 세 곳을 110px 로 넓혔습니다.
+- 같은 원칙이 로긴 정본에도 있습니다(`Login/rules/design/20-components.md` §3-1). 값은 따로입니다.
 
 세 층위(`tier`)가 있습니다.
 

@@ -141,6 +141,14 @@ test('shared dimensions preserve the approved scale and meaningful touch targets
   }
 });
 
+test('status pills keep one width floor regardless of label length', () => {
+  // 2026-10-27 오너 지시: 한 칸의 «종료» 와 «재단 완료» 가 다른 크기였다. em 이어야 xs · sm · md · 현장 크기를 따른다
+  assert.equal(declarations('.qd-tag')['min-width'], 'var(--qd-tag-min-width)');
+  const floor = /^(\d+(?:\.\d+)?)em$/.exec(tokens['--qd-tag-min-width'] ?? '');
+  assert.ok(floor, `--qd-tag-min-width must be in em, got ${tokens['--qd-tag-min-width']}`);
+  assert.ok(Number(floor[1]) >= 6.5, '«4글자 + 상태 점» 이 바닥 안에 들어와야 합니다');
+});
+
 test('overlay and feedback surfaces are opaque, token driven, and never blur the background', () => {
   for (const selector of ['.qd-dialog-content', '.qd-drawer-content', '.qd-tooltip', '.qd-popover', '.qd-notice', '.qd-toast']) {
     const styles = declarations(selector);
