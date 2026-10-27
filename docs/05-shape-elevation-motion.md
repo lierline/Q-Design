@@ -191,6 +191,7 @@ cubic-bezier(0.16, 1, 0.3, 1)   /* ease-out expo */
 서랍이 미끄러지는 3종(`qa-drawer-slide-r` · `-l` · `-b`)은 CSS 파일이 아니라 `source/design/atelier-runtime.ts` 의 중앙 규칙에 있고, 부품이 `<style>` 로 넣습니다.
 **CSS 파일만 읽으면 이 셋이 빠집니다.** 부품별 색인은 `dist/inline-styles-index.md` 에 있고, 원본은 `source/screens/` 에 있습니다.
 「얼굴」 화면(로그인 입장 연출 등)의 움직임은 [참고 · 얼굴 화면](reference/signature-screens.md)에서 다룹니다.
+제품 밖에서 움직이는 것(소개 영상 · 홍보 클립)을 도구에 시킬 때의 브리프 뼈대는 [참고 · 움직임 브리프 조사](reference/motion-brief-study.md)에 있습니다. 값은 이 장에서 가져가고, 스프링 · 바운스 · 젖빛 유리는 거기서도 쓰지 않습니다.
 
 ### 홈 위젯 편집 움직임
 
