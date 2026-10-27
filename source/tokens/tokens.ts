@@ -267,15 +267,32 @@ export const alpha = (color: string, a: number): string => {
   return `color-mix(in srgb, ${color} ${pct}%, transparent)`;
 };
 
-export const riskColor = (risk: string): string => {
+// 위험도 네 단계 (2026-10-27 오너 결정 · Q-Design 02 «위험도 색»).
+// 종전에는 red · warning · champagne · green 을 빌려 썼고 높음과 중간이 거의 같은 색이었다.
+// 단계마다 값이 둘이다. 막대 · 점은 fill, 글자 · 배지 · 큰 숫자는 text.
+// 라이트의 높음 · 중간 fill 은 흰 면 위 3.30 · 1.92 라 글자로 쓰면 안 된다.
+export const RISK = {
+  critical: { fill: 'var(--qa-risk-critical)', text: 'var(--qa-risk-critical-text)' },
+  high:     { fill: 'var(--qa-risk-high)',     text: 'var(--qa-risk-high-text)' },
+  medium:   { fill: 'var(--qa-risk-medium)',   text: 'var(--qa-risk-medium-text)' },
+  low:      { fill: 'var(--qa-risk-low)',      text: 'var(--qa-risk-low-text)' },
+} as const;
+
+const riskOf = (risk: string) => {
   switch (risk?.toUpperCase()) {
-    case 'CRITICAL': return T.red;
-    case 'HIGH':     return T.warning;
-    case 'MEDIUM':   return T.champagne;
-    case 'LOW':      return T.green;
-    default:         return T.muted;
+    case 'CRITICAL': return RISK.critical;
+    case 'HIGH':     return RISK.high;
+    case 'MEDIUM':   return RISK.medium;
+    case 'LOW':      return RISK.low;
+    default:         return null;
   }
 };
+
+/** 위험도 글자 · 배지 · 큰 숫자 색. 모든 면과 배지면에서 4.5 이상. */
+export const riskColor = (risk: string): string => riskOf(risk)?.text ?? T.muted;
+
+/** 위험도 막대 · 점 색. 글자에 쓰지 말 것. */
+export const riskFill = (risk: string): string => riskOf(risk)?.fill ?? T.muted;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LUXE TYPOGRAPHY SCALE: 위계 컨트라스트 강화 (2026-05-27 럭셔리 톤 재검토)

@@ -3329,7 +3329,8 @@ export function DistributionBars({
                 marginBottom: QDScale.space[1],
               }}
             >
-              <span style={{ color: d.color, letterSpacing: "var(--qd-atelier-letter-spacing-c7e9f7cfec)" }}>{d.label}</span>
+              {/* 이름은 먹색이고 색은 막대만 입는다(02 «위험도 색», 2026-10-27). 막대 색은 글자 대비를 맞추지 않은 값이다. */}
+              <span style={{ color: T.text, letterSpacing: "var(--qd-atelier-letter-spacing-c7e9f7cfec)" }}>{d.label}</span>
               <span style={{ color: T.subtle }}>
                 {d.count}{' '}
                 <span style={{ color: T.muted, marginLeft: QDScale.space[1] }}>({pct.toFixed(0)}%)</span>

@@ -91,6 +91,16 @@ const STATE_TOKENS = [
   'state-violet', 'state-green', 'state-red',
 ] as const;
 
+/**
+ * 위험도 네 단계. **2026-10-27 에 추가했다**(Q-Design 02 «위험도 색»).
+ * 글자 · 배지 · 큰 숫자는 -text 를 쓰므로 그것만 AA 를 잰다.
+ * 막대 색(-text 없는 넷)은 그래프용이라 글자 대비를 맞추지 않았다. 있는지만 본다.
+ */
+const RISK_TEXT_TOKENS = [
+  'risk-critical-text', 'risk-high-text', 'risk-medium-text', 'risk-low-text',
+] as const;
+const RISK_FILL_TOKENS = ['risk-critical', 'risk-high', 'risk-medium', 'risk-low'] as const;
+
 const AA_NORMAL = 4.5;
 
 /**
@@ -165,6 +175,26 @@ describe('디자인 가드: 색 대비 (WCAG AA 4.5:1)', () => {
           '상태색은 대개 배지로 나타난다. 배지는 배경을 alpha(색,0.1) 로 깔기 때문에\n' +
           '표면만 보고 맞추면 실제 화면에서 미달한다. **색상·채도는 두고 명도만** 옮길 것:\n' +
           '그래야 단계 순서(회색→코발트→구리→금→보라→초록)가 흔들리지 않는다.',
+      ).toEqual([]);
+    });
+  }
+
+  for (const theme of THEMES) {
+    it(`${theme.name}: 위험도 글자색 4종이 «배지 실조건까지» AA 를 통과한다`, () => {
+      const v = vars(theme.re);
+      assertFound(v, [...SURFACES, ...RISK_TEXT_TOKENS, ...RISK_FILL_TOKENS], `${theme.name} 위험도`);
+      const fails: string[] = [];
+      for (const t of RISK_TEXT_TOKENS) {
+        for (const s of SURFACES) {
+          const plain = contrast(v[t], v[s]);
+          if (plain < AA_NORMAL) fails.push(`--qa-${t}(${v[t]}) on --qa-${s} = ${plain.toFixed(2)}`);
+          const badge = contrast(v[t], over(v[t], v[s], 0.1));
+          if (badge < AA_NORMAL) fails.push(`--qa-${t}(${v[t]}) on 배지면(${s}+10%) = ${badge.toFixed(2)}`);
+        }
+      }
+      expect(
+        fails,
+        `\n${fails.join('\n')}\n\n위험도 글자색은 막대 색과 같은 색상에서 **밝기만** 옮길 것. 막대 색을 글자에 쓰지 말 것(riskFill 은 막대 전용).`,
       ).toEqual([]);
     });
   }
