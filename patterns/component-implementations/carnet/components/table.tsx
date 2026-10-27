@@ -111,14 +111,16 @@ export function TwoLine({
 export function ActionTd({ children }: { children: React.ReactNode }) {
   return (
     /* 붙는 칸은 표가 놓인 자리의 바탕으로 덮는다. 장부형 판(면 없음) 안이면 화면 바탕(정본 --qd-table-fill) */
-    <td className="td sticky right-0 border-l border-line bg-[var(--qd-table-fill,var(--color-surface))] text-right">
+    <td className="td sticky right-0 bg-[var(--qd-table-fill,var(--color-surface))] text-right">
       {children}
     </td>
   );
 }
 
+/* 세로 괘선을 두지 않는다. 줄 링크(RowLink)의 꺾쇠 칸에는 선이 없어 머리칸에만 선이 떠 보였다
+   (2026-10-27 Q-Carnet 화면 점검 · 장부 결은 가로 괘선만) */
 export function ActionTh() {
-  return <th className="th sticky right-0 w-0 border-l border-line" scope="col" aria-label="동작" />;
+  return <th className="th sticky right-0 w-0" scope="col" aria-label="동작" />;
 }
 
 /*

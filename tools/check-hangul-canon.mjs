@@ -82,6 +82,14 @@ for (const rule of rules) {
   }
 }
 
+/* 어절 공백 줄임(--qd-hangul-word-space)은 고정폭 공백(0.6em)을 본문 폭으로 맞추는 값입니다. 같은 규칙에서
+   글꼴을 본문체로 바꾸면 공백이 음수가 되어 낱말이 붙습니다(2026-10-27 Q-Carnet 쪽 넘김 «1-31/총31건»). */
+for (const rule of rules) {
+  if (!/word-spacing:\s*var\(--qd-hangul-word-space\)/.test(rule.body)) continue;
+  const font = /font-family:\s*([^;]+)/.exec(rule.body)?.[1].trim();
+  if (font && !/mono/i.test(font)) problems.push(`${rule.file}  ${rule.sel.replace(/\s+/g, ' ')}  글꼴을 ${font} 로 바꾸면서 어절 공백을 줄입니다. word-spacing: normal 로 두십시오`);
+}
+
 console.log(`한글 자간 정본 검사: 정본 CSS ${CANON.length}개 · 자간 · 대문자를 거는 선택자 ${tracked}개(var() 로 오는 자간 ${viaVar}곳) · 변수 정의 파일 ${DEFINITION_FILES.length}개`);
 if (problems.length) {
   for (const line of problems) console.log('  ✗ ' + line);

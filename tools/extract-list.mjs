@@ -873,12 +873,15 @@ ${spec.state.surfaceDeclarations}
   text-align: center;
 }
 /* 건수 글에 한글(총 · 건)이 들어가면 data-hangul 을 붙입니다. 숫자만이면 그대로 둡니다.
-   원본(2026-09-28 고정폭 한글 걷기)은 한글이 섞이면 글꼴도 본문체로 바꿉니다 */
+   원본(2026-09-28 고정폭 한글 걷기)은 한글이 섞이면 글꼴도 본문체로 바꿉니다.
+   🔴 본문체로 바꿨으면 어절 공백은 그대로(normal) 둡니다. --qd-hangul-word-space(-0.35em)는
+      고정폭 공백(0.6em)을 본문 폭으로 줄이는 값이라, 본문체(공백 0.251em)에 걸면 공백이
+      음수가 되어 «1-31/총31건» 처럼 붙습니다(2026-10-27 Q-Carnet 화면 점검 · 세 제품 공통). */
 .qd-pager-count[data-hangul],
 .qd-pager-page[data-hangul] {
   font-family: var(--qd-font-ui);
   letter-spacing: 0;
-  word-spacing: var(--qd-hangul-word-space);
+  word-spacing: normal;
 }
 .qd-pager-nav {
   display: inline-flex;
@@ -1020,11 +1023,12 @@ ${spec.state.surfaceDeclarations}
 }
 .qd-filter-count { margin-left: auto; }
 .qd-filter-clear { text-decoration: underline; }
+/* 본문체로 바꾸므로 어절 공백은 그대로 둡니다(위 쪽 이동 줄과 같은 까닭 · «3682건1/74쪽» 이 붙었다) */
 .qd-filter-count[data-hangul],
 .qd-filter-clear[data-hangul] {
   font-family: var(--qd-font-ui);
   letter-spacing: 0;
-  word-spacing: var(--qd-hangul-word-space);
+  word-spacing: normal;
 }
 
 /* ── 초점 고리 (목록 둘레 조작부) ──────────────────────────────────────────
