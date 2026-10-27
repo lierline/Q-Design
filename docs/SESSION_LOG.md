@@ -19,7 +19,6 @@
 오너 결정을 기다리는 것
 
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
-- Q-Maison · Q-Carnet 상세 · 폼 «3» 옮기기. 정본 CSS 는 세 제품이 받았지만 화면을 옮긴 것은 Q-Atelier 뿐이다. 메종은 약 140 파일, 카르넷은 약 40 파일이 고정 열 격자(grid-cols-2 · 3)로 남았고, 카르넷 PageShell 은 머리와 본문 폭을 맡는 다른 부품이라 이름부터 겹친다(10-27 기록).
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 
 다시 잴 것 (10-16 에 적은 문서와 코드가 다른 곳. 그 뒤 5단계를 지나 지금도 그런지 모른다)
@@ -39,11 +38,35 @@
 
 도구의 빈틈
 
+- 안 읽히는 폭 변수 둘. `--qd-reading-width`(820) · `--qd-detail-max`(1160)는 정본 foundation.css 와 세 제품 사본에 선언만 남았고 읽는 곳이 없다(10-27 «3» 뒤 grep). 걷으려면 세 제품 사본을 함께 받아야 한다.
 - `check-hangul-source.mjs` 는 정본 클래스만 본다. Tailwind `tracking-[…]`, 제품 CSS(`.login-submit` 같은), 인라인 `letterSpacing` 을 못 보고 Q-Atelier 는 아예 대상이 아니다. 10-22 에 화면 실측으로만 잡은 한글 자간이 Q-Atelier 10곳(로그인 6곳 별도) · Q-Carnet 3곳 · Q-Maison 인쇄 3곳이었다.
 - 전수 검수 측정기(`D:/Claude/.claude/design-sweep`)가 못 연 동적 주소: Q-Maison 103 · Q-Atelier 22 · Q-Carnet 9(인쇄). 자료가 있는 상세 화면을 찾아 넣는 일이 남았다.
 - 같은 측정기의 누름 자리 재기는 붙박이 띠 · 고정 바닥 줄 옆의 요소를 띠에서 비켜 세우지 않고 잰다. 띠가 덮은 만큼 작게 나온다(Q-Atelier 「근거 방침」 26 은 바닥 차림 옆이라 그렇고, 띠가 없는 자리에서는 44). 여러 줄로 접힌 글 속 링크는 가운데 점이 줄 사이에 떨어져 0 으로 나온다.
   - 붙박이 띠 쪽은 10-22 에 메웠다. 측정기(`measure.js` probeHit)가 44 보다 작게 재면 요소를 가운데로 굴려 한 번 더 재고 큰 쪽을 쓴다(기록에 `recentred`). 운영 재측정에서 「근거 방침」 은 26.1 → 45 로 «넓힌 자리 있음» 으로 옮겨 갔고, 진짜 작은 것(0145e146 배포 전 옛 판의 현장 화면 머리 38 · 폰 메뉴 서랍 묶음 머리 32)은 그대로 빨갛다. 여러 줄 글 속 링크는 아직 남았다.
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
+
+---
+
+## Q-Maison · Q-Carnet 상세 · 폼 «3» 옮김 · 잠긴 칸 회색 안내 숨김 · 2026-10-27
+
+오너가 «카르넷 상세 · 폼 화면부터 새 틀로 옮기고, 끝나면 메종도» 라고 했다. 같은 날 Q-Atelier 에 먼저 들인 «3»(꽉 채움 + 칸 자동)을 두 제품 화면에도 입혔다.
+
+- 정본: `patterns/components.css` 에 `.qd-input:is([readonly], :disabled)::placeholder { color: transparent }`. 잠긴 빈 칸의 «예: …» 가 적힌 값처럼 읽혔다(S10). Q-Atelier 는 `In` · `Txt` 가 안내를 빼고, 두 제품은 이 줄이 가린다.
+  `patterns/foundation/maison.css` 의 `[data-shell="detail"]` 820 · `[data-shell="form"]` 720 폭 규칙을 걷고 까닭을 주석으로 남겼다.
+- Q-Carnet(DHR c099028 · 6a133b9 · d6dbbb8): `PageShell` 뿌리에 `.qd-shell-page`, 읽기 칸 `Field` 에 `wide`, 30 파일의 칸을 `.qd-fields` 로. 옛 1160 상세 기둥(`carnet-detail-width`)은 사본에서 걷혔다.
+  좁은 대화창 안에서는 칸 최소 300 때문에 저절로 한 칸이 된다. `check-nav.mjs` 가 손 격자를 막고(현장 모드 폼 넷은 520 기둥이라 뺌), `design-contract.test.mjs` 가 그 가드를 일부러 깨뜨려 본다.
+- Q-Maison(Q-Works 0ccc4a2d · 220 파일): 화면 뿌리 126곳(`data-shell`)과 내 계정 화면에 `.qd-shell-page`. 손 격자 214곳을 `.qd-fields`, 긴 칸 62곳을 `.qd-field-wide`, 이어 놓은 묶음 39곳을 `.qd-field-groups` 로.
+  글 칸 44곳에 회색 안내를 넣었다(이름 · 전화 · 금액 · 수량 · 부서 · 비고는 칸 이름으로 충분해 둠). 사고 보고 기록지 한 줄은 세 기둥 손 배치(col-start · row-start)를 걷고 적는 차례로 놓았다.
+  가드 `tests/unit/field-grid.test.ts` 가 손 격자 · 좁히는 뿌리를 막는다. 좁은 옆 판의 숫자 줄 셋과 품목 규격 줄(줄마다 열이 맞아야 함)은 일부러 남겼다.
+- 잰 것(로컬 메종 · 개발 계정): 53화면 × 1920 · 1440 · 412 에서 쪽 넘침 0 · 격자 넘침 0. 1920 에서 다섯 칸(302), 1440 에서 세 칸(352), 412 에서 한 칸(340). 고친 24화면을 다시 재 같은 결과.
+- 사본: 공용 CSS 가 바뀌어 세 제품과 앱 셋의 오프라인 화면도 받았다. Q-Atelier 653c6628, Q-Atelier-App 0033898, Q-Maison-App aa19f81, Q-Carnet-App 002d8df, DHR d6dbbb8. `check.mjs` 35걸음 초록 · 원본 대조 114/114.
+- 🔄 운영: 카르넷은 카르넷 세션이 시연 전 점검 커밋과 함께 올려 이미 운영이다. 메종 · 아뜰리에 · 앱 셋 · 이 정본 커밋은 오너 확인 뒤 푸시.
+
+걸려 넘어진 것
+
+- 🔴 정본 사본(`app/q-design.*.css`)에 prettier 를 돌리면 모양만 바뀌어도 `q-design-sync.test` 가 빨갛다. `extract-all.mjs --sync --only=Q-Works` 로 되돌렸다. 메종 lint-staged 는 ts · tsx 만 다듬으니 손으로 전체 포맷을 돌리지 말 것.
+- 손 격자를 기계로 바꾸다 칸이 아닌 카드 배치 셋까지 칸 격자가 됐다. 가드는 «격자 바로 아래 칸 이름» 을 태그 줄 들여쓰기로 판단하고, 화면을 나누는 `<form>` 두 판 · `<section>` 안 칸 · 열 폭을 손으로 정한 장부 줄(`grid-cols-[…]`)은 거른다.
+- 칸 격자 자신이 안쪽 여백 있는 카드(`qd-fields qd-card p-5`)면 측정기가 격자 폭을 테두리 상자(1600)로, 긴 칸을 안쪽 폭(1560)으로 재 «안 닿음» 처럼 보인다. 어긋남이 아니다.
 
 ---
 

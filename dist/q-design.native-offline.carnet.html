@@ -136,6 +136,9 @@ html[data-theme='light'] {
   border-color: var(--qd-border) !important;
   cursor: default;
 }
+/* 잠긴 칸 · 꺼진 칸에는 회색 안내를 띄우지 않는다. 빈 칸의 «예: …» 가 적힌 값처럼 읽힌다
+   (우리 디자인 규칙 S10 · 2026-10-27). 아뜰리에는 In · Txt 부품이 안내를 빼고, 두 제품은 이 줄이 가린다. */
+.qd-input:is([readonly], :disabled)::placeholder { color: transparent; }
 .qd-control-icon, .qd-dialog-close, .qd-mobile-menu {
   display: inline-flex;
   align-items: center;

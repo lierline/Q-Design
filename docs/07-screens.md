@@ -1104,7 +1104,7 @@ GET 폼으로 두면 JS 없이 돌고 지금 좁힌 것이 주소창에 남습�
 ```
 
 🔑 **상세 · 폼은 좁히지 않고 칸 수로 넓이를 받습니다**(2026-10-27 오너 결정 «3»). 옛 판의 `.qd-shell-detail` 820 · `.qd-shell-form` 720 은 걷었습니다.
-Q-Maison · Q-Carnet 은 정본 클래스를 받았지만 고정 열 격자(`grid-cols-2` · `3`)를 쓰는 화면이 아직 남아 있습니다.
+세 제품이 같은 클래스를 씁니다. Q-Atelier 는 `PageShell` · `Fields` · `FieldGroups` 부품으로, Q-Carnet 은 `PageShell` · `Field wide` 로, Q-Maison 은 화면 뿌리의 `data-shell` 표시자 옆에 클래스를 직접 답니다(2026-10-27).
 
 본문 여백은 `--qd-main-pad-y` / `--qd-main-pad-x` (32px / 40px)와 `.qd-main` 으로도 냅니다.
 sticky 밴드가 이 값을 실측해 inset 을 잡는 제품이 있습니다.
