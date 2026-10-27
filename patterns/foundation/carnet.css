@@ -51,11 +51,17 @@ html[data-theme='light'] .carnet-auth { --qd-auth-panel-image: url("/login-bg-li
 .carnet-work-batches { grid-template-columns: repeat(auto-fit, minmax(min(var(--qd-carnet-work-batch-width), 100%), 1fr)); }
 /* Container query thresholds are central recipes because CSS variables cannot
    participate in media/container query conditions. Preserve even KPI rows. */
-@container (min-width: 374px) and (width < 762px) { .carnet-kpi-rows-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@container (min-width: 568px) and (width < 956px) { .carnet-kpi-rows-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@container (min-width: 568px) and (width < 1150px) { .carnet-kpi-rows-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@container (min-width: 762px) and (width < 1344px) { .carnet-kpi-rows-7 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@container (min-width: 762px) and (width < 1538px) { .carnet-kpi-rows-8 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* 선택자에 html 과 .qd-grid-kpi 를 붙여 기반 규칙(foundation.css 의 html :is(.qd-grid-kpi, …))보다 앞서게 한다.
+   전에는 특이성이 낮아 져서 1440 에서 7칸이 6 + 1 로 갈라졌다(2026-10-27 카르넷 정밀 감사 U2) */
+@container (min-width: 374px) and (width < 762px) { html .qd-grid-kpi.carnet-kpi-rows-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (min-width: 568px) and (width < 956px) { html .qd-grid-kpi.carnet-kpi-rows-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container (min-width: 568px) and (width < 1150px) { html .qd-grid-kpi.carnet-kpi-rows-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container (min-width: 762px) and (width < 1344px) { html .qd-grid-kpi.carnet-kpi-rows-7 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@container (min-width: 762px) and (width < 1538px) { html .qd-grid-kpi.carnet-kpi-rows-8 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* 지표가 둘 · 셋뿐인 화면(일탈 대장)은 칸을 넓게 늘이지 않고 7 · 8칸 화면과 같은 칸 폭(넓은 화면 4열 · 폰 2열)으로
+   둔다. 전에는 두 칸이 반씩 차지해 다른 화면과 칸 폭이 달랐다(2026-10-27 카르넷 정밀 감사 U10) */
+@container (min-width: 374px) and (width < 762px) { html .qd-grid-kpi.carnet-kpi-few { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (min-width: 762px) { html .qd-grid-kpi.carnet-kpi-few { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .carnet-tooltip { width: min(var(--qd-tooltip-width), calc(100vw - var(--qd-tooltip-inset) * 2)); max-height: calc(100dvh - var(--qd-tooltip-inset) * 2); overflow-y: auto; }
 .carnet-tooltip--info { --qd-tooltip-width: var(--qd-tooltip-info-width); }
 .qd-kpi[data-tone="warn"] { --qd-kpi-color: var(--color-warn); }
@@ -1933,6 +1939,13 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
   box-shadow: var(--qd-shadow-overlay);
 }
 .touch .back-fab svg { width: 1.625rem; height: 1.625rem; }
+/* 폰(640 이하)에서는 떠 있는 단추를 걷고 머리줄의 «뒤로»(.qd-mobile-back · components/back-fab.tsx bar)가 대신한다.
+   412 폭 일곱 화면 모두에서 동그라미가 표 끝 칸 · 지표를 덮었다(2026-10-27 카르넷 정밀 감사 U13). 비켜 둔 본문 끝
+   여백(.qd-main)도 그만큼 돌려준다 */
+@media (max-width: 640px) {
+  .back-fab { display: none; }
+  .qd-main { padding-bottom: var(--qd-main-pad-y); }
+}
 
 /* ---------------------------------------------------------------------------
    앱으로 설치 안내 (components/install-app.tsx)
@@ -1976,7 +1989,7 @@ html[data-theme='light'] .q-mark-on-dark { display: none; }
 
   /* 🔑 표 감싸개가 종이에서 자르지 않게 못을 박는다. 인쇄는 이 제품의 1급 기능이다 ·
      화면에서 가로로 스크롤되던 표가 종이에서는 통째로 보여야 한다. */
-  .qd-table-scroll { overflow: visible; }
+  .qd-table-scroll { overflow: visible; -webkit-mask-image: none; mask-image: none; }
   /* 따라오는 거르개 띠를 종이에서 제자리로 돌리고 찾기 폼을 걷는 규칙은 목록 정본(q-design.list.css 의
      @media print)이 가진다. 여기 한 줄 따로 적어 두었던 것은 2026-09-25 에 걷었다(사본을 두 곳에 두지 않는다) */
   .no-print, .watermark, .back-fab { display: none !important; }

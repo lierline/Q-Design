@@ -413,7 +413,7 @@ ${bind('light')}
   height: 100%;
   min-height: ${px(spec.kpi.minHeight)};
   padding: ${spec.kpi.padding};
-  /* 값 글자가 칸 폭(cqw)을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 clamp 와 한 벌) */
+  /* 값 글자가 칸 폭을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 컨테이너 질의와 한 벌) */
   container-type: inline-size;
   /* 지표 띠는 장부형입니다(2026-10-23 오너 결정 «B»). 면 · 모서리 없이 칸마다 아래 괘선 하나.
      원본 KPI 가 Bx ledger 에 아래 선만 남긴 것과 같은 모양입니다(위에서 원본을 읽어 확인합니다) */
@@ -448,8 +448,10 @@ ${bind('light')}
   flex: 1;
   display: flex;
   align-items: center;
-  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 ${px(spec.kpi.valueSize)} 그대로 */
-  font-size: clamp(${kpiMinCss}, ${kpiFluidCss}, var(--qd-kpi-size, ${px(spec.kpi.valueSize)}));
+  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 ${px(spec.kpi.valueSize)} 그대로.
+     단계는 사다리 네 단(40 · 32 · 28 · 24)뿐입니다. 원본의 clamp(칸 폭 단위) 는 칸 폭을 따라 사다리 밖 크기를
+     냈습니다(2026-10-27 카르넷 정밀 감사 D1). 단계 문턱은 patterns/components.css 의 @container 와 같습니다 */
+  font-size: var(--qd-kpi-size, ${px(spec.kpi.valueSize)});
   font-weight: ${spec.kpi.valueWeight};
   line-height: ${spec.kpi.valueLine};
   letter-spacing: ${spec.kpi.valueTracking};
@@ -468,7 +470,8 @@ ${bind('light')}
   margin-top: ${px(spec.kpi.subGapAbove * 4)};
   min-height: ${px(spec.kpi.subMinHeight)};
   font-size: ${px(spec.kpi.subSize)};
-  letter-spacing: 0.2px;
+  /* 자간 0. 한글 보조글에 0.2px 가 걸려 있었다(2026-10-27 카르넷 정밀 감사 D4 · docs/03 한글 자간 0) */
+  letter-spacing: 0;
   line-height: var(--qd-leading-snug);
   color: var(--qd-muted);
 }

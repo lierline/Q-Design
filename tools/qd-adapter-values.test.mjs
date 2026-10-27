@@ -250,7 +250,9 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     assert.doesNotMatch(listCss, /NaN|undefined/);
     assert.match(screenCss, /font-size: var\(--qd-title-size,/);
     assert.match(screenCss, /font-size: var\(--qd-control-size,/);
-    assert.match(screenCss, /clamp\(var\(--qd-kpi-min-size\), var\(--qd-kpi-fluid-size\), var\(--qd-kpi-size,/);
+    // 지표 값은 사다리 토큰 하나로 (2026-10-27 · clamp(… cqw …) 는 사다리 밖 크기를 냈다 · tools/kpi-ladder.test.mjs)
+    assert.match(screenCss, /font-size: var\(--qd-kpi-size, 40px\);/);
+    assert.doesNotMatch(screenCss, /cqw/);
     assert.doesNotMatch(screenCss, /NaN|undefined/);
     writeFileSync(join(fixture, 'patterns/components.css'), changed.replace('--qd-kpi-fluid-size: 18cqw;', '--qd-kpi-fluid-size: 18px;'));
     assert.throws(() => run('extract-screen.mjs'), error => /KPI fluid size must use cqw/.test(String(error.stderr)));

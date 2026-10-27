@@ -72,7 +72,7 @@ html[data-theme='light'] {
   height: 100%;
   min-height: 124px;
   padding: 18px 20px;
-  /* 값 글자가 칸 폭(cqw)을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 clamp 와 한 벌) */
+  /* 값 글자가 칸 폭을 재도록 크기 컨테이너로 둡니다 (.qd-kpi-value 의 컨테이너 질의와 한 벌) */
   container-type: inline-size;
   /* 지표 띠는 장부형입니다(2026-10-23 오너 결정 «B»). 면 · 모서리 없이 칸마다 아래 괘선 하나.
      원본 KPI 가 Bx ledger 에 아래 선만 남긴 것과 같은 모양입니다(위에서 원본을 읽어 확인합니다) */
@@ -107,8 +107,10 @@ html[data-theme='light'] {
   flex: 1;
   display: flex;
   align-items: center;
-  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 40px 그대로 */
-  font-size: clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size, 40px));
+  /* 좁은 칸에서 긴 금액이 넘치지 않게 칸 폭에 따라 줄어듭니다. 넓으면 40px 그대로.
+     단계는 사다리 네 단(40 · 32 · 28 · 24)뿐입니다. 원본의 clamp(칸 폭 단위) 는 칸 폭을 따라 사다리 밖 크기를
+     냈습니다(2026-10-27 카르넷 정밀 감사 D1). 단계 문턱은 patterns/components.css 의 @container 와 같습니다 */
+  font-size: var(--qd-kpi-size, 40px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -127,7 +129,8 @@ html[data-theme='light'] {
   margin-top: 10px;
   min-height: 16px;
   font-size: 12px;
-  letter-spacing: 0.2px;
+  /* 자간 0. 한글 보조글에 0.2px 가 걸려 있었다(2026-10-27 카르넷 정밀 감사 D4 · docs/03 한글 자간 0) */
+  letter-spacing: 0;
   line-height: var(--qd-leading-snug);
   color: var(--qd-muted);
 }
@@ -653,7 +656,8 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-workspace--overview .qd-page-head { margin-bottom: 8px; }
 .qd-workspace--overview .qd-page-head-title { font-size: clamp(24px,3vw,32px); line-height: 1.2; }
 .qd-workspace--overview .qd-kpi { padding: 18px 16px; min-height: 116px; }
-.qd-workspace--overview .qd-kpi-label { font: 500 13px/1.5 var(--qd-font-ui); letter-spacing: 0; text-transform: none; margin-bottom: 8px; }
+/* 14/1.4 로 (2026-10-27 카르넷 정밀 감사 D2). 13px/1.5 는 사다리 · 줄 간격 세 값 밖이었다 */
+.qd-workspace--overview .qd-kpi-label { font: 500 14px/1.4 var(--qd-font-ui); letter-spacing: 0; text-transform: none; margin-bottom: 8px; }
 .qd-workspace--overview .qd-kpi-label[data-hangul] { word-spacing: normal; }
 .qd-workspace--overview .qd-kpi-sub { font-size: 14px; line-height: 1.6; }
 /* Atelier's legacy component uses inline styles. These narrow overrides are intentional. */

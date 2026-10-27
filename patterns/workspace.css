@@ -189,7 +189,8 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-workspace--overview .qd-page-head { margin-bottom: 8px; }
 .qd-workspace--overview .qd-page-head-title { font-size: clamp(24px,3vw,32px); line-height: 1.2; }
 .qd-workspace--overview .qd-kpi { padding: 18px 16px; min-height: 116px; }
-.qd-workspace--overview .qd-kpi-label { font: 500 13px/1.5 var(--qd-font-ui); letter-spacing: 0; text-transform: none; margin-bottom: 8px; }
+/* 14/1.4 로 (2026-10-27 카르넷 정밀 감사 D2). 13px/1.5 는 사다리 · 줄 간격 세 값 밖이었다 */
+.qd-workspace--overview .qd-kpi-label { font: 500 14px/1.4 var(--qd-font-ui); letter-spacing: 0; text-transform: none; margin-bottom: 8px; }
 .qd-workspace--overview .qd-kpi-label[data-hangul] { word-spacing: normal; }
 .qd-workspace--overview .qd-kpi-sub { font-size: 14px; line-height: 1.6; }
 /* Atelier's legacy component uses inline styles. These narrow overrides are intentional. */

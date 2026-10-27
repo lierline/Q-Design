@@ -129,8 +129,13 @@ export function TableWrap({ children }: { children: React.ReactNode }) {
   return <div className="qd-table-scroll">{children}</div>;
 }
 
-export function Empty({ children, hint, compact = false }: {
+export function Empty({ children, hint, compact = false, reset }: {
   children: React.ReactNode; hint?: React.ReactNode;
+  /**
+   * 걸러서 빈 목록이면 «조건 풀기» 를 준다 (우리 규칙 I7 · 2026-10-27 감사 U7).
+   * 처음이라 빈 것과 찾아서 없는 것은 다른 화면이다. 후자에 등록 안내를 내면 걸러 놓은 줄 모르고 등록하러 간다.
+   */
+  reset?: { href: string; label?: string };
   /**
    * 한 화면에 판이 여럿인 자리(현황 · 상세 · 판 안의 한 구역)는 좁은 꼴이다.
    * 목록 화면의 목록이 통째로 빈 자리만 넉넉한 꼴(여백 96)로 둔다 - 원본 EmptyState 와 같은 갈래.
@@ -171,6 +176,11 @@ export function Empty({ children, hint, compact = false }: {
     <div className={`qd-empty${compact ? ' qd-empty--compact' : ''}`}>
       <p className="qd-empty-title">{children}</p>
       {hint && <p className="qd-empty-desc">{hint}</p>}
+      {reset && (
+        <p className="qd-empty-actions">
+          <Link href={reset.href} className="qd-text-action">{reset.label ?? '조건 풀기'}</Link>
+        </p>
+      )}
     </div>
   );
 }
@@ -242,10 +252,12 @@ const TONE: Record<string, string> = {
   solid: 'qd-tag--gold qd-tag--primary',
   quiet: 'qd-tag--gray',
   faint: 'qd-tag--tertiary',
+  /* 흔한 끝 상태(종료 · 출고 · 종결 · 회수). 회색 알약에 점만 - 초록은 판정에만 (lib/forms.ts 색 사전 · 2026-10-27) */
+  done: 'qd-tag--gray',
 };
 
 /** 뜻이 있는 상태에만 점을 붙인다 */
-const DOT = new Set(['ok', 'warn', 'danger', 'info', 'brand']);
+const DOT = new Set(['ok', 'warn', 'danger', 'info', 'brand', 'done']);
 
 /**
  * 정본 배지는 라틴 자간(1px)이 기본이라 한글이면 `data-hangul` 로 푼다. 글이 아닌
@@ -286,7 +298,7 @@ export function Warnings({ items }: { items: { kind: string; detail: string }[] 
   if (items.length === 0) return null;
   return (
     <div className="qd-notice block" data-tone="warning" role="note">
-      <p className="text-[length:var(--qd-font-size-12)] font-semibold tracking-wide text-warn">확인하고 진행하십시오</p>
+      <p className="text-[length:var(--qd-font-size-12)] font-semibold text-warn">확인하고 진행하십시오</p>
       <ul className="mt-2 space-y-1.5">
         {items.map((w, i) => (
           <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-ink">

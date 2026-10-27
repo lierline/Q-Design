@@ -426,6 +426,9 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     overflow-wrap: break-word;
   }
   html .qd-btn { line-height: var(--qd-control-leading); }
+  /* 입력칸도 단추와 같은 줄 간격(1.4). 적지 않으면 브라우저 기본 normal(약 1.15 · 글꼴마다 다름)이 서서
+     한 줄의 단추 · 입력칸 높이가 어긋났다(2026-10-27 카르넷 정밀 감사 D3 · 1440 에서 76칸) */
+  html .qd-input { line-height: var(--qd-control-leading); }
   textarea.qd-input {
     line-height: var(--qd-leading-relaxed);
     field-sizing: content;
@@ -448,6 +451,13 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     flex-wrap: wrap;
   }
   html :is(.qd-table-scroll, .qa-scroll-table) { position: relative; min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  /* 옆으로 잘린 표 · 탭 줄은 잘린 쪽 끝을 흐리게 해 «더 있다» 를 말한다(2026-10-27 카르넷 정밀 감사 U12 · U11).
+     잘림은 제품의 작은 스크립트가 data-cut="start end" 로 적는다(Q-Forge components/scroll-cut.tsx · 다른 제품도
+     같은 속성만 적으면 된다). 스크립트가 없으면 아무 표시도 없다. 면이 아니라 마스크라 그림자 금지(F1)와 어긋나지 않는다. 마스크는 알파만 보므로 색은 currentcolor 로 두어
+     테마 검사(색 리터럴)에 걸리지 않게 한다 */
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="end"] { -webkit-mask-image: linear-gradient(to right, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to right, currentcolor calc(100% - 40px), transparent); }
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="start"] { -webkit-mask-image: linear-gradient(to left, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to left, currentcolor calc(100% - 40px), transparent); }
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="start"][data-cut~="end"] { -webkit-mask-image: linear-gradient(to right, transparent, currentcolor 40px, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to right, transparent, currentcolor 40px, currentcolor calc(100% - 40px), transparent); }
   html .qd-table--editable { min-inline-size: var(--qd-editable-table-min-width); }
   :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
 }

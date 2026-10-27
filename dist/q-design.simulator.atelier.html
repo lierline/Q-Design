@@ -901,7 +901,16 @@
   --qd-table-scroll-max-height: 70dvh;
   --qd-table-header-layer: 2;
   --qd-table-description-min-width: 160px;
+  /* 지표 값은 사다리 네 단 중 하나로만 선다 (2026-10-27 카르넷 정밀 감사 D1). 전에는 16cqw 로 칸 폭을
+     따라 22.88 · 21.6 · 36.72px 처럼 사다리 밖 크기가 나왔다. 칸 폭(.qd-kpi 는 inline-size 컨테이너)에 따라
+     40 · 32 · 28 · 24 로 내려간다. 네 값 모두 docs/03 의 아홉 단 안이다 */
   --qd-kpi-size: 40px;
+  --qd-kpi-size-lg: 32px;
+  --qd-kpi-size-md: 28px;
+  --qd-kpi-size-sm: 24px;
+  /* 🔴 아래 둘은 아뜰리에 지표 부품(component-implementations/atelier/lib/design/components.tsx 의 inline clamp)이 아직
+     읽는다. 그 부품을 위 네 단으로 옮기면 함께 걷는다(추출기 extract-screen.mjs 의 Z.kpiValue 정규식도 같이). 카르넷 ·
+     메종의 .qd-kpi-value 는 더 이상 쓰지 않는다 */
   --qd-kpi-min-size: 20px;
   --qd-kpi-fluid-size: 16cqw;
   --qd-motion-fast: 160ms;
@@ -961,7 +970,10 @@
 .qd-page-head-title { font-size: var(--qd-title-size); }
 .qd-table { font-size: var(--qd-table-size); }
 .qd-table td, .qd-table .qd-td { padding: var(--qd-table-pad-y) var(--qd-table-pad-x); }
-.qd-kpi-value { font-size: clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size)); }
+.qd-kpi-value { font-size: var(--qd-kpi-size); }
+@container (width < 260px) { .qd-kpi-value { font-size: var(--qd-kpi-size-lg); } }
+@container (width < 200px) { .qd-kpi-value { font-size: var(--qd-kpi-size-md); } }
+@container (width < 150px) { .qd-kpi-value { font-size: var(--qd-kpi-size-sm); } }
 html[data-theme='light'] {
   --qd-bg: var(--qd-bg-src, var(--qa-bg, #faf9f6));
   --qd-surface: var(--qd-surface-src, var(--qa-surface, #ffffff));
@@ -1242,9 +1254,20 @@ select.qd-input { appearance: auto !important; background-image: none !important
 .qd-mobile-header { position: sticky; top: 0; display: flex; align-items: center; gap: var(--qd-space-3); min-height: var(--qd-mobile-header-height); padding: var(--qd-space-2) var(--qd-space-4); border-bottom: 1px solid var(--qd-border); background: var(--qd-bg); color: var(--qd-text); }
 .qd-mobile-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--qd-section-size); font-weight: 600; }
 
+/* 머리줄의 «뒤로» 는 폰에서만 보인다(아래 640 분기). 기본값은 분기보다 앞에 둬야 분기가 이긴다 */
+.qd-mobile-back { display: none; }
 @media (max-width: 640px) {
   :root { --qd-overlay-padding: 20px; }
   .qd-dialog-actions, .qd-drawer-actions { row-gap: var(--qd-space-3); }
+  /* 탭이 많은 화면(카르넷 설정 14개)은 폰에서 한 줄로 두고 옆으로 민다. 쌓이면 머리만 195px 를 먹었다
+     (2026-10-27 카르넷 정밀 감사 U11). 잘린 쪽은 data-cut 마스크(foundation.css)가 말하고, 켜진 탭은 제품
+     스크립트가 보이는 자리로 민다. 옆으로 넘겨 보는 내용(캐러셀 · F8)이 아니라 차림표다 */
+  .qd-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .qd-tabs > * { flex: 0 0 auto; }
+  .qd-tabs::-webkit-scrollbar { display: none; }
+  /* 폰에서는 떠 있는 «뒤로» 대신 머리줄의 단추로(2026-10-27 카르넷 정밀 감사 U13). 떠 있는 단추가 표 끝 칸 · 지표를
+     덮었다. 모양은 메뉴 단추(.qd-mobile-menu)와 같고, 넓은 화면에서는 숨는다 */
+  .qd-mobile-back { display: inline-flex; }
 }
 .qd-pager[data-layout="contained"] {
   margin-top: 0;
@@ -1758,6 +1781,9 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     overflow-wrap: break-word;
   }
   html .qd-btn { line-height: var(--qd-control-leading); }
+  /* 입력칸도 단추와 같은 줄 간격(1.4). 적지 않으면 브라우저 기본 normal(약 1.15 · 글꼴마다 다름)이 서서
+     한 줄의 단추 · 입력칸 높이가 어긋났다(2026-10-27 카르넷 정밀 감사 D3 · 1440 에서 76칸) */
+  html .qd-input { line-height: var(--qd-control-leading); }
   textarea.qd-input {
     line-height: var(--qd-leading-relaxed);
     field-sizing: content;
@@ -1780,6 +1806,13 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     flex-wrap: wrap;
   }
   html :is(.qd-table-scroll, .qa-scroll-table) { position: relative; min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+  /* 옆으로 잘린 표 · 탭 줄은 잘린 쪽 끝을 흐리게 해 «더 있다» 를 말한다(2026-10-27 카르넷 정밀 감사 U12 · U11).
+     잘림은 제품의 작은 스크립트가 data-cut="start end" 로 적는다(Q-Forge components/scroll-cut.tsx · 다른 제품도
+     같은 속성만 적으면 된다). 스크립트가 없으면 아무 표시도 없다. 면이 아니라 마스크라 그림자 금지(F1)와 어긋나지 않는다. 마스크는 알파만 보므로 색은 currentcolor 로 두어
+     테마 검사(색 리터럴)에 걸리지 않게 한다 */
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="end"] { -webkit-mask-image: linear-gradient(to right, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to right, currentcolor calc(100% - 40px), transparent); }
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="start"] { -webkit-mask-image: linear-gradient(to left, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to left, currentcolor calc(100% - 40px), transparent); }
+  html :is(.qd-table-scroll, .qa-scroll-table, .qd-tabs)[data-cut~="start"][data-cut~="end"] { -webkit-mask-image: linear-gradient(to right, transparent, currentcolor 40px, currentcolor calc(100% - 40px), transparent); mask-image: linear-gradient(to right, transparent, currentcolor 40px, currentcolor calc(100% - 40px), transparent); }
   html .qd-table--editable { min-inline-size: var(--qd-editable-table-min-width); }
   :where(main, [role="main"]) :where(img, video) { max-inline-size: 100%; object-fit: contain; }
 }
