@@ -989,8 +989,12 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
         정본에서 떨어져 나간다.
 
      아래 `.btn-*` 는 현장 화면(.touch · 56px)과 그 화면이 함께 쓰는 부품(잠금 ·
-     숫자 패드 · 개체 번호 찾기 · 시연 알림 · 로그인)에 남는다. `.btn-quiet` 는
-     글귀처럼 보이는 단추라 정본에 짝이 없어 관리 화면에서도 쓴다.
+     숫자 패드 · 개체 번호 찾기 · 시연 알림 · 로그인)에 남는다.
+
+     🔑 관리 화면의 글귀 단추(취소 · 수정 · 지우기 · 더 보기)는 정본 `.qd-text-action`
+        이다 (2026-10-27). 작은 것 = `--sm`, 폼 끝의 취소처럼 단추 높이에 맞출 것 =
+        `--regular`, 위험 = `--danger`(아래). 전에는 `.btn-quiet` 에 h-8 · text-xs 를
+        손으로 붙여 썼다 - 정본에 짝이 없을 때의 일이고, 그래서 68곳이 제각각이었다.
   --------------------------------------------------------------------------- */
   .btn, .btn-primary, .btn-ghost, .btn-danger, .btn-quiet {
     display: inline-flex;
@@ -1034,6 +1038,10 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 
   .btn-danger { background: var(--color-surface); color: var(--color-danger); border-color: var(--color-danger-line); }
   .btn-danger:hover:not(:disabled) { background: var(--color-danger-bg); border-color: var(--color-danger); }
+
+  /* 위험한 글귀 단추(지우기 · 내리기). 정본 글귀의 색만 바꾼다. 마우스를 올려도
+     먹색으로 돌아가지 않게 :hover 까지 적는다 (정본 :hover 가 한 단계 더 세다) */
+  .qd-text-action--danger, .qd-text-action--danger:hover { color: var(--color-danger); }
 
   /* ---------------------------------------------------------------------------
      표
@@ -1632,17 +1640,17 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
 .login-submit:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 /* 판 오른쪽 위의 설명 i (components/info-tip · 오빠 지시 2026-09-15 「설명은 i 에 넣고 올리면 뜨게」).
    공통 44px 조작부 · 모노 i · 조용한 테두리. 판(.info-tip-panel)은 body 에 그린다 */
+/* ⓘ 단추. 아뜰리에 InfoDot 과 같은 22px 동그라미 · 14px 기호 · 테두리 없음 (2026-10-27).
+   전에는 44px 테두리 상자에 12px «i» 라, 로그인 «자동 로그인» 옆에서 상자가 글자보다 컸다.
+   누르는 자리는 함께 붙이는 qd-touch-hit 이 터치 화면에서만 44 로 넓힌다 */
 .info-tip-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: var(--qd-control-icon); min-height: var(--qd-control-icon); border-radius: var(--qd-radius);
-  border: 1px solid var(--color-line-strong); background: transparent; color: var(--color-faint);
-  font-family: var(--font-mono); font-size: var(--qd-caption-size); font-weight: var(--qd-font-weight-semibold); line-height: 1; cursor: help;
-  transition: color var(--qd-motion-fast), border-color var(--qd-motion-fast), background-color var(--qd-motion-fast);
+  display: inline-grid; place-items: center; flex-shrink: 0;
+  width: 1.375rem; height: 1.375rem; border-radius: 50%;
+  border: 0; background: transparent; color: var(--color-muted);
+  font-size: var(--qd-font-size-14); font-weight: var(--qd-font-weight-normal); line-height: 1; cursor: help;
+  transition: color var(--qd-motion-fast);
 }
-.info-tip-btn:hover, .info-tip-btn:focus-visible, .info-tip-btn[aria-expanded="true"] {
-  color: var(--color-brand); border-color: var(--color-brand);
-  background: color-mix(in oklab, var(--color-brand) 8%, transparent);
-}
+.info-tip-btn:hover, .info-tip-btn:focus-visible, .info-tip-btn[aria-expanded="true"] { color: var(--color-brand); }
 .info-tip-panel dt { color: var(--color-ink); }
 .info-tip-panel dd { color: var(--color-muted); }
 

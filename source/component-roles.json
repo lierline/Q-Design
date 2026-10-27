@@ -79,9 +79,29 @@
           "symbols": [
             "BackButton"
           ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.components.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-text-action",
+            ".qd-text-action--sm",
+            ".qd-text-action--regular"
+          ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.foundation.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-text-action--danger"
+          ]
         }
       ],
-      "differences": "Maison Button의 link·ghost, 정렬 머리와 닫기·수정 글귀는 qd-text-action을 사용한다. Atelier 전용 TextAction 및 Carnet 행동 링크의 API는 제품별로 유지한다. 보조 행동을 글자로 두는 결정은 같다."
+      "differences": "Maison Button의 link·ghost, 정렬 머리와 닫기·수정 글귀는 qd-text-action을 사용한다. Carnet 관리 화면의 취소·수정·지우기·더 보기는 2026-10-27부터 native button에 qd-text-action을 붙이며, 위험 색 --danger는 Carnet 기반 CSS에 둔다. 현장 .btn-*(56px)는 별도 역할로 남는다. Atelier 전용 TextAction의 API는 제품별로 유지한다. 보조 행동을 글자로 두는 결정은 같다."
     },
     {
       "id": "text-input",
@@ -371,9 +391,18 @@
           "symbols": [
             "MemberPicker"
           ]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.components.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-checkbox"
+          ]
         }
       ],
-      "differences": "Maison은 native input의 44px 클릭 영역과 16px 표시를 분리해 qd-choice-hit·qd-checkbox·qd-checkbox-mark로 연결한다. 표시만 반경 4px 예외이며 바깥 조작부는 10px다. 체크·중간·사용 불가·초점은 중앙 규칙, native 라벨·키보드·폼 전송은 그대로다. 제품별 Switch와 상태 API는 구분한다."
+      "differences": "Maison은 native input의 44px 클릭 영역과 16px 표시를 분리해 qd-choice-hit·qd-checkbox·qd-checkbox-mark로 연결한다. 표시만 반경 4px 예외이며 바깥 조작부는 10px다. Carnet은 2026-10-27부터 이름표로 감싼 native checkbox에 qd-checkbox만 붙인다(클릭 영역은 이름표 줄). 체크·중간·사용 불가·초점은 중앙 규칙, native 라벨·키보드·폼 전송은 그대로다. 제품별 Switch와 상태 API는 구분한다."
     },
     {
       "id": "choice-chip",
@@ -423,9 +452,18 @@
           "kind": "component",
           "file": "components/shared/check-chip.tsx",
           "symbols": ["CheckChip"]
+        },
+        {
+          "product": "carnet",
+          "kind": "native-class",
+          "file": "app/q-design.components.css",
+          "symbols": [],
+          "selectors": [
+            ".qd-choice"
+          ]
         }
       ],
-      "differences": "Maison CHOICE_ON·CHIP와 FilterChip은 중앙 qd-choice 선택 규칙을 사용한다. 최신 결정에 따라 선택 상태는 옅은 면과 굵은 글자로 표현한다. Atelier 분할 선택과 Carnet ActionChip의 업무 의미는 각각 유지한다."
+      "differences": "Maison CHOICE_ON·CHIP와 FilterChip은 중앙 qd-choice 선택 규칙을 사용한다. Carnet 관리 화면의 고르는 칩(기록 필터 · 기준서 고르기)은 2026-10-27부터 qd-choice를 붙이고, 선택 표시는 button이면 aria-pressed, 링크면 qd-choice--selected와 aria-current로 단다. 최신 결정에 따라 선택 상태는 옅은 면과 굵은 글자로 표현한다. Atelier 분할 선택, Carnet ActionChip과 현장 .chip-pick의 업무 의미는 각각 유지한다."
     },
     {
       "id": "badge",
