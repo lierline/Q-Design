@@ -94,7 +94,8 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     const numeric = readRuntimeValues(fixture);
     numeric.BP.md = 800;
     numeric.BP.lg = 1100;
-    numeric.LAYOUT.detail = 900;
+    numeric.LAYOUT.mobile = 540;
+    numeric.QDRuntime.fields.min = 320;
     numeric.ICON.sizeMd = 24;
     numeric.QDRuntime.grain.tint = 0.63;
     numeric.QDRuntime.alpha.tint0_1 = 0.27;
@@ -132,7 +133,7 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     assert.doesNotMatch(compiled, /qd-bp\(/);
     run('extract-tokens.mjs');
     const numericTokens = JSON.parse(readFileSync(join(fixture, 'dist/q-design.tokens.json'), 'utf8'));
-    assert.equal(numericTokens.space.layout.detail, 900);
+    assert.equal(numericTokens.space.layout.mobile, 540);
     assert.equal(numericTokens.breakpoint.lg, 1100);
     assert.equal(numericTokens.icon.sizeMd, 24);
     const changed = css.replace('--qd-radius: 10px;', '--qd-radius: 14px;')
@@ -219,7 +220,8 @@ test('nav, list and screen regeneration follows central changes and rejects brok
     assert.equal(screen.head.titleSize, 28);
     assert.equal(screen.head.stackBelow, 799);
     assert.equal(screen.input.narrowBelow, 1099);
-    assert.equal(screen.shell.detail, 900);
+    assert.equal(screen.shell.mobile, 540);
+    assert.equal(screen.fields.min, 320);
     assert.deepEqual(screen.main, { top: 36, right: 44, bottom: 28, left: 42 });
     assert.equal(screen.section.fontSize, 18);
     assert.equal(screen.btn.fontSize, 15);

@@ -1,23 +1,15 @@
 // =============================================================================
-// 화면 셸: 폭은 토큰으로, 정렬은 가운데로 (2026-08-30)
+// 화면 셸: 상세 · 폼은 좁히지 않는다 (2026-10-27 오너 결정 «3» 꽉 채움 + 칸 자동)
 // =============================================================================
-// 🔴 오빠 지적. 「교육과정등록 메뉴는 왜 또 왼쪽에 UI 가 치우쳐져 있어? 디자인을
-//    전체다 통일성 있게 잡아야 할 거 같은데」
+// 2026-08-30 판은 «폭은 LAYOUT 토큰(form 720 · detail 820 · wide 1140)에서 고르고 가운데로» 를
+// 지켰다. 2026-10-27 운영 1920 실측에서 그 폭이 본문의 절반을 비우고, 같은 «상세» 가
+// 820 · 1140 · 꽉 채움 세 갈래로 갈려 있었다(상세 16 · 3 · 8, 새로 만들기 17 · 3 · 10).
+// 오너가 운영 화면에 입힌 시안 다섯 장을 보고 «3» 을 골랐다.
 //
-//    실측해 보니 `maxWidth: LAYOUT.*` 를 쓰는 54곳 중 **53곳은 가운데 정렬이 있었고
-//    교육 과정 등록 한 곳만 `margin: '0 auto'` 가 빠져 있었다.** 폭은 720 으로 맞춰
-//    두고 정렬만 빠뜨렸으니, 넓은 화면에서 그 화면만 왼쪽에 붙는다.
+//   ① 상세 · 폼 화면은 공용 틀 `PageShell`(폭 제한 없음) 하나에 둔다. 칸은 `Fields` 격자.
+//   ② 화면 셸을 가운데로 좁히는 것은 현장 모드(LAYOUT.mobile)뿐이다.
 //
-//    같이 재 보니 폭 쪽에도 다섯 곳이 눈금 밖이었다(1100 · 1080 · 920 · 860 · 640).
-//    전부 토큰에서 40~100px 씩 어긋난 값이라 «의도한 예외» 가 아니라 그때그때 손으로
-//    적은 숫자였다.
-//
-// 🔑 통일성은 «눈으로 훑어» 지키는 것이 아니라 **눈금을 하나만 두고 거기서 고르게**
-//    해서 지킨다. 그래서 이 계약은 두 가지만 본다.
-//      ① 화면 셸의 폭은 LAYOUT 토큰에서 고른다 (숫자를 직접 적지 않는다)
-//      ② 폭을 잡았으면 가운데로 놓는다
-//
-// 「화면 셸」의 정의: 가운데 정렬된 폭 600px 이상의 컨테이너. 진행바(220)·표 셀(150)·
+// 「화면 셸」의 정의는 그대로: 가운데 정렬된 폭 600px 이상의 컨테이너. 진행바(220)·표 셀(150)·
 // 모달(480) 같은 «안쪽 요소» 는 대상이 아니다. 그것들은 화면 폭이 아니라 부품 폭이다.
 
 import { describe, it, expect } from 'vitest';
@@ -103,13 +95,25 @@ function scan(): Shell[] {
 
 const isExempt = (s: Shell) => EXEMPT.some((e) => e.file === s.file && s.src.includes(e.match));
 
-describe('화면 셸은 눈금 하나에서 고른다', () => {
+/** 공용 틀을 쓰는 파일. 스캔이 죽으면 0 이 된다. */
+function pageShellFiles(): string[] {
+  const out: string[] = [];
+  for (const base of SCAN_DIRS) {
+    for (const p of tsxFiles(join(ROOT, base))) {
+      if (/<PageShell>/.test(readFileSync(p, 'utf-8'))) out.push(relative(ROOT, p).split(sep).join('/'));
+    }
+  }
+  return out;
+}
+
+describe('상세 · 폼 화면은 좁히지 않는다 (2026-10-27 «3»)', () => {
   const shells = scan();
 
   it('스캔이 살아 있다', () => {
     // 정규식이 죽거나 폴더가 옮겨지면 «0곳» 으로 조용히 통과한다.
-    expect(shells.length, '화면 셸을 하나도 못 찾았다').toBeGreaterThan(30);
-    expect(shells.filter((s) => s.token).length, '토큰을 쓰는 셸이 없다').toBeGreaterThan(30);
+    expect(pageShellFiles().length, '공용 틀(PageShell)을 쓰는 화면을 못 찾았다').toBeGreaterThan(50);
+    expect(shells.filter((s) => s.token === 'mobile').length, '현장 셸(LAYOUT.mobile)을 못 찾았다').toBeGreaterThan(0);
+    expect(Object.keys(LAYOUT), 'LAYOUT 에는 현장 폭만 둔다. 상세 · 폼 폭을 되살리지 말 것').toEqual(['mobile']);
     for (const e of EXEMPT) {
       const found = shells.find((s) => s.file === e.file && s.src.includes(e.match));
       expect(found, `면제가 낡았다: ${e.file} 에 「${e.match}」 가 더 이상 없다`).toBeTruthy();
@@ -117,20 +121,20 @@ describe('화면 셸은 눈금 하나에서 고른다', () => {
     }
   });
 
-  it('폭은 LAYOUT 토큰에서 고른다', () => {
+  it('화면 셸을 좁히는 것은 현장 모드뿐이다', () => {
     const offenders = shells
-      .filter((s) => !s.token && !isExempt(s))
+      .filter((s) => s.token !== 'mobile' && !isExempt(s))
       .map((s) => `${s.file}:${s.line}  (${s.px}px)\n    ${s.src.slice(0, 120)}`);
     expect(
       offenders,
-      '화면 셸 폭에 숫자를 직접 적었다. 눈금이 둘이 되면 화면마다 조금씩 어긋난다. '
-        + `LAYOUT 에서 고를 것 (${Object.entries(LAYOUT).map(([k, v]) => `${k}=${v}`).join(' · ')})`,
+      '상세 · 폼 화면을 가운데로 좁혔다. 2026-10-27 오너 결정 «3»: 상세 · 폼은 꽉 채운다. '
+        + '화면 뿌리는 PageShell, 칸은 Fields(긴 칸은 wide) 로 놓을 것.',
     ).toEqual([]);
   });
 
-  it('폭을 잡았으면 가운데로 놓는다', () => {
+  it('현장 셸은 가운데로 놓는다', () => {
     const offenders = shells
-      .filter((s) => !s.centered && !isExempt(s))
+      .filter((s) => s.token === 'mobile' && !s.centered)
       .map((s) => `${s.file}:${s.line}\n    ${s.src.slice(0, 120)}`);
     expect(
       offenders,

@@ -18,13 +18,13 @@
 //   .qd-section-title 판 밖의 구역 이름. 본문색 16/700 + 금색 모노 번호 (2026-10-10 글자 단계 C안 · 이전: 금색 모노 12px)
 //   .qd-field-label   입력칸 위 이름표. 모노 · subtle (같은 날)
 //   .qd-tabs          화면 안을 가르는 탭 줄. 금색 밑줄 (같은 날)
-//   .qd-shell-*   읽는 화면 820 · 쓰는 화면 720 으로 좁히고 가운데
+//   .qd-shell-field 현장 모드 520 · 가운데 (상세 · 폼의 공용 틀과 칸 격자는 page-shell-css.mjs)
 //
-// ── 폭이 왜 규격인가 ─────────────────────────────────────────────────────────
-// 저쪽 화면을 재 보면 **상세는 820 · 폼은 720 으로 좁히고 가운데** 둡니다.
-// 전체폭으로 펼치면 글줄이 120자를 넘어 읽는 눈이 줄을 잃습니다. 목록만 폭
-// 제한이 없는데, 표와 행은 넓을수록 좋기 때문입니다.
-// 「인상을 만드는 것」의 상당 부분이 이 규칙입니다 (Q-Design 11).
+// ── 폭 ───────────────────────────────────────────────────────────────────────
+// 2026-10-27 까지는 상세 820 · 폼 720 으로 좁히고 가운데 두었습니다. 1920 모니터에서
+// 본문의 절반(780px)이 비었고, 칸이 «최대 두 칸» 이라 틀만 넓히면 칸이 800px 로 늘어나
+// 좁혀 둘 수밖에 없었습니다. 오너가 운영 화면에 입힌 시안 다섯 장을 보고 «3» 을 골랐습니다:
+// 틀은 꽉 채우고, 칸은 폭(fields.min)을 지키며 들어가는 만큼 한 줄에 놓고, 긴 칸은 줄 끝까지.
 // =============================================================================
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -216,11 +216,14 @@ for (const [k, v] of [['단추', spec.btn.radius], ['입력칸', spec.input.radi
   if (v !== qd.pixels('QD.radius')) throw new Error(`${k} 모서리가 Q-Design 정본과 다릅니다.`);
 }
 
-/* The Q-Design numeric UI contract owns shell widths. */
+/* The Q-Design numeric UI contract owns shell widths and the field grid. */
 {
   for (const [name, value] of Object.entries(runtime.LAYOUT)) put(spec, `shell.${name}`, value);
-  for (const k of ['mobile', 'form', 'detail', 'wide']) {
-    if (!spec.shell?.[k]) throw new Error(`셸 폭 ${k} 를 못 읽었습니다.`);
+  if (!spec.shell?.mobile) throw new Error('셸 폭 mobile 을 못 읽었습니다.');
+  for (const k of ['min', 'gapX', 'gapY', 'groupGap']) {
+    const v = runtime.QDRuntime.fields?.[k];
+    if (!Number.isFinite(v) || v <= 0) throw new Error(`칸 격자 ${k} 를 못 읽었습니다.`);
+    put(spec, `fields.${k}`, v);
   }
 }
 
@@ -337,7 +340,7 @@ if (spec.kpi.valueSize < spec.kpi.valueMin) throw new Error('KPI 최대 크기�
 for (const [name, value] of Object.entries(spec.shell)) {
   if (!Number.isFinite(value) || value <= 0 || value !== runtime.LAYOUT[name]) throw new Error(`Invalid central shell width: ${name}`);
 }
-if (!(spec.shell.mobile <= spec.shell.form && spec.shell.form <= spec.shell.detail && spec.shell.detail <= spec.shell.wide)) throw new Error('Central shell widths must increase from mobile to wide.');
+if (Object.keys(spec.shell).join() !== 'mobile') throw new Error('상세 · 폼 화면은 폭을 좁히지 않습니다(2026-10-27 «3»). LAYOUT 에는 현장 폭 mobile 만 둡니다.');
 
 // ── CSS ──────────────────────────────────────────────────────────────────────
 /* 이름은 차림표 · 목록 정본과 같게 둡니다(borderHi · danger). 한 변수를 두 이름으로 부르면 제품이 둘 다 이어야 합니다 */
@@ -376,7 +379,7 @@ const css = `/* ================================================================
      .qd-section-title  판 밖의 구역 이름(본문색 16/700 · 금색 모노 번호)
      .qd-field-label    입력칸 위 이름표(모노 · subtle)
      .qd-tabs · .qd-tab 화면 안을 가르는 탭 줄(금색 밑줄)
-     .qd-shell-*    폭을 좁히고 가운데 두는 규칙
+     .qd-shell-field 현장 520 (상세 · 폼의 공용 틀 · 칸 격자는 q-design.workspace.css)
 
    색은 \`q-design.nav.css\` 와 같은 \`--qd-*\` 를 읽습니다.
    ============================================================================= */
@@ -782,18 +785,12 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 }
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────
-   🔑 **읽는 화면은 좁힙니다.** 전체폭으로 펼치면 글줄이 길어져 눈이 줄을 잃습니다.
-   목록만 폭 제한이 없습니다 - 표와 행은 넓을수록 좋기 때문입니다.
+   2026-10-27 오너 결정 «3»: 상세 · 폼 화면은 꽉 채웁니다. 좁히는 것은 현장 모드뿐입니다.
+   상세 · 폼의 공용 틀(.qd-shell-page)과 칸 격자(.qd-fields)는 세 제품이 모두 받는
+   q-design.workspace.css 에 있습니다(tools/page-shell-css.mjs). 아뜰리에는 이 파일을 받지 않습니다.
 
-     현장  ${spec.shell.mobile}   장갑 낀 손으로 한 번에 한 가지
-     폼    ${spec.shell.form}   쓰는 화면
-     상세  ${spec.shell.detail}   읽는 화면
-     2단   ${spec.shell.wide}  본문 + 옆단
-     목록  제한 없음 */
+     현장  ${spec.shell.mobile}   장갑 낀 손으로 한 번에 한 가지 */
 .qd-shell-field  { max-width: ${px(spec.shell.mobile)}; margin-left: auto; margin-right: auto; }
-.qd-shell-form   { max-width: ${px(spec.shell.form)}; margin-left: auto; margin-right: auto; }
-.qd-shell-detail { max-width: ${px(spec.shell.detail)}; margin-left: auto; margin-right: auto; }
-.qd-shell-wide   { max-width: ${px(spec.shell.wide)}; margin-left: auto; margin-right: auto; }
 
 /* 본문 여백. sticky 밴드가 이 값을 실측해 inset 을 잡는 제품이 있어 변수로도 냅니다. */
 :root {
@@ -835,5 +832,5 @@ console.log(`dist/q-design.screen.json  치수 ${flat(spec).length} 개`);
 console.log('');
 console.log(`  KPI    ${spec.kpi.padding} · 최소높이 ${spec.kpi.minHeight} · 숫자 ${spec.kpi.valueMin}~${spec.kpi.valueSize}(${spec.kpi.valueFluid}cqw)/${spec.kpi.valueWeight}`);
 console.log(`  격자   minmax(${spec.kpi.gridMinCol}) · gap ${spec.kpi.gridGap}`);
-console.log(`  폭     현장 ${spec.shell.mobile} · 폼 ${spec.shell.form} · 상세 ${spec.shell.detail} · 2단 ${spec.shell.wide}`);
+console.log(`  폭     현장 ${spec.shell.mobile} · 상세 · 폼 꽉 채움 · 칸 ${spec.fields.min} (간격 ${spec.fields.gapY}/${spec.fields.gapX} · 묶음 사이 ${spec.fields.groupGap}, 긴 칸은 줄 끝까지)`);
 console.log(`  본문   ${spec.main.top}px ${spec.main.right}px`);

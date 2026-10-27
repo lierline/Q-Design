@@ -12,10 +12,7 @@ export const BP = {
 } as const;
 
 export const LAYOUT = {
-  "mobile": 520,
-  "form": 720,
-  "detail": 820,
-  "wide": 1140
+  "mobile": 520
 } as const;
 
 export const ICON = {
@@ -56,6 +53,12 @@ export const QDRuntime = {
   },
   "grid": {
     "roundingAllowance": 1
+  },
+  "fields": {
+    "min": 300,
+    "gapX": 12,
+    "gapY": 16,
+    "groupGap": 24
   },
   "ribbon": {
     "durationSeconds": 1.7

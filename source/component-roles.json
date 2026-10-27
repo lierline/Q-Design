@@ -1478,6 +1478,30 @@
       "differences": "Atelier는 FormSection과 FormActions, Maison은 편집 패널·행 편집기·일괄 저장, Carnet은 Panel과 Field 조합이다. 공통 제목·입력 외형을 사용해도 업무 동작은 제품 전용이다."
     },
     {
+      "id": "page-shell-fields",
+      "label": "상세·폼 틀·칸 격자",
+      "canon": {
+        "status": "css-canon",
+        "evidence": [
+          "docs/07-screens.md",
+          "docs/04-space-layout.md",
+          "tools/page-shell-css.mjs"
+        ]
+      },
+      "implementations": [
+        {
+          "product": "atelier",
+          "kind": "component",
+          "file": "lib/design/components.tsx",
+          "symbols": [
+            "PageShell",
+            "Fields"
+          ]
+        }
+      ],
+      "differences": "2026-10-27 오너 결정 «3»(꽉 채움 + 칸 자동). 정본 CSS(.qd-shell-page · .qd-fields · .qd-field-wide)는 세 제품이 받지만 화면을 옮긴 것은 Atelier 뿐이다. Maison · Carnet 은 고정 열 격자(grid-cols-2 · 3)가 남아 있고, Carnet 의 PageShell 은 머리와 본문 폭을 맡는 다른 부품이다."
+    },
+    {
       "id": "stages",
       "label": "단계·결재 표시",
       "canon": {

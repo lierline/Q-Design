@@ -181,7 +181,8 @@ export function In({
       onBlur={onBlur}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
-      placeholder={placeholder}
+      // 칸 안 회색 안내는 적을 수 있을 때만(2026-10-27). 잠긴 빈 칸에 «예: …» 가 남으면 적힌 값처럼 읽힌다
+      placeholder={ro ? undefined : placeholder}
       readOnly={ro}
       disabled={disabled}
       required={required}
@@ -313,7 +314,7 @@ export function Txt({ value, onChange, rows = QDPresentation.commonDefaults.text
       value={value}
       onChange={onChange}
       rows={rows}
-      placeholder={placeholder}
+      placeholder={ro ? undefined : placeholder}
       readOnly={ro}
       disabled={disabled}
       id={id}
@@ -1113,6 +1114,8 @@ export function InlineStrong({ text }: { text: string }) {
 }
 
 // ─── FIELD ROW ───────────────────────────────────────────────────────────────
+/** 칸 이름 옆에 보이는 도움말의 최대 글자 수. 넘으면 칸 ⓘ 안으로 간다(FldRow 참조). */
+export const FIELD_HINT_MAX = 20;
 export function FldRow({
   label,
   required,
@@ -1121,6 +1124,7 @@ export function FldRow({
   info,
   error,
   htmlFor,
+  wide,
   children,
 }: {
   label: ReactNode;
@@ -1131,7 +1135,7 @@ export function FldRow({
    * 음성에도 전달된다. hint 로 대신하면 label 바깥 형제가 되어 그 정보가 사라진다.
    */
   optional?: boolean;
-  /** 라벨 우측 11px 도움말 (form fill 안내). 짧은 형식 안내(«YYYY-MM-DD» · «최대 10MB»)에만. 설명 문장은 info 로. */
+  /** 라벨 우측 도움말. 짧은 형식 안내(«YYYY-MM-DD» · «최소 5자»)에만. FIELD_HINT_MAX 자를 넘는 글귀는 ⓘ 안으로 들어간다. 설명 문장은 info 로, 적을 내용 · 예는 placeholder 로. */
   hint?: ReactNode;
   /** 칸 ⓘ: 이 칸에 무엇을 넣는지 · 고르면 무엇이 달라지는지(2026-10-08 «설명 글귀는 ⓘ 안으로»). 이름표 옆 InfoDot. */
   info?: ReactNode;
@@ -1139,6 +1143,8 @@ export function FldRow({
   error?: string | null;
   /** label htmlFor 연결: 접근성(WCAG 2.1) + 라벨 클릭 시 input 포커스. */
   htmlFor?: string;
+  /** 칸 격자(`Fields`) 안에서 줄 끝까지 쓴다. 주소 · 비고 · 여러 줄 글처럼 긴 칸 (2026-10-27 오너 결정 «3»). */
+  wide?: boolean;
   children: ReactNode;
 }) {
   // htmlFor 유무로 «요소»는 달라지지만 «모습»은 하나여야 한다.
@@ -1155,6 +1161,15 @@ export function FldRow({
   const hintId = htmlFor && hint ? `${htmlFor}-hint` : undefined;
   const errorId = htmlFor && error ? `${htmlFor}-error` : undefined;
   const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined;
+  // 칸 이름 옆에는 짧은 형식 안내만 보인다(2026-10-27). 긴 문장은 이름과 눈길을 다투고 이름 줄을
+  // 여러 줄로 밀어 칸을 내려앉혔다. 그런 글귀는 칸 ⓘ 안으로 보내고, 낭독기에는 칸 설명으로 그대로 잇는다.
+  // 무엇을 적는지 · 예는 칸 안 회색 안내(placeholder)가 맡는다.
+  const hintInDot = typeof hint === 'string' && hint.length > FIELD_HINT_MAX;
+  const dot = hintInDot
+    ? info
+      ? <>{info}<span style={{ display: 'block', marginTop: QDScale.space[2] }}>{hint}</span></>
+      : hint
+    : info;
   const labelNode = (
     <>
       {label}
@@ -1174,18 +1189,20 @@ export function FldRow({
     </>
   );
   return (
-    <div>
+    <div className={wide ? 'qd-field-wide' : undefined}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: QDScale.space[2], marginBottom: 'var(--qd-field-gap)' }}>
         {htmlFor ? (
           <label htmlFor={htmlFor} style={lblStyleFor(label)}>{labelNode}</label>
         ) : (
           <span style={lblStyleFor(label)}>{labelNode}</span>
         )}
-        {info && (
-          <InfoDot label={typeof label === 'string' ? `${label} 설명 보기` : '칸 설명 보기'}>{info}</InfoDot>
+        {dot && (
+          <InfoDot label={typeof label === 'string' ? `${label} 설명 보기` : '칸 설명 보기'}>{dot}</InfoDot>
         )}
         {hint && (
-          <span id={hintId} className="qd-field-hint" style={{ fontSize: QD.captionSize, color: T.muted, fontFamily: QDScale.family.ui }}>
+          // 공용 .qd-field-hint 는 «칸 아래» 도움말이라 위를 4px 띄운다. 여기서는 이름 옆이라 그 여백이 이름 줄을 4px 키워,
+          // 도움말이 있는 칸만 입력 상자가 옆 칸보다 내려앉았다(2026-10-27 실측 19.2 → 23.2). 위 여백을 지운다.
+          <span id={hintId} className={hintInDot ? undefined : 'qd-field-hint'} style={hintInDot ? SR_ONLY : { fontSize: QD.captionSize, color: T.muted, fontFamily: QDScale.family.ui, marginTop: 0 }}>
             {hint}
           </span>
         )}
@@ -1248,6 +1265,7 @@ export function Field({
   hint,
   info,
   error,
+  wide,
   children,
 }: {
   /** input/select/textarea 의 id: htmlFor 연결. 필수. */
@@ -1260,10 +1278,12 @@ export function Field({
   /** 칸 ⓘ. FldRow 참조. */
   info?: ReactNode;
   error?: string | null;
+  /** 칸 격자 안에서 줄 끝까지. FldRow 참조. */
+  wide?: boolean;
   children: ReactNode;
 }) {
   return (
-    <FldRow label={label} required={required} optional={optional} hint={hint} info={info} error={error} htmlFor={id}>
+    <FldRow label={label} required={required} optional={optional} hint={hint} info={info} error={error} htmlFor={id} wide={wide}>
       {children}
     </FldRow>
   );
@@ -2406,6 +2426,43 @@ export function foldGrid(
     minWidth: 0,
     gap: opts.rowGap === undefined ? gap : `${length(opts.rowGap)} ${length(gap)}`,
   };
+}
+
+/**
+ * 상세 · 폼 화면의 공용 틀 (2026-10-27 오너 결정 «3» 꽉 채움 + 칸 자동).
+ *
+ * 그전에는 화면마다 `maxWidth: LAYOUT.detail(820) · form(720) · wide(1140)` 를 손으로 적고 가운데 두었다.
+ * 1920 모니터에서 본문의 절반이 비었고, 같은 «상세» 가 820 · 1140 · 꽉 채움 세 갈래로 갈렸다
+ * (운영 1920 실측: 상세 16 · 3 · 8, 새로 만들기 17 · 3 · 10). 폭을 화면이 정하지 않고 이 틀 하나가 정한다.
+ * 칸은 `Fields` 에 놓는다. 틀이 넓어지면 칸이 늘어나지 않고 한 줄의 칸 수가 늘어난다.
+ */
+export function PageShell({ children }: { children: ReactNode }) {
+  return <div className="qd-shell-page">{children}</div>;
+}
+
+/**
+ * 칸 격자 (2026-10-27). 칸 하나의 폭(정본 `fields.min` 300)을 지키며 들어가는 만큼 한 줄에 놓는다.
+ * 1920 에서 다섯 칸, 1366 에서 세 칸, 폰에서 한 칸. 긴 칸은 `<Field wide>` 로 줄 끝까지 쓴다
+ * (정본 CSS `.qd-fields` · `.qd-field-wide`). 처음 두 칸 폭은 세 칸 줄에서 옆에 빈 칸을 남겨 같은 날 고쳤다.
+ *
+ * `foldGrid(n)` 은 «최대 n 칸» 이라 넓은 틀에서 칸이 늘어난다. 화면 본문의 입력 칸에는 이것을 쓰고,
+ * 모달 · 좁은 카드처럼 칸 수가 정해진 자리에는 foldGrid 를 그대로 쓴다.
+ * 격자의 바로 아래 자식이 칸이어야 한다. Field 가 아닌 칸을 줄 끝까지 걸치려면 `className="qd-field-wide"`.
+ */
+export function Fields({ children }: { children: ReactNode }) {
+  return <div className="qd-fields">{children}</div>;
+}
+
+/**
+ * 칸 묶음 모음 (2026-10-27). 한 구역 안에서 칸을 뜻으로 나눠 `Fields` 를 잇달아 놓을 때 감싼다
+ * (누구를 언제 / 관찰과 판정처럼). 묶음 사이는 정본 `fields.groupGap` 24 로, 줄 사이 16 보다 넓어
+ * 묶음이 보인다. 묶음마다 이름을 달 때는 이름과 `Fields` 를 div 하나에 넣어 자식으로 둔다.
+ *
+ * `Fields` 를 맨몸으로 잇달아 두면 묶음 사이가 놓인 상자의 간격을 따라 화면마다 12 · 36 · 48 로 갈렸다.
+ * 이 상자가 간격을 혼자 쥐므로 어느 상자 안에 놓여도 24 다.
+ */
+export function FieldGroups({ children }: { children: ReactNode }) {
+  return <div className="qd-field-groups">{children}</div>;
 }
 
 // ─── KPI ─────────────────────────────────────────────────────────────────────

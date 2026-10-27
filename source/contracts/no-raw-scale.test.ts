@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { LAYOUT } from './q-design-runtime';
 
 // =============================================================================
 // 디자인 가드: 스케일 토큰 baseline 동결 (no-new-hex.test 패턴 확장)
@@ -238,19 +239,20 @@ describe('디자인 가드: 스케일 토큰 baseline 동결', () => {
 // 으로 5종 분화해 있었다. 사이드바로 화면을 옮길 때마다 본문 컬럼이 20~40px 씩
 // 덜컹거려, 「목록으로」 백링크와 제목의 시작 x좌표가 화면마다 달라졌다.
 //
-// 이 가드는 **LAYOUT 에 등록된 값**(520·720·820·1140)의 raw 사용만 막는다.
+// 이 가드는 **LAYOUT 에 등록된 값**의 raw 사용만 막는다. 값은 LAYOUT 에서 읽는다(손으로 적은 사본 금지).
 // 그 밖의 값(프로그레스바 220·말줄임 280·필드 320 같은 지역 캡)은 자유: 셸이 아니다.
 // baseline 이 아니라 **0 유지**인 이유: 이번 라운드에서 43파일을 전부 토큰으로
 // 옮겼으므로 신규 유입만 막으면 된다.
-const LAYOUT_VALUES = [520, 720, 820, 1140];
+//
+// 2026-10-27 오너 결정 «3»: 상세 · 폼 화면은 좁히지 않아 LAYOUT 에는 현장 폭(mobile 520)만 남았다.
+// form 720 · detail 820 · wide 1140 은 더는 셸 폭이 아니므로, 설명 문단의 읽기 폭(720) 같은
+// 다른 축을 위한 면제도 걷었다. 상세 · 폼을 다시 좁히는 것은 page-shell-contract 가 막는다.
+const LAYOUT_VALUES: number[] = Object.values(LAYOUT);
 // 페이지 셸이 아닌 «다른 축»이라 의도적으로 raw 를 유지하는 곳.
-const SHELL_EXEMPT = [
-  // 산문 measure: 설명 문단의 가독폭. 폼 폭과 함께 움직이면 안 된다.
-  'app/(app)/research/[code]/settings/page.tsx',
-];
+const SHELL_EXEMPT: string[] = [];
 
 describe('디자인 가드: 페이지 셸 폭은 LAYOUT 토큰', () => {
-  it('LAYOUT 에 등록된 폭(520·720·820·1140)을 raw 로 쓰지 않는다', () => {
+  it(`LAYOUT 에 등록된 폭(${LAYOUT_VALUES.join('·')})을 raw 로 쓰지 않는다`, () => {
     const offenders: string[] = [];
     for (const { rel, text: src } of sourceFiles()) {
       if (rel === 'lib/design/tokens.ts') continue;
@@ -269,7 +271,7 @@ describe('디자인 가드: 페이지 셸 폭은 LAYOUT 토큰', () => {
     }
     expect(
       offenders,
-      `페이지 셸 폭은 LAYOUT.* 를 쓰세요 (mobile/form/detail/wide).\n` +
+      `페이지 셸 폭은 LAYOUT.* 를 쓰세요 (${Object.keys(LAYOUT).join('/')}).\n` +
         `지역 캡(프로그레스바·필드 폭 등)이라면 LAYOUT 에 없는 값을 쓰거나 SHELL_EXEMPT 에 등록하세요.\n` +
         offenders.join('\n'),
     ).toEqual([]);

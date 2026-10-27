@@ -172,6 +172,11 @@ test('input states and reduced motion remain part of the shared canon', () => {
   assert.equal(disabled.background, 'var(--qd-bg)');
   assert.equal(disabled.color, 'var(--qd-muted)');
   assert.equal(disabled.cursor, 'not-allowed');
+  // 잠긴 칸 · 꺼진 칸은 적는 칸과 같은 흰 상자 · 진한 테두리로 두지 않는다(2026-10-27)
+  assert.equal(disabled['border-color'], 'var(--qd-border)');
+  const readonly = declarations('.qd-input[readonly]');
+  assert.equal(readonly.background, 'var(--qd-bg)');
+  assert.equal(readonly['border-color'], 'var(--qd-border)');
   const reduced = declarations(':root', /prefers-reduced-motion:\s*reduce/);
   assert.equal(reduced['--qd-motion-fast'], '0ms');
   assert.equal(reduced['--qd-motion-normal'], '0ms');

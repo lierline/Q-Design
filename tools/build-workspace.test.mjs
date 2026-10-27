@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { composeWorkspace, buildWorkspace } from './build-workspace.mjs';
+import { pageShellCss, readPageShellCss } from './page-shell-css.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -16,10 +17,30 @@ test('compose joins the two canon files with LF, one blank line and one trailing
   assert.equal(composeWorkspace('a', 'b'), 'a\n\nb\n');
 });
 
-test('stored output is the composition of the canon and ends with the short text-action targets', () => {
+test('stored output is the composition of the canon, the text-action targets and the page shell', () => {
   const output = buildWorkspace({ check: true });
-  assert.equal(output, composeWorkspace(read('patterns/workspace.css'), read('patterns/action-targets.css')));
-  assert.ok(output.trimEnd().endsWith(read('patterns/action-targets.css').replaceAll('\r\n', '\n').trimEnd()));
+  assert.equal(output, composeWorkspace(read('patterns/workspace.css'), read('patterns/action-targets.css'), readPageShellCss(root)));
+  assert.ok(output.includes(read('patterns/action-targets.css').replaceAll('\r\n', '\n').trimEnd()));
+  assert.ok(output.trimEnd().endsWith(readPageShellCss(root).trimEnd()));
+});
+
+test('page shell: detail and form screens are not narrowed and the field grid keeps the field width (2026-10-27 «3»)', () => {
+  const css = readPageShellCss(root);
+  assert.doesNotMatch(css, /\.qd-shell-page\s*\{[^}]*max-width/);
+  assert.match(css, /\.qd-fields\s*\{[^}]*repeat\(auto-fill, minmax\(min\(100%, 300px\), 1fr\)\)/);
+  // 긴 칸은 줄 끝까지. 몇 칸이 드는 폭이든 옆에 빈 칸이 남지 않고, 한 칸뿐인 폰에서도 넘치지 않는다
+  assert.match(css, /\.qd-fields > \.qd-field-wide \{ grid-column: 1 \/ -1; \}/);
+  assert.doesNotMatch(css, /span 2/);
+  // 이어 놓은 칸 묶음 사이는 묶음 모음 상자 하나가 정본 값으로 쥔다(놓인 상자의 간격을 따라 갈리지 않게)
+  assert.match(css, /\.qd-field-groups \{ display: flex; flex-direction: column; gap: 24px; min-width: 0; \}/);
+  assert.doesNotMatch(css, /\.qd-fields \+ \.qd-fields|--qd-stack-gap/);
+  const runtime = { LAYOUT: { mobile: 520 }, QDRuntime: { fields: { min: 280, gapX: 10, gapY: 16, groupGap: 20 } } };
+  assert.match(pageShellCss(runtime), /minmax\(min\(100%, 280px\), 1fr\)/);
+  assert.match(pageShellCss(runtime), /gap: 16px 10px/);
+  assert.match(pageShellCss(runtime), /\.qd-field-groups \{[^}]*gap: 20px/);
+  assert.throws(() => pageShellCss({ ...runtime, QDRuntime: { fields: { min: 280, gapX: 10, gapY: 16, groupGap: 16 } } }), /묶음 사이/);
+  assert.throws(() => pageShellCss({ ...runtime, LAYOUT: { mobile: 520, detail: 820 } }), /좁히지 않습니다/);
+  assert.throws(() => pageShellCss({ ...runtime, QDRuntime: { fields: { min: 300, gapX: 12, groupGap: 24 } } }), /gapY/);
 });
 
 test('short text actions keep the shared touch target of at least 44px', () => {
@@ -33,7 +54,7 @@ test('short text actions keep the shared touch target of at least 44px', () => {
 test('check mode fails on a stale output and write mode refreshes it', () => {
   const base = fs.mkdtempSync(path.join(os.tmpdir(), 'qd-workspace-'));
   try {
-    for (const file of ['patterns/workspace.css', 'patterns/action-targets.css', 'dist/q-design.workspace.css']) {
+    for (const file of ['patterns/workspace.css', 'patterns/action-targets.css', 'dist/q-design.workspace.css', 'source/design/atelier-runtime.ts']) {
       fs.mkdirSync(path.dirname(path.join(base, file)), { recursive: true });
       fs.copyFileSync(path.join(root, file), path.join(base, file));
     }

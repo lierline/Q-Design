@@ -241,3 +241,26 @@ html:not(.dark):not([data-theme='dark']) .qd-workspace[data-product='maison'] { 
 .qd-text-action { min-width: var(--qd-control-height); }
 /* A legacy focus reset must not change the shared control shape. */
 .qd-text-action:focus-visible { border-radius: var(--qd-radius) !important; }
+
+/* ── 상세 · 폼 화면의 공용 틀과 칸 격자 (2026-10-27 오너 결정 «3») ─────────────
+   만든 곳: tools/page-shell-css.mjs · 값: source/design/atelier-runtime.ts QDRuntime.fields
+
+   상세 · 폼 화면은 폭을 좁히지 않고 .qd-shell-page 한 틀에 둡니다. 좁히는 것은 현장 모드(520)뿐입니다.
+   칸은 .qd-fields 에 놓습니다. 칸 하나의 폭(300px)을 지키며 들어가는 만큼 한 줄에 놓으므로,
+   틀이 넓어져도 칸이 늘어나지 않고 한 줄의 칸 수가 늘어납니다(1920 다섯 칸 · 1366 세 칸 · 폰 한 칸).
+   주소 · 비고처럼 긴 칸은 .qd-field-wide 로 줄 끝까지 씁니다. 처음에는 두 칸 폭이었으나, 한 줄에
+   세 칸이 드는 폭에서 긴 칸 옆에 빈 칸이 남아 오너가 «끝까지» 로 고쳤습니다(같은 날).
+
+   한 구역 안에서 칸을 뜻으로 묶을 때(연락처 / 계약 기간처럼)는 .qd-fields 를 .qd-field-groups 로 감싸
+   잇달아 놓습니다. 묶음 사이는 24px 로, 줄 사이(16px)보다 넓어야 묶음이 보입니다.
+   맨몸으로 잇달아 두면 묶음 사이가 놓인 상자의 간격(12 · 16 · 24)을 따라 화면마다 갈렸습니다. 이 상자가
+   간격을 혼자 쥐므로 어느 상자 안에 놓여도 같습니다. */
+.qd-shell-page { min-width: 0; }
+.qd-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px 12px;
+  min-width: 0;
+}
+.qd-fields > .qd-field-wide { grid-column: 1 / -1; }
+.qd-field-groups { display: flex; flex-direction: column; gap: 24px; min-width: 0; }

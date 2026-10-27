@@ -18,7 +18,7 @@
      .qd-section-title  판 밖의 구역 이름(본문색 16/700 · 금색 모노 번호)
      .qd-field-label    입력칸 위 이름표(모노 · subtle)
      .qd-tabs · .qd-tab 화면 안을 가르는 탭 줄(금색 밑줄)
-     .qd-shell-*    폭을 좁히고 가운데 두는 규칙
+     .qd-shell-field 현장 520 (상세 · 폼의 공용 틀 · 칸 격자는 q-design.workspace.css)
 
    색은 `q-design.nav.css` 와 같은 `--qd-*` 를 읽습니다.
    ============================================================================= */
@@ -444,18 +444,12 @@ main, [role='dialog'] { counter-reset: qd-sec; }
 }
 
 /* ── 셸 폭 ─────────────────────────────────────────────────────────────────
-   🔑 **읽는 화면은 좁힙니다.** 전체폭으로 펼치면 글줄이 길어져 눈이 줄을 잃습니다.
-   목록만 폭 제한이 없습니다 - 표와 행은 넓을수록 좋기 때문입니다.
+   2026-10-27 오너 결정 «3»: 상세 · 폼 화면은 꽉 채웁니다. 좁히는 것은 현장 모드뿐입니다.
+   상세 · 폼의 공용 틀(.qd-shell-page)과 칸 격자(.qd-fields)는 세 제품이 모두 받는
+   q-design.workspace.css 에 있습니다(tools/page-shell-css.mjs). 아뜰리에는 이 파일을 받지 않습니다.
 
-     현장  520   장갑 낀 손으로 한 번에 한 가지
-     폼    720   쓰는 화면
-     상세  820   읽는 화면
-     2단   1140  본문 + 옆단
-     목록  제한 없음 */
+     현장  520   장갑 낀 손으로 한 번에 한 가지 */
 .qd-shell-field  { max-width: 520px; margin-left: auto; margin-right: auto; }
-.qd-shell-form   { max-width: 720px; margin-left: auto; margin-right: auto; }
-.qd-shell-detail { max-width: 820px; margin-left: auto; margin-right: auto; }
-.qd-shell-wide   { max-width: 1140px; margin-left: auto; margin-right: auto; }
 
 /* 본문 여백. sticky 밴드가 이 값을 실측해 inset 을 잡는 제품이 있어 변수로도 냅니다. */
 :root {

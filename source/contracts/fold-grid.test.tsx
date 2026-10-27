@@ -57,12 +57,6 @@ const RAW = /gridTemplateColumns:\s*['"`](?:1fr(?: 1fr)+|repeat\(\d+,\s*1fr\))['
 /** 남겨도 되는 곳. 스스로 접히는 경로가 있고, 그 경로가 실제로 있어야 한다. */
 const ALLOWED: ReadonlyArray<{ file: string; count: number; why: string; proof: { file: string; text: string } }> = [
   {
-    file: 'app/(app)/pmda/[id]/client.tsx',
-    count: 2,
-    why: '자체 @media (max-width: 640px) 로 1열 접힘',
-    proof: { file: 'app/(app)/pmda/[id]/client.tsx', text: 'qa-pmda-grid-2' },
-  },
-  {
     file: 'components/AssessmentPreviewPanel.tsx',
     count: 1,
     why: '핵심 지표 4개는 globals.css 의 .qa-kpi-4 가 767 이하에서 2열로 접는다',

@@ -5802,16 +5802,6 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
             }
 /* qd-source-end: app/(app)/assessments/new/page.tsx#style-1 */
 
-/* qd-source-start: app/(app)/pmda/[id]/client.tsx#style-1 */
-@media (max-width: 640px) {
-          .qa-pmda-grid-2,
-          .qa-pmda-grid-2fr1fr,
-          .qa-pmda-grid-3 {
-            grid-template-columns: 1fr !important;
-          }
-        }
-/* qd-source-end: app/(app)/pmda/[id]/client.tsx#style-1 */
-
 /* qd-source-start: app/(app)/research/[code]/page.tsx#style-1 */
 @keyframes qa-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 /* qd-source-end: app/(app)/research/[code]/page.tsx#style-1 */
