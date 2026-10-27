@@ -32,6 +32,8 @@
 
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
+- Q-Atelier 지표 부품을 사다리로. 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
+
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 10-23 반응형 검수에서 남긴 패드(768 · 터치) 누름 자리. 폰 «바꿈» 13곳과 겹치지 않는 것: Q-Atelier 피드백 «긍정» 32, Q-Carnet 원가 «빈 기록 고치러 가기» 링크 14, Q-Maison 홈 «전체 →» 16 · 감사 모의 «관련 메뉴로 이동 →» 16 등 글귀 링크. 넓히면 옆을 덮는지부터 본다.
 - 제품 개발자가 손으로 쓴 주석의 옛 문서 번호 36곳(Q-Atelier 8 · Q-Works 14 · DHR 14). README «옛 문서 번호» 표로 찾을 수 있어 급하지 않다.
@@ -46,6 +48,21 @@
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
 
 ---
+
+## 지표 값 사다리 네 단 · 폰 탭 한 줄 · 잘림 표시 · 폰 머리줄 뒤로 · 2026-10-27
+
+오빠 지시 «카르넷 정밀 감사 19건 전부 고치고, 정본에 구성할 수 있으면 정본에». 감사 보고(36화면 × 1440 · 412 × 밝음 · 어둠)의 지적 가운데 정본이 쥘 것을 정본으로 올렸다(c50df5e).
+
+- 지표 값 크기(D1). `16cqw` 흐름 크기는 사다리 사이 값(1440 에서 27px 같은)을 냈다. 이제 `.qd-kpi-value` 는 `--qd-kpi-size`(40) 하나를 읽고, 지표 칸 폭이 260 · 200 · 150 아래로 내려갈 때 `@container` 로 32 · 28 · 24 를 고른다. `tools/kpi-ladder.test.mjs` 가 정본과 산출물 넷에서 사다리 밖 값과 cqw 를 막는다. 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`)은 아뜰리에 지표 부품(인라인 clamp)이 아직 읽어 남겨 뒀다(아래 남은 일).
+- 현황 지표 이름(D2) `workspace.css` 13px/1.5 → 14px/1.4. 입력 칸 줄 간격(D3) `html .qd-input { line-height: var(--qd-control-leading) }` 로 UA 기본을 덮는다(`<select>` 는 크롬이 normal 로 보고하지만 높이는 같다). 지표 보조 글자(D4) 자간 0.
+- 폰 탭(U11) 640 아래 `.qd-tabs` 는 줄 바꿈 없이 가로 굴림. `.qd-tabs > * { flex: 0 0 auto }` 가 없으면 항목이 줄어들어 겹친다(처음 사진에서 설정 탭이 겹쳐 보여 알았다).
+- 잘림 표시(U12) `.qd-table-scroll` · `.qa-scroll-table` · `.qd-tabs` 에 `data-cut="start end"` 가 붙으면 그 끝을 마스크로 흐리게 한다. 색은 `currentcolor`(DHR `check-theme` 가 `#000` 을 잡는다). 붙이는 쪽은 제품(카르넷 `components/scroll-cut.tsx`, 고른 탭을 가운데로 굴리는 것까지). 인쇄에서는 마스크를 끈다.
+- 폰 머리줄 뒤로(U13) `.qd-mobile-back` 은 640 아래에서만 보인다(규칙 순서 주의: `display: none` 이 미디어 블록 뒤에 오면 이긴다). 카르넷의 떠 있는 뒤로 단추는 640 아래에서 숨기고 본문 아래 여백을 되돌린다.
+- 카르넷 지표 줄(U2 · U10) `html .qd-grid-kpi.carnet-kpi-rows-N` 으로 올려 10-17 의 `html :is(.qd-grid-kpi …)` 보다 세게 했다(1440 에서 6+1 → 4+3). 넷 미만은 `carnet-kpi-few`(2열 → 762 부터 4열).
+- 카르넷 공용 부품 `ui.tsx`: 끝난 상태 톤 `done`(회색 알약 + 점, 초록은 «출하 승인» 만), `Empty` 의 `reset`(찾아서 빈 목록에 «조건 풀기»). 정본 사본을 먼저 고치고 `--sync`.
+- 안 한 것 하나(D7 차림표 바닥 «THEME · LIGHT»): `theme-toggle.tsx` 에 09-15 오너 지시 «세 제품 같은 영어 표기» 가 적혀 있어, 바꾸려면 세 제품을 같이 바꿔야 한다. 위 «남은 일» 의 «바꿈» 후보 그대로.
+- 걸려 넘어진 것: `--only` 없는 `--sync` 가 Q-Sonar 넷을 또 썼다(위 10-27 기록대로 되돌림). 산출물 주석의 «cqw» 한 단어가 새 시험에 걸렸다. 정본 커밋 뒤 `--only=` 로 한 번 더 돌려야 제품 판 파일의 `since` 에 해시가 찍힌다.
+- 검사 35 걸음 모두 초록. 카르넷 로컬 실측(1440 · 412): 지표 32 · 24px, 지표 줄 4+3 / 2+2+2+1, 폰 탭 한 줄 49px, 출하 화면 높이 10,532 → 5,850, 가로 넘침 0. 제품 사본 커밋은 DHR 78da75f · Q-Atelier ce9c5f01 · Q-Works f4210037(로컬 · 운영 푸시는 오너 승인 뒤) · Q-Atelier-App f9471bc(푸시).
 
 ## 카르넷도 이동 글귀 «F» · 공용 부품 GoLink · 2026-10-27
 
