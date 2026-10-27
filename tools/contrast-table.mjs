@@ -159,10 +159,35 @@ for (const [themeName, pal] of [['다크', json.color.dark], ['라이트', json.
 badge.push('');
 badge.push('가장 나쁜 자리가 **' + worstBadge.toFixed(2) + '** 입니다 (AA 기준 4.5).');
 
+// ── 블록 ④: 위험도 네 단계 ──────────────────────────────────────────────────
+// 단계마다 막대 색과 글자 색이 따로 있습니다(2026-10-27). 글자 색만 대비를 재고,
+// 기준은 상태색과 같은 «가장 어려운 자리»(면 셋 + 그 면에 글자색을 10% 섞은 배지면)입니다.
+const RISK_LEVELS = [['critical', '치명'], ['high', '높음'], ['medium', '중간'], ['low', '낮음']];
+const worstSpot = (pal, fg) => Math.min(
+  ...SURFACES.map((s) => ratio(pal[fg], pal[s])),
+  ...SURFACES.map((s) => ratio(pal[fg], over(pal[fg], pal[s], 0.1))),
+);
+const risk = [
+  '| 단계 | 다크 막대 | 다크 글자 | 다크 글자 최저 | 라이트 막대 | 라이트 글자 | 라이트 글자 최저 |',
+  '|---|---|---|---:|---|---|---:|',
+];
+for (const [k, name] of RISK_LEVELS) {
+  const mark = '--qa-risk-' + k;
+  const text = mark + '-text';
+  const cells = [];
+  for (const pal of [json.color.dark, json.color.light]) {
+    if (!isHex(pal[mark]) || !isHex(pal[text])) throw new Error('위험도 토큰이 없습니다: ' + mark + ' · ' + text);
+    const min = worstSpot(pal, text);
+    cells.push('`' + clean(pal[mark]) + '`', '`' + clean(pal[text]) + '`', '**' + min.toFixed(2) + '**' + (min >= 4.5 ? '' : ' ✗'));
+  }
+  risk.push('| ' + name + ' | ' + cells.join(' | ') + ' |');
+}
+
 const BLOCKS = {
   '상태색-팔레트': paletteRows.join('\n'),
   '대비-실측표': measured.join('\n\n'),
   '배지-실조건': badge.join('\n'),
+  '위험도': risk.join('\n'),
 };
 
 // ── 문서에 써 넣기 ──────────────────────────────────────────────────────────

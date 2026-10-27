@@ -713,6 +713,22 @@ html[data-theme='dark'] {
   --qa-state-green:  #7ab87a;   /* completed / approved · 6.18 */
   --qa-state-red:    #c97a7a;   /* cancelled · 4.68 */
 
+  /* ── 위험도 네 단계 (2026-10-27 오너 결정) ──
+     종전에는 위험도가 red · warning · champagne · green 을 빌려 썼고,
+     «높음» warning 과 «중간» champagne 이 색상이 붙어 라이트 맨눈 색차가 2.9 였다.
+     한 단계에 두 값을 둔다. 막대 · 점은 앞의 넷, 글자 · 배지 · 큰 숫자는 -text 넷.
+     막대 넷(OKLab ×100): 이웃 맨눈 색차 16.7 · 15.7 · 24.1, 색각 이상 13.3 이상.
+     글자 넷: 가장 어려운 자리(면 셋 + 배지면 10%) 최저값을 괄호에 적었다.
+     다크는 치명만 글자를 밝혔다(막대 #ca5551 은 3.65). */
+  --qa-risk-critical: #ca5551;
+  --qa-risk-high:     #e99653;
+  --qa-risk-medium:   #efd780;
+  --qa-risk-low:      #60a56b;
+  --qa-risk-critical-text: #e16964;   /* 4.63 */
+  --qa-risk-high-text:     #e99653;   /* 6.23 */
+  --qa-risk-medium-text:   #efd780;   /* 9.53 */
+  --qa-risk-low-text:      #60a56b;   /* 5.03 */
+
   --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
 }
 
@@ -759,6 +775,19 @@ html[data-theme='light'] {
   --qa-state-violet: #8049ba;   /* 4.54 (was #8a58c0 · 3.90) */
   --qa-state-green:  #367236;   /* 4.50 (was #3d803d · 3.80) */
   --qa-state-red:    #b23b3b;   /* 4.51 (was #c04040 · 4.00) */
+
+  /* 위험도 네 단계 (2026-10-27 오너 결정). 뜻은 다크 블록 주석.
+     막대 넷: 이웃 맨눈 색차 17.4 · 15.7 · 28.4, 색각 이상 13.2 이상.
+     높음 · 중간 막대는 흰 면 위 3.30 · 1.92 라 글자로 쓰지 않는다. 막대 옆에 이름 · 건수가 늘 붙는다.
+     글자 넷은 같은 색상에서 밝기만 내렸다. 괄호는 가장 어려운 자리 최저값. */
+  --qa-risk-critical: #a83838;
+  --qa-risk-high:     #cf7828;
+  --qa-risk-medium:   #d3b968;
+  --qa-risk-low:      #3d7a3d;
+  --qa-risk-critical-text: #a83838;   /* 4.91 */
+  --qa-risk-high-text:     #985100;   /* 4.62 */
+  --qa-risk-medium-text:   #7a6200;   /* 4.57 */
+  --qa-risk-low-text:      #347134;   /* 4.58 */
 
   --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
 }
