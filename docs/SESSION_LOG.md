@@ -63,7 +63,9 @@
   - 잠긴 칸이 적는 칸과 같은 흰 상자 · 진한 테두리였다. `.qd-input[readonly]` · `:disabled` 가 화면 바탕 + 옅은 테두리를 쓴다.
   - 묶음 사이가 화면마다 12 · 36 · 40 · 48 로 갈렸다. `FieldGroups` 가 간격을 혼자 쥔다.
   - 도움말이 있는 칸만 입력 상자가 4px 내려앉았다(이름 줄 19.2 → 23.2). 이름 옆 도움말의 위 여백을 지웠다. 한 줄의 이름 줄 열네 개가 모두 19.2.
-- 커밋: Q-Atelier 04f24148, Q-Maison(Q-Works) 17987ab1, Q-Carnet(DHR) a237c87. 운영 반영(main 푸시)은 오너 말씀을 기다린다.
+- 커밋: Q-Atelier 04f24148, Q-Maison(Q-Works) 17987ab1, Q-Carnet(DHR) fee1ff2, 정본 b2a0fb5. ✅ 10-27 오너 지시로 운영 반영: 세 제품 main · 정본 푸시, 세 배포 Ready.
+  운영 CSS 를 받아 재 보니 Q-Atelier · Q-Carnet 은 칸 격자 · 묶음 모음 · 잠긴 칸 · 꺼진 칸 규칙이 모두 실렸다. Q-Maison 은 잠긴 칸 · 꺼진 칸만 실렸고 칸 격자는 쓰는 화면이 없어 테일윈드가 깎는다(정상).
+  카르넷은 푸시 사이에 다른 세션이 시연 전 점검 고침(ff06bfd)을 먼저 올리며 제 커밋(a237c87)을 그 뒤로 옮겨 붙였다. 고친 내용은 같은 것을 대조했다.
 - 시험: Q-Atelier `field-form-layout.test.tsx` 신설(긴 도움말 · 잠긴 칸 · 맨몸 `</Fields><Fields>`). 세 가드를 일부러 깨뜨려 빨강을 본 뒤 되돌렸다.
   Q-Atelier tsc 통과 · 544 파일 5,896건 통과. 정본 `check.mjs` 35걸음 초록. 카르넷 `check-nav` 통과 · 메종 사본 시험 92건 통과.
 
