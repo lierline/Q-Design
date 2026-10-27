@@ -47,7 +47,6 @@ html[data-theme='light'] .carnet-auth { --qd-auth-panel-image: url("/login-bg-li
 .carnet-pin-caret { display: inline-block; flex-shrink: 0; height: var(--qd-field-value-size); width: 2px; margin-left: var(--qd-space-0-5); border-radius: var(--qd-radius-full); background: var(--qd-accent); }
 .carnet-pin-pad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--qd-space-2); border-top: var(--qd-border-width) solid var(--qd-border); background: var(--qd-bg); padding: var(--qd-space-3-5); }
 .carnet-work-width { max-width: var(--qd-work-max); }
-.carnet-detail-width { max-width: var(--qd-detail-max); }
 .carnet-work-matches { grid-template-columns: repeat(auto-fit, minmax(min(var(--qd-carnet-work-match-width), 100%), 1fr)); }
 .carnet-work-batches { grid-template-columns: repeat(auto-fit, minmax(min(var(--qd-carnet-work-batch-width), 100%), 1fr)); }
 /* Container query thresholds are central recipes because CSS variables cannot

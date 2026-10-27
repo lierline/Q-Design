@@ -176,12 +176,13 @@ export function Empty({ children, hint, compact = false }: {
 /**
  * 읽기 전용 칸의 이름과 값. 이름은 입력칸 이름표와 같은 정본 `.qd-field-label` 이다
  * (2026-09-24) - 같은 화면에서 쓰는 칸과 읽는 칸의 이름이 다른 글꼴로 서지 않게.
+ * 칸 격자(`.qd-fields`) 안에 놓는다. 긴 값(비고 · 사유)은 `wide` 로 줄 끝까지 쓴다.
  */
 export function Field({
   label, children, wide = false,
 }: { label: string; children: React.ReactNode; wide?: boolean }) {
   return (
-    <div className={wide ? 'qd-field sm:col-span-2' : 'qd-field'}>
+    <div className={wide ? 'qd-field qd-field-wide' : 'qd-field'}>
       <div className="qd-field-label" data-hangul={tagHangul(label)}>{label}</div>
       <div className="text-sm text-ink">{children}</div>
     </div>
