@@ -339,8 +339,11 @@ html[data-theme='light'] {
 :where(.qd-notice, .qd-toast)[data-tone='success'], :where(.qd-notice, .qd-toast)[data-kind='success'], :where(.qd-notice, .qd-toast)[data-type='success'] { --qd-status: var(--qd-ok); }
 :where(.qd-notice, .qd-toast)[data-tone='warning'], :where(.qd-notice, .qd-toast)[data-kind='warning'], :where(.qd-notice, .qd-toast)[data-type='warning'] { --qd-status: var(--qd-warn); }
 :where(.qd-notice, .qd-toast)[data-tone='neutral'] { --qd-status: var(--qd-borderHi); }
-.qd-toast { box-shadow: var(--qd-shadow-overlay); }
-.qd-field-error { margin-top: var(--qd-field-gap) !important; color: var(--qd-danger); font-size: var(--qd-caption-size); line-height: 1.6 !important; letter-spacing: 0 !important; }
+.qd-toast { box-shadow: var(--qd-shadow-overlay); --qd-toast-line: calc(var(--qd-control-size) * 1.6); }
+/* The dismiss control keeps its full target but centres on the first text line,
+   so a one-line toast is not stretched to the control height. */
+.qd-toast > .qd-dialog-close { margin-block: calc((var(--qd-toast-line) - var(--qd-control-height)) / 2); }
+.qd-toast > .qd-text-action { margin-block: calc((var(--qd-toast-line) - var(--qd-control-height-sm)) / 2); }.qd-field-error { margin-top: var(--qd-field-gap) !important; color: var(--qd-danger); font-size: var(--qd-caption-size); line-height: 1.6 !important; letter-spacing: 0 !important; }
 .qd-field-hint { margin-top: var(--qd-space-1); color: var(--qd-muted); font-size: var(--qd-caption-size); line-height: 1.6; }
 /* Equivalent fields use the same label gap and multiline baseline in every product. */
 .qd-field-label { margin-bottom: var(--qd-field-gap); }
@@ -797,6 +800,7 @@ html .qd-skeleton, html .qa-skeleton { animation-duration: var(--qd-skeleton-dur
 @media (max-width: 640px) {
   html :is(.qd-btn, .qa-btn, .qa-btn-secondary, .qd-input, .qa-input, .qd-choice, .qd-tab, .qd-text-action, .qd-combobox-option, .qd-filter-input, .qd-filter-select, .qd-filter-submit, .qd-filter-clear, .qd-pager-btn, .qa-touch-44) { min-height: var(--qd-control-height) !important; }
   html :is(.qd-control-icon, .qd-dialog-close, .qd-mobile-menu, .qa-touch-44sq) { min-width: var(--qd-control-height) !important; min-height: var(--qd-control-height) !important; }
+  html .qd-toast > .qd-text-action { margin-block: calc((var(--qd-toast-line) - var(--qd-control-height)) / 2); }
   /* 두 글자 탭(「전체」 · 「지원」)은 좁은 여백(px-2.5)에서 42 였다(2026-10-22 폰 실측). 폭도 44 를 채우고 글은 가운데 */
   html .qd-tab { min-width: var(--qd-control-height) !important; justify-content: center; text-align: center; }
 }
@@ -900,7 +904,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 .qd-toast[data-sonner-toast] [data-close-button] {
   left: auto !important;
   right: var(--qd-space-3) !important;
-  top: var(--qd-space-3) !important;
+  top: calc(var(--qd-space-3) + (var(--qd-toast-line) - var(--qd-control-height)) / 2) !important;
   width: var(--qd-control-height) !important;
   height: var(--qd-control-height) !important;
   transform: none !important;
@@ -911,6 +915,9 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 }
 .qd-toast[data-sonner-toast] [data-close-button]:hover { background: var(--qd-surface2) !important; color: var(--qd-text) !important; }
 .qd-toast[data-sonner-toast] [data-close-button]:focus-visible { outline: var(--qd-focus-outline-width) solid var(--qd-accent); outline-offset: var(--qd-space-1); box-shadow: none; }
+/* The dismiss control sits near the toast edge, so its focus ring is drawn inside
+   where a toast that hides its overflow cannot clip it. */
+.qd-toast > :is(.qd-dialog-close, .qd-text-action):focus-visible { outline-offset: calc(var(--qd-focus-outline-width) * -1); box-shadow: none; }
 /* Central copy policy also overrides unlayered notification-library defaults. */
 .qd-toast { word-break: var(--qd-copy-word-break) !important; overflow-wrap: var(--qd-copy-overflow-wrap) !important; }
 
