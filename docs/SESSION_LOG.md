@@ -59,7 +59,8 @@
 - 실측(실화면 DOM 순회 · Q-Atelier `/research/RD-2026-001` · Demo co. · 412 · 375 · 1440 · 어두운 · 밝은): 네 변 테두리나 outline 이 있는 상자 60개 가운데 0px 는 하나뿐, 나머지 47개는 10px(원 11 · 알약 1 은 제외). 세 폭 · 두 테마 모두 같다.
 - 원인은 정본이 아니라 제품 쪽. 단계 카드는 `Bx` 보통 갈래(10-23 «3» · 위 괘선 하나 · 모서리 0)인데, 그 위에 2px 강조 outline(내 차례 · 고른 문서 · 앞 단계 진행 중)을 그려 각진 네모로 보였다. 정본은 «색 테두리 강조는 상자(면 · 네 변 · 모서리 10)» 라 outline 이 아니라 상자여야 맞다.
 - 고침(Q-Atelier `components/RdDocumentFlowPanel.tsx` 한 곳): 강조를 outline 대신 카드 자신의 `borderColor` 로. `Bx` 가 테두리 색을 받으면 상자 갈래로 그린다(2px outline → 1px 색 테두리, 같은 화면의 «지금 가장 중요한 작업» 카드와 같은 말). 정본 CSS 는 손대지 않았고 동기화도 돌리지 않았다.
-- 비교판(지금 · A 상자 · B 지표 넷을 장부형으로 + 강조는 면만, 어두운 · 밝은, 412)을 덧입힘으로 찍어 보여 드린 뒤 오너 선택 **A**. 그림과 측정표: `D:\Claude\.claude\design-sweepadius-2026-10-28\`(compare-412.png · scan-before.md · scan-after.md · after\).
+- 비교판(지금 · A 상자 · B 지표 넷을 장부형으로 + 강조는 면만, 어두운 · 밝은, 412)을 덧입힘으로 찍어 보여 드린 뒤 오너 선택 **A**. 그림과 측정표: `D:\Claude\.claude\design-sweep
+adius-2026-10-28\`(compare-412.png · scan-before.md · scan-after.md · after\).
 - 고친 뒤 실측: 0px 0개 · 10px 48개(세 폭 · 두 테마 같음). 제품 시험 479 · typecheck 초록. 운영 반영 Q-Atelier main 0f45b7ba · 버셀 READY · 운영 www.qatelier.co.kr 같은 화면 실측(412 · 1440 · 두 테마) 0px 0개 · 10px 48개.
 - 남긴 것: 제품이 더 안 읽는 값 셋(`--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f`)이 `atelier-core-values.css` · `atelier-values.css` 와 style-adapters 기록에 남아 있다(아래 «남은 일»).
 
@@ -87,7 +88,8 @@
 - 🔑 `data-grow="0"` 은 새 CSS 가 아니다. 모든 열이 `width:1%` 이고 auto 열이 없으면 브라우저가 남는 폭을 열마다 같은 몫으로 나눈다(실측: 1920 에서 열마다 +69px, «표를 글 폭만큼만» 안과 열 폭이 같았다). 정본은 7장 «표» 와 `components.css` 주석에 적고, 시험 `table-grow.test.mjs` 에 «0 에 늘어나는 열이 걸리면 안 된다» 를 더했다.
 - 뺀 안 둘: 가장 긴 글에 비례해 나누는 안은 알약 · 날짜 열이 세 배로 부풀었고, 주인 열을 40% 로 막는 안은 «일차» 세 글자 열에도 40% 가 남았다.
 - 카르넷 표 부품 원본(`carnet/components/table.tsx`): `grow && grow !== 1` 이 0 을 떨어뜨려 `grow !== undefined && grow !== 1` 로. 0 의 뜻을 주석에.
-- 다음: 카르넷 배치 상세 표 넷(제품 로트 · 일차별 기록지 · 공정 기록 · 인쇄 이력)을 `grow={0}` 으로 바꾸고 전후를 찍어 오너께. 나머지 표(카르넷 41 · 메종 55)는 열 내용으로 결을 하나씩 가려 목록을 보여 드린 뒤 바꾼다(짧은 표본 자료 때문에 빈 자리가 커 보이는 품목 · 문서명 표는 장부가 맞다).
+- 카르넷 배치 상세 표 넷(제품 로트 · 일차별 기록지 · 공정 기록 · 인쇄 이력)을 `grow={0}` 으로(Q-Carnet 458925b). 1440 · 1920 실측: 빈 자리 없이 열 사이 틈이 고르게, 열 폭은 비교판의 «고른 펼침» 과 같은 값. 시험 302 · 단위 132 · tsc 0. 전후 그림을 본 오너 «둘 다 올려요» 로 Q-Carnet 458925b · Q-Maison 3cd0af2a(정본 주석 사본만 · 화면 변화 없음) 운영 푸시, 버셀 READY.
+- 다음: 나머지 표(카르넷 41 · 메종 55)는 열 내용으로 결을 하나씩 가려 목록을 보여 드린 뒤 바꾼다(짧은 표본 자료 때문에 빈 자리가 커 보이는 품목 · 문서명 표는 장부가 맞다).
 
 ## 표 열 폭 규칙 «표 하나에 늘어나는 열 하나» · 2026-10-28
 
