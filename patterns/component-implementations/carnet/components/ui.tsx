@@ -124,10 +124,8 @@ export function Panel({
   );
 }
 
-/** 표를 감싸 가로 넘침만 처리한다. 표가 화면 밖으로 나가 잘리는 것을 막는다. */
-export function TableWrap({ children }: { children: React.ReactNode }) {
-  return <div className="qd-table-scroll">{children}</div>;
-}
+/* TableWrap 은 걷었다 (2026-10-28). 표는 components/table.tsx 의 Table 하나로 만든다. 표를 만드는 길이 셋
+   (Table · 날것 qd-table · TableWrap)이라 열 폭 규칙이 표마다 갈렸다 */
 
 export function Empty({ children, hint, compact = false, reset }: {
   children: React.ReactNode; hint?: React.ReactNode;

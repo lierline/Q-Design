@@ -166,7 +166,7 @@ function ToastBubble({ t, onDismiss }: { t: ToastItem; onDismiss: () => void }) 
         size={QDPresentation.iconSize[18]}
         strokeWidth={1.8}
         color={c}
-        style={{ flexShrink: 0, marginTop: t.title ? "var(--qd-atelier-margin-top-ebd484e183)" : "var(--qd-space-0)" }}
+        style={{ flexShrink: 0, marginTop: t.title ? "var(--qd-atelier-margin-top-ebd484e183)" : "var(--qd-space-0-5)" }}
         aria-hidden
       />
 
@@ -220,7 +220,7 @@ function ToastBubble({ t, onDismiss }: { t: ToastItem; onDismiss: () => void }) 
         ×
       </button>
 
-      {/* TTL progress bar: 하단 1px champagne 가 0%까지 줄어듦 */}
+      {/* TTL progress bar: 하단 2px 상태색 막대가 0%까지 줄어듦 */}
       <div
         style={{
           position: 'absolute',

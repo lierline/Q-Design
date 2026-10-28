@@ -84,7 +84,7 @@ raw 값을 토큰으로 바꿀 때마다 동결 개수가 자연스럽게 줄어
 Q-Carnet `scripts/check-nav.mjs` 가 관리 화면의 `max-w-*` 표 · 폼, 손 폭 칸 줄, CSS 로 틀(`.qd-shell-page` · `.qd-main`)을 다시 좁히는 규칙,
 옛 기둥 폭 변수(`--qd-detail-max` · `--qd-reading-width`)를 읽는 곳을 막습니다(`test/design-contract.test.mjs` 가 그 검사가 실제로 우는지 봅니다).
 Q-Maison 은 `tests/unit/field-grid.test.ts` «틀 안의 표 · 폼» 이 같은 네 길을 막습니다. 떠 있는 창 · 서랍 · 팝오버 · 알림, 말줄임하는 표 칸과 글 줄,
-입력 상자 자체의 폭, 현장 모드(`app/(floor)`)는 뺍니다. 표는 정본 `.qd-table` 이 폭 100% 를 쥐므로 `w-full` 을 따로 적지 않아도 찹니다.
+입력 상자 자체의 폭, 현장 모드(`app/(floor)`)는 뺍니다. 표는 정본 `.qd-table` 이 폭 100% 를 쥐므로 `w-full` 을 따로 적지 않아도 찹니다. 표 안의 열 폭은 «늘어나는 열 하나»(`data-grow` · [7장 표](07-screens.md#표-qd-table))가 정합니다.
 
 ---
 
