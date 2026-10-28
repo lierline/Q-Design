@@ -137,8 +137,10 @@ export function ActionTd({ children }: { children: React.ReactNode }) {
 
 /* 세로 괘선을 두지 않는다. 줄 링크(RowLink)의 꺾쇠 칸에는 선이 없어 머리칸에만 선이 떠 보였다
    (2026-10-27 Q-Carnet 화면 점검 · 장부 결은 가로 괘선만) */
+/* 폭은 정본 규칙(글 폭 1%)에 맡긴다. w-0(0px)을 걸면 그 칸만 퍼센트가 아니라서, 어느 열도 늘지 않는
+   «기록 · 수치» 표(grow 0)에서 남는 폭이 전부 이 칸으로 몰렸다(2026-10-28 마감 대기 · 작업 지시 실측 517px). */
 export function ActionTh() {
-  return <th className="th sticky right-0 w-0" scope="col" aria-label="동작" />;
+  return <th className="th sticky right-0" scope="col" aria-label="동작" />;
 }
 
 /*
