@@ -35,7 +35,6 @@
 
 - Q-Atelier 표를 정본 `.qd-table` 로. 아뜰리에는 표에 정본 클래스를 걸지 않아 «늘어나는 열 하나»(10-28)가 닿지 않는다. 옮기면 열 폭 규칙과 글자 · 여백이 세 제품에서 같아진다.
 - Q-Atelier 지표 부품을 사다리로. 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
-- Q-Atelier 가 더 안 읽는 값 셋 걷기. 10-28 모서리 고침으로 `--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f` 를 읽는 자리가 없어졌다. `atelier-core-values.css` · `atelier-values.css` 와 `source/style-adapters` 기록에서 걷고 `--only=Q-Atelier` 로 받는다(화면 변화 없음).
 
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 10-23 반응형 검수에서 남긴 패드(768 · 터치) 누름 자리. 폰 «바꿈» 13곳과 겹치지 않는 것: Q-Atelier 피드백 «긍정» 32, Q-Carnet 원가 «빈 기록 고치러 가기» 링크 14, Q-Maison 홈 «전체 →» 16 · 감사 모의 «관련 메뉴로 이동 →» 16 등 글귀 링크. 넓히면 옆을 덮는지부터 본다.
@@ -62,7 +61,7 @@
 - 비교판(지금 · A 상자 · B 지표 넷을 장부형으로 + 강조는 면만, 어두운 · 밝은, 412)을 덧입힘으로 찍어 보여 드린 뒤 오너 선택 **A**. 그림과 측정표: `D:\Claude\.claude\design-sweep
 adius-2026-10-28\`(compare-412.png · scan-before.md · scan-after.md · after\).
 - 고친 뒤 실측: 0px 0개 · 10px 48개(세 폭 · 두 테마 같음). 제품 시험 479 · typecheck 초록. 운영 반영 Q-Atelier main 0f45b7ba · 버셀 READY · 운영 www.qatelier.co.kr 같은 화면 실측(412 · 1440 · 두 테마) 0px 0개 · 10px 48개.
-- 남긴 것: 제품이 더 안 읽는 값 셋(`--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f`)이 `atelier-core-values.css` · `atelier-values.css` 와 style-adapters 기록에 남아 있다(아래 «남은 일»).
+- 뒷정리(같은 날 오너 «지금 걷기»): 제품이 더 안 읽는 값은 **둘**(`--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-add1a4a27f`). 처음에 «셋» 으로 셌던 `--qd-atelier-outline-offset-de44b94b65` 는 `app/(app)/lots/page.tsx` 가 아직 읽어 남긴다(걷기 전에 제품 전체를 grep 으로 다시 셀 것). `atelier-core-values.css` 두 줄과 `atelier-conditional-values.json` 기록 하나를 걷고 `--sync --only=Q-Atelier` 로 받았다(Q-Atelier a316c6bf · 표 두 결 주석 b894807 도 함께 받음 · 화면 변화 없음). 정본 시험 210 · 제품 시험 466 초록.
 
 ## 알림 닫기 단추를 첫 줄 가운데로 · 2026-10-28
 
