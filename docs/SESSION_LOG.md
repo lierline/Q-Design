@@ -35,6 +35,7 @@
 
 - Q-Atelier 표를 정본 `.qd-table` 로. 아뜰리에는 표에 정본 클래스를 걸지 않아 «늘어나는 열 하나»(10-28)가 닿지 않는다. 옮기면 열 폭 규칙과 글자 · 여백이 세 제품에서 같아진다.
 - Q-Atelier 지표 부품을 사다리로. 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
+- Q-Atelier 가 더 안 읽는 값 셋 걷기. 10-28 모서리 고침으로 `--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f` 를 읽는 자리가 없어졌다. `atelier-core-values.css` · `atelier-values.css` 와 `source/style-adapters` 기록에서 걷고 `--only=Q-Atelier` 로 받는다(화면 변화 없음).
 
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 10-23 반응형 검수에서 남긴 패드(768 · 터치) 누름 자리. 폰 «바꿈» 13곳과 겹치지 않는 것: Q-Atelier 피드백 «긍정» 32, Q-Carnet 원가 «빈 기록 고치러 가기» 링크 14, Q-Maison 홈 «전체 →» 16 · 감사 모의 «관련 메뉴로 이동 →» 16 등 글귀 링크. 넓히면 옆을 덮는지부터 본다.
@@ -50,6 +51,17 @@
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
 
 ---
+
+## R&D 상세 양식 단계 카드의 각진 강조 테두리 · 상자 60개 전부 10px 로 · 2026-10-28
+
+오너가 폰(어두운 테마)에서 R&D 상세를 보고 「어떤 건 라운드고 어떤 건 사각이네요」. «R&D 양식» 의 단계 카드(임상 평가 보고서)는 각진 네모, 바로 아래 «07 문서 작업» 지표 상자(필수 문서 31)는 둥근 10px 였다.
+
+- 실측(실화면 DOM 순회 · Q-Atelier `/research/RD-2026-001` · Demo co. · 412 · 375 · 1440 · 어두운 · 밝은): 네 변 테두리나 outline 이 있는 상자 60개 가운데 0px 는 하나뿐, 나머지 47개는 10px(원 11 · 알약 1 은 제외). 세 폭 · 두 테마 모두 같다.
+- 원인은 정본이 아니라 제품 쪽. 단계 카드는 `Bx` 보통 갈래(10-23 «3» · 위 괘선 하나 · 모서리 0)인데, 그 위에 2px 강조 outline(내 차례 · 고른 문서 · 앞 단계 진행 중)을 그려 각진 네모로 보였다. 정본은 «색 테두리 강조는 상자(면 · 네 변 · 모서리 10)» 라 outline 이 아니라 상자여야 맞다.
+- 고침(Q-Atelier `components/RdDocumentFlowPanel.tsx` 한 곳): 강조를 outline 대신 카드 자신의 `borderColor` 로. `Bx` 가 테두리 색을 받으면 상자 갈래로 그린다(2px outline → 1px 색 테두리, 같은 화면의 «지금 가장 중요한 작업» 카드와 같은 말). 정본 CSS 는 손대지 않았고 동기화도 돌리지 않았다.
+- 비교판(지금 · A 상자 · B 지표 넷을 장부형으로 + 강조는 면만, 어두운 · 밝은, 412)을 덧입힘으로 찍어 보여 드린 뒤 오너 선택 **A**. 그림과 측정표: `D:\Claude\.claude\design-sweepadius-2026-10-28\`(compare-412.png · scan-before.md · scan-after.md · after\).
+- 고친 뒤 실측: 0px 0개 · 10px 48개(세 폭 · 두 테마 같음). 제품 시험 479 · typecheck 초록. 운영 반영 Q-Atelier main 0f45b7ba.
+- 남긴 것: 제품이 더 안 읽는 값 셋(`--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f`)이 `atelier-core-values.css` · `atelier-values.css` 와 style-adapters 기록에 남아 있다(아래 «남은 일»).
 
 ## 알림 닫기 단추를 첫 줄 가운데로 · 2026-10-28
 
