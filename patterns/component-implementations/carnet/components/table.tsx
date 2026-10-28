@@ -20,10 +20,26 @@
  * colspan · sticky 가 다 흔들리므로 진짜 <table className="qd-table qd-table--hangul"> 에 같은 값을 건다.
  * 규격: D:/Claude/Q-Design/docs/16-list-canon.md
  */
-export function Table({ children }: { children: React.ReactNode }) {
+/*
+ * 열 폭은 «표 하나에 늘어나는 열 하나» 다 (2026-10-28 오너 결정 · 카르넷 표 41개 실측 · 정본 7장 «표»).
+ * 열 폭을 아무도 정하지 않으면 남는 폭이 «가장 긴 글이 있는 열» 로 흘러 표마다 생김새가 갈렸다
+ * (홈 «마감 대기» 는 글 폭 603px 에 남는 518px 가 작업일 37% · 진행 알약 26% 로 갔다).
+ * 이제 표의 주인 열(배치 · 품목 · 형명 · 이름 · «무엇을» 적은 글) 하나만 남는 폭을 받고 줄바꿈하며,
+ * 나머지 열은 글 폭으로 줄바꿈 없이 선다. 정본 `.qd-table` 이 `data-grow` 를 읽는다.
+ *
+ *   grow  늘어날 열, 1부터. 적지 않으면 첫 열. 🔴 «가장 긴 글 열» 에 맡기면 41개 중 10곳이 틀렸다
+ *         (자재 지출이 «월» 을, 사용자 표가 «상태» 를 늘림). 표를 만드는 사람이 열을 적는 것이 규칙의 일부다.
+ *   className  고정 머리글(qd-table--sticky) · 화면 최소 폭처럼 표 자체에 걸 것만.
+ */
+export function Table({ children, grow, className = '' }: {
+  children: React.ReactNode; grow?: number; className?: string;
+}) {
   return (
     <div className="qd-table-scroll">
-      <table className="qd-table qd-table--hangul">{children}</table>
+      <table className={`qd-table qd-table--hangul ${className}`.trim()}
+             data-grow={grow && grow !== 1 ? grow : undefined}>
+        {children}
+      </table>
     </div>
   );
 }
@@ -48,14 +64,14 @@ function hasHangul(node: React.ReactNode): boolean {
   return false;
 }
 
+/* 폭 인자(w)는 걷었다 (2026-10-28). 아무도 안 썼고, 열 폭은 Table 의 grow 하나가 정한다 */
 export function Th({
-  children, right, className = '', w,
-}: { children?: React.ReactNode; right?: boolean; className?: string; w?: string }) {
+  children, right, className = '',
+}: { children?: React.ReactNode; right?: boolean; className?: string }) {
   return (
     <th
       className={`th ${right ? 'text-right' : ''} ${className}`}
       data-latin={children != null && !hasHangul(children) ? '' : undefined}
-      style={w ? { width: w } : undefined}
     >
       {children}
     </th>

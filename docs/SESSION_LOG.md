@@ -32,6 +32,8 @@
 
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
+- Q-Atelier 표를 정본 `.qd-table` 로. 아뜰리에는 표에 정본 클래스를 걸지 않아 «늘어나는 열 하나»(10-28)가 닿지 않는다. 옮기면 열 폭 규칙과 글자 · 여백이 세 제품에서 같아진다.
+- Q-Maison 표 117곳을 «늘어나는 열 하나» 로 재기. 정본은 받았으나(10-28) 로컬 스택이 꺼져 있어 전후를 못 찍었다. 표마다 `data-grow` 를 적어야 할 곳이 있을 것이다.
 - Q-Atelier 지표 부품을 사다리로. 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
 
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
@@ -48,6 +50,19 @@
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
 
 ---
+
+## 표 열 폭 규칙 «표 하나에 늘어나는 열 하나» · 2026-10-28
+
+오너가 Q-Carnet 홈 «마감 대기» 표를 보고 「표 너비에 통일성이 없다」 고 지적 → 카르넷 전 화면 표 41개(화면 26곳)를 Playwright 로 재고 전후 그림을 보여 드린 뒤 오너 결정.
+보고서: https://claude.ai/artifact/6E9ndL2wYfBiQRd9RssMTn
+
+- 실측: 표 41개 모두 1120px 인데 열 폭을 정한 표가 0. 남는 폭이 표마다 «가장 긴 글 열» 로 흘러 생김새가 제각각(마감 대기 603 → 남는 518 이 작업일 37% · 진행 26%). 제품 표준서는 공정 흐름 898px 라 1695px 로 넘침.
+- 정본 `components.css` `.qd-table`: 늘어나는 열 하나(`data-grow="N"` · 없으면 첫 열 · 셀 `.qd-col-grow` 길도) 만 `width:auto; min-width: 8em; 줄바꿈`, 나머지 `width:1%; nowrap`. 적는 표(`--editable`) 밖, `.qd-table-description` · `[colspan]` 은 줄바꿈. `data-grow` 는 1 ~ 12 까지 nth-child 로 푼다. 규격은 [7장 표](07-screens.md).
+- 시험 `tools/table-grow.test.mjs`: 정본 · dist 에 규칙이 있고 1 ~ 12 가 다 있는지.
+- 규칙을 입힌 41개는 1440 에서 넘침 0. 🔴 늘릴 열을 기계(가장 긴 글)에 맡기면 10곳이 틀려 제품이 표마다 열을 적는다. 폰(412)은 다 넘치지만 `.qd-table-scroll` + `data-cut` 으로 굴린다.
+- 제품: Q-Carnet `components/table.tsx` `Table` 에 `grow` 인자, 날것 표 · `TableWrap` 을 `Table` 로 옮김(그날 DHR 기록). Q-Atelier(4곳) · Q-Maison(117곳)은 같은 정본을 받으므로 전후를 찍어 오너께 보인 뒤 운영.
+- 🔑 구현 함정 둘. 글 단추(`.qd-text-action`)가 글 폭 칸에서 «변경 항목 0» 두 줄로 꺾였다. 기초가 단추를 normal 로 두는 결정(10-22 한 글자씩 끊김 방지)은 그대로 두고, 표의 글 폭 칸 안 단추만 nowrap. 줄을 세로로 합친 표(rowSpan)는 합친 줄에서 몇째 열인지가 밀려 `data-grow` 가 어긋나므로 셀에 `.qd-col-grow`(카르넷 자재 지출). 바닥 12em 은 발주 표가 1440 에서 30px 넘쳐 8em 으로.
+- Q-Atelier 는 표에 정본 `.qd-table` 을 걸지 않아(변수 · 머리글 고정만 씀) 이번 규칙이 닿지 않는다. 아뜰리에 표를 정본 클래스로 옮기는 일은 남은 일. Q-Maison 117곳은 로컬 스택(도커)이 꺼져 있어 못 쟀다.
 
 ## 지표 값 사다리 네 단 · 폰 탭 한 줄 · 잘림 표시 · 폰 머리줄 뒤로 · 2026-10-27
 
