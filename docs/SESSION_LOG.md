@@ -60,7 +60,7 @@
 - 원인은 정본이 아니라 제품 쪽. 단계 카드는 `Bx` 보통 갈래(10-23 «3» · 위 괘선 하나 · 모서리 0)인데, 그 위에 2px 강조 outline(내 차례 · 고른 문서 · 앞 단계 진행 중)을 그려 각진 네모로 보였다. 정본은 «색 테두리 강조는 상자(면 · 네 변 · 모서리 10)» 라 outline 이 아니라 상자여야 맞다.
 - 고침(Q-Atelier `components/RdDocumentFlowPanel.tsx` 한 곳): 강조를 outline 대신 카드 자신의 `borderColor` 로. `Bx` 가 테두리 색을 받으면 상자 갈래로 그린다(2px outline → 1px 색 테두리, 같은 화면의 «지금 가장 중요한 작업» 카드와 같은 말). 정본 CSS 는 손대지 않았고 동기화도 돌리지 않았다.
 - 비교판(지금 · A 상자 · B 지표 넷을 장부형으로 + 강조는 면만, 어두운 · 밝은, 412)을 덧입힘으로 찍어 보여 드린 뒤 오너 선택 **A**. 그림과 측정표: `D:\Claude\.claude\design-sweepadius-2026-10-28\`(compare-412.png · scan-before.md · scan-after.md · after\).
-- 고친 뒤 실측: 0px 0개 · 10px 48개(세 폭 · 두 테마 같음). 제품 시험 479 · typecheck 초록. 운영 반영 Q-Atelier main 0f45b7ba.
+- 고친 뒤 실측: 0px 0개 · 10px 48개(세 폭 · 두 테마 같음). 제품 시험 479 · typecheck 초록. 운영 반영 Q-Atelier main 0f45b7ba · 버셀 READY · 운영 www.qatelier.co.kr 같은 화면 실측(412 · 1440 · 두 테마) 0px 0개 · 10px 48개.
 - 남긴 것: 제품이 더 안 읽는 값 셋(`--qd-atelier-document-outline-width` · `--qd-atelier-outline-offset-de44b94b65` · `--qd-atelier-outline-offset-add1a4a27f`)이 `atelier-core-values.css` · `atelier-values.css` 와 style-adapters 기록에 남아 있다(아래 «남은 일»).
 
 ## 알림 닫기 단추를 첫 줄 가운데로 · 2026-10-28
