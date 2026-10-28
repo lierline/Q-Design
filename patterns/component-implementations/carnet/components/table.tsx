@@ -29,6 +29,8 @@
  *
  *   grow  늘어날 열, 1부터. 적지 않으면 첫 열. 🔴 «가장 긴 글 열» 에 맡기면 41개 중 10곳이 틀렸다
  *         (자재 지출이 «월» 을, 사용자 표가 «상태» 를 늘림). 표를 만드는 사람이 열을 적는 것이 규칙의 일부다.
+ *         0 은 둘째 결 «기록 · 수치»(2026-10-28 오너 결정): 열이 전부 짧은 표(공정 기록 · 일차별 기록지 · 제품 로트 · 인쇄 이력)는
+ *         어느 열도 늘지 않고 남는 폭을 모든 열이 똑같이 나눈다. 긴 글 열이 하나라도 있으면 그 열 번호(장부).
  *   className  고정 머리글(qd-table--sticky) · 화면 최소 폭처럼 표 자체에 걸 것만.
  */
 export function Table({ children, grow, className = '' }: {
@@ -37,7 +39,7 @@ export function Table({ children, grow, className = '' }: {
   return (
     <div className="qd-table-scroll">
       <table className={`qd-table qd-table--hangul ${className}`.trim()}
-             data-grow={grow && grow !== 1 ? grow : undefined}>
+             data-grow={grow !== undefined && grow !== 1 ? grow : undefined}>
         {children}
       </table>
     </div>
