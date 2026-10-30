@@ -1,0 +1,383 @@
+{
+  "scope": "Read-only current exact central copy changes awaiting context review.",
+  "rows": [
+    {
+      "path": "app/(app)/audits/body-form.tsx",
+      "line": 250,
+      "kind": "StringLiteral",
+      "raw": "\"심사구분\"",
+      "emitted": "\"심사 구분\""
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "line": 226,
+      "kind": "StringLiteral",
+      "raw": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+      "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "line": 272,
+      "kind": "JsxText",
+      "raw": "회의 · 출장 · 고객 방문처럼 사람이 아는 일을 달력에 적습니다. 문서\r\n          정기검토 · 검교정 같은 기한은 시스템이 알아서 올립니다.\r\n        ",
+      "emitted": "회의 · 출장 · 고객 방문처럼 일정을 등록합니다. 문서\r\n          정기 검토 · 검교정 같은 기한은 시스템에서 자동으로 표시합니다.\r\n        "
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "line": 326,
+      "kind": "StringLiteral",
+      "raw": "\"끝나는 날\"",
+      "emitted": "\"종료 날짜\""
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "line": 344,
+      "kind": "JsxText",
+      "raw": "종일 (시각 없이 그날 안에)\r\n          ",
+      "emitted": "종일 일정\r\n          "
+    },
+    {
+      "path": "app/(app)/dashboard/calendar-event-dialog.tsx",
+      "line": 368,
+      "kind": "StringLiteral",
+      "raw": "\"끝나는 시각\"",
+      "emitted": "\"종료 시각\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 78,
+      "kind": "StringLiteral",
+      "raw": "\"차림표, 알림, 메뉴 위치\"",
+      "emitted": "\"메뉴, 알림, 메뉴 위치\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 84,
+      "kind": "StringLiteral",
+      "raw": "\"화면은 왼쪽 차림표(메뉴)와 본문으로 구성됩니다. 화면 폭에 따라 차림표가 형태를 바꿉니다.\"",
+      "emitted": "\"화면은 왼쪽 메뉴(메뉴)와 본문으로 구성됩니다. 화면 폭에 따라 메뉴가 형태를 바꿉니다.\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 88,
+      "kind": "StringLiteral",
+      "raw": "\"차림표 형태\"",
+      "emitted": "\"메뉴 형태\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 97,
+      "kind": "StringLiteral",
+      "raw": "\"**통합 검색**: 차림표 맨 위 「통합 검색」 줄을 누르거나 Ctrl+K(맥은 ⌘K)를 누릅니다. 메뉴와 함께 문서 · 부적합 · 시정조치 · 심사 · 공급자를 찾습니다. 결과를 누르면 그 화면으로 갑니다.\"",
+      "emitted": "\"**통합 검색**: 메뉴 맨 위 「통합 검색」 줄을 누르거나 Ctrl+K(맥은 ⌘K)를 누릅니다. 메뉴와 함께 문서 · 부적합 · 시정조치 · 심사 · 공급자를 찾습니다. 결과를 누르면 그 화면으로 갑니다.\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 98,
+      "kind": "StringLiteral",
+      "raw": "\"**메뉴 검색**: 통합 검색 아래 칸에 메뉴 이름을 치면 차림표가 그 메뉴만 남깁니다. 지우면 전체가 다시 보입니다.\"",
+      "emitted": "\"**메뉴 검색**: 통합 검색 아래 칸에 메뉴 이름을 치면 메뉴가 그 메뉴만 남깁니다. 지우면 전체가 다시 보입니다.\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 99,
+      "kind": "StringLiteral",
+      "raw": "\"**테마**: 차림표 아래 「Theme」 줄을 누를 때마다 Dark → Light → System(기기 설정을 따름) 차례로 바뀝니다.\"",
+      "emitted": "\"**테마**: 메뉴 아래 「Theme」 줄을 누를 때마다 Dark → Light → System(기기 설정을 따름) 차례로 바뀝니다.\""
+    },
+    {
+      "path": "app/(app)/help/content.ts",
+      "line": 101,
+      "kind": "StringLiteral",
+      "raw": "\"**내 계정**: 차림표 맨 아래 이름을 누르면 내 정보 · 권한 확인과 비밀번호 변경이 있습니다. 그 아래 「로그아웃」 단추로 나갑니다.\"",
+      "emitted": "\"**내 계정**: 메뉴 맨 아래 이름을 누르면 내 정보 · 권한 확인과 비밀번호 변경이 있습니다. 그 아래 「로그아웃」 단추로 나갑니다.\""
+    },
+    {
+      "path": "app/(app)/inspections/actions.ts",
+      "line": 878,
+      "kind": "StringLiteral",
+      "raw": "\"입고가 끝나지 않은 품목입니다. 다 들어온 뒤(또는 마지막 입고로 닫은 뒤) 검사합니다.\"",
+      "emitted": "\"입고 미완료 품목입니다. 전량 입고되거나 최종 입고 처리된 후 검사할 수 있습니다.\""
+    },
+    {
+      "path": "app/(app)/inspections/[id]/approval-ui.tsx",
+      "line": 131,
+      "kind": "TemplateHead",
+      "raw": "`작성중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${",
+      "emitted": "`작성 중입니다. 상신하면 표본 표시가 잠기고 결재가 시작됩니다 (${"
+    },
+    {
+      "path": "app/(app)/inspections/[id]/approval-ui.tsx",
+      "line": 219,
+      "kind": "JsxText",
+      "raw": "검사 기록을 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          ",
+      "emitted": "검사 기록을 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 판정과 번호는 그대로입니다.\r\n          "
+    },
+    {
+      "path": "app/(app)/nc/actions.ts",
+      "line": 174,
+      "kind": "StringLiteral",
+      "raw": "\"상신된 발생 보고서는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+      "emitted": "\"상신된 발생 보고서는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+    },
+    {
+      "path": "app/(app)/nc/approval-ui.tsx",
+      "line": 219,
+      "kind": "TemplateHead",
+      "raw": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${",
+      "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (${"
+    },
+    {
+      "path": "app/(app)/nc/approval-ui.tsx",
+      "line": 348,
+      "kind": "JsxText",
+      "raw": "를 작성중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          ",
+      "emitted": "를 작성 중으로 되돌립니다. 찍힌 검토 도장도 함께 지워지고,\r\n            사유는 기록에 남아 작성자에게 보입니다. 번호는 그대로입니다.\r\n          "
+    },
+    {
+      "path": "app/(app)/nc/[id]/page.tsx",
+      "line": 347,
+      "kind": "JsxText",
+      "raw": "작성중",
+      "emitted": "작성 중"
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+      "line": 119,
+      "kind": "StringLiteral",
+      "raw": "\"(가져올 발주 줄이 없습니다)\"",
+      "emitted": "\"(미등록 발주 품목이 없습니다)\""
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/saving-register-dialog.tsx",
+      "line": 123,
+      "kind": "StringLiteral",
+      "raw": "\"가져올 발주 줄\"",
+      "emitted": "\"미등록 발주 품목\""
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
+      "line": 298,
+      "kind": "StringLiteral",
+      "raw": "\"가져올 발주 줄\"",
+      "emitted": "\"미등록 발주 품목\""
+    },
+    {
+      "path": "app/(app)/purchasing/analysis/savings-tab.tsx",
+      "line": 300,
+      "kind": "StringLiteral",
+      "raw": "\"직전 발주와 견줄 수 있는데 아직 등록하지 않은 줄\"",
+      "emitted": "\"직전 발주와 비교 가능한 미등록 품목\""
+    },
+    {
+      "path": "app/(app)/purchasing/order-actions.ts",
+      "line": 699,
+      "kind": "StringLiteral",
+      "raw": "\"승인된 발주서에서만 잇습니다. 작성중이면 발주서 폼의 재고 분류에서 고르세요.\"",
+      "emitted": "\"승인된 발주서에서만 잇습니다. 작성 중이면 발주서 폼의 재고 분류에서 고르세요.\""
+    },
+    {
+      "path": "app/(app)/recalls/[id]/page.tsx",
+      "line": 186,
+      "kind": "JsxText",
+      "raw": "· 회수 기한 지남 (",
+      "emitted": "· 회수 기한 경과 ("
+    },
+    {
+      "path": "app/(app)/risks/approval-actions.ts",
+      "line": 148,
+      "kind": "StringLiteral",
+      "raw": "\"작성중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\"",
+      "emitted": "\"작성 중·반려됨 상태에서만 결재선을 변경할 수 있습니다.\""
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "line": 125,
+      "kind": "StringLiteral",
+      "raw": "\"작성중입니다. 검토 · 승인 칸이 없어 상신하면 결재가 끝나고 자동 발행됩니다.\"",
+      "emitted": "\"작성 중입니다. 검토 · 승인 칸이 없어 상신하면 결재가 끝나고 자동 발행됩니다.\""
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "line": 127,
+      "kind": "StringLiteral",
+      "raw": "\"작성중입니다. 상신하면 결재가 시작되고, 승인을 생략해 검토가 끝나면 자동 발행됩니다.\"",
+      "emitted": "\"작성 중입니다. 상신하면 결재가 시작되고, 승인을 생략해 검토가 끝나면 자동 발행됩니다.\""
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "line": 128,
+      "kind": "TemplateHead",
+      "raw": "`작성중입니다. 상신하면 결재가 시작되고, 승인하면 자동 발행됩니다 (승인: ${",
+      "emitted": "`작성 중입니다. 상신하면 결재가 시작되고, 승인하면 자동 발행됩니다 (승인: ${"
+    },
+    {
+      "path": "app/(app)/risks/[id]/risk-approval-panel.tsx",
+      "line": 131,
+      "kind": "StringLiteral",
+      "raw": "\"작성중인 위험평가입니다. 결재선 설정 · 상신 권한이 없습니다.\"",
+      "emitted": "\"작성 중인 위험평가입니다. 결재선 설정 · 상신 권한이 없습니다.\""
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-actions.ts",
+      "line": 108,
+      "kind": "StringLiteral",
+      "raw": "\"상신된 기록지는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성중으로 되돌린 뒤 고치세요.\"",
+      "emitted": "\"상신된 기록지는 고칠 수 없습니다. 상신을 취소하거나 반려를 받아 작성 중으로 되돌린 뒤 고치세요.\""
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "line": 195,
+      "kind": "StringLiteral",
+      "raw": "\"작성중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\"",
+      "emitted": "\"작성 중입니다. 결재선에서 검토 · 승인을 생략해 상신하면 결재가 바로 끝납니다.\""
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "line": 196,
+      "kind": "StringLiteral",
+      "raw": "\"작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\"",
+      "emitted": "\"작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인 생략: 검토가 끝나면 결재가 끝납니다).\""
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "line": 197,
+      "kind": "TemplateHead",
+      "raw": "`작성중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${",
+      "emitted": "`작성 중입니다. 저장한 뒤 상신하면 본문이 잠기고 결재가 시작됩니다 (승인: ${"
+    },
+    {
+      "path": "app/(app)/safety/incidents/incident-approval-ui.tsx",
+      "line": 289,
+      "kind": "JsxText",
+      "raw": "기록지를 작성중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          ",
+      "emitted": "기록지를 작성 중으로 되돌립니다. 사유는 기록에 남고 작성자에게\r\n            보입니다.\r\n          "
+    },
+    {
+      "path": "app/(app)/safety/incidents/incidents-tab.tsx",
+      "line": 42,
+      "kind": "StringLiteral",
+      "raw": "\"작성중\"",
+      "emitted": "\"작성 중\""
+    },
+    {
+      "path": "app/(app)/safety/incidents/[id]/page.tsx",
+      "line": 277,
+      "kind": "JsxText",
+      "raw": "작성중",
+      "emitted": "작성 중"
+    },
+    {
+      "path": "app/(app)/settings/roles/access-header.tsx",
+      "line": 55,
+      "kind": "StringLiteral",
+      "raw": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\"",
+      "emitted": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\""
+    },
+    {
+      "path": "app/(floor)/floor/actions.ts",
+      "line": 194,
+      "kind": "StringLiteral",
+      "raw": "\"생산 준비 점검이 끝나지 않은 기록입니다.\"",
+      "emitted": "\"생산 준비 점검이 미완료된 기록입니다.\""
+    },
+    {
+      "path": "components/layout/mobile-sidebar.tsx",
+      "line": 68,
+      "kind": "StringLiteral",
+      "raw": "\"차림표 열기\"",
+      "emitted": "\"메뉴 열기\""
+    },
+    {
+      "path": "components/layout/mobile-sidebar.tsx",
+      "line": 85,
+      "kind": "StringLiteral",
+      "raw": "\"차림표\"",
+      "emitted": "\"메뉴\""
+    },
+    {
+      "path": "components/layout/mobile-sidebar.tsx",
+      "line": 86,
+      "kind": "JsxText",
+      "raw": "차림표",
+      "emitted": "메뉴"
+    },
+    {
+      "path": "components/layout/mobile-sidebar.tsx",
+      "line": 93,
+      "kind": "StringLiteral",
+      "raw": "\"차림표 닫기\"",
+      "emitted": "\"메뉴 닫기\""
+    },
+    {
+      "path": "components/layout/sidebar.tsx",
+      "line": 52,
+      "kind": "StringLiteral",
+      "raw": "\"차림표\"",
+      "emitted": "\"메뉴\""
+    },
+    {
+      "path": "components/shared/approval-flow.tsx",
+      "line": 368,
+      "kind": "JsxText",
+      "raw": "종이로 결재를 마친 기존 문서",
+      "emitted": "서면 결재를 완료한 기존 문서"
+    },
+    {
+      "path": "lib/documents/modify-gate.ts",
+      "line": 39,
+      "kind": "StringLiteral",
+      "raw": "\"발행 · 결재 중인 문서는 대표 · 품질 책임자만 고칠 수 있습니다. 작성중 · 반려 문서는 수정 권한이 있으면 고칠 수 있습니다.\"",
+      "emitted": "\"발행 · 결재 중인 문서는 대표 · 품질 책임자만 고칠 수 있습니다. 작성 중 · 반려 문서는 수정 권한이 있으면 고칠 수 있습니다.\""
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "line": 1272,
+      "kind": "StringLiteral",
+      "raw": "\"메뉴 접근 탭에서 부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않습니다.\"",
+      "emitted": "\"메뉴 접근 탭에서 부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않습니다.\""
+    },
+    {
+      "path": "lib/help/page-help.ts",
+      "line": 2038,
+      "kind": "StringLiteral",
+      "raw": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 차림표에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\"",
+      "emitted": "\"부서 · 계정마다 메뉴를 차단 · 읽기 · 쓰기로 정합니다. 차단한 메뉴는 왼쪽 메뉴에 나오지 않고, 주소를 직접 입력해도 막힙니다. 기본값을 정하지 않은 부서(미설정)는 전체 쓰기로 동작합니다.\""
+    },
+    {
+      "path": "lib/nc/approval-rules.ts",
+      "line": 204,
+      "kind": "StringLiteral",
+      "raw": "\"작성중\"",
+      "emitted": "\"작성 중\""
+    },
+    {
+      "path": "lib/permissions/draft-author.ts",
+      "line": 19,
+      "kind": "StringLiteral",
+      "raw": "\"작성중인 서류는 작성자 본인만 고치고 상신할 수 있습니다.\"",
+      "emitted": "\"작성 중인 서류는 작성자 본인만 고치고 상신할 수 있습니다.\""
+    },
+    {
+      "path": "lib/supabase/types.ts",
+      "line": 301,
+      "kind": "StringLiteral",
+      "raw": "\"작성중\"",
+      "emitted": "\"작성 중\""
+    },
+    {
+      "path": "lib/validators/calendar-events.ts",
+      "line": 111,
+      "kind": "StringLiteral",
+      "raw": "\"끝나는 날이 시작하는 날보다 빠릅니다.\"",
+      "emitted": "\"종료 날짜가 시작 날짜보다 빠릅니다.\""
+    },
+    {
+      "path": "lib/validators/calendar-events.ts",
+      "line": 130,
+      "kind": "StringLiteral",
+      "raw": "\"끝나는 시각이 시작 시각보다 빠릅니다.\"",
+      "emitted": "\"종료 시각이 시작 시각보다 빠릅니다.\""
+    }
+  ]
+}

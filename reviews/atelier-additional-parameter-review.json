@@ -1,0 +1,3797 @@
+{
+  "version": 1,
+  "scope": "Only exact lexical prop leaves are delegated. Every fallback, arithmetic factor, default and caller value remains an independent candidate; this is not a renderer-wide approval.",
+  "flows": [
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "component": "ChoiceGroup",
+      "prop": "columns",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "declarationLine": 143,
+      "binding": "columns = QDPresentation.commonDefaults.fieldChoiceColumns",
+      "defaultValue": "QDPresentation.commonDefaults.fieldChoiceColumns",
+      "leaves": [
+        {
+          "start": 5567,
+          "end": 5574,
+          "text": "columns",
+          "line": 157
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 273,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 274,
+          "value": "{QDPresentation.fieldChoiceColumns[1]}",
+          "argumentHashes": [
+            "3141007b05d213dacf7ae41c7b23064efae9c57085a34e1ed32fa02fa887f619"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 163,
+          "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+          "attributeLine": 168,
+          "value": "{QDPresentation.fieldChoiceColumns[2]}",
+          "argumentHashes": [
+            "90334ca210a129625b25bff69efdf98b0333f7bf75b6f7bd65d16cf68e131b0b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 216,
+          "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+          "attributeLine": 221,
+          "value": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHashes": [
+            "67aca6e18f64162412df60b6c3975e5669c5bb5b5925dea8d943fc11206379d1"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 499,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 504,
+          "value": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHashes": [
+            "88be4e3081114b067b8e600fab4c0c8c3a4d795d54226de3e2e8fc9bcf1a7fab"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 600,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 605,
+          "value": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHashes": [
+            "b8180161f001a15a8587e607d31f06590f43d90a53142735ffe44595fe818614"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 616,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 621,
+          "value": "{QDPresentation.fieldChoiceColumns[3]}",
+          "argumentHashes": [
+            "d9e69bc4df138e37c2046613ffd576caf665bd4a6658128b7fac532857208fab"
+          ],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 143,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 274,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 168,
+          "hash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f"
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 221,
+          "hash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 504,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 605,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 621,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "component": "PrimaryButton",
+      "prop": "tone",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "declarationLine": 195,
+      "binding": "tone = T.green",
+      "defaultValue": "T.green",
+      "leaves": [
+        {
+          "start": 7518,
+          "end": 7522,
+          "text": "tone",
+          "line": 215
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 243,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 490,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 298,
+          "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+          "attributeLine": 298,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 268,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 406,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 310,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 664,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 667,
+          "value": "{result === 'fail' ? T.red : T.green}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 195,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 243,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 490,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 298,
+          "hash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 268,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 406,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 310,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 667,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        }
+      ],
+      "unindexed": [
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 298,
+          "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+          "attributeLine": 298,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 664,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 667,
+          "value": "{result === 'fail' ? T.red : T.green}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "component": "SecondaryButton",
+      "prop": "tone",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "declarationLine": 267,
+      "binding": "tone",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 9741,
+          "end": 9745,
+          "text": "tone",
+          "line": 286
+        },
+        {
+          "start": 9813,
+          "end": 9817,
+          "text": "tone",
+          "line": 288
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 639,
+          "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 220,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 244,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 298,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 143,
+          "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 269,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 448,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 448,
+          "value": "{T.green}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 286,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 311,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 657,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 267,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 639,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 220,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 244,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 298,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/nc/client.tsx",
+          "line": 143,
+          "hash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 269,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 448,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 286,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 311,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 657,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        }
+      ],
+      "unindexed": [
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 448,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 448,
+          "value": "{T.green}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "component": "FieldNotice",
+      "prop": "tone",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "declarationLine": 309,
+      "binding": "tone = T.champagne",
+      "defaultValue": "T.champagne",
+      "leaves": [
+        {
+          "start": 10826,
+          "end": 10830,
+          "text": "tone",
+          "line": 315
+        },
+        {
+          "start": 10886,
+          "end": 10890,
+          "text": "tone",
+          "line": 316
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 340,
+          "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+          "attributeLine": 340,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 531,
+          "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+          "attributeLine": 531,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 213,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 213,
+          "value": "{saved.parents > 0 ? T.green : T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 266,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 266,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 437,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 437,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 448,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 448,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 452,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 452,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 284,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 284,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 301,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 301,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 313,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 399,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 399,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 461,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 258,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 258,
+          "value": "{passed ? T.green : T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 267,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 267,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 377,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 377,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 420,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 420,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/release/page.tsx",
+          "line": 118,
+          "sourceHash": "1fec91c210b20b2b95a5a3de39a82bb43823a71589ad486276dc4c8b94d16573",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 309,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 340,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 531,
+          "hash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 213,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 266,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 437,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 448,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 452,
+          "hash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 284,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 301,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 313,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 399,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 461,
+          "hash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 258,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 267,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 377,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 420,
+          "hash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56"
+        },
+        {
+          "path": "app/(app)/m/release/page.tsx",
+          "line": 118,
+          "hash": "1fec91c210b20b2b95a5a3de39a82bb43823a71589ad486276dc4c8b94d16573"
+        }
+      ],
+      "unindexed": [
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 340,
+          "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+          "attributeLine": 340,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/field-ui.tsx",
+          "line": 531,
+          "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+          "attributeLine": 531,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 213,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 213,
+          "value": "{saved.parents > 0 ? T.green : T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 266,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 266,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 437,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 437,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 448,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 448,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/lot/client.tsx",
+          "line": 452,
+          "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+          "attributeLine": 452,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 284,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 284,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 301,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 301,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/process/client.tsx",
+          "line": 399,
+          "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+          "attributeLine": 399,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 258,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 258,
+          "value": "{passed ? T.green : T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 267,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 267,
+          "value": "{T.red}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 377,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 377,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/m/receiving/client.tsx",
+          "line": 420,
+          "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+          "attributeLine": 420,
+          "value": "{T.warning}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "component": "KPI",
+      "prop": "color",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "declarationLine": 2301,
+      "binding": "color",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 80283,
+          "end": 80288,
+          "text": "color",
+          "line": 2321
+        },
+        {
+          "start": 85927,
+          "end": 85932,
+          "text": "color",
+          "line": 2470
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 162,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 169,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 175,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 181,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 192,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 198,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 204,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 214,
+          "sourceHash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 524,
+          "sourceHash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 526,
+          "sourceHash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 527,
+          "sourceHash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7",
+          "attributeLine": 527,
+          "value": "{noFile > 0 ? T.warning : T.muted}",
+          "argumentHashes": [
+            "d64b7b5dbdb4af79a0a9d7bc0f0e5f9089cf8c322c4337f12ac3676840d664b4"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 498,
+          "sourceHash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef",
+          "attributeLine": 498,
+          "value": "{pending > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "4e0154820dffb200fbe94b3656a7da9ad8524a3c14e0fb5557bd987467fbf82b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 500,
+          "sourceHash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 501,
+          "sourceHash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 502,
+          "sourceHash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 223,
+          "sourceHash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 225,
+          "sourceHash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 226,
+          "sourceHash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 227,
+          "sourceHash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 295,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 297,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 298,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 299,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 300,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 256,
+          "sourceHash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 257,
+          "sourceHash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024",
+          "attributeLine": 257,
+          "value": "{T.green}",
+          "argumentHashes": [
+            "d0ac9b07a772844a4c6238d60cf0818120cc650cf27a5b6a360650ed6bbd056d"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 258,
+          "sourceHash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024",
+          "attributeLine": 263,
+          "value": "{T.champagne}",
+          "argumentHashes": [
+            "d0c2f080e63e3555e781c1861a95e685ab7a402a69dd14b3ef7da81dd81fa45a"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 76,
+          "sourceHash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 78,
+          "sourceHash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 79,
+          "sourceHash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123",
+          "attributeLine": 83,
+          "value": "{totals.pending > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "5671321feb2ff0e0028d0db8869c994f6e67dac10bb1970dfa84911f127d32a0"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 85,
+          "sourceHash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/audit/page.tsx",
+          "line": 198,
+          "sourceHash": "53b36e586835dade47ea2857c746d86e464e674ea13ed8424807f5c03bd7cba3",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/audit/page.tsx",
+          "line": 203,
+          "sourceHash": "53b36e586835dade47ea2857c746d86e464e674ea13ed8424807f5c03bd7cba3",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/audits/page.tsx",
+          "line": 107,
+          "sourceHash": "9e9db0d40811157541023a4d22677c5b175ff56ca61a4d5f2b68303dff810c80",
+          "attributeLine": 107,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "388d3cb7cfbaffceb16c810fac3ada754127fb3174b2e005ec831c79887d7933"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/authorized-reps/page.tsx",
+          "line": 202,
+          "sourceHash": "3a38c1f73ffee6ec4175663d5814b530407a7528c481a7169eda59104d5f0bf2",
+          "attributeLine": 202,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "64312120a6bbd509addda5f4278f459df93d8afc427b573bf2df91c5a6a3162a"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 141,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": 145,
+          "value": "{(r.accuracy_exact ?? 0) >= 80 ? T.green : T.warning}",
+          "argumentHashes": [
+            "04b19966f4681d2e9c9b88f0bb4be907e5e2b376695cde3c6413401ae934b24e"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 147,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": 151,
+          "value": "{(r.accuracy_acc ?? 0) >= 90 ? T.green : T.warning}",
+          "argumentHashes": [
+            "c40219820537ee1b9123ab526ca616ed8033a8468f7323574ef87a887820b91f"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 153,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": 157,
+          "value": "{r.false_positive > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "c337fcfef7afaa976d5ad38abf5c07350f3163aa2a32fd5256096f9a30b656f5"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 159,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": 163,
+          "value": "{r.false_negative > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "7ef0ec5ad3de150e71b74bfc5cfa054853ec0c687bda7982fef4ece454251023"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 657,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 661,
+          "value": "{summary.accuracyExact >= 80 ? T.green : T.warning}",
+          "argumentHashes": [
+            "7ad7102837497aaf224bcbcf8a788a705f16c381d38986b565a9efff62587463"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 663,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 667,
+          "value": "{summary.accuracyAcceptable >= 90 ? T.green : T.warning}",
+          "argumentHashes": [
+            "bd1b3d42c907d0461d15ffd82d7c03504fbbdbf11d13352b7e8cb6db143b2fad"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 669,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 673,
+          "value": "{summary.falsePositive > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "0c26aa530e0beec8f4901550828f042f4df7c1f57ce948a76eeccc2770d6b680"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 675,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 679,
+          "value": "{summary.falseNegative > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "01126f1e5d7df3e1d4cf42df1c6a8d6f85325d74c560c4ce1455f97deb8e4819"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 158,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": 158,
+          "value": "{kpi.pending > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "2475738845323b91da0098856f575614f82ad11c78f93290bf3eb9ecddcda620"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 159,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": 159,
+          "value": "{kpi.approved > 0 ? T.green : undefined}",
+          "argumentHashes": [
+            "0018ba2182075d3ef8941fc1bd4527214c75d7e500270fa8ef6f2590f1f7aad9"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 160,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": 160,
+          "value": "{T.champagne}",
+          "argumentHashes": [
+            "c02c087b0dfcbbd4dd596cd6fd739ef416572cc8d00490f8467ad90fea670c4b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 161,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/capa/page.tsx",
+          "line": 183,
+          "sourceHash": "4842ef6f9690144c0ae53dcd2281d8c4788e66025727b32433bc5dcf8c640639",
+          "attributeLine": 187,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "506ac66d11de51c4c4dd4b81392cc54b5110ec250943694075761392c460d0a0"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/cleanroom/page.tsx",
+          "line": 194,
+          "sourceHash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5",
+          "attributeLine": 194,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "618f9527f2f21a5d72ca65aa70f30da26876a8d8e00973e93c03901816e5f34e"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/clinical-evaluations/page.tsx",
+          "line": 170,
+          "sourceHash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be",
+          "attributeLine": 170,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "f99f558995809101de4a92d138bd9404cd9d5ffb71e607488c204843f2a80f9e"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/complaints/page.tsx",
+          "line": 186,
+          "sourceHash": "db0ef0ab7e1e455c59c52d9bba4a2deed14d03da318c560530dac4b342913a11",
+          "attributeLine": 190,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "21c8bcbfbb4a658e9927261d14fb77d57b59014b9e710715f01807755444c0bb"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/design-trace/client.tsx",
+          "line": 373,
+          "sourceHash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303",
+          "attributeLine": 373,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "2b141a526702120222609e7413e2e6f272fc0b31e87dcd81c96a88d614a2f430"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/device-licenses/page.tsx",
+          "line": 239,
+          "sourceHash": "739a72ab78b4ab8d8fcd5d4ff6309b3ff6deb7d3597a6416efde315295c23e47",
+          "attributeLine": 239,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "31aad253bd2622d1bfb2a9e70b2250cea83feaeed3b16ef7554dfeba3a3e0e91"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/equipment/page.tsx",
+          "line": 192,
+          "sourceHash": "f9d37037181e148a21e390fc87fdb002fb58ddac4ce07f6f60a187f4dbc1257a",
+          "attributeLine": 192,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "07bf59d5080b04fde3faea0039f6ed7cc3e3f182dcbc1ef5bf1cb8eba672ca88"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/eu-mdr/page.tsx",
+          "line": 175,
+          "sourceHash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524",
+          "attributeLine": 175,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "05f6b712443f9f545c9a526c87125b41aaeaa8a9e26b6bd13aa9b3214fc636ae"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 164,
+          "sourceHash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 165,
+          "sourceHash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 166,
+          "sourceHash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a",
+          "attributeLine": 170,
+          "value": "{completionRate >= 80 ? T.green : T.warning}",
+          "argumentHashes": [
+            "4acb07d9f72b02d4d7f1abe5a14dd41455e908306701f8ee5087a18f27a5802d"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/fda-510k/page.tsx",
+          "line": 167,
+          "sourceHash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33",
+          "attributeLine": 167,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "c535663131c215c88844b2f90ef6f33c80891211363c53a711e95a07d8dce327"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/feedback/page.tsx",
+          "line": 96,
+          "sourceHash": "d67a603bf97bd0519c91c4fa9c78b96e9c5942a6bd3eedde8f54bc7c84e26ff6",
+          "attributeLine": 96,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "058037046c921baf2868e61988163f855518d242e20a724035346e1531948ced"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 155,
+          "sourceHash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888",
+          "attributeLine": 155,
+          "value": "{pending.length > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "76698a9c4c039688a939e082412c9bcdf99caa2bc2a092eb35d51d0a09478473"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 156,
+          "sourceHash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888",
+          "attributeLine": 156,
+          "value": "{T.green}",
+          "argumentHashes": [
+            "7d0bcb6edc3588ffa0a66a0abbad313b2c0a0e4efffd0ea9345d0c8e2c70ef60"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 157,
+          "sourceHash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/letter-to-file/page.tsx",
+          "line": 187,
+          "sourceHash": "443dee80a3665a62c2a818884a3656b159acaa81ea321e765fc73ebb8b6f0004",
+          "attributeLine": 187,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "506ac66d11de51c4c4dd4b81392cc54b5110ec250943694075761392c460d0a0"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/lots/page.tsx",
+          "line": 288,
+          "sourceHash": "84540d0f61c1d2da36f22a9d342de021e444e025b88426371001235a3292563c",
+          "attributeLine": 288,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "4d4f8e472c31b9510a5ecc82447a61d319578f3c60e672e1f39aa833402c65fb"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/management-reviews/page.tsx",
+          "line": 128,
+          "sourceHash": "67ebb4fc32e7109f4bc6086e0c15dc7911a8310d424a980888cedc04bb2a9830",
+          "attributeLine": 128,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "554e7a5c9585cb7114efd6a3c8f97d50af717d4f169187692a84e01c8b5b0c18"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/nmpa/page.tsx",
+          "line": 165,
+          "sourceHash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf",
+          "attributeLine": 165,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "b0e7a39fd29997fafb64371b2401eeed0c4a3948c56587d9251dea28463fda30"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/nonconformances/page.tsx",
+          "line": 175,
+          "sourceHash": "c8ab56bab55cbe2966906db5d1ae2cb51141c8124a23584a798fa43393504834",
+          "attributeLine": 175,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "cbaae5926227f0e1e40f8f8865c24e2092ca808942db9148ac7c85f8921c4037"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 204,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 205,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": 209,
+          "value": "{unreadCount > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "1c91bc6b00a1dcc07a589c625b1729b7df5dc1cca76abc5d39aeca2b48905f42"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 214,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 222,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 232,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 237,
+          "sourceHash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/pmda/page.tsx",
+          "line": 165,
+          "sourceHash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4",
+          "attributeLine": 165,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "b0e7a39fd29997fafb64371b2401eeed0c4a3948c56587d9251dea28463fda30"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/pms/page.tsx",
+          "line": 179,
+          "sourceHash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d",
+          "attributeLine": 179,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "3c8aa55b409e9472d8db09d80a9bac944b306eb98383f62e253e59b920c6e233"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/process-validations/page.tsx",
+          "line": 96,
+          "sourceHash": "652cfcafa7b0a9b2c6a0ae991dd7341f21f2d14348a8eb48708ab1949addd813",
+          "attributeLine": 96,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "daf4a530f6b9cb69103608827160c52c701dd8a4338400eb992a4f0c20884611"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/production-equipment/page.tsx",
+          "line": 99,
+          "sourceHash": "eb4cc0de9fc0ed992857ef594573f50de1ea6fc43b9fe9491706d486d5a0a4e3",
+          "attributeLine": 99,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "15c9909ec4791d613750f815a3d03efb50ed945782a8acb41144ca8a8e9327f1"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/quality-objectives/page.tsx",
+          "line": 273,
+          "sourceHash": "50709a47b82b14d23fc56ae2e60943c34ab843c503281f5890cd5b59a25fbe86",
+          "attributeLine": 273,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "edbb18b15b5a5bf87f68fefaa6db745d558acd2fda0cc49d1d706c632e9de22d"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/recalls/page.tsx",
+          "line": 194,
+          "sourceHash": "f7476300f305d1dcb027a7f822477b8650cde4e51cceaa485e01927aa321bbd3",
+          "attributeLine": 198,
+          "value": "{typeof k.value === 'number' && k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "5183af7fe8eb56270db1152ce72076ef5dfbc02b5f1689aa1ad04b9b313be587"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/regulatory-calendar/page.tsx",
+          "line": 166,
+          "sourceHash": "202cfb138a7bbd18e3e7b7571be760c69d16364dab3bdd3af4b368e2d3eb8cea",
+          "attributeLine": 166,
+          "value": "{kpi.value > 0 ? kpi.color : T.subtle}",
+          "argumentHashes": [
+            "3059de18e03e43172edad84ad9f6633898ed49ec1895c6e200042c42753fb64b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/standards/page.tsx",
+          "line": 98,
+          "sourceHash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258",
+          "attributeLine": 98,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "c835962def738bb65430929fa3cee4c92367ddd2c55ed3fb2441299d3f6ba53a"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/sterilization/page.tsx",
+          "line": 175,
+          "sourceHash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5",
+          "attributeLine": 175,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "cbaae5926227f0e1e40f8f8865c24e2092ca808942db9148ac7c85f8921c4037"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/suppliers/client.tsx",
+          "line": 186,
+          "sourceHash": "9252f2b8f7fe580a18f2238c4afc3f830f17f146f1761d79fa3312b664e49483",
+          "attributeLine": 186,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "ca20c45a8250dc4d3a448379f371dbdd78e5e75beccf140e382f0b8018da3a68"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/udi/page.tsx",
+          "line": 225,
+          "sourceHash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4",
+          "attributeLine": 225,
+          "value": "{k.on ? k.color : T.subtle}",
+          "argumentHashes": [
+            "0217c9cfe34d1778fb690b7bf13a90b4ba43d6a53de926b32ad94bb38a3c86d5"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/vigilance/page.tsx",
+          "line": 187,
+          "sourceHash": "84924417852c92421b4bbb5dbe74135d4a4c7f0c1f73d68b01d159856b03e59f",
+          "attributeLine": 191,
+          "value": "{k.value > 0 ? k.color : T.subtle}",
+          "argumentHashes": [
+            "4bf47da27bfd784aa1d73b3b714b3b248fe8f59361a5b4959c5471cd699b4645"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 28,
+          "sourceHash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8",
+          "attributeLine": 31,
+          "value": "{hasData ? T.blue : T.subtle}",
+          "argumentHashes": [
+            "302fed96337a884e6e63568b999f0d6a8d87250900cd478d1e8f773e8a1637dc"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 33,
+          "sourceHash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8",
+          "attributeLine": 36,
+          "value": "{Number(summary.reject_total) > 0 ? T.warning : T.subtle}",
+          "argumentHashes": [
+            "b970ca7cf7a130e60f389a04783e3221141ab9ca0ba9043a1238814ee6ca7616"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 38,
+          "sourceHash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8",
+          "attributeLine": 41,
+          "value": "{rate === null ? T.subtle : rate > 0 ? T.warning : T.green}",
+          "argumentHashes": [
+            "94a5e1b482f124389b2b55ec3de31d2d2ca927a193c00873d610db9a6baf4b8a"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 43,
+          "sourceHash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8",
+          "attributeLine": 46,
+          "value": "{summary.deviation_records > 0 ? T.red : T.subtle}",
+          "argumentHashes": [
+            "53dd55df308930cc4de98cabd4b4e808dcc4a135187f11d91ee5a5c9d884694f"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 48,
+          "sourceHash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8",
+          "attributeLine": 51,
+          "value": "{summary.nc_count > 0 ? T.red : T.subtle}",
+          "argumentHashes": [
+            "27e227084bcff9da6e976c389044a0414bee7f108b8fa7a4675f2d523a7c9f92"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/RoleWorkspaceKpis.tsx",
+          "line": 32,
+          "sourceHash": "26cd7607ab7576a556ece04c6a2f4e45470ff070a73bef648beb8790ce85a078",
+          "attributeLine": 37,
+          "value": "{it.color}",
+          "argumentHashes": [
+            "0b417171a1abf411e89165e9e48cbbcc703c8e31ffba2e99f65c48261e36ca2d"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 63,
+          "sourceHash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 82,
+          "sourceHash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068",
+          "attributeLine": 86,
+          "value": "{recent.length > 0 ? T.champagne : undefined}",
+          "argumentHashes": [
+            "881d83c98355768acc81b90c1fd4418f6b8b702643ac835c9a207b72f43ce76b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 102,
+          "sourceHash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068",
+          "attributeLine": 106,
+          "value": "{s.highRisk > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "a4362924e30dff4d0cb57d8e2978b07887d332cc7d3599d9df68e577d6e36e56"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 69,
+          "sourceHash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 88,
+          "sourceHash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783",
+          "attributeLine": 92,
+          "value": "{T.champagne}",
+          "argumentHashes": [
+            "5e1035cd4f1644914bc2d2650ad4841337a6e4c9ecad841676d48ddcf083b06a"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 108,
+          "sourceHash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783",
+          "attributeLine": 112,
+          "value": "{s.highRisk > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "e2259a2880139773fe6af0203fd032622eb15f0953f1babd6ed832718501bdba"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 128,
+          "sourceHash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 73,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 95,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 127,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 150,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": 154,
+          "value": "{usagePct >= 80 ? T.warning : undefined}",
+          "argumentHashes": [
+            "3ef84b0695135e2aff29b739903f6ef71416bac6733142f93551bea4f15e1c3e"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 170,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": 174,
+          "value": "{subsSummary.nearQuota > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "789f74436cf22a2e8e004f3a3d6c067ade5964e83751eb286a4676ae21e49e35"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 196,
+          "sourceHash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe",
+          "attributeLine": 200,
+          "value": "{\r\n                subsSummary.expiringSoon > 0\r\n                  ? T.red\r\n                  : subsSummary.expired > 0\r\n                  ? T.warning\r\n                  : undefined\r\n              }",
+          "argumentHashes": [
+            "dbbc98f0346dbe13900cd729412a44c1b173710c73cd59f790ce65b045acd0ee"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 273,
+          "sourceHash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878",
+          "attributeLine": 277,
+          "value": "{lots.length > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "132306157cf57d4834b7c33faee2582a0854c0ddb096102c985337ae543b239c"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 296,
+          "sourceHash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878",
+          "attributeLine": 300,
+          "value": "{severeNc.length > 0 ? T.red : ncs.length > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "0ef338ec88cf7d58dcb558479419dd9383919e64291532064a0a288596618b30"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 319,
+          "sourceHash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878",
+          "attributeLine": 323,
+          "value": "{overduePeq ? T.red : peqDue.length > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "1284fd6403ef53a2bba968062f407c39d3136693affd6ec6740a9fd80ba5c727"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 342,
+          "sourceHash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878",
+          "attributeLine": 346,
+          "value": "{overduePv ? T.red : pvDue.length > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "4dd43912ba37d7986ad5840ec719979fc111ba343819f4aeb4ed0759aad879c2"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 139,
+          "sourceHash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455",
+          "attributeLine": 143,
+          "value": "{pendingReviews > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "900b78f1fcb1272c2157fd0384b8c1d3c17d90d653e6d53ab1c0468ce47272ff"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 159,
+          "sourceHash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455",
+          "attributeLine": 163,
+          "value": "{qmsPending > 0 ? T.champagne : undefined}",
+          "argumentHashes": [
+            "25ccb4d8ec66b8a03a81f7552a33748dbcd37437ab3415ddf764beb151dc12be"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 179,
+          "sourceHash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 198,
+          "sourceHash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455",
+          "attributeLine": 202,
+          "value": "{s.highRisk > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "d7157d893aa670d10aaece9097efe31a2bec15ef680b9e4717e2a16b9abc7011"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 113,
+          "sourceHash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb",
+          "attributeLine": 117,
+          "value": "{pendingReviews > 0 ? T.warning : undefined}",
+          "argumentHashes": [
+            "ea10a51a0d23884dc45fbc9c04a6c28ff75934541887a13bd11f8ae52fc63b6b"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 133,
+          "sourceHash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb",
+          "attributeLine": 137,
+          "value": "{s.highRisk > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "aeb8ec2e84cb250c2c7fd2c3c2415b4053fc7930240da5a54cf492632ce55e83"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 153,
+          "sourceHash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb",
+          "attributeLine": 157,
+          "value": "{pendingAssessments > 0 ? T.champagne : undefined}",
+          "argumentHashes": [
+            "181d2279ce5e35cb6e4b6c5955e2270e526edadcb721f650c81c2491d0126945"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 173,
+          "sourceHash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 115,
+          "sourceHash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 134,
+          "sourceHash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221",
+          "attributeLine": 138,
+          "value": "{myProjects > 0 ? T.champagne : undefined}",
+          "argumentHashes": [
+            "6ef567beebcca0100dc12b1ee9fd1541ec84fefd98e0f7a31b630c7568706ed7"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 154,
+          "sourceHash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221",
+          "attributeLine": 158,
+          "value": "{profiledCount > 0 ? T.green : undefined}",
+          "argumentHashes": [
+            "9e21e62f0112cdab7efa1944bd150428418d8acfb7808607bcb818614946090f"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 174,
+          "sourceHash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 2301,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 162,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 169,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 175,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 181,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 192,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 198,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 204,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/activity/page.tsx",
+          "line": 214,
+          "hash": "5369377c8ebbc0411943ac6832512c32e88115f93a95fde96666c34d193ffcb8"
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 524,
+          "hash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7"
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 526,
+          "hash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7"
+        },
+        {
+          "path": "app/(app)/admin/default-templates/page.tsx",
+          "line": 527,
+          "hash": "085f0c6ebad871542174638e18f8ab81e60b0b2c1f90f06f51f1b013b2c659a7"
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 498,
+          "hash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef"
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 500,
+          "hash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef"
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 501,
+          "hash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef"
+        },
+        {
+          "path": "app/(app)/admin/experts/page.tsx",
+          "line": 502,
+          "hash": "da7975b8f3a8b0d0abe82c3bba7e6ab5762fdb7b367367e1b4b32bb706b796ef"
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 223,
+          "hash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987"
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 225,
+          "hash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987"
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 226,
+          "hash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987"
+        },
+        {
+          "path": "app/(app)/admin/page.tsx",
+          "line": 227,
+          "hash": "202ea566bed5263d358569c13ca0d4e31cb624929d572bd3dc2f0f64478b8987"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 295,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 297,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 298,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 299,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 300,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 256,
+          "hash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024"
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 257,
+          "hash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024"
+        },
+        {
+          "path": "app/(app)/admin/subscriptions/page.tsx",
+          "line": 263,
+          "hash": "aca142eebdf3972552bb7ff694144bc8685df0a0b5377c5773c72986c3211024"
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 76,
+          "hash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123"
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 78,
+          "hash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123"
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 83,
+          "hash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123"
+        },
+        {
+          "path": "app/(app)/admin/users/users-table-client.tsx",
+          "line": 85,
+          "hash": "eb9ef9ed53e1501f1d119167a1f1760cbc5c170d49225b771000e9782b5ad123"
+        },
+        {
+          "path": "app/(app)/audit/page.tsx",
+          "line": 198,
+          "hash": "53b36e586835dade47ea2857c746d86e464e674ea13ed8424807f5c03bd7cba3"
+        },
+        {
+          "path": "app/(app)/audit/page.tsx",
+          "line": 203,
+          "hash": "53b36e586835dade47ea2857c746d86e464e674ea13ed8424807f5c03bd7cba3"
+        },
+        {
+          "path": "app/(app)/audits/page.tsx",
+          "line": 107,
+          "hash": "9e9db0d40811157541023a4d22677c5b175ff56ca61a4d5f2b68303dff810c80"
+        },
+        {
+          "path": "app/(app)/authorized-reps/page.tsx",
+          "line": 202,
+          "hash": "3a38c1f73ffee6ec4175663d5814b530407a7528c481a7169eda59104d5f0bf2"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 145,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 151,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 157,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 163,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 661,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 667,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 673,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 679,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 158,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 159,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 160,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 161,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/capa/page.tsx",
+          "line": 187,
+          "hash": "4842ef6f9690144c0ae53dcd2281d8c4788e66025727b32433bc5dcf8c640639"
+        },
+        {
+          "path": "app/(app)/cleanroom/page.tsx",
+          "line": 194,
+          "hash": "7905de171847d855782521ed11965371ee7a24140f7949e7b204f45b301d2dc5"
+        },
+        {
+          "path": "app/(app)/clinical-evaluations/page.tsx",
+          "line": 170,
+          "hash": "e5a2669d1f34ff3356adab4d531e386e399223800970a6d0318f28a5000ea5be"
+        },
+        {
+          "path": "app/(app)/complaints/page.tsx",
+          "line": 190,
+          "hash": "db0ef0ab7e1e455c59c52d9bba4a2deed14d03da318c560530dac4b342913a11"
+        },
+        {
+          "path": "app/(app)/design-trace/client.tsx",
+          "line": 373,
+          "hash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303"
+        },
+        {
+          "path": "app/(app)/device-licenses/page.tsx",
+          "line": 239,
+          "hash": "739a72ab78b4ab8d8fcd5d4ff6309b3ff6deb7d3597a6416efde315295c23e47"
+        },
+        {
+          "path": "app/(app)/equipment/page.tsx",
+          "line": 192,
+          "hash": "f9d37037181e148a21e390fc87fdb002fb58ddac4ce07f6f60a187f4dbc1257a"
+        },
+        {
+          "path": "app/(app)/eu-mdr/page.tsx",
+          "line": 175,
+          "hash": "cf62e9c0a05df45917ad146b4c5a526f866e9799ff25a3afa65b176d05466524"
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 164,
+          "hash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a"
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 165,
+          "hash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a"
+        },
+        {
+          "path": "app/(app)/experts/page.tsx",
+          "line": 170,
+          "hash": "4378bcb5f4a49f97280b2063e768519bed4c52aba9ee2ba5eca755a3078f460a"
+        },
+        {
+          "path": "app/(app)/fda-510k/page.tsx",
+          "line": 167,
+          "hash": "99335c38799210963d8831fd6823d2b019555548c7b4cad1506e4cccb09b6e33"
+        },
+        {
+          "path": "app/(app)/feedback/page.tsx",
+          "line": 96,
+          "hash": "d67a603bf97bd0519c91c4fa9c78b96e9c5942a6bd3eedde8f54bc7c84e26ff6"
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 155,
+          "hash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888"
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 156,
+          "hash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888"
+        },
+        {
+          "path": "app/(app)/inbox/page.tsx",
+          "line": 157,
+          "hash": "311495c42028c4f704e13ea8aff1599c2311b4e23282a167ec3cfd27d95fd888"
+        },
+        {
+          "path": "app/(app)/letter-to-file/page.tsx",
+          "line": 187,
+          "hash": "443dee80a3665a62c2a818884a3656b159acaa81ea321e765fc73ebb8b6f0004"
+        },
+        {
+          "path": "app/(app)/lots/page.tsx",
+          "line": 288,
+          "hash": "84540d0f61c1d2da36f22a9d342de021e444e025b88426371001235a3292563c"
+        },
+        {
+          "path": "app/(app)/management-reviews/page.tsx",
+          "line": 128,
+          "hash": "67ebb4fc32e7109f4bc6086e0c15dc7911a8310d424a980888cedc04bb2a9830"
+        },
+        {
+          "path": "app/(app)/nmpa/page.tsx",
+          "line": 165,
+          "hash": "1c02027c46c43f4a5d53a648bea69fa96d38942615c56d0f78d21ef284446cbf"
+        },
+        {
+          "path": "app/(app)/nonconformances/page.tsx",
+          "line": 175,
+          "hash": "c8ab56bab55cbe2966906db5d1ae2cb51141c8124a23584a798fa43393504834"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 204,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 209,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 214,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 222,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 232,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/notifications/page.tsx",
+          "line": 237,
+          "hash": "7c62bd68ae01c6e3e3bddf814fd0f2f9989d078b1aa1c2b1b43ad0a5536d648e"
+        },
+        {
+          "path": "app/(app)/pmda/page.tsx",
+          "line": 165,
+          "hash": "c647846006a0fae9d3dbff5244322cd490c64a8c90e16e9a8ba8b90710ff05e4"
+        },
+        {
+          "path": "app/(app)/pms/page.tsx",
+          "line": 179,
+          "hash": "79de2cdd63b619de06fbc413bb2d292c400fce552856a17c6b9ee61e42a2b54d"
+        },
+        {
+          "path": "app/(app)/process-validations/page.tsx",
+          "line": 96,
+          "hash": "652cfcafa7b0a9b2c6a0ae991dd7341f21f2d14348a8eb48708ab1949addd813"
+        },
+        {
+          "path": "app/(app)/production-equipment/page.tsx",
+          "line": 99,
+          "hash": "eb4cc0de9fc0ed992857ef594573f50de1ea6fc43b9fe9491706d486d5a0a4e3"
+        },
+        {
+          "path": "app/(app)/quality-objectives/page.tsx",
+          "line": 273,
+          "hash": "50709a47b82b14d23fc56ae2e60943c34ab843c503281f5890cd5b59a25fbe86"
+        },
+        {
+          "path": "app/(app)/recalls/page.tsx",
+          "line": 198,
+          "hash": "f7476300f305d1dcb027a7f822477b8650cde4e51cceaa485e01927aa321bbd3"
+        },
+        {
+          "path": "app/(app)/regulatory-calendar/page.tsx",
+          "line": 166,
+          "hash": "202cfb138a7bbd18e3e7b7571be760c69d16364dab3bdd3af4b368e2d3eb8cea"
+        },
+        {
+          "path": "app/(app)/standards/page.tsx",
+          "line": 98,
+          "hash": "648f0255b497528277c551466b67168976082ddaa85b427570f297f15e546258"
+        },
+        {
+          "path": "app/(app)/sterilization/page.tsx",
+          "line": 175,
+          "hash": "ffc08fb3c76b0031e80ee15243ed3103c22735451a15d36533503643db8fc5a5"
+        },
+        {
+          "path": "app/(app)/suppliers/client.tsx",
+          "line": 186,
+          "hash": "9252f2b8f7fe580a18f2238c4afc3f830f17f146f1761d79fa3312b664e49483"
+        },
+        {
+          "path": "app/(app)/udi/page.tsx",
+          "line": 225,
+          "hash": "ff1466231e560e4d622332828266eb1d269f67f62f8a324fe0277b1be8785dd4"
+        },
+        {
+          "path": "app/(app)/vigilance/page.tsx",
+          "line": 191,
+          "hash": "84924417852c92421b4bbb5dbe74135d4a4c7f0c1f73d68b01d159856b03e59f"
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 31,
+          "hash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8"
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 36,
+          "hash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8"
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 41,
+          "hash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8"
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 46,
+          "hash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8"
+        },
+        {
+          "path": "components/ProductionYieldPanel.tsx",
+          "line": 51,
+          "hash": "3ab66ac55d1e0939ce278073f614293718c0ba7ca5e6c53a9074318d70c261f8"
+        },
+        {
+          "path": "components/RoleWorkspaceKpis.tsx",
+          "line": 37,
+          "hash": "26cd7607ab7576a556ece04c6a2f4e45470ff070a73bef648beb8790ce85a078"
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 63,
+          "hash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068"
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 86,
+          "hash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068"
+        },
+        {
+          "path": "components/dashboard/ClinicalDashboardView.tsx",
+          "line": 106,
+          "hash": "524d8c19f4d90ad8acb50c9b09d82b95b3d7062e837ad193f7c9371dd37d8068"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 69,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 92,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 112,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/ExecDashboardView.tsx",
+          "line": 128,
+          "hash": "b0c3a7d4bddcbe7b8c53475483bbccb02a9633aa803a03feda02740ff3436783"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 73,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 95,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 127,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 154,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 174,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/MedQraftAdminView.tsx",
+          "line": 200,
+          "hash": "0c3a6bc702119b0003f303a11893910b252a93f4eb0614476a5bae860f9859fe"
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 277,
+          "hash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878"
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 300,
+          "hash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878"
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 323,
+          "hash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878"
+        },
+        {
+          "path": "components/dashboard/ProductionDashboardView.tsx",
+          "line": 346,
+          "hash": "18b20d37e44c0c58949fa68cf7e6bb3598729d20bb04fda4a9213a2ac8d9e878"
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 143,
+          "hash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455"
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 163,
+          "hash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455"
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 179,
+          "hash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455"
+        },
+        {
+          "path": "components/dashboard/QADashboardView.tsx",
+          "line": 202,
+          "hash": "0e8ff8b4322409ae9eed8d3f6d387734cbdf81df04ef0420eff509a5e8a1d455"
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 117,
+          "hash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb"
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 137,
+          "hash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb"
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 157,
+          "hash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb"
+        },
+        {
+          "path": "components/dashboard/RADashboardView.tsx",
+          "line": 173,
+          "hash": "2b8a94b0a45d8514b983ed698ff20e5247b9471dbd6193fcbc8af4f96f9229bb"
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 115,
+          "hash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221"
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 138,
+          "hash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221"
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 158,
+          "hash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221"
+        },
+        {
+          "path": "components/dashboard/RDDashboardView.tsx",
+          "line": 174,
+          "hash": "987d25866381e3529846d86f6f9e570f6fc146ecc95c271ae6aaf792291b4221"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "component": "CardFigure",
+      "prop": "color",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "declarationLine": 3486,
+      "binding": "color",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 120232,
+          "end": 120237,
+          "text": "color",
+          "line": 3490
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/EvalRuns.tsx",
+          "line": 46,
+          "sourceHash": "38f305fb1957c63d3505721faf802726b3569c09cc9bb2f384954795c91d8a2d",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Models.tsx",
+          "line": 205,
+          "sourceHash": "152032e9fb819d19e54e026259c1b1c489d6832ae92417413da5335f9a562ab8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Models.tsx",
+          "line": 206,
+          "sourceHash": "152032e9fb819d19e54e026259c1b1c489d6832ae92417413da5335f9a562ab8",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 80,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 81,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 82,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 83,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 84,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 85,
+          "sourceHash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 259,
+          "sourceHash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 260,
+          "sourceHash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 261,
+          "sourceHash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/rule-table/page.tsx",
+          "line": 163,
+          "sourceHash": "5757f92104c7a6eaa284b5b8e4d87ead7d46806eded64009741c066e31bfb6ad",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/rule-table/page.tsx",
+          "line": 164,
+          "sourceHash": "5757f92104c7a6eaa284b5b8e4d87ead7d46806eded64009741c066e31bfb6ad",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 335,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 336,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 337,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 338,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 828,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": 828,
+          "value": "{progress.profileCompleted ? T.green : T.muted}",
+          "argumentHashes": [
+            "4ac71618d011b917907bd98265676603f114af22218dbf39743b36c610e114a9"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 829,
+          "sourceHash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 184,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 185,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 186,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 187,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": 187,
+          "value": "{r.silentUnderCount > 0 ? T.red : undefined}",
+          "argumentHashes": [
+            "b51cccd2c93683c95f4c0ac5bf82e4a071cc69f0836e12cdb6ba9adb7e327cd9"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 188,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 189,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 190,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 225,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 226,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": 226,
+          "value": "{r.exact ? undefined : T.warning}",
+          "argumentHashes": [
+            "88db6ba6d85e770034945d788b94f3b76247ee561df0bfd437ce92b03e58aaaf"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 227,
+          "sourceHash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 244,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 245,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 246,
+          "sourceHash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604",
+          "attributeLine": 249,
+          "value": "{d.riskDelta === 0 ? T.muted : d.riskDelta > 0 ? T.warning : T.red}",
+          "argumentHashes": [
+            "2c4b857590969b8f0477e68d31ef6e6fefa9f9bae7c07faf229870697fe9ca10"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 884,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 885,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 888,
+          "value": "{(h.accuracy_acc ?? 0) >= 90 ? T.green : T.warning}",
+          "argumentHashes": [
+            "c16c006b46f57b64fd2e9b46adad29438d2472fba31ac8dc0a8941adc5575938"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 890,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 890,
+          "value": "{T.warning}",
+          "argumentHashes": [
+            "3adc1b01156e32840b8b7151e92c425243c21778fde939668a61186e0d785ea8"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 891,
+          "sourceHash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62",
+          "attributeLine": 891,
+          "value": "{T.red}",
+          "argumentHashes": [
+            "d76b6a93941be9b0502066a71513aeaca409d49e44026f15817f6e956b1ef7e0"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 216,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": 216,
+          "value": "{s.divergence_type === 'FN' ? T.red : T.warning}",
+          "argumentHashes": [
+            "5f013e1ddc04834bb87e1a40d0d321bdf97ad4c64419310871887f97a6037cea"
+          ],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 217,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 218,
+          "sourceHash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/admin/CspReportsPanel.tsx",
+          "line": 88,
+          "sourceHash": "8b6929071f8acfbe2f35af3e54fb94e3e8135a6247d2db5b8e6f3aa1369fb41f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "components/admin/CspReportsPanel.tsx",
+          "line": 89,
+          "sourceHash": "8b6929071f8acfbe2f35af3e54fb94e3e8135a6247d2db5b8e6f3aa1369fb41f",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 3486,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/EvalRuns.tsx",
+          "line": 46,
+          "hash": "38f305fb1957c63d3505721faf802726b3569c09cc9bb2f384954795c91d8a2d"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Models.tsx",
+          "line": 205,
+          "hash": "152032e9fb819d19e54e026259c1b1c489d6832ae92417413da5335f9a562ab8"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Models.tsx",
+          "line": 206,
+          "hash": "152032e9fb819d19e54e026259c1b1c489d6832ae92417413da5335f9a562ab8"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 80,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 81,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 82,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 83,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 84,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/ai-control/_tabs/Usage.tsx",
+          "line": 85,
+          "hash": "d4fd96fbd5bb8e3e21b1f8dfe490a8f475ee45fe4b7cd8d399fc2c2393d82d98"
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 259,
+          "hash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f"
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 260,
+          "hash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f"
+        },
+        {
+          "path": "app/(app)/admin/eval-sets/page.tsx",
+          "line": 261,
+          "hash": "d8442e1934cf2840bca8ab3b077544e731047e584e4c386fafa3ae3e89d4473f"
+        },
+        {
+          "path": "app/(app)/admin/rule-table/page.tsx",
+          "line": 163,
+          "hash": "5757f92104c7a6eaa284b5b8e4d87ead7d46806eded64009741c066e31bfb6ad"
+        },
+        {
+          "path": "app/(app)/admin/rule-table/page.tsx",
+          "line": 164,
+          "hash": "5757f92104c7a6eaa284b5b8e4d87ead7d46806eded64009741c066e31bfb6ad"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 335,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 336,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 337,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 338,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 828,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/screening/page.tsx",
+          "line": 829,
+          "hash": "f5bd0f6b571b8b36ccde4e264c578f615defc69e52b30c71661c59e6e800aeec"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 184,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 185,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 186,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 187,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 188,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 189,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 190,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 225,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 226,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/admin/validation-evidence/page.tsx",
+          "line": 227,
+          "hash": "150fdb802826a3f07f83200bb980882d531b18d1b8aa096a05292594780cd1f7"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 244,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 245,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/[id]/page.tsx",
+          "line": 249,
+          "hash": "f2aa83ee311a84e63c12cd967e8b94ebb5893fdbeae222d65301bca48c726604"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 884,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 888,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 890,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/page.tsx",
+          "line": 891,
+          "hash": "6d2500fc057a8f5f751dd2001e9586fed4045e1b0fd85a61b05442d2ce860b62"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 216,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 217,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "app/(app)/calibration/suggestions/page.tsx",
+          "line": 218,
+          "hash": "03be9f897d83310b6f16be03d853d028d795f5f57e31bb1bfee94c265b132fe1"
+        },
+        {
+          "path": "components/admin/CspReportsPanel.tsx",
+          "line": 88,
+          "hash": "8b6929071f8acfbe2f35af3e54fb94e3e8135a6247d2db5b8e6f3aa1369fb41f"
+        },
+        {
+          "path": "components/admin/CspReportsPanel.tsx",
+          "line": 89,
+          "hash": "8b6929071f8acfbe2f35af3e54fb94e3e8135a6247d2db5b8e6f3aa1369fb41f"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "component": "StageTimelineItem",
+      "prop": "fill",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "declarationLine": 4183,
+      "binding": "fill",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 146582,
+          "end": 146586,
+          "text": "fill",
+          "line": 4267
+        },
+        {
+          "start": 147298,
+          "end": 147302,
+          "text": "fill",
+          "line": 4292
+        },
+        {
+          "start": 147399,
+          "end": 147403,
+          "text": "fill",
+          "line": 4293
+        },
+        {
+          "start": 147475,
+          "end": 147479,
+          "text": "fill",
+          "line": 4294
+        }
+      ],
+      "callers": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4171,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "attributeLine": 4176,
+          "value": "{fill}",
+          "argumentHashes": [
+            "62a8eaba542089111f8df04c5e2f3d4ce922ec650bc15dab47b6ac372b21e85b"
+          ],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4183,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4176,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "lib/design/components.tsx",
+      "component": "StageTimelineItem",
+      "prop": "isLast",
+      "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+      "declarationLine": 4183,
+      "binding": "isLast",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 146591,
+          "end": 146597,
+          "text": "isLast",
+          "line": 4267
+        },
+        {
+          "start": 147236,
+          "end": 147242,
+          "text": "isLast",
+          "line": 4289
+        }
+      ],
+      "callers": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4171,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "attributeLine": 4174,
+          "value": "{i === nodes.length - 1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4183,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        },
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4174,
+          "hash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2"
+        }
+      ],
+      "unindexed": [
+        {
+          "path": "lib/design/components.tsx",
+          "line": 4171,
+          "sourceHash": "fca23135544453f845e1309f9a9c6e7c771b37d8a1d49260177523c3b1cc3de2",
+          "attributeLine": 4174,
+          "value": "{i === nodes.length - 1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "app/(app)/qms-documents/client.tsx",
+      "component": "MapRow",
+      "prop": "depth",
+      "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+      "declarationLine": 1683,
+      "binding": "depth",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 81409,
+          "end": 81414,
+          "text": "depth",
+          "line": 1708
+        },
+        {
+          "start": 81561,
+          "end": 81566,
+          "text": "depth",
+          "line": 1713
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1601,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1601,
+          "value": "{0}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1610,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1611,
+          "value": "{1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1632,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1634,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1648,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1650,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1659,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1659,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1673,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1673,
+          "value": "{1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1683,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1601,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1611,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1634,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1650,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1659,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1673,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        }
+      ],
+      "unindexed": [
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1601,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1601,
+          "value": "{0}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1610,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1611,
+          "value": "{1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1632,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1634,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1648,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1650,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1659,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1659,
+          "value": "{2}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1673,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1673,
+          "value": "{1}",
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    },
+    {
+      "path": "app/(app)/qms-documents/client.tsx",
+      "component": "MapRow",
+      "prop": "reference",
+      "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+      "declarationLine": 1683,
+      "binding": "reference",
+      "defaultValue": null,
+      "leaves": [
+        {
+          "start": 81246,
+          "end": 81255,
+          "text": "reference",
+          "line": 1701
+        },
+        {
+          "start": 82085,
+          "end": 82094,
+          "text": "reference",
+          "line": 1718
+        }
+      ],
+      "callers": [
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1601,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1610,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1632,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1648,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1653,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1659,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": 1659,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1673,
+          "sourceHash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6",
+          "attributeLine": null,
+          "value": null,
+          "argumentHashes": [],
+          "jsxSpreads": []
+        }
+      ],
+      "otherReferences": [],
+      "evidence": [
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1683,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1601,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1610,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1632,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1653,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1659,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        },
+        {
+          "path": "app/(app)/qms-documents/client.tsx",
+          "line": 1673,
+          "hash": "87ed05c475fd2728a584f1f1a6fec540888a7fb3dcd28118e3497b4a8683bef6"
+        }
+      ],
+      "unindexed": [],
+      "unresolvedSpreads": [],
+      "unresolvedReferences": []
+    }
+  ]
+}
