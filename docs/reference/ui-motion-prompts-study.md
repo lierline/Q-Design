@@ -24,7 +24,7 @@
 
 ## 2. 릴스 «Button Part 2» 여섯 (표지에서 읽음)
 
-캡션 원문: «Button Part 2 — buttons that do something after the tap. Which one would you use? Comment the number».
+캡션 원문: «Button Part 2: buttons that do something after the tap. Which one would you use? Comment the number».
 
 | # | 이름 | 표지 설명(원문) | 5장 · 9장 판정 | 우리 자리 |
 | --- | --- | --- | --- | --- |
