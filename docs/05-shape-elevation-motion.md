@@ -192,6 +192,7 @@ cubic-bezier(0.16, 1, 0.3, 1)   /* ease-out expo */
 **CSS 파일만 읽으면 이 셋이 빠집니다.** 부품별 색인은 `dist/inline-styles-index.md` 에 있고, 원본은 `source/screens/` 에 있습니다.
 「얼굴」 화면(로그인 입장 연출 등)의 움직임은 [참고 · 얼굴 화면](reference/signature-screens.md)에서 다룹니다.
 제품 밖에서 움직이는 것(소개 영상 · 홍보 클립)을 도구에 시킬 때의 브리프 뼈대는 [참고 · 움직임 브리프 조사](reference/motion-brief-study.md)에 있습니다. 값은 이 장에서 가져가고, 스프링 · 바운스 · 젖빛 유리는 거기서도 쓰지 않습니다.
+폰 아래 탭줄의 전환 연출(지금은 글자색 140ms 뿐)은 [참고 · 아래 탭줄 움직임 조사](reference/tabbar-motion-study.md)에 시안 셋(금선 이동 · 금선 1회 펼침 · 아이콘 뒤 면 투명도)을 두었습니다. 오너가 고르면 이 장의 키프레임 표에 오릅니다.
 
 ### 홈 위젯 편집 움직임
 

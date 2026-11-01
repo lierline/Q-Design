@@ -20,6 +20,7 @@
 오너 결정을 기다리는 것
 
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
+- 폰 아래 탭줄 전환 연출 A · B · C. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -50,6 +51,19 @@
 - 같은 측정기의 누름 자리 재기는 붙박이 띠 · 고정 바닥 줄 옆의 요소를 띠에서 비켜 세우지 않고 잰다. 띠가 덮은 만큼 작게 나온다(Q-Atelier 「근거 방침」 26 은 바닥 차림 옆이라 그렇고, 띠가 없는 자리에서는 44). 여러 줄로 접힌 글 속 링크는 가운데 점이 줄 사이에 떨어져 0 으로 나온다.
   - 붙박이 띠 쪽은 10-22 에 메웠다. 측정기(`measure.js` probeHit)가 44 보다 작게 재면 요소를 가운데로 굴려 한 번 더 재고 큰 쪽을 쓴다(기록에 `recentred`). 운영 재측정에서 「근거 방침」 은 26.1 → 45 로 «넓힌 자리 있음» 으로 옮겨 갔고, 진짜 작은 것(0145e146 배포 전 옛 판의 현장 화면 머리 38 · 폰 메뉴 서랍 묶음 머리 32)은 그대로 빨갛다. 여러 줄 글 속 링크는 아직 남았다.
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
+
+---
+
+## 아래 탭줄 움직임 조사 · Tab Bar Part 1 · 2026-11-01
+
+오빠 지시 «릴스(@ui_motion_prompts · Tab Bar Part 1) 보고 우리 어플 하단부 메뉴 애니메이션 공부». 참고라서 [reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 한 장으로 남기고 README · 05장에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 읽은 것: 캡션 · 표지 프레임(여섯 연출의 이름 · 설명 · 정지 그림이 다 있다). 못 읽은 것: 영상 본문(로그인 벽) · 프롬프트.
+- 여섯 연출(Sliding Pill · Liquid Bulge · Floating Notch · Icon Fill · Expanding Label · Bubble Float)은 전부 «활성 표시의 위치를 움직임으로» 알리고, 다섯이 알약 · 그라디언트 · 글로우를 쓴다(9장 금지 목록과 그대로 겹침).
+- 우리 탭줄(Q-Atelier `MobileBottomNav` · `.qa-mobile-tabbar`) 실측: 활성 표시 넷(글자색 · 2px 상단 금선 · 획 · 굵기)이 즉시 바뀌고 `transition: color 140ms` 뿐. 전환 연출이 없다. 폰 앱은 탭이 2 ~ 3개라 «바뀌었다» 가 더 두드러진다.
+- 5장 규칙(이동 · 투명도만 · 사이드바 밑줄 1회 scaleX 예외) 안에 남는 뼈대 둘(표시가 이동한다 · 채움을 투명도로)로 시안 셋을 적었다: A 금선 하나가 `translateX` 로 미끄러짐(320ms) · B 새 탭 금선이 1회 펼쳐짐(사이드바와 같은 말) · C 아이콘 뒤 10% 금면이 opacity 로 채워짐(200ms). 안 할 것: 알약 · 그라디언트 · 글로우 · 입자 · 액체 변형 · 뜀 · 팝 · 폭 애니메이션 · 이름 숨김.
+- 채택 시 손댈 자리(정본 `atelier.css` · 05장 키프레임 표 · 06장 등록부 · `MobileBottomNav` 인라인 borderTop → 클래스 · 전문가 포털 `bottom-nav.tsx` · `--sync`)와 확인 항목(폰 앱 `bridge.js` 가 `.qa-mobile-tabbar` 와 링크로 뒤로 두 번 닫힘을 판정하므로 DOM 꼴 유지)을 문서 6절에 적었다.
+- `check-chars` 통과(525 파일).
 
 ---
 
