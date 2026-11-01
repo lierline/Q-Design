@@ -63,7 +63,8 @@
 - 우리 탭줄(Q-Atelier `MobileBottomNav` · `.qa-mobile-tabbar`) 실측: 활성 표시 넷(글자색 · 2px 상단 금선 · 획 · 굵기)이 즉시 바뀌고 `transition: color 140ms` 뿐. 전환 연출이 없다. 폰 앱은 탭이 2 ~ 3개라 «바뀌었다» 가 더 두드러진다.
 - 5장 규칙(이동 · 투명도만 · 사이드바 밑줄 1회 scaleX 예외) 안에 남는 뼈대 둘(표시가 이동한다 · 채움을 투명도로)로 시안 셋을 적었다: A 금선 하나가 `translateX` 로 미끄러짐(320ms) · B 새 탭 금선이 1회 펼쳐짐(사이드바와 같은 말) · C 아이콘 뒤 10% 금면이 opacity 로 채워짐(200ms). 안 할 것: 알약 · 그라디언트 · 글로우 · 입자 · 액체 변형 · 뜀 · 팝 · 폭 애니메이션 · 이름 숨김.
 - 채택 시 손댈 자리(정본 `atelier.css` · 05장 키프레임 표 · 06장 등록부 · `MobileBottomNav` 인라인 borderTop → 클래스 · 전문가 포털 `bottom-nav.tsx` · `--sync`)와 확인 항목(폰 앱 `bridge.js` 가 `.qa-mobile-tabbar` 와 링크로 뒤로 두 번 닫힘을 판정하므로 DOM 꼴 유지)을 문서 6절에 적었다.
-- `check-chars` 통과(525 파일).
+- 같은 날 오빠 «이 사람 게시글 좀 훑어봐. 좋은 게 많네» → [reference/ui-motion-prompts-study.md](reference/ui-motion-prompts-study.md). 릴스 «Button Part 2» 여섯(Hold to Confirm · Paper Plane · Confetti · Copy Feedback · Shine Sweep · Slide to Confirm)과 판매 사이트 uimotionprompts.com 카탈로그 27종을 5장 · 9장에 비췄다. 뼈대만 가져올 것 4(복사 피드백 ✓ · 종 1회 흔들림 · AI 생각 중은 면의 숨쉬기 · Collapse 확인) · 이미 다른 답 5 · 결이 반대 18. 🔑 그들 블로그의 이징이 우리와 같은 값(`cubic-bezier(0.16, 1, 0.3, 1)`)이고, 그들이 «적어야 한다» 는 항목이 5장에 다 있다. 바깥 도구에 움직임을 시킬 때는 5장을 그대로 프롬프트로 붙이면 된다. 계정의 다른 연재는 로그인 벽이라 못 봤다.
+- `check-chars` 통과(526 파일).
 
 ---
 
