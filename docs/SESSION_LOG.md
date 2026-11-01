@@ -20,7 +20,7 @@
 오너 결정을 기다리는 것
 
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
-- 폰 아래 탭줄 전환 연출 A · B · C. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
+- 폰 아래 탭줄 전환 연출 A · B · C · D. 오빠가 D(Expanding Label 의 우리 판 · 활성 탭만 이름 · 알약 없이 `flex-grow` 전환)를 «좋아 보인다» 고 했다(11-01). D 는 폭 전환이 5장 «이동 · 투명도만» 밖이라 예외를 더할지 함께 결정. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -64,6 +64,7 @@
 - 5장 규칙(이동 · 투명도만 · 사이드바 밑줄 1회 scaleX 예외) 안에 남는 뼈대 둘(표시가 이동한다 · 채움을 투명도로)로 시안 셋을 적었다: A 금선 하나가 `translateX` 로 미끄러짐(320ms) · B 새 탭 금선이 1회 펼쳐짐(사이드바와 같은 말) · C 아이콘 뒤 10% 금면이 opacity 로 채워짐(200ms). 안 할 것: 알약 · 그라디언트 · 글로우 · 입자 · 액체 변형 · 뜀 · 팝 · 폭 애니메이션 · 이름 숨김.
 - 채택 시 손댈 자리(정본 `atelier.css` · 05장 키프레임 표 · 06장 등록부 · `MobileBottomNav` 인라인 borderTop → 클래스 · 전문가 포털 `bottom-nav.tsx` · `--sync`)와 확인 항목(폰 앱 `bridge.js` 가 `.qa-mobile-tabbar` 와 링크로 뒤로 두 번 닫힘을 판정하므로 DOM 꼴 유지)을 문서 6절에 적었다.
 - 같은 날 오빠 «이 사람 게시글 좀 훑어봐. 좋은 게 많네» → [reference/ui-motion-prompts-study.md](reference/ui-motion-prompts-study.md). 릴스 «Button Part 2» 여섯(Hold to Confirm · Paper Plane · Confetti · Copy Feedback · Shine Sweep · Slide to Confirm)과 판매 사이트 uimotionprompts.com 카탈로그 27종을 5장 · 9장에 비췄다. 뼈대만 가져올 것 4(복사 피드백 ✓ · 종 1회 흔들림 · AI 생각 중은 면의 숨쉬기 · Collapse 확인) · 이미 다른 답 5 · 결이 반대 18. 🔑 그들 블로그의 이징이 우리와 같은 값(`cubic-bezier(0.16, 1, 0.3, 1)`)이고, 그들이 «적어야 한다» 는 항목이 5장에 다 있다. 바깥 도구에 움직임을 시킬 때는 5장을 그대로 프롬프트로 붙이면 된다. 계정의 다른 연재는 로그인 벽이라 못 봤다.
+- 오빠 «Expanding Label 스타일이 좋아 보이는데» → 탭줄 문서에 D 안을 더했다. 알약 없이 활성 탭만 아이콘 + 이름 가로 한 줄(14px) · 나머지 아이콘만 · `flex-grow` 1 → 2 전환 320ms · 이름은 투명도 + 6px 떠옴. 부딪힘 셋(알약 · 폭 애니메이션 · 이름 숨김)을 어떻게 푸는지와, 아이콘이 혼자 뜻을 전해야 하므로 폰 앱 탭줄(도장 · 종 · 건물)에 먼저 맞는다는 조건을 적었다. 폭 전환은 5장 규칙 밖이라 오너 결정으로.
 - `check-chars` 통과(526 파일).
 
 ---
