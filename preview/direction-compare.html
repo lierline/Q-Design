@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>양식 방향 비교 · Q-Design</title>
+<style>/* =============================================================================
+   Q-Design 토큰 · 생성물 (tools/extract-tokens.mjs)
+   출처: Q-Atelier · lib/design/tokens.ts + app/globals.css
+   손으로 고치지 마세요. 원본을 고치고 스크립트를 다시 돌리세요.
+   ============================================================================= */
+
+/* ── 색: 다크(기본) ─────────────────────────────────────────────────────── */
+:root,
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --qa-bg: #0c0c0c;
+  --qa-surface: #141414;
+  --qa-surface2: #1b1b1b;
+  --qa-border: #242424;
+  --qa-borderHi: #333333;
+  --qa-text: #f0ebe0;
+  --qa-subtle: #b7b0a5;
+  --qa-muted: #898271;
+  --qa-champagne: #b8935a;
+  --qa-green: #7ab87a;
+  --qa-red: #c97a7a;
+  --qa-warning: #c9a87a;
+  --qa-blue: #7a9ac9;
+  --qa-on-accent: #0a0908;
+  --qa-backdrop: rgba(0, 0, 0, 0.65);
+  --qa-backdrop-strong: rgba(0, 0, 0, 0.75);
+  --qa-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --qa-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --qa-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --qa-shadow-xl: 0 30px 90px rgba(0, 0, 0, 0.6);
+  --qa-state-gray: #928c86;
+  --qa-state-cobalt: #6b8fc4;
+  --qa-state-copper: #d49850;
+  --qa-state-gold: #c9a878;
+  --qa-state-violet: #a27dca;
+  --qa-state-green: #7ab87a;
+  --qa-state-red: #c97a7a;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%);
+}
+
+/* ── 색: 라이트 ─────────────────────────────────────────────────────────── */
+html[data-theme='light'] {
+  color-scheme: light;
+  --qa-bg: #faf9f6;
+  --qa-surface: #ffffff;
+  --qa-surface2: #f3f1ec;
+  --qa-border: #e2dfd8;
+  --qa-borderHi: #c8c4ba;
+  --qa-text: #1c1a16;
+  --qa-subtle: #4a4540;
+  --qa-muted: #726b5e;
+  --qa-champagne: #8a6838;
+  --qa-green: #3d7a3d;
+  --qa-red: #a83838;
+  --qa-warning: #97621f;
+  --qa-blue: #2d5fa8;
+  --qa-on-accent: #ffffff;
+  --qa-backdrop: rgba(40, 30, 18, 0.32);
+  --qa-backdrop-strong: rgba(40, 30, 18, 0.45);
+  --qa-shadow-sm: 0 2px 8px rgba(80, 65, 40, 0.10);
+  --qa-shadow-md: 0 6px 18px rgba(80, 65, 40, 0.14);
+  --qa-shadow-lg: 0 20px 50px rgba(80, 65, 40, 0.18);
+  --qa-shadow-xl: 0 30px 70px rgba(80, 65, 40, 0.22);
+  --qa-state-gray: #676562;
+  --qa-state-cobalt: #3864a0;
+  --qa-state-copper: #8a5820;
+  --qa-state-gold: #7a5828;
+  --qa-state-violet: #8049ba;
+  --qa-state-green: #367236;
+  --qa-state-red: #b23b3b;
+  --qa-vignette: radial-gradient(ellipse at center, transparent 50%, rgba(168,133,79,0.06) 100%);
+}
+
+/* ── 줄간격 사다리: 색과 달리 테마 축이 아니라 자기 :root 에 둡니다 ─────── */
+:root {
+  --qa-lh-none: 1;
+  --qa-lh-tight: 1.2;
+  --qa-lh-heading: 1.3;
+  --qa-lh-snug: 1.4;
+  --qa-lh-normal: 1.5;
+  --qa-lh-notice: 1.55;
+  --qa-lh-relaxed: 1.6;
+  --qa-lh-loose: 1.7;
+}
+
+/* ── 스케일: 원본에선 TS 상수. CSS 만 쓰는 곳을 위해 변수로도 냅니다 ────── */
+:root {
+  /* 간격: 4px 기준 + 2px 하프스텝. 키의 점은 밑줄로 (--qa-space-3_5 = 14px) */
+  --qa-space-0: 0px;
+  --qa-space-0_5: 2px;
+  --qa-space-1: 4px;
+  --qa-space-1_5: 6px;
+  --qa-space-2: 8px;
+  --qa-space-2_5: 10px;
+  --qa-space-3: 12px;
+  --qa-space-3_5: 14px;
+  --qa-space-4: 16px;
+  --qa-space-4_5: 18px;
+  --qa-space-5: 20px;
+  --qa-space-5_5: 22px;
+  --qa-space-6: 24px;
+  --qa-space-6_5: 26px;
+  --qa-space-7: 28px;
+  --qa-space-7_5: 30px;
+  --qa-space-8: 32px;
+  --qa-space-9: 36px;
+  --qa-space-10: 40px;
+  --qa-space-11: 44px;
+  --qa-space-12: 48px;
+  --qa-space-14: 56px;
+  --qa-space-16: 64px;
+  --qa-space-18: 72px;
+  --qa-space-20: 80px;
+  --qa-space-24: 96px;
+
+  /* 글자 크기: 값보존 사다리. 의미가 하나로 수렴하면 TYPE 을 쓰세요 */
+  --qa-fs-8: 8px;
+  --qa-fs-9: 9px;
+  --qa-fs-10: 10px;
+  --qa-fs-11: 11px;
+  --qa-fs-12: 12px;
+  --qa-fs-13: 13px;
+  --qa-fs-14: 14px;
+  --qa-fs-15: 15px;
+  --qa-fs-16: 16px;
+  --qa-fs-17: 17px;
+  --qa-fs-18: 18px;
+  --qa-fs-19: 19px;
+  --qa-fs-20: 20px;
+  --qa-fs-22: 22px;
+  --qa-fs-24: 24px;
+  --qa-fs-26: 26px;
+  --qa-fs-28: 28px;
+  --qa-fs-30: 30px;
+  --qa-fs-32: 32px;
+  --qa-fs-36: 36px;
+  --qa-fs-38: 38px;
+  --qa-fs-40: 40px;
+  --qa-fs-48: 48px;
+  --qa-fs-80: 80px;
+
+  /* 모서리: md(10px) 이 카드·버튼·입력의 표준 */
+  --qa-radius-sm: 6px;
+  --qa-radius-md: 10px;
+  --qa-radius-lg: 14px;
+  --qa-radius-xl: 20px;
+  --qa-radius-pill: 9999px;
+
+  /* 모션: 회전 금지 · scale 금지 */
+  --qa-motion-instant: 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-normal: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-slow: 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+  --qa-motion-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* 레이어 */
+  --qa-z-base: 1;
+  --qa-z-dropdown: 50;
+  --qa-z-sticky: 100;
+  --qa-z-header: 200;
+  --qa-z-fab: 300;
+  --qa-z-bottom-nav: 400;
+  --qa-z-drawer-fab: 500;
+  --qa-z-drawer-backdrop: 600;
+  --qa-z-drawer: 700;
+  --qa-z-overlay: 1000;
+  --qa-z-modal: 1100;
+  --qa-z-popover: 1200;
+  --qa-z-tooltip: 9999;
+  --qa-z-toast: 10000;
+  --qa-z-blocking: 10001;
+  --qa-z-session-gate: 10002;
+
+  /* 셸 폭 */
+  --qa-layout-mobile: 520px;
+  --qa-layout-form: 720px;
+  --qa-layout-detail: 820px;
+  --qa-layout-wide: 1140px;
+
+  /* 터치 타겟 */
+  --qa-touch-min: 44px;
+  --qa-touch-comfortable: 48px;
+
+  /* 아이콘 */
+  --qa-icon-strokeWidth: 1.5;
+  --qa-icon-strokeWidthThin: 1.25;
+  --qa-icon-sizeXs: 14px;
+  --qa-icon-sizeSm: 16px;
+  --qa-icon-sizeMd: 20px;
+  --qa-icon-sizeLg: 24px;
+  --qa-icon-sizeXl: 32px;
+  --qa-icon-size2xl: 48px;
+
+  /* 그림자: 다크 고정값. 테마 인지가 필요하면 위의 --qa-shadow-* 를 쓰세요 */
+  --qa-shadow-fixed-hairline: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.2);
+  --qa-shadow-fixed-surface: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px -4px rgba(0, 0, 0, 0.35);
+  --qa-shadow-fixed-float: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+  --qa-shadow-fixed-anchor: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.55);
+
+  /* 브랜드 */
+  --qa-gold-gradient: linear-gradient(135deg, var(--qa-champagne) 0%, color-mix(in oklab, var(--qa-champagne) 55%, white) 50%, color-mix(in oklab, var(--qa-champagne) 82%, black) 100%);
+}
+</style>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--qa-bg);color:var(--qa-text);font-family:'Pretendard Variable',Pretendard,'Malgun Gothic',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:32px 24px 64px}
+h1{font-size:24px;margin:0 0 6px}
+.lead{color:var(--qa-subtle);font-size:15px;margin:0 0 28px;max-width:76ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 28px}
+@media(max-width:960px){.grid{grid-template-columns:1fr}}
+.cap{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.cap b{font-size:16px}
+.cap span{font-size:13px;color:var(--qa-champagne)}
+.stage{border:1px solid var(--qa-border);border-radius:10px;overflow:hidden;background:var(--qa-bg);height:430px;position:relative}
+.why{font-size:13.5px;color:var(--qa-subtle);margin:10px 0 0;max-width:62ch}
+.k{font-size:12px;color:var(--qa-muted)}
+.mono{font-family:'JetBrains Mono',Consolas,monospace}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.s-rev{background:var(--qa-state-cobalt)}.s-wait{background:var(--qa-state-gold)}.s-due{background:var(--qa-state-copper)}.s-ok{background:var(--qa-state-green)}
+/* 공통 앱 뼈대 */
+.app{display:grid;grid-template-columns:160px 1fr;height:100%}
+.nav{padding:14px 10px;font-size:14px}
+.nav .br{font-weight:700;padding:4px 10px 14px}
+.nav a{display:block;padding:8px 10px;color:var(--qa-subtle)}
+.nav a.on{color:var(--qa-text);font-weight:600}
+.main{padding:22px 24px;min-width:0}
+.main h3{margin:0 0 14px;font-size:17px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-weight:500;color:var(--qa-muted);text-align:left;padding:8px 0;font-size:12.5px}
+td{padding:11px 0}
+td.r,th.r{text-align:right}
+/* 0 현재 */
+.cur .app{background:#070707;padding:10px;gap:12px}
+.cur .nav{background:var(--qa-surface);border:1px solid var(--qa-border);border-radius:14px;box-shadow:var(--qa-shadow-lg)}
+.cur .nav a.on{background:var(--qa-surface2);border-radius:8px}
+.cur .main{padding:4px}
+.cur .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.cur .kp>div{background:var(--qa-surface);border:1px solid var(--qa-border);border-radius:14px;padding:12px;box-shadow:var(--qa-shadow-md)}
+.cur .tb{background:var(--qa-surface);border:1px solid var(--qa-border);border-radius:14px;padding:4px 14px;box-shadow:var(--qa-shadow-md)}
+.cur tr+tr td{border-top:1px solid var(--qa-border)}
+.v{font-size:22px;font-weight:700}
+/* A 장부형 */
+.A .nav{border-right:1px solid var(--qa-border)}
+.A .nav a.on{border-bottom:1px solid var(--qa-champagne);padding-bottom:7px}
+.A .kp{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--qa-borderHi);border-bottom:1px solid var(--qa-border);margin-bottom:14px}
+.A .kp>div{padding:10px 14px 10px 0}.A .kp>div+div{padding-left:14px;border-left:1px solid var(--qa-border)}
+.A thead th{border-bottom:1px solid var(--qa-borderHi)}
+.A tbody td{border-bottom:1px solid var(--qa-border)}
+/* B 조용한 차림표 */
+.B .app{background:#080808;grid-template-columns:150px 1fr}
+.B .nav a{color:var(--qa-muted);font-size:13.5px;padding:7px 10px;border-radius:6px}
+.B .nav a.on{color:var(--qa-text);background:#141414}
+.B .main{background:var(--qa-bg);border-left:1px solid var(--qa-border);border-top:1px solid var(--qa-border);border-top-left-radius:10px;margin-top:8px;padding:16px 22px}
+.B .sum{font-size:13.5px;color:var(--qa-subtle);padding:0 0 12px;border-bottom:1px solid var(--qa-border);margin-bottom:4px}
+.B .sum b{color:var(--qa-text);font-family:'JetBrains Mono',Consolas,monospace;margin-left:4px;margin-right:14px;font-weight:600}
+.B tbody td{border-bottom:1px solid var(--qa-border)}
+.B th{font-size:12px}
+.B td{padding:9px 0}
+/* C 서류형 */
+.C .top{display:flex;gap:22px;align-items:center;padding:0 24px;height:46px;border-bottom:1px solid var(--qa-borderHi);font-size:14px}
+.C .top b{margin-right:8px}
+.C .top a{color:var(--qa-subtle)}.C .top a.on{color:var(--qa-text);font-weight:600;box-shadow:0 1px 0 var(--qa-champagne);padding:13px 0 12px}
+.C .page{padding:20px 24px}
+.C .head{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;border-bottom:2px solid var(--qa-text);padding-bottom:10px;margin-bottom:12px}
+.C h3{margin:0;font-size:19px}
+.C .meta{display:grid;grid-template-columns:auto auto;font-size:12.5px;column-gap:14px;color:var(--qa-subtle)}
+.C .meta span:nth-child(odd){color:var(--qa-muted)}
+.C .line{display:flex;gap:26px;font-size:13.5px;padding:2px 0 10px;color:var(--qa-subtle)}
+.C .line b{color:var(--qa-text);font-family:'JetBrains Mono',Consolas,monospace;margin-left:4px}
+.C thead th{border-bottom:1px solid var(--qa-borderHi);border-top:1px solid var(--qa-borderHi);background:transparent}
+.C tbody td{border-bottom:1px solid var(--qa-border)}
+.C td.n,.C th.n{width:34px;color:var(--qa-muted)}
+table.cmp{margin-top:36px;font-size:14px}
+table.cmp th{font-size:13px;border-bottom:1px solid var(--qa-borderHi);padding:10px 12px 10px 0}
+table.cmp td{border-bottom:1px solid var(--qa-border);vertical-align:top;padding:12px 12px 12px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>양식 방향 비교</h1>
+  <p class="lead">같은 데이터를 네 가지 모양으로 그렸습니다. 왼쪽 위가 지금 모습이고, 나머지 셋이 제안입니다. 모두 예시 데이터이고 실제 제품 화면을 베낀 것이 아니라 원칙만 가져와 직접 그린 시안입니다.</p>
+  <div class="grid">
+
+    <div class="cur">
+      <p class="cap"><b>지금</b><span>떠 있는 카드</span></p>
+      <div class="stage"><div class="app">
+        <div class="nav"><div class="br">Q-Atelier</div><a class="on">문서</a><a>검토 대기</a><a>변경관리</a><a>설정</a></div>
+        <div class="main"><h3>검토 현황</h3>
+          <div class="kp"><div><div class="k">대기</div><div class="v mono">12</div></div><div><div class="k">기한 임박</div><div class="v mono">3</div></div><div><div class="k">완료</div><div class="v mono">48</div></div></div>
+          <div class="tb"><table><tbody>
+            <tr><td>설계 입력 검토서</td><td class="r k mono">DEV-2026-001</td></tr>
+            <tr><td>요구사항 명세서</td><td class="r k mono">DEV-2026-004</td></tr>
+            <tr><td>위험관리 보고서</td><td class="r k mono">RM-2026-002</td></tr>
+          </tbody></table></div>
+        </div></div></div>
+      <p class="why">그림자, 14px 모서리, 카드 안의 카드. 구획은 잘 보이지만 AI가 만든 대시보드의 전형적인 모양입니다.</p>
+    </div>
+
+    <div class="A">
+      <p class="cap"><b>A 장부형</b><span>괘선과 표가 중심</span></p>
+      <div class="stage"><div class="app">
+        <div class="nav"><div class="br">Q-Atelier</div><a class="on">문서</a><a>검토 대기</a><a>변경관리</a><a>설정</a></div>
+        <div class="main"><h3>검토 현황</h3>
+          <div class="kp"><div><div class="k">대기</div><div class="v mono">12</div></div><div><div class="k">기한 임박</div><div class="v mono">3</div></div><div><div class="k">완료</div><div class="v mono">48</div></div></div>
+          <table><thead><tr><th>문서</th><th>상태</th><th class="r">번호</th><th class="r">갱신</th></tr></thead><tbody>
+            <tr><td>설계 입력 검토서</td><td><i class="dot s-rev"></i>검토 중</td><td class="r mono k">DEV-2026-001</td><td class="r mono k">10-03</td></tr>
+            <tr><td>요구사항 명세서</td><td><i class="dot s-wait"></i>승인 대기</td><td class="r mono k">DEV-2026-004</td><td class="r mono k">10-03</td></tr>
+            <tr><td>위험관리 보고서</td><td><i class="dot s-due"></i>기한 임박</td><td class="r mono k">RM-2026-002</td><td class="r mono k">10-09</td></tr>
+            <tr><td>시험 계획서</td><td><i class="dot s-ok"></i>완료</td><td class="r mono k">VV-2026-001</td><td class="r mono k">10-01</td></tr>
+          </tbody></table>
+        </div></div></div>
+      <p class="why">지금 정본이 가는 방향의 연장입니다. 상자를 모두 걷고, 상태는 작은 점과 글자, 숫자는 오른쪽 정렬로 읽게 합니다. 바꾸는 양이 가장 적습니다.</p>
+    </div>
+
+    <div class="B">
+      <p class="cap"><b>B 조용한 차림표</b><span>차림표가 물러서고 본문이 앞으로</span></p>
+      <div class="stage"><div class="app">
+        <div class="nav"><div class="br">Q-Atelier</div><a class="on">문서</a><a>검토 대기</a><a>변경관리</a><a>설정</a></div>
+        <div class="main"><h3>검토 현황</h3>
+          <div class="sum">대기<b>12</b>기한 임박<b>3</b>완료<b>48</b></div>
+          <table><thead><tr><th>문서</th><th>상태</th><th class="r">번호</th></tr></thead><tbody>
+            <tr><td>설계 입력 검토서</td><td><i class="dot s-rev"></i>검토 중</td><td class="r mono k">DEV-2026-001</td></tr>
+            <tr><td>요구사항 명세서</td><td><i class="dot s-wait"></i>승인 대기</td><td class="r mono k">DEV-2026-004</td></tr>
+            <tr><td>위험관리 보고서</td><td><i class="dot s-due"></i>기한 임박</td><td class="r mono k">RM-2026-002</td></tr>
+            <tr><td>시험 계획서</td><td><i class="dot s-ok"></i>완료</td><td class="r mono k">VV-2026-001</td></tr>
+            <tr><td>변경 요청서</td><td><i class="dot s-rev"></i>검토 중</td><td class="r mono k">CR-2026-011</td></tr>
+          </tbody></table>
+        </div></div></div>
+      <p class="why">Linear가 밝힌 원칙대로, 길잡이 역할의 차림표는 한 단계 어둡게 물러나고 일하는 본문이 앞에 옵니다. 지표 세 칸은 한 줄 요약으로 줄여 목록이 더 많이 보입니다.</p>
+    </div>
+
+    <div class="C">
+      <p class="cap"><b>C 서류형</b><span>회사 문서 양식(v8)과 같은 결</span></p>
+      <div class="stage">
+        <div class="top"><b>Q-Atelier</b><a class="on">문서</a><a>검토 대기</a><a>변경관리</a><a>설정</a></div>
+        <div class="page">
+          <div class="head"><h3>검토 현황</h3><div class="meta"><span>기준일</span><span class="mono">2026-10-10</span><span>담당</span><span>김병휘</span></div></div>
+          <div class="line">대기<b>12</b>기한 임박<b>3</b>완료<b>48</b></div>
+          <table><thead><tr><th class="n">No</th><th>문서</th><th>상태</th><th class="r">번호</th></tr></thead><tbody>
+            <tr><td class="n mono">1</td><td>설계 입력 검토서</td><td><i class="dot s-rev"></i>검토 중</td><td class="r mono k">DEV-2026-001</td></tr>
+            <tr><td class="n mono">2</td><td>요구사항 명세서</td><td><i class="dot s-wait"></i>승인 대기</td><td class="r mono k">DEV-2026-004</td></tr>
+            <tr><td class="n mono">3</td><td>위험관리 보고서</td><td><i class="dot s-due"></i>기한 임박</td><td class="r mono k">RM-2026-002</td></tr>
+            <tr><td class="n mono">4</td><td>시험 계획서</td><td><i class="dot s-ok"></i>완료</td><td class="r mono k">VV-2026-001</td></tr>
+          </tbody></table>
+        </div></div>
+      <p class="why">차림표를 위쪽 띠로 올리고, 화면을 서류 한 장처럼 만듭니다. 굵은 머리 괘선, 기준일과 담당 표기, 번호 열이 있어 인쇄해도 그대로 문서입니다. 가장 AI 티가 안 나지만 구조가 가장 많이 바뀝니다.</p>
+    </div>
+
+  </div>
+
+  <table class="cmp">
+    <thead><tr><th></th><th>A 장부형</th><th>B 조용한 차림표</th><th>C 서류형</th></tr></thead>
+    <tbody>
+      <tr><td><b>바뀌는 양</b></td><td>적음. 정본의 연장</td><td>중간. 차림표와 지표 구조 조정</td><td>많음. 차림표가 위로 올라감</td></tr>
+      <tr><td><b>한 화면 정보량</b></td><td>보통</td><td>가장 많음</td><td>보통</td></tr>
+      <tr><td><b>AI 티</b></td><td>거의 없음</td><td>거의 없음</td><td>가장 없음</td></tr>
+      <tr><td><b>폰 대응</b></td><td>차림표만 서랍으로</td><td>차림표만 서랍으로</td><td>위 띠를 접어 메뉴 한 개로. 설계가 필요</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

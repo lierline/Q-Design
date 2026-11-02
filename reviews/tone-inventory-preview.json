@@ -1,0 +1,604 @@
+{
+  "scope": "Uncommitted read-only proposed scanner coverage. These records are discovered candidates, not approvals or live inventory changes.",
+  "beforeScannerHash": "20a361e4a650f351dde1d207ee0c1d207f28256a21241887b9eb2502b7c4eed9",
+  "proposedScannerHash": "c0f72bf4eba81f40cc890e7947178cad5758ed51251cfed32a1fd0bf41883df4",
+  "files": [
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "sourceHash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303",
+      "beforeArguments": 296,
+      "afterArguments": 298
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "beforeArguments": 210,
+      "afterArguments": 215
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "beforeArguments": 196,
+      "afterArguments": 201
+    },
+    {
+      "path": "app/(app)/m/nc/client.tsx",
+      "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+      "beforeArguments": 85,
+      "afterArguments": 86
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "beforeArguments": 124,
+      "afterArguments": 129
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "beforeArguments": 255,
+      "afterArguments": 260
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "sourceHash": "cfb1fba27dc393ced1ba21c6cac9084e5f21d034097ada4d6b2818cd195a77fb",
+      "beforeArguments": 183,
+      "afterArguments": 184
+    },
+    {
+      "path": "app/(app)/pms/[id]/client.tsx",
+      "sourceHash": "7449f9189a4d293aeafacd47b8472b75e1f358c3f1612a9cdc03717056dad02b",
+      "beforeArguments": 90,
+      "afterArguments": 91
+    },
+    {
+      "path": "app/experts/inbox/[id]/page.tsx",
+      "sourceHash": "c17f1399ea597fe023d3e3fc04ddb6aea4aa22ddb5de464a00bd2e1337d5361a",
+      "beforeArguments": 200,
+      "afterArguments": 201
+    },
+    {
+      "path": "components/DesignReviewPanel.tsx",
+      "sourceHash": "0d9facbd2b523d9c3e056405ea2c1923a9c6f8880ae26e7b87b3148afe0a416a",
+      "beforeArguments": 327,
+      "afterArguments": 328
+    },
+    {
+      "path": "components/admin/ServiceStatusPanel.tsx",
+      "sourceHash": "7aaddb01db0d9435983c3e27299e4d412688c896e1ada24512ba897267a067c8",
+      "beforeArguments": 141,
+      "afterArguments": 142
+    },
+    {
+      "path": "components/expert/OpinionRecap.tsx",
+      "sourceHash": "1e0988bf84d46950b928315d7576e267ae48d32d46eb4665c6c0fc09dfe51b02",
+      "beforeArguments": 28,
+      "afterArguments": 31
+    },
+    {
+      "path": "lib/device-license.ts",
+      "sourceHash": "e517580855dfff8f3ff503e316a16186841e2500246b126bd7eda4fe9e001560",
+      "beforeArguments": 5,
+      "afterArguments": 8
+    },
+    {
+      "path": "lib/docset-library/serving.ts",
+      "sourceHash": "9d5ff7e08448a1e18ec49216c0f1c6202c98048ec812e697e7805685d5739fc3",
+      "beforeArguments": 0,
+      "afterArguments": 4
+    },
+    {
+      "path": "lib/research/version-label.ts",
+      "sourceHash": "9bcd64861b199144f36765064415bbbb78797f9761ef1d1813aca44b64825a5a",
+      "beforeArguments": 0,
+      "afterArguments": 3
+    },
+    {
+      "path": "lib/reviews/due.ts",
+      "sourceHash": "c4e7d0174f03e4d02dd680e0e99d123b2cf46b5fcbfa1f6eb6460b3aebd27881",
+      "beforeArguments": 1,
+      "afterArguments": 3
+    }
+  ],
+  "added": [
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "sourceHash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303",
+      "argumentHash": "dbafbfe7bfd7a35d606e1f19edd619fbcc2101b0bd7a040d6cf736b396f977e4",
+      "line": 70,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "GAP_TONE[GAP_WEIGHT[g]]",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "app/(app)/design-trace/client.tsx",
+      "sourceHash": "5c6c92cac37cfff91acf1afe53abbde6b5f472753e33eaa90c507b8fadb52303",
+      "argumentHash": "f533a7cdf512401f8a4e01738b33d4caa3fe3b662611af0b564909620edc48da",
+      "line": 332,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "!l.applicable ? T.subtle : l.complete ? T.green : T.red",
+      "family": "behavior-structure",
+      "status": "token-reference",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "argumentHash": "3ce79ea5d784c6a62ee84f90b09f81284ae2a06c42a5cae92ea1d4303cecef0f",
+      "line": 199,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "T.green",
+      "family": "behavior-structure",
+      "status": "token-reference",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "argumentHash": "98929b84e47ab46bfeffeb95369ccecb94b42478501053d78bafde5823922e3e",
+      "line": 309,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "T.champagne",
+      "family": "behavior-structure",
+      "status": "token-reference",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "argumentHash": "07aaf114c48fe55f6ee1bab7df49cee0bbf077d091528e3e3abb16eb5dd0fd4d",
+      "line": 340,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "argumentHash": "74ef53ab4bcd4af3fa51df1df78fc24c2243379fd5fd6db57758b60f0a8d8d7e",
+      "line": 463,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "out ? T.red : T.text",
+      "family": "behavior-structure",
+      "status": "token-reference",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "app/(app)/m/field-ui.tsx",
+      "sourceHash": "6eb979a31cb72e8e29e7dd91d60070bfb90a0bcb19dacb399f29109ff4a6d72c",
+      "argumentHash": "8884b9f687b3a166fce449ec812ff0dfcef9aca58ca4e886194f7e8c4dc856ea",
+      "line": 531,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "argumentHash": "9bd48a8263044c41fd3e73397740eb9e500649c0c222584c1c111395ce56b02c",
+      "line": 213,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{saved.parents > 0 ? T.green : T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "argumentHash": "a6f5e7f1ace7ef21d6b57b1cd1436aa47c39a1e3dbf08990c1373fbdf5e7b78e",
+      "line": 266,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "argumentHash": "d48453b698c8391e3ba608394ded2574f6bde79984a1cab0034f9b4ed662987b",
+      "line": 437,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "argumentHash": "e400e28d423f9085f34287bcbf1203163b37ca678b9661df11075f6fd90c9bdb",
+      "line": 448,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.red}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/lot/client.tsx",
+      "sourceHash": "95006f442012ef9d9a772ac56acaa6d03e4e8757b6c7bc08e73a11ed4629fdff",
+      "argumentHash": "1636514f1d193778f1bb37599a90d01e091c8f3383199b63dac620e5598aea6a",
+      "line": 452,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/nc/client.tsx",
+      "sourceHash": "543e242714cc58f46eb3956d024183db7b05ac931cbf3681345317fcbe2db91f",
+      "argumentHash": "eeb7ed02461d1d27d01e290e4b61857d49187d695a948d51c202c348269ced12",
+      "line": 298,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.red}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "argumentHash": "72e67d87f860d13a473648cf95b947d5a3b1577600e0ac01e56e3030047f411e",
+      "line": 244,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "LOT_STATUS_COLOR[l.status]",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "argumentHash": "44ffd40a053673a95d47af07c09b599fa2e29afad3cd294e6c5fb698b6ec4dae",
+      "line": 284,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "argumentHash": "f197ef4aa4bf9784f45f705677687fb476309941d9edd575822272a285886cb6",
+      "line": 301,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "argumentHash": "f056082b90963a4f3777bcc84b452c2045bc8304edadaebb49386f1a1b85be94",
+      "line": 399,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.red}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/process/client.tsx",
+      "sourceHash": "bb15eedf139b587f1dff0a03d285fe066c0425ee2e095e58c0d071bf1cb28e3c",
+      "argumentHash": "3892f0f0685347718b4563b037b610038f1aa157d5b97560f7e4417f4d15d5b6",
+      "line": 448,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.green}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "argumentHash": "e9bf90dbc37ff8c2e4d7b4062769bd73a3cf2fd8648344502b5cb012c77b1532",
+      "line": 258,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{passed ? T.green : T.red}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "argumentHash": "4fc38e0917aa5e805abfd2532cab1b9a020b4219c68a5bbaef481692582cb022",
+      "line": 267,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.red}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "argumentHash": "295d1f61c8a577d0db540bb4d27e56c91447753ecbcc9be2138374d1bea510d9",
+      "line": 377,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "argumentHash": "d25a7c6e1bd53ed6de000d4146ede2be9458e253b6fa768004f5400af92cd5d0",
+      "line": 420,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{T.warning}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/m/receiving/client.tsx",
+      "sourceHash": "3c4f4da7e85ae4be74276f810f298bd171e41b90570d8ea2a5ac878168a17c56",
+      "argumentHash": "f6317f64e1ef139c4b6e710ba1aebd9b9d4357c560d554318746a6261aa1c744",
+      "line": 667,
+      "kind": "presentation-attribute",
+      "property": "tone",
+      "value": "{result === 'fail' ? T.red : T.green}",
+      "family": "behavior-structure",
+      "status": "token-reference"
+    },
+    {
+      "path": "app/(app)/management-reviews/[id]/client.tsx",
+      "sourceHash": "cfb1fba27dc393ced1ba21c6cac9084e5f21d034097ada4d6b2818cd195a77fb",
+      "argumentHash": "502e157ffea35b71e4389e9585d33b56be9c2e931be0fd8639c5f6c872b7638b",
+      "line": 279,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "m.warn ? (ALARM_METRIC_KEYS.has(m.k) ? 'alarm' : 'warn') : undefined",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "app/(app)/pms/[id]/client.tsx",
+      "sourceHash": "7449f9189a4d293aeafacd47b8472b75e1f358c3f1612a9cdc03717056dad02b",
+      "argumentHash": "7b413e74f9b2be18d0dd31eb4767ffdff2d6bae4a66d4b345468bda81dad4ac4",
+      "line": 168,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "m.warn ? (ALARM_METRIC_KEYS.has(m.k) ? 'alarm' : 'warn') : undefined",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "app/experts/inbox/[id]/page.tsx",
+      "sourceHash": "c17f1399ea597fe023d3e3fc04ddb6aea4aa22ddb5de464a00bd2e1337d5361a",
+      "argumentHash": "0fa6a6706cd19bbc7669c767d0d030d30e9ac812d58f5e1b17597da61c222a63",
+      "line": 308,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "closed ? (closed.tone === 'overdue' ? 'normal' : 'low') : due.tone",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "components/DesignReviewPanel.tsx",
+      "sourceHash": "0d9facbd2b523d9c3e056405ea2c1923a9c6f8880ae26e7b87b3148afe0a416a",
+      "argumentHash": "e9688dc912cb4cc30020fcefe52e8afd2aee7f8810fcf9b8503aea8d76ec0874",
+      "line": 447,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "passed ? (isWaived ? T.champagne : T.green) : T.muted",
+      "family": "behavior-structure",
+      "status": "token-reference",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "components/admin/ServiceStatusPanel.tsx",
+      "sourceHash": "7aaddb01db0d9435983c3e27299e4d412688c896e1ada24512ba897267a067c8",
+      "argumentHash": "444a259df20727a1822c8faafa8e4c9e8d14055c367f8ded043a63fb892c1552",
+      "line": 148,
+      "kind": "named-style-value",
+      "property": "tone",
+      "value": "TONE[c.status]",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate default or local binding; follow its consumers before classifying"
+    },
+    {
+      "path": "components/expert/OpinionRecap.tsx",
+      "sourceHash": "1e0988bf84d46950b928315d7576e267ae48d32d46eb4665c6c0fc09dfe51b02",
+      "argumentHash": "130bedf054e3aa27572bcb9a0dd46f9b4774c20e00f5f3c34edfe58053e0e2b0",
+      "line": 20,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'low'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "components/expert/OpinionRecap.tsx",
+      "sourceHash": "1e0988bf84d46950b928315d7576e267ae48d32d46eb4665c6c0fc09dfe51b02",
+      "argumentHash": "10af7a6b4ff3bb9b8d243799c10519ddadd16838b3a64f44496e85082bac6456",
+      "line": 21,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'soon'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "components/expert/OpinionRecap.tsx",
+      "sourceHash": "1e0988bf84d46950b928315d7576e267ae48d32d46eb4665c6c0fc09dfe51b02",
+      "argumentHash": "83fde671a92c44e807fc326475a14ec0c99eae44b85ee83bf974f6ba30cc65ce",
+      "line": 22,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'urgent'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/device-license.ts",
+      "sourceHash": "e517580855dfff8f3ff503e316a16186841e2500246b126bd7eda4fe9e001560",
+      "argumentHash": "9cd91057c79fd271006a8f4f2d90a420b9cf475c708ebe0551b6710c046966a8",
+      "line": 83,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'R&D 진행 중 · 신청 준비'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/device-license.ts",
+      "sourceHash": "e517580855dfff8f3ff503e316a16186841e2500246b126bd7eda4fe9e001560",
+      "argumentHash": "44e0a2f819d36622577301f35933ce2eff5c55b4c0beb681fc5e712a9d7e81bd",
+      "line": 85,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'R&D 를 마친 제품 · 정식 인허가'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/device-license.ts",
+      "sourceHash": "e517580855dfff8f3ff503e316a16186841e2500246b126bd7eda4fe9e001560",
+      "argumentHash": "3f508beb6b4712387c5dabad9ef89ad24897765cf2afd9ed97fbd57ef471f274",
+      "line": 86,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'직접 등록'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/docset-library/serving.ts",
+      "sourceHash": "9d5ff7e08448a1e18ec49216c0f1c6202c98048ec812e697e7805685d5739fc3",
+      "argumentHash": "09327db8b8577cfe23dc2a3289545d91c1a33e091cc7663dbbc7f9f4a8361f08",
+      "line": 10,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'ok'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/docset-library/serving.ts",
+      "sourceHash": "9d5ff7e08448a1e18ec49216c0f1c6202c98048ec812e697e7805685d5739fc3",
+      "argumentHash": "e7e37246a9aaf65ffa9aeab81140ee867f0530033ffb165e9b43ef0abb49a473",
+      "line": 11,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'neutral'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/docset-library/serving.ts",
+      "sourceHash": "9d5ff7e08448a1e18ec49216c0f1c6202c98048ec812e697e7805685d5739fc3",
+      "argumentHash": "535970edbb691ac1de841ad136f9c1662724dad54f5466bbbc70e9c3bfc87ee4",
+      "line": 12,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'warn'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/docset-library/serving.ts",
+      "sourceHash": "9d5ff7e08448a1e18ec49216c0f1c6202c98048ec812e697e7805685d5739fc3",
+      "argumentHash": "b8439439cef2da1359c28b427c561d8d888b783cda9b9500084a3fdf3b5d7754",
+      "line": 13,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'warn'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/research/version-label.ts",
+      "sourceHash": "9bcd64861b199144f36765064415bbbb78797f9761ef1d1813aca44b64825a5a",
+      "argumentHash": "9491ab5ca2e16582e4fc5aa7e6b7fa2fc6ac5214e68573a70fb33297f2c05def",
+      "line": 36,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'baseline'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/research/version-label.ts",
+      "sourceHash": "9bcd64861b199144f36765064415bbbb78797f9761ef1d1813aca44b64825a5a",
+      "argumentHash": "98e7febf1aec014d4190c01d5b293d4a946accfc22b352ef64d07b52372a5c45",
+      "line": 45,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'dev'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/research/version-label.ts",
+      "sourceHash": "9bcd64861b199144f36765064415bbbb78797f9761ef1d1813aca44b64825a5a",
+      "argumentHash": "09b2e19b1083cac9b09c213b65038a6433a26a22a719c518af695a837332cd0f",
+      "line": 53,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'rev'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/reviews/due.ts",
+      "sourceHash": "c4e7d0174f03e4d02dd680e0e99d123b2cf46b5fcbfa1f6eb6460b3aebd27881",
+      "argumentHash": "84ffb82bc4bc39c2f6b00c12f2a16f40bff32965fa562fd1bf6af79f87b3a88f",
+      "line": 45,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'none'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    },
+    {
+      "path": "lib/reviews/due.ts",
+      "sourceHash": "c4e7d0174f03e4d02dd680e0e99d123b2cf46b5fcbfa1f6eb6460b3aebd27881",
+      "argumentHash": "523e3aac7e4363e4c0cca980643df03564a27d3b74a947c1dc1ea46f4894ddfb",
+      "line": 56,
+      "kind": "object-property",
+      "property": "tone",
+      "value": "'none'",
+      "family": "behavior-structure",
+      "status": "review-required",
+      "context": "candidate: includes style maps and data objects; inspect context"
+    }
+  ]
+}
