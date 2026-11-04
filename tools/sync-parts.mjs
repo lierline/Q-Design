@@ -34,13 +34,7 @@ export const HOLD = {};  // 2026-10-10 오너가 Q-Sonar 묶음을 풀었다(구
  * 내보내서 사본이 원본과 같아지면 검사가 실패하며 «이 줄을 지우라» 고 알립니다. 낡은 줄이 남아
  * 다음 어긋남을 가리지 않게 하려는 것입니다. sync --write 는 이 표와 상관없이 씁니다.
  */
-export const PENDING = {
-  'Q-Sonar': {
-    parts: ['차림표', '목록', '뼈대'],
-    until: '군살 빼기 5단계',
-    why: '2026-10-10 판 뒤의 정본을 아직 받지 않았습니다. 화면이 바뀌므로 5단계에서 폰 폭까지 재며 따라잡습니다',
-  },
-};
+export const PENDING = {};  // 2026-11-04 Q-Sonar 세 조각(차림표 · 목록 · 뼈대)을 받아 비었다(impeccable 감사 30 · 3 · 32번 · 10-10 판 → 10-27 판)
 
 /*
  * ── 받는 제품과 판 파일 자리 (2026-10-16 · 군살 빼기 2단계 · 오너 결정 2 A) ──────────────
@@ -107,6 +101,10 @@ export const PARTS = [
     to: { 'Q-Forge': 'D:/Claude/DHR/lib/design/q-design-palette.ts' } },
   { name: '카르넷 유틸리티', src: 'patterns/foundation/carnet-theme.css', layer: false,
     to: { 'Q-Forge': 'D:/Claude/DHR/app/q-design.theme.css' } },
+  /* 소나 유틸리티(2026-11-04 · impeccable 감사 2 · 3 · 32번). Q-Sonar 는 기반 · 컴포넌트 조각을 받지 않아 글자 사다리 ·
+     모서리 · 누름 자리 변수가 없었다. 정본 값과 테일윈드 연결을 이 한 조각으로 보낸다(값 대조는 type-ladder.test.mjs). */
+  { name: '소나 유틸리티', src: 'patterns/foundation/sonar-theme.css', layer: false,
+    to: { 'Q-Sonar': 'D:/Claude/Lead-Radar/src/styles/q-design.theme.css' } },
   { name: '메종 출력 인자', src: 'patterns/foundation/maison-print.ts', lang: 'ts',
     to: { 'Q-Works': 'D:/Claude/Q-Works/lib/design/q-design-print.ts' } },
   { name: '메종 출력 스타일', src: 'patterns/foundation/maison-print-styles.tsx', lang: 'ts',
