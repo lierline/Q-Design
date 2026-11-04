@@ -93,7 +93,7 @@ html[data-theme='light'] {
   --qa-text: #1c1a16;
   --qa-subtle: #4a4540;          /* darker for contrast */
   --qa-muted: #726b5e;            /* 2026-06-30: #7a7468(4.41:1, 작은 텍스트 미달)→5.01:1 보정 */
-  --qa-champagne: #8a6838;       /* WCAG AA 4.5:1↑ on white (~4.80:1, was #9a7842≈3.98:1) */
+  --qa-champagne: #805f32;       /* 2026-11-05 감사 8번: #8a6838 은 옅은 면(#efeae3 태그 면 4.26 · surface2 4.52)에서 아슬했다 → 전 표면 4.8+ (white 5.83 · bg 5.54 · surface2 5.17 · 태그 면 4.87). 이전은 #9a7842 3.98 */
   --qa-green: #3d7a3d;
   --qa-red: #a83838;
   --qa-warning: #97621f;   /* 2026-08-20: #a16921 은 bg 4.38·surface2 4.08 미달 → 전 표면 4.5+ */
@@ -1754,15 +1754,15 @@ select.qa-input:hover:not(:disabled) {
     url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23d4b078' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
 }
 /* 라이트 모드(감사 UI/UX #16): 다크용 골드 #b8935a 는 흰 입력칸 위 ~2.6:1 로 흐릿:
-   라이트 champagne(#8a6838, --qa-champagne 라이트 값)로 교체. data-URI 는 var() 를
+   라이트 champagne(#805f32, --qa-champagne 라이트 값 · 토큰을 바꾸면 여기 둘도 같이)로 교체. data-URI 는 var() 를
    못 받으므로 테마별 오버라이드로 처리. hover 는 동일 색 + 굵기만 강조. */
 html[data-theme='light'] select.qa-input {
   background-image:
-    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%238a6838' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23805f32' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
 }
 html[data-theme='light'] select.qa-input:hover:not(:disabled) {
   background-image:
-    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%238a6838' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23805f32' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
 }
 select.qa-input::-ms-expand {
   display: none;

@@ -10,7 +10,7 @@
 // 색은 OOXML 표기(# 없는 6자 대문자)입니다.
 
 export const DOC_COLOR = {
-  champagne: '8A6838',  // 흰 5.1 · 음영 4.52
+  champagne: '805F32',  // 흰 5.83 · 음영 5.17
   champagneSoft: 'B8935A',
   ink: '1C1A16',  // 흰 17.37 · 음영 15.39
   inkSubtle: '4A4540',  // 흰 9.47 · 음영 8.39

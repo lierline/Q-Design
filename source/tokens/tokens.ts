@@ -41,7 +41,8 @@ export const LIGHT_PALETTE = {
   muted:     '#726b5e',
   // 2026-06-01: globals.css --qa-champagne 를 #8a6838 로 보정 (WCAG AA 4.5:1↑ on white).
   // 이전 #9a7842 는 ~3.98:1 로 AA 미달. 새 값 ~4.80:1 으로 링크·포커스·강조 텍스트 적합.
-  champagne: '#8a6838',
+  // 2026-11-05: 감사 8번(옅은 면 위 4.26 ~ 4.52) → 정본 atelier.css 와 함께 #805f32(전 표면 4.8+). 정본을 바꾸면 이 줄도 같이.
+  champagne: '#805f32',
   green:     '#3d7a3d',
   red:       '#a83838',
   warning:   '#97621f',
