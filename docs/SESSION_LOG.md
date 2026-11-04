@@ -19,6 +19,7 @@
 
 오너 결정을 기다리는 것
 
+- 글꼴 폴백 얼굴을 정본으로 올릴지(11-04 Q-Carnet 에서 먼저 넣음 · 위 그날 기록). 첫 방문 글꼴 바뀜 밀림은 세 제품이 같은 글꼴 묶음이라 같은 원인일 가능성이 높다. Q-Atelier · Q-Maison 을 같은 조건(새 문맥 · 글꼴 캐시 없음)으로 재서 맞으면 글꼴 선언을 만드는 걸음에 넣는다.
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 
@@ -62,6 +63,16 @@
 
 ---
 
+## Q-Carnet 표 부품: 잘린 쪽 표시를 ScrollCut 으로 감쌈 (impeccable 감사 20번 · 제품에서 채택) · 2026-11-04
+
+Q-Carnet 에서 레이아웃 하나에 둔 «훑개» 가 수화 전 HTML 에 `data-cut` 을 적어 폰 · 라이트 보기 41화면에서 수화 경고가 났다. 표 부품(`components/table.tsx`)의 `.qd-table-scroll` 을 요소마다 감싸는 `ScrollCut` 으로 바꿔 효과가 그 요소가 수화된 뒤에만 돌게 했다. 그리는 CSS(`[data-cut]`)는 그대로라 모양은 같다. 다시 잰 결과 수화 경고 41 → 0.
+
+- 제품에서 먼저 고쳐 커밋(DHR 852ae9d)한 뒤 `node tools/build-component-implementations.mjs --adopt --only=Q-Forge` 로 정본 `patterns/component-implementations/carnet/components/table.tsx` 에 받았다. DHR 판 파일은 `node tools/sync.mjs --stamp --only=Q-Forge` 로 «지금 사본대로» 찍었다(DHR 60ccfbd). 작업본에 다른 세션의 커밋 전 조각(`patterns/components.css` · atelier 값 · Q-Sonar 테마)이 있어 전체 `--sync` 는 돌리지 않았다. `dist/q-design.component-implementations.json` 은 carnet 몫 한 줄만 함께 적었다(atelier 몫은 그 세션 것).
+- `ScrollCut` 자체(`components/scroll-cut.tsx`)는 정본 밖 Q-Carnet 부품이고, 공용 부품 정본은 제품마다 따로라 이 채택은 carnet 사본에만 닿는다.
+- 같은 날 Q-Carnet 쪽(기록은 DHR `docs/SESSION_LOG.md`): 글꼴 폴백 얼굴(맑은 고딕 폭 93% · 설정 화면 CLS 0.13 ~ 0.37 → 0.02) · 뼈대가 떠 있는 동안 바닥글 숨김(긴 화면 0.078 → 0.003) · Speed Insights 운영에서만(dev CSP 콘솔 오류 108 → 0) · autoFocus 둘 검토 · 측정기 `code-scan.mjs` 의 img alt 줄 단위 오탐 고침.
+- 🔑 자리 밀림의 진짜 원인은 뼈대 · 표 머리가 아니라 **글꼴 바뀜** 이었다. `font-display: fallback` 이 폴백 글자로 먼저 그리고 Pretendard Variable 이 오면 바꿔 그리는데 한글 폭이 달라(프리텐다드 ÷ 맑은 고딕 0.85) 표 · 문단 · 탭이 밀린다. 정본 글꼴 스택 둘째 이름 «Pretendard» 를 제품 `app/fonts.css` 가 `local('Malgun Gothic')` + `size-adjust: 93%` 얼굴로 정의해 풀었다. unicode-range 로 한글 · 라틴 두 얼굴로 나누면 크롬이 조각이 오는 순간 줄 수를 뒤집어 0.9 가 난다(실측). 세 제품이 같은 글꼴 묶음이라 Q-Atelier · Q-Maison 도 같은 원인일 가능성이 높다(아직 안 쟀다 · «오너 결정을 기다리는 것» 에 적음).
+
+---
 ## Q-Design 견본 두 창 고침 · 진행 막대 transform 전환 (감사 36 ~ 41번) · 2026-11-04
 
 impeccable 감사가 Q-Design 자신에게 남긴 넷을 같은 날 고쳤다. 정본 `patterns/*.css` 값은 손대지 않았고 견본(`preview/`) · 작업대 틀(`tools/build-component-workbench.mjs`) · 도구만 고쳤다. 측정은 `D:/Claude/.claude/design-sweep/impeccable-2026-11-04/probe.mjs qdesign`(4800 정적 4쪽 + 4818 작업대 3쪽 × 4보기).
