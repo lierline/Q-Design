@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { readSource } from '@/lib/test-utils/contract-source';
@@ -22,12 +23,39 @@ const read = (p: string) => readSource(p, 'code');
 const css = read('app/fonts.css');
 const urls = [...css.matchAll(/url\('([^']+)'\)/g)].map((m) => m[1]);
 
+// 폴백 얼굴(2026-11-04): 조각이 오기 전 잠깐 보이는 시스템 글꼴의 폭을 Pretendard 에 맞춘 'Pretendard Fallback' 스물네 얼굴
+// (굵기 400 · 500 · 600 × 한글 · 라틴 · 숫자 · 공백 × Noto · 윈도(맑은 고딕 · Segoe UI)). 파일 없이 local() 만 가리키므로 주소 수는 94 그대로다.
+const FALLBACK = 24;
+const fallbackBlocks = [...css.matchAll(/@font-face\s*\{([^}]*)\}/g)].map((m) => m[1]).filter((b) => b.includes("'Pretendard Fallback'"));
+
 describe('글꼴 묶음 (app/fonts.css)', () => {
-  it('Pretendard 92조각 + JetBrains Mono 2 = @font-face 94개, 주소마다 파일이 있다', () => {
-    expect((css.match(/@font-face/g) || []).length).toBe(94);
+  it(`Pretendard 92조각 + 폴백 ${FALLBACK} + JetBrains Mono 2 = @font-face ${94 + FALLBACK}개, 주소 94개마다 파일이 있다`, () => {
+    expect((css.match(/@font-face/g) || []).length).toBe(94 + FALLBACK);
     expect(urls).toHaveLength(94);
     const missing = urls.filter((u) => !existsSync(join(ROOT, 'public', u)));
     expect(missing).toEqual([]);
+  });
+
+  it('폴백 얼굴 스물넷은 local() 만 가리키고, 범위 · 폭(size-adjust) · 세로(ascent · descent · line-gap) 를 다 적는다', () => {
+    expect(fallbackBlocks).toHaveLength(FALLBACK);
+    for (const b of fallbackBlocks) {
+      expect(b).toMatch(/src:\s*local\('/);
+      expect(b).not.toMatch(/url\(/);
+      expect(b).toMatch(/unicode-range:\s*U\+/);
+      // 폭 보정은 84~117% 사이여야 말이 된다(실측 84.9~116.5 · 숫자 얼굴이 가장 크다). 50% 나 150% 가 나오면 잰 값이 틀린 것이다
+      const size = Number((b.match(/size-adjust:\s*([\d.]+)%/) || [])[1]);
+      expect(size).toBeGreaterThanOrEqual(84);
+      expect(size).toBeLessThanOrEqual(117);
+      expect(b).toMatch(/ascent-override:\s*[\d.]+%/);
+      expect(b).toMatch(/descent-override:\s*[\d.]+%/);
+      expect(b).toMatch(/line-gap-override:\s*0%/);
+    }
+  });
+
+  it('폴백 얼굴은 scripts/fonts/fallback-faces.mjs 가 만든 것과 같다 (build-fonts --check 가 대조한다)', () => {
+    // scripts/ 는 tsconfig 의 include 밖이라 import 로는 못 부른다(gate-contract 와 같은 사정) → 검사기를 그대로 돌린다
+    const out = execFileSync(process.execPath, [join(ROOT, 'scripts', 'fonts', 'build-fonts.mjs'), '--check'], { encoding: 'utf8' });
+    expect(out).toContain('글꼴 묶음 맞음');
   });
 
   it('Pretendard 조각은 판 번호 폴더 안에 있고, 폴더의 조각 수와 CSS 가 같다', () => {
@@ -50,8 +78,8 @@ describe('글꼴 묶음 (app/fonts.css)', () => {
     }
   });
 
-  it('--qa-font-pretendard 를 :root 에 세운다 (tokens.ts 의 글꼴 사슬이 부르는 이름)', () => {
-    expect(css).toMatch(/:root\s*\{\s*--qa-font-pretendard:\s*'Pretendard Variable';/);
+  it("--qa-font-pretendard 를 :root 에 세운다: 'Pretendard Variable' 다음에 'Pretendard Fallback' (순서가 바뀌면 Pretendard 가 영영 안 쓰인다)", () => {
+    expect(css).toMatch(/:root\s*\{\s*--qa-font-pretendard:\s*'Pretendard Variable',\s*'Pretendard Fallback';/);
   });
 
   it('public/fonts 에는 쓰이는 두 폴더만 있다 (2MB 단일 파일이 돌아오지 않는다)', () => {

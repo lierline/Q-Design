@@ -904,7 +904,8 @@ export function ProgressBar({
   const fill = color ?? (pct === 100 ? T.green : T.champagne);
   return (
     <div className="qd-progress" role="progressbar" aria-label={ariaLabel} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} style={{ height: height ?? 'var(--qd-progress-height, 6px)', background: trackColor ?? alpha(T.border, QDRuntime.alpha.tint0_6), borderRadius: QD.radius, overflow: 'hidden' }}>
-      <div className="qd-progress-fill" style={{ width: `${pct}%`, height: "var(--qd-atelier-height-26ecbf76a0)", background: fill, transition: `width ${QD.motionNormal}` }} />
+      {/* 채움은 폭 대신 transform 으로 늘린다. 폭 전환은 프레임마다 배치를 다시 하고 transform 은 합성만 한다(2026-11-04 감사) */}
+      <div className="qd-progress-fill" style={{ width: '100%', transform: `scaleX(${pct / 100})`, transformOrigin: 'left', height: "var(--qd-atelier-height-26ecbf76a0)", background: fill, transition: `transform ${QD.motionNormal}` }} />
     </div>
   );
 }
@@ -2130,6 +2131,47 @@ export function SkeletonPanel({
           h={QDPresentation.skeletonHeight[12]}
           style={{ marginBottom: i === lines - 1 ? "var(--qd-atelier-margin-bottom-dba5d0300b)" : "var(--qd-atelier-margin-bottom-8774b7f498)" }}
         />
+      ))}
+    </div>
+  );
+}
+
+/**
+ * 서류(칸 묶음) 로딩 자리표시: 묶음 제목 바 + 칸마다 「이름표 + 입력 칸」 높이를 미리 차지한다.
+ * CAPA 계획서처럼 칸이 열 개 넘는 서류가 자료를 기다리는 동안 null 을 돌려주면, 자료가 온 순간 1,800px 가량이
+ * 끼어들어 아래 내용이 한꺼번에 밀린다(2026-11-04 감사 · /capa/[id] 자리 밀림 0.29). 칸 수 · 긴 칸 여부를
+ * 실제 서류 정의(PLAN_GROUPS 같은 것)에서 받아 높이를 비슷하게 잡는다. 긴 칸은 세 줄 글상자 높이(90)로 본다.
+ */
+export function SheetSkeleton({
+  groups,
+  label = '로드 중',
+}: {
+  groups: ReadonlyArray<{ title?: string; fields: ReadonlyArray<{ long?: boolean }> }>;
+  label?: string;
+}) {
+  return (
+    <div
+      aria-busy="true"
+      aria-label={label}
+      style={{
+        padding: QDScale.space[4.5],
+        marginBottom: QDScale.space[4],
+        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+        borderRadius: QD.radius,
+        background: T.surface,
+      }}
+    >
+      <Skeleton w="38%" h={QDPresentation.skeletonHeight[14]} style={{ marginBottom: QDScale.space[4] }} />
+      {groups.map((g, gi) => (
+        <div key={gi} style={{ marginBottom: QDScale.space[3] }}>
+          <Skeleton w="30%" h={QDPresentation.skeletonHeight[14]} style={{ marginBottom: QDScale.space[2] }} />
+          {g.fields.map((f, fi) => (
+            <div key={fi} style={{ marginBottom: QDScale.space[3] }}>
+              <Skeleton w="22%" h={QDPresentation.skeletonHeight[12]} style={{ marginBottom: QDScale.space[1.5] }} />
+              <Skeleton h={f.long ? QDPresentation.skeletonHeight[90] : QD.controlHeight} />
+            </div>
+          ))}
+        </div>
       ))}
     </div>
   );
