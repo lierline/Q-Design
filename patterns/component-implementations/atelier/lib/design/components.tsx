@@ -2691,6 +2691,8 @@ export function KPI({
           )}
         </div>
         <div
+          // 크기는 정본 아뜰리에 토대의 .qa-kpi-value 가 칸 폭 계단으로 정한다(아래 fontSize 주석 · 2026-11-04)
+          className="qa-kpi-value"
           style={{
             // Pretendard 통일: 한글이 섞여도 글꼴이 튀지 않도록.
             // 숫자 톤은 굵기 600(사다리 맨 위) + tabular-nums + 좁은 자간으로.
@@ -2702,6 +2704,9 @@ export function KPI({
             //    16%: 안쪽 폭 225px 이상이면 36px 그대로(큐아뜰리에 지표 카드), 173px(Q-Forge 8칸 띠)면 28px 로
             //    「4,370,000원」 이 들어간다. 12% 로 했더니 넓은 카드에서도 20px 로 줄어 인상이 죽었다(실측).
             //    정본(Q-Design extract-screen)이 이 세 값을 그대로 읽어 세 제품에 내보낸다.
+            // ✅ 2026-11-04(감사 6번): 16% 흐름값은 1440 에서 37 · 36.5px 로 사다리 밖이었다. 아뜰리에에서는 정본 토대의
+            //    .qa-kpi-value 가 @container 계단(150 → 24 · 175 → 28 · 200 → 32 · 225 이상 → 40)으로 !important 덮는다.
+            //    이 줄은 추출기가 읽는 줄이라 그대로 둔다(다른 두 제품은 아직 이 clamp 로 그린다).
             fontSize: `clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size, ${QDScale.font[40]}))`,
             lineHeight: "var(--qd-atelier-line-height-89aa2d62d2)",
             letterSpacing: "var(--qd-atelier-letter-spacing-0eb1693ce1)",
@@ -2721,7 +2726,8 @@ export function KPI({
             color: T.muted,
             fontFamily: QDScale.family.ui,
             marginTop: QDScale.space[2.5],
-            letterSpacing: "var(--qd-atelier-letter-spacing-7ced33ba9c)",
+            // 한글 보조 글귀에는 자간을 주지 않는다(Q-Design 03 · 2026-11-04 감사 7번)
+            letterSpacing: labelTracking(sub, "var(--qd-atelier-letter-spacing-7ced33ba9c)"),
             lineHeight: QDScale.leading.relaxed,
             minHeight: "var(--qd-atelier-min-height-353f128cde)",
             visibility: sub ? 'visible' : 'hidden',

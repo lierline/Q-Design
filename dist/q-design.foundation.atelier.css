@@ -1697,6 +1697,16 @@ textarea {
     min-height: 92px !important;
   }
 }
+/* 지표 숫자 크기: 사다리 계단(2026-11-04 감사 6번). 부품의 인라인 clamp(20px, 16cqw, 40px) 는 칸 폭 230px 안팎에서
+   37 · 36.5px 로 사다리(12 ~ 40) 밖이었다. 카드(.qa-kpi-card)가 크기 컨테이너이므로 칸 폭 계단마다 사다리 값 하나로 고정한다.
+   계단은 16cqw 가 닿던 값의 사다리 이웃: 150 → 24 · 175 → 28 · 200 → 32 · 225 이상 → 40(아뜰리에 지표 카드).
+   인라인 clamp 는 정본 추출기(extract-screen 의 kpi.value*)가 읽는 줄이라 부품에 그대로 두고 여기서 !important 로 덮는다
+   (위 폰 규칙이 Bx 인라인을 덮는 것과 같은 방식). 다른 두 제품은 아직 clamp 그대로다. */
+.qa-kpi-value { font-size: var(--qd-font-size-20, 20px) !important; }
+@container (min-width: 150px) { .qa-kpi-value { font-size: var(--qd-font-size-24, 24px) !important; } }
+@container (min-width: 175px) { .qa-kpi-value { font-size: var(--qd-font-size-28, 28px) !important; } }
+@container (min-width: 200px) { .qa-kpi-value { font-size: var(--qd-font-size-32, 32px) !important; } }
+@container (min-width: 225px) { .qa-kpi-value { font-size: var(--qd-font-size-40, 40px) !important; } }
 
 /* =============================================================================
    장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)
@@ -2174,9 +2184,10 @@ textarea {
     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.18s ease,
     border-color 0.18s ease;
-  will-change: transform;
 }
+/* will-change 는 손이 얹힌 동안만(2026-11-04 감사 13번). 늘 켜 두면 카드마다 합성층을 잡아 두고 그림만 흐려진다 */
 .qa-card-lift:hover {
+  will-change: transform;
   transform: translateY(-2px);
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.18),
@@ -2296,12 +2307,12 @@ textarea {
       both 라 애니메이션이 시작되기 전에도 첫 프레임(투명)이 걸린다.
       막대를 앞으로 당기고 내용을 뒤로 미루면 «빨라졌다» 가 성립하지 않는다.
       qa-page-rise 는 뺀다. 8px 이 올라오는 동안 글이 한 번 더 흔들린다. */
+/* will-change 없음(2026-11-04 감사 13번): 160ms 한 번 흐려지는 데 화면 전체를 합성층으로 잡아 둘 까닭이 없다 */
 .qa-page-fade {
-  will-change: opacity;
   animation: qa-page-fade-in 160ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .qa-page-fade { animation: none; will-change: auto; }
+  .qa-page-fade { animation: none; }
 }
 
 /* ── Staggered reveal (.qa-stagger): 직계 자식이 위→아래 순차 fade-up ──────
@@ -3981,6 +3992,9 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
 }
 
 .expert-portal-root .luxe-form-eyebrow {
+  /* h1 로 올렸다(2026-11-04 감사 10번): 기본 굵기 · 위아래 여백을 지워 종전 div 와 같은 모양 */
+  margin: 0;
+  font-weight: inherit;
   font-family: var(--mono);
   font-size: var(--fs-label);
   letter-spacing: 0.42em;
@@ -4282,6 +4296,8 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* 움직임 줄이기: 떠오름(qa-luxe-fadeup)을 쓰는 자리 전부. 전역 * 규칙은 길이만 0.01ms 로 줄이고 지연(0.3 ~ 1.05s)은
+   남겨, 그 동안 애니메이션이 «도는 중» 으로 잡혔다(2026-11-04 감사 13번 · 로그인 2). 여덟 자리를 보탰다. */
 @media (prefers-reduced-motion: reduce) {
   .expert-portal-root .luxe-wordmark,
   .expert-portal-root .luxe-stage-rule,
@@ -4292,7 +4308,15 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   .expert-portal-root .luxe-form-rule,
   .expert-portal-root .luxe-input-group,
   .expert-portal-root .luxe-submit,
-  .expert-portal-root .luxe-form-meta {
+  .expert-portal-root .luxe-form-meta,
+  .expert-portal-root .luxe-slogan,
+  .expert-portal-root .luxe-alert,
+  .expert-portal-root .luxe-stage-logo,
+  .expert-portal-root .luxe-inbox-headline,
+  .expert-portal-root .luxe-inbox-honor,
+  .expert-portal-root .luxe-kpi-row,
+  .expert-portal-root .luxe-empty,
+  .expert-portal-root .luxe-notice {
     animation: none !important;
     opacity: 1;
     transform: none !important;
@@ -5800,8 +5824,9 @@ html[data-theme='light'] .qa-entrance {
               transform-origin: 50% 50%;
               will-change: transform;
             }
+            /* 움직임 줄이기: 애니메이션이 없으니 will-change 도 끈다(2026-11-04 감사 13번 · 화면마다 2) */
             @media (prefers-reduced-motion: reduce) {
-              .qa-ribbon-layer-1, .qa-ribbon-layer-2 { animation: none; }
+              .qa-ribbon-layer-1, .qa-ribbon-layer-2 { animation: none; will-change: auto; }
             }
 
 .qa-ribbon-scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
@@ -5855,9 +5880,10 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
                 background 220ms cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
                 transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
-              will-change: transform;
             }
+            /* will-change 는 손이 얹힌 동안만(2026-11-04 감사 13번) */
             .qa-hero-action:hover > .qa-hero-card {
+              will-change: transform;
               transform: translateY(-1px);
               box-shadow:
                 0 0 0 1px var(--qa-champagne),

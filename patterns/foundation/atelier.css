@@ -1032,6 +1032,16 @@ textarea {
     min-height: 92px !important;
   }
 }
+/* 지표 숫자 크기: 사다리 계단(2026-11-04 감사 6번). 부품의 인라인 clamp(20px, 16cqw, 40px) 는 칸 폭 230px 안팎에서
+   37 · 36.5px 로 사다리(12 ~ 40) 밖이었다. 카드(.qa-kpi-card)가 크기 컨테이너이므로 칸 폭 계단마다 사다리 값 하나로 고정한다.
+   계단은 16cqw 가 닿던 값의 사다리 이웃: 150 → 24 · 175 → 28 · 200 → 32 · 225 이상 → 40(아뜰리에 지표 카드).
+   인라인 clamp 는 정본 추출기(extract-screen 의 kpi.value*)가 읽는 줄이라 부품에 그대로 두고 여기서 !important 로 덮는다
+   (위 폰 규칙이 Bx 인라인을 덮는 것과 같은 방식). 다른 두 제품은 아직 clamp 그대로다. */
+.qa-kpi-value { font-size: var(--qd-font-size-20, 20px) !important; }
+@container (min-width: 150px) { .qa-kpi-value { font-size: var(--qd-font-size-24, 24px) !important; } }
+@container (min-width: 175px) { .qa-kpi-value { font-size: var(--qd-font-size-28, 28px) !important; } }
+@container (min-width: 200px) { .qa-kpi-value { font-size: var(--qd-font-size-32, 32px) !important; } }
+@container (min-width: 225px) { .qa-kpi-value { font-size: var(--qd-font-size-40, 40px) !important; } }
 
 /* =============================================================================
    장부형 패턴 층 (2026-10-15 오너 결정 · 용어집 시안 비교판에서 A + C)
@@ -5149,8 +5159,9 @@ html[data-theme='light'] .qa-entrance {
               transform-origin: 50% 50%;
               will-change: transform;
             }
+            /* 움직임 줄이기: 애니메이션이 없으니 will-change 도 끈다(2026-11-04 감사 13번 · 화면마다 2) */
             @media (prefers-reduced-motion: reduce) {
-              .qa-ribbon-layer-1, .qa-ribbon-layer-2 { animation: none; }
+              .qa-ribbon-layer-1, .qa-ribbon-layer-2 { animation: none; will-change: auto; }
             }
 
 .qa-ribbon-scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
@@ -5204,9 +5215,10 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
                 background 220ms cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
                 transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
-              will-change: transform;
             }
+            /* will-change 는 손이 얹힌 동안만(2026-11-04 감사 13번) */
             .qa-hero-action:hover > .qa-hero-card {
+              will-change: transform;
               transform: translateY(-1px);
               box-shadow:
                 0 0 0 1px var(--qa-champagne),
