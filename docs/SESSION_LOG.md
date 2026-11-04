@@ -34,7 +34,7 @@
 제품을 고쳐야 풀리는 작은 것 (고치면 그 제품 배포가 따름)
 
 - Q-Atelier 표를 정본 `.qd-table` 로. 아뜰리에는 표에 정본 클래스를 걸지 않아 «늘어나는 열 하나»(10-28)가 닿지 않는다. 옮기면 열 폭 규칙과 글자 · 여백이 세 제품에서 같아진다.
-- Q-Atelier 지표 부품을 사다리로. 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
+- ✅ 11-04 Q-Atelier 지표 숫자는 사다리 값(아뜰리에 세션 · f76bb42 `.qa-kpi-value` @container 계단 · 아래 그날 기록). 남은 것: 아뜰리에 지표 부품의 인라인 clamp 가 아직 옛 토큰 둘(`--qd-kpi-min-size` · `--qd-kpi-fluid-size`, `components.css`)을 읽는다(10-27 «지표 값 사다리» 기록). 부품이 `.qd-kpi-value` 규칙을 그대로 쓰게 고치면 토큰 둘을 지우고 `extract-screen.mjs` 의 cqw 읽기 · 검사도 함께 지운다.
 
 - 10-22 전수 검수에서 남긴 Q-Atelier 작은 것 하나. `/ra` 375 폭에서 지표 설명 창이 위아래 어느 쪽에도 다 안 들어가 바닥 밖으로 약 10px(공용 `components.tsx` 에서 화면 안으로 눌러 넣기). 자간 둘(`/vigilance` 「초과 37일」 · 검토 회의 날짜, 그린 부품은 `components/TeamActivityFeed.tsx`)은 10-22 전체 점검에서 `/ra` 카드 자간과 함께 고쳤다(Q-Atelier f9f58bde).
 - 10-23 반응형 검수에서 남긴 패드(768 · 터치) 누름 자리. 폰 «바꿈» 13곳과 겹치지 않는 것: Q-Atelier 피드백 «긍정» 32, Q-Carnet 원가 «빈 기록 고치러 가기» 링크 14, Q-Maison 홈 «전체 →» 16 · 감사 모의 «관련 메뉴로 이동 →» 16 등 글귀 링크. 넓히면 옆을 덮는지부터 본다.
@@ -54,13 +54,29 @@
 - ✅ 11-04 Q-Atelier 자리 밀림 21화면(1번): 같은 날 0c45b5e6 · f1d687ef 로 운영 43화면 전부 0.1 아래(20화면 0.000 · /research/[code] 0.067 → 0f5a9156 로컬에서 서류판까지 고침 · 푸시는 오빠 결정). 원인은 뼈대 하나가 아니라 셋이었다(PageGuide 팝업이 「움직임 줄임」 에서 한 프레임 왼쪽에 찍힘 · CAPA 서류판 빈 자리 · 글꼴 폴백 폭 → size-adjust 로 맞춘 'Pretendard Fallback' 24얼굴). 기록은 Q-Atelier `docs/SESSION_LOG.md` 11-04. Q-Carnet dev 설정 화면 8곳(18번)은 Carnet 세션 몫(글꼴 폴백 · DHR 0f982ff · 운영 재측정 뒤 확정).
 - Q-Sonar 아웃리치 미리보기 iframe 이 www.medqraft.co.kr 의 X-Frame-Options 로 항상 빈 칸(4번).
 - Q-Carnet 측정기 «마우스 전용» 에 남은 1(5 · 16번은 11-04 에 고침 · 아래 그날 기록): 목록 조각(`dist/q-design.list.css`)의 `.qd-pager-btn[aria-disabled='true']` 갈래가 `cursor: default` 를 안 되돌린다. `pointer-events: none` 이라 실제로는 화살표가 뜨고 계산값만 pointer. 한 줄이지만 목록 조각이라 세 제품 사본이 따라오므로 다음 목록 바퀴에.
-- 진행 막대 transform 전환(40번 · 11-04 · 정본만 · 아래 그날 기록): 정본은 지금 width · transform 전환을 둘 다 둔다. ① 카르넷 `Progress`(DHR `components/ui.tsx:404`) · 메종 인라인 진행 막대를 width → `transform: scaleX` 로(제품 세션 몫) ② 그 뒤 정본에서 width 전환을 뺀다 ③ 세 제품에 보내는 sync 는 오너 결정이고, 돌릴 때 DHR · Q-Works 작업트리가 깨끗한지 `git status --short` 로 보고 한 번에(부모 세션이 순서를 맞춤). 상단 진행선 둘(`patterns/foundation/atelier.css` `.qa-top-progress` · `carnet.css` `.top-progress`)의 너비 전환은 제품 코드가 width 를 주는 자리라 제품 세션 몫으로 남겼다.
+- 진행 막대 transform 전환(40번 · 11-04 · 정본만 · 아래 그날 기록 · Q-Atelier 는 같은 날 3591b5c5 로 사본 통째 받음): 정본은 지금 width · transform 전환을 둘 다 둔다. ① 카르넷 `Progress`(DHR `components/ui.tsx:404`) · 메종 인라인 진행 막대를 width → `transform: scaleX` 로(제품 세션 몫) ② 그 뒤 정본에서 width 전환을 뺀다 ③ 세 제품에 보내는 sync 는 오너 결정이고, 돌릴 때 DHR · Q-Works 작업트리가 깨끗한지 `git status --short` 로 보고 한 번에(부모 세션이 순서를 맞춤). 상단 진행선 둘(`patterns/foundation/atelier.css` `.qa-top-progress` · `carnet.css` `.top-progress`)의 너비 전환은 제품 코드가 width 를 주는 자리라 제품 세션 몫으로 남겼다.
 - Q-Design 견본 두 창(36 ~ 39번)은 11-04 에 고쳤다(아래 그날 기록 · 36 · 37번은 측정기 오탐). 남은 것은 정본 결정 넷이다. ① 목록 조각 `.qd-filter-clear`(「검색 지우기」 글귀 링크)가 글자 높이 12px 그대로라 폰에서 누름 자리 55 × 12(parts.html) · 64 × 12(아뜰리에 작업대). 정본에 `min-height: 44px` 를 주면 세 제품 사본이 따라온다. ② 거르개 띠 · 쪽 이동 단추 · 빈 목록 힌트 · 작은 단추(`--qd-control-height-sm` 36px)가 폰 폭에서 44 미만으로 잡힌다(parts.html 9곳 · index.html 「보조」 1곳). 정본이 36 으로 정한 값이라 측정기 기준을 36 으로 낮출지, 폰에서만 44 로 키울지. ③ `check.mjs` 에 「견본 쪽이 정본 CSS 를 읽고(404 없음) 글자 분포가 사다리 안인가」 걸음을 더할지(39번 재발 방지). 측정기 `D:/Claude/.claude/design-sweep/impeccable-2026-11-04/probe.mjs qdesign` 이 이미 재므로, 걸음은 그 결과의 «Times New Roman · Arial 0 · 사다리 밖 0 · h1 쪽마다 1» 만 읽는 얇은 것으로 하되 Playwright 와 4800 · 4818 두 서버가 있어야 돌아 평소 35걸음과 결이 다르다. ④ index.html 의 옛 빈 상태 견본은 정본이 09-28 에 걷은 빛무리 · 꾸밈 글리프를 아직 그린다(글리프는 aria-hidden 으로 숨김). 정본대로 걷을지.
-- 설명서 왼쪽 선 · 위젯 흔들림 · bounce(41번 · 11-04 오너 결정 «A» · 정본만 고침 · 아래 그날 기록): 세 제품에 보내는 sync 는 오너 결정. 받을 때 Q-Atelier `components/dashboard/CustomizableWidgetBoard.tsx` 의 흔들림 주석 두 줄(327 · 368)이 낡아 지우는 일이 따라온다(CSS 는 이미 정본에서 뺐다). 설명서에 남은 왼쪽 선 둘(`.hits` 검색 결과 2px · `.rail nav a.on` 차림표 현재 표시 2px)은 강조선이 아니라 목록 · 현재 위치 표시라 그대로 뒀다. 바꾸려면 오너 결정.
+- 설명서 왼쪽 선 · 위젯 흔들림 · bounce(41번 · 11-04 오너 결정 «A» · 정본만 고침 · 아래 그날 기록): 세 제품에 보내는 sync 는 오너 결정(Q-Atelier 는 같은 날 3591b5c5 로 받았고 `components/dashboard/CustomizableWidgetBoard.tsx` 의 흔들림 주석 두 줄도 그때 지웠다 · Carnet · Maison 은 아직). 설명서에 남은 왼쪽 선 둘(`.hits` 검색 결과 2px · `.rail nav a.on` 차림표 현재 표시 2px)은 강조선이 아니라 목록 · 현재 위치 표시라 그대로 뒀다. 바꾸려면 오너 결정.
 - Q-Maison 로그인 뒤 53화면(42 ~ 51번 · 같은 날 20:48 보탬): 차림표(`qd-rail`) 글귀 `qd-nav-label` · `qd-nav-group` 줄간격이 1.5 로 정본 10-27 판(1.4 · 1a6e098)보다 한 판 뒤(45번 · Q-Maison 의 정본 사본 `app/q-design.list.css` 를 받으면 풀림). 상태 알약 「종결」 3.27 · 「계획서 작성·결재」 3.53 라이트 대비(43번)는 «남은 일» 의 Q-Maison 알약 색 결정과 함께 그림 먼저. 폰 44 미만 41자리(42번 · P1)는 10-23 글귀 링크 묶음과 겹친다.
 - 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 전부 끄기로 넓힐지 결정(13 · 17번). Carnet `rise-soft`(17번)는 11-04 에 카르넷 조리법(`patterns/foundation/carnet.css`)의 `.stagger` 에 reduce 블록을 더해 먼저 껐다(결정 전 제품 쪽 최소 고침 · 29fd100). Atelier `qa-luxe-fadeup`(13번)은 그대로 돈다.
 
 ---
+
+## Q-Atelier impeccable 감사 P2 6 ~ 15번 · 정본 아뜰리에 토대 몫 · 2026-11-04 (아뜰리에 세션)
+
+제품 쪽 전체 기록은 Q-Atelier `docs/SESSION_LOG.md` 같은 날. 여기는 정본에 닿은 것과 정본이 알아야 할 것만.
+
+- f76bb42: `patterns/foundation/atelier.css` 셋 + Q-Atelier 4b19391f 의 `components.tsx` 채택(`--adopt`).
+  - 6번 지표 숫자: `.qa-kpi-value` 에 `@container` 계단(150 → 24 · 175 → 28 · 200 → 32 · 225 이상 → 40 · 바닥 20)으로 사다리 값 하나. 부품의 인라인 `clamp(20px, 16cqw, 40px)` 는 1440 카드(안폭 228 ~ 231)에서 37 · 36.5px 였다. clamp 줄은 `extract-screen` 의 kpi.value* 가 읽어 그대로 두고 `!important` 로 덮는다(폰 KPI 규칙과 같은 방식). Carnet · Maison 지표는 아직 흐름값이다(«남은 일» 에 남김).
+  - 10번: 전문가 포털 눈썹 글귀가 `h1` 이 되어도 모양이 같도록 `.luxe-form-eyebrow { margin: 0; font-weight: inherit }`.
+  - 13번: «움직임 줄이기» 묶음에 delay 가 있는 여덟 자리를 보탬(delay 가 있는 요소는 끝난 뒤에도 측정기가 running 으로 센다). 리본 두 층은 reduce 에서 `will-change: auto`, `.qa-card-lift` · `.qa-hero-card` 는 손이 얹힌 동안만, `.qa-page-fade` 는 걷음.
+  - `atelier.css` 의 10 · 13번 변경 일부(will-change 호버 한정 · page-fade · 눈썹 h1 · luxe reduce 묶음)는 이 세션의 작업 트리 변경을 Q-Design 세션이 899f255 에 함께 커밋해 먼저 들어갔다(784f90d 기록). f76bb42 는 그 위의 나머지다.
+- d7dc6be: Q-Atelier e9b5d40c 의 `components.tsx`(구역 카드 SectionCard 제목이 div 라 h3 규격의 조임 -0.005em 이 측정에서 «제목 조임» 으로 인정되지 않음 → 글 제목이 한글이면 자간 0, 요소 제목이면 종전대로) 를 `--adopt` 로 채택하고 `refresh-source --write` 로 원본 사본 2곳을 맞췄다. 정본 CSS 변화 없음(부품 구현 기록 · 생성본 · 원본 사본만).
+- 측정기 고침(`D:/Claude/.claude/design-sweep/impeccable-2026-11-04/probe.mjs` · 세션들이 같이 쓰는 파일): `::before · ::after` 에 그린 윤곽도 초점 표시로 센다(9번 «초점 표시 없음 4» 는 작업대 칸 링크가 칸 둘레 `::after` 에 2px 금색 윤곽을 그리는 것을 못 본 오탐). 수화 경고는 인자까지 담는다(15번 원인 속성이 700자 밖이라 못 보던 것). 11번 로그인 가로 넘침 -10 은 스크롤바 홈이라 넘침 아님(창 밖 요소 0).
+- ⚠️ sync 가 40 · 41번을 Q-Atelier 에 함께 실었다. `--sync --only=Q-Atelier` 는 사본을 통째로 받으므로 진행 막대 transform 전환(40) · 흔들림 걷음 · 설명서 괘선(41)도 Q-Atelier 사본(3591b5c5)에 들어갔다(줄 단위로 읽어 그 밖은 판 도장뿐임을 확인). 위 «남은 일» 의 「세 제품에 보내는 sync 는 오너 결정」 은 Carnet · Maison 에 그대로이고, 아뜰리에만 먼저 받은 상태다.
+- `check.mjs`: 채택 직후 실패 3(원본 사본 2곳 어긋남은 `refresh-source --write` 로 닫음). 남은 실패 2 는 이 변경 밖(«조각 사본 3곳» · Q-Works 부품 사본 재생성 · 위 «남은 일» 73줄 기록 그대로).
+- 다시 잼(dev 3602 · `probe.mjs atelier --login` · 43화면 × 1440 어두운 reduce · 밝은 · 412 터치): 사다리 밖 48 → 0 · 굵기 밖 700 → 0(15e9293d 뒤 다시 잼) · 한글 자간 «그 밖» → 0(전체 129기록에서 남아 있던 18자리를 e9b5d40c · c5ae9269 · 5b1a893a 로 고친 뒤 그 화면들 다시 잼 0) · 초점 표시 없음 4 → 0 · h1 없음 2 → 0(결재함은 5b1a893a 로 불러오는 동안에도 머리 · R&D 상세 · 구독 관리는 자료가 온 뒤 h1 이 있고 그 전은 LoadingState 라 dev 가 느릴 때 측정기가 먼저 재면 0 으로 나옴 · 실측 3초 뒤 보임) · main 없음 2 → 0 · 가로 넘침 -10 → 0 · 412 누름 자리 7 → 0 · reduce 애니 2 → 0 · will-change 77 → 0 · CLS 0.1 초과 0. 수화 경고(15번)는 다시 잰 13화면 × 4보기에서 0. 전체 돌림 두 번 중 한 번만 /capa/new · /approve 에 한 번씩 났다(간헐 · dev). 측정기가 경고 인자까지 담게 고쳐 다음에 나면 어긋난 속성이 보인다.
+- ⚠️ DECISION PENDING 8번 라이트 금색 대비: `--qa-champagne #8a6838`(atelier.css:96) 이 옅은 면 위에서 4.25 ~ 4.50(3자리 12요소). 후보 A `#805f32`(4.82 ~ 5.11) · B `#7a5a2f`(5.17 ~ 5.52) 를 실제 세 화면에 입힌 그림을 오너께 보냈다. «남은 일» 의 10-22 «대비 4.0 ~ 4.45 토큰» 묶음과 같은 결정이다.
 
 ## Q-Sonar 따라잡기 (PENDING 세 조각 받음 · 새 조각 «소나 유틸리티») · impeccable 감사 Q-Sonar 2 · 3 · 4 · 30 ~ 35번 · 2026-11-04
 
