@@ -134,6 +134,8 @@ export default function Fixture() {
         ))}
       </div>
 
+      {/* 머리말 단계: 쪽 제목(h1) 다음에 카드 제목(h3)이 바로 오면 한 단계를 건너뛴다(2026-11-04 감사 38번). 구역 이름(h2)을 먼저 둔다 */}
+      <h2 className="qd-section-title">입력과 선택</h2>
       <Card>
         <CardHeader>
           <CardTitle>기본 정보</CardTitle>

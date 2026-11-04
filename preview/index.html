@@ -8,10 +8,13 @@
 <!-- 글꼴을 먼저 겁니다. 이 파일 하나로 세 글꼴이 CDN 없이 붙습니다. -->
 <link rel="stylesheet" href="../dist/q-design.fonts.css">
 
-<!-- 원본 전역 CSS 를 그대로 씁니다. 견본이 소스와 갈리지 않도록.
-     ⚠️ 이 파일 안에 Google Fonts @import 가 남아 있지만, 위에서 같은 이름으로
-        로컬 글꼴을 먼저 등록했으므로 CDN 이 막혀도 라벨 글꼴이 유지됩니다. -->
-<link rel="stylesheet" href="../source/css/globals.css">
+<!-- 정본 CSS 넷을 제품(Q-Atelier app/globals.css)과 같은 순서로 싣습니다. 2026-11-04 전에는 원본 사본
+     ../source/css/globals.css 를 걸었는데, 그 파일은 @import 넷만 남은 껍데기라 넷이 모두 404 로 떨어져
+     글꼴이 Times New Roman 으로 돌아갔습니다(감사 39번). 정본이 사는 자리는 dist/ 와 patterns/ 입니다. -->
+<link rel="stylesheet" href="../dist/q-design.foundation.atelier.css">
+<link rel="stylesheet" href="../dist/q-design.workspace.css">
+<link rel="stylesheet" href="../patterns/components.css">
+<link rel="stylesheet" href="../dist/q-design.palette.atelier.css">
 
 <style>
   /* 글꼴 세 벌은 ../dist/q-design.fonts.css 에서 옵니다 (위 link).
@@ -26,10 +29,10 @@
   }
   .head-rule { width: 32px; height: 1.5px; background: var(--qa-champagne); margin-bottom: 14px; }
   .head-sub {
-    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-subtle);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--qa-subtle);
     letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 8px;
   }
-  h1 { font-size: clamp(22px, 5vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
   .head-line { margin-top: 18px; border-bottom: 1px solid var(--qa-border); }
 
   section { margin: 0 0 48px; }
@@ -38,14 +41,14 @@
   .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .g4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
-  @media (max-width: 767px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } h1 { font-size: 28px; } }
 
   /* 스와치 */
   .sw { border: 1px solid var(--qa-border); border-radius: 10px; overflow: hidden; }
   .sw-chip { height: 56px; }
   .sw-meta { padding: 8px 10px; background: var(--qa-surface); }
-  .sw-name { font-size: 11px; color: var(--qa-text); }
-  .sw-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-muted); }
+  .sw-name { font-size: 12px; color: var(--qa-text); }
+  .sw-hex { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--qa-muted); }
 
   /* 부품 견본 */
   .btn {
@@ -58,56 +61,60 @@
   .btn.sec { background: transparent; color: var(--qa-subtle); border-color: var(--qa-border); }
   .btn.gold { background: var(--qa-champagne); color: var(--qa-on-accent); }
   .btn.danger { background: var(--qa-red); color: var(--qa-bg); border-color: var(--qa-red); }
-  .btn.sm { padding: 7px 14px; min-height: 36px; font-size: 11px; }
+  .btn.sm { padding: 7px 14px; min-height: var(--qd-control-height-sm, 36px); font-size: 12px; }
   .btn.ko { letter-spacing: 0; text-transform: none; }
 
   .tag {
     box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
-    gap: 5px; min-height: 26px; font-size: 11.5px; line-height: 1.4; padding: 4px 10px;
+    gap: 5px; min-height: 28px; font-size: 14px; line-height: 1.4; padding: 4px 10px;
     font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; white-space: nowrap;
     border: 1px solid; vertical-align: middle;
   }
-  .tag.sm { min-height: 22px; font-size: 11px; padding: 2px 8px; gap: 4px; }
-  .tag.xs { min-height: 18px; font-size: 10px; padding: 0 6px; gap: 4px; }
+  /* 배지 세 크기 = 정본 12 · 12 · 14px(높이 20 · 24 · 28 · docs/03-typography.md) */
+  .tag.sm { min-height: 24px; font-size: 12px; padding: 2px 8px; gap: 4px; }
+  .tag.xs { min-height: 20px; font-size: 12px; padding: 0 6px; gap: 4px; }
   .tag.ko { letter-spacing: 0; }
   .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
   .in {
-    width: 100%; padding: 10px 14px; background: var(--qa-surface);
-    border: 1px solid var(--qa-border); color: var(--qa-text); font-size: 13px;
+    width: 100%; min-height: var(--qd-control-height, 44px); padding: 10px 14px; background: var(--qa-surface);
+    border: 1px solid var(--qa-border); color: var(--qa-text); font-size: 14px;
   }
 
   .lbl {
-    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-subtle);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--qa-subtle);
     letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; margin-bottom: 10px;
   }
   .lbl.ko { letter-spacing: 0; text-transform: none; }
 
-  .kpi-val { font-weight: 700; font-size: 36px; line-height: 1.05; letter-spacing: -0.02em; }
-  .kpi-sub { font-size: 11px; color: var(--qa-muted); margin-top: 10px; }
+  .kpi-val { font-weight: 600; font-size: var(--qd-kpi-size, 40px); line-height: 1.2; letter-spacing: -0.02em; }
+  .kpi-sub { font-size: 12px; color: var(--qa-muted); margin-top: 10px; }
 
   .alert { padding: 12px 16px; font-size: 12px; line-height: 1.6; margin-bottom: 16px; }
-  .alert-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; }
+  .alert-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 4px; }
 
   .empty { padding: 96px 24px; text-align: center; position: relative; }
   .empty::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--qa-champagne) 4%, transparent), transparent 70%);
   }
-  .empty-glyph { font-size: 56px; font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+  .empty-glyph { font-size: 60px; font-weight: 400; line-height: 1; letter-spacing: -0.02em;
                  color: color-mix(in srgb, var(--qa-champagne) 45%, transparent); margin-bottom: 20px; }
-  .empty-title { font-weight: 700; font-size: 22px; color: var(--qa-subtle); letter-spacing: -0.01em; margin-bottom: 10px; }
-  .empty-desc { font-size: 13px; color: var(--qa-muted); line-height: 1.7; max-width: 460px; margin: 0 auto 22px; }
-  .hint { display: inline-block; padding: 6px 12px; font-size: 10px; margin: 0 4px;
+  .empty-title { font-weight: 600; font-size: 24px; color: var(--qa-subtle); letter-spacing: -0.01em; margin-bottom: 10px; }
+  .empty-desc { font-size: 14px; color: var(--qa-muted); line-height: 1.6; max-width: 460px; margin: 0 auto 22px; }
+  .hint { display: inline-block; padding: 6px 12px; font-size: 12px; margin: 0 4px;
           border: 1px solid color-mix(in srgb, var(--qa-champagne) 40%, transparent); color: var(--qa-champagne); }
 
   .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
   .type-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--qa-border); }
-  .type-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--qa-muted); flex-shrink: 0; width: 190px; }
+  .type-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--qa-muted); flex-shrink: 0; width: 220px; }
+  .type-row > :last-child { min-width: 0; }
+  /* 폰 폭에서는 설명 줄 아래로 표본이 내려온다. 220px 설명 옆에 40px 표본을 세우면 카드가 화면보다 넓어져 고정 단추까지 밀려났다(2026-11-04 감사 39번 재측정: 412 에서 33px 넘침) */
+  @media (max-width: 767px) { .type-row { flex-wrap: wrap; gap: 4px 16px; } .type-meta { width: 100%; } }
 
   .toggle {
     position: fixed; top: 16px; right: 16px; z-index: 200;
-    padding: 8px 14px; font-size: 11px; cursor: pointer;
+    min-height: 44px; padding: 8px 14px; font-size: 12px; cursor: pointer;
     background: var(--qa-surface); color: var(--qa-text);
     border: 1px solid var(--qa-borderHi); border-radius: 10px;
     font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
@@ -115,18 +122,27 @@
 
   .note { font-size: 12px; color: var(--qa-muted); line-height: 1.6; margin-top: 10px; }
   .bad { color: var(--qa-red); }
+  /* 폰에서 누르는 자리는 44 · 조작부 글꼴은 본문을 따른다 */
+  nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  button, input, select { font-family: inherit; }
 </style>
 <link rel="stylesheet" href="../dist/q-design.icons.css">
+<script>
+  // 테마는 CSS 가 적용되기 전에 정한다(parts.html 과 같은 길). 본문 끝 스크립트에서 바꾸면 어두운 테마로 한 번 그려진 뒤 밝은 테마로 넘어가는 사이(transition)의 색이 측정에 잡힌다(2026-11-04)
+  if (new URLSearchParams(location.search).get('theme') === 'light') document.documentElement.dataset.theme = 'light';
+</script>
 </head>
 <body>
 <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px;line-height:1.6">
   <a href="icons.html" class="qd-icon-label" style="color:var(--qa-text);margin-right:24px"><span class="qd-icon" data-icon="overview" aria-hidden="true"></span>업무 아이콘 30종</a><a href="workspace.html" style="color:var(--qa-text);text-underline-offset:4px">업무 화면 개선 견본: 제품·테마·문서 검색 직접 보기 <span class="qd-icon qd-icon--sm" data-icon="next" aria-hidden="true"></span></a>
   <p style="margin-top:16px"><a href="context-review.html" style="color:var(--qa-text);text-underline-offset:4px">맥락 유지형 문서 검토: 목록·상세·집중 보기·복귀 체험 <span class="qd-icon qd-icon--sm" data-icon="next" aria-hidden="true"></span></a></p>
   <p style="margin-top:16px"><a href="components.html" style="color:var(--qa-text);text-underline-offset:4px">세 제품 실제 컴포넌트: 공통 규칙과 변경 전파 검토</a></p>
-  <p style="margin-top:8px;color:var(--qa-subtle);font-size:13px">아래는 기존 시각 자료입니다. 새 화면 조합과 조작은 업무 화면 견본에서 확인합니다.</p>
+  <p style="margin-top:8px;color:var(--qa-subtle);font-size:14px">아래는 기존 시각 자료입니다. 새 화면 조합과 조작은 업무 화면 견본에서 확인합니다.</p>
 </nav>
 
 <button class="toggle" id="themeBtn">DARK</button>
+
+<main>
 
 <!-- ── 페이지 머리 ─────────────────────────────────────────── -->
 <div class="head">
@@ -170,38 +186,44 @@
   <div class="qa-mag-divider-line"></div>
 </div>
 
+<!-- 글자 표본 = docs/03-typography.md 의 표(2026-10-26 오너 결정). 크기 아홉 단(12 ~ 40) · 굵기 400/500/600 · 줄간격 1.2/1.4/1.6.
+     clamp 의 양 끝(28 · 40, 20 · 24)만 사다리 위에 있고 그 사이는 화면 폭을 따라 흐릅니다. -->
 <div class="card">
   <div class="type-row">
-    <div class="type-meta">h1 · 700 · -0.015em</div>
-    <div style="font-size:clamp(1.75rem,1.25rem + 1.5vw,2.25rem);font-weight:700;letter-spacing:-0.015em;line-height:1.15">품질을 빚는 아틀리에</div>
+    <div class="type-meta">display · 40px · 600 · 1.2</div>
+    <div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;line-height:1.2">품질을 빚는 아틀리에</div>
   </div>
   <div class="type-row">
-    <div class="type-meta">h2 · 600 · -0.01em</div>
-    <div style="font-size:clamp(1.25rem,1rem + 0.8vw,1.5rem);font-weight:600;letter-spacing:-0.01em;line-height:1.25">섹션 타이틀입니다</div>
+    <div class="type-meta">h1 · 28~40px · 600 · 1.2</div>
+    <div style="font-size:clamp(1.75rem,1.25rem + 1.5vw,2.5rem);font-weight:600;letter-spacing:-0.015em;line-height:1.2">페이지 타이틀입니다</div>
   </div>
   <div class="type-row">
-    <div class="type-meta">h3 · 14.875px · 600</div>
-    <div style="font-size:1.0625rem;font-weight:600;letter-spacing:-0.005em;line-height:1.35">카드 헤더입니다</div>
+    <div class="type-meta">h2 · 20~24px · 600 · 1.2</div>
+    <div style="font-size:clamp(1.25rem,1rem + 0.8vw,1.5rem);font-weight:600;letter-spacing:-0.01em;line-height:1.2">섹션 타이틀입니다</div>
   </div>
   <div class="type-row">
-    <div class="type-meta">body · 13.125px · 1.65</div>
-    <div style="font-size:0.9375rem;line-height:1.65">본문입니다. rem 기준이 16px 이 아니라 14px 이라 0.9375rem 은 13.125px 로 렌더됩니다.</div>
+    <div class="type-meta">h3 · 18px · 600 · 1.4</div>
+    <div style="font-size:18px;font-weight:600;letter-spacing:-0.005em;line-height:1.4">카드 헤더입니다</div>
   </div>
   <div class="type-row">
-    <div class="type-meta">caption · 11.375px</div>
-    <div style="font-size:0.8125rem;line-height:1.55;color:var(--qa-subtle)">보조 정보입니다</div>
+    <div class="type-meta">body · 16px · 400 · 1.6</div>
+    <div style="font-size:16px;line-height:1.6">본문입니다. 2026-10-26 부터 rem 기준은 16px 이고, 13 · 15 · 17 같은 사이 값은 사다리에서 지웠습니다.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">caption · 14px · 400 · 1.6</div>
+    <div style="font-size:14px;line-height:1.6;color:var(--qa-subtle)">보조 정보입니다</div>
   </div>
   <div class="type-row" style="border:none">
-    <div class="type-meta">mono · 9.625px · 0.08em</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;line-height:1.4;color:var(--qa-muted)">ISO 13485 · CAPA · RA</div>
+    <div class="type-meta">mono · 12px · 500 · 0.08em · 1.4</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;line-height:1.4;color:var(--qa-muted)">ISO 13485 · CAPA · RA</div>
   </div>
 </div>
 
 <div class="card" style="margin-top:10px">
   <div class="lbl ko">한글 자간 규칙</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.2px;text-transform:uppercase;color:var(--qa-muted)">오늘 처리할 것</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2.2px;text-transform:uppercase;color:var(--qa-muted)">오늘 처리할 것</div>
   <div class="note bad">↑ 자간 2.2px 를 한글에 그대로 건 경우. 낱글자로 흩어집니다.</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0;color:var(--qa-champagne);margin-top:14px">오늘 처리할 것</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0;color:var(--qa-champagne);margin-top:14px">오늘 처리할 것</div>
   <div class="note">↑ labelTracking() 이 한글을 감지해 자간을 0 으로 떨어뜨린 경우.</div>
 </div>
 
@@ -231,9 +253,9 @@
 
   <div class="card">
     <div class="lbl ko">입력</div>
-    <input class="in qa-input" placeholder="포커스하면 테두리가 금색이 되고 배경이 한 겹 들어갑니다">
+    <input class="in qa-input" aria-label="입력칸 견본" placeholder="포커스하면 테두리가 금색이 되고 배경이 한 겹 들어갑니다">
     <div style="height:10px"></div>
-    <select class="in qa-input">
+    <select class="in qa-input" aria-label="선택 칸 견본">
       <option>선택지 하나</option>
       <option>선택지 둘</option>
     </select>
@@ -314,7 +336,7 @@
 <div class="card" style="margin-top:10px;padding:0">
   <div class="empty">
     <div style="position:relative">
-      <div class="empty-glyph">◈</div>
+      <div class="empty-glyph" aria-hidden="true">◈</div><!-- 꾸밈 글리프 · 뜻이 없어 보조기기에서 숨긴다 -->
       <div class="empty-title">아직 등록된 항목이 없습니다</div>
       <div class="empty-desc">첫 항목을 등록하면 여기에서 진행 상황을 한눈에 확인하실 수 있습니다.</div>
       <button class="btn gold ko qa-btn" style="margin-bottom:18px">새로 만들기</button>
@@ -328,6 +350,8 @@
 <div class="note">빈 화면에 96px 여백을 줍니다. 초라해 보이지 않고 «의도된 여백» 으로 읽힙니다.</div>
 
 </section>
+
+</main>
 
 <script>
 const DARK = {
@@ -361,9 +385,10 @@ function paint() {
       <div class="sw-meta"><div class="sw-name">${STATE_LABEL[k]}</div><div class="sw-hex">state-${k}</div></div>
     </div>`).join('');
 
+  // 틴트 바탕은 라이트에서 글자 대비 4.5 를 지키는 선(배지 6% · 안내 상자 4%). 10% · 8% 는 4.41 ~ 4.49 로 아슬하게 미달이었다(2026-11-04 측정)
   const c = 'var(--qa-champagne)';
   document.getElementById('tagTiers').innerHTML = `
-    <span class="tag" style="color:${c};border-color:color-mix(in srgb,${c} 55%,transparent);background:color-mix(in srgb,${c} 10%,transparent)"><span class="dot" style="background:${c}"></span>PRIMARY</span>
+    <span class="tag" style="color:${c};border-color:color-mix(in srgb,${c} 55%,transparent);background:color-mix(in srgb,${c} 6%,transparent)"><span class="dot" style="background:${c}"></span>PRIMARY</span>
     <span class="tag" style="color:${c};border-color:color-mix(in srgb,${c} 33%,transparent)">SECONDARY</span>
     <span class="tag" style="color:var(--qa-muted);border-color:color-mix(in srgb,${c} 18%,transparent)">TERTIARY</span>
     <span class="tag ko" style="color:${c};border-color:color-mix(in srgb,${c} 33%,transparent)">한글 배지</span>`;
@@ -371,7 +396,7 @@ function paint() {
   document.getElementById('tagSizes').innerHTML = ['xs','sm',''].map((s) => {
     const label = (s || 'md').toUpperCase();
     return `<span class="tag ${s}" style="color:var(--qa-state-cobalt);border-color:color-mix(in srgb,var(--qa-state-cobalt) 33%,transparent)">${label}</span>`;
-  }).join('') + `<span class="note" style="margin:0 0 0 8px">18px · 22px · 26.1px</span>`;
+  }).join('') + `<span class="note" style="margin:0 0 0 8px">20px · 24px · 28px</span>`;
 
   const alerts = [
     ['alertOk', 'green', '완료', '변경평가가 승인되었습니다.'],
@@ -382,7 +407,7 @@ function paint() {
     const v = `var(--qa-${tone})`;
     document.getElementById(id).style.cssText =
       `padding:12px 16px;font-size:12px;line-height:1.6;margin-bottom:16px;` +
-      `background:color-mix(in srgb,${v} 8%,transparent);border:1px solid color-mix(in srgb,${v} 30%,transparent);color:var(--qa-text)`;
+      `background:color-mix(in srgb,${v} 4%,transparent);border:1px solid color-mix(in srgb,${v} 30%,transparent);color:var(--qa-text)`;
     document.getElementById(id).innerHTML =
       `<div class="alert-title" style="color:${v}">${title}</div>${body}`;
   }
@@ -396,6 +421,8 @@ document.getElementById('themeBtn').addEventListener('click', () => {
   paint();
 });
 
+// ?theme=light 로 열면 밝은 테마로 시작한다(다른 견본 쪽과 같은 규약 · 측정기도 이 길로 테마를 정한다). 속성은 <head> 의 스크립트가 CSS 보다 먼저 두었고, 여기서는 단추 글귀만 맞춘다
+document.getElementById('themeBtn').textContent = document.documentElement.dataset.theme === 'light' ? 'LIGHT' : 'DARK';
 paint();
 </script>
 </body>

@@ -54,8 +54,25 @@
 - Q-Atelier 운영 로그인 뒤 43화면 중 21화면이 자리 밀림(CLS) 0.1 초과(/ra 0.416 · /capa/[id] 0.362 · /research/[code] 0.350). 뼈대가 자료 높이를 미리 차지하지 않는다(1번). Q-Carnet dev 설정 화면 8곳도 같은 모양(18번 · 운영 재측정 뒤 확정).
 - Q-Sonar 아웃리치 미리보기 iframe 이 www.medqraft.co.kr 의 X-Frame-Options 로 항상 빈 칸(4번).
 - Q-Carnet 측정기 «마우스 전용» 에 남은 1(5 · 16번은 11-04 에 고침 · 아래 그날 기록): 목록 조각(`dist/q-design.list.css`)의 `.qd-pager-btn[aria-disabled='true']` 갈래가 `cursor: default` 를 안 되돌린다. `pointer-events: none` 이라 실제로는 화살표가 뜨고 계산값만 pointer. 한 줄이지만 목록 조각이라 세 제품 사본이 따라오므로 다음 목록 바퀴에.
-- Q-Design 부품 작업대(4818) 다크 테마에 제품 변수 7자리가 빠져 주 단추 글자 대비 1.13(36번). 정적 견본 4쪽(`preview/index.html` 등)이 정본 CSS 넷을 404 로 못 읽어 Times New Roman 폴백 · 10/11px(39번).
+- Q-Design 견본 두 창(36 ~ 39번)은 11-04 에 고쳤다(아래 그날 기록 · 36 · 37번은 측정기 오탐). 남은 것은 정본 결정 넷이다. ① 목록 조각 `.qd-filter-clear`(「검색 지우기」 글귀 링크)가 글자 높이 12px 그대로라 폰에서 누름 자리 55 × 12(parts.html) · 64 × 12(아뜰리에 작업대). 정본에 `min-height: 44px` 를 주면 세 제품 사본이 따라온다. ② 거르개 띠 · 쪽 이동 단추 · 빈 목록 힌트 · 작은 단추(`--qd-control-height-sm` 36px)가 폰 폭에서 44 미만으로 잡힌다(parts.html 9곳 · index.html 「보조」 1곳). 정본이 36 으로 정한 값이라 측정기 기준을 36 으로 낮출지, 폰에서만 44 로 키울지. ③ `check.mjs` 에 「견본 쪽이 정본 CSS 를 읽고(404 없음) 글자 분포가 사다리 안인가」 걸음을 더할지(39번 재발 방지). 측정기 `D:/Claude/.claude/design-sweep/impeccable-2026-11-04/probe.mjs qdesign` 이 이미 재므로, 걸음은 그 결과의 «Times New Roman · Arial 0 · 사다리 밖 0 · h1 쪽마다 1» 만 읽는 얇은 것으로 하되 Playwright 와 4800 · 4818 두 서버가 있어야 돌아 평소 35걸음과 결이 다르다. ④ index.html 의 옛 빈 상태 견본은 정본이 09-28 에 걷은 빛무리 · 꾸밈 글리프를 아직 그린다(글리프는 aria-hidden 으로 숨김). 정본대로 걷을지.
 - 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 전부 끄기로 넓힐지 결정(13 · 17번). Carnet `rise-soft`(17번)는 11-04 에 카르넷 조리법(`patterns/foundation/carnet.css`)의 `.stagger` 에 reduce 블록을 더해 먼저 껐다(결정 전 제품 쪽 최소 고침 · 29fd100). Atelier `qa-luxe-fadeup`(13번)은 그대로 돈다.
+
+---
+
+## Q-Design 견본 두 창 고침 (감사 36 ~ 39번) · 2026-11-04
+
+impeccable 감사가 Q-Design 자신에게 남긴 넷을 같은 날 고쳤다. 정본 `patterns/*.css` 값은 손대지 않았고 견본(`preview/`) · 작업대 틀(`tools/build-component-workbench.mjs`) · 도구만 고쳤다. 측정은 `D:/Claude/.claude/design-sweep/impeccable-2026-11-04/probe.mjs qdesign`(4800 정적 4쪽 + 4818 작업대 3쪽 × 4보기).
+
+- 36 · 37번(작업대 다크에 제품 변수 7자리 빠짐 · 자리표시자 3.82)은 **측정기 오탐**이었다. 측정기가 쪽을 연 뒤 `data-theme` 만 바꾸고 바로 재서, 색 전환(transition)이 도는 사이의 «글자는 옛 테마 · 바탕은 새 테마» 를 읽었다(같은 쪽을 보통 브라우저로 열면 대비 미달 0 · 바꾼 직후와 0.7초 뒤를 나란히 재어 확인). 작업대는 제품 테마 묶음을 이미 다 싣고 있었다. 측정기는 이제 테마를 `?theme=` 으로 열 때부터 정하고, 속성을 바꿔야 했을 때는 0.7초 기다린 뒤 잰다. parts · workspace 라이트의 주 단추 1.13 도 같은 오탐이었다.
+- 39번 정적 견본 4쪽의 404: `preview/index.html` 이 `../source/css/globals.css`(refresh-source 가 복사한 Q-Atelier 원본 · `@import` 넷뿐인 껍데기)를 읽어 정본 CSS 넷이 404 였다. `dist/q-design.foundation.atelier.css` · `dist/q-design.workspace.css` · `patterns/components.css` · `dist/q-design.palette.atelier.css` 를 제품과 같은 순서로 직접 읽게 했다(Times New Roman 70 · Arial 10 → 0).
+- 견본 자신의 글자를 사다리로: index 의 10 · 11 · 11.5 · 13 · 15 · 17 · 22 · 36px 와 굵기 300 · 700 을 12 ~ 40 아홉 단 · 400/500/600 으로(배지 12 · 12 · 14px 에 높이 20 · 24 · 28, 지표 값 `--qd-kpi-size` 40, 입력칸 `--qd-control-height` 44, 글자 표본 카드는 `docs/03-typography.md` 표 그대로). icons 13 → 14px · 700 → 600 · 줄간격 1.25 · 1.5 → 1.2 · 1.4 · 1.6. workspace 13 → 14px · 650 → 600. 네 쪽 사다리 밖 0 · 12px 미만 0.
+- 뼈대: 작업대 틀의 「공통 컴포넌트 검증」 은 h1 에서 `<p>` 로(제품 PageHead 가 쪽의 h1 · 쪽마다 h1 둘이던 것 하나로). 메종 · 카르넷 견본에 h2 묶음 이름을 두어 h1 → h3 건너뜀 0. index · parts · icons 에 `<main>`. parts 에 h1 과 `::placeholder` 흐린 색(제품은 기반 CSS 의 전역 규칙이 준다 · 조각 셋만 싣는 쪽이라 같은 값을 둠). 견본 쪽을 오가는 링크는 폰에서 44.
+- index.html 라이트의 아슬한 대비 셋(배지 PRIMARY 4.49 · 안내 「완료」 4.45 · 「확인 필요」 4.41)은 견본 자신의 틴트 바탕(배지 10% · 안내 8%)이 원인. 6% · 4% 로 낮춰 4.64 ~ 4.73. 글자색은 정본 값 그대로. 폰 폭에서 글자 표본 줄(설명 220px 옆에 40px 표본)이 카드 밖으로 밀려 고정 테마 단추까지 화면 밖이던 것(412 에서 33px 넘침)은 767 이하에서 설명 아래로 표본이 내려오게. 테마는 `<head>` 스크립트가 CSS 보다 먼저 정한다(parts.html 과 같은 길 · 본문 끝에서 바꾸면 어두운 테마로 한 번 그려진 뒤 넘어가 측정에 잡힘).
+- 아뜰리에 1440 의 가로 넘침 -10 은 `scrollbar-gutter: stable` 이 비워 둔 홈이라 넘침이 아니다. 측정기가 음수를 0 으로 둔다.
+- 다시 잰 결과: 대비 미달 0(다크 · 라이트) · 자리표시자 0 · Times New Roman · Arial 0 · 사다리 밖 0 · h1 쪽마다 1 · 머리말 건너뜀 0 · main 일곱 쪽 전부 · 가로 넘침 0. 남은 것은 폰 폭 누름 자리(parts 10 · index 1 · 아뜰리에 작업대 1)로 전부 정본 값(36px 작은 조작부 · 12px 글귀 링크)이라 위 «남은 일» 로.
+- `tools/check-chars.mjs`: impeccable 플러그인 훅의 캐시 `.impeccable/hook.cache.json`(깃 제외 · 훅이 지적 글귀에 em dash 를 씀)을 건너뛴다. 이 파일 때문에 금지 문자 걸음이 빨갰다. 같은 훅이 index.html 에 낸 지적(`#c97a7a` · `#7ab87a` 위 흰 바탕 · 빈 상태 빛무리)은 어두운 팔레트 상수를 흰 바탕과 짝지은 정적 스캔 오탐이라 무시 목록에 넣지 않았다(실브라우저 측정 대비 미달 0).
+- 🔴 함정: 측정기 `probe.mjs` 는 이날 네 세션이 함께 쓰는 파일이다. 20:37 에 다른 세션이 덮어써 위 고침 셋이 사라졌다가(그 사이 index.html 라이트 측정에 「SECONDARY」 2.15 가 다시 찍혀 알았다) 다시 넣었다. 고치기 전 `grep theme= probe.mjs` 로 남아 있는지 볼 것.
+- `node tools/check.mjs` 35걸음 가운데 「조각 사본」 하나만 빨갛다. Q-Sonar 세션이 `tools/sync-parts.mjs` 의 PENDING 을 비우는 중(미커밋)이라 Q-Sonar 사본 셋이 원본과 달라서다. 이 작업과 무관하고 그 세션이 받으면 초록.
 
 ---
 

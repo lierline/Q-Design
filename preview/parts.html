@@ -17,7 +17,11 @@
 <style>
   :root { --qd-font-ui-src: 'Pretendard Variable', Pretendard, sans-serif; }
   body { margin: 0; background: var(--qd-bg); color: var(--qd-text); font-family: var(--qd-font-ui); }
+  /* 제품은 기반 CSS(q-design.foundation.css)의 전역 ::placeholder 규칙이 흐린 글자색을 준다. 이 쪽은 세 조각만 싣으므로 같은 값을 여기 둔다 */
+  ::placeholder { color: var(--qd-muted); opacity: 1; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 40px 64px; }
+  .wrap > nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .title { font-size: 24px; font-weight: 600; line-height: 1.2; margin: 0 0 24px; }
   .demo { margin-bottom: 40px; }
   .note { font-size: 12px; color: var(--qd-muted); margin: 0 0 12px; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -30,8 +34,9 @@
 </script>
 </head>
 <body>
-<div class="wrap">
-  <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px;display:flex;gap:24px;flex-wrap:wrap"><a href="workspace.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px">업무 화면 개선 견본<span class="qd-icon" data-icon="next" aria-hidden="true"></span></a><a href="icons.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px"><span class="qd-icon" data-icon="overview" aria-hidden="true"></span>업무 아이콘 30종</a></nav>
+<main class="wrap">
+  <nav aria-label="견본 화면" style="margin-bottom:24px;font-size:14px;display:flex;gap:24px;flex-wrap:wrap;align-items:center"><a href="workspace.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px">업무 화면 개선 견본<span class="qd-icon" data-icon="next" aria-hidden="true"></span></a><a href="icons.html" class="qd-icon-label" style="color:var(--qd-text);text-underline-offset:4px"><span class="qd-icon" data-icon="overview" aria-hidden="true"></span>업무 아이콘 30종</a></nav>
+  <h1 class="title">정본 부품 · 목록 둘레</h1>
 
   <section class="demo">
     <p class="note">2차 탭 (.qd-tabs)</p>
@@ -120,6 +125,6 @@
     </div>
   </section>
 
-</div>
+</main>
 </body>
 </html>
