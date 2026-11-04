@@ -74,10 +74,14 @@ export function Msg({ state, className = '' }: { state: FormState; className?: s
  * 여백 · 배치 · 상태 색이라 판에 붙는다. 이름이 없는 판은 둘이 같은 요소다.
  */
 export function Panel({
-  title, titleAs: Title = 'h3', note, info, action, children, className = '', bodyClassName = '',
+  title, titleAs: Title = 'h2', note, info, action, children, className = '', bodyClassName = '',
 }: {
   title?: string;
-  /** 이름의 제목 수준. 기본은 h3. 전에 h2 로 적던 자리는 그대로 둔다(문서 짜임을 바꾸지 않는다) */
+  /**
+   * 이름의 제목 수준. 기본은 h2 (2026-11-04 · impeccable 감사 16번). 화면 이름이 h1 이고 판은 그
+   * 아래 첫 단계라, 기본이 h3 이면 h1 다음에 바로 h3 가 와 단계를 건너뛰었다(15화면). 모양은 정본
+   * `.qd-section-title` 이 쥐므로 수준을 바꿔도 같다. 판 안의 작은 제목만 h3 로 내린다.
+   */
   titleAs?: 'h2' | 'h3';
   note?: React.ReactNode;
   /** 용어 풀이 · 주의 같은 «설명». 판 오른쪽 위의 i 에 접혀 있다가 올리거나 누르면 뜬다 (오빠 지시 2026-09-15) */

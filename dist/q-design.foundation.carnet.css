@@ -1986,6 +1986,17 @@ input, textarea, [contenteditable] { caret-color: var(--color-brand); }
   .stagger > *:nth-child(8) { animation-delay: 245ms; }
   .stagger > *:nth-child(n + 9) { animation-delay: 280ms; }
 
+  /*
+   * «움직임 줄이기» 에서는 순차 등장을 아예 끈다 (2026-11-04 impeccable 감사 17번).
+   * 아래쪽 전역 reduce 규칙은 길이만 0.01ms 로 줄이고 지연(35~280ms)은 그대로 두어,
+   * 지연 동안 both 채움으로 자식이 안 보였고 측정기에는 «reduce 에서 도는 애니 10» 으로 잡혔다.
+   * 공용 정본 규칙(patterns/foundation.css 의 reduce 블록)은 .qd-skeleton 만 끈다. 그것을 전부로
+   * 넓힐지는 보고서 13 · 17번 «오너 결정 대기». 여기는 카르넷 조리법 안의 가장 작은 고침이다.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .stagger > * { animation: none; }
+  }
+
 
   /*
    * 🔴 표 머리에 깔던 띠(`.th { background: surface-low }`)를 걷었다 (2026-09-24 · 통일 감사).
