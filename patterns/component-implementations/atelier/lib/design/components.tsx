@@ -3277,7 +3277,8 @@ export function SectionCard({
       }}
     >
       <div>
-        <div style={{ ...QDType.h3, color: T.text, marginBottom: subtitle ? "var(--qd-atelier-margin-bottom-4686eaf157)" : "var(--qd-atelier-margin-bottom-dba5d0300b)", display: 'flex', alignItems: 'center', gap: QDScale.space[1.5] }}>
+        {/* 제목이 div 라 h3 규격의 조임(-0.005em)이 «제목 조임» 으로 인정되지 않는다: 한글 글 제목은 자간 0(2026-11-04 감사 7번) */}
+        <div style={{ ...QDType.h3, letterSpacing: typeof title === 'string' ? labelTracking(title, QDType.h3.letterSpacing) : QDType.h3.letterSpacing, color: T.text, marginBottom: subtitle ? "var(--qd-atelier-margin-bottom-4686eaf157)" : "var(--qd-atelier-margin-bottom-dba5d0300b)", display: 'flex', alignItems: 'center', gap: QDScale.space[1.5] }}>
           {title}
           {info && <InfoDot label={`${typeof title === 'string' ? title : '구역'}: 설명 보기`}>{info}</InfoDot>}
         </div>
