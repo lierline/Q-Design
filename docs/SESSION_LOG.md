@@ -53,11 +53,21 @@
 
 - Q-Atelier 운영 로그인 뒤 43화면 중 21화면이 자리 밀림(CLS) 0.1 초과(/ra 0.416 · /capa/[id] 0.362 · /research/[code] 0.350). 뼈대가 자료 높이를 미리 차지하지 않는다(1번). Q-Carnet dev 설정 화면 8곳도 같은 모양(18번 · 운영 재측정 뒤 확정).
 - Q-Sonar 아웃리치 미리보기 iframe 이 www.medqraft.co.kr 의 X-Frame-Options 로 항상 빈 칸(4번).
-- Q-Carnet 표 줄(`tr.cursor-pointer`)이 마우스 전용 · 키보드로 못 고름(5번), 머리말 h1 뒤 바로 h3 15화면(16번).
+- Q-Carnet 측정기 «마우스 전용» 에 남은 1(5 · 16번은 11-04 에 고침 · 아래 그날 기록): 목록 조각(`dist/q-design.list.css`)의 `.qd-pager-btn[aria-disabled='true']` 갈래가 `cursor: default` 를 안 되돌린다. `pointer-events: none` 이라 실제로는 화살표가 뜨고 계산값만 pointer. 한 줄이지만 목록 조각이라 세 제품 사본이 따라오므로 다음 목록 바퀴에.
 - Q-Design 부품 작업대(4818) 다크 테마에 제품 변수 7자리가 빠져 주 단추 글자 대비 1.13(36번). 정적 견본 4쪽(`preview/index.html` 등)이 정본 CSS 넷을 404 로 못 읽어 Times New Roman 폴백 · 10/11px(39번).
-- 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 제품 등장 애니(Atelier `qa-luxe-fadeup` · Carnet `rise-soft`)가 «움직임 줄이기» 에서도 돈다. 전부 끄기로 넓힐지 결정(13 · 17번).
+- 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 전부 끄기로 넓힐지 결정(13 · 17번). Carnet `rise-soft`(17번)는 11-04 에 카르넷 조리법(`patterns/foundation/carnet.css`)의 `.stagger` 에 reduce 블록을 더해 먼저 껐다(결정 전 제품 쪽 최소 고침 · 29fd100). Atelier `qa-luxe-fadeup`(13번)은 그대로 돈다.
 
 ---
+
+## Q-Carnet 접근성 넷 (감사 5 · 16 · 17 · 19번) · 2026-11-04
+
+impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 고쳤다. 정본 쪽 바뀐 것은 둘(29fd100). 제품 쪽 기록은 DHR `docs/SESSION_LOG.md` 같은 날.
+
+- `patterns/foundation/carnet.css`: `.stagger` 순차 등장에 `@media (prefers-reduced-motion: reduce) { .stagger > * { animation: none } }`. 공용 reduce 규칙은 `.qd-skeleton` 만 끄고, 전역 규칙은 길이만 0.01ms 로 줄여 지연(35~280ms) 동안 `both` 채움으로 카드가 안 보였고 측정기에 «도는 애니 10» 으로 잡혔다. 공용 규칙을 전부로 넓히는 결정(13 · 17번)은 위 «남은 일» 그대로.
+- DHR `components/ui.tsx` 를 `--adopt` 로 받음: Panel 이름의 기본 수준 h3 → h2(16번 · 15화면). 제품 커밋 DHR 6f589f5 · 사본 받기 fc190ff.
+- 정본 `.qd-table` 의 줄 링크 갈래(`tr[role='link']`)는 이미 있었고 Carnet `components/row-link.tsx` 가 그대로 쓴다. 5번(출하 목록 918)은 펼침 줄이라 줄 끝 글귀를 진짜 단추로 두는 쪽으로 제품에서 고쳤다. 새 부품은 만들지 않았다.
+- 다시 잰 결과(카르넷 27주소 × 4보기 108상태): 입력 이름 없음 0 · 머리말 건너뜀 0 · reduce 에서 도는 애니 0 · 마우스 전용 925 → 7(체크 칸 `label` 안 글자 6 은 측정기 오탐, 페이저 1 은 위 «남은 일»).
+- `node tools/check.mjs` 35걸음 통과. `status.mjs` 의 Q-Forge 는 18/18 · 부품 5/5.
 
 ## Q 제품군 impeccable 상세 감사 · 2026-11-04
 
