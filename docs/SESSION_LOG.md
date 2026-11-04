@@ -52,7 +52,7 @@
 
 11-04 impeccable 감사에서 새로 생긴 것 (보고서 [docs/audits/2026-11-04-impeccable-q-suite-audit.md](audits/2026-11-04-impeccable-q-suite-audit.md) · 번호는 그 보고서의 지적 번호)
 
-- Q-Atelier 운영 로그인 뒤 43화면 중 21화면이 자리 밀림(CLS) 0.1 초과(/ra 0.416 · /capa/[id] 0.362 · /research/[code] 0.350). 뼈대가 자료 높이를 미리 차지하지 않는다(1번). Q-Carnet dev 설정 화면 8곳도 같은 모양(18번 · 운영 재측정 뒤 확정).
+- ✅ 11-04 Q-Atelier 자리 밀림 21화면(1번): 같은 날 0c45b5e6 · f1d687ef 로 운영 43화면 전부 0.1 아래(20화면 0.000 · /research/[code] 0.067 → 0f5a9156 로컬에서 서류판까지 고침 · 푸시는 오빠 결정). 원인은 뼈대 하나가 아니라 셋이었다(PageGuide 팝업이 「움직임 줄임」 에서 한 프레임 왼쪽에 찍힘 · CAPA 서류판 빈 자리 · 글꼴 폴백 폭 → size-adjust 로 맞춘 'Pretendard Fallback' 24얼굴). 기록은 Q-Atelier `docs/SESSION_LOG.md` 11-04. Q-Carnet dev 설정 화면 8곳(18번)은 Carnet 세션 몫(글꼴 폴백 · DHR 0f982ff · 운영 재측정 뒤 확정).
 - Q-Sonar 아웃리치 미리보기 iframe 이 www.medqraft.co.kr 의 X-Frame-Options 로 항상 빈 칸(4번).
 - Q-Carnet 측정기 «마우스 전용» 에 남은 1(5 · 16번은 11-04 에 고침 · 아래 그날 기록): 목록 조각(`dist/q-design.list.css`)의 `.qd-pager-btn[aria-disabled='true']` 갈래가 `cursor: default` 를 안 되돌린다. `pointer-events: none` 이라 실제로는 화살표가 뜨고 계산값만 pointer. 한 줄이지만 목록 조각이라 세 제품 사본이 따라오므로 다음 목록 바퀴에.
 - 진행 막대 transform 전환(40번 · 11-04 · 정본만 · 아래 그날 기록): 정본은 지금 width · transform 전환을 둘 다 둔다. ① 카르넷 `Progress`(DHR `components/ui.tsx:404`) · 메종 인라인 진행 막대를 width → `transform: scaleX` 로(제품 세션 몫) ② 그 뒤 정본에서 width 전환을 뺀다 ③ 세 제품에 보내는 sync 는 오너 결정이고, 돌릴 때 DHR · Q-Works 작업트리가 깨끗한지 `git status --short` 로 보고 한 번에(부모 세션이 순서를 맞춤). 상단 진행선 둘(`patterns/foundation/atelier.css` `.qa-top-progress` · `carnet.css` `.top-progress`)의 너비 전환은 제품 코드가 width 를 주는 자리라 제품 세션 몫으로 남겼다.

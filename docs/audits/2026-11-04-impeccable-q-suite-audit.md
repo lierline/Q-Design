@@ -236,18 +236,23 @@ impeccable `audit` 명령(접근성 · 성능 · 테마 · 반응형 · 구현 �
 
 ## 부록 B. Q-Atelier 운영 CLS 0.1 초과 21화면(1440 어두운 · 로그인 뒤)
 
-| 화면 | CLS | 화면 | CLS |
-|---|:-:|---|:-:|
-| /ra | 0.416 | /management-reviews | 0.234 |
-| /capa/[id] | 0.362 | /terms | 0.227 |
-| /research/[code] | 0.350 | /complaints | 0.226 |
-| /complaints/[id] | 0.339 | /settings | 0.216 |
-| /admin/docset-library | 0.276 | /inbox | 0.214 |
-| /quality-objectives | 0.267 | /capa | 0.211 |
-| /products | 0.243 | /training · /suppliers · /nonconformances · /audits | 0.210 |
-| /settings/templates | 0.242 | /qa | 0.209 |
-| | | /research | 0.191 |
-| | | /notifications | 0.183 |
+| 화면 | 전 | 후 | 화면 | 전 | 후 |
+|---|:-:|:-:|---|:-:|:-:|
+| /ra | 0.416 | 0.000 | /management-reviews | 0.234 | 0.000 |
+| /capa/[id] | 0.362 | 0.000 | /terms | 0.227 | 0.000 |
+| /research/[code] | 0.350 | 0.067 | /complaints | 0.226 | 0.000 |
+| /complaints/[id] | 0.339 | 0.000 | /settings | 0.216 | 0.000 |
+| /admin/docset-library | 0.276 | 0.001 | /inbox | 0.214 | 0.000 |
+| /quality-objectives | 0.267 | 0.000 | /capa | 0.211 | 0.000 |
+| /products | 0.243 | 0.000 | /training | 0.210 | 0.000 |
+| /settings/templates | 0.242 | 0.000 | /suppliers | 0.210 | 0.000 |
+|  |  |  | /nonconformances | 0.210 | 0.000 |
+|  |  |  | /audits | 0.210 | 0.000 |
+|  |  |  | /qa | 0.209 | 0.000 |
+|  |  |  | /research | 0.191 | 0.000 |
+|  |  |  | /notifications | 0.183 | 0.000 |
+
+«전» 은 감사 때(2026-11-04 낮) · «후» 는 같은 날 고친 뒤(Q-Atelier 0c45b5e6 · f1d687ef 배포 21:40 READY · 21:42 측정 · 같은 보기 · 같은 측정기 · 읽기만). 후는 0.1 초과 0, 나머지 22화면도 최대 0.005. /research/[code] 의 0.067 은 R&D 서류판이 요구사항 엔진 답을 뒤늦게 끼워 넣던 것으로, 0f5a9156(로컬 · 푸시는 오너 결정)에서 고쳤다. 원인 셋(팝업의 reduce 한 프레임 · CAPA 서류판 빈 자리 · 글꼴 폴백 폭)과 고친 법은 Q-Atelier `docs/SESSION_LOG.md` 2026-11-04.
 
 dev(3602)에서도 같은 화면 20 이 0.1 을 넘어 서버 속도가 아니라 그리는 순서 문제다. 운영 LCP 는 중앙 688ms · p90 968 · 최대 2,308(/research/[code]).
 
