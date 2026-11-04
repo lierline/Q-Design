@@ -49,6 +49,25 @@
   - 붙박이 띠 쪽은 10-22 에 메웠다. 측정기(`measure.js` probeHit)가 44 보다 작게 재면 요소를 가운데로 굴려 한 번 더 재고 큰 쪽을 쓴다(기록에 `recentred`). 운영 재측정에서 「근거 방침」 은 26.1 → 45 로 «넓힌 자리 있음» 으로 옮겨 갔고, 진짜 작은 것(0145e146 배포 전 옛 판의 현장 화면 머리 38 · 폰 메뉴 서랍 묶음 머리 32)은 그대로 빨갛다. 여러 줄 글 속 링크는 아직 남았다.
 - `extract-all.mjs --sync` 를 `--only` 없이 돌리면 PENDING 인 Q-Sonar 사본 넷을 써 넣은 뒤 마지막 대조에서 exit 1 로 멈추고, 앱 오프라인 사본 걸음도 돌지 않는다. 지금은 `--sync --only=Q-Atelier,Q-Works,Q-Forge` 로 돌리고, 써 넣어졌으면 Lead-Radar 에서 `git checkout --` 로 되돌린다.
 
+11-04 impeccable 감사에서 새로 생긴 것 (보고서 [docs/audits/2026-11-04-impeccable-q-suite-audit.md](audits/2026-11-04-impeccable-q-suite-audit.md) · 번호는 그 보고서의 지적 번호)
+
+- Q-Atelier 운영 로그인 뒤 43화면 중 21화면이 자리 밀림(CLS) 0.1 초과(/ra 0.416 · /capa/[id] 0.362 · /research/[code] 0.350). 뼈대가 자료 높이를 미리 차지하지 않는다(1번). Q-Carnet dev 설정 화면 8곳도 같은 모양(18번 · 운영 재측정 뒤 확정).
+- Q-Sonar 아웃리치 미리보기 iframe 이 www.medqraft.co.kr 의 X-Frame-Options 로 항상 빈 칸(4번).
+- Q-Carnet 표 줄(`tr.cursor-pointer`)이 마우스 전용 · 키보드로 못 고름(5번), 머리말 h1 뒤 바로 h3 15화면(16번).
+- Q-Design 부품 작업대(4818) 다크 테마에 제품 변수 7자리가 빠져 주 단추 글자 대비 1.13(36번). 정적 견본 4쪽(`preview/index.html` 등)이 정본 CSS 넷을 404 로 못 읽어 Times New Roman 폴백 · 10/11px(39번).
+- 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 제품 등장 애니(Atelier `qa-luxe-fadeup` · Carnet `rise-soft`)가 «움직임 줄이기» 에서도 돈다. 전부 끄기로 넓힐지 결정(13 · 17번).
+
+---
+
+## Q 제품군 impeccable 상세 감사 · 2026-11-04
+
+오너가 `/impeccable audit` 를 Q 제품군 전체에 돌리자고 했고, Q-Design 까지 넣었다. 고친 것은 없고 적기만 했다. 보고서는 [docs/audits/2026-11-04-impeccable-q-suite-audit.md](audits/2026-11-04-impeccable-q-suite-audit.md), 화면별 수치는 옆의 `.tsv`, 측정기 · 코드 스캔 · 원자료는 `D:\Claude\.claude\design-sweep\impeccable-2026-11-04\`.
+
+- 점수(20점 만점 · 접근성 · 성능 · 테마 · 반응형 · 정합성): Q-Carnet 18 · Q-Design 15 · Q-Maison 15(공개 5화면 + 코드만이라 신뢰 낮음) · Q-Atelier 14 · Q-Sonar 12. P0 없음, P1 다섯(Atelier 운영 CLS 21화면 · Sonar 사다리 미적용 + 12px 미만 866요소 · Sonar 폰 44 미만 467요소 · Sonar 미리보기 차단 · Carnet 표 줄 키보드 불가).
+- 실측 범위: dev 네 제품 92화면 × 4보기(1440 어두운 · 밝은, 412 · 375 어두운) + Q-Design 정적 4쪽 · 작업대 3쪽 + 운영 로그인 4곳 + Q-Atelier 운영 로그인 뒤 43화면(1440 어두운). 반응형 감사(10-23)에서 못 잰 /admin 은 8화면을 잤다(사다리 밖 0 · 대비 0 · 누름 자리 0).
+- 2026-10-26 글자 결정의 실측: 정본 사본을 받은 Atelier · Carnet 은 사다리 밖이 Atelier 제목 clamp(37/36.5px) 하나뿐이다. Q-Sonar 는 PENDING 3조각 그대로라 크기 8종 · 굵기 700 · 줄간격 10종이 밖에 있다.
+- 걸려 넘어진 것: Git Bash 에서 측정기에 `--only=/login` 같은 경로 인자를 주면 MSYS 가 윈도 경로로 바꿔 anon 화면이 전부 건너뛰어진다(`MSYS_NO_PATHCONV=1` 로 해결). 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 라 결과가 쓸모없어 4818 작업대로 다시 잤다. 측정기의 «초점 갇힘» 은 처음 40개 조작부 밖으로 넘어가면 오탐(실브라우저로 확인). Q-Sonar 쿠키 로그인은 로컬 전용이라 운영 로그인 뒤는 못 잼. 보고서 부록 D.
+
 ---
 
 ## R&D 상세 양식 단계 카드의 각진 강조 테두리 · 상자 60개 전부 10px 로 · 2026-10-28

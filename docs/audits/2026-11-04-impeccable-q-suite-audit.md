@@ -1,0 +1,266 @@
+# Q 제품군 impeccable 상세 감사 · 2026-11-04
+
+impeccable `audit` 명령(접근성 · 성능 · 테마 · 반응형 · 구현 정합성, 차원마다 0~4점)을 Q 제품군 전체에 돌리고, 그 위에 우리 디자인 규칙 8절 점검표를 겹쳐 대조했다. 고친 것은 없다. 적기만 했다.
+
+- 대상: Q-Atelier · Q-Carnet(DHR) · Q-Maison(Q-Works) · Q-Sonar(Lead-Radar) 네 제품, 그리고 Q-Design 정본 · 견본 · 부품 작업대.
+- 방법: 실화면 측정(1440×900 어두운 · 밝은, 412×915 · 375×812 어두운)과 코드 스캔(UI 코드 전수 · 규칙별 정규식)과 impeccable 탐지기(`detect.mjs`) 셋을 합쳤다. 실화면은 로컬 dev 서버에서 재고, 운영 사이트는 네 곳 로그인 화면 + Q-Atelier 로그인 뒤 43화면(1440 어두운)만 읽기로 잤다.
+- 못 잰 것: Q-Maison 로그인 뒤 화면(도커 멈춤), Q-Sonar · Q-Carnet 운영 로그인 뒤. 부록 C.
+- 도구와 원자료: `D:\Claude\.claude\design-sweep\impeccable-2026-11-04\`(README 에 다시 돌리는 법). 화면별 수치는 이 폴더의 `2026-11-04-impeccable-q-suite-screens.tsv`.
+
+한 줄 결론: **P0 는 없다.** Q-Carnet 이 가장 정본에 가깝고(18/20), Q-Sonar 가 가장 멀다(12/20 · 글자 사다리와 폰 44 규칙이 아예 적용되지 않았다). Q-Atelier 는 운영 화면 절반(21/43)에서 자리 밀림(CLS) 이 0.1 을 넘는 것이 가장 큰 숙제다. Q-Design 은 정본 시험은 초록이지만 견본 쪽(정적 index.html · 작업대 다크 테마)이 정본을 따르지 않는다.
+
+---
+
+## 1. 점수표 (Audit Health Score)
+
+| 제품 | 접근성 | 성능 | 테마 | 반응형 | 구현 정합성 | 합계 | 등급 | 신뢰 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|---|---|
+| Q-Atelier | 3 | 2 | 3 | 3 | 3 | **14** | Good | 높음(43화면 × 4보기 + 운영 43) |
+| Q-Carnet | 3 | 3 | 4 | 4 | 4 | **18** | Excellent | 높음(27화면 × 4보기) |
+| Q-Maison | 3 | 3 | 3 | 3 | 3 | **15** | Good | **낮음**(공개 5화면 + 코드만) |
+| Q-Sonar | 3 | 3 | 3 | 2 | 1 | **12** | Acceptable | 높음(17화면 × 4보기) |
+| Q-Design | 3 | 4 | 2 | 3 | 3 | **15** | Good | 중간(정적 4쪽 + 작업대 3쪽) |
+
+등급 기준(impeccable): 18~20 Excellent · 14~17 Good · 10~13 Acceptable · 6~9 Poor · 0~5 Critical.
+
+점수를 준 까닭(차원별 한 줄):
+
+- **접근성 3(넷 다)**: 이름 없는 조작부는 네 제품 모두 0, 어두운 테마 대비 미달 0, 양수 tabindex 0. 깎인 것은 Q-Atelier 라이트 금색 태그 대비(4.27~4.38) · 초점 표시 없는 링크 4 · h1 · main 없는 공개 화면 2, Q-Carnet 머리말 건너뜀 15화면 · 표 줄 마우스 전용, Q-Sonar 12px 미만 866요소, Q-Maison alt 없는 그림 20, Q-Design 작업대 h1 둘씩 · 자리표시자 대비 3.82.
+- **성능**: Q-Atelier 2 는 운영 43화면 중 21 화면이 CLS 0.1 초과(최대 /ra 0.416). Q-Carnet 3 은 dev 설정 화면 8곳 CLS 와 /material DOM 4,745. Q-Maison 3 은 운영 로그인 LCP 3.3초(네 곳 중 가장 느림). Q-Sonar 3 은 /targets CLS 0.28 · /leads DOM 3,188. Q-Design 4 는 정적이라 LCP 0.13~0.24초.
+- **테마**: Q-Carnet 4 는 양 테마 대비 미달 0 · 정본 밖 색 0. Q-Design 2 는 작업대 다크에서 색 변수 7자리가 안 받혀 주 단추 글자 대비 1.13. Q-Sonar 3 은 정본 밖 흐린 글자 `#aaa395` 와 로그인 제목 그라데이션 글자. Q-Atelier 3 은 라이트 금색 태그 3자리.
+- **반응형**: Q-Carnet 4 는 가로 넘침 0 · 412 누름 자리 44 미만 1. Q-Sonar 2 는 44 미만 467요소 · 103자리(24 미만 17). Q-Atelier 3 은 /login 1440 가로 넘침(운영도) · 누름 자리 7. Q-Design 3 은 아뜰리에 작업대 1440 넘침 · 정적 견본 누름 자리 24.
+- **구현 정합성**(정본 10장 · 03 글자 사다리 대비): Q-Carnet 4 는 크기 · 굵기 · 줄간격 · 모서리 전부 정본 안. Q-Atelier 3 은 제목 37/36.5px(clamp) 48요소 · 허브 탭 자간 0.3px · 표를 정본 `.qd-table` 로 안 옮김. Q-Sonar 1 은 사다리 미적용(크기 8종 · 굵기 700 · 줄간격 10종) · 모서리 6px 128 · 카드 안 카드 31 · 정본 사본 3조각 PENDING. Q-Design 3 은 정본 210시험 초록이지만 정적 견본이 10/11px · 300/650/700 · Times New Roman 을 쓴다.
+
+## 2. 구현 정합성 판정 (Implementation Integrity Verdict)
+
+정본 = `D:\Claude\Q-Design\docs` 10장과 `patterns/*.css`. 판정은 셋: 충실(정본대로) · 어긋남(정본을 따르되 몇 곳이 벗어남) · 갈라짐(정본이 닿지 않음).
+
+| 제품 | 판정 | 근거 |
+|---|---|---|
+| Q-Atelier | 어긋남(작게) | 사다리 밖은 제목 clamp 37/36.5px 뿐(12화면 48요소). 허브 탭 한글 자간 0.3px(0.02em). 라이트 `.qd-tag` 금색 4.27. 표가 정본 `.qd-table` 이 아니라 «늘어나는 열 하나» 규칙이 닿지 않음(SESSION_LOG 남은 일). |
+| Q-Carnet | **충실** | 크기 · 굵기 · 줄간격 모두 사다리 안, 12px 미만 0, 모서리 0/10 만, 그림자 · 카드 안 카드 · 왼쪽 띠 0. 테일윈드 4 테마가 `leading-*` · `tracking-*` 를 정본 변수로 매핑(시험 `test/type-ladder.test.mjs`). |
+| Q-Maison | 충실(공개 화면 기준) | 공개 5화면 전부 사다리 안(법 문서 줄간격 1.5 ×15 만 밖). 코드에서 왼쪽 띠 둘(`ai-chat` blockquote border-l-4 · `policy-panel` border-l-2) · 인쇄 미리보기 그림자 · `tracking-wider` 8곳이 한글 표 클래스 없는 파일. 로그인 뒤 화면은 못 잼. |
+| Q-Sonar | **갈라짐** | 2026-10-26 결정(9단 · 400/500/600 · 1.2/1.4/1.6)이 닿지 않음. 크기 10 · 11 · 13 · 27.5 · 30 · 36 · 14.5 · 9.5 = 3,145요소, 굵기 700 88, 줄간격 1.7 3,569 외 9종. 모서리 6px 128. 차림표 · 목록 · 뼈대 세 조각은 10-10 판(PENDING). |
+| Q-Design | 정본 충실 · 견본 어긋남 | `check.mjs` 35걸음 210시험 초록. `check.mjs --products` 는 빨강 둘(Q-Sonar 정본 밖 색 1 · 화면 글 말투 Maison 82 · Carnet 12>11). 정적 견본 4쪽은 정본 CSS 를 안 읽고(404 · Times New Roman 폴백 70요소) 10/11px · 300/650/700 을 쓴다. 작업대 다크 테마에 제품 변수 7자리 빠짐. |
+
+## 3. 요약 (Executive Summary)
+
+1. **P0 없음.** 깨진 화면, 읽을 수 없는 글, 막힌 조작은 없다. 네 제품 모두 이름 없는 조작부 0 · 어두운 테마 대비 미달 0 · 잘린 글 0 · 금지 글꼴(한글 명조) 0.
+2. **Q-Atelier 운영 CLS.** 운영 로그인 뒤 43화면 중 21 화면이 자리 밀림 0.1 초과(/ra 0.416 · /capa/[id] 0.362 · /research/[code] 0.350). 목록 · 상세 화면이 자료를 받은 뒤 높이가 바뀐다. 뼈대(skeleton)의 높이를 자료 줄 수에 맞추면 한 번에 풀린다. 그 밖 운영 수치는 좋다(LCP 중앙 0.69초 · 스크립트 중앙 353KB).
+3. **Q-Sonar 는 정본 밖에 있다.** 글자 사다리 · 굵기 · 줄간격이 전부 옛 값이고, 12px 미만 글이 866요소(/leads 348 · /factories 300), 폰 누름 자리 44 미만이 467요소(입력 38 · 거르기 36 · 단추 36 · 소셜 32). 카드 안 카드 31, 모서리 6px 128, 로그인 제목 그라데이션 글자(금지 목록). 아웃리치 미리보기 iframe 은 기본 목적지 www.medqraft.co.kr 의 X-Frame-Options 때문에 항상 빈 칸이다.
+4. **Q-Carnet 은 모범.** 다른 셋이 Carnet 의 테마 매핑(`app/q-design.theme.css`) 방식을 따르면 사다리가 저절로 지켜진다. 남은 것은 접근성 셋: 표 줄 마우스 전용(/shipping/ship 918요소 · 키보드로 못 고름), 머리말 h1 뒤 바로 h3(15화면), /settings 등장 애니가 «움직임 줄이기» 를 무시(10).
+5. **Q-Design 견본이 정본을 배반한다.** 정본 패턴 CSS 는 초록인데 그것을 보여 주는 정적 견본(`preview/index.html` 등 4쪽)이 정본 CSS 를 못 읽고, 작업대(4818) 다크 테마에서 주 단추 글자가 바탕과 같은 색(1.13). 견본은 «정본을 보는 창» 이라 창이 흐리면 정본 결정이 전달되지 않는다.
+6. **반응형 측정에서 못 잰 Q-Atelier /admin**(SESSION_LOG 남은 일)은 이번에 8화면(32기록)을 잤다. 사다리 밖 0 · 대비 0 · 누름 자리 0. DOM 이 가장 큰 화면은 /admin/rule-table(1,668 · 운영 1,671).
+
+## 4. 지적 사항
+
+표기: [제품 · 자리] 무엇 · 수치 · 어긴 규칙(우리 규칙 번호 또는 정본 장) · 고치는 방향.
+
+### P0 · 막힘
+
+없음.
+
+### P1 · 이번 바퀴에 고칠 것
+
+1. **[Q-Atelier · 운영 21화면] 자리 밀림(CLS) 0.1 초과.** 운영 로그인 뒤 1440 어두운 보기 43화면 중 21(부록 B 표). dev 에서도 같은 화면 20 이라 서버 속도 문제가 아니라 그리는 순서 문제다. 임계값 0.1(impeccable). 방향: 목록 · 상세의 뼈대가 자료 줄 수 · 카드 높이를 미리 차지하게 하고, 지표 카드와 표 머리의 높이를 고정한다. 폰트 로드 뒤 재배치가 섞여 있으면 `size-adjust` 로 폴백 폭을 맞춘다. `/impeccable optimize`.
+2. **[Q-Sonar · 전체] 글자 사다리 미적용 + 12px 미만 866요소(106자리).** 크기 10px 316 · 11px 549 · 13px 2,262 · 27.5px 11 · 30/36/14.5/9.5. 굵기 700 88. 줄간격 1.7 3,569 외 1.1 · 1.9 · 1.3 · 1.45 · 1.35 · 1.05 · 1.5 · 1.65 · 1.55. 12px 미만 상위: `/leads` 348 · `/factories` 300(표 셀 `text-[10px]` · `text-[11px]` · `.lr-eyebrow` 10.5px · `.lr-label` 11px · 로그인 10/9.5px). 규칙 G2 · G3 · G5 · G9 · 정본 03. 방향: Carnet 식으로 테일윈드 테마에서 `text-xs=12 · text-sm=14 …`, `leading-*` → `--qd-leading-*`, `font-bold` → 600 으로 매핑하고 `globals.css` 의 손 크기(10.5 · 11 · 13 · 14.5 · 9.5)를 사다리로 옮긴다. `/impeccable typeset`.
+3. **[Q-Sonar · 412 보기] 폰 누름 자리 44 미만 467요소(103자리 · 24 미만 17).** 입력칸 `qd-input` 38px(322×38 ×14), 거르기 입력 36 · 「검색」 단추 51×36, 페이저 65×36, 소셜 링크 32×32, 머리 로고 링크 85×24, 테마 토글 77×35. 규칙 「운영진 화면은 폰으로도」 · 정본 06(터치 44). 방향: 폰 폭에서 `qd-input` · `qd-filter-*` · `qd-pager-btn` 최소 높이 44 로. Carnet 에서 같은 부품이 44 를 지키므로 정본 사본 PENDING 3조각을 받으면 상당 부분 함께 풀린다. `/impeccable adapt`.
+4. **[Q-Sonar · /outreach] 미리보기 iframe 이 항상 차단.** `OutreachConsole.tsx:251` iframe 의 기본 목적지가 `INTRO_BASE`(www.medqraft.co.kr)인데 그 사이트가 `X-Frame-Options: sameorigin` 을 보내 4화면 모두 콘솔 오류, 화면은 빈 네모. 규칙 I6(누르면 반응) · I23(오류는 무엇이 · 왜 · 어떻게). 방향: 미리보기를 iframe 대신 미리 찍은 그림이나 «새 창에서 열기» 로 바꾸거나, 홈페이지 쪽에 `frame-ancestors` 로 medqraft.cloud 를 허용한다. 어느 쪽이든 실패하면 빈 칸이 아니라 안내 문구를 둔다.
+5. **[Q-Carnet · /shipping/ship 외] 표 줄이 마우스 전용.** `tr.cursor-pointer` 로 줄을 누르면 상세로 가지만 포커스 · 키보드 · 역할이 없다. 마우스 전용 요소 925 중 918 이 이 표 한 화면. 규칙 I9(부품 상태 다섯) · 접근성(키보드 동등). 방향: 첫 칸의 식별자를 `<a>` 로 두고 줄 전체는 그 링크의 보조 누름 자리로(정본 `.qd-table` 의 «줄 링크» 갈래가 있으면 그것). `/impeccable harden`.
+
+### P2 · 다음 바퀴
+
+**Q-Atelier**
+
+6. 제목 37px · 36.5px 사다리 밖 48요소(12화면 · 목록 머리 · 워크스페이스 제목의 `clamp()`). 규칙 G2. 방향: clamp 상한 · 하한을 32 · 40 사다리 값으로 두고 중간값을 `cqw` 가 아니라 단계 전환(미디어 쿼리)으로.
+7. 허브 탭 `a.qa-hub-tab` 한글 자간 0.3px(0.02em) 8탭 × 3보기, «급함» · «기한 초과» 알약 -0.08px. 규칙 G10. 자리: `app/q-design.foundation.css:3186 · 3224 · 4114`. 방향: 0 으로. 영문 전용 자리면 `data-latin`.
+8. 라이트 테마 대비 미달 3자리 12요소: `.qd-tag` 금색 `#8a6838` on `#efeae3` 4.27(«!서류 결재 차례» 12px · «0»), 「시정 조치」 단추 on `#f1ede7` 4.38(14px). 규칙 G4(4.5 이상, 옅은 면 위 다시 재기). 방향: 라이트 금색 글자 토큰을 한 단 진하게(4.5 넘는 값은 SESSION_LOG 10-22 «대비 4.0~4.45 토큰» 묶음과 함께 결정).
+9. /dashboard «오늘 처리할 것 전체 화면 보기» · «심사 준비도 구역 보기» 등 링크 4개 초점 표시 없음. 규칙 I9. 방향: 정본 `:focus-visible` 괘선이 `a` 글귀 링크에도 닿게.
+10. 공개 화면 둘(/forgot-password · /experts/portal/login) h1 없음 · main 없음. 방향: 로그인 화면과 같은 틀(PageShell)로.
+11. /login 1440 가로 넘침 -10px(운영도 같음 · 양 테마). 방향: 왼쪽 판의 장식 요소 폭이나 `100vw` 쓰임을 찾아 `100%` 로.
+12. 412 누름 자리 44 미만 7자리: RA 문서 체크리스트 링크 「○ 기술 문서 (Technical File)」 등 336×36 ×5, 「R&D 양식: 아이디어 단계 양식 2종 ⓘ」 181×19, 「RA 워크스페이스에서 진행 →」 139×19. 방향: 줄 높이 44 · 글귀 링크는 I14 꺾쇠 글귀 부품으로.
+13. 전문가 포털 로그인 `qa-luxe-fadeup` 이 «움직임 줄이기» 에서도 돎(2). `will-change` 77(지표 · 카드 호버 준비로 보임). 방향: 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끄므로 제품 keyframes 에도 `@media (prefers-reduced-motion: reduce)` 를 두거나 정본 규칙을 `*` 로 넓힘(정본 결정). `will-change` 는 호버 때만.
+14. 코드: `<img>` alt 없음 7(Avatar · AttachmentManager · FieldPhoto · InstallAppPrompt · Logo ×2), `target="_blank"` 에 `rel` 없음 12, `autoFocus` 25(폰에서 키보드가 바로 뜨는 함정), `dangerouslySetInnerHTML` 5, `outline: none` 4(시각 대체 확인), 진행 막대 `transition: width` 2(레이아웃 애니).
+15. admin 3화면 수화(hydration) 경고(dev). 원인 속성은 콘솔 700자 안에 없어 미확인.
+
+**Q-Carnet**
+
+16. 머리말 단계 건너뜀 15화면: h1 뒤 바로 h3(/board/cost · /board · /production/deviation · /material/items · /material/stock · /material/movement). 방향: 구역 제목을 h2 로(모양은 그대로 클래스로).
+17. /settings 의 `.stagger` 등장 애니(rise-soft) 10 이 «움직임 줄이기» 에서 돎(`app/q-design.foundation.css:1991`). 13번과 같은 뿌리.
+18. dev CLS 0.1 초과 8화면(전부 설정 · 자재 화면: /settings/items 0.260 · /settings/audit 0.313 · /material/items 0.366 · /settings/users 0.333 · /settings/backup 0.314 · /settings/brand 0.252 · /settings/access 0.129 · /board/cost 0.106). 운영에서는 못 잼(로그인 뒤). 방향: Atelier 1번과 같은 뼈대 높이 고정. 운영 재측정 뒤 확정.
+19. 입력 이름 없음 1(/settings/backup `input.qd-input.max-w-md`) · 자리표시자만 있는 입력 2(/trace · /trace/verify 바코드 칸). 규칙 S6(칸 이름은 위에) · 접근성. 방향: 시각 라벨이 없으면 `aria-label` 만이라도.
+20. 수화 경고 42화면(라이트 · 폰 보기에서만). `layout.tsx:145` 의 `suppressHydrationWarning` 바깥 요소에서 서버 · 클라이언트 속성이 다르다. 테마 · 폭에 따라 값이 바뀌는 속성(클래스 · data-*)이 후보. 원인 속성 미확인.
+21. DOM 4,745(/material · 1440). 표 한 화면에 모든 줄을 그린다. 방향: 페이지 나누기나 가상 목록. 긴 작업 47회 3.7초는 dev 컴파일 포함이라 운영 재측정 필요.
+22. 코드: `<img>` alt 없음 4(brand-mark ×2 · 로그인 로고 · brand-forms), `leading-*` 267 · `rounded-md` 82 는 테마 매핑으로 실화면에서 사다리 · 10px 안(실측 0)이라 지적 아님. 자동 포커스 2.
+23. dev 에서 CSP 가 speed-insights `script.debug.js` 를 막아 콘솔 오류 108(운영 스크립트는 다른 주소라 운영 영향 없음). 방향: dev 만 허용하거나 dev 에서 끈다.
+
+**Q-Maison**(공개 5화면 + 코드만. 로그인 뒤는 부록 C)
+
+24. 운영 로그인 LCP 3.34초(1440) · 1.39초(412) · 네 곳 중 가장 느림. 스크립트 160KB 는 작으므로 글꼴 · 첫 그림이 후보. 방향: 로그인 왼쪽 판의 그림 · 글꼴 `preload`.
+25. 법 문서(/terms · /privacy) 줄간격 1.5 ×15(사다리는 1.2 · 1.4 · 1.6). dev /terms CLS 0.176. 규칙 G9.
+26. 코드 왼쪽 띠 둘: `ai-chat` 인용 blockquote `border-l-4`, `policy-panel` `border-l-2`. 금지 목록(왼쪽 강조선 · «문서 결» 2026-09-27). 생산 타임라인 `border-l-2` 는 시간 줄이라 허용. 방향: 인용은 들여쓰기 + 흐린 글자, 판은 위 괘선 하나(F3).
+27. 코드 `outline-none` 7 중 둘(kpi period · trend-chart `role=button`)은 시각 대체가 없다(safety-grid · month-grid 는 바탕색 대체 있음). 규칙 I9. 방향: `focus-visible:ring` 또는 정본 괘선.
+28. 코드 `<img>` alt 없음 20(16파일), `_blank` rel 없음 8, 인쇄 종이 미리보기 `shadow-sm/md`(F1: 떠 있는 판만 · 인쇄 미리보기는 «종이» 라 예외 후보, 결정 필요), `text-6xl`(60 · 현장 모드 숫자 · 허용 후보), `tracking-wider` 83곳 중 75곳은 표에 `qd-table--hangul` 이 걸려 정본 규칙이 `th` 자간을 0 으로 되돌리므로 문제 없음. 남은 8곳(`purchasing/analysis` delivery · docs · savings 탭 7, `signup-form` 1)은 한글 표 머리라면 자간이 벌어진다(실화면 확인 필요).
+29. 「자동 로그인 설명 보기」 ⓘ 단추 툴팁 없음(운영도 같음). 규칙 I18. 방향: `title` 또는 공용 InfoDot.
+
+**Q-Sonar**(P1 2 · 3 · 4 밖)
+
+30. 차림표 `qd-nav-label` · `qd-nav-badge` 한글 자간 0.1px(16화면 × 10항목). 옛 정본 사본(`--qd-tracking-wider` 가 차림표에 남음). 정본 3조각 PENDING 을 받으면 풀림(SESSION_LOG 남은 일 1번).
+31. 카드 안 카드 31(19자리): `/targets` 24 · `/pipeline` 7. `section > .qd-panel > .rounded-md` 로 둥근 상자 안 둥근 상자. 규칙 F2(금지 목록). 방향: 안쪽 상자를 걷고 줄 사이 괘선 하나(F3).
+32. 모서리 6px 128(/companies 51 · /products 50 · `rounded-md` 38 + CSS 5). 정본 10px 한 벌(F4). 방향: Carnet 식 `rounded-md` → `var(--qd-radius)` 매핑.
+33. 로그인: 카드 그림자 `0 20px 60px rgba(0,0,0,.55)`(F1 · 떠 있는 판 아님), 제목 `.lr-auth-headline-accent` 그라데이션 글자(금지 목록 · `globals.css:516`), 소셜 링크 32×32, 테마 토글 글자 10px, 운영도 같음.
+34. `/targets` CLS 0.28, `/leads` DOM 3,188. 규칙 I3(목록에는 핵심만). 방향: 뼈대 높이 + 페이지 나누기.
+35. 정본 밖 흐린 글자 `#aaa395`(`check.mjs --products` 빨강 · SESSION_LOG 남은 일 4번). 코드: 고정 `min-w` 표 5(표 열 규칙 «늘어나는 열 하나» 10-28 와 어긋남), `factories` 상세 `border-l-2` 띠, 영문 제목 Cormorant Garamond(라틴 세리프 · 금지 목록은 한글 명조라 허용 · 영문 전용인지 확인).
+
+**Q-Design**
+
+36. 작업대(4818) 다크 테마 색 변수 빠짐 7자리: 주 단추 「기록 검토」 · 「한국어 알림 줄바꿈」 `#faf9f6` on `#f0ebe0` 1.13, textarea `#f0ebe0` on `#ffffff` 1.19, `qd-choice` 「내 문서」 1.13, `padkey` 1.19 · 1.94, 「미리 보기」 2.06. 제품 실화면에서는 다크 대비 미달 0 이라 **작업대가 제품 레이아웃의 변수 몇 개를 안 싣는 것**(`tools/serve-component-workbench.mjs`). 방향: 작업대가 제품 `layout` 의 테마 변수 묶음(`[data-theme=dark]` 사본)을 함께 싣게.
+37. 작업대 자리표시자 대비 3.82 ×7(`#898271` on 흰 입력칸 · 다크에서 흰 바탕). 36번과 같은 뿌리(흰 바탕이 다크 변수를 못 받음).
+38. 작업대 쪽마다 h1 둘(「공통 컴포넌트 검증」 + 제품 제목), maison · carnet 쪽 머리말 건너뜀, atelier 쪽 1440 가로 넘침 -10, 「검색 지우기」 55×12(24 미만). 방향: 작업대 틀의 제목을 h1 하나로, 링크는 44.
+39. 정적 견본 4쪽(4800 · `preview/index.html` · parts · icons · workspace): 정본 CSS 넷 404(`/source/css/q-design.*.css`) 라 Times New Roman 폴백 70요소 · Arial 10, 10/11px 82요소(12자리 · 색 견본 이름 · 토글 「DARK」 · 「보조」 단추), 굵기 300 · 650 · 700, 줄간격 1.5 ×30 외 8종, main 없음 3쪽, parts.html h1 없음 · 입력 이름 없음, 412 누름 자리 24(24 미만 7). 방향: 견본이 `dist/` 의 정본 CSS 를 읽게 경로를 고치고, 견본 자체 글자도 사다리로. 견본은 «정본을 보여 주는 창» 이므로 정본 시험(`check.mjs`)에 견본 페이지 글자 분포 한 걸음을 더하는 것을 권함.
+40. 정본 `patterns/components.css:351` 의 `transition: width`(진행 막대)가 세 제품 사본으로 퍼짐(탐지기 layoutTransition · Atelier 2 · Carnet 2 · Maison 1 · Sonar 1). 방향: `transform: scaleX` 로.
+41. 탐지기 지적 중 정본 문서 쪽: `atelier-manual` 왼쪽 선 8px · 3px, `simulator` 6px(문서 · 시뮬레이터라 금지 목록 적용 여부 결정 필요), `qa-widget-jiggle` · `animate-bounce` 바운스(업무 화면 F8 밖이지만 «튀는» 움직임은 정본 05 와 결이 다름).
+
+### P3 · 작은 것 · 오탐 가능
+
+- Q-Atelier 모서리 50% 11(아바타 · 점 · 원형 · 허용), 9999px 2(운영 · 알약 · 허용), Cormorant Garamond 3(로고 영문 · 허용).
+- Q-Atelier 「자동 로그인」 체크 라벨이 «마우스 전용» 2 로 잡힘. `label` 이 `input` 을 감싸므로 오탐.
+- Q-Carnet 현장 화면 2 에 `nav` 없음(현장 모드는 차림표를 숨기는 설계 · 허용). 「B260927-02 빈 기록 1건 고치러 가기」 링크 327×33(SESSION_LOG 10-23 글귀 링크 묶음).
+- Q-Carnet 어두운 · 밝은 대비 미달 «요소 35 · 자리 0»: 전부 sr-only · 2px 이하라 제외됨. 실질 0.
+- Q-Sonar 56px 2(로그인 영문 대제목 · 44 초과 · 소개 성격 · 허용 후보).
+- Q-Design 작업대 «reduce 에서 도는 애니 1,068» 은 색 · 스크롤바 색 전환(transition) 을 측정기가 셈한 것. 움직임이 아니라 무해.
+- em dash(U+2014) 네 제품 UI 코드 0.
+
+## 5. 패턴 · 체계적 문제
+
+- **정본은 초록, 사본 · 견본은 뒤처짐.** Q-Sonar 3조각 PENDING, 정적 견본의 404, 작업대 다크 변수. 정본을 고치는 바퀴는 돌지만 «받는 쪽» 검사가 없다. `status.mjs` 가 PENDING 을 알려 주듯, 견본 · 작업대도 정본 글자 분포 검사에 넣으면 같은 그물에 걸린다.
+- **자료가 늦게 올 때 자리 밀림.** Q-Atelier 운영 21화면 · Q-Carnet dev 8화면 · Q-Sonar /targets · Q-Maison /terms · Q-Design workspace 견본까지 같은 모양: 뼈대(skeleton)가 자료 높이를 미리 차지하지 않는다. 정본 `.qd-skeleton` 에 «줄 수 · 카드 높이» 변형이 있으면 다섯 곳이 함께 풀린다.
+- **머리말 단계 건너뜀.** Q-Carnet 15화면 · Q-Design 작업대 2쪽 · Atelier 상세 2화면(운영). 구역 제목 부품이 h3 로 고정돼 있다. 부품에 `as` 를 두고 기본을 h2 로.
+- **폰 44 규칙이 Q-Sonar 에 없다.** 입력 38 · 단추 36 이 기본 높이. Carnet 의 같은 부품은 44. 정본 사본을 받는 것이 가장 짧은 길.
+- **alt 없는 그림 31(Atelier 7 · Carnet 4 · Maison 20).** 대부분 로고 · 브랜드 마크 · 아바타. 장식이면 `alt=""`, 뜻이 있으면 글.
+- **«움직임 줄이기» 가 뼈대만 끈다.** 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 대상이라 제품 등장 애니(`qa-luxe-fadeup` · `rise-soft`)가 돈다. 정본 결정 하나(전부 끄기)로 세 제품이 같이 고쳐진다.
+- **코드 스캔과 실화면이 다른 곳.** Carnet `leading-*` 267 · `rounded-md` 82, Maison `rounded-md` 408 · `tracking-wider` 75 는 테마 · 정본 규칙이 되돌려 실화면에서 정본 안이다. 코드만 보면 빨갛고 화면은 초록. 지적은 실화면 기준으로 적었다(「고친 자리 말고 결과를 잴 것」).
+
+## 6. 잘된 점
+
+- **Q-Carnet**: 글자 크기 · 굵기 · 줄간격 전수 사다리 안, 12px 미만 0, 양 테마 대비 미달 0, 가로 넘침 0, 모서리 0/10 만, 그림자 · 카드 안 카드 · 왼쪽 띠 0. 테일윈드 4 테마 매핑 + 시험으로 잠근 결과다.
+- **네 제품 공통**: 이름 없는 조작부 0, `tabindex>0` 0, 숨은 초점 0, 잘린 글 0, 한글 명조 0, 어두운 테마 대비 미달 0, 치수 없는 그림 0.
+- **Q-Atelier 운영 속도**: LCP 중앙 0.69초 · p90 0.97초, 스크립트 중앙 353KB(최대 559KB /research/[code]), 긴 작업 2회. CLS 만 풀면 성능 4.
+- **Q-Design 정본**: `check.mjs` 35걸음 210시험 초록, 정적 LCP 0.13~0.24초. 정본 사본을 받은 Atelier · Carnet 은 이번 감사에서 사다리 밖이 제목 clamp 하나뿐이다. 2026-10-26 결정이 운영에 닿았다는 실측이다.
+- **아이콘 단추 이름**: Atelier 모듈 펼치기 단추 74 모두 `aria-label` 이 있다(툴팁만 없음).
+
+## 7. 우리 디자인 규칙 8절 점검표 대조
+
+실측으로 답할 수 있는 항목만 적었다. ✅ 통과 · ⚠ 일부 · ❌ 미달 · ◌ 못 잼. Q-Maison 은 공개 5화면 + 코드 기준.
+
+| 점검 항목 | 규칙 | Atelier | Carnet | Maison | Sonar | Q-Design 견본 |
+|---|---|:-:|:-:|:-:|:-:|:-:|
+| 단계 사이 크기 차 2px 이상 · 사다리 안 | G1 · G2 | ⚠ 37/36.5 | ✅ | ✅ | ❌ 8종 밖 | ❌ 10 · 11 · 13 |
+| 굵기 셋 이하(400 · 500 · 600) | G3 | ✅ | ✅ | ✅ | ❌ 700 88 | ❌ 300 · 650 · 700 |
+| 12~13px 글자 대비 4.5 넘음(옅은 면 위 포함) | G4 | ⚠ 라이트 3자리 | ✅ | ✅ | ✅ | ❌ 작업대 다크 7 |
+| 가장 작은 글자 12px | G5 | ✅ | ✅ | ✅ | ❌ 866요소 | ❌ 82요소 |
+| 줄간격 1.2 · 1.4 · 1.6(+1) | G9 | ✅ | ✅ | ⚠ 1.5 ×15 | ❌ 10종 밖 | ❌ 9종 밖 |
+| 한글 자간 0(제목 조임만 허용) | G10 | ⚠ 허브 탭 0.3 | ✅ | ✅ | ⚠ 차림표 0.1 | ⚠ 9자리 |
+| 그림자는 떠 있는 판만 | F1 | ✅ | ✅ | ⚠ 인쇄 미리보기(코드) | ❌ 로그인 카드 | ✅ |
+| 카드 안 카드 없음 | F2 | ✅ | ✅ | ◌ | ❌ 31 | ✅ |
+| 왼쪽 띠 없음 | 금지 목록 | ✅ | ✅ | ❌ 2(코드) | ⚠ 1(코드) | ⚠ 문서 2 |
+| 모서리 한 벌(10px) | F4 | ✅ | ✅ | ◌ | ❌ 6px 128 | ✅ |
+| 그라데이션 글자 · 흐림 없음 | 금지 목록 | ✅ | ✅ | ✅ | ❌ 로그인 제목 | ✅ |
+| 캐러셀 · 벤토 · 스크롤 등장 · 패럴랙스 · 스냅 없음 | F8 | ✅ | ⚠ 등장 stagger | ✅ | ✅ | ✅ |
+| 아이콘 단추에 툴팁 | I18 | ⚠ 74(이름은 있음) | ⚠ 14 | ⚠ 1 | ✅ | ⚠ 4 |
+| 폰 폭 누름 자리 44 | 운영진 폰 규칙 | ⚠ 7자리 | ✅ 1 | ◌ | ❌ 103자리 | ❌ 24 |
+| 가로 넘침 없음(1440 · 412 · 375) | 재기 | ⚠ /login | ✅ | ✅ | ✅ | ⚠ atelier 쪽 |
+| 「어떻게 고치나」 가 있는 오류 문구 | I23 | ◌ | ◌ | ◌ | ❌ 미리보기 빈 칸 | ◌ |
+
+주인공 값 · 주 단추 하나 · 묶음 간격 · 빈 목록 · 판단 칸 미리 채움(I24) 같은 «뜻» 항목은 측정기가 못 재서 비웠다. 다음 바퀴에 `/impeccable critique` 로 화면 10개쯤 골라 사람 눈으로 보면 된다.
+
+## 8. SESSION_LOG «남은 일» 과 겹치는 것
+
+이번 감사가 다시 확인한 것(그대로 남아 있음):
+
+- Q-Sonar 따라잡기(3조각 PENDING) ↔ 이번 30 · 3 · 32번. 받으면 차림표 자간 · 폰 44 · 모서리의 상당 부분이 함께 풀린다.
+- 화면 글 말투 Maison 82 · Carnet 12 ↔ `check.mjs --products` 빨강 그대로.
+- Q-Sonar `#aaa395` ↔ 35번.
+- 폰 누름 자리 «바꿈» 13곳 ↔ Atelier 12번 · Carnet P3 글귀 링크.
+- Q-Atelier 표를 정본 `.qd-table` 로 ↔ 정합성 판정 근거.
+- 반응형에서 못 잰 /admin 25화면 ↔ 이번에 8화면 잼(위 요약 6). 나머지는 운영진 계정 몫.
+
+이번에 새로 생긴 것(남은 일에 더할 후보):
+
+- Q-Atelier 운영 CLS 21화면(1번).
+- Q-Sonar 아웃리치 미리보기 항상 차단(4번).
+- Q-Carnet 표 줄 키보드 불가(5번) · 머리말 건너뜀 15화면(16번).
+- Q-Design 작업대 다크 변수 7자리(36번) · 정적 견본 404(39번).
+- 정본 reduced-motion 범위 결정(13 · 17번).
+
+## 9. 추천 명령 순서
+
+1. `/impeccable optimize Q-Atelier` : 운영 CLS 21화면(뼈대 높이). 제품 하나 · 원인 하나라 가장 빨리 점수가 오른다(성능 2 → 4).
+2. Q-Sonar 정본 사본 받기(`extract-all.mjs --sync --only=Lead-Radar` 의 PENDING 해소 · 오빠 결정) → `/impeccable typeset Q-Sonar` → `/impeccable adapt Q-Sonar`. 사다리 · 12px · 44 · 모서리 · 카드 안 카드가 한 묶음.
+3. `/impeccable harden Q-Carnet` : 표 줄 키보드, 머리말 h2, 입력 이름, reduce 애니.
+4. `/impeccable polish Q-Design` : 작업대 다크 변수, 정적 견본 CSS 경로 · 글자, h1 하나.
+5. Q-Maison 로그인 뒤 화면 측정(도커 켠 뒤 `probe.mjs --product maison --login`) → 그 결과로 Maison 점수 확정 뒤 `/impeccable adapt Q-Maison`.
+6. `/impeccable audit` 다시 돌려 점수 변화 확인.
+
+---
+
+## 부록 A. 측정 범위
+
+| 묶음 | 서버 | 화면 | 보기 | 신분 | 기록 |
+|---|---|:-:|---|---|:-:|
+| atelier | dev 3602(운영 DB 보기만) | 43 | 1440 어두운 · 밝은 / 412 · 375 어두운 | anon 20 · user 120 · admin 32 | 172 |
+| carnet | dev 3404 | 27 | 같음 | anon 4 · user 104 | 108 |
+| sonar | dev 3403 | 17 | 같음 | anon 4 · user 64 | 68 |
+| maison | dev 3409(측정 뒤 멈춤) | 5 | 같음 | anon 20 | 20 |
+| qdesign-static | 4800 정적 | 4 | 같음 | anon | 16 |
+| qdesign-wb | 4818 부품 작업대 | 3 | 같음 | anon | 12 |
+| *-prod 로그인 | 운영 4곳 | 1씩 | 1440 · 412 어두운 | anon | 8 |
+| atelier-prod-user | www.qatelier.co.kr | 43 | 1440 어두운 | anon 5 · user 30 · admin 8 | 43 |
+
+측정 항목: 글자(크기 · 굵기 · 줄간격 · 글꼴 · 자간 · 12px 미만), 접근성(이름 · 툴팁 · alt · 입력 라벨 · 머리말 · landmark · 대비 양 테마 · 자리표시자 대비 · Tab 순회 · 초점 표시 · 마우스 전용), 반응형(가로 넘침 · 오른쪽 벗어남 · 잘린 글 · 412 누름 자리), 규칙(그림자 · 카드 안 카드 · 왼쪽 띠 · 흐림 · 그라데이션 글자 · 모서리), 성능(DOM · 스크립트 KB · DCL · LCP · CLS · 긴 작업 · reduce 애니 · will-change · 그림 지연 로드), 콘솔 · HTTP 오류. 코드 스캔 35범주(Atelier 1,147파일 · Carnet 244 · Maison 1,332 · Sonar 111). impeccable `detect.mjs --json` 다섯 묶음.
+
+## 부록 B. Q-Atelier 운영 CLS 0.1 초과 21화면(1440 어두운 · 로그인 뒤)
+
+| 화면 | CLS | 화면 | CLS |
+|---|:-:|---|:-:|
+| /ra | 0.416 | /management-reviews | 0.234 |
+| /capa/[id] | 0.362 | /terms | 0.227 |
+| /research/[code] | 0.350 | /complaints | 0.226 |
+| /complaints/[id] | 0.339 | /settings | 0.216 |
+| /admin/docset-library | 0.276 | /inbox | 0.214 |
+| /quality-objectives | 0.267 | /capa | 0.211 |
+| /products | 0.243 | /training · /suppliers · /nonconformances · /audits | 0.210 |
+| /settings/templates | 0.242 | /qa | 0.209 |
+| | | /research | 0.191 |
+| | | /notifications | 0.183 |
+
+dev(3602)에서도 같은 화면 20 이 0.1 을 넘어 서버 속도가 아니라 그리는 순서 문제다. 운영 LCP 는 중앙 688ms · p90 968 · 최대 2,308(/research/[code]).
+
+## 부록 C. 못 잰 것
+
+- **Q-Maison 로그인 뒤 전부.** 로컬 스택(도커)이 Stopped 라 로그인이 안 됐다. 점수의 신뢰가 낮은 까닭. 도커를 켠 뒤 `probe.mjs --product maison --login` 으로 다시 재면 된다(오빠 몫: 도커 시작).
+- **Q-Sonar 운영 로그인 뒤.** 측정기의 쿠키 로그인(generateLink → verifyOtp → `sb-<ref>-auth-token`)은 로컬 전용이라 운영에서는 세션이 풀렸다. 운영 수치는 로그인 화면만.
+- **Q-Carnet 운영 로그인 뒤.** 서명 쿠키 방식은 로컬 비밀값으로만 만들 수 있어 운영은 로그인 화면만.
+- **Q-Atelier 운영 라이트 · 폰 보기.** 운영은 1440 어두운 한 보기만 잤다(읽기 부담을 줄이려고). dev 4보기 결과가 운영과 같은 화면에서 같은 값이라 대표성은 있다.
+- **뜻 항목**(주인공 값 · 주 단추 하나 · 묶음 간격 · 빈 목록 · 판단 칸). 측정기가 못 잰다. `/impeccable critique` 몫.
+
+## 부록 D. 측정기 한계(결과를 읽을 때)
+
+- **«초점 갇힘» 은 전부 오탐.** 측정기가 처음 40개 조작부만 표시해 두고 Tab 을 돌리는데, 40개 밖 요소로 넘어가면 «같은 자리» 로 셈해 갇힘으로 적는다. Carnet /login 은 실브라우저에서 정상 이동을 확인했고, Atelier 목록 14화면 · Sonar /companies · 작업대 maison 은 모두 39~40번째에 닿은 뒤였다. 보고서에는 «갇힘 없음» 으로 적었다.
+- 누름 자리 재기는 붙박이 띠 옆 요소를 비켜 세우지 않는다(SESSION_LOG 10-22 기록과 같음). 여러 줄로 접힌 글 속 링크는 0 으로 나올 수 있다.
+- 콘솔 메시지는 700자까지만 저장해 수화 경고의 «어느 속성» 이 잘렸다.
+- dev 서버 수치(DCL · LCP · 긴 작업 · 스크립트 KB)는 컴파일이 섞여 운영과 다르다. 성능 점수는 운영 수치(Atelier) 와 CLS · DOM 처럼 dev 에서도 뜻이 있는 값만 썼다.
+- 코드 스캔은 클래스 이름만 보므로 테마가 되돌리는 값(Carnet `leading-*` · Maison `rounded-md` · `tracking-wider`)을 빨갛게 센다. 실화면 수치를 우선했다.
+- Q-Design 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 로 결과가 쓸모없어 4818 작업대 결과로 바꿨다. 정적 4쪽(index · parts · icons · workspace)은 4800 결과 그대로다.
+
+## 부록 E. 도구 · 다시 돌리는 법
+
+`D:\Claude\.claude\design-sweep\impeccable-2026-11-04\` (README.md 에 상세)
+
+- `probe.mjs` 실화면 측정기(Playwright · Q-Design node_modules). `--product atelier|carnet|maison|sonar|qdesign` · `--base <운영 주소>` · `--tag` · `--login`. 🔴 Git Bash 에서는 `MSYS_NO_PATHCONV=1` 필수(경로 인자가 변환돼 anon 화면이 전부 건너뛰어진다). 비GET 요청 · logout · issue=1 은 차단한다.
+- `aggregate.mjs` → `out/summary.json` · `out/screens.tsv` · `out/aggregate-all.txt`.
+- `code-scan.mjs` → `code-scan.json`(35범주).
+- `detect-summary.mjs` + `detect-*.json`(impeccable 탐지기 결과).
+- 화면 PNG(`out/shots/`)는 저장소에 넣지 않았다.
+
+/impeccable polish
