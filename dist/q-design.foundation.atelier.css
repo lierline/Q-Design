@@ -6353,29 +6353,10 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
 /* qd-source-end: components/calendar/MeetingComposeDialog.tsx#style-1 */
 
 /* qd-source-start: components/dashboard/CustomizableWidgetBoard.tsx#style-1 */
-:root {
-  --qd-widget-edit-tilt: 0.12deg;
-  --qd-widget-edit-cycle: 1.4s;
-  --qd-widget-edit-cycles: 2;
-}
-@keyframes qa-widget-jiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(calc(-1 * var(--qd-widget-edit-tilt))); }
-  75% { transform: rotate(var(--qd-widget-edit-tilt)); }
-}
-/* Keep the name and control overlays stationary. Only the preview gives a brief edit cue. */
-.qa-edit-item { animation: none; transform: none; }
-.qa-edit-item > .qa-edit-body {
-  animation: qa-widget-jiggle var(--qd-widget-edit-cycle) ease-in-out var(--qd-widget-edit-cycles);
-  transform-origin: 50% 50%;
-}
-.qa-edit-item:hover > .qa-edit-body,
-.qa-edit-item:focus-within > .qa-edit-body,
-.qa-edit-item.qa-dragging > .qa-edit-body { animation: none; transform: none; }
+/* 위젯 편집 모드의 흔들림(qa-widget-jiggle · ±0.12° · 1.4초 × 2)은 뺐다(2026-11-04 오너 결정 · impeccable 감사 41번).
+   정본 05 «등장은 페이지 페이드 하나» 와 어긋났고, 편집 중임은 위에 얹히는 조작 단추(끌기 · 숨김 · 순서)가 이미 말한다.
+   끌고 있는 위젯을 흐리게 하는 것만 남긴다. */
 .qa-edit-item.qa-dragging { opacity: 0.5; }
-@media (prefers-reduced-motion: reduce), (pointer: coarse) {
-  .qa-edit-item > .qa-edit-body { animation: none !important; transform: none; }
-}
           /* 데이터가 없어 본체가 null 을 반환하는 위젯(규제 일정·파이프라인·시장 진출 등):
              편집 모드에선 빈 점선 박스가 '고장난 것'처럼 보이므로 안내 문구를 띄운다.
              (::after 생성 콘텐츠는 :empty 매칭에 영향 없음. 안정적으로 동작) */

@@ -1509,9 +1509,10 @@ textarea {
     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.18s ease,
     border-color 0.18s ease;
-  will-change: transform;
 }
+/* will-change 는 손이 얹힌 동안만(2026-11-04 감사 13번). 늘 켜 두면 카드마다 합성층을 잡아 두고 그림만 흐려진다 */
 .qa-card-lift:hover {
+  will-change: transform;
   transform: translateY(-2px);
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.18),
@@ -1631,12 +1632,12 @@ textarea {
       both 라 애니메이션이 시작되기 전에도 첫 프레임(투명)이 걸린다.
       막대를 앞으로 당기고 내용을 뒤로 미루면 «빨라졌다» 가 성립하지 않는다.
       qa-page-rise 는 뺀다. 8px 이 올라오는 동안 글이 한 번 더 흔들린다. */
+/* will-change 없음(2026-11-04 감사 13번): 160ms 한 번 흐려지는 데 화면 전체를 합성층으로 잡아 둘 까닭이 없다 */
 .qa-page-fade {
-  will-change: opacity;
   animation: qa-page-fade-in 160ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .qa-page-fade { animation: none; will-change: auto; }
+  .qa-page-fade { animation: none; }
 }
 
 /* ── Staggered reveal (.qa-stagger): 직계 자식이 위→아래 순차 fade-up ──────
@@ -3316,6 +3317,9 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
 }
 
 .expert-portal-root .luxe-form-eyebrow {
+  /* h1 로 올렸다(2026-11-04 감사 10번): 기본 굵기 · 위아래 여백을 지워 종전 div 와 같은 모양 */
+  margin: 0;
+  font-weight: inherit;
   font-family: var(--mono);
   font-size: var(--fs-label);
   letter-spacing: 0.42em;
@@ -3617,6 +3621,8 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* 움직임 줄이기: 떠오름(qa-luxe-fadeup)을 쓰는 자리 전부. 전역 * 규칙은 길이만 0.01ms 로 줄이고 지연(0.3 ~ 1.05s)은
+   남겨, 그 동안 애니메이션이 «도는 중» 으로 잡혔다(2026-11-04 감사 13번 · 로그인 2). 여덟 자리를 보탰다. */
 @media (prefers-reduced-motion: reduce) {
   .expert-portal-root .luxe-wordmark,
   .expert-portal-root .luxe-stage-rule,
@@ -3627,7 +3633,15 @@ html[data-theme='light'] .expert-portal-root .bottom-nav {
   .expert-portal-root .luxe-form-rule,
   .expert-portal-root .luxe-input-group,
   .expert-portal-root .luxe-submit,
-  .expert-portal-root .luxe-form-meta {
+  .expert-portal-root .luxe-form-meta,
+  .expert-portal-root .luxe-slogan,
+  .expert-portal-root .luxe-alert,
+  .expert-portal-root .luxe-stage-logo,
+  .expert-portal-root .luxe-inbox-headline,
+  .expert-portal-root .luxe-inbox-honor,
+  .expert-portal-root .luxe-kpi-row,
+  .expert-portal-root .luxe-empty,
+  .expert-portal-root .luxe-notice {
     animation: none !important;
     opacity: 1;
     transform: none !important;
@@ -5688,29 +5702,10 @@ body { font-family: var(--qd-font-family-ui); font-size: var(--qd-body-size); }
 /* qd-source-end: components/calendar/MeetingComposeDialog.tsx#style-1 */
 
 /* qd-source-start: components/dashboard/CustomizableWidgetBoard.tsx#style-1 */
-:root {
-  --qd-widget-edit-tilt: 0.12deg;
-  --qd-widget-edit-cycle: 1.4s;
-  --qd-widget-edit-cycles: 2;
-}
-@keyframes qa-widget-jiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(calc(-1 * var(--qd-widget-edit-tilt))); }
-  75% { transform: rotate(var(--qd-widget-edit-tilt)); }
-}
-/* Keep the name and control overlays stationary. Only the preview gives a brief edit cue. */
-.qa-edit-item { animation: none; transform: none; }
-.qa-edit-item > .qa-edit-body {
-  animation: qa-widget-jiggle var(--qd-widget-edit-cycle) ease-in-out var(--qd-widget-edit-cycles);
-  transform-origin: 50% 50%;
-}
-.qa-edit-item:hover > .qa-edit-body,
-.qa-edit-item:focus-within > .qa-edit-body,
-.qa-edit-item.qa-dragging > .qa-edit-body { animation: none; transform: none; }
+/* 위젯 편집 모드의 흔들림(qa-widget-jiggle · ±0.12° · 1.4초 × 2)은 뺐다(2026-11-04 오너 결정 · impeccable 감사 41번).
+   정본 05 «등장은 페이지 페이드 하나» 와 어긋났고, 편집 중임은 위에 얹히는 조작 단추(끌기 · 숨김 · 순서)가 이미 말한다.
+   끌고 있는 위젯을 흐리게 하는 것만 남긴다. */
 .qa-edit-item.qa-dragging { opacity: 0.5; }
-@media (prefers-reduced-motion: reduce), (pointer: coarse) {
-  .qa-edit-item > .qa-edit-body { animation: none !important; transform: none; }
-}
           /* 데이터가 없어 본체가 null 을 반환하는 위젯(규제 일정·파이프라인·시장 진출 등):
              편집 모드에선 빈 점선 박스가 '고장난 것'처럼 보이므로 안내 문구를 띄운다.
              (::after 생성 콘텐츠는 :empty 매칭에 영향 없음. 안정적으로 동작) */

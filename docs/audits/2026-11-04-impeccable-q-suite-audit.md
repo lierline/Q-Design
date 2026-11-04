@@ -132,8 +132,8 @@ impeccable `audit` 명령(접근성 · 성능 · 테마 · 반응형 · 구현 �
 37. **측정기 오탐으로 정정(2026-11-04 · 다시 잰 수치 자리표시자 대비 미달 0).** 36번과 같은 까닭(테마를 바꾼 직후 바탕만 먼저 새 테마). 처음 적은 것: 작업대 자리표시자 대비 3.82 ×7(`#898271` on 흰 입력칸 · 다크에서 흰 바탕).
 38. 작업대 쪽마다 h1 둘(「공통 컴포넌트 검증」 + 제품 제목), maison · carnet 쪽 머리말 건너뜀, atelier 쪽 1440 가로 넘침 -10, 「검색 지우기」 55×12(24 미만). 방향: 작업대 틀의 제목을 h1 하나로, 링크는 44.
 39. 정적 견본 4쪽(4800 · `preview/index.html` · parts · icons · workspace): 정본 CSS 넷 404(`/source/css/q-design.*.css`) 라 Times New Roman 폴백 70요소 · Arial 10, 10/11px 82요소(12자리 · 색 견본 이름 · 토글 「DARK」 · 「보조」 단추), 굵기 300 · 650 · 700, 줄간격 1.5 ×30 외 8종, main 없음 3쪽, parts.html h1 없음 · 입력 이름 없음, 412 누름 자리 24(24 미만 7). 방향: 견본이 `dist/` 의 정본 CSS 를 읽게 경로를 고치고, 견본 자체 글자도 사다리로. 견본은 «정본을 보여 주는 창» 이므로 정본 시험(`check.mjs`)에 견본 페이지 글자 분포 한 걸음을 더하는 것을 권함.
-40. 정본 `patterns/components.css:351` 의 `transition: width`(진행 막대)가 세 제품 사본으로 퍼짐(탐지기 layoutTransition · Atelier 2 · Carnet 2 · Maison 1 · Sonar 1). 방향: `transform: scaleX` 로.
-41. 탐지기 지적 중 정본 문서 쪽: `atelier-manual` 왼쪽 선 8px · 3px, `simulator` 6px(문서 · 시뮬레이터라 금지 목록 적용 여부 결정 필요), `qa-widget-jiggle` · `animate-bounce` 바운스(업무 화면 F8 밖이지만 «튀는» 움직임은 정본 05 와 결이 다름).
+40. 정본 `patterns/components.css:351` 의 `transition: width`(진행 막대)가 세 제품 사본으로 퍼짐(탐지기 layoutTransition · Atelier 2 · Carnet 2 · Maison 1 · Sonar 1). 방향: `transform: scaleX` 로. → 11-04 반영(정본만 · 8930be6): `transform-origin: left` 와 transform 전환을 더했고, width 전환은 카르넷 `Progress` · 메종 인라인 막대가 scaleX 로 바뀐 뒤에 뺀다. 세 제품 사본으로 보내는 sync 는 오너 결정.
+41. 탐지기 지적 중 정본 문서 쪽: `atelier-manual` 왼쪽 선 8px · 3px, `simulator` 6px(문서 · 시뮬레이터라 금지 목록 적용 여부 결정 필요), `qa-widget-jiggle` · `animate-bounce` 바운스(업무 화면 F8 밖이지만 «튀는» 움직임은 정본 05 와 결이 다름). → 11-04 오너 결정 «A 가로 괘선»: 설명서 `aside.tip` · `aside.warn` · `figcaption` 을 왼쪽 선 대신 위 · 아래 괘선으로, `qa-widget-jiggle` 과 `--animate-bounce` 는 뺐다(정본만 · sync 는 오너 결정). 8px(재생 단추 삼각형) · 6px(관문 사이 화살표)는 CSS 삼각형이라 오탐.
 
 ### P3 · 작은 것 · 오탐 가능
 
