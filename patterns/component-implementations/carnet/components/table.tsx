@@ -1,3 +1,4 @@
+import ScrollCut from './scroll-cut';
 
 /* ---------------------------------------------------------------------------
    표
@@ -37,12 +38,12 @@ export function Table({ children, grow, className = '' }: {
   children: React.ReactNode; grow?: number; className?: string;
 }) {
   return (
-    <div className="qd-table-scroll">
+    <ScrollCut className="qd-table-scroll">
       <table className={`qd-table qd-table--hangul ${className}`.trim()}
              data-grow={grow !== undefined && grow !== 1 ? grow : undefined}>
         {children}
       </table>
-    </div>
+    </ScrollCut>
   );
 }
 
