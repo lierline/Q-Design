@@ -226,7 +226,7 @@ export default function Fixture() {
           aria-valuemin={0}
           aria-valuemax={100}
         >
-          <div className="qd-progress-fill" style={{ width: "50%" }} />
+          <div className="qd-progress-fill" style={{ width: "100%", transform: "scaleX(0.5)" }} />
         </div>
       </section>
 
