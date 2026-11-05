@@ -58,8 +58,19 @@
 - 설명서 왼쪽 선 · 위젯 흔들림 · bounce(41번 · 11-04 오너 결정 «A» · 정본만 고침 · 아래 그날 기록): 세 제품에 보내는 sync 는 오너 결정(Q-Atelier 는 같은 날 3591b5c5 로 받았고 `components/dashboard/CustomizableWidgetBoard.tsx` 의 흔들림 주석 두 줄도 그때 지웠다 · Carnet · Maison 은 아직). 설명서에 남은 왼쪽 선 둘(`.hits` 검색 결과 2px · `.rail nav a.on` 차림표 현재 표시 2px)은 강조선이 아니라 목록 · 현재 위치 표시라 그대로 뒀다. 바꾸려면 오너 결정.
 - Q-Maison 로그인 뒤 53화면(42 ~ 51번 · 같은 날 20:48 보탬): 차림표(`qd-rail`) 글귀 `qd-nav-label` · `qd-nav-group` 줄간격이 1.5 로 정본 10-27 판(1.4 · 1a6e098)보다 한 판 뒤(45번 · Q-Maison 의 정본 사본 `app/q-design.list.css` 를 받으면 풀림). 상태 알약 「종결」 3.27 · 「계획서 작성·결재」 3.53 라이트 대비(43번)는 «남은 일» 의 Q-Maison 알약 색 결정과 함께 그림 먼저. 폰 44 미만 41자리(42번 · P1)는 10-23 글귀 링크 묶음과 겹친다.
 - 정본 reduced-motion 규칙(foundation.css:261)이 `.qd-skeleton` 만 끈다. 전부 끄기로 넓힐지 결정(13 · 17번). Carnet `rise-soft`(17번)는 11-04 에 카르넷 조리법(`patterns/foundation/carnet.css`)의 `.stagger` 에 reduce 블록을 더해 먼저 껐다(결정 전 제품 쪽 최소 고침 · 29fd100). Atelier `qa-luxe-fadeup`(13번)은 그대로 돈다.
+- 11-05 정본 `components.css:159` 라이트 `--qd-accent` 폴백 글자(#8a6838 → #805f32)는 네 제품 components 사본에 아직 안 갔다(`check.mjs` 조각 사본 13곳). 40 · 41번과 같은 sync 때 함께(오너 결정). 화면에서는 `--qd-accent-src`(메종 · 카르넷) · `--qa-champagne`(아뜰리에)이 정의돼 폴백이 안 쓰인다.
+- 카르넷 네이티브 오프라인 사본(`dist/q-design.native-offline.carnet.html`)의 `--qd-accent` 가 구리가 아니라 가족 금색 폴백(라이트 #805f32 · 다크 #b8935a)으로 산다(11-05 발견 · 전부터). 오프라인 틀에 `--qd-accent-src` 를 제품 팔레트로 넣을지 결정.
 
 ---
+
+## 정본 라이트 강조색 폴백 글자 #8a6838 → #805f32 (가족 라이트 금색 하나 · 앱 오프라인 사본 넷) · 2026-11-05 (감사 세션)
+
+- `patterns/components.css:159` `html[data-theme='light'] { --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838)) }` 의 폴백 리터럴을 #805f32 로. 11-05 오너 결정(아뜰리에 라이트 금색 A 「추천대로」 · 메종 「같이 바꿔요」) 뒤 정본에 남은 마지막 옛 금색이었다. 다크 폴백(75줄 #b8935a)은 그대로.
+- 어디서 살아 있었나: 제품 화면은 `--qd-accent-src`(메종 `hsl(var(--primary))` · 카르넷) 나 `--qa-champagne`(아뜰리에)이 정의돼 폴백이 안 쓰인다. 네이티브 오프라인 사본(메종 · 카르넷)은 둘 다 없어 라이트 초점 테두리 · 진행 막대 · 라디오 · 고른 선택지가 옛 금색으로 살았다(Q-Maison-App offline.html 실측 · 쓰는 곳 20). 카르넷 오프라인이 구리 아닌 금 폴백을 쓰는 것은 전부터(«남은 일» 에).
+- 산출물: `extract-all.mjs`(dist 여섯 · 아뜰리에 오프라인 판 도장 갱신) 뒤 `build-native-offline.mjs --write`(앱 사본 12곳 같음 · 앱 색 파일 계약 4곳). 앱 저장소 넷(Q-Atelier-App · Q-Atelier-iOS · Q-Carnet-App · Q-Maison-App)에 offline.html 만 커밋(뒤의 둘은 원격 없음). 서명된 APK 는 그대로라 다음 앱 빌드부터.
+- `check.mjs`: 앱 오프라인 OK · 「조각 사본」 8 → 13 곳(네 제품 components 사본이 이 한 줄 뒤 · 다음 sync 때) · 남는 시험 1 빨강(«exact generated component canon»)은 이 변경 전부터(sync 전 상태). HEAD 와 대조해 확인(stash 로 두 번 돌림).
+- `source/_ORIGIN.json` 의 제품 커밋 포인터 둘(아뜰리에 78be058c · 7801f42)은 extract-all 이 읽은 값이라 함께 올림.
+- 감사 보고서 1-1절 «고친 뒤» 를 같은 날 보탬(다섯 세션의 전후 수치 · 남은 오너 결정).
 
 ## Q-Atelier impeccable 감사 P2 6 ~ 15번 · 정본 아뜰리에 토대 몫 · 2026-11-04 (아뜰리에 세션)
 
