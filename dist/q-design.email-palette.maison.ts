@@ -3,7 +3,7 @@ export const EMAIL_PALETTE = {
   "ink": "#0c0c0c",
   "ivory": "#f0ebe0",
   "champagne": "#b8935a",
-  "champagneDeep": "#8a6838",
+  "champagneDeep": "#805f32",
   "paper": "#faf9f6",
   "text": "#1c1a16",
   "textMuted": "#726b5e",
