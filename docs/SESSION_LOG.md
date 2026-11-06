@@ -62,6 +62,16 @@
 - 카르넷 네이티브 오프라인 사본(`dist/q-design.native-offline.carnet.html`)의 `--qd-accent` 가 구리가 아니라 가족 금색 폴백(라이트 #805f32 · 다크 #b8935a)으로 산다(11-05 발견 · 전부터). 오프라인 틀에 `--qd-accent-src` 를 제품 팔레트로 넣을지 결정.
 
 ---
+## 공개본 저장소 lierline/Q-Design-Public · 2026-11-06
+
+오너가 「우리 Q-Design 을 깃허브 공개 저장소로 올려 달라」 고 했다. 작업 저장소(lierline/Q-Design)에는 비공개 제품 네 곳의 코드 사본(`source/` · `patterns/component-implementations` · `patterns/foundation` 조리법 · 제품 화면 HTML · 제품 문구) · 회사 문서 양식 v8(대표 전화번호) · 세션 기록 · 감사 점수가 함께 있어, 셋을 여쭌 뒤 **정본만 새 공개 저장소로 · 이름 Q-Design-Public · 저작권 표시만(라이선스 파일 없음)** 으로 정했다.
+
+- 내보내기 도구 `tools/publish-public.mjs`(383227d): 허용 목록(규칙 10장 · `docs/reference` · `patterns/*.css · *.json · native` · `dist` 의 토큰 · 팔레트 · 기반 CSS · 글꼴 · 아이콘 · 네이티브 색 · `source/fonts` · `tools` 최상위 · 정적 견본 3쪽 · `vendor/phosphor`)과 제외 목록(제품 사본 · 화면 HTML · 제품 문구 JSON · 차림표 · 화면 목록 JSON · 문서 양식 · 세션 기록 · 감사 · 검토 · fixtures · 화면 사진)으로 `D:/Claude/Q-Design-Public` 에 복사하고, 글 파일을 훑어 전화번호 · 사람 이름 · 개인 메일 · NAS 주소 · 토큰 모양이 있으면 멈춘다(종료 8). 공개용 README 원본은 `tools/public-readme.md`. git 은 손으로: 그 폴더에서 커밋 · 푸시.
+- 첫 공개본 8653ddf: 690 파일 · 7.9MB(작업 저장소 1,041 파일 가운데 352 제외). 훑기 0건. 비인증 조회 200 과 원격 트리 대조(제외 대상 0건 · 규칙 10장 · 토큰 · 견본 있음)로 확인. 이력 없이 새로 시작(작업 저장소 이력에 토큰 · 열쇠 모양은 없었지만 제품 코드가 들어 있어 이력째 공개하지 않았다).
+- 알고 둘 것: `docs/08-paper.md` 의 문서 번호 예시에 고객 코드(`CR-IMH-2026-001`)가 한 번 나온다(예시라 그대로 두었다 · 오너에게 알림). 견본 index 의 링크 셋(components · context-review · workspace)은 공개본에 그 쪽이 없어 죽은 링크. `dist/q-design.foundation.*.css` 는 제품 화면의 클래스 이름 · 배치가 들어 있지만 제품 테마라 넣었다(조리법 `patterns/foundation/` 은 뺐다). `tools/` 의 여러 도구는 제품 저장소가 옆에 있어야 돈다(README 에 적음).
+- 갱신하려면(오너가 말할 때만): 작업 저장소에서 `node tools/publish-public.mjs` → `D:/Claude/Q-Design-Public` 에서 `git add -A && git commit && git push`. 범위를 바꾸려면 도구의 ALLOW · DENY 만.
+
+---
 
 ## 정본 라이트 강조색 폴백 글자 #8a6838 → #805f32 (가족 라이트 금색 하나 · 앱 오프라인 사본 넷) · 2026-11-05 (감사 세션)
 
