@@ -71,7 +71,7 @@
 - `check.mjs`: 앱 오프라인 OK · 「조각 사본」 8 → 13 곳(네 제품 components 사본이 이 한 줄 뒤 · 다음 sync 때) · 남는 시험 1 빨강(«exact generated component canon»)은 이 변경 전부터(sync 전 상태). HEAD 와 대조해 확인(stash 로 두 번 돌림).
 - `source/_ORIGIN.json` 의 제품 커밋 포인터 둘(아뜰리에 78be058c · 7801f42)은 extract-all 이 읽은 값이라 함께 올림.
 - 감사 보고서 1-1절 «고친 뒤» 를 같은 날 보탬(다섯 세션의 전후 수치 · 남은 오너 결정).
-- 11-06: 오빠가 Q-Maison CAPA 단계 알약 색을 「C 추천대로」(정본 꼬리표 · Badge tone)로 정해 Q-Works a653ac02 · 기록 6c971e16 으로 운영에 올랐다(라이트 3.53 · 3.27 → 5.70 · 5.51). 허브가 운영 CSS 를 GET 으로 재확인(`.text-sky-600` 0 · `.qd-tag--cobalt` 1)하고 보고서 1-1절 · 43번에 적었다. 정본에는 닿지 않았다. 남은 오너 결정은 월 보기 조각 · roles 격자 · 글꼴 폴백 얼굴 · LoadingState 글귀 · 카르넷 오프라인 강조색 · components 사본 sync.
+- 11-06: 오빠가 Q-Maison CAPA 단계 알약 색을 「C 추천대로」(정본 꼬리표 · Badge tone)로 정해 Q-Works a653ac02 · 기록 6c971e16 으로 운영에 올랐다(라이트 3.53 · 3.27 → 5.70 · 5.51). 허브가 운영 CSS 를 GET 으로 재확인(`.text-sky-600` 0 · `.qd-tag--cobalt` 1)하고 보고서 1-1절 · 43번에 적었다. 같은 날 오후 폰 월 보기 일정 조각도 「응, 글귀로」 로 정해져 Q-Works 4d98f872(480 이하 «N건» 글귀 · 누름 자리는 날짜 팝업만)로 올랐고 운영 CSS 의 `.qm-phone-only` · `.qm-phone-hide` 로 확인했다(42번 0). 정본에는 닿지 않았다. 남은 오너 결정은 roles 격자 · 글꼴 폴백 얼굴 · LoadingState 글귀 · 카르넷 오프라인 강조색 · components 사본 sync.
 
 ## Q-Atelier impeccable 감사 P2 6 ~ 15번 · 정본 아뜰리에 토대 몫 · 2026-11-04 (아뜰리에 세션)
 
