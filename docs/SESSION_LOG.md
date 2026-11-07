@@ -21,6 +21,7 @@
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
 - 폰 아래 탭줄 전환 연출 A · B · C · D. 오빠가 D(Expanding Label 의 우리 판 · 활성 탭만 이름 · 알약 없이 `flex-grow` 전환)를 «좋아 보인다» 고 했다(11-01). D 는 폭 전환이 5장 «이동 · 투명도만» 밖이라 예외를 더할지 함께 결정. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
 - 폰 앱 화면 전환 방향 A · 제목 이어짐 B. 폰 앱 «결재함 → 상세 → 뒤로» 에 입혀 지금(페이드만)과 나란히 녹화해 보여 드린 뒤 고른다([reference/screen-transition-study.md](reference/screen-transition-study.md) 5절 · 11-07 기록). B 는 Next.js View Transitions 실험 플래그부터 확인.
+- 입력 칸 시안 A · B · C(강도 막대 정본화 · Txt 한 줄씩 자람 · 칸 안 완료 ✓). 가입 · 메모 · 문서 번호 칸에 입혀 녹화해 보여 드린 뒤 고른다([reference/text-field-motion-study.md](reference/text-field-motion-study.md) 5절 · 11-07 기록). 높이 전환(B)은 탭줄 D 의 폭 전환과 함께 «배치 전환 예외» 를 둘지 같이 결정.
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -172,6 +173,18 @@ impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 �
 - 실측 범위: dev 네 제품 92화면 × 4보기(1440 어두운 · 밝은, 412 · 375 어두운) + Q-Maison 로그인 뒤 53화면 × 4보기(로컬 수파베이스 · SaaS 관리자 시드 계정 · 쿠키 방식) + Q-Design 정적 4쪽 · 작업대 3쪽 + 운영 로그인 4곳 + Q-Atelier 운영 로그인 뒤 43화면(1440 어두운). 반응형 감사(10-23)에서 못 잰 /admin 은 8화면을 잤다(사다리 밖 0 · 대비 0 · 누름 자리 0).
 - 2026-10-26 글자 결정의 실측: 정본 사본을 받은 Atelier · Carnet 은 사다리 밖이 Atelier 제목 clamp(37/36.5px) 하나뿐이다. Q-Sonar 는 PENDING 3조각 그대로라 크기 8종 · 굵기 700 · 줄간격 10종이 밖에 있다.
 - 걸려 넘어진 것: Git Bash 에서 측정기에 `--only=/login` 같은 경로 인자를 주면 MSYS 가 윈도 경로로 바꿔 anon 화면이 전부 건너뛰어진다(`MSYS_NO_PATHCONV=1` 로 해결). 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 라 결과가 쓸모없어 4818 작업대로 다시 잤다. 측정기의 «초점 갇힘» 은 처음 40개 조작부 밖으로 넘어가면 오탐(실브라우저로 확인). Q-Sonar 쿠키 로그인은 로컬 전용이라 운영 로그인 뒤는 못 잼. 보고서 부록 D.
+
+---
+
+## 입력 칸 움직임 조사 · Text Field Part 2 · 영상 실측 · 2026-11-07
+
+오빠 지시 «이것도 공부해. 영상으로 애니메이션을 봐야 공부가 될 거임». [reference/text-field-motion-study.md](reference/text-field-motion-study.md) 한 장. README · 06장 입력 절에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 🔑 이번에는 영상을 받았다. `/reel/<id>/embed/` 의 JSON 에 `video_url` 이 이스케이프된 채 들어 있었다(앞선 릴스 셋에는 없었음). 720×1280 · 30fps · 12.1초 · 같은 3.7초 장면 세 번 반복. 여섯 칸을 잘라 `ffmpeg` 로 0.1초 격자를 만들어 읽었다(문서 1절에 읽는 법).
+- 실측: 손가락이 0.6 ~ 0.7초에 누르고 글자는 0.1 ~ 0.15초마다 하나. 반응은 150ms 안(단 채움 · 칩 · 묶음 빈칸). 끝나면 민트로 바뀌고 글귀 한 줄(Verified · Strong · Filled in for you). 끝난 상태 1.2초 이상 멈춤. OTP 의 민트 물결은 칸마다 0.05초 어긋남. 넷 다 우리 5장 숫자 감각과 같다.
+- 우리 지금: 초점(금 테두리 + surface2 한 겹)만 있고 입력하는 동안의 말이 없다. 비밀번호 강도 막대는 Q-Atelier 로그인 파일 안의 함수(`PasswordStrengthBar` · 4단 · 빨강 → 주의 → 파랑 → 초록)라 정본 밖이고 다른 제품에 없다. OTP · 카드 · 칩 입력 · 유령 자동 완성은 없다.
+- 시안 넷: A 강도 막대를 정본 부품으로(위험도 넷 색 · 단 채움 100ms · 재색칠 160ms · 세 제품 가입) · B `Txt grow` 한 줄씩 자람 160ms(높이 전환은 5장 밖이라 탭줄 D 의 폭 전환과 함께 «배치 전환 예외» 오너 결정) · C 칸 안 완료 ✓ + hint 자리 보조 글귀(토스트 대신) · D 자리 수 있는 번호 칸의 네 자리 묶음 빈칸. 안 할 것: 그라디언트 초점 · 민트 · 알약 Tab · 칩 팝 · 스프링 · 카드 접힘.
+- `check-chars` 통과(564 파일).
 
 ---
 
