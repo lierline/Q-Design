@@ -42,7 +42,13 @@ MedQraft 제품군의 디자인 정본입니다. 네 제품이 같은 집안으�
 [기초 참고 사례](docs/reference/foundation-reference-study.md) ·
 [얼굴 화면](docs/reference/signature-screens.md) ·
 [시각 참고 자료](docs/reference/visual-reference.md) ·
-[목록 + 상세 시안 설명](docs/reference/context-review-prototype.md).
+[목록 + 상세 시안 설명](docs/reference/context-review-prototype.md) ·
+[움직임 브리프 조사](docs/reference/motion-brief-study.md) ·
+[포스터 색 배치 조사](docs/reference/poster-colour-layout-study.md) ·
+[아래 탭줄 움직임 조사](docs/reference/tabbar-motion-study.md) ·
+[@ui_motion_prompts 훑어보기](docs/reference/ui-motion-prompts-study.md) ·
+[화면 전환 조사](docs/reference/screen-transition-study.md) ·
+[입력 칸 움직임 조사(영상 실측)](docs/reference/text-field-motion-study.md).
 
 작업 기록은 [docs/SESSION_LOG.md](docs/SESSION_LOG.md) 한 장에만 이어 씁니다. 진행 문서를 따로 만들지 않습니다.
 
