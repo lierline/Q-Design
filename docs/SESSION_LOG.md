@@ -20,6 +20,7 @@
 - 글꼴 폴백 얼굴을 정본으로 올릴지(11-04 Q-Carnet 에서 먼저 넣음 · 위 그날 기록). 첫 방문 글꼴 바뀜 밀림은 세 제품이 같은 글꼴 묶음이라 같은 원인일 가능성이 높다. Q-Atelier · Q-Maison 을 같은 조건(새 문맥 · 글꼴 캐시 없음)으로 재서 맞으면 글꼴 선언을 만드는 걸음에 넣는다. Q-Sonar 도 11-04 같은 얼굴로 /targets 0.28 → 0.001 이라 두 제품에서 맞았다(아래 그날 기록).
 - 반응형 측정에서 못 잰 Q-Atelier 운영진(/admin) 25화면. 측정기에 저장된 로그인이 Demo co. 계정이라 /dashboard 로 돌아간다. 오너가 운영 계정으로 로그인해 주면 잰다(10-23 기록).
 - 폰 아래 탭줄 전환 연출 A · B · C · D. 오빠가 D(Expanding Label 의 우리 판 · 활성 탭만 이름 · 알약 없이 `flex-grow` 전환)를 «좋아 보인다» 고 했다(11-01). D 는 폭 전환이 5장 «이동 · 투명도만» 밖이라 예외를 더할지 함께 결정. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
+- 폰 앱 화면 전환 방향 A · 제목 이어짐 B. 폰 앱 «결재함 → 상세 → 뒤로» 에 입혀 지금(페이드만)과 나란히 녹화해 보여 드린 뒤 고른다([reference/screen-transition-study.md](reference/screen-transition-study.md) 5절 · 11-07 기록). B 는 Next.js View Transitions 실험 플래그부터 확인.
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -171,6 +172,19 @@ impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 �
 - 실측 범위: dev 네 제품 92화면 × 4보기(1440 어두운 · 밝은, 412 · 375 어두운) + Q-Maison 로그인 뒤 53화면 × 4보기(로컬 수파베이스 · SaaS 관리자 시드 계정 · 쿠키 방식) + Q-Design 정적 4쪽 · 작업대 3쪽 + 운영 로그인 4곳 + Q-Atelier 운영 로그인 뒤 43화면(1440 어두운). 반응형 감사(10-23)에서 못 잰 /admin 은 8화면을 잤다(사다리 밖 0 · 대비 0 · 누름 자리 0).
 - 2026-10-26 글자 결정의 실측: 정본 사본을 받은 Atelier · Carnet 은 사다리 밖이 Atelier 제목 clamp(37/36.5px) 하나뿐이다. Q-Sonar 는 PENDING 3조각 그대로라 크기 8종 · 굵기 700 · 줄간격 10종이 밖에 있다.
 - 걸려 넘어진 것: Git Bash 에서 측정기에 `--only=/login` 같은 경로 인자를 주면 MSYS 가 윈도 경로로 바꿔 anon 화면이 전부 건너뛰어진다(`MSYS_NO_PATHCONV=1` 로 해결). 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 라 결과가 쓸모없어 4818 작업대로 다시 잤다. 측정기의 «초점 갇힘» 은 처음 40개 조작부 밖으로 넘어가면 오탐(실브라우저로 확인). Q-Sonar 쿠키 로그인은 로컬 전용이라 운영 로그인 뒤는 못 잼. 보고서 부록 D.
+
+---
+
+## 화면 전환 조사 · Screen Transition Part 1 · 2026-11-07
+
+오빠 지시 «릴스(@ui_motion_prompts · Screen Transition Part 1) 공부하자». 참고라서 [reference/screen-transition-study.md](reference/screen-transition-study.md) 한 장으로 남기고 README · 05장에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 읽은 것: 캡션 · 표지(여섯 연출의 이름 · 설명 · 정지 그림). 못 읽은 것: 영상 본문 · 프로필의 «무료 프롬프트» 링크(로그인 벽).
+- 여섯(Push Slide · Fade Through · Shared Element · Card Expand · App Zoom · Stagger In) 가운데 넷은 크기가 변하는 전환이라 1장 «scale 금지» 밖. 남는 둘은 밀기와 순차 등장이고 순차 등장은 이미 `.qa-stagger`.
+- 우리 지금: `PageTransition` 이 경로마다 본문을 다시 붙이고 `.qa-page-fade` 페이드만 160ms(09-10 에 떠오름을 뺀 까닭이 기록돼 있음) · 진행선 · 서랍 24px 미끄러짐 · 로그인 «판이 열린다». 없는 것은 방향과 이어짐.
+- 시안 셋: A 폰 앱 목록 → 상세에만 6px 방향(앞 오른쪽 · 뒤 왼쪽 · 160ms 그대로 · 뒤로는 `bridge.js` 가 표시) · B 목록 행 제목 → `PageHd` 제목 이어짐(View Transitions 의 크기 보간을 끄고 자리만 · Next.js 실험 플래그 확인 뒤) · C 상세 사실 블록 한 묶음에만 순차 등장. 안 할 것: 커지고 작아지는 넷 · 화면 폭 밀기 · 옛 · 새 화면 동시 그리기.
+- main 의 11-04 ~ 11-06 커밋 33개(impeccable 감사 · 라이트 금색 #805f32 · 공개본 도구)를 먼저 합쳤다(충돌 없음).
+- `check-chars` 통과.
 
 ---
 
