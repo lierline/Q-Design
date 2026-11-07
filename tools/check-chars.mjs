@@ -12,7 +12,8 @@ import { fileURLToPath } from 'node:url';
 import { isCompiledWorkbench } from './audit-coverage-core.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SKIP = new Set(['source', 'node_modules', '.git']);
+// .impeccable/ 은 impeccable 플러그인 훅이 쓰는 캐시(hook.cache.json · 깃 제외)다. 훅이 지적 글귀에 em dash 를 쓰므로 이 저장소가 쓴 파일이 아닌 그 폴더는 건너뛴다(2026-11-04)
+const SKIP = new Set(['source', 'node_modules', '.git', '.impeccable']);
 const EXT = /\.(md|html|css|json|mjs|js|ts|tsx|swift)$/;
 // Private local authentication fixtures are outside authored design artifacts.
 const PRIVATE = new Set(['reviews/atelier-onboarding-preview-fixture.json']);

@@ -59,6 +59,8 @@ export default function Fixture() {
 
       <StatStrip items={[{ label: '발행된 기록', value: 12, unit: '건', href: '#records', detail: '최근 발행된 기록 12건입니다.', hint: '정정 이력 포함' }, { label: '검토 대기', value: 3, unit: '건', detail: '서면 대조가 필요한 기록 3건입니다.' }]} />
 
+      {/* 머리말 단계: 쪽 제목(h1) 다음에 판 제목(h3)이 바로 오면 한 단계를 건너뛴다(2026-11-04 감사 38번). 묶음 이름(h2)을 먼저 둔다 */}
+      <h2 className="qd-section-title">공용 부품</h2>
       <Panel title="입력과 선택" bodyClassName="p-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <label><span className="qd-field-label" data-hangul="">로트번호</span><input className="qd-input" placeholder="로트번호 입력" aria-label="로트번호" /></label>

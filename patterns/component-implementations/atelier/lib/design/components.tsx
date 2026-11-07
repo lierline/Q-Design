@@ -904,7 +904,8 @@ export function ProgressBar({
   const fill = color ?? (pct === 100 ? T.green : T.champagne);
   return (
     <div className="qd-progress" role="progressbar" aria-label={ariaLabel} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} style={{ height: height ?? 'var(--qd-progress-height, 6px)', background: trackColor ?? alpha(T.border, QDRuntime.alpha.tint0_6), borderRadius: QD.radius, overflow: 'hidden' }}>
-      <div className="qd-progress-fill" style={{ width: `${pct}%`, height: "var(--qd-atelier-height-26ecbf76a0)", background: fill, transition: `width ${QD.motionNormal}` }} />
+      {/* 채움은 폭 대신 transform 으로 늘린다. 폭 전환은 프레임마다 배치를 다시 하고 transform 은 합성만 한다(2026-11-04 감사) */}
+      <div className="qd-progress-fill" style={{ width: '100%', transform: `scaleX(${pct / 100})`, transformOrigin: 'left', height: "var(--qd-atelier-height-26ecbf76a0)", background: fill, transition: `transform ${QD.motionNormal}` }} />
     </div>
   );
 }
@@ -2136,6 +2137,47 @@ export function SkeletonPanel({
 }
 
 /**
+ * 서류(칸 묶음) 로딩 자리표시: 묶음 제목 바 + 칸마다 「이름표 + 입력 칸」 높이를 미리 차지한다.
+ * CAPA 계획서처럼 칸이 열 개 넘는 서류가 자료를 기다리는 동안 null 을 돌려주면, 자료가 온 순간 1,800px 가량이
+ * 끼어들어 아래 내용이 한꺼번에 밀린다(2026-11-04 감사 · /capa/[id] 자리 밀림 0.29). 칸 수 · 긴 칸 여부를
+ * 실제 서류 정의(PLAN_GROUPS 같은 것)에서 받아 높이를 비슷하게 잡는다. 긴 칸은 세 줄 글상자 높이(90)로 본다.
+ */
+export function SheetSkeleton({
+  groups,
+  label = '로드 중',
+}: {
+  groups: ReadonlyArray<{ title?: string; fields: ReadonlyArray<{ long?: boolean }> }>;
+  label?: string;
+}) {
+  return (
+    <div
+      aria-busy="true"
+      aria-label={label}
+      style={{
+        padding: QDScale.space[4.5],
+        marginBottom: QDScale.space[4],
+        border: `var(--qd-border-width) var(--qd-atelier-border-style-5ed175bd8d) ${T.border}`,
+        borderRadius: QD.radius,
+        background: T.surface,
+      }}
+    >
+      <Skeleton w="38%" h={QDPresentation.skeletonHeight[14]} style={{ marginBottom: QDScale.space[4] }} />
+      {groups.map((g, gi) => (
+        <div key={gi} style={{ marginBottom: QDScale.space[3] }}>
+          <Skeleton w="30%" h={QDPresentation.skeletonHeight[14]} style={{ marginBottom: QDScale.space[2] }} />
+          {g.fields.map((f, fi) => (
+            <div key={fi} style={{ marginBottom: QDScale.space[3] }}>
+              <Skeleton w="22%" h={QDPresentation.skeletonHeight[12]} style={{ marginBottom: QDScale.space[1.5] }} />
+              <Skeleton h={f.long ? QDPresentation.skeletonHeight[90] : QD.controlHeight} />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
  * content 등장 fade: 로딩/skeleton 직후 콘텐츠가 '퍽' 대신 부드럽게 나타나게.
  * skeleton(자리표시)이 부드럽게 떴는데 데이터 도착 시 콘텐츠가 갑자기 swap 되는
  * "퍽퍽" 현상을 완화. 패널 메인 콘텐츠 root 를 감싸거나, root 에 직접
@@ -2649,6 +2691,8 @@ export function KPI({
           )}
         </div>
         <div
+          // 크기는 정본 아뜰리에 토대의 .qa-kpi-value 가 칸 폭 계단으로 정한다(아래 fontSize 주석 · 2026-11-04)
+          className="qa-kpi-value"
           style={{
             // Pretendard 통일: 한글이 섞여도 글꼴이 튀지 않도록.
             // 숫자 톤은 굵기 600(사다리 맨 위) + tabular-nums + 좁은 자간으로.
@@ -2660,6 +2704,9 @@ export function KPI({
             //    16%: 안쪽 폭 225px 이상이면 36px 그대로(큐아뜰리에 지표 카드), 173px(Q-Forge 8칸 띠)면 28px 로
             //    「4,370,000원」 이 들어간다. 12% 로 했더니 넓은 카드에서도 20px 로 줄어 인상이 죽었다(실측).
             //    정본(Q-Design extract-screen)이 이 세 값을 그대로 읽어 세 제품에 내보낸다.
+            // ✅ 2026-11-04(감사 6번): 16% 흐름값은 1440 에서 37 · 36.5px 로 사다리 밖이었다. 아뜰리에에서는 정본 토대의
+            //    .qa-kpi-value 가 @container 계단(150 → 24 · 175 → 28 · 200 → 32 · 225 이상 → 40)으로 !important 덮는다.
+            //    이 줄은 추출기가 읽는 줄이라 그대로 둔다(다른 두 제품은 아직 이 clamp 로 그린다).
             fontSize: `clamp(var(--qd-kpi-min-size), var(--qd-kpi-fluid-size), var(--qd-kpi-size, ${QDScale.font[40]}))`,
             lineHeight: "var(--qd-atelier-line-height-89aa2d62d2)",
             letterSpacing: "var(--qd-atelier-letter-spacing-0eb1693ce1)",
@@ -2679,7 +2726,8 @@ export function KPI({
             color: T.muted,
             fontFamily: QDScale.family.ui,
             marginTop: QDScale.space[2.5],
-            letterSpacing: "var(--qd-atelier-letter-spacing-7ced33ba9c)",
+            // 한글 보조 글귀에는 자간을 주지 않는다(Q-Design 03 · 2026-11-04 감사 7번)
+            letterSpacing: labelTracking(sub, "var(--qd-atelier-letter-spacing-7ced33ba9c)"),
             lineHeight: QDScale.leading.relaxed,
             minHeight: "var(--qd-atelier-min-height-353f128cde)",
             visibility: sub ? 'visible' : 'hidden',
@@ -3229,7 +3277,8 @@ export function SectionCard({
       }}
     >
       <div>
-        <div style={{ ...QDType.h3, color: T.text, marginBottom: subtitle ? "var(--qd-atelier-margin-bottom-4686eaf157)" : "var(--qd-atelier-margin-bottom-dba5d0300b)", display: 'flex', alignItems: 'center', gap: QDScale.space[1.5] }}>
+        {/* 제목이 div 라 h3 규격의 조임(-0.005em)이 «제목 조임» 으로 인정되지 않는다: 한글 글 제목은 자간 0(2026-11-04 감사 7번) */}
+        <div style={{ ...QDType.h3, letterSpacing: typeof title === 'string' ? labelTracking(title, QDType.h3.letterSpacing) : QDType.h3.letterSpacing, color: T.text, marginBottom: subtitle ? "var(--qd-atelier-margin-bottom-4686eaf157)" : "var(--qd-atelier-margin-bottom-dba5d0300b)", display: 'flex', alignItems: 'center', gap: QDScale.space[1.5] }}>
           {title}
           {info && <InfoDot label={`${typeof title === 'string' ? title : '구역'}: 설명 보기`}>{info}</InfoDot>}
         </div>

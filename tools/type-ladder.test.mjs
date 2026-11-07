@@ -103,3 +103,42 @@ test('아뜰리에 태그 글자도 사다리 위에 있다', () => {
   const {QDPresentation} = readRuntimeValues(root);
   for (const [size, dims] of Object.entries(QDPresentation.visual.tag.dims)) assert.ok(LADDER.has(dims.fs), `tag ${size} ${dims.fs}`);
 });
+
+test('소나 유틸리티는 정본 값을 그대로 들고 가고, 테일윈드 연결도 같은 이름만 만든다', async () => {
+  // 2026-11-04: Q-Sonar 는 기반 · 컴포넌트 조각을 받지 않아 사다리 · 모서리 · 조작부 · 표 규칙이 없었다(impeccable 감사 2 · 3 · 32 · 35번).
+  // patterns/foundation/sonar-theme.css 가 그 값을 들고 가는데 사본이므로, 이름마다 정본(foundation · components)과 대조한다.
+  const lf = (css) => css.replace(/\r\n/g, '\n');
+  const sonar = lf(fs.readFileSync(path.join(root, 'patterns/foundation/sonar-theme.css'), 'utf8'));
+  const foundation = lf(fs.readFileSync(path.join(root, 'patterns/foundation.css'), 'utf8'));
+  const components = lf(fs.readFileSync(path.join(root, 'patterns/components.css'), 'utf8'));
+  const firstValues = (css) => {
+    const out = {};
+    for (const m of css.matchAll(/^\s*(--qd-[\w-]+):\s*([^;]+);/gm)) if (!(m[1] in out)) out[m[1]] = m[2].trim();
+    return out;
+  };
+  const canon = {...firstValues(components), ...firstValues(foundation)};
+  const copied = firstValues(sonar);
+  assert.ok(Object.keys(copied).length >= 30, '소나 조각의 변수가 너무 적습니다');
+  for (const [name, value] of Object.entries(copied)) assert.equal(value, canon[name], `${name}: 소나 조각 ${value} ≠ 정본 ${canon[name] ?? '(없음)'}`);
+  for (const name of ['--qd-font-size-12', '--qd-font-size-40', '--qd-font-weight-semibold', '--qd-leading-relaxed', '--qd-radius', '--qd-control-height', '--qd-table-grow-min-width', '--qd-table-size']) assert.ok(name in copied, `${name} 이 소나 조각에 없습니다`);
+  // 좁은 창 · 손가락 기기의 누름 자리 블록은 기반 조각과 글자까지 같다(2026-10-22 폰 실측 규칙)
+  const block = (css, open) => { const i = css.indexOf(open); assert.ok(i >= 0, open); return css.slice(i, css.indexOf('\n}', i) + 2); };
+  for (const open of ['@media (max-width: 640px) {\n  html :is(.qd-btn', '@media (hover: none) and (pointer: coarse) {']) assert.equal(block(sonar, open), block(foundation, open));
+  // 표 열 폭 규칙은 컴포넌트 조각과 같다. 소나 쪽은 @layer components 안에 들여 썼으므로 줄 머리 공백만 빼고 대조한다
+  const dedent = (s) => s.replace(/^[ \t]+/gm, '');
+  const tableOpen = '.qd-table { width: 100%; table-layout: auto; }';
+  assert.ok(dedent(sonar).includes(dedent(block(components, tableOpen))), '표 열 폭 규칙이 정본(components.css)과 다릅니다');
+  const nowrapLine = components.split('\n').find((l) => l.startsWith('html .qd-table:not(.qd-table--editable)'));
+  assert.ok(nowrapLine && sonar.includes(nowrapLine), '표 안 단추 nowrap 줄이 소나 조각에 없거나 다릅니다');
+  const {tableGrowGaps} = await import('./table-grow.test.mjs');
+  assert.deepEqual(tableGrowGaps(sonar), []);
+  // 테일윈드 이름 잇기: 굵기 셋 · 줄 간격 넷 · 크기는 사다리만 · 모서리는 정본 하나
+  const bridge = sonar.slice(sonar.indexOf('@theme inline {'));
+  assert.match(bridge, /--font-weight-\*: initial;\s*\n\s*--leading-\*: initial;\s*\n\s*--radius-\*: initial;/);
+  assert.deepEqual([...sonar.matchAll(/--font-weight-(\w+):/g)].map((m) => m[1]), ['normal', 'medium', 'semibold']);
+  assert.deepEqual([...sonar.matchAll(/--leading-(\w+):/g)].map((m) => m[1]), ['none', 'tight', 'snug', 'relaxed']);
+  assert.doesNotMatch(sonar, /font-size-(30|36)\)/);
+  for (const n of ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl']) assert.match(bridge, new RegExp(`--text-${n}: var\\(--qd-font-size-\\d+\\);\\s*\\n\\s*--text-${n}--line-height: var\\(--qd-leading-${n}\\);`), `text-${n}`);
+  for (const n of ['sm', 'md', 'lg', 'xl', '2xl', '3xl']) assert.match(bridge, new RegExp(`--radius-${n}: var\\(--qd-radius\\);`), `rounded-${n}`);
+  assert.match(sonar, /\bb,\s*strong\s*\{\s*font-weight:\s*var\(--qd-font-weight-semibold\);?\s*\}/);
+});

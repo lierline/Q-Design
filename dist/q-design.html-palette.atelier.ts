@@ -8,7 +8,7 @@ export const HTML_PALETTE = {
   "muted": "#726b5e",
   "border": "#e2dfd8",
   "borderStrong": "#c8c4ba",
-  "accent": "#8a6838",
+  "accent": "#805f32",
   "brand": "#b8935a",
   "onDarkMuted": "#b7b0a5",
   "success": "#3d7a3d",

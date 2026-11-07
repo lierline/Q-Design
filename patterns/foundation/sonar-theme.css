@@ -1,0 +1,196 @@
+/* =============================================================================
+   소나 유틸리티 · Q-Sonar(Lead-Radar)의 테일윈드 이름을 정본 사다리에 잇는다 (2026-11-04)
+
+   Q-Sonar 는 기반(foundation) · 컴포넌트 조각을 받지 않는다(받아 두기만 하는 사본은 보내지 않는다는
+   원칙 · sync-parts.mjs). 그래서 글자 사다리 · 굵기 · 줄 간격 · 자간 · 모서리 · 조작부 치수 변수가
+   그 저장소에 없었고, 화면은 테일윈드 바닥값(13 · 30px · 굵기 700 · 줄 간격 1.5 · 모서리 6px)과
+   손으로 적은 크기(10 · 11 · 13px)를 그대로 썼다(2026-11-04 impeccable 감사 2 · 3 · 32번).
+   폰 폭의 누름 자리 44 도 기반 조각의 «좁은 창» 규칙이 안 와서 입력칸이 38 이었다.
+   표는 손으로 적은 min-width(820 · 720 · 560 · 520 · 440)로 폭을 잡아 정본 «늘어나는 열 하나» 규칙 밖이었다(35번).
+
+   이 조각은 넷을 한다.
+     1. 정본 값을 들고 간다. 값은 patterns/foundation.css · patterns/components.css 와 같아야 하고
+        tools/type-ladder.test.mjs 가 이름마다 대조한다(사본은 어긋나므로 시험이 붙잡는다).
+     2. 좁은 창 · 손가락 기기의 누름 자리 규칙(기반 조각의 블록 그대로)을 가져간다.
+     3. 표 열 폭 규칙(컴포넌트 조각의 블록 그대로)을 가져간다. 받는 쪽의 테일윈드 유틸리티가 칸 하나를
+        따로 이길 수 있게 @layer components 안에 둔다(이 파일은 층 밖으로 내보내므로 스스로 층을 적는다).
+     4. 테일윈드 이름(text-* · leading-* · font-* · tracking-* · rounded-*)을 그 값에 잇는다.
+        카르넷 유틸리티(carnet-theme.css)의 연결 블록과 같은 방식이다.
+
+   받는 쪽(Lead-Radar src/app/globals.css)은 이 파일을 @import 로 부른다. 층 밖(layer: false)으로
+   내보내므로 아래 요소 바닥값은 스스로 @layer base 에 둔다.
+   ============================================================================= */
+
+/* ── 1. 정본 값 (patterns/foundation.css 의 사다리 · patterns/components.css 의 모서리 · 조작부 · 표) ────── */
+:root {
+  --qd-font-size-12: 12px;
+  --qd-font-size-14: 14px;
+  --qd-font-size-16: 16px;
+  --qd-font-size-18: 18px;
+  --qd-font-size-20: 20px;
+  --qd-font-size-24: 24px;
+  --qd-font-size-28: 28px;
+  --qd-font-size-32: 32px;
+  --qd-font-size-40: 40px;
+  --qd-font-size-48: 48px;
+  --qd-font-weight-normal: 400;
+  --qd-font-weight-medium: 500;
+  --qd-font-weight-semibold: 600;
+  --qd-tracking-tighter: -.05em;
+  --qd-tracking-tight: -.025em;
+  --qd-tracking-normal: 0em;
+  --qd-tracking-wide: .025em;
+  --qd-tracking-wider: .05em;
+  --qd-tracking-widest: .1em;
+  --qd-leading-none: 1;
+  --qd-leading-tight: 1.2;
+  --qd-leading-snug: 1.4;
+  --qd-leading-relaxed: 1.6;
+  --qd-leading-xs: var(--qd-leading-snug);
+  --qd-leading-sm: var(--qd-leading-snug);
+  --qd-leading-base: var(--qd-leading-relaxed);
+  --qd-leading-lg: var(--qd-leading-snug);
+  --qd-leading-xl: var(--qd-leading-tight);
+  --qd-leading-2xl: var(--qd-leading-tight);
+  --qd-leading-3xl: var(--qd-leading-tight);
+  --qd-leading-4xl: var(--qd-leading-tight);
+  --qd-leading-display: var(--qd-leading-none);
+  --qd-radius: 10px;
+  --qd-radius-card: var(--qd-radius);
+  --qd-control-height: 44px;
+  --qd-control-height-sm: 36px;
+  --qd-control-size: 14px;
+  --qd-table-grow-min-width: 8em;
+  --qd-table-description-min-width: 160px;
+  /* 받는 쪽 사본(차림표 · 목록 · 화면 조각)이 var() 로 부르는 정본 변수. 기반 · 컴포넌트 조각이 없으면 폴백 값이나
+     무효 선언으로 조용히 갈린다(2026-11-04 실측: 표 글자가 폴백 13px 로 1,781곳 · 지표 격자의 바닥 폭 · 빽빽한 표의
+     여백은 선언이 통째로 버려짐). 값은 정본 그대로이고 tools/type-ladder.test.mjs 가 이름마다 대조한다. 판 모양 변수
+     (--qd-card-*)는 일부러 뺐다: 사본의 폴백(위 괘선 하나 · 모서리 0)이 장부형 결정(2026-10-27 «3»)의 모양이다. */
+  --qd-space-unit: 4px;
+  --qd-space-2: calc(var(--qd-space-unit) * 2);
+  --qd-space-3: calc(var(--qd-space-unit) * 3);
+  --qd-space-4: calc(var(--qd-space-unit) * 4);
+  --qd-space-8: calc(var(--qd-space-unit) * 8);
+  --qd-border-width: 1px;
+  --qd-focus-outline-width: 2px;
+  --qd-control-pad-x: 22px;
+  --qd-control-pad-y: 11px;
+  --qd-control-pad-sm-x: 14px;
+  --qd-control-pad-sm-y: 7px;
+  --qd-caption-size: 12px;
+  --qd-section-size: 16px;
+  --qd-title-size: 24px;
+  --qd-kpi-size: 40px;
+  --qd-kpi-min-width: 160px;
+  --qd-table-size: 14px;
+  --qd-table-pad-x: 12px;
+  --qd-table-pad-y: 11px;
+  --qd-table-pad-y-dense: var(--qd-space-2);
+  --qd-table-scroll-max-height: 70dvh;
+}
+
+/* ── 2. 좁은 창 · 손가락 기기의 누름 자리 (patterns/foundation.css 의 블록 그대로 · 시험이 글자로 대조) ── */
+/* Narrow windows keep usable targets even when the browser reports a fine pointer. */
+@media (max-width: 640px) {
+  html :is(.qd-btn, .qa-btn, .qa-btn-secondary, .qd-input, .qa-input, .qd-choice, .qd-tab, .qd-text-action, .qd-combobox-option, .qd-filter-input, .qd-filter-select, .qd-filter-submit, .qd-filter-clear, .qd-pager-btn, .qa-touch-44) { min-height: var(--qd-control-height) !important; }
+  html :is(.qd-control-icon, .qd-dialog-close, .qd-mobile-menu, .qa-touch-44sq) { min-width: var(--qd-control-height) !important; min-height: var(--qd-control-height) !important; }
+  html .qd-toast > .qd-text-action { margin-block: calc((var(--qd-toast-line) - var(--qd-control-height)) / 2); }
+  /* 두 글자 탭(「전체」 · 「지원」)은 좁은 여백(px-2.5)에서 42 였다(2026-10-22 폰 실측). 폭도 44 를 채우고 글은 가운데 */
+  html .qd-tab { min-width: var(--qd-control-height) !important; justify-content: center; text-align: center; }
+}
+/* 누르는 자리만 넓힌다(2026-10-22 세 제품 폰 실측 · 터치 화면). 그린 모양 · 자리는 그대로 두고 보이지 않는 ::after 가
+   가로 · 세로 중 모자란 쪽만 가운데로 넓혀 44 를 채운다. 44 이상인 쪽은 넓히지 않아 긴 줄이 옆 칸을 덮지 않는다.
+   Q-Atelier 의 qa-touch-hit 과 같은 계산이다. 쓰지 않는 자리: 줄 간격이 44 보다 좁은 목록 · 표 · 나무(넓힌 자리가
+   옆 줄의 글자를 덮어 다른 것이 눌린다), overflow 로 자르는 요소(line-clamp · truncate 는 ::after 도 자른다),
+   input 같은 대체 요소(::after 가 그려지지 않는다), absolute · fixed · sticky 인 요소(이 규칙은 층 밖이라
+   Tailwind 4 의 층 안 유틸리티를 이겨 relative 로 바꾼다. 그런 요소는 ::after 만 따로 단다). */
+@media (hover: none) and (pointer: coarse) {
+  :where(.qd-touch-hit) { position: relative; }
+  html .qd-touch-hit::after { content: ''; position: absolute; inset: min(0px, calc((100% - var(--qd-control-height)) / 2)); }
+}
+
+/* ── 3. 표 열 폭 규칙 «표 하나에 늘어나는 열 하나» (patterns/components.css 의 블록 그대로 · 시험이 글자로 대조) ──
+   늘어나는 열은 표에 data-grow="N"(1부터) 으로 적고, 적지 않으면 첫 열. 열이 전부 짧은 «기록 · 수치» 표는
+   data-grow="0" 으로 모든 열이 같은 몫을 받는다. 긴 글 열(주소 · 생산품 · 제조자)은 .qd-table-description.
+   층 안(components)에 두어 받는 쪽의 테일윈드 유틸리티(utilities 층)가 칸 하나를 따로 이길 수 있게 한다. */
+@layer components {
+  .qd-table { width: 100%; table-layout: auto; }
+  .qd-table:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td) { width: 1%; white-space: nowrap; }
+  .qd-table:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):is(.qd-col-grow, .qd-table-description, [colspan]),
+  .qd-table:not(.qd-table--editable):not([data-grow]):not(:has(.qd-col-grow)) > :is(thead, tbody, tfoot) > tr > :is(th, td):first-child,
+  .qd-table[data-grow="1"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(1),
+  .qd-table[data-grow="2"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(2),
+  .qd-table[data-grow="3"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(3),
+  .qd-table[data-grow="4"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(4),
+  .qd-table[data-grow="5"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(5),
+  .qd-table[data-grow="6"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(6),
+  .qd-table[data-grow="7"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(7),
+  .qd-table[data-grow="8"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(8),
+  .qd-table[data-grow="9"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(9),
+  .qd-table[data-grow="10"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(10),
+  .qd-table[data-grow="11"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(11),
+  .qd-table[data-grow="12"]:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):nth-child(12) {
+    width: auto; min-width: var(--qd-table-grow-min-width); white-space: normal;
+  }
+  /* 글 폭 칸 안의 단추 · 글 단추는 낱말 사이에서 꺾이지 않는다(정본 2026-10-28 실측 «변경 항목 0» 두 줄 꺾임) */
+  html .qd-table:not(.qd-table--editable) > :is(thead, tbody, tfoot) > tr > :is(th, td):not(.qd-col-grow) :is(.qd-btn, .qd-text-action) { white-space: nowrap; }
+  .qd-table-description { min-width: var(--qd-table-description-min-width); }
+}
+
+/* ── 4. 테일윈드 이름 잇기 (carnet-theme.css 의 연결 블록과 같은 방식) ──────────────────────────
+   2026-10-26 오너 결정: 굵기는 400 · 500 · 600, 줄 간격은 1 · 1.2 · 1.4 · 1.6 만 둔다.
+   이름공간을 비워 테일윈드 바닥값(700 · 1.5 · 2 등)이 클래스를 만들지 않게 한다. 비운 이름(font-bold ·
+   leading-normal)이 화면에 남으면 아무 스타일도 안 붙은 채 조용히 보통 글씨가 되므로, 받는 저장소의
+   시험(src/lib/type-ladder.test.ts)이 화면 코드를 훑어 막는다. */
+@theme inline {
+  --font-weight-*: initial;
+  --leading-*: initial;
+  --radius-*: initial;
+  --font-weight-normal: var(--qd-font-weight-normal);
+  --font-weight-medium: var(--qd-font-weight-medium);
+  --font-weight-semibold: var(--qd-font-weight-semibold);
+  --tracking-tighter: var(--qd-tracking-tighter);
+  --tracking-tight: var(--qd-tracking-tight);
+  --tracking-normal: var(--qd-tracking-normal);
+  --tracking-wide: var(--qd-tracking-wide);
+  --tracking-wider: var(--qd-tracking-wider);
+  --tracking-widest: var(--qd-tracking-widest);
+  --text-xs: var(--qd-font-size-12);
+  --text-xs--line-height: var(--qd-leading-xs);
+  --text-sm: var(--qd-font-size-14);
+  --text-sm--line-height: var(--qd-leading-sm);
+  --text-base: var(--qd-font-size-16);
+  --text-base--line-height: var(--qd-leading-base);
+  --text-lg: var(--qd-font-size-18);
+  --text-lg--line-height: var(--qd-leading-lg);
+  --text-xl: var(--qd-font-size-20);
+  --text-xl--line-height: var(--qd-leading-xl);
+  --text-2xl: var(--qd-font-size-24);
+  --text-2xl--line-height: var(--qd-leading-2xl);
+  --text-3xl: var(--qd-font-size-32);
+  --text-3xl--line-height: var(--qd-leading-3xl);
+  --text-4xl: var(--qd-font-size-40);
+  --text-4xl--line-height: var(--qd-leading-4xl);
+  --text-5xl: var(--qd-font-size-48);
+  --text-5xl--line-height: var(--qd-leading-display);
+  --leading-none: var(--qd-leading-none);
+  --leading-tight: var(--qd-leading-tight);
+  --leading-snug: var(--qd-leading-snug);
+  --leading-relaxed: var(--qd-leading-relaxed);
+  /* 모서리는 정본의 하나(10px). rounded-sm · md · lg · xl 어느 이름을 써도 같은 값이다(docs/05 · 우리 규칙 F4) */
+  --radius: var(--qd-radius);
+  --radius-sm: var(--qd-radius);
+  --radius-md: var(--qd-radius);
+  --radius-lg: var(--qd-radius);
+  --radius-xl: var(--qd-radius);
+  --radius-2xl: var(--qd-radius);
+  --radius-3xl: var(--qd-radius);
+  --radius-full: 9999px;
+}
+
+/* ── 5. 요소 바닥값 ───────────────────────────────────────────────────────────────────────
+   브라우저 기본(bold 700)과 테일윈드 preflight(bolder: 700)가 굵기 셋 결정을 새게 한다. 세 제품의 기반 조각이
+   b · strong 을 600 으로 두는 것과 같은 줄이다(tools/type-ladder.test.mjs). */
+@layer base {
+  b, strong { font-weight: var(--qd-font-weight-semibold); }
+}

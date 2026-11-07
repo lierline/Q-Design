@@ -464,7 +464,7 @@ LoadingState   화면 단위 padding 72px 24px · Spinner + mono 12px 글귀 · 
 
 ```
 Bar   height var(--qd-progress-height, 6px) · radius 10 · 트랙은 border 색 알파
-      색 미지정이면 100% 는 green, 그 밖은 champagne · 너비 전환 200ms
+      색 미지정이면 100% 는 green, 그 밖은 champagne · 채움은 width 100% + transform scaleX(비율) · 전환 200ms(11-04 · transform 과 width 둘 다 · Carnet · Maison 인라인 진행 막대가 scaleX 로 바뀌면 width 전환은 뺀다)
 Ring  size 56 · stroke 5 · SVG · -90deg 회전 · 트랙 border 색
 ```
 

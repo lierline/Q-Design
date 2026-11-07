@@ -163,7 +163,7 @@ html[data-theme='light'] {
   --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
-  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #805f32));
   --qd-danger: var(--qd-danger-src, var(--qa-red, #a83838));
   --qd-ok: var(--qd-ok-src, var(--qa-green, #3d6b3d));
   --qd-warn: var(--qd-warn-src, var(--qa-warning, #7a5a28));
@@ -355,7 +355,10 @@ textarea.qd-input { --qd-control-height: var(--qd-textarea-min-height); min-heig
 select.qd-input { appearance: auto !important; background-image: none !important; padding-right: var(--qd-select-end-padding) !important; }
 .qd-table th { letter-spacing: 0; text-transform: none; }
 .qd-progress { display: block; overflow: hidden; height: var(--qd-progress-height, 6px); border-radius: var(--qd-radius); background: var(--qd-surface2); }
-.qd-progress-fill { display: block; height: 100%; border-radius: inherit; background: var(--qd-status, var(--qd-accent)); transition: width var(--qd-motion-normal) var(--qd-ease); }
+/* 진행 막대 채움은 transform(scaleX) 으로 움직이는 쪽으로 간다(2026-11-04 · impeccable 감사 40번). 채우는 쪽은 width 100% 에
+   transform: scaleX(비율) 을 인라인으로 준다(아뜰리에 ProgressBar 가 그렇게 한다). 너비 전환은 프레임마다 배치를 다시 재므로 빼야 하지만,
+   width 만 주는 사용처(카르넷 Progress · 메종)가 scaleX 로 바뀔 때까지는 둘 다 둔다. 그 뒤에 width 를 빼는 것이 40번의 끝이다. */
+.qd-progress-fill { display: block; height: 100%; border-radius: inherit; background: var(--qd-status, var(--qd-accent)); transform-origin: left; transition: width var(--qd-motion-normal) var(--qd-ease), transform var(--qd-motion-normal) var(--qd-ease); }
 .qd-step { color: var(--qd-muted); font-size: var(--qd-control-size); line-height: 1.6; }
 .qd-step[aria-current='step'], .qd-step[data-state='active'] { color: var(--qd-text); font-weight: 600; }
 .qd-skeleton { border-radius: var(--qd-radius); background: var(--qd-surface2); animation: qd-skeleton-pulse 1.6s ease-in-out infinite; }
@@ -1252,7 +1255,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --qa-text: #1c1a16;
     --qa-subtle: #4a4540;
     --qa-muted: #726b5e;
-    --qa-champagne: #8a6838;
+    --qa-champagne: #805f32;
     --qa-green: #3d7a3d;
     --qa-red: #a83838;
     --qa-warning: #97621f;

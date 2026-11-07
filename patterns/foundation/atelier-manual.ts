@@ -154,12 +154,13 @@ figure.shot .play.failed .cue { border-color: var(--warn); color: var(--warn); }
 figure.shot .play.failed .cue::after { content: '\00a0열 수 없음'; }
 @keyframes pulse { 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { figure.shot .play.busy .tri { animation: none; } }
-figure.shot figcaption { margin-top: .6rem; font-size: .82rem; color: var(--ink-3); line-height: 1.6; padding-left: .8rem; border-left: 2px solid var(--gold); }
+/* 그림 설명 · 안내 상자는 왼쪽 강조선 대신 가로 괘선(2026-11-04 오너 결정 «A» · impeccable 감사 41번 · 09-27 «강조는 괘선» 과 같은 결) */
+figure.shot figcaption { margin-top: .6rem; font-size: .82rem; color: var(--ink-3); line-height: 1.6; padding-top: .5rem; border-top: 1px solid var(--rule); }
 
 /* 안내 상자 */
-aside { margin: 1.4rem 0; padding: .85rem 1.1rem; font-size: .88rem; line-height: 1.7; border-radius: 3px; max-width: 44em; }
-aside.tip  { background: var(--paper-2); border-left: 3px solid var(--gold); }
-aside.warn { background: var(--paper-2); border-left: 3px solid var(--warn); color: var(--ink-2); }
+aside { margin: 1.4rem 0; padding: .85rem 1.1rem; font-size: .88rem; line-height: 1.7; max-width: 44em; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--rule); }
+aside.tip  { background: var(--paper-2); }
+aside.warn { background: var(--paper-2); border-top-color: var(--warn); color: var(--ink-2); }
 
 /* ISO 조항 칩 */
 p.iso { font-family: var(--label); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); margin: -.3rem 0 1rem; }

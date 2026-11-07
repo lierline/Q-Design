@@ -23,7 +23,7 @@ export const a: ComparisonAdapters = {
   tag: text => <Badge>{text}</Badge>,
   card: child => <Card><CardContent>{child}</CardContent></Card>,
   table: () => <div className="qd-table-scroll"><table className="qd-table"><thead><tr><th>문서</th><th>상태</th></tr></thead><tbody><tr><td>검증 계획</td><td><Badge>검토 중</Badge></td></tr></tbody></table></div>,
-  progress: () => <div className="qd-progress" role="progressbar" aria-label="검토 진행률" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}><span className="qd-progress-fill" style={{ width: '60%' }} /></div>,
+  progress: () => <div className="qd-progress" role="progressbar" aria-label="검토 진행률" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}><span className="qd-progress-fill" style={{ width: '100%', transform: 'scaleX(0.6)' }} /></div>,
   empty: compact => <EmptyState compact={compact} title="등록된 문서가 없습니다" description="문서를 등록하면 이곳에 표시됩니다." />,
   emptyAction: description => <EmptyState title="등록된 문서가 없습니다" description={description ? '문서를 등록하면 이곳에 표시됩니다.' : undefined} action={<Button>문서 등록</Button>} />,
   tabs: () => <div className="qd-tabs"><TabButton active onClick={()=>{}} label="검토 중"/><TabButton active={false} onClick={()=>{}} label="검토 완료"/></div>,

@@ -163,7 +163,7 @@ html[data-theme='light'] {
   --qd-text: var(--qd-text-src, var(--qa-text, #1c1a16));
   --qd-subtle: var(--qd-subtle-src, var(--qa-subtle, #4a4540));
   --qd-muted: var(--qd-muted-src, var(--qa-muted, #726b5e));
-  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #8a6838));
+  --qd-accent: var(--qd-accent-src, var(--qa-champagne, #805f32));
   --qd-danger: var(--qd-danger-src, var(--qa-red, #a83838));
   --qd-ok: var(--qd-ok-src, var(--qa-green, #3d6b3d));
   --qd-warn: var(--qd-warn-src, var(--qa-warning, #7a5a28));
@@ -355,7 +355,10 @@ textarea.qd-input { --qd-control-height: var(--qd-textarea-min-height); min-heig
 select.qd-input { appearance: auto !important; background-image: none !important; padding-right: var(--qd-select-end-padding) !important; }
 .qd-table th { letter-spacing: 0; text-transform: none; }
 .qd-progress { display: block; overflow: hidden; height: var(--qd-progress-height, 6px); border-radius: var(--qd-radius); background: var(--qd-surface2); }
-.qd-progress-fill { display: block; height: 100%; border-radius: inherit; background: var(--qd-status, var(--qd-accent)); transition: width var(--qd-motion-normal) var(--qd-ease); }
+/* 진행 막대 채움은 transform(scaleX) 으로 움직이는 쪽으로 간다(2026-11-04 · impeccable 감사 40번). 채우는 쪽은 width 100% 에
+   transform: scaleX(비율) 을 인라인으로 준다(아뜰리에 ProgressBar 가 그렇게 한다). 너비 전환은 프레임마다 배치를 다시 재므로 빼야 하지만,
+   width 만 주는 사용처(카르넷 Progress · 메종)가 scaleX 로 바뀔 때까지는 둘 다 둔다. 그 뒤에 width 를 빼는 것이 40번의 끝이다. */
+.qd-progress-fill { display: block; height: 100%; border-radius: inherit; background: var(--qd-status, var(--qd-accent)); transform-origin: left; transition: width var(--qd-motion-normal) var(--qd-ease), transform var(--qd-motion-normal) var(--qd-ease); }
 .qd-step { color: var(--qd-muted); font-size: var(--qd-control-size); line-height: 1.6; }
 .qd-step[aria-current='step'], .qd-step[data-state='active'] { color: var(--qd-text); font-weight: 600; }
 .qd-skeleton { border-radius: var(--qd-radius); background: var(--qd-surface2); animation: qd-skeleton-pulse 1.6s ease-in-out infinite; }
@@ -1241,12 +1244,12 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --qw-legacy-brand-forest-logo: 0 0% 4.705882%;
     --qw-legacy-brand-copper: 36.382979 39.830508% 53.72549%;
     --qw-legacy-brand-copper-light: 35.555556 42.857143% 62.941176%;
-    --qw-legacy-brand-copper-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-copper-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-cream: 45 28.571429% 97.254902%;
     --qw-legacy-brand-white-gray: 42.857143 22.580645% 93.921569%;
     --qw-legacy-brand-cool-gray: 42 14.705882% 86.666667%;
     --qw-legacy-brand-pink: 42.857143 22.580645% 93.921569%;
-    --qw-legacy-brand-pink-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-pink-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-ink: 0 0% 4.705882%;
     --qw-legacy-status-draft: 30 5.217391% 54.901961%;
     --qw-legacy-status-review: 32.727273 60.550459% 57.254902%;
@@ -1262,12 +1265,12 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
   html:root:not(.dark) {
     --background: 45 28.571429% 97.254902%;
     --foreground: 40 12% 9.803922%;
-    --primary: 35.121951 42.268041% 38.039216%;
+    --primary: 34.615385 43.820225% 34.901961%;
     --primary-foreground: 0 0% 100%;
     --secondary: 42.857143 22.580645% 93.921569%;
     --secondary-foreground: 40 12% 9.803922%;
     --accent: 42.857143 22.580645% 93.921569%;
-    --accent-foreground: 35.121951 42.268041% 38.039216%;
+    --accent-foreground: 34.615385 43.820225% 34.901961%;
     --muted: 42.857143 22.580645% 93.921569%;
     --card: 0 0% 100%;
     --card-foreground: 40 12% 9.803922%;
@@ -1275,7 +1278,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --popover-foreground: 40 12% 9.803922%;
     --border: 42 14.705882% 86.666667%;
     --input: 42 14.705882% 86.666667%;
-    --ring: 35.121951 42.268041% 38.039216%;
+    --ring: 34.615385 43.820225% 34.901961%;
     --destructive: 0 50% 43.921569%;
     --qw-subtle: 30 7.246377% 27.058824%;
     --qw-muted: 39 9.615385% 40.784314%;
@@ -1297,12 +1300,12 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --qw-legacy-brand-forest-logo: 0 0% 4.705882%;
     --qw-legacy-brand-copper: 36.382979 39.830508% 53.72549%;
     --qw-legacy-brand-copper-light: 35.555556 42.857143% 62.941176%;
-    --qw-legacy-brand-copper-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-copper-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-cream: 45 28.571429% 97.254902%;
     --qw-legacy-brand-white-gray: 42.857143 22.580645% 93.921569%;
     --qw-legacy-brand-cool-gray: 42 14.705882% 86.666667%;
     --qw-legacy-brand-pink: 42.857143 22.580645% 93.921569%;
-    --qw-legacy-brand-pink-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-pink-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-ink: 0 0% 4.705882%;
     --qw-legacy-status-draft: 30 5.217391% 54.901961%;
     --qw-legacy-status-review: 32.727273 60.550459% 57.254902%;
@@ -1325,12 +1328,12 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --qw-legacy-brand-forest-logo: 0 0% 4.705882%;
     --qw-legacy-brand-copper: 36.382979 39.830508% 53.72549%;
     --qw-legacy-brand-copper-light: 35.555556 42.857143% 62.941176%;
-    --qw-legacy-brand-copper-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-copper-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-cream: 45 28.571429% 97.254902%;
     --qw-legacy-brand-white-gray: 42.857143 22.580645% 93.921569%;
     --qw-legacy-brand-cool-gray: 42 14.705882% 86.666667%;
     --qw-legacy-brand-pink: 42.857143 22.580645% 93.921569%;
-    --qw-legacy-brand-pink-dark: 35.121951 42.268041% 38.039216%;
+    --qw-legacy-brand-pink-dark: 34.615385 43.820225% 34.901961%;
     --qw-legacy-brand-ink: 0 0% 4.705882%;
     --qw-legacy-status-draft: 30 5.217391% 54.901961%;
     --qw-legacy-status-review: 32.727273 60.550459% 57.254902%;

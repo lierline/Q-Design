@@ -721,7 +721,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
  *
  *   출처: D:/Claude/Q-Design/dist/q-design.tokens.css
  *   다크    bg #0c0c0c · surface #141414 · text #f0ebe0 · 샴페인 #b8935a
- *   라이트  bg #faf9f6 · surface #ffffff · text #1c1a16 · 샴페인 #8a6838
+ *   라이트  bg #faf9f6 · surface #ffffff · text #1c1a16 · 샴페인 #805f32(2026-11-05 · 감사 8번 · 가족 금색 하나로 아뜰리에와 함께 한 단 진하게)
  *
  *   Q-Atelier · Q-Sonar · Q-Carnet 과 같은 값이다. 여기서 임의로 바꾸면
  *   패밀리에서 이 제품만 튄다. 정본이 바뀌면 그쪽에서 다시 받아 온다.
@@ -744,7 +744,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     --foreground: 40 12% 9.8039%; /* #1c1a16 text */
 
     /* Primary: 샴페인. 강조 막대 · 초점 · 활성 표시의 몫이다. 단추 면이 아니다 */
-    --primary: 35.122 42.268% 38.0392%; /* #8a6838 샴페인(라이트) */
+    --primary: 34.615 43.820% 34.902%; /* #805f32 샴페인(라이트) · 2026-11-05 #8a6838 에서(정본 atelier.css --qa-champagne 라이트와 같은 값 · 유도 팔레트와 잠금 시험이 대조) */
     --primary-foreground: 0 0% 100%; /* #ffffff on-accent */
 
     /* Secondary: 옅은 면 */
@@ -753,7 +753,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 
     /* Accent: 옅은 면 */
     --accent: 42.857 22.5806% 93.9216%; /* #f3f1ec */
-    --accent-foreground: 35.122 42.268% 38.0392%; /* 샴페인 */
+    --accent-foreground: 34.615 43.820% 34.902%; /* 샴페인 #805f32 */
 
     /* Muted */
     --muted: 42.857 22.5806% 93.9216%; /* #f3f1ec */
@@ -768,7 +768,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
     /* Lines */
     --border: 42 14.7059% 86.6667%; /* #e2dfd8 */
     --input: 42 14.7059% 86.6667%;
-    --ring: 35.122 42.268% 38.0392%; /* 샴페인 focus */
+    --ring: 34.615 43.820% 34.902%; /* 샴페인 focus #805f32 */
 
     /* 라이트: 기존 #DC2828 은 카드(흰색) 위 4.80:1 로 4.5 를 겨우 넘고,
        페이지 배경(크림 #F7F2ED) 위에서는 4.31:1 로 미달이었다.
@@ -996,7 +996,7 @@ html label:has(> input[type='file'].sr-only:focus-visible) {
 }
 
 /* copperDark (= goldDark) 도 다크에서 대비 부족 → 다크 샴페인으로 매핑.
-   라이트의 copperDark(#8a6838)가 곧 라이트 정본 강조색이므로 다크도 정본 강조색
+   라이트의 copperDark(#805f32 · 11-05 전 #8a6838)가 곧 라이트 정본 강조색이므로 다크도 정본 강조색
    (--primary #b8935a)이어야 한 클래스가 두 테마에서 같은 뜻이 된다. 전에는
    copperLight(#c9a878)라 금색 글자가 테마마다 다른 금이었다(2026-09-24 육안 대조).
    가리킬 때만 금이 되는 글귀도 함께 받는다(다크에서 #8a6838 은 먹 판 위 3:1 남짓). */

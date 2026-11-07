@@ -74,7 +74,7 @@
 --qa-text:      #1c1a16
 --qa-subtle:    #4a4540
 --qa-muted:     #726b5e
---qa-champagne: #8a6838   /* 다크보다 훨씬 어둡습니다 */
+--qa-champagne: #805f32   /* 다크보다 훨씬 어둡습니다 · 2026-11-05 #8a6838 에서 한 단 더(감사 8번 · 옅은 면 4.5 미달) */
 --qa-green:     #3d7a3d
 --qa-red:       #a83838
 --qa-warning:   #97621f
@@ -84,7 +84,7 @@
 
 ### 액센트가 테마에 따라 뒤집힙니다
 
-다크의 샴페인(`#b8935a`)은 밝고, 라이트의 샴페인(`#8a6838`)은 어둡습니다.
+다크의 샴페인(`#b8935a`)은 밝고, 라이트의 샴페인(`#805f32`)은 어둡습니다.
 대비를 맞추려면 그럴 수밖에 없습니다. 그래서 **액센트 면 위에 놓는 글자색도 뒤집힙니다.**
 
 ```css
@@ -229,7 +229,7 @@ background: var(--qa-champagne); color: var(--qa-on-accent);   /* ✓ */
 | `text` #1c1a16 | 16.50 | 17.37 | 15.39 | **15.39** |
 | `subtle` #4a4540 | 9.00 | 9.47 | 8.39 | **8.39** |
 | `muted` #726b5e | 5.01 | 5.28 | 4.67 | **4.67** |
-| `champagne` #8a6838 | 4.84 | 5.10 | 4.52 | **4.52** |
+| `champagne` #805f32 | 5.54 | 5.83 | 5.17 | **5.17** |
 | `green` #3d7a3d | 4.93 | 5.19 | 4.59 | **4.59** |
 | `red` #a83838 | 6.07 | 6.39 | 5.66 | **5.66** |
 | `warning` #97621f | 4.89 | 5.14 | 4.56 | **4.56** |
@@ -265,7 +265,7 @@ background: var(--qa-champagne); color: var(--qa-on-accent);   /* ✓ */
 | 다크 `red` | `on-accent` #0a0908 | 6.20 |
 | 다크 `warning` | `on-accent` #0a0908 | 8.87 |
 | 다크 `blue` | `on-accent` #0a0908 | 6.91 |
-| 라이트 `champagne` | `on-accent` #ffffff | 5.10 |
+| 라이트 `champagne` | `on-accent` #ffffff | 5.83 |
 | 라이트 `green` | `on-accent` #ffffff | 5.19 |
 | 라이트 `red` | `on-accent` #ffffff | 6.39 |
 | 라이트 `warning` | `on-accent` #ffffff | 5.14 |
