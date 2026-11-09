@@ -22,6 +22,7 @@
 - 폰 아래 탭줄 전환 연출 A · B · C · D. 오빠가 D(Expanding Label 의 우리 판 · 활성 탭만 이름 · 알약 없이 `flex-grow` 전환)를 «좋아 보인다» 고 했다(11-01). D 는 폭 전환이 5장 «이동 · 투명도만» 밖이라 예외를 더할지 함께 결정. 시안을 412 · 다크 · 라이트 · 폰 앱(탭 2개)에 입혀 녹화해 보여 드린 뒤 번호로 고른다([reference/tabbar-motion-study.md](reference/tabbar-motion-study.md) 5절 · 11-01 기록). 고르면 정본 `atelier.css` → 05 · 06장 → `MobileBottomNav` → `--sync`.
 - 폰 앱 화면 전환 방향 A · 제목 이어짐 B. 폰 앱 «결재함 → 상세 → 뒤로» 에 입혀 지금(페이드만)과 나란히 녹화해 보여 드린 뒤 고른다([reference/screen-transition-study.md](reference/screen-transition-study.md) 5절 · 11-07 기록). B 는 Next.js View Transitions 실험 플래그부터 확인.
 - 입력 칸 시안 A · B · C(강도 막대 정본화 · Txt 한 줄씩 자람 · 칸 안 완료 ✓). 가입 · 메모 · 문서 번호 칸에 입혀 녹화해 보여 드린 뒤 고른다([reference/text-field-motion-study.md](reference/text-field-motion-study.md) 5절 · 11-07 기록). 높이 전환(B)은 탭줄 D 의 폭 전환과 함께 «배치 전환 예외» 를 둘지 같이 결정.
+- 나가는 움직임의 곡선. 5장 셋이 전부 out 계열이다. 후보 둘(expo.in `(0.7, 0, 0.84, 0)` · 투명도만 120ms)을 서랍 닫힘에 입혀 보여 드린 뒤 고른다([reference/easing-study.md](reference/easing-study.md) 4절 · 11-09 기록). 고르면 5장 «곡선» 절을 «들어올 때 · 옮길 때 · 접기 · 나갈 때 · 돌 때» 로 다시 적는다(값 그대로).
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -173,6 +174,18 @@ impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 �
 - 실측 범위: dev 네 제품 92화면 × 4보기(1440 어두운 · 밝은, 412 · 375 어두운) + Q-Maison 로그인 뒤 53화면 × 4보기(로컬 수파베이스 · SaaS 관리자 시드 계정 · 쿠키 방식) + Q-Design 정적 4쪽 · 작업대 3쪽 + 운영 로그인 4곳 + Q-Atelier 운영 로그인 뒤 43화면(1440 어두운). 반응형 감사(10-23)에서 못 잰 /admin 은 8화면을 잤다(사다리 밖 0 · 대비 0 · 누름 자리 0).
 - 2026-10-26 글자 결정의 실측: 정본 사본을 받은 Atelier · Carnet 은 사다리 밖이 Atelier 제목 clamp(37/36.5px) 하나뿐이다. Q-Sonar 는 PENDING 3조각 그대로라 크기 8종 · 굵기 700 · 줄간격 10종이 밖에 있다.
 - 걸려 넘어진 것: Git Bash 에서 측정기에 `--only=/login` 같은 경로 인자를 주면 MSYS 가 윈도 경로로 바꿔 anon 화면이 전부 건너뛰어진다(`MSYS_NO_PATHCONV=1` 로 해결). 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 라 결과가 쓸모없어 4818 작업대로 다시 잤다. 측정기의 «초점 갇힘» 은 처음 40개 조작부 밖으로 넘어가면 오탐(실브라우저로 확인). Q-Sonar 쿠키 로그인은 로컬 전용이라 운영 로그인 뒤는 못 잼. 보고서 부록 D.
+
+---
+
+## 이징 조사 · 공 여덟 개 · 영상 실측 · 2026-11-09
+
+오빠 지시 «공부»(릴스 @studioillicit · 같은 1.4초에 이징만 다른 공 여덟). [reference/easing-study.md](reference/easing-study.md) 한 장. README · 05장 «곡선» 절에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 영상을 받아(임베드 `video_url`) 360프레임에서 공 여덟의 x 를 재고 진행률로 바꾼 뒤 알려진 cubic-bezier 와 RMSE 로 맞췄다. 결과: ease-in · out · in-out 이 전부 power2(RMSE 0.002), Overshoot 넘침 10%(0.87초 꼭대기), Elastic 40%, Bounce 는 0.5초 도착 뒤 0.77초 되튐, Steps 5칸. 4초 주기(1.4 전진 · 0.6 멈춤 · 1.4 복귀 · 0.6 멈춤) 세 번.
+- 🔑 릴스의 in-out `(0.65, 0, 0.35, 1)` 이 우리 보조 곡선과 소수점까지 같다. 우리 기본 expo.out 은 릴스 ease-out(power2.out)보다 한 단 급해 90% 도달이 전체의 33%(릴스 54%). 160ms 가 눈에는 53ms 로 보인다. «우아함은 느림이 아닙니다» 의 숫자 근거.
+- 빈칸 둘: 5장 곡선 셋이 전부 out 계열이라 «나가는 움직임» 곡선이 없다(후보 expo.in `(0.7, 0, 0.84, 0)` 또는 투명도만 120ms · 오너 결정). 곡선마다 «무엇이 움직일 때» 가 안 적혀 있다(값 그대로 이름표만 붙이면 됨).
+- `atelier.css` 에 정본 변수 밖 곡선 리터럴 셋(`(0.4,0,0.2,1)` · `(0.5,0,0.3,1)` · `(0.45,0,0.2,1)` · 로그인 연출)이 남아 있어 10장 계약 후보로 적었다.
+- `check-chars` 통과.
 
 ---
 
