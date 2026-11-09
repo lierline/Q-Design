@@ -16,7 +16,7 @@
 | 캡션 | ○ | 아래 2절에 원문 |
 | 표지 | ○ | 여덟 줄(Linear · Ease in · Ease out · Ease in-out · Overshoot · Elastic · Bounce · Steps) · 각 줄 오른쪽에 «쓸 곳» 한 줄 · 왼쪽에 곡선 그림 · 트랙 위 잔상 점 · 점선은 도착선 |
 | **영상** | **○** | 임베드 JSON 의 `video_url`(앞 문서와 같은 길). 720×1280 · 30fps · 12.1초. **4초 주기 세 번**: 1.4초 전진(42프레임) → 0.6초 멈춤 → 1.4초 선형 복귀 → 0.6초 멈춤 |
-| 블로그 «full guide» | × | 프로필 링크 뒤. 검색에도 안 잡힘. GIF · CSS · GSAP 값이 있다고 함 |
+| 블로그 «full guide» | ○ (같은 날 뒤에) | studioillicit.com 이 illicitwebdesign.co.uk 로 넘어감. [«Easing, explained»](https://www.illicitwebdesign.co.uk/blog/easing-explained-the-small-thing-that-makes-a-website-feel-expensive/) (James Fielden · 2026-10-12). 여덟 곡선의 CSS · GSAP 값 · 시간 규칙 · 그들 사이트 셋의 쓰임이 있다. 아래 4절 끝 |
 
 **재는 법.** 프레임 360장을 뽑고(`ffmpeg -vf fps=30`), 여덟 트랙의 세로 띠를 어두운 면으로 찾은 뒤, 띠 안에서 분홍 픽셀이 세로로 12개 이상 이어진 열(잔상 점은 작아서 걸러짐)의 평균 x 를 공의 위치로 삼았습니다. 첫 프레임을 0, 멈춘 자리를 1 로 놓아 진행률 p(t) 를 얻고, 알려진 cubic-bezier 들을 같은 42점에서 표본해 RMSE 가 가장 작은 것을 골랐습니다. 스크립트와 자료는 세션 scratch(`reel6/track.json`)에 있고 저장소에는 넣지 않았습니다.
 
@@ -86,6 +86,28 @@
 - Steps 는 스피너 · 숫자 세기에 쓰라는데, 우리 `Spinner` 는 회전(예외)이고 지표 숫자는 세지 않고 바로 보입니다(2026-10-27 지표 사다리). 자리 없음.
 - Linear 는 우리도 스피너 · 리본 표류(32s · 38s)에서만 씁니다. 같습니다.
 
+### 블로그 원문이 밝힌 값 (실측과 대조)
+
+| 곡선 | 블로그의 CSS | 블로그의 GSAP | 실측 복원 | 일치 |
+| --- | --- | --- | --- | --- |
+| Ease in | `cubic-bezier(0.32, 0, 0.67, 0)` | `power2.in` | `(0.32, 0, 0.67, 0)` | ○ |
+| Ease out | `cubic-bezier(0.33, 1, 0.68, 1)` | `power2.out` | `(0.33, 1, 0.68, 1)` | ○ |
+| Ease in-out | `cubic-bezier(0.65, 0, 0.35, 1)` | `power2.inOut` | `(0.65, 0, 0.35, 1)` | ○ |
+| Overshoot | `cubic-bezier(0.34, 1.56, 0.64, 1)` | `back.out(1.7)` | 넘침 10% · 0.87초 | ○ (공식 꼭대기 1.10) |
+| Elastic | `linear()` | `elastic.out(1, 0.3)` | 넘침 40% | ○ (공식 1.37) |
+| Bounce | `linear()` | `bounce.out` | 36% 에 첫 착지 · 0.75 되튐 | ○ |
+| Steps | `steps(5)` | `steps(5)` | 5칸 | ○ |
+
+영상만 보고 복원한 일곱이 전부 원문과 맞았습니다. 재는 법(1절)이 믿을 만하다는 뜻입니다.
+
+블로그가 더 말한 것:
+
+- **시간**: 작은 것(단추 · 토글) 150 ~ 250ms, 차림표 · 판 250 ~ 400ms, «0.5초를 넘으면 사람이 애니메이션을 기다리기 시작한다». 우리 사다리(120 · 200 · 320 · 480)와 겹칩니다.
+- **네 줄 규칙**: 서명 곡선 하나 · 들어오는 것은 ease-out 으로 1초 안 · 줄이기 요청이면 끔(`gsap.matchMedia("(prefers-reduced-motion: no-preference)")`) · 아무것도 숨기지 않음(스크립트가 죽어도 화면은 보임).
+- **서명 곡선 보기**: Stonefort Marine 은 거의 모든 움직임을 `cubic-bezier(0.19, 1, 0.22, 1)` 하나로. «대부분을 곧바로 움직이고 착지에 시간을 들인다 · 차분하고 통제된 인상». 우리 `(0.16, 1, 0.3, 1)` 과 90% 도달이 31% 대 33% 로 거의 같은 급함입니다. 스크롤에 묶인 글자(Topsham)는 ease `none`, 멈추지 않고 흐르는 줄(Jolly Pottery 의 화분 줄)은 linear.
+- **성능 FAQ**: 이징 자체는 거의 공짜. `transform` · `opacity` 는 싸고 `width · height · position` 은 매 프레임 레이아웃을 다시 잰다.
+- **CSS 기본 `ease`** 는 `(0.25, 0.1, 0.25, 1)`. 아무 지정이 없으면 이것이 돈다.
+
 ---
 
 ## 5. 가져올 것 · 안 가져올 것
@@ -117,4 +139,4 @@
 ## 7. 남은 일
 
 - 나가는 곡선 후보 둘(expo.in · 투명도만)을 서랍 닫힘에 입혀 녹화해 보여 드립니다.
-- 블로그 전문(«the CSS and GSAP to copy»)을 받으면 그들의 실제 시간 값과 대조해 4절에 더합니다.
+- (끝) 블로그 전문을 찾아 4절 끝에 대조했습니다. 일곱 곡선 모두 실측과 일치.

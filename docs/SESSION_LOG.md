@@ -177,6 +177,17 @@ impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 �
 
 ---
 
+## 모션 기초 공부 노트 · 2026-11-09
+
+오빠 지시 «모션 그래픽 관련이니까 모션을 공부해 두길». 참고 조사 일곱에서 배운 것을 모션 일반론으로 한 장에 정리했다: [reference/motion-fundamentals.md](reference/motion-fundamentals.md) (이징 여섯 족의 공식과 CSS · GSAP 값 · 세기를 «90% 도달 시각» 으로 재는 법 · 시간 문턱 · 안무 일곱 · 스프링과 베지어 · 성능 · 접근성 · 남의 모션을 재는 절차). README 에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 🔑 릴스 계정 Studio Illicit 의 블로그를 찾았다(studioillicit.com → illicitwebdesign.co.uk · «Easing, explained» 2026-10-12). 여덟 곡선의 CSS · GSAP 값이 적혀 있고, 영상만 보고 복원한 일곱이 전부 원문과 맞았다(재는 법이 믿을 만함). [reference/easing-study.md](reference/easing-study.md) 4절 끝에 대조표를 보탰다.
+- 그들 시간 규칙(작은 것 150 ~ 250 · 판 250 ~ 400 · 0.5초 넘으면 기다림)과 네 줄 규칙(서명 곡선 하나 · 들어오는 것 ease-out · 줄이기면 끔 · 숨기지 않음)이 우리 5장과 같은 꼴. 그들 서명 곡선 `(0.19, 1, 0.22, 1)` 은 우리 기본과 90% 도달 31% 대 33%.
+- 스프링 계산: stiffness 300 · damping 20 은 ζ 0.58 · 넘침 10.8%(back.out(1.7) 과 같은 양), Framer 기본 170 · 26 은 ζ 1.0 · 넘침 0. «스프링 = 출렁임» 이 아니라 ζ < 1 이 출렁임이고, 정본이 베지어를 쓰는 까닭은 시간 고정.
+- `check-chars` 통과.
+
+---
+
 ## 이징 조사 · 공 여덟 개 · 영상 실측 · 2026-11-09
 
 오빠 지시 «공부»(릴스 @studioillicit · 같은 1.4초에 이징만 다른 공 여덟). [reference/easing-study.md](reference/easing-study.md) 한 장. README · 05장 «곡선» 절에서 잇는다. 정본 값은 바꾸지 않았다.
