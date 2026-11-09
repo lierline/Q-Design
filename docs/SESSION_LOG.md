@@ -23,6 +23,7 @@
 - 폰 앱 화면 전환 방향 A · 제목 이어짐 B. 폰 앱 «결재함 → 상세 → 뒤로» 에 입혀 지금(페이드만)과 나란히 녹화해 보여 드린 뒤 고른다([reference/screen-transition-study.md](reference/screen-transition-study.md) 5절 · 11-07 기록). B 는 Next.js View Transitions 실험 플래그부터 확인.
 - 입력 칸 시안 A · B · C(강도 막대 정본화 · Txt 한 줄씩 자람 · 칸 안 완료 ✓). 가입 · 메모 · 문서 번호 칸에 입혀 녹화해 보여 드린 뒤 고른다([reference/text-field-motion-study.md](reference/text-field-motion-study.md) 5절 · 11-07 기록). 높이 전환(B)은 탭줄 D 의 폭 전환과 함께 «배치 전환 예외» 를 둘지 같이 결정.
 - 나가는 움직임의 곡선. 5장 셋이 전부 out 계열이다. 후보 둘(expo.in `(0.7, 0, 0.84, 0)` · 투명도만 120ms)을 서랍 닫힘에 입혀 보여 드린 뒤 고른다([reference/easing-study.md](reference/easing-study.md) 4절 · 11-09 기록). 고르면 5장 «곡선» 절을 «들어올 때 · 옮길 때 · 접기 · 나갈 때 · 돌 때» 로 다시 적는다(값 그대로).
+- unslop 대조에서 나온 Q-Atelier 작은 고침 셋(전문가 포털 대기 점 무한 숨쉬기 · 대시보드 인사 제목 · 화면 글 느낌표 둘)과 9장 보강(«고친 값» 칸 · 느낌표 줄 · `check-voice.mjs` 셈)을 할지 결정([reference/unslop-study.md](reference/unslop-study.md) 4 · 5절 · 11-09 기록).
 - rem 기준. 10-11 3163c82 부터 html 이 16px 이다(옛 문서는 14). 의도였는지 확인을 기다린다(10-16 기록).
 - 포스터 색 DM 자료. @ai_surfer_club 릴스의 «업종별 꿀조합 3가지 · 색상 코드» 는 댓글 «AI서퍼» 뒤 DM 으로만 준다. 받아 주시면 [reference/poster-colour-layout-study.md](reference/poster-colour-layout-study.md) 3절 포스터 셋과 대조해 더한다. 전수 검수 때 화면의 금색 픽셀 면적(5% 잣대)도 한 번 잰다(10-28 기록).
 - 움직임 브리프 원문. @charliehills 의 Claude Motion 브리프와 16줄은 서브스택 무료 구독 벽 뒤다. 오빠가 받아 주시면 [reference/motion-brief-study.md](reference/motion-brief-study.md) 5절 구조와 대조해 더한다. 그 뒤 7절 초안으로 한 편 만들어 «기준 한 줄» 유무를 나란히 본다(10-27 기록).
@@ -174,6 +175,19 @@ impeccable 감사에서 Q-Carnet 에 남은 접근성 지적 넷을 같은 날 �
 - 실측 범위: dev 네 제품 92화면 × 4보기(1440 어두운 · 밝은, 412 · 375 어두운) + Q-Maison 로그인 뒤 53화면 × 4보기(로컬 수파베이스 · SaaS 관리자 시드 계정 · 쿠키 방식) + Q-Design 정적 4쪽 · 작업대 3쪽 + 운영 로그인 4곳 + Q-Atelier 운영 로그인 뒤 43화면(1440 어두운). 반응형 감사(10-23)에서 못 잰 /admin 은 8화면을 잤다(사다리 밖 0 · 대비 0 · 누름 자리 0).
 - 2026-10-26 글자 결정의 실측: 정본 사본을 받은 Atelier · Carnet 은 사다리 밖이 Atelier 제목 clamp(37/36.5px) 하나뿐이다. Q-Sonar 는 PENDING 3조각 그대로라 크기 8종 · 굵기 700 · 줄간격 10종이 밖에 있다.
 - 걸려 넘어진 것: Git Bash 에서 측정기에 `--only=/login` 같은 경로 인자를 주면 MSYS 가 윈도 경로로 바꿔 anon 화면이 전부 건너뛰어진다(`MSYS_NO_PATHCONV=1` 로 해결). 4800 의 부품 견본 3쪽은 CSS · 글꼴 404 라 결과가 쓸모없어 4818 작업대로 다시 잤다. 측정기의 «초점 갇힘» 은 처음 40개 조작부 밖으로 넘어가면 오탐(실브라우저로 확인). Q-Sonar 쿠키 로그인은 로컬 전용이라 운영 로그인 뒤는 못 잼. 보고서 부록 D.
+
+---
+
+## AI 티 걷어내기 스킬 «unslop» 대조 · 2026-11-09
+
+오빠 지시 «이거 확인 좀 해 봐»(릴스 @_choosit · Claude Code 스킬 unslop 소개). [reference/unslop-study.md](reference/unslop-study.md) 한 장. README · 09장에서 잇는다. 정본 값은 바꾸지 않았다.
+
+- 릴스 임베드는 «링크가 깨졌거나 삭제됨» 으로 답해 영상은 못 받았고(봇 흉내로 우회하지 않음), 글은 일반 가져오기로 읽었다. 원본 저장소 heydamir/unslop(CC BY 4.0)의 README · SKILL.md · signs.md(티 64개 · 10갈래) · tokens.md 를 읽었다.
+- 생각의 뼈대(크롬은 조용히 · 색과 공은 한두 «순간» 에 · 방향 다섯 줄 Product · Character · World · Moments · Signature · 정도 판정 셋 · 아홉 단계 순서 · 템플릿 점검)가 우리 1 · 2 · 9장과 같다. 우리 World 는 아틀리에 · 종이와 금, Signature 는 제목 위 금색 짧은 선.
+- 64개 대조: 기계가 막음 약 22 · 판단 약 28 · 없음 1(느낌표) · 우리와 다름 4(제목 굵기 700 · 10px 단일 모서리 · 누를 때 scale · Inter/Geist 권장). unslop 의 곡선 `(0.22, 1, 0.36, 1)` 은 우리 «접기» 곡선과 같다.
+- Q-Atelier grep 으로 실제 걸리는 셋: 전문가 포털 «대기» 점 `qa-pulse-dot` 이 scale 0.85 로 무한히 숨 쉼(살아 있지 않은 상태 · 5장 scale 금지 · «다시 잴 것» 의 그 줄) · 대시보드 체크리스트 «환영합니다, ○○님» · 화면 글 느낌표 둘(«시작 준비를 모두 마쳤습니다!» · «복사됨!»). 작은 고침이지만 제품 배포가 따라 오너 결정.
+- 가져올 것: 9장 표에 «고친 값» 칸 · 느낌표 줄과 `check-voice.mjs` 셈 · 10장에 고치는 순서 아홉 · 정도 판정 셋 · 템플릿 점검(세 제품을 바꿔 끼워도 맞는가) · 이야기 영상 기법.
+- `check-chars` 통과(567 파일).
 
 ---
 

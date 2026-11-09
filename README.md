@@ -50,7 +50,8 @@ MedQraft 제품군의 디자인 정본입니다. 네 제품이 같은 집안으�
 [화면 전환 조사](docs/reference/screen-transition-study.md) ·
 [입력 칸 움직임 조사(영상 실측)](docs/reference/text-field-motion-study.md) ·
 [이징 조사(공 여덟 개 · 영상 실측)](docs/reference/easing-study.md) ·
-[모션 기초 공부 노트](docs/reference/motion-fundamentals.md).
+[모션 기초 공부 노트](docs/reference/motion-fundamentals.md) ·
+[AI 티 걷어내기 «unslop» 대조](docs/reference/unslop-study.md).
 
 작업 기록은 [docs/SESSION_LOG.md](docs/SESSION_LOG.md) 한 장에만 이어 씁니다. 진행 문서를 따로 만들지 않습니다.
 
