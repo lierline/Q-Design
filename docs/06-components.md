@@ -154,6 +154,7 @@ Txt  resize vertical · 기본 3줄 · 최소 높이 80 (--qd-textarea-min-heigh
 ```
 
 초점에서 배경이 `surface` 에서 `surface2` 로 바뀌는 것이 이 시스템의 촉감입니다. 테두리만 바뀌는 것과 다릅니다.
+입력하는 «동안» 칸이 되돌려 주는 말(강도 막대 · 한 줄씩 자람 · 완료 ✓ 와 보조 글귀 · 자리 수 묶음)은 아직 없습니다. 영상을 0.1초 단위로 읽은 시안은 [참고 · 입력 칸 움직임 조사](reference/text-field-motion-study.md)에 있고, 오너가 고르면 이 절에 오릅니다.
 
 `Sel` 은 `qd-input` 을 함께 달아 공용 규칙(`select.qd-input`: `appearance: auto` · `background-image: none` · 오른쪽 여백 32px)을 받으므로 OS 화살표를 씁니다. 금색 SVG 화살표는 `qd-input` 없이 `qa-input` 만 단 select 에 남아 있습니다(부록 «select 화살표»).
 
